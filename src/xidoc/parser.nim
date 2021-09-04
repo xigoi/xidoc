@@ -1,5 +1,6 @@
 import ./types
 import npeg
+import std/strutils
 
 type
   XidocNodeKind* = enum
@@ -38,7 +39,7 @@ proc parseXidoc*(body: string): XidocNodes =
 
 const xidocArgumentParser = peg("args", output: seq[string]):
   arg <- >*((Print - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):
-    output.add $1
+    output.add ($1).strip
   args <- ?(arg * *(';' * arg))
 
 proc parseXidocArguments*(body: string): seq[string] =

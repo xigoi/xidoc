@@ -5,6 +5,7 @@ import std/macros
 import std/options
 import std/sequtils
 import std/strutils
+import std/sugar
 import std/tables
 
 {.experimental: "caseStmtMacros".}
@@ -47,7 +48,7 @@ proc defineDefaultCommands*(doc: Document) =
   proc renderArg(arg: string): string =
     doc.renderStr(arg.strip)
 
-  macro command(name: static string, signature: untyped, rendered: untyped, body: untyped): untyped =
+  macro command(name: string, signature: untyped, rendered: untyped, body: untyped): untyped =
     let arg = genSym(nskParam, "arg")
     let logic =
       if signature == ident"void":
@@ -76,7 +77,7 @@ proc defineDefaultCommands*(doc: Document) =
         var starPos = none int
         for index, pair in signature:
           pair.expectKind nnkExprColonExpr
-          if pair[1].kind == nnkCall and pair[1][0] == ident"*":
+          if pair[1].kind == nnkPrefix and pair[1][0] == ident"*":
             starPos = some index
             break
         let args = genSym(nskLet, "args")
@@ -93,6 +94,36 @@ proc defineDefaultCommands*(doc: Document) =
               if `args`.len < `minLen` or `args`.len > `maxLen`:
                 raise XidocError(msg: "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len])
         let unpacks = nnkStmtList.newTree
+        template process(kind: NimNode): (proc(doc: Document, str: string): string {.nimcall.}) =
+          if kind == ident"render":
+            renderStr
+          elif kind == ident"expand":
+            expandStr
+          elif kind == ident"raw":
+            (proc(doc: Document, str: string): string = str)
+          else:
+            error "invalid kind"
+            (proc(doc: Document, str: string): string = str)
+        for index, pair in signature[0..<starPos.get(signature.len)]:
+          let name = pair[0]
+          let process = process(pair[1])
+          unpacks.add quote do:
+            let `name` {.inject.} = `process`(doc, `args`[`index`])
+        if starPos.isSome:
+          block:
+            let start = starPos.get
+            let ende = signature.len - start
+            let pair = signature[start]
+            let name = pair[0]
+            let process = process(pair[1][1])
+            unpacks.add quote do:
+              let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it))
+          for index, pair in signature[starPos.get + 1 .. ^1]:
+            let index = signature.len - index - starPos.get - 1
+            let name = pair[0]
+            let process = process(pair[1])
+            unpacks.add quote do:
+              let `name` {.inject.} = `process`(doc, `args`[^`index`])
         quote:
           let `args` = parseXidocArguments(`arg`)
           `lenCheck`
@@ -101,6 +132,9 @@ proc defineDefaultCommands*(doc: Document) =
     let rendered = newLit(rendered == ident"rendered")
     quote:
       doc.commands[`name`] = proc(`arg`: string): XidocString = XidocString(rendered: `rendered`, str: `logic`)
+
+  command "#", literal, unrendered:
+    ""
 
   command "", literal, unrendered:
     arg
@@ -118,18 +152,18 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\textbf{$1}" % arg
 
-  # case doc.target
-  # of tHtml:
+  case doc.target
+  of tHtml:
 
-  #   commandArgsRenderAll "<>", 2:
-  #     "<$1>$2</$3>" % [args[0..^2].join(" "), args[^1], args[0]]
+    command "<>", (tag: expand, attrs: *expand, body: render), rendered:
+      "<$1>$2</$3>" % [(@[tag] & attrs).join(" "), body, tag]
 
-  #   for tag in htmlTags:
-  #     # This proc makes sure that tag is captured by value
-  #     (proc(tag: string) =
-  #       commandArgsRenderAll "<$1>" % tag, 1:
-  #         "<$3 $1>$2</$3>" % [args[0..^2].join(" "), args[^1], tag]
-  #     )(tag)
+    for tag in htmlTags:
+      # This proc makes sure that tag is captured by value
+      (proc(tag: string) =
+        command "<$1>" % tag, (attrs: *expand, body: render), rendered:
+          "<$1>$2</$3>" % [(@[tag] & attrs).join(" "), body, tag]
+      )(tag)
 
-  # else:
-  #   discard
+  else:
+    discard
