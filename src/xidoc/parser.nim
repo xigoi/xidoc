@@ -37,9 +37,9 @@ proc parseXidoc*(body: string): XidocNodes =
     raise XidocError(msg: "Parse error")
 
 const xidocArgumentParser = peg("args", output: seq[string]):
-  arg <- *((Print - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):
+  arg <- >*((Print - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):
     output.add $1
-  args <- ?(*(arg * ';') * arg)
+  args <- ?(arg * *(';' * arg))
 
 proc parseXidocArguments*(body: string): seq[string] =
   if not xidocArgumentParser.match(body, result).ok:
