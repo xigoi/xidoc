@@ -1,4 +1,4 @@
-import ./error
+import ./types
 import npeg
 
 type

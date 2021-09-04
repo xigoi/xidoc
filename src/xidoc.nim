@@ -2,8 +2,8 @@ import cligen
 import npeg
 import std/tables
 import xidoc/commands
-import xidoc/document
 import xidoc/parser
+import xidoc/types
 
 const targets = toTable {
   "html": tHtml,
@@ -17,12 +17,6 @@ proc render(target = "html", snippet = false) =
     snippet: snippet,
   )
   doc.defineDefaultCommands
-  let nodes = parseXidoc(doc.body)
-  for node in nodes:
-    stdout.write case node.kind
-      of xnkString: node.str
-      of xnkWhitespace: " "
-      of xnkCommand: doc.commands[node.name](node.arg)
-  stdout.writeLine ""
+  stdout.writeLine doc.renderStr(doc.body)
 
 dispatch render
