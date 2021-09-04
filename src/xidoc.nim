@@ -1,5 +1,6 @@
 import cligen
 import npeg
+import std/os
 import std/tables
 import xidoc/commands
 import xidoc/parser
@@ -9,14 +10,43 @@ const targets = toTable {
   "html": tHtml,
   "latex": tLatex,
 }
+const extensions = toTable {
+  tHtml: "html",
+  tLatex: "tex",
+}
 
-proc render(target = "html", snippet = false) =
-  let doc = Document(
-    body: stdin.readAll,
-    target: targets[target],
-    snippet: snippet,
-  )
-  doc.defineDefaultCommands
-  stdout.writeLine doc.renderStr(doc.body)
+proc main(target = "html", snippet = false, paths: seq[string]) =
 
-dispatch render
+  let target = targets[target]
+
+  proc renderFile(path: string, input, output: File) =
+    let doc = Document(
+      path: path,
+      body: input.readAll,
+      target: target,
+      snippet: snippet,
+    )
+    doc.defineDefaultCommands
+    output.writeLine doc.renderStr(doc.body)
+
+  if paths.len == 0:
+    try:
+      renderFile("", stdin, stdout)
+    except XidocError:
+      stderr.writeLine "Error while rendering input:\n$1" % getCurrentException().msg
+  else:
+    for path in paths:
+      let input = open(path, fmRead)
+      try:
+        let output = open(path.changeFileExt(extensions[target]), fmWrite)
+        try:
+          renderFile(path, input, output)
+          stderr.writeLine "Rendered file $1" % path
+        except XidocError:
+          stderr.writeLine "Error while rendering file $1:\n$2" % [path, getCurrentException().msg]
+        finally:
+          output.close
+      finally:
+        input.close
+
+dispatch main

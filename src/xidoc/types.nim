@@ -10,6 +10,7 @@ type
     str*: string
   Command* = proc(arg: string): XidocString
   Document* = ref object
+    path*: string
     body*: string
     target*: Target
     snippet*: bool

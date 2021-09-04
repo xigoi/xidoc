@@ -3,6 +3,7 @@ import ./types
 import fusion/matching
 import std/macros
 import std/options
+import std/os
 import std/sequtils
 import std/strutils
 import std/sugar
@@ -31,7 +32,7 @@ proc expandStr(doc: Document, str: string): string =
           raise XidocError(msg: "Rendered string given in a non-rendered context")
         xstr.str
 
-proc renderStr*(doc: Document, str: string): string =
+proc renderStr*(doc: Document, str = doc.body): string =
   for node in str.parseXidoc:
     result.add case node.kind
       of xnkString: node.str.escapeText(doc.target)
@@ -141,6 +142,20 @@ proc defineDefaultCommands*(doc: Document) =
 
   command "raw", raw, rendered:
     arg.strip
+
+  command "inject", (filename: expand), rendered:
+    doc.renderStr(readFile(doc.path.splitPath.head / filename))
+
+  command "include", (filename: expand), rendered:
+    let path = doc.path.splitPath.head / filename
+    let subdoc = Document(
+      path: path,
+      body: readFile(path),
+      target: doc.target,
+      snippet: true,
+    )
+    subdoc.defineDefaultCommands
+    subdoc.renderStr
 
   command "--", void, unrendered:
     "–"
