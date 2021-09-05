@@ -15,7 +15,7 @@ const extensions = toTable {
   tLatex: "tex",
 }
 
-proc main(target = "html", snippet = false, paths: seq[string]) =
+proc xidoc(target = "html", snippet = false, paths: seq[string]) =
 
   let target = targets[target]
 
@@ -49,4 +49,7 @@ proc main(target = "html", snippet = false, paths: seq[string]) =
       finally:
         input.close
 
-dispatch main
+dispatch xidoc, help = {
+  "target": "what language to transpile to; one of \"html\", \"latex\"",
+  "snippet": "generate just a code snippet instead of a whole document; useful for embedding"
+}
