@@ -20,7 +20,7 @@ type
 
 grammar "xidoc":
   textChar <- Print - Space - {'[', ']'}
-  unparsedText <- *((Print - {'[', ']'}) | '[' * unparsedText * ']')
+  unparsedText <- *((Print | {'\n'} - {'[', ']'}) | '[' * unparsedText * ']')
   commandChar <- textChar
 
 const xidocParser = peg("text", output: XidocNodes):
@@ -38,7 +38,7 @@ proc parseXidoc*(body: string): XidocNodes =
     raise XidocError(msg: "Parse error")
 
 const xidocArgumentParser = peg("args", output: seq[string]):
-  arg <- >*((Print - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):
+  arg <- >*((Print | {'\n'} - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):
     output.add ($1).strip
   args <- ?(arg * *(';' * arg))
 

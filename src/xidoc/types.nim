@@ -15,3 +15,4 @@ type
     target*: Target
     snippet*: bool
     commands*: Table[string, Command]
+    templateArgs*: Table[string, string]
