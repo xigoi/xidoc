@@ -170,14 +170,28 @@ proc defineDefaultCommands*(doc: Document) =
   case doc.target
   of tHtml:
 
-    command "<>", (tag: expand, attrs: *expand, body: render), rendered:
+    proc generateHtmlTag(tag: string, args: seq[string], body: string): string =
+      var attrs = newSeq[string]()
+      var classes = newSeq[string]()
+      for arg in args:
+        if arg.startsWith "#":
+          attrs.add "id=\"$1\"" % arg[1..^1]
+        elif arg.startsWith ".":
+          classes.add arg[1..^1]
+        else:
+          attrs.add arg
+      if classes.len != 0:
+        attrs.add "class=\"$1\"" % classes.join(" ")
       "<$1>$2</$3>" % [(@[tag] & attrs).join(" "), body, tag]
+
+    command "<>", (tag: expand, args: *expand, body: render), rendered:
+      generateHtmlTag(tag, args, body)
 
     for tag in htmlTags:
       # This proc makes sure that tag is captured by value
       (proc(tag: string) =
-        command "<$1>" % tag, (attrs: *expand, body: render), rendered:
-          "<$1>$2</$3>" % [(@[tag] & attrs).join(" "), body, tag]
+        command "<$1>" % tag, (args: *expand, body: render), rendered:
+          generateHtmlTag(tag, args, body)
       )(tag)
 
   else:
