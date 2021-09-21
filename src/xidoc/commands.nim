@@ -216,6 +216,12 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\texttt{$1}" % arg
 
+  command "pass", expand, rendered:
+    arg.strip
+
+  command "pass-raw", raw, rendered:
+    arg.strip
+
   command "props", (items: *render), rendered:
     case doc.target
     of tHtml:
@@ -223,7 +229,7 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\begin{itemize}$1\\end{iremize}" % items.mapIt("\\item $1" % it).join
 
-  command "raw", raw, rendered:
+  command "raw", raw, unrendered:
     arg.strip
 
   command "section", (name: render, content: render), rendered:
