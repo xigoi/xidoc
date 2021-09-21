@@ -1,0 +1,46 @@
+[section Organizace;
+  Lubomíra Dvořáková
+  Podmínky k zápočtu: docházka (povoleny 3 absence), prezentovat 2 teoretické úlohy, plnit praktické úlohy
+]
+
+[section Magická čísla;
+  [dfn [$ n \in \mathbb N] je magické, pokud dělí každé přirozené číslo, jehož desetinný zápis končí [$ n].]
+
+  [$$ M = {1,2,3,10,20,25,50,100,\ldots}]
+
+  [theorem [$ n] je magické [$ \equiv n | 10^{\left\lfloor \log_10(n) \right\rfloor + 1}]]
+
+  [theorem [$ M = {
+    2^s \cdot 5^s,
+    2^s+1 \cdot 5^s,
+    2^s \cdot 5^s+1,
+    2^s \cdot 5^s+2,
+    2^s \cdot 5^s+3
+    | s \in \mathbb N
+  }]]
+]
+
+[section Dělitelnost;
+  [dfn Pro [$ a,b \in \mathbb N] řekneme, že [$ a] dělí [$ b] ([$ a | b]), pokud [$ \exists c \in \mathbb N: b = a \cdot c]]
+
+  [props
+    [$ a | b \implies a \le b];
+    [$ a | b \wedge b | c \implies a | c];
+    [$ a | b \wedge a | c \implies a | b \pm c];
+    [$ a | b \wedge c | d \implies ac | bd];
+  ]
+
+  [theorem Dělení se zbytkem; [$ \forall m,n \in \mathbb N \exists! k \in \mathbb N, r \in {0, \ldots, m-1}: n = k \cdot m + r]]
+]
+
+
+[section Celá část;
+  [dfn Pro [$ x \in \mathbb R] je dolní celá část [$ \lfloor x \rfloor] největší celé číslo menší nebo rovné [$ x].]
+  [dfn Pro [$ x \in \mathbb R] je horní celá část [$ \lceil x \rceil] nejmenší celé číslo větší nebo rovné [$ x].]
+]
+
+[section Největší společný dělitel;
+  [dfn Pro [$ a,b \in \mathbb N] je největší společný dělitel [$ \gcd(a,b)] největší číslo, které dělí [$ a] i [$ b]]
+
+  [$ \gcd(0, n) = n; n \ne 0]
+]

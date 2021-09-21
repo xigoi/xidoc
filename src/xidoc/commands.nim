@@ -19,23 +19,31 @@ proc escapeText(text: string, target: Target): string =
     text
 
 proc expandStr(doc: Document, str: string): string =
-  for node in str.parseXidoc:
+  for node in str.parseXidoc(doc.verbose):
     result.add case node.kind
       of xnkString: node.str
       of xnkWhitespace: " "
       of xnkCommand:
-        let xstr = doc.commands[node.name](node.arg)
+        let command = try:
+          doc.commands[node.name]
+        except KeyError:
+          raise XidocError(msg: "Command not found: $1" % node.name)
+        let xstr = command(node.arg)
         if xstr.rendered:
           raise XidocError(msg: "Rendered string given in a non-rendered context")
         xstr.str
 
 proc renderStr*(doc: Document, str = doc.body): string =
-  for node in str.parseXidoc:
+  for node in str.parseXidoc(doc.verbose):
     result.add case node.kind
       of xnkString: node.str.escapeText(doc.target)
       of xnkWhitespace: " "
       of xnkCommand:
-        let xstr = doc.commands[node.name](node.arg)
+        let command = try:
+          doc.commands[node.name]
+        except KeyError:
+          raise XidocError(msg: "Command not found: $1" % node.name)
+        let xstr = command(node.arg)
         if xstr.rendered:
           xstr.str
         else:
@@ -134,11 +142,40 @@ proc defineDefaultCommands*(doc: Document) =
   command "", literal, unrendered:
     arg
 
-  command "raw", raw, rendered:
-    arg.strip
+  command "--", void, unrendered:
+    "–"
 
-  command "inject", (filename: expand), rendered:
-    doc.renderStr(readFile(doc.path.splitPath.head / filename))
+  command "$", raw, rendered:
+    case doc.target
+    of tHtml:
+      # TODO: make sure it's rendered
+      "<xd-inline-math>$1</xd-inline-math>" % arg
+    of tLatex:
+      "\\($1\\)" % arg
+
+  command "$$", raw, rendered:
+    case doc.target
+    of tHtml:
+      # TODO: make sure it's rendered
+      "<xd-block-math>$1</xd-block-math>" % arg
+    of tLatex:
+      "\\[$1\\]" % arg
+
+  command "bf", render, rendered:
+    case doc.target
+    of tHtml:
+      "<b>$1</b>" % arg
+    of tLatex:
+      "\\textbf{$1}" % arg
+
+  command "dfn", (content: render), rendered:
+    const word = "Definition. " # TODO: i18n
+    case doc.target
+    of tHtml:
+      "<p><strong>$1</strong><dfn>$2</dfn></p>" % [word, content]
+    of tLatex:
+      # TODO: make it actually work
+      "\\begin{definition}$1\end{definition}" % content
 
   command "include", (filename: expand, args: *render), rendered:
     if args.len mod 2 != 0:
@@ -155,18 +192,8 @@ proc defineDefaultCommands*(doc: Document) =
       subdoc.templateArgs[args[2 * i]] = args[2 * i + 1]
     subdoc.renderStr
 
-  command "template-arg", render, rendered:
-    doc.templateArgs[arg]
-
-  command "--", void, unrendered:
-    "–"
-
-  command "bf", render, rendered:
-    case doc.target
-    of tHtml:
-      "<b>$1</b>" % arg
-    of tLatex:
-      "\\textbf{$1}" % arg
+  command "inject", (filename: expand), rendered:
+    doc.renderStr(readFile(doc.path.splitPath.head / filename))
 
   command "it", render, rendered:
     case doc.target
@@ -175,12 +202,52 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\textit{$1}" % arg
 
+  command "list", (items: *render), rendered:
+    case doc.target
+    of tHtml:
+      "<ul>$1</ul>" % items.mapIt("<li>$1</li>" % it).join
+    of tLatex:
+      "\\begin{itemize}$1\\end{iremize}" % items.mapIt("\\item $1" % it).join
+
   command "ms", render, rendered:
     case doc.target
     of tHtml:
       "<code>$1</code>" % arg
     of tLatex:
       "\\texttt{$1}" % arg
+
+  command "props", (items: *render), rendered:
+    case doc.target
+    of tHtml:
+      "<ul>$1</ul>" % items.mapIt("<li>$1</li>" % it).join
+    of tLatex:
+      "\\begin{itemize}$1\\end{iremize}" % items.mapIt("\\item $1" % it).join
+
+  command "raw", raw, rendered:
+    arg.strip
+
+  command "section", (name: render, content: render), rendered:
+    case doc.target
+    of tHtml:
+      "<section>$1</section>" % content
+    of tLatex:
+      # TODO: handling of nested sections
+      "\\section{$1}" % content
+
+  command "template-arg", render, rendered:
+    doc.templateArgs[arg]
+
+  command "theorem", (name: *render, content: render), rendered: # TODO: name: ?render
+    const word = "Theorem" # TODO: i18n
+    case doc.target
+    of tHtml:
+      if name.len == 0:
+        "<p><strong>$1.</strong> $2</p>" % [word, content]
+      else:
+        "<p><strong>$1 ($2).</strong> $2</p>" % [word, content]
+    of tLatex:
+      # TODO: make it actually work
+      "\\begin{theorem}$1\end{theorem}" % content
 
   case doc.target
   of tHtml:

@@ -19,8 +19,8 @@ type
   XidocNodes* = seq[XidocNode]
 
 grammar "xidoc":
-  textChar <- Print - Space - {'[', ']'}
-  unparsedText <- *((Print | {'\n'} - {'[', ']'}) | '[' * unparsedText * ']')
+  textChar <- 1 - Space - {'[', ']'}
+  unparsedText <- *((1 | {'\n'} - {'[', ']'}) | '[' * unparsedText * ']')
   commandChar <- textChar
 
 const xidocParser = peg("text", output: XidocNodes):
@@ -33,12 +33,16 @@ const xidocParser = peg("text", output: XidocNodes):
   chunk <- command | textChars | whitespace
   text <- *chunk * !1
 
-proc parseXidoc*(body: string): XidocNodes =
-  if not xidocParser.match(body, result).ok:
-    raise XidocError(msg: "Parse error")
+proc parseXidoc*(body: string, verbose = false): XidocNodes =
+  let match = xidocParser.match(body, result)
+  if not match.ok:
+    if verbose:
+      raise XidocError(msg: "Parse error\nSuccessfully parsed: $1" % body[0..match.matchMax])
+    else:
+      raise XidocError(msg: "Parse error")
 
 const xidocArgumentParser = peg("args", output: seq[string]):
-  arg <- >*((Print | {'\n'} - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):
+  arg <- >*((1 | {'\n'} - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):
     output.add ($1).strip
   args <- ?(arg * *(';' * arg))
 

@@ -16,3 +16,4 @@ type
     snippet*: bool
     commands*: Table[string, Command]
     templateArgs*: Table[string, string]
+    verbose*: bool

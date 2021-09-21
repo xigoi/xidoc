@@ -15,7 +15,7 @@ const extensions = toTable {
   tLatex: "tex",
 }
 
-proc xidoc(target = "html", snippet = false, paths: seq[string]) =
+proc xidoc(target = "html", snippet = false, verbose = false, paths: seq[string]) =
 
   let target = targets[target]
 
@@ -25,6 +25,7 @@ proc xidoc(target = "html", snippet = false, paths: seq[string]) =
       body: input.readAll,
       target: target,
       snippet: snippet,
+      verbose: verbose,
     )
     doc.defineDefaultCommands
     output.writeLine doc.renderStr(doc.body)
