@@ -1,6 +1,9 @@
 import cligen
 import npeg
 import std/os
+import std/sequtils
+import std/sets
+import std/strutils
 import std/tables
 import xidoc/commands
 import xidoc/parser
@@ -13,6 +16,9 @@ const targets = toTable {
 const extensions = toTable {
   tHtml: "html",
   tLatex: "tex",
+}
+const templates = toTable {
+  tHtml: """<!DOCTYPE html><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body>"""
 }
 
 proc xidoc(target = "html", snippet = false, verbose = false, paths: seq[string]) =
@@ -28,7 +34,12 @@ proc xidoc(target = "html", snippet = false, verbose = false, paths: seq[string]
       verbose: verbose,
     )
     doc.defineDefaultCommands
-    output.writeLine doc.renderStr(doc.body)
+    let rendered = doc.renderStr(doc.body)
+    if snippet:
+      # TODO: some way to get doc.addToHead
+      output.writeLine rendered
+    else:
+      output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered]
 
   if paths.len == 0:
     try:

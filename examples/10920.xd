@@ -6,18 +6,18 @@
 [section Magická čísla;
   [dfn [$ n \in \mathbb N] je magické, pokud dělí každé přirozené číslo, jehož desetinný zápis končí [$ n].]
 
-  [$$ M = {1,2,3,10,20,25,50,100,\ldots}]
+  [$$ M = \{1,2,3,10,20,25,50,100,\ldots\}]
 
   [theorem [$ n] je magické [$ \equiv n | 10^{\left\lfloor \log_10(n) \right\rfloor + 1}]]
 
-  [theorem [$ M = {
+  [theorem [$ M = \{
     2^s \cdot 5^s,
     2^s+1 \cdot 5^s,
     2^s \cdot 5^s+1,
     2^s \cdot 5^s+2,
     2^s \cdot 5^s+3
     | s \in \mathbb N
-  }]]
+  \}]]
 ]
 
 [section Dělitelnost;

@@ -4,6 +4,7 @@ import std/macros
 import std/options
 import std/os
 import std/sequtils
+import std/sets
 import std/strutils
 import std/sugar
 import std/tables
@@ -51,48 +52,55 @@ proc renderStr*(doc: Document, str = doc.body): string =
 
 proc defineDefaultCommands*(doc: Document) =
 
-  macro command(name: string, signature: untyped, rendered: untyped, body: untyped): untyped =
+  macro command(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
+    let sigLen = sig.len
     let arg = genSym(nskParam, "arg")
     let logic =
-      if signature == ident"void":
+      if sig == ident"void":
         quote:
           if `arg` != "":
             raise XidocError(msg: "Command $1 must be called without an argument" % [`name`])
           `body`
-      elif signature == ident"literal":
+      elif sig == ident"literal":
         quote:
           let arg {.inject.} = `arg`
           `body`
-      elif signature == ident"raw":
+      elif sig == ident"raw":
         quote:
           let arg {.inject.} = `arg`.strip
           `body`
-      elif signature == ident"expand":
+      elif sig == ident"expand":
         quote:
           let arg {.inject.} = doc.expandStr `arg`.strip
           `body`
-      elif signature == ident"render":
+      elif sig == ident"render":
         quote:
           let arg {.inject.} = doc.renderStr `arg`.strip
           `body`
       else:
-        signature.expectKind nnkPar
+        sig.expectKind nnkPar
         var starPos = none int
-        for index, pair in signature:
+        var questionPos = 0..<0
+        for index, pair in sig:
           pair.expectKind nnkExprColonExpr
           if pair[1].kind == nnkPrefix and pair[1][0] == ident"*":
             starPos = some index
             break
+          if pair[1].kind == nnkPrefix and pair[1][0] == ident"?":
+            if questionPos == 0..<0:
+              questionPos = index..index
+            else:
+              questionPos.b = index
         let args = genSym(nskLet, "args")
         let lenCheck =
           if starPos.isSome:
-            let minLen = signature.len - 1
+            let minLen = sigLen - 1
             quote:
               if `args`.len < `minLen`:
                 raise XidocError(msg: "Command $1 needs at least $2 arguments, $3 given" % [`name`, $`minLen`, $`args`.len])
           else:
-            let minLen = signature.len
-            let maxLen = signature.len
+            let minLen = sigLen - questionPos.len
+            let maxLen = sigLen
             quote:
               if `args`.len < `minLen` or `args`.len > `maxLen`:
                 raise XidocError(msg: "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len])
@@ -107,26 +115,54 @@ proc defineDefaultCommands*(doc: Document) =
           else:
             error "invalid kind"
             (proc(doc: Document, str: string): string = str)
-        for index, pair in signature[0..<starPos.get(signature.len)]:
-          let name = pair[0]
-          let process = process(pair[1])
-          unpacks.add quote do:
-            let `name` {.inject.} = `process`(doc, `args`[`index`])
         if starPos.isSome:
-          block:
+          block beforeStar:
+            for index, pair in sig[0..<starPos.get(sigLen)]:
+              let name = pair[0]
+              let process = process(pair[1])
+              unpacks.add quote do:
+                let `name` {.inject.} = `process`(doc, `args`[`index`])
+          block star:
             let start = starPos.get
-            let ende = signature.len - start
-            let pair = signature[start]
+            let ende = sigLen - start
+            let pair = sig[start]
             let name = pair[0]
             let process = process(pair[1][1])
             unpacks.add quote do:
               let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it))
-          for index, pair in signature[starPos.get + 1 .. ^1]:
-            let index = signature.len - index - starPos.get - 1
-            let name = pair[0]
-            let process = process(pair[1])
-            unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[^`index`])
+          block afterStar:
+            for index, pair in sig[starPos.get + 1 .. ^1]:
+              let index = sigLen - index - starPos.get - 1
+              let name = pair[0]
+              let process = process(pair[1])
+              unpacks.add quote do:
+                let `name` {.inject.} = `process`(doc, `args`[^`index`])
+        else: # starPos.isNone
+          block beforeQuestion:
+            for index, pair in sig[0..<questionPos.a]:
+              let name = pair[0]
+              let process = process(pair[1])
+              unpacks.add quote do:
+                let `name` {.inject.} = `process`(doc, `args`[`index`])
+          block question:
+            let minLen = sigLen - questionPos.len
+            let start = questionPos.a
+            for index, pair in sig[questionPos]:
+              let name = pair[0]
+              let process = process(pair[1][1])
+              unpacks.add quote do:
+                let `name` {.inject.} =
+                  if `args`.len - `minLen` > `index`:
+                    some `process`(doc, `args`[`start` + `index`])
+                  else:
+                    none string
+          block afterQuestion:
+            for index, pair in sig[questionPos.b + 1 .. ^1]:
+              let index = sigLen - index - questionPos.b - 1
+              let name = pair[0]
+              let process = process(pair[1])
+              unpacks.add quote do:
+                let `name` {.inject.} = `process`(doc, `args`[^`index`])
         quote:
           let `args` = parseXidocArguments(`arg`)
           `lenCheck`
@@ -135,6 +171,9 @@ proc defineDefaultCommands*(doc: Document) =
     let rendered = newLit(rendered == ident"rendered")
     quote:
       doc.commands[`name`] = proc(`arg`: string): XidocString = XidocString(rendered: `rendered`, str: `logic`)
+
+  proc initKatex() =
+    doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`){katex.render(e.innerText,e)}</script>"""
 
   command "#", literal, unrendered:
     ""
@@ -148,10 +187,11 @@ proc defineDefaultCommands*(doc: Document) =
   command "$", raw, rendered:
     case doc.target
     of tHtml:
-      # TODO: make sure it's rendered
-      "<xd-inline-math>$1</xd-inline-math>" % arg
+      # TODO: allow choice of way to render
+      initKatex()
+      "<xd-inline-math>$1</xd-inline-math>" % arg.escapeText(doc.target)
     of tLatex:
-      "\\($1\\)" % arg
+      "\\($1\\)" % arg.escapeText(doc.target)
 
   command "$$", raw, rendered:
     case doc.target
@@ -168,13 +208,17 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\textbf{$1}" % arg
 
-  command "dfn", (content: render), rendered:
-    const word = "Definition. " # TODO: i18n
+  command "dfn", (name: ?render, content: render), rendered:
+    const word = "Definition" # TODO: i18n
     case doc.target
     of tHtml:
-      "<p><strong>$1</strong><dfn>$2</dfn></p>" % [word, content]
+      if name.isSome:
+        "<p><strong>$1 ($2).</strong> <dfn>$3</dfn></p>" % [word, name.get, content]
+      else:
+        "<p><strong>$1.</strong> <dfn>$2</dfn></p>" % [word, content]
     of tLatex:
-      # TODO: make it actually work
+      doc.addToHead.incl "\\usepackage{amsthm}"
+      doc.addToHead.incl "\\newtheorem{definition}{$1}[section]" % word
       "\\begin{definition}$1\end{definition}" % content
 
   command "include", (filename: expand, args: *render), rendered:
@@ -232,27 +276,34 @@ proc defineDefaultCommands*(doc: Document) =
   command "raw", raw, unrendered:
     arg.strip
 
-  command "section", (name: render, content: render), rendered:
+  command "section", (name: ?render, content: render), rendered:
+    # TODO: handling of nested sections
     case doc.target
     of tHtml:
-      "<section>$1</section>" % content
+      if name.isSome:
+        "<section><h2 class=\"xd-section-heading\">$1</h2>$2</section>" % [name.get, content]
+      else:
+        "<section>$1</section>" % [content]
     of tLatex:
-      # TODO: handling of nested sections
-      "\\section{$1}" % content
+      if name.isSome:
+        "\\section{$1}$2" % [name.get, content]
+      else:
+        "\\section{}$1" % [content]
 
   command "template-arg", render, rendered:
     doc.templateArgs[arg]
 
-  command "theorem", (name: *render, content: render), rendered: # TODO: name: ?render
+  command "theorem", (name: ?render, content: render), rendered:
     const word = "Theorem" # TODO: i18n
     case doc.target
     of tHtml:
-      if name.len == 0:
-        "<p><strong>$1.</strong> $2</p>" % [word, content]
+      if name.isSome:
+        "<p><strong>$1 ($2).</strong> $3</p>" % [word, name.get, content]
       else:
-        "<p><strong>$1 ($2).</strong> $2</p>" % [word, content]
+        "<p><strong>$1.</strong> $2</p>" % [word, content]
     of tLatex:
-      # TODO: make it actually work
+      doc.addToHead.incl "\\usepackage{amsthm}"
+      doc.addToHead.incl "\\newtheorem{theorem}{$1}[section]" % word
       "\\begin{theorem}$1\end{theorem}" % content
 
   case doc.target

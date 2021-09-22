@@ -1,3 +1,4 @@
+import std/sets
 import std/tables
 
 type
@@ -17,3 +18,4 @@ type
     commands*: Table[string, Command]
     templateArgs*: Table[string, string]
     verbose*: bool
+    addToHead*: OrderedSet[string]
