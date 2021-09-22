@@ -173,7 +173,7 @@ proc defineDefaultCommands*(doc: Document) =
       doc.commands[`name`] = proc(`arg`: string): XidocString = XidocString(rendered: `rendered`, str: `logic`)
 
   proc initKatex() =
-    doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`){katex.render(e.innerText,e)}</script>"""
+    doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`)katex.render(e.innerText,e)</script>"""
 
   command "#", literal, unrendered:
     ""
@@ -183,6 +183,9 @@ proc defineDefaultCommands*(doc: Document) =
 
   command "--", void, unrendered:
     "–"
+
+  command "---", void, unrendered:
+    "—"
 
   command "$", raw, rendered:
     case doc.target
@@ -196,8 +199,8 @@ proc defineDefaultCommands*(doc: Document) =
   command "$$", raw, rendered:
     case doc.target
     of tHtml:
-      # TODO: make sure it's rendered
-      "<xd-block-math>$1</xd-block-math>" % arg
+      # TODO: allow choice of way to render
+      "<xd-block-math>\\displaystyle $1</xd-block-math>" % arg
     of tLatex:
       "\\[$1\\]" % arg
 
@@ -246,6 +249,13 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\textit{$1}" % arg
 
+  command "link", (name: ?render, url: expand), rendered:
+    case doc.target
+    of tHtml:
+      "<a href=\"$1\">$2</a>" % [url, name.get(url)]
+    of tLatex:
+      "" # TODO
+
   command "list", (items: *render), rendered:
     case doc.target
     of tHtml:
@@ -259,6 +269,13 @@ proc defineDefaultCommands*(doc: Document) =
       "<code>$1</code>" % arg
     of tLatex:
       "\\texttt{$1}" % arg
+
+  command "p", render, rendered:
+    case doc.target
+    of tHtml:
+      "<p>$1</p>" % arg
+    of tLatex:
+      "\\par $1" % arg
 
   command "pass", expand, rendered:
     arg.strip
