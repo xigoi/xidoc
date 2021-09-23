@@ -181,6 +181,9 @@ proc defineDefaultCommands*(doc: Document) =
   command "", literal, unrendered:
     arg
 
+  command ";", void, unrendered:
+    ";"
+
   command "--", void, unrendered:
     "–"
 
