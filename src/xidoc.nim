@@ -1,5 +1,4 @@
 import cligen
-import npeg
 import std/os
 import std/sequtils
 import std/sets
@@ -18,7 +17,8 @@ const extensions = toTable {
   tLatex: "tex",
 }
 const templates = toTable {
-  tHtml: """<!DOCTYPE html><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body>"""
+  tHtml: """<!DOCTYPE html><html><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body></html>""",
+  tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage{geometry}$1\begin{document}$2\end{document}""",
 }
 
 proc xidoc(target = "html", snippet = false, verbose = false, paths: seq[string]) =

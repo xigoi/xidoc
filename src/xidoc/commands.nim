@@ -175,6 +175,20 @@ proc defineDefaultCommands*(doc: Document) =
   proc initKatex() =
     doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`)katex.render(e.innerText,e)</script>"""
 
+  template theoremLikeCommand(cmdName, word, htmlTmpl, latexTmpl: static string) =
+    command cmdName, (thName: ?render, content: render), rendered:
+      case doc.target
+      of tHtml:
+        if thName.isSome:
+          "<p><strong>$1 ($2).</strong> $3</p>" % [word, thName.get, htmlTmpl % content]
+        else:
+          "<p><strong>$1.</strong> $2</p>" % [word, htmlTmpl % content]
+      of tLatex:
+        doc.addToHead.incl "\\usepackage{amsthm}"
+        doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % [cmdName, word]
+        "\\begin{$1}$2\end{$1}" % [cmdName, latexTmpl % content]
+
+
   command "#", literal, unrendered:
     ""
 
@@ -214,18 +228,9 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\textbf{$1}" % arg
 
-  command "dfn", (name: ?render, content: render), rendered:
-    const word = "Definition" # TODO: i18n
-    case doc.target
-    of tHtml:
-      if name.isSome:
-        "<p><strong>$1 ($2).</strong> <dfn>$3</dfn></p>" % [word, name.get, content]
-      else:
-        "<p><strong>$1.</strong> <dfn>$2</dfn></p>" % [word, content]
-    of tLatex:
-      doc.addToHead.incl "\\usepackage{amsthm}"
-      doc.addToHead.incl "\\newtheorem{definition}{$1}[section]" % word
-      "\\begin{definition}$1\end{definition}" % content
+  theoremLikeCommand("dfn", "Definition", "<dfn>$1</dfn>", "$1")
+
+  theoremLikeCommand("example", "Example", "$1", "$1")
 
   command "include", (filename: expand, args: *render), rendered:
     if args.len mod 2 != 0:
@@ -286,6 +291,8 @@ proc defineDefaultCommands*(doc: Document) =
   command "pass-raw", raw, rendered:
     arg.strip
 
+  theoremLikeCommand("proof", "Proof", "$1", "$1")
+
   command "props", (items: *render), rendered:
     case doc.target
     of tHtml:
@@ -313,18 +320,7 @@ proc defineDefaultCommands*(doc: Document) =
   command "template-arg", render, rendered:
     doc.templateArgs[arg]
 
-  command "theorem", (name: ?render, content: render), rendered:
-    const word = "Theorem" # TODO: i18n
-    case doc.target
-    of tHtml:
-      if name.isSome:
-        "<p><strong>$1 ($2).</strong> $3</p>" % [word, name.get, content]
-      else:
-        "<p><strong>$1.</strong> $2</p>" % [word, content]
-    of tLatex:
-      doc.addToHead.incl "\\usepackage{amsthm}"
-      doc.addToHead.incl "\\newtheorem{theorem}{$1}[section]" % word
-      "\\begin{theorem}$1\end{theorem}" % content
+  theoremLikeCommand("theorem", "Theorem", "$1", "$1")
 
   case doc.target
   of tHtml:
