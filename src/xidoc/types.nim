@@ -9,7 +9,9 @@ type
   XidocString* = object
     rendered*: bool
     str*: string
-  Command* = proc(arg: string): XidocString
+  Context* = object
+    commandStack*: seq[string]
+  Command* = proc(arg: string, ctx: Context): XidocString
   Document* = ref object
     path*: string
     body*: string

@@ -19,7 +19,7 @@ proc escapeText(text: string, target: Target): string =
   of tLatex:
     text
 
-proc expandStr(doc: Document, str: string): string =
+proc expandStr(doc: Document, str: string, ctx: Context): string =
   for node in str.parseXidoc(doc.verbose):
     result.add case node.kind
       of xnkString: node.str
@@ -29,12 +29,15 @@ proc expandStr(doc: Document, str: string): string =
           doc.commands[node.name]
         except KeyError:
           raise XidocError(msg: "Command not found: $1" % node.name)
-        let xstr = command(node.arg)
+        let newCtx = Context(
+          commandStack: ctx.commandStack & @[node.name]
+        )
+        let xstr = command(node.arg, newCtx)
         if xstr.rendered:
           raise XidocError(msg: "Rendered string given in a non-rendered context")
         xstr.str
 
-proc renderStr*(doc: Document, str = doc.body): string =
+proc renderStr*(doc: Document, str = doc.body, ctx = Context()): string =
   for node in str.parseXidoc(doc.verbose):
     result.add case node.kind
       of xnkString: node.str.escapeText(doc.target)
@@ -44,7 +47,10 @@ proc renderStr*(doc: Document, str = doc.body): string =
           doc.commands[node.name]
         except KeyError:
           raise XidocError(msg: "Command not found: $1" % node.name)
-        let xstr = command(node.arg)
+        let newCtx = Context(
+          commandStack: ctx.commandStack & @[node.name]
+        )
+        let xstr = command(node.arg, newCtx)
         if xstr.rendered:
           xstr.str
         else:
@@ -55,6 +61,7 @@ proc defineDefaultCommands*(doc: Document) =
   macro command(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
     let sigLen = sig.len
     let arg = genSym(nskParam, "arg")
+    let ctx = ident"ctx"
     let logic =
       if sig == ident"void":
         quote:
@@ -71,11 +78,11 @@ proc defineDefaultCommands*(doc: Document) =
           `body`
       elif sig == ident"expand":
         quote:
-          let arg {.inject.} = doc.expandStr `arg`.strip
+          let arg {.inject.} = doc.expandStr(`arg`.strip, `ctx`)
           `body`
       elif sig == ident"render":
         quote:
-          let arg {.inject.} = doc.renderStr `arg`.strip
+          let arg {.inject.} = doc.renderStr(`arg`.strip, `ctx`)
           `body`
       else:
         sig.expectKind nnkPar
@@ -105,23 +112,23 @@ proc defineDefaultCommands*(doc: Document) =
               if `args`.len < `minLen` or `args`.len > `maxLen`:
                 raise XidocError(msg: "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len])
         let unpacks = nnkStmtList.newTree
-        template process(kind: NimNode): (proc(doc: Document, str: string): string {.nimcall.}) =
+        template process(kind: NimNode): (proc(doc: Document, str: string, ctx: Context): string {.nimcall.}) =
           if kind == ident"render":
             renderStr
           elif kind == ident"expand":
             expandStr
           elif kind == ident"raw":
-            (proc(doc: Document, str: string): string = str)
+            (proc(doc: Document, str: string, ctx: Context): string = str)
           else:
             error "invalid kind"
-            (proc(doc: Document, str: string): string = str)
+            (proc(doc: Document, str: string, ctx: Context): string = str)
         if starPos.isSome:
           block beforeStar:
             for index, pair in sig[0..<starPos.get(sigLen)]:
               let name = pair[0]
               let process = process(pair[1])
               unpacks.add quote do:
-                let `name` {.inject.} = `process`(doc, `args`[`index`])
+                let `name` {.inject.} = `process`(doc, `args`[`index`], `ctx`)
           block star:
             let start = starPos.get
             let ende = sigLen - start
@@ -129,21 +136,21 @@ proc defineDefaultCommands*(doc: Document) =
             let name = pair[0]
             let process = process(pair[1][1])
             unpacks.add quote do:
-              let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it))
+              let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it, `ctx`))
           block afterStar:
             for index, pair in sig[starPos.get + 1 .. ^1]:
               let index = sigLen - index - starPos.get - 1
               let name = pair[0]
               let process = process(pair[1])
               unpacks.add quote do:
-                let `name` {.inject.} = `process`(doc, `args`[^`index`])
+                let `name` {.inject.} = `process`(doc, `args`[^`index`], `ctx`)
         else: # starPos.isNone
           block beforeQuestion:
             for index, pair in sig[0..<questionPos.a]:
               let name = pair[0]
               let process = process(pair[1])
               unpacks.add quote do:
-                let `name` {.inject.} = `process`(doc, `args`[`index`])
+                let `name` {.inject.} = `process`(doc, `args`[`index`], `ctx`)
           block question:
             let minLen = sigLen - questionPos.len
             let start = questionPos.a
@@ -153,7 +160,7 @@ proc defineDefaultCommands*(doc: Document) =
               unpacks.add quote do:
                 let `name` {.inject.} =
                   if `args`.len - `minLen` > `index`:
-                    some `process`(doc, `args`[`start` + `index`])
+                    some `process`(doc, `args`[`start` + `index`], `ctx`)
                   else:
                     none string
           block afterQuestion:
@@ -162,7 +169,7 @@ proc defineDefaultCommands*(doc: Document) =
               let name = pair[0]
               let process = process(pair[1])
               unpacks.add quote do:
-                let `name` {.inject.} = `process`(doc, `args`[^`index`])
+                let `name` {.inject.} = `process`(doc, `args`[^`index`], `ctx`)
         quote:
           let `args` = parseXidocArguments(`arg`)
           `lenCheck`
@@ -170,7 +177,7 @@ proc defineDefaultCommands*(doc: Document) =
           `body`
     let rendered = newLit(rendered == ident"rendered")
     quote:
-      doc.commands[`name`] = proc(`arg`: string): XidocString = XidocString(rendered: `rendered`, str: `logic`)
+      doc.commands[`name`] = proc(`arg`: string, `ctx`: Context): XidocString = XidocString(rendered: `rendered`, str: `logic`)
 
   proc initKatex() =
     doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`)katex.render(e.innerText,e)</script>"""
@@ -304,11 +311,18 @@ proc defineDefaultCommands*(doc: Document) =
     arg.strip
 
   command "section", (name: ?render, content: render), rendered:
-    # TODO: handling of nested sections
+    let depth = ctx.commandStack.count("section")
     case doc.target
     of tHtml:
       if name.isSome:
-        "<section><h2 class=\"xd-section-heading\">$1</h2>$2</section>" % [name.get, content]
+        let headingTag =
+          case depth
+          of 1: "h2"
+          of 2: "h3"
+          of 3: "h4"
+          of 4: "h5"
+          else: "h6"
+        "<section><$1 class=\"xd-section-heading\">$2</$1>$3</section>" % [headingTag, name.get, content]
       else:
         "<section>$1</section>" % [content]
     of tLatex:
