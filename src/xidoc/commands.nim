@@ -1,4 +1,5 @@
 import ./parser
+import ./translations
 import ./types
 import std/macros
 import std/options
@@ -10,7 +11,7 @@ import std/sugar
 import std/tables
 
 const
-  htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 to h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
+  htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
 
 proc escapeText(text: string, target: Target): string =
   case target
@@ -29,9 +30,8 @@ proc expandStr(doc: Document, str: string, ctx: Context): string =
           doc.commands[node.name]
         except KeyError:
           raise XidocError(msg: "Command not found: $1" % node.name)
-        let newCtx = Context(
-          commandStack: ctx.commandStack & @[node.name]
-        )
+        var newCtx = ctx
+        newCtx.commandStack.add node.name
         let xstr = command(node.arg, newCtx)
         if xstr.rendered:
           raise XidocError(msg: "Rendered string given in a non-rendered context")
@@ -47,9 +47,8 @@ proc renderStr*(doc: Document, str = doc.body, ctx = Context()): string =
           doc.commands[node.name]
         except KeyError:
           raise XidocError(msg: "Command not found: $1" % node.name)
-        let newCtx = Context(
-          commandStack: ctx.commandStack & @[node.name]
-        )
+        var newCtx = ctx
+        newCtx.commandStack.add node.name
         let xstr = command(node.arg, newCtx)
         if xstr.rendered:
           xstr.str
@@ -182,8 +181,9 @@ proc defineDefaultCommands*(doc: Document) =
   proc initKatex() =
     doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`)katex.render(e.innerText,e)</script>"""
 
-  template theoremLikeCommand(cmdName, word, htmlTmpl, latexTmpl: static string) =
+  template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string) =
     command cmdName, (thName: ?render, content: render), rendered:
+      let word = phrase.translate(ctx.lang)
       case doc.target
       of tHtml:
         if thName.isSome:
@@ -235,9 +235,9 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\textbf{$1}" % arg
 
-  theoremLikeCommand("dfn", "Definition", "<dfn>$1</dfn>", "$1")
+  theoremLikeCommand("dfn", pDefinition, "<dfn>$1</dfn>", "$1")
 
-  theoremLikeCommand("example", "Example", "$1", "$1")
+  theoremLikeCommand("example", pExample, "$1", "$1")
 
   command "include", (filename: expand, args: *render), rendered:
     if args.len mod 2 != 0:
@@ -263,6 +263,16 @@ proc defineDefaultCommands*(doc: Document) =
       "<i>$1</i>" % arg
     of tLatex:
       "\\textit{$1}" % arg
+
+  command "lang", (langStr: expand, body: raw), rendered:
+    let lang =
+      case langStr.toLowerAscii
+      of "en", "english": lEnglish
+      of "cs", "cz", "czech": lCzech
+      else: raise XidocError(msg: "Unknown language: $1" % langStr)
+    var newCtx = ctx
+    newCtx.lang = lang
+    doc.renderStr(body, newCtx)
 
   command "link", (name: ?render, url: expand), rendered:
     case doc.target
@@ -298,7 +308,7 @@ proc defineDefaultCommands*(doc: Document) =
   command "pass-raw", raw, rendered:
     arg.strip
 
-  theoremLikeCommand("proof", "Proof", "$1", "$1")
+  theoremLikeCommand("proof", pProof, "$1", "$1")
 
   command "props", (items: *render), rendered:
     case doc.target
@@ -334,7 +344,7 @@ proc defineDefaultCommands*(doc: Document) =
   command "template-arg", render, rendered:
     doc.templateArgs[arg]
 
-  theoremLikeCommand("theorem", "Theorem", "$1", "$1")
+  theoremLikeCommand("theorem", pTheorem, "$1", "$1")
 
   case doc.target
   of tHtml:

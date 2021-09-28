@@ -1,3 +1,4 @@
+import ./translations
 import std/sets
 import std/tables
 
@@ -11,6 +12,7 @@ type
     str*: string
   Context* = object
     commandStack*: seq[string]
+    lang*: Language
   Command* = proc(arg: string, ctx: Context): XidocString
   Document* = ref object
     path*: string
