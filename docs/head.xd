@@ -1,0 +1,4 @@
+[set-doc-lang czech]
+[if-html
+  [add-to-head [<style> body{width:min(800px,calc(100% - 8px))[;]margin:auto[;]line-height:1.4[;]background-color:#000[;]color:#fff[;]font-family:Constantia,"Lucida Bright",Lucidabright,"Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif}h1,h2,h3,h4,h5,h6{font-family:-apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,Noto,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif}]]
+]

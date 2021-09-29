@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{width:min(800px,calc(100% - 8px));margin:auto;line-height:1.4;background-color:#000;color:#fff;font-family:Constantia,"Lucida Bright",Lucidabright,"Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif}h1,h2,h3,h4,h5,h6{font-family:-apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,Noto,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif}</style><style>pre{overflow:auto}</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`)katex.render(e.innerText,e)</script></head><body>    <h1>xidoc</h1> <p><b>xidoc</b> is a consistent markup language that compiles to HTML and <xd-inline-math>\mathrm\LaTeX</xd-inline-math>. It's currently very work-in-progress, but I'm already using it for my school notes and this documentation.</p> <section><h2 class="xd-section-heading">A Quick Look</h2><section><h3 class="xd-section-heading">xidoc code</h3><pre><code>[section HTML;
+  [p
+    HTML is such an [it ugly] language!
+    Each [ms &lt;tag&gt;] has to be repeated twice.
+  ]
+]
+[section LaTeX;
+  [p
+    LaTeX is great for writing math formulas like [$ e^{\tau i} = 1],
+    but it's painful to write with all those [ms \begin], [ms \end]
+    and different syntaxes for different things.
+  ]
+]</code></pre></section> <section><h3 class="xd-section-heading">Output</h3><section><h4 class="xd-section-heading">HTML</h4><p>HTML is such an <i>ugly</i> language! Each <code>&lt;tag&gt;</code> has to be repeated twice.</p></section> <section><h4 class="xd-section-heading">LaTeX</h4><p>LaTeX is great for writing math formulas like <xd-inline-math>e^{\tau i} = 1</xd-inline-math>, but it's painful to write with all those <code>\begin</code>, <code>\end</code> and different syntaxes for different things.</p></section></section></section> </body></html>

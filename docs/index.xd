@@ -1,0 +1,38 @@
+[inject head.xd]
+[add-to-head [<style> pre{overflow:auto}]]
+[<h1> xidoc]
+[p [bf xidoc] is a consistent markup language that compiles to HTML and [$ \mathrm\LaTeX]. It's currently very work-in-progress, but I'm already using it for my school notes and this documentation.]
+[section A Quick Look;
+  [section xidoc code;
+    [<pre> [<code> [raw
+[section HTML;
+  [p
+    HTML is such an [it ugly] language!
+    Each [ms <tag>] has to be repeated twice.
+  ]
+]
+[section LaTeX;
+  [p
+    LaTeX is great for writing math formulas like [$ e^{\tau i} = 1],
+    but it's painful to write with all those [ms \begin], [ms \end]
+    and different syntaxes for different things.
+  ]
+]
+    ]]]
+  ]
+  [section Output;
+    [section HTML;
+      [p
+        HTML is such an [it ugly] language!
+        Each [ms <tag>] has to be repeated twice.
+      ]
+    ]
+    [section LaTeX;
+      [p
+        LaTeX is great for writing math formulas like [$ e^{\tau i} = 1],
+        but it's painful to write with all those [ms \begin], [ms \end]
+        and different syntaxes for different things.
+      ]
+    ]
+  ]
+]
