@@ -5,7 +5,9 @@ type
   Phrase* = enum
     pDefinition
     pExample
+    pExercise
     pProof
+    pSolution
     pTheorem
 
 const translations* = [
@@ -17,9 +19,17 @@ const translations* = [
     lEnglish: "Example",
     lCzech: "Příklad",
   ],
+  pExercise: [
+    lEnglish: "Exercise",
+    lCzech: "Cvičení",
+  ],
   pProof: [
     lEnglish: "Proof",
     lCzech: "Důkaz",
+  ],
+  pSolution: [
+    lEnglish: "Solution",
+    lCzech: "Řešení",
   ],
   pTheorem: [
     lEnglish: "Theorem",

@@ -224,9 +224,14 @@ proc defineDefaultCommands*(doc: Document) =
     case doc.target
     of tHtml:
       # TODO: allow choice of way to render
+      doc.addToHead.incl """<style>xd-block-math{display:block}</style>"""
       "<xd-block-math>\\displaystyle $1</xd-block-math>" % arg
     of tLatex:
       "\\[$1\\]" % arg
+
+  command "add-to-head", render, rendered:
+    doc.addToHead.incl arg
+    ""
 
   command "bf", render, rendered:
     case doc.target
@@ -238,6 +243,8 @@ proc defineDefaultCommands*(doc: Document) =
   theoremLikeCommand("dfn", pDefinition, "<dfn>$1</dfn>", "$1")
 
   theoremLikeCommand("example", pExample, "$1", "$1")
+
+  theoremLikeCommand("exercise", pExercise, "$1", "$1")
 
   command "if-html", raw, rendered:
     if doc.target == tHtml:
@@ -361,6 +368,8 @@ proc defineDefaultCommands*(doc: Document) =
       of "cs", "cz", "czech": lCzech
       else: raise XidocError(msg: "Unknown language: $1" % arg)
     ""
+
+  theoremLikeCommand("solution", pSolution, "$1", "$1")
 
   command "template-arg", render, rendered:
     doc.templateArgs[arg]
