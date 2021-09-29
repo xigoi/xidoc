@@ -1,4 +1,5 @@
 import ./translations
+import std/options
 import std/sets
 import std/tables
 
@@ -12,7 +13,7 @@ type
     str*: string
   Context* = object
     commandStack*: seq[string]
-    lang*: Language
+    lang*: Option[Language]
   Command* = proc(arg: string, ctx: Context): XidocString
   Document* = ref object
     path*: string
@@ -23,3 +24,4 @@ type
     templateArgs*: Table[string, string]
     verbose*: bool
     addToHead*: OrderedSet[string]
+    lang*: Language

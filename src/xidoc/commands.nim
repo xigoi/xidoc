@@ -183,7 +183,7 @@ proc defineDefaultCommands*(doc: Document) =
 
   template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string) =
     command cmdName, (thName: ?render, content: render), rendered:
-      let word = phrase.translate(ctx.lang)
+      let word = phrase.translate(ctx.lang.get(doc.lang))
       case doc.target
       of tHtml:
         if thName.isSome:
@@ -239,6 +239,18 @@ proc defineDefaultCommands*(doc: Document) =
 
   theoremLikeCommand("example", pExample, "$1", "$1")
 
+  command "if-html", raw, rendered:
+    if doc.target == tHtml:
+      doc.renderStr(arg, ctx)
+    else:
+      ""
+
+  command "if-latex", raw, rendered:
+    if doc.target == tLatex:
+      doc.renderStr(arg, ctx)
+    else:
+      ""
+
   command "include", (filename: expand, args: *render), rendered:
     if args.len mod 2 != 0:
       raise XidocError(msg: "Additional arguments to include must come in pairs")
@@ -248,11 +260,12 @@ proc defineDefaultCommands*(doc: Document) =
       body: readFile(path),
       target: doc.target,
       snippet: true,
+      lang: doc.lang,
     )
     subdoc.defineDefaultCommands
     for i in 0..<(args.len div 2):
       subdoc.templateArgs[args[2 * i]] = args[2 * i + 1]
-    subdoc.renderStr
+    subdoc.renderStr(subdoc.body, ctx)
 
   command "inject", (filename: expand), rendered:
     doc.renderStr(readFile(doc.path.splitPath.head / filename))
@@ -271,7 +284,7 @@ proc defineDefaultCommands*(doc: Document) =
       of "cs", "cz", "czech": lCzech
       else: raise XidocError(msg: "Unknown language: $1" % langStr)
     var newCtx = ctx
-    newCtx.lang = lang
+    newCtx.lang = some lang
     doc.renderStr(body, newCtx)
 
   command "link", (name: ?render, url: expand), rendered:
@@ -340,6 +353,14 @@ proc defineDefaultCommands*(doc: Document) =
         "\\section{$1}$2" % [name.get, content]
       else:
         "\\section{}$1" % [content]
+
+  command "set-doc-lang", expand, rendered:
+    doc.lang =
+      case arg.toLowerAscii
+      of "en", "english": lEnglish
+      of "cs", "cz", "czech": lCzech
+      else: raise XidocError(msg: "Unknown language: $1" % arg)
+    ""
 
   command "template-arg", render, rendered:
     doc.templateArgs[arg]
