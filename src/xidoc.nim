@@ -48,20 +48,27 @@ proc xidoc(target = "html", snippet = false, verbose = false, paths: seq[string]
       stderr.writeLine "Error while rendering input:\n$1" % getCurrentException().msg
   else:
     for path in paths:
-      let input = open(path, fmRead)
+      let outputPath = path.changeFileExt(extensions[target])
       try:
-        let output = open(path.changeFileExt(extensions[target]), fmWrite)
+        let input = open(path, fmRead)
         try:
-          renderFile(path, input, output)
-          stderr.writeLine "Rendered file $1" % path
-        except XidocError:
-          stderr.writeLine "Error while rendering file $1:\n$2" % [path, getCurrentException().msg]
+          let output = open(outputPath, fmWrite)
+          try:
+            renderFile(path, input, output)
+            stderr.writeLine "Rendered file $1" % path
+          except XidocError:
+            stderr.writeLine "Error while rendering file $1:\n$2" % [path, getCurrentException().msg]
+          finally:
+            output.close
+        except IOError:
+          stderr.writeLine "Cannot open file $1 for writing" % outputPath
         finally:
-          output.close
-      finally:
-        input.close
+          input.close
+      except IOError:
+        stderr.writeLine "Cannot open file $1" % path
 
 dispatch xidoc, help = {
   "target": "what language to transpile to; one of \"html\", \"latex\"",
-  "snippet": "generate just a code snippet instead of a whole document; useful for embedding"
+  "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
+  "verbose": "show more detailed errors",
 }
