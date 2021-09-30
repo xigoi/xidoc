@@ -1,4 +1,12 @@
-[set-doc-lang czech]
+[set-doc-lang english]
 [if-html
-  [add-to-head [<style> body{width:min(800px,calc(100% - 8px))[;]margin:auto[;]line-height:1.4[;]background-color:#000[;]color:#fff[;]font-family:Constantia,"Lucida Bright",Lucidabright,"Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif}h1,h2,h3,h4,h5,h6{font-family:-apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,Noto,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif}]]
+  [add-to-head [<style> a{color:#fa0[;]text-decoration:none}body{width:min(800px,calc(100% - 8px))[;]margin:auto[;]line-height:1.4[;]background-color:#000[;]color:#fff[;]font-family:Constantia,"Lucida Bright",Lucidabright,"Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif}h1,h2,h3,h4,h5,h6{font-family:-apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,Noto,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif}header{display:flex[;]flex-flow:column nowrap[;]align-items:center}nav{display:flex[;]flex-flow:row wrap[;]justify-content:center}nav a{display:block[;]margin:1rem}]]
+  [<header>
+    [<h1> xidoc]
+    [<nav>
+      [link Introduction; /index.html]
+      [link Manual; /manual.html]
+      [link Commands; /commands.html]
+    ]
+  ]
 ]

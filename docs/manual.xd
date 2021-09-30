@@ -1,0 +1,31 @@
+[inject head.xd]
+[section Installation;
+  [p You need [link Nim; https://nim-lang.org/] and [link Nimble; https://github.com/nim-lang/nimble].]
+  [section From the Nimble package repository;
+    [p I'm going to publish this package on Nimble when possible.]
+  ]
+  [section Building from source;
+    [list
+      Clone the repository;
+      [p [ms nimble build]];
+      Copy [ms ./xidoc] to your [ms PATH];
+    ]
+  ]
+]
+[section Usage;
+  [section Compile some documents;
+    [p [ms xidoc foo.xd bar.xd]]
+    [p The default target is HTML. To choose a different target:]
+    [p [ms xidoc --target:latex foo.xd]]
+    [p [ms xidoc -t:latex foo.xd]]
+  ]
+  [section Get help;
+    [p [ms xidoc --help]]
+    [p [ms xidoc -h]]
+  ]
+]
+[section Syntax;
+  [p The only special characters in xidoc are square brackets, semicolons and whitespace. Everything except these characters is treated as literal text.]
+  [p [it Commands] are the basic building block of xidoc. Every command invocation is enclosed in square brackets. The first sequence of non-whitespace characters inside the brackets is treated as the command name[;] the remaining text is given to the command. Most commands ignore the leading whitespace. Many commands can take multiple arguments, in which case they split the text on semicolons[;] whitespace around the semicolons is ignored. If the text contains more square brackets, they may or may not be treated as a command invocation (depending on the surrounding command), but they should always be balanced.]
+  [p Multiple whitespace in a row is changed into a single space in the output, which allows you to indent your code as you want without affecting the generated code.]
+]
