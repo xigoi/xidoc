@@ -55,128 +55,149 @@ proc renderStr*(doc: Document, str = doc.body, ctx = Context()): string =
         else:
           xstr.str.escapeText(doc.target)
 
-proc defineDefaultCommands*(doc: Document) =
-
-  macro command(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
-    let sigLen = sig.len
-    let arg = genSym(nskParam, "arg")
-    let ctx = ident"ctx"
-    let logic =
-      if sig == ident"void":
-        quote:
-          if `arg` != "":
-            raise XidocError(msg: "Command $1 must be called without an argument" % [`name`])
-          `body`
-      elif sig == ident"literal":
-        quote:
-          let arg {.inject.} = `arg`
-          `body`
-      elif sig == ident"raw":
-        quote:
-          let arg {.inject.} = `arg`.strip
-          `body`
-      elif sig == ident"expand":
-        quote:
-          let arg {.inject.} = doc.expandStr(`arg`.strip, `ctx`)
-          `body`
-      elif sig == ident"render":
-        quote:
-          let arg {.inject.} = doc.renderStr(`arg`.strip, `ctx`)
-          `body`
-      else:
-        sig.expectKind nnkPar
-        var starPos = none int
-        var questionPos = 0..<0
-        for index, pair in sig:
-          pair.expectKind nnkExprColonExpr
-          if pair[1].kind == nnkPrefix and pair[1][0] == ident"*":
-            starPos = some index
-            break
-          if pair[1].kind == nnkPrefix and pair[1][0] == ident"?":
-            if questionPos == 0..<0:
-              questionPos = index..index
-            else:
-              questionPos.b = index
-        let args = genSym(nskLet, "args")
-        let lenCheck =
-          if starPos.isSome:
-            let minLen = sigLen - 1
-            quote:
-              if `args`.len < `minLen`:
-                raise XidocError(msg: "Command $1 needs at least $2 arguments, $3 given" % [`name`, $`minLen`, $`args`.len])
+macro command(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
+  let sigLen = sig.len
+  let arg = genSym(nskParam, "arg")
+  let ctx = ident"ctx"
+  let logic =
+    if sig == ident"void":
+      quote:
+        if `arg` != "":
+          raise XidocError(msg: "Command $1 must be called without an argument" % [`name`])
+        `body`
+    elif sig == ident"literal":
+      quote:
+        let arg {.inject.} = `arg`
+        `body`
+    elif sig == ident"raw":
+      quote:
+        let arg {.inject.} = `arg`.strip
+        `body`
+    elif sig == ident"expand":
+      quote:
+        let arg {.inject.} = doc.expandStr(`arg`.strip, `ctx`)
+        `body`
+    elif sig == ident"render":
+      quote:
+        let arg {.inject.} = doc.renderStr(`arg`.strip, `ctx`)
+        `body`
+    else:
+      sig.expectKind nnkPar
+      var starPos = none int
+      var questionPos = 0..<0
+      for index, pair in sig:
+        pair.expectKind nnkExprColonExpr
+        if pair[1].kind == nnkPrefix and pair[1][0] == ident"*":
+          starPos = some index
+          break
+        if pair[1].kind == nnkPrefix and pair[1][0] == ident"?":
+          if questionPos == 0..<0:
+            questionPos = index..index
           else:
-            let minLen = sigLen - questionPos.len
-            let maxLen = sigLen
-            quote:
-              if `args`.len < `minLen` or `args`.len > `maxLen`:
-                raise XidocError(msg: "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len])
-        let unpacks = nnkStmtList.newTree
-        template process(kind: NimNode): (proc(doc: Document, str: string, ctx: Context): string {.nimcall.}) =
-          if kind == ident"render":
-            renderStr
-          elif kind == ident"expand":
-            expandStr
-          elif kind == ident"raw":
-            (proc(doc: Document, str: string, ctx: Context): string = str)
-          else:
-            error "invalid kind"
-            (proc(doc: Document, str: string, ctx: Context): string = str)
+            questionPos.b = index
+      let args = genSym(nskLet, "args")
+      let lenCheck =
         if starPos.isSome:
-          block beforeStar:
-            for index, pair in sig[0..<starPos.get(sigLen)]:
-              let name = pair[0]
-              let process = process(pair[1])
-              unpacks.add quote do:
-                let `name` {.inject.} = `process`(doc, `args`[`index`], `ctx`)
-          block star:
-            let start = starPos.get
-            let ende = sigLen - start
-            let pair = sig[start]
+          let minLen = sigLen - 1
+          quote:
+            if `args`.len < `minLen`:
+              raise XidocError(msg: "Command $1 needs at least $2 arguments, $3 given" % [`name`, $`minLen`, $`args`.len])
+        else:
+          let minLen = sigLen - questionPos.len
+          let maxLen = sigLen
+          quote:
+            if `args`.len < `minLen` or `args`.len > `maxLen`:
+              raise XidocError(msg: "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len])
+      let unpacks = nnkStmtList.newTree
+      template process(kind: NimNode): (proc(doc: Document, str: string, ctx: Context): string {.nimcall.}) =
+        if kind == ident"render":
+          renderStr
+        elif kind == ident"expand":
+          expandStr
+        elif kind == ident"raw":
+          (proc(doc: Document, str: string, ctx: Context): string = str)
+        else:
+          error "invalid kind"
+          (proc(doc: Document, str: string, ctx: Context): string = str)
+      if starPos.isSome:
+        block beforeStar:
+          for index, pair in sig[0..<starPos.get(sigLen)]:
+            let name = pair[0]
+            let process = process(pair[1])
+            unpacks.add quote do:
+              let `name` {.inject.} = `process`(doc, `args`[`index`], `ctx`)
+        block star:
+          let start = starPos.get
+          let ende = sigLen - start
+          let pair = sig[start]
+          let name = pair[0]
+          let process = process(pair[1][1])
+          unpacks.add quote do:
+            let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it, `ctx`))
+        block afterStar:
+          for index, pair in sig[starPos.get + 1 .. ^1]:
+            let index = sigLen - index - starPos.get - 1
+            let name = pair[0]
+            let process = process(pair[1])
+            unpacks.add quote do:
+              let `name` {.inject.} = `process`(doc, `args`[^`index`], `ctx`)
+      else: # starPos.isNone
+        block beforeQuestion:
+          for index, pair in sig[0..<questionPos.a]:
+            let name = pair[0]
+            let process = process(pair[1])
+            unpacks.add quote do:
+              let `name` {.inject.} = `process`(doc, `args`[`index`], `ctx`)
+        block question:
+          let minLen = sigLen - questionPos.len
+          let start = questionPos.a
+          for index, pair in sig[questionPos]:
             let name = pair[0]
             let process = process(pair[1][1])
             unpacks.add quote do:
-              let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it, `ctx`))
-          block afterStar:
-            for index, pair in sig[starPos.get + 1 .. ^1]:
-              let index = sigLen - index - starPos.get - 1
-              let name = pair[0]
-              let process = process(pair[1])
-              unpacks.add quote do:
-                let `name` {.inject.} = `process`(doc, `args`[^`index`], `ctx`)
-        else: # starPos.isNone
-          block beforeQuestion:
-            for index, pair in sig[0..<questionPos.a]:
-              let name = pair[0]
-              let process = process(pair[1])
-              unpacks.add quote do:
-                let `name` {.inject.} = `process`(doc, `args`[`index`], `ctx`)
-          block question:
-            let minLen = sigLen - questionPos.len
-            let start = questionPos.a
-            for index, pair in sig[questionPos]:
-              let name = pair[0]
-              let process = process(pair[1][1])
-              unpacks.add quote do:
-                let `name` {.inject.} =
-                  if `args`.len - `minLen` > `index`:
-                    some `process`(doc, `args`[`start` + `index`], `ctx`)
-                  else:
-                    none string
-          block afterQuestion:
-            for index, pair in sig[questionPos.b + 1 .. ^1]:
-              let index = sigLen - index - questionPos.b - 1
-              let name = pair[0]
-              let process = process(pair[1])
-              unpacks.add quote do:
-                let `name` {.inject.} = `process`(doc, `args`[^`index`], `ctx`)
-        quote:
-          let `args` = parseXidocArguments(`arg`)
-          `lenCheck`
-          `unpacks`
-          `body`
-    let rendered = newLit(rendered == ident"rendered")
-    quote:
-      doc.commands[`name`] = proc(`arg`: string, `ctx`: Context): XidocString = XidocString(rendered: `rendered`, str: `logic`)
+              let `name` {.inject.} =
+                if `args`.len - `minLen` > `index`:
+                  some `process`(doc, `args`[`start` + `index`], `ctx`)
+                else:
+                  none string
+        block afterQuestion:
+          for index, pair in sig[questionPos.b + 1 .. ^1]:
+            let index = sigLen - index - questionPos.b - 1
+            let name = pair[0]
+            let process = process(pair[1])
+            unpacks.add quote do:
+              let `name` {.inject.} = `process`(doc, `args`[^`index`], `ctx`)
+      quote:
+        let `args` = parseXidocArguments(`arg`)
+        `lenCheck`
+        `unpacks`
+        `body`
+  let rendered = newLit(rendered == ident"rendered")
+  quote:
+    doc.commands[`name`] = proc(`arg`: string, `ctx`: Context): XidocString = XidocString(rendered: `rendered`, str: `logic`)
+
+proc defineCssCommands*(doc: Document) =
+
+  command ":", (prop: expand, val: expand), unrendered:
+    "$1:$2;" % [prop, val]
+
+  command "h*", void, unrendered:
+    "h1,h2,h3,h4,h5,h6"
+
+  command "rule", (selector: expand, decls: expand), unrendered:
+    # TODO: rule nesting
+    "$1{$2}" % [selector, decls]
+
+  command "var", (name: expand, val: ?expand), unrendered:
+    if val.isSome:
+      if ctx.commandStack[^2] == "style":
+        ":root{--$1:$2}" % [name, val.get]
+      else:
+        "--$1:$2" % [name, val.get]
+    else:
+      "var(--$1)" % name
+
+proc defineDefaultCommands*(doc: Document) =
 
   proc initKatex() =
     doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`)katex.render(e.innerText,e)</script>"""
@@ -224,6 +245,7 @@ proc defineDefaultCommands*(doc: Document) =
     case doc.target
     of tHtml:
       # TODO: allow choice of way to render
+      initKatex()
       doc.addToHead.incl """<style>xd-block-math{display:block}</style>"""
       "<xd-block-math>\\displaystyle $1</xd-block-math>" % arg
     of tLatex:
@@ -370,6 +392,30 @@ proc defineDefaultCommands*(doc: Document) =
     ""
 
   theoremLikeCommand("solution", pSolution, "$1", "$1")
+
+  command "spoiler", (title: render, content: render), rendered:
+    case doc.target
+    of tHtml:
+      "<details class=\"xd-spoiler\"><summary>$1</summary>$2</details>" % [title, content]
+    of tLatex:
+      raise XidocError(msg: "The spoiler command is not supported in the LaTeX backend")
+
+  command "style", raw, rendered:
+    case doc.target
+    of tHtml:
+      let subdoc = Document(
+        body: arg,
+        commands: doc.commands,
+        target: doc.target,
+        snippet: true,
+        lang: doc.lang,
+      )
+      subdoc.defineCssCommands
+      doc.addToHead.incl "<style>$1</style>" % subdoc.expandStr(subdoc.body, ctx)
+      ""
+    else:
+      raise XidocError(msg: "The style command can be used only in the HTML backend")
+
 
   command "template-arg", render, rendered:
     doc.templateArgs[arg]
