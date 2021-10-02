@@ -262,7 +262,14 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\textbf{$1}" % arg
 
-  theoremLikeCommand("dfn", pDefinition, "<dfn>$1</dfn>", "$1")
+  theoremLikeCommand("dfn", pDefinition, "$1", "$1")
+
+  command "term", render, rendered:
+    case doc.target
+    of tHtml:
+      "<dfn>$1</dfn>" % arg
+    of tLatex:
+      "\\textit{$1}" % arg
 
   theoremLikeCommand("example", pExample, "$1", "$1")
 
@@ -421,6 +428,15 @@ proc defineDefaultCommands*(doc: Document) =
     doc.templateArgs[arg]
 
   theoremLikeCommand("theorem", pTheorem, "$1", "$1")
+
+  command "title", render, rendered:
+    case doc.target
+    of tHtml:
+      doc.addToHead.incl "<title>$1</title>" % arg
+      "<h1>$1</h1>" % arg
+    of tLatex:
+      doc.addToHead.incl "\\title{$1}" % arg
+      "\\maketitle"
 
   case doc.target
   of tHtml:
