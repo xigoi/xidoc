@@ -255,6 +255,14 @@ proc defineDefaultCommands*(doc: Document) =
     doc.addToHead.incl arg
     ""
 
+  command "arg", expand, rendered:
+    if doc.stackFrames.len == 0:
+      raise XidocError(msg: "Can't use the arg command at the top level" % arg)
+    try:
+      doc.stackFrames[^1][arg]
+    except KeyError:
+      raise XidocError(msg: "Parameter not found: $1" % arg)
+
   command "bf", render, rendered:
     case doc.target
     of tHtml:
@@ -262,14 +270,19 @@ proc defineDefaultCommands*(doc: Document) =
     of tLatex:
       "\\textbf{$1}" % arg
 
-  theoremLikeCommand("dfn", pDefinition, "$1", "$1")
+  command "def", (name: expand, paramList: ?expand, body: raw), rendered:
+    let params = paramList.map(it => it.splitWhitespace).get(@[])
+    doc.commands[name] = proc(arg: string, ctx: Context): XidocString =
+      let argsList = if arg == "": @[] else: parseXidocArguments(arg)
+      if argsList.len != params.len:
+        raise XidocError(msg: "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len])
+      let frame = zip(params, argsList.mapIt(doc.renderStr(it, ctx))).toTable
+      doc.stackFrames.add frame
+      result = XidocString(rendered: true, str: doc.renderStr(body, ctx))
+      discard doc.stackFrames.pop
+    ""
 
-  command "term", render, rendered:
-    case doc.target
-    of tHtml:
-      "<dfn>$1</dfn>" % arg
-    of tLatex:
-      "\\textit{$1}" % arg
+  theoremLikeCommand("dfn", pDefinition, "$1", "$1")
 
   theoremLikeCommand("example", pExample, "$1", "$1")
 
@@ -428,6 +441,13 @@ proc defineDefaultCommands*(doc: Document) =
     doc.templateArgs[arg]
 
   theoremLikeCommand("theorem", pTheorem, "$1", "$1")
+
+  command "term", render, rendered:
+    case doc.target
+    of tHtml:
+      "<dfn>$1</dfn>" % arg
+    of tLatex:
+      "\\textit{$1}" % arg
 
   command "title", render, rendered:
     case doc.target

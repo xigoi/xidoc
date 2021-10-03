@@ -1,0 +1,7 @@
+[def greeting; Hello]
+[p [greeting], xigoi!]
+[def greet; name; [greeting], [arg name]!]
+[p [greet xigoi]]
+[def concat-two; x y; [arg x][arg y]]
+[def concat-three; x y z; [arg x][arg y][arg z]]
+[p [concat-three [concat-two H; [concat-two e; [concat-two l; [concat-two l; o]]]]; ,[ ]; [concat-two [concat-two [concat-two x; i]; [concat-three g; o; i]]; !]]]

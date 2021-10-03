@@ -16,12 +16,13 @@ type
     lang*: Option[Language]
   Command* = proc(arg: string, ctx: Context): XidocString
   Document* = ref object
-    path*: string
+    addToHead*: OrderedSet[string]
     body*: string
-    target*: Target
-    snippet*: bool
     commands*: Table[string, Command]
+    lang*: Language
+    path*: string
+    snippet*: bool
+    stackFrames*: seq[Table[string, string]]
+    target*: Target
     templateArgs*: Table[string, string]
     verbose*: bool
-    addToHead*: OrderedSet[string]
-    lang*: Language
