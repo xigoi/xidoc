@@ -226,6 +226,15 @@ proc defineDefaultCommands*(doc: Document) =
   command ";", void, unrendered:
     ";"
 
+  command "()", render, rendered:
+    "[" & arg & "]"
+
+  command "(", void, unrendered:
+    "["
+
+  command ")", void, unrendered:
+    "]"
+
   command "--", void, unrendered:
     "–"
 
@@ -269,6 +278,14 @@ proc defineDefaultCommands*(doc: Document) =
       "<b>$1</b>" % arg
     of tLatex:
       "\\textbf{$1}" % arg
+
+  command "color", (color: expand, text: render), rendered:
+    case doc.target
+    of tHtml:
+      "<span style=\"color:$1\">$2</span>" % [color, text]
+    of tLatex:
+      doc.addToHead.incl "\\usepackage[svgnames]{xcolor}"
+      "\\textcolor{$1}{$2}" % [color, text]
 
   command "def", (name: expand, paramList: ?expand, body: raw), rendered:
     let params = paramList.map(it => it.splitWhitespace).get(@[])
@@ -399,9 +416,9 @@ proc defineDefaultCommands*(doc: Document) =
         "<section>$1</section>" % [content]
     of tLatex:
       if name.isSome:
-        "\\section{$1}$2" % [name.get, content]
+        "\\section*{$1}$2" % [name.get, content]
       else:
-        "\\section{}$1" % [content]
+        "\\section*{}$1" % [content]
 
   command "set-doc-lang", expand, rendered:
     doc.lang =

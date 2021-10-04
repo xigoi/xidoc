@@ -1,0 +1,69 @@
+[inject head.xd]
+[style
+  [rule h3;
+    [: font-size; inherit]
+  ]
+]
+[def cmd; name signature explanation;
+  [section [ms [color #666; [(]][color #ff4; [arg name]] [arg signature][color #666; [)]]];
+    [p [arg explanation]]
+  ]
+]
+[def cmd-nilad; name explanation;
+  [section [ms [color #666; [(]][color #ff4; [arg name]][color #666; [)]]];
+    [p [arg explanation]]
+  ]
+]
+[def param; name; [ms [arg name]]]
+[def cmd-ref; name; [ms [color #ff4; [arg name]]]]
+
+[section Top-level commands;
+  [cmd $; latex;
+    Renders LaTeX inline math.
+  ]
+  [cmd $$; latex;
+    Renders LaTeX block math.
+  ]
+  [cmd-nilad (;
+    Returns a left square bracket.
+  ]
+  [cmd (); text;
+    Wraps [param text] in square brackets.
+  ]
+  [cmd-nilad );
+    Returns a right square bracket.
+  ]
+  [cmd-nilad --;
+    Returns an en dash: [ms –]
+  ]
+  [cmd-nilad ---;
+    Returns an em dash: [ms —]
+  ]
+  [cmd-nilad [;];
+    Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
+  ]
+  [cmd bf; text;
+    Renders [param text] in bold face.
+  ]
+  [cmd def; name[;] ?params[;] body;
+    Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command.
+  ]
+  [cmd if-html; text;
+    Evaluates [param text] only if the target is HTML, otherwise returns nothing.
+  ]
+  [cmd if-latex; text;
+    Evaluates [param text] only if the target is LaTeX, otherwise returns nothing.
+  ]
+  [cmd it; text;
+    Renders [param text] in italics.
+  ]
+  [cmd ms; text;
+    Renders [param text] in monospace.
+  ]
+  [cmd p; text;
+    Creates a paragraph with the given [param text].
+  ]
+  [cmd section; ?title[;] text;
+    Creates a section with the given [param title] and [param text] (or without a title if not given). If it's inside another section, it will be a subsection. If it's inside a subsection, it will be a subsubsection. In HTML, this nesting can continue further.
+  ]
+]
