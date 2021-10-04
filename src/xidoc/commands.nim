@@ -477,14 +477,14 @@ proc defineDefaultCommands*(doc: Document) =
   command "template-arg", render, rendered:
     doc.templateArgs[arg]
 
-  theoremLikeCommand("theorem", pTheorem, "$1", "$1")
-
   command "term", render, rendered:
     case doc.target
     of tHtml:
       "<dfn>$1</dfn>" % arg
     of tLatex:
       "\\textit{$1}" % arg
+
+  theoremLikeCommand("theorem", pTheorem, "$1", "$1")
 
   command "title", render, rendered:
     case doc.target

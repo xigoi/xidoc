@@ -20,6 +20,12 @@
 [def cmd-ref; name; [link [ms [color #ff4; [arg name]]]; #[arg name]]]
 
 [section Top-level commands;
+  [cmd ; whitespace;
+    The empty command. Returns the whitespace inside the brackets, allowing it to be “escaped” in commmands that strip whitespace.
+  ]
+  [cmd #; anything;
+    Comment. Always returns nothing, ignoring what's inside.
+  ]
   [cmd $; latex;
     Renders LaTeX inline math.
   ]
@@ -44,14 +50,32 @@
   [cmd-nilad [;];
     Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
   ]
+  [cmd add-to-head; directive;
+    Adds the [param directive] to the head of the document. Returns nothing.
+  ]
   [cmd arg; param;
     Inside a command definition ([cmd-ref def]), returns the argument given to the parameter [param param].
   ]
   [cmd bf; text;
     Renders [param text] in bold face.
   ]
+  [cmd color; color text;
+    Colors the [param text] in the given CSS-style [param color].
+  ]
   [cmd def; name[;] ?params[;] body;
     Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command.
+  ]
+  [cmd dfn; ?name[;] text;
+    Renders a mathematical definition paragraph with an optional [param name].
+  ]
+  [cmd example; ?name[;] text;
+    Renders a mathematical example paragraph with an optional [param name].
+  ]
+  [cmd exercise; ?name[;] text;
+    Renders a mathematical exercise paragraph with an optional [param name].
+  ]
+  [cmd html-add-attrs; attrs[;] cmd;
+    If the target is HTML, adds the given [param attributes] to the tag produced by [param cmd]. Supports the [ms .foo] and [ms #foo] syntax for specifying classes and IDs.
   ]
   [cmd if-html; text;
     Evaluates [param text] only if the target is HTML, otherwise returns nothing.
@@ -59,8 +83,23 @@
   [cmd if-latex; text;
     Evaluates [param text] only if the target is LaTeX, otherwise returns nothing.
   ]
+  [cmd include; file[;] *(name[;] value);
+    Renders the content of [param file] as a separate document and pastes it. You can give arguments to the subdocument, which can be retrieved with the [cmd-ref template-arg] command.
+  ]
+  [cmd inject; file;
+    Pastes the content of [param file] and renders it.
+  ]
   [cmd it; text;
     Renders [param text] in italics.
+  ]
+  [cmd lang; language[;] text;
+    Renders [param text] in the specified [param language].
+  ]
+  [cmd link; ?text[;] address;
+    Adds a link to the given [param address] with an optional [param text] visually replacing the address.
+  ]
+  [cmd list; *items;
+    Creates an unordered list of [param items].
   ]
   [cmd ms; text;
     Renders [param text] in monospace.
@@ -68,7 +107,46 @@
   [cmd p; text;
     Creates a paragraph with the given [param text].
   ]
+  [cmd pass; code;
+    Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. The [param code] is still expanded so you can parametrize it, see the [cmd-ref pass-raw] command if you don't want this.
+  ]
+  [cmd pass-raw; code;
+    Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. Works as a combination of [cmd-ref pass] and [cmd-ref raw].
+  ]
+  [cmd proof; ?name[;] text;
+    Renders a mathematical proof paragraph with an optional [param name].
+  ]
+  [cmd props; *properties;
+    Creates a list of mathematical [param properties].
+  ]
+  [cmd raw; text;
+    Returns the given [param text] without expanding it.
+  ]
   [cmd section; ?title[;] text;
     Creates a section with the given [param title] and [param text] (or without a title if not given). If it's inside another section, it will be a subsection. If it's inside a subsection, it will be a subsubsection. In HTML, this nesting can continue further.
+  ]
+  [cmd set-doc-lang; language;
+    Sets the global [param language] of the document. Returns nothing.
+  ]
+  [cmd solution; ?name[;] text;
+    Renders a paragraph with the solution to a mathematical problem with an optional [param name].
+  ]
+  [cmd spoiler; visible[;] secret;
+    Hides the [param secret] text until the [param visible] text is clicked. Works only in environments that support interactivity.
+  ]
+  [cmd style; stylesheet;
+    Styles an HTML document using xidoc's custom syntax for CSS.
+  ]
+  [cmd template-arg; name;
+    In a document included with [cmd-ref include], returns the given argument passed to [cmd-ref include].
+  ]
+  [cmd theorem; ?name[;] text;
+    Renders a mathematical theorem paragraph with an optional [param name].
+  ]
+  [cmd term; phrase;
+    Introduces [param phrase] as a new term. Useful in definitions.
+  ]
+  [cmd title; title;
+    Renders the given [param title] and sets it as the title of the document.
   ]
 ]
