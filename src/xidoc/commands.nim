@@ -1,3 +1,4 @@
+from std/pegs import match, peg
 import ./parser
 import ./translations
 import ./types
@@ -33,8 +34,6 @@ proc expandStr(doc: Document, str: string, ctx: Context): string =
         var newCtx = ctx
         newCtx.commandStack.add node.name
         let xstr = command(node.arg, newCtx)
-        if xstr.rendered:
-          raise XidocError(msg: "Rendered string given in a non-rendered context")
         xstr.str
 
 proc renderStr*(doc: Document, str = doc.body, ctx = Context()): string =
@@ -304,6 +303,27 @@ proc defineDefaultCommands*(doc: Document) =
   theoremLikeCommand("example", pExample, "$1", "$1")
 
   theoremLikeCommand("exercise", pExercise, "$1", "$1")
+
+  command "html-add-attrs", (args: expand, tag: render), rendered:
+    case doc.target
+    of tHtml:
+      var matches: array[2, string]
+      if not tag.match(peg"{'<' [a-zA-Z-]+} {.*}", matches):
+        raise XidocError(msg: "Can't add HTML attribute to something that isn't an HTML tag")
+      var attrs = newSeq[string]()
+      var classes = newSeq[string]()
+      for arg in args.splitWhitespace:
+        if arg.startsWith "#":
+          attrs.add "id=\"$1\"" % arg[1..^1]
+        elif arg.startsWith ".":
+          classes.add arg[1..^1]
+        else:
+          attrs.add arg
+      if classes.len != 0:
+        attrs.add "class=\"$1\"" % classes.join(" ")
+      matches.join(" " & attrs.join(" "))
+    else:
+      tag
 
   command "if-html", raw, rendered:
     if doc.target == tHtml:

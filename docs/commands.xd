@@ -5,8 +5,10 @@
   ]
 ]
 [def cmd; name signature explanation;
-  [section [ms [color #666; [(]][color #ff4; [arg name]] [arg signature][color #666; [)]]];
-    [p [arg explanation]]
+  [html-add-attrs #[arg name];
+    [section [ms [color #666; [(]][color #ff4; [arg name]] [arg signature][color #666; [)]]];
+      [p [arg explanation]]
+    ]
   ]
 ]
 [def cmd-nilad; name explanation;
@@ -15,7 +17,7 @@
   ]
 ]
 [def param; name; [ms [arg name]]]
-[def cmd-ref; name; [ms [color #ff4; [arg name]]]]
+[def cmd-ref; name; [link [ms [color #ff4; [arg name]]]; #[arg name]]]
 
 [section Top-level commands;
   [cmd $; latex;
@@ -41,6 +43,9 @@
   ]
   [cmd-nilad [;];
     Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
+  ]
+  [cmd arg; param;
+    Inside a command definition ([cmd-ref def]), returns the argument given to the parameter [param param].
   ]
   [cmd bf; text;
     Renders [param text] in bold face.
