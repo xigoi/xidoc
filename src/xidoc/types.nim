@@ -8,6 +8,9 @@ type
   Target* = enum
     tHtml
     tLatex
+  MathRenderer* = enum
+    mrKatexJsdelivr
+    mrKatexDuktape
   XidocString* = object
     rendered*: bool
     str*: string
@@ -20,6 +23,7 @@ type
     body*: string
     commands*: Table[string, Command]
     lang*: Language
+    mathRenderer*: MathRenderer
     path*: string
     snippet*: bool
     stackFrames*: seq[Table[string, string]]

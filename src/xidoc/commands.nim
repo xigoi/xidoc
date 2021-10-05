@@ -1,4 +1,5 @@
 from std/pegs import match, peg
+import ./duktape
 import ./parser
 import ./translations
 import ./types
@@ -244,9 +245,13 @@ proc defineDefaultCommands*(doc: Document) =
   command "$", raw, rendered:
     case doc.target
     of tHtml:
-      # TODO: allow choice of way to render
-      initKatex()
-      "<xd-inline-math>$1</xd-inline-math>" % arg.escapeText(doc.target)
+      case doc.mathRenderer
+      of mrKatexJsdelivr:
+        initKatex()
+        "<xd-inline-math>$1</xd-inline-math>" % arg.escapeText(doc.target)
+      of mrKatexDuktape:
+        doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
+        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(arg)
     of tLatex:
       "\\($1\\)" % arg.escapeText(doc.target)
 
@@ -447,6 +452,13 @@ proc defineDefaultCommands*(doc: Document) =
       of "en", "english": lEnglish
       of "cs", "cz", "czech": lCzech
       else: raise XidocError(msg: "Unknown language: $1" % arg)
+    ""
+
+  command "set-math-renderer", expand, rendered:
+    doc.mathRenderer = case arg
+    of "katex-jsdelivr": mrKatexJsdelivr
+    of "katex-duktape": mrKatexDuktape
+    else: raise XidocError(msg: "Invalid value for set-math-renderer: $1" % arg)
     ""
 
   theoremLikeCommand("solution", pSolution, "$1", "$1")
