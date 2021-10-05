@@ -200,8 +200,12 @@ proc defineCssCommands*(doc: Document) =
 
 proc defineDefaultCommands*(doc: Document) =
 
-  proc initKatex() =
-    doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.querySelectorAll`xd-inline-math,xd-block-math`)katex.render(e.innerText,e)</script>"""
+  proc initKatexJsdelivrCss() =
+    doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
+
+  proc initKatexJsdelivr() =
+    initKatexJsdelivrCss()
+    doc.addToHead.incl """<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.getElementsByTagName`xd-inline-math`)katex.render(e.innerText,e,{throwOnError:false});for(let e of document.getElementsByTagName`xd-block-math`)katex.render(e.innerText,e,{throwOnError:false,displayMode:true})</script>"""
 
   template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string) =
     command cmdName, (thName: ?render, content: render), rendered:
@@ -247,21 +251,25 @@ proc defineDefaultCommands*(doc: Document) =
     of tHtml:
       case doc.mathRenderer
       of mrKatexJsdelivr:
-        initKatex()
+        initKatexJsdelivr()
         "<xd-inline-math>$1</xd-inline-math>" % arg.escapeText(doc.target)
       of mrKatexDuktape:
-        doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
-        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(arg)
+        initKatexJsdelivrCss()
+        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(arg, false)
     of tLatex:
       "\\($1\\)" % arg.escapeText(doc.target)
 
   command "$$", raw, rendered:
     case doc.target
     of tHtml:
-      # TODO: allow choice of way to render
-      initKatex()
       doc.addToHead.incl """<style>xd-block-math{display:block}</style>"""
-      "<xd-block-math>\\displaystyle $1</xd-block-math>" % arg
+      case doc.mathRenderer
+      of mrKatexJsdelivr:
+        initKatexJsdelivr()
+        "<xd-block-math>$1</xd-block-math>" % arg
+      of mrKatexDuktape:
+        initKatexJsdelivrCss()
+        "<xd-block-math>$1</xd-block-math>" % renderMathKatex(arg, true)
     of tLatex:
       "\\[$1\\]" % arg
 
