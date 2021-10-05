@@ -13,6 +13,7 @@ import std/tables
 
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
+  htmlUnpairedTags = "br img input link meta".splitWhitespace.toHashSet # Why is there no list of unpaired tags anywhere?
 
 proc escapeText(text: string, target: Target): string =
   case target
@@ -498,7 +499,7 @@ proc defineDefaultCommands*(doc: Document) =
   case doc.target
   of tHtml:
 
-    proc generateHtmlTag(tag: string, args: seq[string], body: string): string =
+    proc generateHtmlTag(tag: string, args: seq[string], body = "", paired = true): string =
       var attrs = newSeq[string]()
       var classes = newSeq[string]()
       for arg in args:
@@ -510,7 +511,10 @@ proc defineDefaultCommands*(doc: Document) =
           attrs.add arg
       if classes.len != 0:
         attrs.add "class=\"$1\"" % classes.join(" ")
-      "<$1>$2</$3>" % [(@[tag] & attrs).join(" "), body, tag]
+      if paired:
+        "<$1>$2</$3>" % [(@[tag] & attrs).join(" "), body, tag]
+      else:
+        "<$1 />" % [(@[tag] & attrs).join(" ")]
 
     command "<>", (tag: expand, args: *expand, body: render), rendered:
       generateHtmlTag(tag, args, body)
@@ -518,8 +522,12 @@ proc defineDefaultCommands*(doc: Document) =
     for tag in htmlTags:
       # This proc makes sure that tag is captured by value
       (proc(tag: string) =
-        command "<$1>" % tag, (args: *expand, body: render), rendered:
-          generateHtmlTag(tag, args, body)
+        if tag in htmlUnpairedTags:
+          command "<$1>" % tag, (args: *expand), rendered:
+            generateHtmlTag(tag, args, paired = false)
+        else:
+          command "<$1>" % tag, (args: *expand, body: render), rendered:
+            generateHtmlTag(tag, args, body)
       )(tag)
 
   else:
