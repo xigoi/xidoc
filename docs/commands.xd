@@ -134,6 +134,9 @@
   [cmd spoiler; visible[;] secret;
     Hides the [param secret] text until the [param visible] text is clicked. Works only in environments that support interactivity.
   ]
+  [cmd spoiler-solution; ?name[;] text;
+    Renders a paragraph with the solution to a mathematical problem with an optional [param name]. In environments that support interactivity, the [param text] is hidden inside a spoiler (see the [cmd-ref spoiler] command).
+  ]
   [cmd style; stylesheet;
     Styles an HTML document using xidoc's custom syntax for CSS.
   ]

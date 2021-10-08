@@ -252,12 +252,12 @@ proc defineDefaultCommands*(doc: Document) =
       case doc.mathRenderer
       of mrKatexJsdelivr:
         initKatexJsdelivr()
-        "<xd-inline-math>$1</xd-inline-math>" % arg.escapeText(doc.target)
+        "<xd-inline-math>$1</xd-inline-math>" % doc.renderStr(arg, ctx)
       of mrKatexDuktape:
         initKatexJsdelivrCss()
-        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(arg, false)
+        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(doc.expandStr(arg, ctx), false)
     of tLatex:
-      "\\($1\\)" % arg.escapeText(doc.target)
+      "\\($1\\)" % doc.expandStr(arg, ctx)
 
   command "$$", raw, rendered:
     case doc.target
@@ -266,12 +266,12 @@ proc defineDefaultCommands*(doc: Document) =
       case doc.mathRenderer
       of mrKatexJsdelivr:
         initKatexJsdelivr()
-        "<xd-block-math>$1</xd-block-math>" % arg
+        "<xd-block-math>$1</xd-block-math>" % doc.renderStr(arg, ctx)
       of mrKatexDuktape:
         initKatexJsdelivrCss()
-        "<xd-block-math>$1</xd-block-math>" % renderMathKatex(arg, true)
+        "<xd-block-math>$1</xd-block-math>" % renderMathKatex(doc.expandStr(arg, ctx), true)
     of tLatex:
-      "\\[$1\\]" % arg
+      "\\[$1\\]" % doc.expandStr(arg, ctx)
 
   command "add-to-head", render, rendered:
     doc.addToHead.incl arg
@@ -477,6 +477,19 @@ proc defineDefaultCommands*(doc: Document) =
       "<details class=\"xd-spoiler\"><summary>$1</summary>$2</details>" % [title, content]
     of tLatex:
       raise XidocError(msg: "The spoiler command is not supported in the LaTeX backend")
+
+  command "spoiler-solution", (name: ?render, content: render), rendered:
+    let word = pSolution.translate(ctx.lang.get(doc.lang))
+    case doc.target
+    of tHtml:
+      if name.isSome:
+        "<details class=\"xd-spoiler\"><summary><strong>$1 ($2)</strong></summary>$3</details>" % [word, name.get, content]
+      else:
+        "<details class=\"xd-spoiler\"><summary><strong>$1</strong></summary>$2</details>" % [word, content]
+    of tLatex:
+      doc.addToHead.incl "\\usepackage{amsthm}"
+      doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % ["spoilersolution", word]
+      "\\begin{$1}$2\end{$1}" % ["spoilersolution", content]
 
   command "style", raw, rendered:
     case doc.target
