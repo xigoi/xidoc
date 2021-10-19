@@ -30,10 +30,9 @@ proc expandStr(doc: Document, str: string): string =
       of xnkWhitespace: " "
       of xnkCommand:
         let name = node.name
-        let command: Command = try:
-          doc.lookup(commands, name)
-        except KeyError:
-          raise XidocError(msg: "Command not found: $1" % node.name)
+        let command = doc.lookup(commands, name)
+        if command.isNil:
+          raise XidocError(msg: "Command not found: $1" % name)
         var frame = Frame(cmdName: name)
         doc.stack.add frame
         let xstr = command(node.arg)
@@ -47,10 +46,9 @@ proc renderStr*(doc: Document, str = doc.body): string =
       of xnkWhitespace: " "
       of xnkCommand:
         let name = node.name
-        let command = try:
-          doc.lookup(commands, name)
-        except KeyError:
-          raise XidocError(msg: "Command not found: $1" % node.name)
+        let command = doc.lookup(commands, name)
+        if command.isNil:
+          raise XidocError(msg: "Command not found: $1" % name)
         var frame = Frame(cmdName: name)
         doc.stack.add frame
         let xstr = command(node.arg)
@@ -207,6 +205,50 @@ commands cssCommands:
     else:
       "var(--$1)" % name
 
+commands mathCommands:
+
+  command "/", (a: ?expand, b: expand), expanded:
+    if a.isSome:
+      "\\frac{$1}{$2}" % [a.get, b]
+    else:
+      "\\frac{1}{$1}" % [b]
+
+  # Enclosing stuff
+  command ".", expand, expanded:
+    "\\left($1\\right)" % arg
+  command "()", expand, expanded:
+    "\\left[$1\\right]" % arg
+  command "{}", expand, expanded:
+    "\\left\\{$1\\right\\}" % arg
+  command "<>", expand, expanded:
+    "\\left\\langle $1\\right\\rangle" % arg
+
+  # Inspired by the physics package
+  command "dd", (x: expand), expanded:
+    "{\\mathrm d$1}" % [x]
+  command "dd^", (n: expand, x: expand), expanded:
+    "{\\mathrm d^{$1}$2}" % [n, x]
+  command "dv", (f: ?expand, x: expand), expanded:
+    if f.isSome:
+      "\\frac{\\mathrm d$1}{\\mathrm d$2}" % [f.get, x]
+    else:
+      "\\frac{\\mathrm d}{\\mathrm d$1}" % [x]
+  command "dv^", (n: expand, f: ?expand, x: expand), expanded:
+    if f.isSome:
+      "\\frac{\\mathrm d^{$1}$2}{\\mathrm d$3^{$1}}" % [n, f.get, x]
+    else:
+      "\\frac{\\mathrm d}{\\mathrm d$2^{$1}}" % [n, x]
+  command "pdv", (f: ?expand, x: expand), expanded:
+    if f.isSome:
+      "\\frac{\\partial$1}{\\partial$2}" % [f.get, x]
+    else:
+      "\\frac{\\partial}{\\partial$1}" % [x]
+  command "pdv^", (n: expand, f: ?expand, x: expand), expanded:
+    if f.isSome:
+      "\\frac{\\partial^{$1}$2}{\\partial $3^{$1}}" % [n, f.get, x]
+    else:
+      "\\frac{\\partial}{\\partial $2^{$1}}" % [n, x]
+
 commands defaultCommands:
 
   proc initKatexJsdelivrCss() =
@@ -256,6 +298,7 @@ commands defaultCommands:
     "—"
 
   command "$", raw, rendered:
+    doc.stack[^1].commands = mathCommands(doc)
     case doc.target
     of tHtml:
       case doc.mathRenderer
@@ -269,6 +312,7 @@ commands defaultCommands:
       "\\($1\\)" % doc.expandStr(arg)
 
   command "$$", raw, rendered:
+    doc.stack[^1].commands = mathCommands(doc)
     case doc.target
     of tHtml:
       doc.addToHead.incl """<style>xd-block-math{display:block}</style>"""
