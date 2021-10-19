@@ -23,34 +23,38 @@ proc escapeText(text: string, target: Target): string =
   of tLatex:
     text
 
-proc expandStr(doc: Document, str: string, ctx: Context): string =
+proc expandStr(doc: Document, str: string): string =
   for node in str.parseXidoc(doc.verbose):
     result.add case node.kind
       of xnkString: node.str
       of xnkWhitespace: " "
       of xnkCommand:
-        let command = try:
-          doc.commands[node.name]
+        let name = node.name
+        let command: Command = try:
+          doc.lookup(commands, name)
         except KeyError:
           raise XidocError(msg: "Command not found: $1" % node.name)
-        var newCtx = ctx
-        newCtx.commandStack.add node.name
-        let xstr = command(node.arg, newCtx)
+        var frame = Frame(cmdName: name)
+        doc.stack.add frame
+        let xstr = command(node.arg)
+        discard doc.stack.pop
         xstr.str
 
-proc renderStr*(doc: Document, str = doc.body, ctx = Context()): string =
+proc renderStr*(doc: Document, str = doc.body): string =
   for node in str.parseXidoc(doc.verbose):
     result.add case node.kind
       of xnkString: node.str.escapeText(doc.target)
       of xnkWhitespace: " "
       of xnkCommand:
+        let name = node.name
         let command = try:
-          doc.commands[node.name]
+          doc.lookup(commands, name)
         except KeyError:
           raise XidocError(msg: "Command not found: $1" % node.name)
-        var newCtx = ctx
-        newCtx.commandStack.add node.name
-        let xstr = command(node.arg, newCtx)
+        var frame = Frame(cmdName: name)
+        doc.stack.add frame
+        let xstr = command(node.arg)
+        discard doc.stack.pop
         if xstr.rendered:
           xstr.str
         else:
@@ -59,7 +63,6 @@ proc renderStr*(doc: Document, str = doc.body, ctx = Context()): string =
 macro command(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
   let sigLen = sig.len
   let arg = genSym(nskParam, "arg")
-  let ctx = ident"ctx"
   let logic =
     if sig == ident"void":
       quote:
@@ -76,11 +79,11 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
         `body`
     elif sig == ident"expand":
       quote:
-        let arg {.inject.} = doc.expandStr(`arg`.strip, `ctx`)
+        let arg {.inject.} = doc.expandStr(`arg`.strip)
         `body`
     elif sig == ident"render":
       quote:
-        let arg {.inject.} = doc.renderStr(`arg`.strip, `ctx`)
+        let arg {.inject.} = doc.renderStr(`arg`.strip)
         `body`
     else:
       sig.expectKind nnkPar
@@ -110,23 +113,23 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
             if `args`.len < `minLen` or `args`.len > `maxLen`:
               raise XidocError(msg: "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len])
       let unpacks = nnkStmtList.newTree
-      template process(kind: NimNode): (proc(doc: Document, str: string, ctx: Context): string {.nimcall.}) =
+      template process(kind: NimNode): (proc(doc: Document, str: string): string {.nimcall.}) =
         if kind == ident"render":
           renderStr
         elif kind == ident"expand":
           expandStr
         elif kind == ident"raw":
-          (proc(doc: Document, str: string, ctx: Context): string = str)
+          (proc(doc: Document, str: string): string = str)
         else:
           error "invalid kind"
-          (proc(doc: Document, str: string, ctx: Context): string = str)
+          (proc(doc: Document, str: string): string = str)
       if starPos.isSome:
         block beforeStar:
           for index, pair in sig[0..<starPos.get(sigLen)]:
             let name = pair[0]
             let process = process(pair[1])
             unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[`index`], `ctx`)
+              let `name` {.inject.} = `process`(doc, `args`[`index`])
         block star:
           let start = starPos.get
           let ende = sigLen - start
@@ -134,21 +137,21 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
           let name = pair[0]
           let process = process(pair[1][1])
           unpacks.add quote do:
-            let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it, `ctx`))
+            let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it))
         block afterStar:
           for index, pair in sig[starPos.get + 1 .. ^1]:
             let index = sigLen - index - starPos.get - 1
             let name = pair[0]
             let process = process(pair[1])
             unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[^`index`], `ctx`)
+              let `name` {.inject.} = `process`(doc, `args`[^`index`])
       else: # starPos.isNone
         block beforeQuestion:
           for index, pair in sig[0..<questionPos.a]:
             let name = pair[0]
             let process = process(pair[1])
             unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[`index`], `ctx`)
+              let `name` {.inject.} = `process`(doc, `args`[`index`])
         block question:
           let minLen = sigLen - questionPos.len
           let start = questionPos.a
@@ -158,7 +161,7 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
             unpacks.add quote do:
               let `name` {.inject.} =
                 if `args`.len - `minLen` > `index`:
-                  some `process`(doc, `args`[`start` + `index`], `ctx`)
+                  some `process`(doc, `args`[`start` + `index`])
                 else:
                   none string
         block afterQuestion:
@@ -167,7 +170,7 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
             let name = pair[0]
             let process = process(pair[1])
             unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[^`index`], `ctx`)
+              let `name` {.inject.} = `process`(doc, `args`[^`index`])
       quote:
         let `args` = parseXidocArguments(`arg`)
         `lenCheck`
@@ -175,9 +178,15 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
         `body`
   let rendered = newLit(rendered == ident"rendered")
   quote:
-    doc.commands[`name`] = proc(`arg`: string, `ctx`: Context): XidocString = XidocString(rendered: `rendered`, str: `logic`)
+    commands[`name`] = proc(`arg`: string): XidocString = XidocString(rendered: `rendered`, str: `logic`)
 
-proc defineCssCommands*(doc: Document) =
+template commands(name, defs: untyped) =
+  proc name*(doc {.inject.}: Document): Table[string, Command] =
+    var commands {.inject.}: Table[string, Command]
+    defs
+    commands
+
+commands cssCommands:
 
   command ":", (prop: expand, val: expand), unrendered:
     "$1:$2;" % [prop, val]
@@ -191,14 +200,14 @@ proc defineCssCommands*(doc: Document) =
 
   command "var", (name: expand, val: ?expand), unrendered:
     if val.isSome:
-      if ctx.commandStack[^2] == "style":
+      if doc.stack[^2].cmdName == "style":
         ":root{--$1:$2}" % [name, val.get]
       else:
         "--$1:$2" % [name, val.get]
     else:
       "var(--$1)" % name
 
-proc defineDefaultCommands*(doc: Document) =
+commands defaultCommands:
 
   proc initKatexJsdelivrCss() =
     doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
@@ -209,7 +218,7 @@ proc defineDefaultCommands*(doc: Document) =
 
   template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string) =
     command cmdName, (thName: ?render, content: render), rendered:
-      let word = phrase.translate(ctx.lang.get(doc.lang))
+      let word = phrase.translate(doc.lookup(lang))
       case doc.target
       of tHtml:
         if thName.isSome:
@@ -252,12 +261,12 @@ proc defineDefaultCommands*(doc: Document) =
       case doc.mathRenderer
       of mrKatexJsdelivr:
         initKatexJsdelivr()
-        "<xd-inline-math>$1</xd-inline-math>" % doc.renderStr(arg, ctx)
+        "<xd-inline-math>$1</xd-inline-math>" % doc.renderStr(arg)
       of mrKatexDuktape:
         initKatexJsdelivrCss()
-        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(doc.expandStr(arg, ctx), false)
+        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(doc.expandStr(arg), false)
     of tLatex:
-      "\\($1\\)" % doc.expandStr(arg, ctx)
+      "\\($1\\)" % doc.expandStr(arg)
 
   command "$$", raw, rendered:
     case doc.target
@@ -266,24 +275,19 @@ proc defineDefaultCommands*(doc: Document) =
       case doc.mathRenderer
       of mrKatexJsdelivr:
         initKatexJsdelivr()
-        "<xd-block-math>$1</xd-block-math>" % doc.renderStr(arg, ctx)
+        "<xd-block-math>$1</xd-block-math>" % doc.renderStr(arg)
       of mrKatexDuktape:
         initKatexJsdelivrCss()
-        "<xd-block-math>$1</xd-block-math>" % renderMathKatex(doc.expandStr(arg, ctx), true)
+        "<xd-block-math>$1</xd-block-math>" % renderMathKatex(doc.expandStr(arg), true)
     of tLatex:
-      "\\[$1\\]" % doc.expandStr(arg, ctx)
+      "\\[$1\\]" % doc.expandStr(arg)
 
   command "add-to-head", render, rendered:
     doc.addToHead.incl arg
     ""
 
   command "arg", expand, rendered:
-    if doc.stackFrames.len == 0:
-      raise XidocError(msg: "Can't use the arg command at the top level" % arg)
-    try:
-      doc.stackFrames[^1][arg]
-    except KeyError:
-      raise XidocError(msg: "Parameter not found: $1" % arg)
+    doc.lookup(args, arg)
 
   command "bf", render, rendered:
     case doc.target
@@ -302,14 +306,14 @@ proc defineDefaultCommands*(doc: Document) =
 
   command "def", (name: expand, paramList: ?expand, body: raw), rendered:
     let params = paramList.map(it => it.splitWhitespace).get(@[])
-    doc.commands[name] = proc(arg: string, ctx: Context): XidocString =
+    doc.stack[0].commands[name] = proc(arg: string): XidocString =
       let argsList = if arg == "": @[] else: parseXidocArguments(arg)
       if argsList.len != params.len:
         raise XidocError(msg: "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len])
-      let frame = zip(params, argsList.mapIt(doc.renderStr(it, ctx))).toTable
-      doc.stackFrames.add frame
-      result = XidocString(rendered: true, str: doc.renderStr(body, ctx))
-      discard doc.stackFrames.pop
+      # Merging the following two lines into one causes the thing to break. WTF?
+      let argsTable = zip(params, argsList.mapIt(doc.renderStr(it))).toTable
+      doc.stack[^1].args = argsTable
+      result = XidocString(rendered: true, str: doc.renderStr(body))
     ""
 
   theoremLikeCommand("dfn", pDefinition, "$1", "$1")
@@ -341,13 +345,13 @@ proc defineDefaultCommands*(doc: Document) =
 
   command "if-html", raw, rendered:
     if doc.target == tHtml:
-      doc.renderStr(arg, ctx)
+      doc.renderStr(arg)
     else:
       ""
 
   command "if-latex", raw, rendered:
     if doc.target == tLatex:
-      doc.renderStr(arg, ctx)
+      doc.renderStr(arg)
     else:
       ""
 
@@ -360,12 +364,15 @@ proc defineDefaultCommands*(doc: Document) =
       body: readFile(path),
       target: doc.target,
       snippet: true,
-      lang: doc.lang,
+      stack: @[Frame(
+        cmdName: "[top]",
+        lang: some doc.lookup(lang),
+      )]
     )
-    subdoc.defineDefaultCommands
+    subdoc.stack[0].commands = defaultCommands(subdoc)
     for i in 0..<(args.len div 2):
       subdoc.templateArgs[args[2 * i]] = args[2 * i + 1]
-    subdoc.renderStr(subdoc.body, ctx)
+    subdoc.renderStr(subdoc.body)
 
   command "inject", (filename: expand), rendered:
     doc.renderStr(readFile(doc.path.splitPath.head / filename))
@@ -383,9 +390,8 @@ proc defineDefaultCommands*(doc: Document) =
       of "en", "english": lEnglish
       of "cs", "cz", "czech": lCzech
       else: raise XidocError(msg: "Unknown language: $1" % langStr)
-    var newCtx = ctx
-    newCtx.lang = some lang
-    doc.renderStr(body, newCtx)
+    doc.stack[^1].lang = some lang
+    doc.renderStr(body)
 
   command "link", (name: ?render, url: expand), rendered:
     case doc.target
@@ -434,7 +440,7 @@ proc defineDefaultCommands*(doc: Document) =
     arg.strip
 
   command "section", (name: ?render, content: render), rendered:
-    let depth = ctx.commandStack.count("section")
+    let depth = doc.stack.countIt(it.cmdName == "section")
     case doc.target
     of tHtml:
       if name.isSome:
@@ -455,11 +461,12 @@ proc defineDefaultCommands*(doc: Document) =
         "\\section*{}$1" % [content]
 
   command "set-doc-lang", expand, rendered:
-    doc.lang =
+    doc.stack[0].lang = some(
       case arg.toLowerAscii
       of "en", "english": lEnglish
       of "cs", "cz", "czech": lCzech
       else: raise XidocError(msg: "Unknown language: $1" % arg)
+    )
     ""
 
   command "set-math-renderer", expand, rendered:
@@ -479,7 +486,7 @@ proc defineDefaultCommands*(doc: Document) =
       raise XidocError(msg: "The spoiler command is not supported in the LaTeX backend")
 
   command "spoiler-solution", (name: ?render, content: render), rendered:
-    let word = pSolution.translate(ctx.lang.get(doc.lang))
+    let word = pSolution.translate(doc.lookup(lang))
     case doc.target
     of tHtml:
       if name.isSome:
@@ -494,15 +501,8 @@ proc defineDefaultCommands*(doc: Document) =
   command "style", raw, rendered:
     case doc.target
     of tHtml:
-      let subdoc = Document(
-        body: arg,
-        commands: doc.commands,
-        target: doc.target,
-        snippet: true,
-        lang: doc.lang,
-      )
-      subdoc.defineCssCommands
-      doc.addToHead.incl "<style>$1</style>" % subdoc.expandStr(subdoc.body, ctx)
+      doc.stack[^1].commands = cssCommands(doc)
+      doc.addToHead.incl "<style>$1</style>" % doc.expandStr(arg)
       ""
     else:
       raise XidocError(msg: "The style command can be used only in the HTML backend")

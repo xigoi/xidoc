@@ -14,19 +14,35 @@ type
   XidocString* = object
     rendered*: bool
     str*: string
-  Context* = object
-    commandStack*: seq[string]
+  Command* = proc(arg: string): XidocString
+  Frame* = object
+    commands*: Table[string, Command]
+    cmdName*: string
+    args*: Table[string, string]
     lang*: Option[Language]
-  Command* = proc(arg: string, ctx: Context): XidocString
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: string
-    commands*: Table[string, Command]
-    lang*: Language
     mathRenderer*: MathRenderer
     path*: string
     snippet*: bool
-    stackFrames*: seq[Table[string, string]]
+    stack*: seq[Frame]
     target*: Target
     templateArgs*: Table[string, string]
     verbose*: bool
+
+template lookup*(doc: Document, field: untyped): auto =
+  (proc(): auto =
+    for i in countdown(doc.stack.len - 1, 0):
+      let frame = doc.stack[i]
+      if frame.field.isSome:
+        return frame.field.get
+  )()
+
+template lookup*(doc: Document, field: untyped, key: typed): auto =
+  (proc(): auto =
+    for i in countdown(doc.stack.len - 1, 0):
+      let frame = doc.stack[i]
+      if frame.field.hasKey(key):
+        return frame.field[key]
+  )()

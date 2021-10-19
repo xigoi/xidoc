@@ -32,8 +32,11 @@ proc xidoc(target = "html", snippet = false, verbose = false, paths: seq[string]
       target: target,
       snippet: snippet,
       verbose: verbose,
+      stack: @[Frame(
+        cmdName: "[top]",
+      )]
     )
-    doc.defineDefaultCommands
+    doc.stack[0].commands = defaultCommands(doc)
     let rendered = doc.renderStr(doc.body)
     if snippet:
       # TODO: some way to get doc.addToHead
