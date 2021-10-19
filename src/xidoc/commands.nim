@@ -326,6 +326,22 @@ commands defaultCommands:
     of tLatex:
       "\\[$1\\]" % doc.expandStr(arg)
 
+  command "$$&", raw, rendered:
+    doc.stack[^1].commands = mathCommands(doc)
+    case doc.target
+    of tHtml:
+      doc.addToHead.incl """<style>xd-block-math{display:block}</style>"""
+      case doc.mathRenderer
+      of mrKatexJsdelivr:
+        initKatexJsdelivr()
+        "<xd-block-math>\\begin{align*}$1\\end{align*}</xd-block-math>" % doc.renderStr(arg)
+      of mrKatexDuktape:
+        raise XidocError(msg: "Aligned math is currently not supported with the katex-duktape renderer")
+        # initKatexJsdelivrCss()
+        # "<xd-block-math>\\begin{align*}$1\\end{align*}</xd-block-math>" % renderMathKatex(doc.expandStr(arg), true)
+    of tLatex:
+      "\\begin{align*}$1\\end{align*}" % doc.expandStr(arg)
+
   command "add-to-head", render, rendered:
     doc.addToHead.incl arg
     ""
