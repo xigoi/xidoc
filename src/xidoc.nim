@@ -4,9 +4,9 @@ import std/sequtils
 import std/sets
 import std/strutils
 import std/tables
-import xidoc/commands
-import xidoc/parser
-import xidoc/types
+import xidocpkg/commands
+import xidocpkg/parser
+import xidocpkg/types
 
 const targets = toTable {
   "html": tHtml,
