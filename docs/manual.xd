@@ -2,7 +2,8 @@
 [section Installation;
   [p You need [link Nim; https://nim-lang.org/] and [link Nimble; https://github.com/nim-lang/nimble].]
   [section From the Nimble package repository;
-    [p I'm going to publish this package on Nimble when possible.]
+    [p [ms nimble install xidoc]]
+    [p Make sure that [ms ~/.nimble/bin] is in your [ms PATH].]
   ]
   [section Building from source;
     [list
