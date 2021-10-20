@@ -336,9 +336,8 @@ commands defaultCommands:
         initKatexJsdelivr()
         "<xd-block-math>\\begin{align*}$1\\end{align*}</xd-block-math>" % doc.renderStr(arg)
       of mrKatexDuktape:
-        raise XidocError(msg: "Aligned math is currently not supported with the katex-duktape renderer")
-        # initKatexJsdelivrCss()
-        # "<xd-block-math>\\begin{align*}$1\\end{align*}</xd-block-math>" % renderMathKatex(doc.expandStr(arg), true)
+        initKatexJsdelivrCss()
+        "<xd-block-math>$1</xd-block-math>" % renderMathKatex("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), true)
     of tLatex:
       "\\begin{align*}$1\\end{align*}" % doc.expandStr(arg)
 

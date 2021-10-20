@@ -1,4 +1,4 @@
-[# [set-math-renderer katex-duktape]]
+[set-math-renderer katex-duktape]
 [$$ [dv^ 2; x] \sin(x) = [dv \cos(x); x] = - \sin(x) = \int -\cos(x) [dd x]]
 [$$&
   a + b &= c \\
