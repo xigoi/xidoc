@@ -84,7 +84,6 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
         let arg {.inject.} = doc.renderStr(`arg`.strip)
         `body`
     else:
-      sig.expectKind nnkPar
       var starPos = none int
       var questionPos = 0..<0
       for index, pair in sig:

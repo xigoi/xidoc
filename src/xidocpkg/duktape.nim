@@ -24,5 +24,7 @@ proc renderMathKatex*(math: string, displayMode: bool): string =
     addExitProc do():
       ctx.duk_destroy_heap
     ctx.duk_eval_string(katexJs)
-  ctx.duk_eval_string("katex.renderToString(\"$1\", {throwOnError: false, displayMode: $2})" % [math.multiReplace({"\\": "\\\\", "\"": "\\\"", "\n": "\\n"}), $displayMode])
+  let mathEscaped = math.multiReplace({"\\": "\\\\", "\"": "\\\"", "\n": "\\n"})
+  let call = "katex.renderToString(\"$1\", {throwOnError: false, displayMode: $2})" % [mathEscaped, $displayMode]
+  ctx.duk_eval_string(call.cstring)
   $ctx.duk_get_string(-1)
