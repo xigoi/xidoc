@@ -8,8 +8,7 @@
   [section Building from source;
     [list
       Clone the repository;
-      [p [ms nimble build -d:release]];
-      Copy [ms ./xidoc] to your [ms PATH];
+      [p [ms nimble install]];
     ]
   ]
 ]
