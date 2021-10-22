@@ -370,11 +370,14 @@ commands defaultCommands:
   command "arg", expand, rendered:
     doc.renderStr(doc.lookup(args, arg))
 
-  command "arg-expand", expand, rendered:
+  command "arg-expand", expand, expanded:
     doc.expandStr(doc.lookup(args, arg))
 
-  command "arg-raw", expand, rendered:
+  command "arg-raw", expand, expanded:
     doc.lookup(args, arg)
+
+  command "arg-raw-escape", expand, rendered:
+    escapeText(doc.lookup(args, arg), doc.target)
 
   command "bf", render, rendered:
     case doc.target

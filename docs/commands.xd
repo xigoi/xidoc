@@ -9,6 +9,8 @@
   [rule td,th;
     [: border; 1px solid #888]
     [: padding; 0rem 1rem]
+    [: width; 50%]
+    [: overflow-x; auto]
   ]
 ]
 [def cmd; name signature explanation;
@@ -25,10 +27,19 @@
 ]
 [def param; name; [ms [arg name]]]
 [def cmd-ref; name; [link [ms [color #ff4; [arg name]]]; #[arg name]]]
-[def math-cmd; name signature;
-  [<tr> #[arg name];
-    [<td> [ms [color #666; [(]][color #ff4; [arg name]] [arg signature][color #666; [)]]]]
-    [<td> [render [() $$ [() [arg-expand name] [arg-expand signature]]]]]
+[def ex; xidoc;
+  [<table>
+    [<tr> [<th> Example][<th> Output]]
+    [<tr>
+      [<td> [ms [arg-raw xidoc]]]
+      [<td> [arg xidoc]]
+    ]
+  ]
+]
+[def math-cmd; name args;
+  [<tr> #[() $][arg name];
+    [<td> [ms [color #666; [(]][color #ff4; [arg name]] [arg args][color #666; [)]]]]
+    [<td> [render [(]$$ [(][arg-expand name] [arg-expand args] [)] [)]]]
   ]
 ]
 
@@ -38,21 +49,26 @@
   ]
   [cmd #; anything;
     Comment. Always returns nothing, ignoring what's inside.
+    [ex I [# don't] like xidoc.]
   ]
   [cmd $; latex;
     Renders [LaTeX] inline math.
+    [ex Einstein's famous equation is [$ E = m c^2].]
   ]
   [cmd $$; latex;
     Renders [LaTeX] block math.
+    [ex [$$ (A+B)^n = \sum_{k=0}^n {n \choose k} A^{n-k} B^k]]
   ]
   [cmd $$&; latex;
     Renders [LaTeX] aligned block math (with the [ms align] environment).
+    [ex [$$& ((f \circ g) \circ h)(x) &= f(g(h(x))) \\ &= (f \circ (g \circ h))(x)]]
   ]
   [cmd-nilad (;
     Returns a left square bracket.
   ]
   [cmd (); text;
     Wraps [param text] in square brackets.
+    [ex [() this-is-not-a-command]]
   ]
   [cmd-nilad );
     Returns a right square bracket.
@@ -65,6 +81,7 @@
   ]
   [cmd-nilad [;];
     Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
+    [ex [list This[;] is[;] only[;] one[;] item]]
   ]
   [cmd add-to-head; directive;
     Adds the [param directive] to the head of the document. Returns nothing.
@@ -74,9 +91,11 @@
   ]
   [cmd bf; text;
     Renders [param text] in bold face.
+    [ex xidoc is [bf awesome]!]
   ]
   [cmd color; color text;
     Colors the [param text] in the given CSS-style [param color].
+    [ex You can use [color red; names] or [color #00f; codes]!]
   ]
   [cmd def; name[;] ?params[;] body;
     Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command.
@@ -95,9 +114,11 @@
   ]
   [cmd if-html; text;
     Evaluates [param text] only if the target is HTML, otherwise returns nothing.
+    [ex [if-html You can see this only if you're in HTML!]]
   ]
   [cmd if-latex; text;
     Evaluates [param text] only if the target is [LaTeX], otherwise returns nothing.
+    [ex [if-latex You can see this only if you're in [LaTeX]!]]
   ]
   [cmd include; file[;] *(name[;] value);
     Renders the content of [param file] as a separate document and pastes it. You can give arguments to the subdocument, which can be retrieved with the [cmd-ref template-arg] command.
@@ -107,24 +128,29 @@
   ]
   [cmd it; text;
     Renders [param text] in italics.
+    [ex xidoc is [it fantastic!]]
   ]
   [cmd lang; language[;] text;
     Renders [param text] in the specified [param language].
   ]
   [cmd link; ?text[;] address;
     Adds a link to the given [param address] with an optional [param text] visually replacing the address.
+    [ex [link xidoc; http://xidoc.nim.town/] is made in [link Nim; https://nim-lang.org/].]
   ]
   [cmd list; *items;
     Creates an unordered list of [param items].
+    [ex Supported targets: [list HTML; [LaTeX]]]
   ]
   [cmd ms; text;
     Renders [param text] in monospace.
+    [ex In HTML, this will produce [ms <code>]. In [LaTeX], this will produce [ms \texttt].]
   ]
   [cmd p; text;
     Creates a paragraph with the given [param text].
   ]
   [cmd pass; code;
     Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. The [param code] is still expanded so you can parametrize it, see the [cmd-ref pass-raw] command if you don't want this.
+    [ex [pass <em>Haha!</em> I'm in! <code>'; DROP TABLE xidoc;</code> Oh no, this is a static site…]]
   ]
   [cmd pass-raw; code;
     Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. Works as a combination of [cmd-ref pass] and [cmd-ref raw].
@@ -133,10 +159,11 @@
     Renders a mathematical proof paragraph with an optional [param name].
   ]
   [cmd props; *properties;
-    Creates a list of mathematical [param properties].
+    Creates a list of mathematical [param properties]. Currently the same as [cmd-ref list].
   ]
   [cmd raw; text;
     Returns the given [param text] without expanding it.
+    [ex [raw [I can use [as many brackets [as I want]], but [they] still have to [[be balanced!]]].]]
   ]
   [cmd section; ?title[;] text;
     Creates a section with the given [param title] and [param text] (or without a title if not given). If it's inside another section, it will be a subsection. If it's inside a subsection, it will be a subsubsection. In HTML, this nesting can continue further.
@@ -156,6 +183,7 @@
   ]
   [cmd spoiler; visible[;] secret;
     Hides the [param secret] text until the [param visible] text is clicked. Works only in environments that support interactivity.
+    [ex [spoiler In the series [it The Simpsons], the surname of the main characters is; [it Simpson]]]
   ]
   [cmd spoiler-solution; ?name[;] text;
     Renders a paragraph with the solution to a mathematical problem with an optional [param name]. In environments that support interactivity, the [param text] is hidden inside a spoiler (see the [cmd-ref spoiler] command).
@@ -171,6 +199,7 @@
   ]
   [cmd term; phrase;
     Introduces [param phrase] as a new term. Useful in definitions.
+    [ex A [term group] is a monoid where every element has an inverse.]
   ]
   [cmd title; title;
     Renders the given [param title] and sets it as the title of the document.
