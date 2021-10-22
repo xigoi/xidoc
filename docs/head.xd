@@ -37,7 +37,7 @@
   [<header>
     [title xidoc]
     [<nav>
-      [link Introduction; /index.html]
+      [link Introduction; /]
       [link Manual; /manual.html]
       [link Commands; /commands.html]
     ]

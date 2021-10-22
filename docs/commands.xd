@@ -3,6 +3,13 @@
   [rule h3;
     [: font-size; inherit]
   ]
+  [rule table;
+    [: border-collapse; collapse]
+  ]
+  [rule td,th;
+    [: border; 1px solid #888]
+    [: padding; 0rem 1rem]
+  ]
 ]
 [def cmd; name signature explanation;
   [html-add-attrs #[arg name];
@@ -18,6 +25,12 @@
 ]
 [def param; name; [ms [arg name]]]
 [def cmd-ref; name; [link [ms [color #ff4; [arg name]]]; #[arg name]]]
+[def math-cmd; name signature;
+  [<tr> #[arg name];
+    [<td> [ms [color #666; [(]][color #ff4; [arg name]] [arg signature][color #666; [)]]]]
+    [<td> [render [() $$ [() [arg-expand name] [arg-expand signature]]]]]
+  ]
+]
 
 [section Top-level commands;
   [cmd ; whitespace;
@@ -27,13 +40,13 @@
     Comment. Always returns nothing, ignoring what's inside.
   ]
   [cmd $; latex;
-    Renders LaTeX inline math.
+    Renders [LaTeX] inline math.
   ]
   [cmd $$; latex;
-    Renders LaTeX block math.
+    Renders [LaTeX] block math.
   ]
   [cmd $$&; latex;
-    Renders LaTeX aligned block math (with the [ms align] environment).
+    Renders [LaTeX] aligned block math (with the [ms align] environment).
   ]
   [cmd-nilad (;
     Returns a left square bracket.
@@ -84,7 +97,7 @@
     Evaluates [param text] only if the target is HTML, otherwise returns nothing.
   ]
   [cmd if-latex; text;
-    Evaluates [param text] only if the target is LaTeX, otherwise returns nothing.
+    Evaluates [param text] only if the target is [LaTeX], otherwise returns nothing.
   ]
   [cmd include; file[;] *(name[;] value);
     Renders the content of [param file] as a separate document and pastes it. You can give arguments to the subdocument, which can be retrieved with the [cmd-ref template-arg] command.
@@ -132,7 +145,7 @@
     Sets the global [param language] of the document. Returns nothing.
   ]
   [cmd set-math-renderer; renderer;
-    Determines how LaTeX math will be rendered in HTML. The options are:
+    Determines how [LaTeX] math will be rendered in HTML. The options are:
     [list
       [ms katex-jsdelivr] — uses [link KaTeX; https://katex.org/], loaded on the client side from [link jsDelivr; https://www.jsdelivr.com/]. Currently the default.;
       [ms katex-duktape] — uses [link KaTeX; https://katex.org/], rendered during compilation. The stylesheets will still be fetched on the client side using [link jsDelivr; https://www.jsdelivr.com/].;
@@ -173,5 +186,30 @@
   ]
   [cmd var; name[;] ?value;
     If a [param value] is given, declares a CSS variable: [ms --name: value;]. If used outside a [cmd-ref rule], it's assigned to [ms :root]. If used without a [param value], it gets the value of the given variable: [ms var(--name)].
+  ]
+]
+[section Math commands;
+  [p These commands are available in [LaTeX] math. That is, inside the [cmd-ref $], [cmd-ref $$] and [cmd-ref $$&] commands. They are meant to make certain common combinations of [LaTeX] commands easier to type.]
+  [<table>
+    [<tr> [<th> Command][<th> Output]]
+    [math-cmd /; q]
+    [math-cmd /; p[;] q]
+    [math-cmd .; \frac{p}{q}]
+    [math-cmd (); \frac{p}{q}]
+    [math-cmd {}; \frac{p}{q}]
+    [math-cmd <>; \frac{p}{q}]
+    [math-cmd dd; x]
+    [math-cmd dv; x]
+    [math-cmd dv; f[;] x]
+    [math-cmd dv^; 2[;] x]
+    [math-cmd dv^; 2[;] f[;] x]
+    [math-cmd pdv; x]
+    [math-cmd pdv; f[;] x]
+    [math-cmd pdv^; 2[;] x]
+    [math-cmd pdv^; 2[;] f[;] x]
+    [math-cmd mat; a&b\\c&d]
+    [math-cmd .mat; a&b\\c&d]
+    [math-cmd (mat); a&b\\c&d]
+    [math-cmd |mat|; a&b\\c&d]
   ]
 ]

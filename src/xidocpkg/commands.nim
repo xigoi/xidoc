@@ -236,17 +236,27 @@ commands mathCommands:
     if f.isSome:
       "\\frac{\\mathrm d^{$1}$2}{\\mathrm d$3^{$1}}" % [n, f.get, x]
     else:
-      "\\frac{\\mathrm d}{\\mathrm d$2^{$1}}" % [n, x]
+      "\\frac{\\mathrm d^{$1}}{\\mathrm d$2^{$1}}" % [n, x]
   command "pdv", (f: ?expand, x: expand), expanded:
     if f.isSome:
-      "\\frac{\\partial$1}{\\partial$2}" % [f.get, x]
+      "\\frac{\\partial $1}{\\partial $2}" % [f.get, x]
     else:
-      "\\frac{\\partial}{\\partial$1}" % [x]
+      "\\frac{\\partial}{\\partial $1}" % [x]
   command "pdv^", (n: expand, f: ?expand, x: expand), expanded:
     if f.isSome:
       "\\frac{\\partial^{$1}$2}{\\partial $3^{$1}}" % [n, f.get, x]
     else:
-      "\\frac{\\partial}{\\partial $2^{$1}}" % [n, x]
+      "\\frac{\\partial^{$1}}{\\partial $2^{$1}}" % [n, x]
+
+  # Matrices
+  command "mat", expand, expand:
+    "\\begin{matrix}$1\\end{matrix}" % [arg]
+  command ".mat", expand, expand:
+    "\\begin{pmatrix}$1\\end{pmatrix}" % [arg]
+  command "(mat)", expand, expand:
+    "\\begin{bmatrix}$1\\end{bmatrix}" % [arg]
+  command "|mat|", expand, expand:
+    "\\begin{vmatrix}$1\\end{vmatrix}" % [arg]
 
 commands defaultCommands:
 
@@ -340,11 +350,30 @@ commands defaultCommands:
     of tLatex:
       "\\begin{align*}$1\\end{align*}" % doc.expandStr(arg)
 
+  command "LaTeX", void, rendered:
+    case doc.target
+    of tHtml:
+      case doc.mathRenderer
+      of mrKatexJsdelivr:
+        initKatexJsdelivr()
+        "<xd-inline-math>\\text{\\LaTeX}</xd-inline-math>"
+      of mrKatexDuktape:
+        initKatexJsdelivrCss()
+        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex("\\text{\\LaTeX}", false)
+    of tLatex:
+      "\\LaTeX{}"
+
   command "add-to-head", render, rendered:
     doc.addToHead.incl arg
     ""
 
   command "arg", expand, rendered:
+    doc.renderStr(doc.lookup(args, arg))
+
+  command "arg-expand", expand, rendered:
+    doc.expandStr(doc.lookup(args, arg))
+
+  command "arg-raw", expand, rendered:
     doc.lookup(args, arg)
 
   command "bf", render, rendered:
@@ -369,7 +398,7 @@ commands defaultCommands:
       if argsList.len != params.len:
         raise XidocError(msg: "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len])
       # Merging the following two lines into one causes the thing to break. WTF?
-      let argsTable = zip(params, argsList.mapIt(doc.renderStr(it))).toTable
+      let argsTable = zip(params, argsList).toTable
       doc.stack[^1].args = argsTable
       result = XidocString(rendered: true, str: doc.renderStr(body))
     ""
@@ -379,6 +408,9 @@ commands defaultCommands:
   theoremLikeCommand("example", pExample, "$1", "$1")
 
   theoremLikeCommand("exercise", pExercise, "$1", "$1")
+
+  command "expand", expand, expanded:
+    doc.expandStr(arg)
 
   command "html-add-attrs", (args: expand, tag: render), rendered:
     case doc.target
@@ -496,6 +528,9 @@ commands defaultCommands:
 
   command "raw", raw, unrendered:
     arg.strip
+
+  command "render", expand, rendered:
+    doc.renderStr(arg)
 
   command "section", (name: ?render, content: render), rendered:
     let depth = doc.stack.countIt(it.cmdName == "section")
