@@ -6,8 +6,8 @@ import std/tables
 type
   XidocError* = ref object of CatchableError
   Target* = enum
-    tHtml
-    tLatex
+    tHtml = "html"
+    tLatex = "latex"
   MathRenderer* = enum
     mrKatexJsdelivr
     mrKatexDuktape

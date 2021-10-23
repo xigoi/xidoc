@@ -8,10 +8,6 @@ import xidocpkg/commands
 import xidocpkg/parser
 import xidocpkg/types
 
-const targets = toTable {
-  "html": tHtml,
-  "latex": tLatex,
-}
 const extensions = toTable {
   tHtml: "html",
   tLatex: "tex",
@@ -21,9 +17,7 @@ const templates = toTable {
   tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage{geometry}$1\begin{document}$2\end{document}""",
 }
 
-proc xidoc(target = "html", snippet = false, verbose = false, paths: seq[string]) =
-
-  let target = targets[target]
+proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string]) =
 
   proc renderFile(path: string, input, output: File) =
     let doc = Document(
