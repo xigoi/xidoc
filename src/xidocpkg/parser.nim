@@ -48,7 +48,10 @@ const xidocArgumentParser = peg("args", output: seq[string]):
   args <- ?(arg * *(';' * arg))
 
 proc parseXidocArguments*(body: string): seq[string] =
-  if body == "":
-    return newSeq[string]()
-  if not xidocArgumentParser.match(body, result).ok:
+  try:
+    if body == "":
+      return newSeq[string]()
+    if not xidocArgumentParser.match(body, result).ok:
+      raise XidocError(msg: "Parse error")
+  except NPegException:
     raise XidocError(msg: "Parse error")

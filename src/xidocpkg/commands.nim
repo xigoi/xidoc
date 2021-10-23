@@ -413,23 +413,30 @@ commands defaultCommands:
     if args.len mod 2 != 0:
       xidocError "Additional arguments to include must come in pairs"
     let path = doc.path.splitPath.head / filename
-    let subdoc = Document(
-      path: path,
-      body: readFile(path),
-      target: doc.target,
-      snippet: true,
-      stack: @[Frame(
-        cmdName: "[top]",
-        lang: some doc.lookup(lang),
-      )]
-    )
-    subdoc.stack[0].commands = defaultCommands(subdoc)
-    for i in 0..<(args.len div 2):
-      subdoc.templateArgs[args[2 * i]] = args[2 * i + 1]
-    subdoc.renderStr(subdoc.body)
+    try:
+      let subdoc = Document(
+        path: path,
+        body: readFile(path),
+        target: doc.target,
+        snippet: true,
+        stack: @[Frame(
+          cmdName: "[top]",
+          lang: some doc.lookup(lang),
+        )]
+      )
+      subdoc.stack[0].commands = defaultCommands(subdoc)
+      for i in 0..<(args.len div 2):
+        subdoc.templateArgs[args[2 * i]] = args[2 * i + 1]
+      subdoc.renderStr(subdoc.body)
+    except IOError:
+      xidocError &"Cannot open file {filename}\n(resolved as {path})"
 
   command "inject", (filename: expand), rendered:
-    doc.renderStr(readFile(doc.path.splitPath.head / filename))
+    let path = doc.path.splitPath.head / filename
+    try:
+      doc.renderStr(readFile(path))
+    except IOError:
+      xidocError &"Cannot open file {filename}\n(resolved as {path})"
 
   command "it", render, rendered:
     case doc.target
