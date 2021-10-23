@@ -1,6 +1,7 @@
 from std/pegs import match, peg
 import ./duktape
 import ./error
+import ./expand
 import ./parser
 import ./translations
 import ./types
@@ -9,6 +10,7 @@ import std/options
 import std/os
 import std/sequtils
 import std/sets
+import std/strformat
 import std/strutils
 import std/sugar
 import std/tables
@@ -16,48 +18,6 @@ import std/tables
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
   htmlUnpairedTags = "br img input link meta".splitWhitespace.toHashSet # Why is there no list of unpaired tags anywhere?
-
-proc escapeText(text: string, target: Target): string =
-  case target
-  of tHtml:
-    text.multiReplace({"<": "&lt;", ">": "&gt;", "&": "&amp;"})
-  of tLatex:
-    text
-
-proc expandStr(doc: Document, str: string): string =
-  for node in str.parseXidoc(doc.verbose):
-    result.add case node.kind
-      of xnkString: node.str
-      of xnkWhitespace: " "
-      of xnkCommand:
-        let name = node.name
-        let command = doc.lookup(commands, name)
-        if command.isNil:
-          xidocError "Command not found: $1" % name
-        var frame = Frame(cmdName: name)
-        doc.stack.add frame
-        let xstr = command(node.arg)
-        discard doc.stack.pop
-        xstr.str
-
-proc renderStr*(doc: Document, str = doc.body): string =
-  for node in str.parseXidoc(doc.verbose):
-    result.add case node.kind
-      of xnkString: node.str.escapeText(doc.target)
-      of xnkWhitespace: " "
-      of xnkCommand:
-        let name = node.name
-        let command = doc.lookup(commands, name)
-        if command.isNil:
-          xidocError "Command not found: $1" % name
-        var frame = Frame(cmdName: name)
-        doc.stack.add frame
-        let xstr = command(node.arg)
-        discard doc.stack.pop
-        if xstr.rendered:
-          xstr.str
-        else:
-          xstr.str.escapeText(doc.target)
 
 macro command(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
   let sigLen = sig.len
@@ -606,7 +566,10 @@ commands defaultCommands:
 
 
   command "template-arg", render, rendered:
-    doc.templateArgs[arg]
+    try:
+      doc.templateArgs[arg]
+    except KeyError:
+      xidocError: &"Template argument not found: {arg}"
 
   command "term", render, rendered:
     case doc.target

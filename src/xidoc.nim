@@ -7,6 +7,7 @@ import std/strutils
 import std/tables
 import xidocpkg/commands
 import xidocpkg/error
+import xidocpkg/expand
 import xidocpkg/parser
 import xidocpkg/types
 
