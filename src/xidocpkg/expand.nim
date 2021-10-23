@@ -23,7 +23,7 @@ template expand(doc: Document, str: string, render: static bool) =
         let command = doc.lookup(commands, name)
         if command.isNil:
           xidocError &"Command not found: {name}"
-        var frame = Frame(cmdName: name)
+        var frame = Frame(cmdName: name, cmdArg: node.arg)
         doc.stack.add frame
         let xstr = command(node.arg)
         discard doc.stack.pop

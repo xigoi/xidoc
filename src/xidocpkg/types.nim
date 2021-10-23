@@ -15,9 +15,10 @@ type
     str*: string
   Command* = proc(arg: string): XidocString
   Frame* = object
-    commands*: Table[string, Command]
-    cmdName*: string
     args*: Table[string, string]
+    cmdArg*: string
+    cmdName*: string
+    commands*: Table[string, Command]
     lang*: Option[Language]
   Document* = ref object
     addToHead*: OrderedSet[string]
