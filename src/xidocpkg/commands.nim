@@ -1,5 +1,6 @@
 from std/pegs import match, peg
 import ./duktape
+import ./error
 import ./parser
 import ./translations
 import ./types

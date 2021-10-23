@@ -2,9 +2,11 @@ import cligen
 import std/os
 import std/sequtils
 import std/sets
+import std/strformat
 import std/strutils
 import std/tables
 import xidocpkg/commands
+import xidocpkg/error
 import xidocpkg/parser
 import xidocpkg/types
 
@@ -31,12 +33,17 @@ proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string])
       )]
     )
     doc.stack[0].commands = defaultCommands(doc)
-    let rendered = doc.renderStr(doc.body)
-    if snippet:
-      # TODO: some way to get doc.addToHead
-      output.writeLine rendered
-    else:
-      output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered]
+    try:
+      let rendered = doc.renderStr(doc.body)
+      if snippet:
+        # TODO: some way to get doc.addToHead
+        output.writeLine rendered
+      else:
+        output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered]
+      if path != "":
+        stderr.writeLine "Rendered file $1" % path
+    except XidocError:
+      printXidocError(getCurrentException().XidocError, doc)
 
   if paths.len == 0:
     try:
@@ -52,9 +59,6 @@ proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string])
           let output = open(outputPath, fmWrite)
           try:
             renderFile(path, input, output)
-            stderr.writeLine "Rendered file $1" % path
-          except XidocError:
-            stderr.writeLine "Error while rendering file $1:\n$2" % [path, getCurrentException().msg]
           finally:
             output.close
         except IOError:

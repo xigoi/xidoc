@@ -4,7 +4,6 @@ import std/sets
 import std/tables
 
 type
-  XidocError* = ref object of CatchableError
   Target* = enum
     tHtml = "html"
     tLatex = "latex"
