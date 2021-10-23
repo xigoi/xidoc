@@ -26,3 +26,6 @@ proc printXidocError*(err: XidocError, doc: Document) =
     stderr.styledWriteLine styleBright, fgYellow, &"in command [{frame.cmdName}]"
   stderr.writeLine err.msg
   stderr.writeLine ""
+
+template xidocError*(msge: string) =
+  raise XidocError(msg: msge)

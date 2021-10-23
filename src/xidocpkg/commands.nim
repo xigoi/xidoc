@@ -33,7 +33,7 @@ proc expandStr(doc: Document, str: string): string =
         let name = node.name
         let command = doc.lookup(commands, name)
         if command.isNil:
-          raise XidocError(msg: "Command not found: $1" % name)
+          xidocError "Command not found: $1" % name
         var frame = Frame(cmdName: name)
         doc.stack.add frame
         let xstr = command(node.arg)
@@ -49,7 +49,7 @@ proc renderStr*(doc: Document, str = doc.body): string =
         let name = node.name
         let command = doc.lookup(commands, name)
         if command.isNil:
-          raise XidocError(msg: "Command not found: $1" % name)
+          xidocError "Command not found: $1" % name
         var frame = Frame(cmdName: name)
         doc.stack.add frame
         let xstr = command(node.arg)
@@ -66,7 +66,7 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
     if sig == ident"void":
       quote:
         if `arg` != "":
-          raise XidocError(msg: "Command $1 must be called without an argument" % [`name`])
+          xidocError "Command $1 must be called without an argument" % [`name`]
         `body`
     elif sig == ident"literal":
       quote:
@@ -103,13 +103,13 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
           let minLen = sigLen - 1
           quote:
             if `args`.len < `minLen`:
-              raise XidocError(msg: "Command $1 needs at least $2 arguments, $3 given" % [`name`, $`minLen`, $`args`.len])
+              xidocError "Command $1 needs at least $2 arguments, $3 given" % [`name`, $`minLen`, $`args`.len]
         else:
           let minLen = sigLen - questionPos.len
           let maxLen = sigLen
           quote:
             if `args`.len < `minLen` or `args`.len > `maxLen`:
-              raise XidocError(msg: "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len])
+              xidocError "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len]
       let unpacks = nnkStmtList.newTree
       template process(kind: NimNode): (proc(doc: Document, str: string): string {.nimcall.}) =
         if kind == ident"render":
@@ -400,7 +400,7 @@ commands defaultCommands:
     doc.stack[0].commands[name] = proc(arg: string): XidocString =
       let argsList = if arg == "": @[] else: parseXidocArguments(arg)
       if argsList.len != params.len:
-        raise XidocError(msg: "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len])
+        xidocError "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len]
       # Merging the following two lines into one causes the thing to break. WTF?
       let argsTable = zip(params, argsList).toTable
       doc.stack[^1].args = argsTable
@@ -421,7 +421,7 @@ commands defaultCommands:
     of tHtml:
       var matches: array[2, string]
       if not tag.match(peg"{'<' [a-zA-Z-]+} {.*}", matches):
-        raise XidocError(msg: "Can't add HTML attribute to something that isn't an HTML tag")
+        xidocError "Can't add HTML attribute to something that isn't an HTML tag"
       var attrs = newSeq[string]()
       var classes = newSeq[string]()
       for arg in args.splitWhitespace:
@@ -451,7 +451,7 @@ commands defaultCommands:
 
   command "include", (filename: expand, args: *render), rendered:
     if args.len mod 2 != 0:
-      raise XidocError(msg: "Additional arguments to include must come in pairs")
+      xidocError "Additional arguments to include must come in pairs"
     let path = doc.path.splitPath.head / filename
     let subdoc = Document(
       path: path,
@@ -483,7 +483,7 @@ commands defaultCommands:
       case langStr.toLowerAscii
       of "en", "english": lEnglish
       of "cs", "cz", "czech": lCzech
-      else: raise XidocError(msg: "Unknown language: $1" % langStr)
+      else: xidocError "Unknown language: $1" % langStr
     doc.stack[^1].lang = some lang
     doc.renderStr(body)
 
@@ -562,7 +562,7 @@ commands defaultCommands:
       case arg.toLowerAscii
       of "en", "english": lEnglish
       of "cs", "cz", "czech": lCzech
-      else: raise XidocError(msg: "Unknown language: $1" % arg)
+      else: xidocError "Unknown language: $1" % arg
     )
     ""
 
@@ -570,7 +570,7 @@ commands defaultCommands:
     doc.mathRenderer = case arg
     of "katex-jsdelivr": mrKatexJsdelivr
     of "katex-duktape": mrKatexDuktape
-    else: raise XidocError(msg: "Invalid value for set-math-renderer: $1" % arg)
+    else: xidocError "Invalid value for set-math-renderer: $1" % arg
     ""
 
   theoremLikeCommand("solution", pSolution, "$1", "$1")
@@ -580,7 +580,7 @@ commands defaultCommands:
     of tHtml:
       "<details class=\"xd-spoiler\"><summary>$1</summary>$2</details>" % [title, content]
     of tLatex:
-      raise XidocError(msg: "The spoiler command is not supported in the LaTeX backend")
+      xidocError "The spoiler command is not supported in the LaTeX backend"
 
   command "spoiler-solution", (name: ?render, content: render), rendered:
     let word = pSolution.translate(doc.lookup(lang))
@@ -602,7 +602,7 @@ commands defaultCommands:
       doc.addToHead.incl "<style>$1</style>" % doc.expandStr(arg)
       ""
     else:
-      raise XidocError(msg: "The style command can be used only in the HTML backend")
+      xidocError "The style command can be used only in the HTML backend"
 
 
   command "template-arg", render, rendered:
