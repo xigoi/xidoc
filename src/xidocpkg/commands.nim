@@ -219,6 +219,28 @@ commands mathCommands:
   command "|mat|", expand, expand:
     "\\begin{vmatrix}$1\\end{vmatrix}" % [arg]
 
+commands drawCommands:
+
+  type XY = tuple[x, y: float]
+
+  proc parseXY(xy: string): XY =
+    try:
+      let xy = xy.split(',')
+      result.x = xy[0].parseFloat
+      result.y = xy[1].parseFloat
+    except ValueError, IndexDefect:
+      xidocError &"Invalid coordinates: {xy}"
+
+  command "Lab", (a: expand, b: expand, width: ?expand, color: ?expand), rendered:
+    let (ax, ay) = parseXY(a)
+    let (bx, by) = parseXY(b)
+    let w = width.get("3")
+    case doc.target
+    of tHtml:
+      &"""<line x1={ax} y1={ay} x2={bx} y2={by} stroke-width={w} stroke="{color.get("currentColor")}" />"""
+    of tLatex:
+      xidocError "Drawing is currently not implemented in the LaTeX backend"
+
 commands defaultCommands:
 
   proc initKatexJsdelivrCss() =
@@ -368,6 +390,14 @@ commands defaultCommands:
     ""
 
   theoremLikeCommand("dfn", pDefinition, "$1", "$1")
+
+  command "draw", raw, rendered:
+    doc.stack[^1].commands = drawCommands(doc)
+    case doc.target
+    of tHtml:
+      &"""<svg width="100" height="100" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">{doc.expandStr(arg)}</svg>"""
+    else:
+      xidocError "The style command can be used only in the HTML backend"
 
   theoremLikeCommand("example", pExample, "$1", "$1")
 
