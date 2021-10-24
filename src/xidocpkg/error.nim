@@ -13,7 +13,7 @@ macro styledWriteLine(file: File, args: varargs[untyped]) =
   let fallbackCall = quote:
     writeLine(`file`)
   for arg in args:
-    if arg.kind != nnkSym:
+    if arg.kind != nnkIdent:
       fallbackCall.add arg
   quote:
     if `file`.isatty:
