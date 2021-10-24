@@ -540,6 +540,14 @@ commands defaultCommands:
     else: xidocError "Invalid value for set-math-renderer: $1" % arg
     ""
 
+  command "set-title", expand, rendered:
+    case doc.target
+    of tHtml:
+      doc.addToHead.incl "<title>$1</title>" % arg
+    of tLatex:
+      doc.addToHead.incl "\\title{$1}" % arg
+    ""
+
   theoremLikeCommand("solution", pSolution, "$1", "$1")
 
   command "spoiler", (title: render, content: render), rendered:

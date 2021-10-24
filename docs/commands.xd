@@ -178,6 +178,9 @@
       [ms katex-duktape] — uses [link KaTeX; https://katex.org/], rendered during compilation. The stylesheets will still be fetched on the client side using [link jsDelivr; https://www.jsdelivr.com/].;
     ]
   ]
+  [cmd set-title; title;
+    Sets the given [param title] as the title of the document.
+  ]
   [cmd solution; ?name[;] text;
     Renders a paragraph with the solution to a mathematical problem with an optional [param name].
   ]
