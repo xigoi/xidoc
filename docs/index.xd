@@ -35,6 +35,24 @@
     ]
   ]
 ]
+[section What can I do with xidoc?;
+  [list
+    Make a website;
+    Make the front-end of a web app;
+    Write your school notes;
+    Write an article;
+    Write a book;
+    Flex your skills at learning obscure languages;
+    Write a plain text file and wonder why it's giving errors if you include square brackets;
+  ]
+]
+[section What can I not do with xidoc?;
+  [list
+    Make the back-end of a web app;
+    Check if an integer is prime;
+    Solve the Halting Problem;
+  ]
+]
 [section Source Code;
   xidoc is available [link on GitHub; https://github.com/xigoi/xidoc] under the GNU GPL 3 licence.
 ]
