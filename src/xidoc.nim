@@ -47,10 +47,7 @@ proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string])
       printXidocError(getCurrentException().XidocError, doc)
 
   if paths.len == 0:
-    try:
-      renderFile("", stdin, stdout)
-    except XidocError:
-      stderr.writeLine "Error while rendering input:\n$1" % getCurrentException().msg
+    renderFile("", stdin, stdout)
   else:
     for path in paths:
       let outputPath = path.changeFileExt(extensions[target])
