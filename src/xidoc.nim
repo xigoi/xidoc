@@ -66,8 +66,9 @@ proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string])
       except IOError:
         stderr.writeLine "Cannot open file $1" % path
 
-dispatch xidoc, help = {
-  "target": "what language to transpile to; one of \"html\", \"latex\"",
-  "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
-  "verbose": "show more detailed errors",
-}
+when isMainModule:
+  dispatch xidoc, help = {
+    "target": "what language to transpile to; one of \"html\", \"latex\"",
+    "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
+    "verbose": "show more detailed errors",
+  }
