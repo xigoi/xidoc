@@ -233,10 +233,11 @@ commands defaultCommands:
       let word = phrase.translate(doc.lookup(lang))
       case doc.target
       of tHtml:
+        doc.addToHead.incl "<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"
         if thName.isSome:
-          "<p><strong>$1 ($2).</strong> $3</p>" % [word, thName.get, htmlTmpl % content]
+          "<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>" % [cmdName, word, thName.get, htmlTmpl % content]
         else:
-          "<p><strong>$1.</strong> $2</p>" % [word, htmlTmpl % content]
+          "<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>" % [cmdName, word, htmlTmpl % content]
       of tLatex:
         doc.addToHead.incl "\\usepackage{amsthm}"
         doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % [cmdName, word]
