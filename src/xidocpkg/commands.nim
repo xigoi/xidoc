@@ -133,7 +133,7 @@ macro command(name: string, sig: untyped, rendered: untyped, body: untyped): unt
         let `args` = parseXidocArguments(`arg`)
         `lenCheck`
         `unpacks`
-        `body`
+        block: `body`
   let rendered = newLit(rendered == ident"rendered")
   quote:
     commands[`name`] = proc(`arg`: string): XidocString = XidocString(rendered: `rendered`, str: `logic`)
@@ -223,6 +223,12 @@ commands drawCommands:
 
   type XY = tuple[x, y: float]
 
+  proc parseFloat(x: string): float =
+    try:
+      strutils.parseFloat(x)
+    except ValueError:
+      xidocError &"INvalid number: {x}"
+
   proc parseXY(xy: string): XY =
     try:
       let xy = xy.split(',')
@@ -231,13 +237,77 @@ commands drawCommands:
     except ValueError, IndexDefect:
       xidocError &"Invalid coordinates: {xy}"
 
-  command "Lab", (a: expand, b: expand, width: ?expand, color: ?expand), rendered:
-    let (ax, ay) = parseXY(a)
-    let (bx, by) = parseXY(b)
-    let w = width.get("3")
+  template drawParseArgs {.dirty.} =
+    when declared(a):
+      let a = a.parseXY
+    when declared(b):
+      let b = b.parseXY
+    when declared(c):
+      let c = c.parseXY
+    when declared(r):
+      let r = r.parseFloat
+    when declared(u):
+      let u = u.parseXY
+    when declared(width):
+      let width = width.get("3")
+    when declared(color):
+      let color = color.get("currentColor")
+    when declared(fill):
+      let fill = fill.get("transparent")
+
+  command "Ccr", (c: expand, r: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+    drawParseArgs
     case doc.target
     of tHtml:
-      &"""<line x1={ax} y1={ay} x2={bx} y2={by} stroke-width={w} stroke="{color.get("currentColor")}" />"""
+      &"""<circle cx={c.x} cy={c.y} r={r} stroke-width={width} stroke="{color}" fill="{fill}" />"""
+    of tLatex:
+      xidocError "Drawing is currently not implemented in the LaTeX backend"
+
+  command "Lab", (a: expand, b: expand, width: ?expand, color: ?expand), rendered:
+    drawParseArgs
+    case doc.target
+    of tHtml:
+      &"""<line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke-width={width} stroke="{color}" />"""
+    of tLatex:
+      xidocError "Drawing is currently not implemented in the LaTeX backend"
+
+  command "Lau", (a: expand, u: expand, width: ?expand, color: ?expand), rendered:
+    drawParseArgs
+    case doc.target
+    of tHtml:
+      &"""<line x1={a.x} y1={a.y} x2={a.x+u.x} y2={a.y+u.y} stroke-width={width} stroke="{color}" />"""
+    of tLatex:
+      xidocError "Drawing is currently not implemented in the LaTeX backend"
+
+  command "Lcu", (c: expand, u: expand, width: ?expand, color: ?expand), rendered:
+    drawParseArgs
+    case doc.target
+    of tHtml:
+      &"""<line x1={c.x-u.x} y1={c.y-u.y} x2={c.x+u.x} y2={c.y+u.y} stroke-width={width} stroke="{color}" />"""
+    of tLatex:
+      xidocError "Drawing is currently not implemented in the LaTeX backend"
+
+  command "Rab", (a: expand, b: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+    drawParseArgs
+    case doc.target
+    of tHtml:
+      &"""<rect x={a.x} y={a.y} width={b.x-a.x} height={b.y-a.y} stroke-width={width} stroke="{color}" fill="{fill}" />"""
+    of tLatex:
+      xidocError "Drawing is currently not implemented in the LaTeX backend"
+
+  command "Rau", (a: expand, u: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+    drawParseArgs
+    case doc.target
+    of tHtml:
+      &"""<rect x={a.x} y={a.y} width={u.x} height={u.y} stroke-width={width} stroke="{color}" fill="{fill}" />"""
+    of tLatex:
+      xidocError "Drawing is currently not implemented in the LaTeX backend"
+
+  command "Rcu", (c: expand, u: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+    drawParseArgs
+    case doc.target
+    of tHtml:
+      &"""<rect x={c.x-u.x} y={c.y-u.y} width={2*u.x} height={2*u.y} stroke-width={width} stroke="{color}" fill="{fill}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
 
