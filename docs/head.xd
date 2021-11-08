@@ -33,6 +33,10 @@
       [: margin; 1rem]
       [: font-family; sans-serif]
     ]
+    [rule textarea;
+      [: background-color; inherit]
+      [: color; inherit]
+    ]
   ]
   [<header>
     [title xidoc]
