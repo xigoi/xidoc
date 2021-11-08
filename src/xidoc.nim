@@ -1,4 +1,3 @@
-import cligen
 import std/os
 import std/sequtils
 import std/sets
@@ -20,12 +19,67 @@ const templates = toTable {
   tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage{geometry}$1\begin{document}$2\end{document}""",
 }
 
-proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string]) =
+when isMainModule and not defined(js):
+  import cligen
 
-  proc renderFile(path: string, input, output: File) =
-    let doc = Document(
-      path: path,
-      body: input.readAll,
+  proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string]) =
+
+    proc renderFile(path: string, input, output: File) =
+      let doc = Document(
+        path: path,
+        body: input.readAll,
+        target: target,
+        snippet: snippet,
+        verbose: verbose,
+        stack: @[Frame(
+          cmdName: "[top]",
+        )]
+      )
+      doc.stack[0].commands = defaultCommands(doc)
+      try:
+        let rendered = doc.renderStr(doc.body)
+        if snippet:
+          # TODO: some way to get doc.addToHead
+          output.writeLine rendered
+        else:
+          output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered]
+        if path != "":
+          stderr.writeLine "Rendered file $1" % path
+      except XidocError:
+        printXidocError(getCurrentException().XidocError, doc)
+
+    if paths.len == 0:
+      renderFile("", stdin, stdout)
+    else:
+      for path in paths:
+        let outputPath = path.changeFileExt(extensions[target])
+        try:
+          let input = open(path, fmRead)
+          try:
+            let output = open(outputPath, fmWrite)
+            try:
+              renderFile(path, input, output)
+            finally:
+              output.close
+          except IOError:
+            stderr.writeLine "Cannot open file $1 for writing" % outputPath
+          finally:
+            input.close
+        except IOError:
+          stderr.writeLine "Cannot open file $1" % path
+
+  dispatch xidoc, help = {
+    "target": "what language to transpile to; one of \"html\", \"latex\"",
+    "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
+    "verbose": "show more detailed errors",
+  }
+
+else: # when library
+
+  proc newDocument(body: cstring, target = tHtml, snippet = false, verbose = false): Document {.exportc.} =
+    result = Document(
+      path: "",
+      body: $body,
       target: target,
       snippet: snippet,
       verbose: verbose,
@@ -33,42 +87,15 @@ proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string])
         cmdName: "[top]",
       )]
     )
-    doc.stack[0].commands = defaultCommands(doc)
-    try:
-      let rendered = doc.renderStr(doc.body)
-      if snippet:
-        # TODO: some way to get doc.addToHead
-        output.writeLine rendered
-      else:
-        output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered]
-      if path != "":
-        stderr.writeLine "Rendered file $1" % path
-    except XidocError:
-      printXidocError(getCurrentException().XidocError, doc)
+    result.stack[0].commands = defaultCommands(result)
 
-  if paths.len == 0:
-    renderFile("", stdin, stdout)
-  else:
-    for path in paths:
-      let outputPath = path.changeFileExt(extensions[target])
-      try:
-        let input = open(path, fmRead)
-        try:
-          let output = open(outputPath, fmWrite)
-          try:
-            renderFile(path, input, output)
-          finally:
-            output.close
-        except IOError:
-          stderr.writeLine "Cannot open file $1 for writing" % outputPath
-        finally:
-          input.close
-      except IOError:
-        stderr.writeLine "Cannot open file $1" % path
+  proc render(doc: Document): cstring {.exportc.} =
+    let rendered = doc.renderStr(doc.body)
+    let resulrStr = if doc.snippet:
+      rendered
+    else:
+      templates[doc.target] % [doc.addToHead.toSeq.join, rendered]
+    resulrStr.cstring
 
-when isMainModule:
-  dispatch xidoc, help = {
-    "target": "what language to transpile to; one of \"html\", \"latex\"",
-    "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
-    "verbose": "show more detailed errors",
-  }
+  when defined(js):
+    {.emit: "export {newDocument, render};".}

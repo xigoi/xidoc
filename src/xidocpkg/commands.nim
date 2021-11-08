@@ -167,6 +167,9 @@ commands cssCommands:
 
 commands mathCommands:
 
+  command "_", expand, expanded:
+    &"[{arg}]"
+
   command "/", (a: ?expand, b: expand), expanded:
     if a.isSome:
       "\\frac{$1}{$2}" % [a.get, b]

@@ -1,41 +1,42 @@
-import ./types
-import std/macros
-import std/pegs
-import std/sequtils
-import std/strformat
-import std/strutils
-import std/terminal
-
 type
   XidocError* = ref object of CatchableError
 
-macro styledWriteLine(file: File, args: varargs[untyped]) =
-  let fallbackCall = quote:
-    writeLine(`file`)
-  for arg in args:
-    if arg.kind != nnkIdent:
-      fallbackCall.add arg
-  quote:
-    if `file`.isatty:
-      terminal.styledWriteLine(`file`, `args`)
-    else:
-      `fallbackCall`
-
-proc printXidocError*(err: XidocError, doc: Document) =
-  stderr.writeLine ""
-  stderr.styledWriteLine styleBright, fgRed, &"Error while rendering file {doc.path}"
-  for frame in doc.stack[1..^1]:
-    const maxDisplayedArgLength = 48
-    var truncatedArg = frame.cmdArg.replace(peg"\s+", " ")
-    if truncatedArg.len > maxDisplayedArgLength:
-      truncatedArg = truncatedArg[0..<maxDisplayedArgLength]
-      truncatedArg.add "…"
-      let numOpeningBrackets = truncatedArg.count('[')
-      let numClosingBrackets = truncatedArg.count(']')
-      truncatedArg.add "]…".repeat(numOpeningBrackets - numClosingBrackets)
-    stderr.styledWriteLine styleBright, fgYellow, &"in [{frame.cmdName}{truncatedArg}]"
-  stderr.writeLine err.msg
-  stderr.writeLine ""
-
 template xidocError*(msge: string) =
   raise XidocError(msg: msge)
+
+when not defined(js):
+  import ./types
+  import std/macros
+  import std/pegs
+  import std/sequtils
+  import std/strformat
+  import std/strutils
+  import std/terminal
+
+  macro styledWriteLine(file: File, args: varargs[untyped]) =
+    let fallbackCall = quote:
+      writeLine(`file`)
+    for arg in args:
+      if arg.kind != nnkIdent:
+        fallbackCall.add arg
+    quote:
+      if `file`.isatty:
+        terminal.styledWriteLine(`file`, `args`)
+      else:
+        `fallbackCall`
+
+  proc printXidocError*(err: XidocError, doc: Document) =
+    stderr.writeLine ""
+    stderr.styledWriteLine styleBright, fgRed, &"Error while rendering file {doc.path}"
+    for frame in doc.stack[1..^1]:
+      const maxDisplayedArgLength = 48
+      var truncatedArg = frame.cmdArg.replace(peg"\s+", " ")
+      if truncatedArg.len > maxDisplayedArgLength:
+        truncatedArg = truncatedArg[0..<maxDisplayedArgLength]
+        truncatedArg.add "…"
+        let numOpeningBrackets = truncatedArg.count('[')
+        let numClosingBrackets = truncatedArg.count(']')
+        truncatedArg.add "]…".repeat(numOpeningBrackets - numClosingBrackets)
+      stderr.styledWriteLine styleBright, fgYellow, &"in [{frame.cmdName}{truncatedArg}]"
+    stderr.writeLine err.msg
+    stderr.writeLine ""

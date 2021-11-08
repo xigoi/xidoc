@@ -1,5 +1,5 @@
 [inject head.xd]
-[add-to-head [<style> pre{overflow:auto}]]
+[style [rule pre; [: overflow; auto]]]
 [p [bf xidoc] is a consistent markup language that compiles to HTML and [LaTeX]. It's currently very work-in-progress, but I'm already using it for my school notes and this documentation.]
 [section A Quick Look;
   [section xidoc code;
