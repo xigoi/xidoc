@@ -9,7 +9,7 @@ type
     tLatex = "latex"
   MathRenderer* = enum
     mrKatexJsdelivr
-    mrKatexDuktape
+    mrKatex
   XidocString* = object
     rendered*: bool
     str*: string

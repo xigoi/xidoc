@@ -1,7 +1,7 @@
 from std/pegs import match, peg
-import ./duktape
 import ./error
 import ./expand
+import ./jsinterpret
 import ./parser
 import ./translations
 import ./types
@@ -297,7 +297,7 @@ commands defaultCommands:
       of mrKatexJsdelivr:
         initKatexJsdelivr()
         "<xd-inline-math>$1</xd-inline-math>" % doc.renderStr(arg)
-      of mrKatexDuktape:
+      of mrKatex:
         initKatexJsdelivrCss()
         "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(doc.expandStr(arg), false)
     of tLatex:
@@ -312,7 +312,7 @@ commands defaultCommands:
       of mrKatexJsdelivr:
         initKatexJsdelivr()
         "<xd-block-math>$1</xd-block-math>" % doc.renderStr(arg)
-      of mrKatexDuktape:
+      of mrKatex:
         initKatexJsdelivrCss()
         "<xd-block-math>$1</xd-block-math>" % renderMathKatex(doc.expandStr(arg), true)
     of tLatex:
@@ -327,7 +327,7 @@ commands defaultCommands:
       of mrKatexJsdelivr:
         initKatexJsdelivr()
         "<xd-block-math>\\begin{align*}$1\\end{align*}</xd-block-math>" % doc.renderStr(arg)
-      of mrKatexDuktape:
+      of mrKatex:
         initKatexJsdelivrCss()
         "<xd-block-math>$1</xd-block-math>" % renderMathKatex("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), true)
     of tLatex:
@@ -340,7 +340,7 @@ commands defaultCommands:
       of mrKatexJsdelivr:
         initKatexJsdelivr()
         "<xd-inline-math>\\text{\\LaTeX}</xd-inline-math>"
-      of mrKatexDuktape:
+      of mrKatex:
         initKatexJsdelivrCss()
         "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex("\\text{\\LaTeX}", false)
     of tLatex:
@@ -397,6 +397,9 @@ commands defaultCommands:
 
   command "expand", expand, expanded:
     doc.expandStr(arg)
+
+  command "hide", expand, rendered:
+    ""
 
   command "html-add-attrs", (args: expand, tag: render), rendered:
     case doc.target
@@ -558,7 +561,7 @@ commands defaultCommands:
   command "set-math-renderer", expand, rendered:
     doc.mathRenderer = case arg
     of "katex-jsdelivr": mrKatexJsdelivr
-    of "katex-duktape": mrKatexDuktape
+    of "katex", "katex-duktape": mrKatex
     else: xidocError "Invalid value for set-math-renderer: $1" % arg
     ""
 
