@@ -178,13 +178,29 @@ commands mathCommands:
 
   # Enclosing stuff
   command ".", expand, expanded:
-    "\\left($1\\right)" % arg
+    "{\\left($1\\right)}" % arg
   command "()", expand, expanded:
-    "\\left[$1\\right]" % arg
+    "{\\left[$1\\right]}" % arg
   command "{}", expand, expanded:
-    "\\left\\{$1\\right\\}" % arg
+    "{\\left\\{$1\\right\\}}" % arg
   command "<>", expand, expanded:
-    "\\left\\langle $1\\right\\rangle" % arg
+    "{\\left\\langle $1\\right\\rangle}" % arg
+  command "|", expand, expanded:
+    "{\\left\\lvert $1\\right\\rvert}" % arg
+  command "||", expand, expanded:
+    "{\\left\\lVert $1\\right\\rVert}" % arg
+
+  # Analysis/Calculus
+  command "int", (lb: ?expand, ub: ?expand, expr: expand, varname: expand), expanded:
+    if lb.isSome:
+      if ub.isSome:
+        "\\int_{$1}^{$2}$3\\,\\mathrm d$4" % [lb.get, ub.get, expr, varname]
+      else:
+        "\\int_{$1}$2\\,\\mathrm d$3" % [lb.get, expr, varname]
+    else:
+      "\\int $1\\,\\mathrm d$2" % [expr, varname]
+  command "lim", (varname: ?expand, point: ?expand), expanded:
+    "\\lim_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
 
   # Inspired by the physics package
   command "dd", (x: expand), expanded:
@@ -221,6 +237,8 @@ commands mathCommands:
     "\\begin{bmatrix}$1\\end{bmatrix}" % [arg]
   command "|mat|", expand, expand:
     "\\begin{vmatrix}$1\\end{vmatrix}" % [arg]
+  command "||mat||", expand, expand:
+    "\\begin{Vmatrix}$1\\end{Vmatrix}" % [arg]
 
 commands defaultCommands:
 

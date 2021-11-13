@@ -39,7 +39,13 @@
 [def math-cmd; name args;
   [<tr> #[() $][arg name];
     [<td> [ms [color #666; [(]][color #ff4; [arg name]] [arg args][color #666; [)]]]]
-    [<td> [render [(]$$ [(][arg-expand name] [arg-expand args] [)] [)]]]
+    [<td> [render [(]$$ [(][arg-expand name] [arg-expand args][)][)]]]
+  ]
+]
+[def math-cmd-nilad; name;
+  [<tr> #[() $][arg name];
+    [<td> [ms [color #666; [(]][color #ff4; [arg name]][color #666; [)]]]]
+    [<td> [render [(]$$ [(][arg-expand name][)][)]]]
   ]
 ]
 
@@ -230,6 +236,8 @@
     [math-cmd (); \frac{p}{q}]
     [math-cmd {}; \frac{p}{q}]
     [math-cmd <>; \frac{p}{q}]
+    [math-cmd |; \frac{p}{q}]
+    [math-cmd ||; \frac{p}{q}]
     [math-cmd dd; x]
     [math-cmd dv; x]
     [math-cmd dv; f[;] x]
@@ -243,5 +251,12 @@
     [math-cmd .mat; a&b\\c&d]
     [math-cmd (mat); a&b\\c&d]
     [math-cmd |mat|; a&b\\c&d]
+    [math-cmd ||mat||; a&b\\c&d]
+    [math-cmd-nilad lim]
+    [math-cmd lim; m]
+    [math-cmd lim; x[;] 0]
+    [math-cmd int; x[;] t]
+    [math-cmd int; T[;] x[;] t]
+    [math-cmd int; t_1[;] t_2[;] x[;] t]
   ]
 ]
