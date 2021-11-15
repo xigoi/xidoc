@@ -189,6 +189,8 @@ commands mathCommands:
     "{\\left\\lvert $1\\right\\rvert}" % arg
   command "||", expand, expanded:
     "{\\left\\lVert $1\\right\\rVert}" % arg
+  command "v.", expand, expanded:
+    "{\\overgroup{\\undergroup{$1}}}" % arg
 
   # Analysis/Calculus
   command "int", (lb: ?expand, ub: ?expand, expr: expand, varname: expand), expanded:

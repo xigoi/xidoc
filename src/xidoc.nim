@@ -91,11 +91,11 @@ else: # when library
 
   proc render(doc: Document): cstring {.exportc.} =
     let rendered = doc.renderStr(doc.body)
-    let resulrStr = if doc.snippet:
+    let resultStr = if doc.snippet:
       rendered
     else:
       templates[doc.target] % [doc.addToHead.toSeq.join, rendered]
-    resulrStr.cstring
+    resultStr.cstring
 
   when defined(js):
     {.emit: "export {newDocument, render};".}

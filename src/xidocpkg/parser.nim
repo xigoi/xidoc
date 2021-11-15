@@ -29,7 +29,7 @@ const xidocParser = peg("text", output: XidocNodes):
     output.add XidocNode(kind: xnkString, str: $1)
   whitespace <- +Space:
     output.add XidocNode(kind: xnkWhitespace)
-  command <- '[' * >*xidoc.commandChar * >?xidoc.unparsedText * ']':
+  command <- '[' * >*xidoc.commandChar * >xidoc.unparsedText * ']':
     output.add XidocNode(kind: xnkCommand, name: $1, arg: $2)
   chunk <- command | textChars | whitespace
   text <- *chunk * !1

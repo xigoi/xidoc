@@ -238,6 +238,7 @@
     [math-cmd <>; \frac{p}{q}]
     [math-cmd |; \frac{p}{q}]
     [math-cmd ||; \frac{p}{q}]
+    [math-cmd v.; \frac{p}{q}]
     [math-cmd dd; x]
     [math-cmd dv; x]
     [math-cmd dv; f[;] x]
