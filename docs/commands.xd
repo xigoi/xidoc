@@ -71,6 +71,7 @@
   ]
   [cmd-nilad (;
     Returns a left square bracket.
+    [ex I'm a sad robot :[(]]
   ]
   [cmd (); text;
     Wraps [param text] in square brackets.
@@ -78,12 +79,15 @@
   ]
   [cmd-nilad );
     Returns a right square bracket.
+    [ex I'm a happy robot :[)]]
   ]
   [cmd-nilad --;
     Returns an en dash: [ms –]
+    [ex 80[--]100% of people don't know the difference between a dash and a hyphen.]
   ]
   [cmd-nilad ---;
     Returns an em dash: [ms —]
+    [ex En dash [---] the character many people don't know how to write.]
   ]
   [cmd-nilad [;];
     Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
@@ -93,7 +97,17 @@
     Adds the [param directive] to the head of the document. Returns nothing.
   ]
   [cmd arg; parameter;
-    Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter].
+    Inside a command definition ([cmd-ref def]), renders the argument given to the [param parameter].
+    [ex [def greet; name; Hello, [arg name]!][greet reader]]
+  ]
+  [cmd arg-expand; parameter;
+    Inside a command definition ([cmd-ref def]), expands the argument given to the [param parameter], but doesn't render it.
+  ]
+  [cmd arg-raw; parameter;
+    Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it.
+  ]
+  [cmd arg-raw-escape; parameter;
+    Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered.
   ]
   [cmd bf; text;
     Renders [param text] in bold face.
@@ -104,19 +118,29 @@
     [ex You can use [color red; names] or [color #00f; codes]!]
   ]
   [cmd def; name[;] ?params[;] body;
-    Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command.
+    Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command and its variants ([cmd-ref arg-expand], [cmd-ref arg-raw], [cmd-ref arg-raw-escape]).
+    [ex [def greet; name; Hello, [arg name]!][greet reader]]
   ]
   [cmd dfn; ?name[;] text;
     Renders a mathematical definition paragraph with an optional [param name].
+    [ex [dfn An [term inertial system] is a system where the law of inertia holds.]]
   ]
   [cmd example; ?name[;] text;
     Renders a mathematical example paragraph with an optional [param name].
   ]
   [cmd exercise; ?name[;] text;
     Renders a mathematical exercise paragraph with an optional [param name].
+    [ex [exercise Determine if the Collatz sequence reaches [$ 1] for every initial value.]]
+  ]
+  [cmd expand; text;
+    After expanding [param text], expands it again. Useful for complex command defititions.
+  ]
+  [cmd hide; text;
+    Expands [param text] for its side effects, but doesn't return anything.
   ]
   [cmd html-add-attrs; attrs[;] cmd;
     If the target is HTML, adds the given [param attributes] to the tag produced by [param cmd]. Supports the [ms .foo] and [ms #foo] syntax for specifying classes and IDs.
+    [if-html [ex [html-add-attrs style="color:pink"; [bf Real men don't fear colors.]]]]
   ]
   [cmd if-html; text;
     Evaluates [param text] only if the target is HTML, otherwise returns nothing.
@@ -156,23 +180,30 @@
   ]
   [cmd pass; code;
     Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. The [param code] is still expanded so you can parametrize it, see the [cmd-ref pass-raw] command if you don't want this.
-    [ex [pass <em>Haha!</em> I'm in! <code>'; DROP TABLE xidoc;</code> Oh no, this is a static site…]]
+    [if-html [ex [pass <em>Haha!</em> I'm in! <code>'; DROP TABLE xidoc;</code> Oh no, this is a static site…]]]
   ]
   [cmd pass-raw; code;
     Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. Works as a combination of [cmd-ref pass] and [cmd-ref raw].
   ]
   [cmd proof; ?name[;] text;
     Renders a mathematical proof paragraph with an optional [param name].
+    [ex [proof Left as an exercise to the reader.]]
   ]
   [cmd props; *properties;
     Creates a list of mathematical [param properties]. Currently the same as [cmd-ref list].
+    [ex [props [$ \forall x,y,z \in G: (xy)z = x(yz)]; [$ \exists e \in G, \forall x \in G: ex = x = xe]; [$ \forall x \in G, \exists x^{-1} \in G: xx^{-1} = e = x^{-1}x]]]
   ]
   [cmd raw; text;
     Returns the given [param text] without expanding it.
     [ex [raw [I can use [as many brackets [as I want]], but [they] still have to [[be balanced!]]].]]
   ]
+  [cmd render; text;
+    After expanding [param text], renders it. Useful for complex command defititions.
+    [ex [render [raw [it This will be italic despite being inside [ms raw].]]]]
+  ]
   [cmd section; ?title[;] text;
     Creates a section with the given [param title] and [param text] (or without a title if not given). If it's inside another section, it will be a subsection. If it's inside a subsection, it will be a subsubsection. In HTML, this nesting can continue further.
+    [ex [section Inception; Are we going too deep?]]
   ]
   [cmd set-doc-lang; language;
     Sets the global [param language] of the document. Returns nothing.
@@ -199,12 +230,14 @@
   ]
   [cmd style; stylesheet;
     Styles an HTML document using xidoc's custom syntax for CSS.
+    [if-html [ex [style [rule .golden-frame; [: border; 3px solid gold]]][<div> .golden-frame; This text is a work of art!]]]
   ]
   [cmd template-arg; name;
     In a document included with [cmd-ref include], returns the given argument passed to [cmd-ref include].
   ]
   [cmd theorem; ?name[;] text;
     Renders a mathematical theorem paragraph with an optional [param name].
+    [ex [theorem Pythagorean; In a right triangle with legs [$ a,b] and hypotenuse [$ c], [$ a^2 + b^2 = c^2].]]
   ]
   [cmd term; phrase;
     Introduces [param phrase] as a new term. Useful in definitions.
@@ -213,6 +246,9 @@
   [cmd title; title;
     Renders the given [param title] and sets it as the title of the document.
   ]
+]
+[section HTML commands;
+  When compiling to HTML, you can use tag commands to generate arbitrary tags. For example, [ms [raw [<> a; .click-here; "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; CLICK HERE]]] produces a link with the class [ms click-here] and the text [ms CLICK HERE]. Default tags have a shorthand, so this could also be written as [ms [raw [<a> .click-here; "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; CLICK HERE]]]. However, the latter syntax doesn't work for custom tags.
 ]
 [section CSS commands;
   [p xidoc includes a simple set of commands that can be used to generate CSS without having to embed a completely different syntax in your document. It can be included using the [cmd-ref style] command. (If you prefer normal CSS, use [ms [raw [add-to-head [<style> …]]]].)]
