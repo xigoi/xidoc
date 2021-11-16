@@ -91,7 +91,7 @@
   ]
   [cmd-nilad ---;
     Returns an em dash: [ms —]
-    [ex En dash [---] the character many people don't know how to write.]
+    [ex Em dash [---] the character many people don't know how to write.]
   ]
   [cmd-nilad ...;
     Returns an ellipsis: [ms [...]]
