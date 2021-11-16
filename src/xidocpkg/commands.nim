@@ -17,7 +17,7 @@ import std/tables
 
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
-  htmlUnpairedTags = "br img input link meta".splitWhitespace.toHashSet # Why is there no list of unpaired tags anywhere?
+  htmlUnpairedTags = "br img input link meta".splitWhitespace
 
 macro command(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
   let sigLen = sig.len
@@ -409,6 +409,15 @@ commands defaultCommands:
   command "hide", expand, rendered:
     ""
 
+  command "header-row", (entries: *render), rendered:
+    if not doc.stack.anyIt(it.cmdName == "table"):
+      xidocError "The header-row command has to be inside a table command"
+    case doc.target
+    of tHtml:
+      "<tr>$1</tr>" % entries.mapIt("<th>$1</th>" % it).join
+    of tLatex:
+      "$1\\\\\\midrule " % entries.join("&")
+
   command "html-add-attrs", (args: expand, tag: render), rendered:
     case doc.target
     of tHtml:
@@ -536,6 +545,15 @@ commands defaultCommands:
   command "render", expand, rendered:
     doc.renderStr(arg)
 
+  command "row", (entries: *render), rendered:
+    if not doc.stack.anyIt(it.cmdName == "table"):
+      xidocError "The row command has to be inside a table command"
+    case doc.target
+    of tHtml:
+      "<tr>$1</tr>" % entries.mapIt("<td>$1</td>" % it).join
+    of tLatex:
+      "$1\\\\" % entries.join("&")
+
   command "section", (name: ?render, content: render), rendered:
     let depth = doc.stack.countIt(it.cmdName == "section")
     case doc.target
@@ -612,6 +630,15 @@ commands defaultCommands:
     else:
       xidocError "The style command can be used only in the HTML backend"
 
+  command "table", (spec: ?expand, content: render), rendered:
+    case doc.target
+    of tHtml:
+      "<table>$1</table>" % [content]
+    of tLatex:
+      if spec.isNone:
+        xidocError "Tables in LaTeX currently require a spec"
+      doc.addToHead.incl "\\usepackage{booktabs}"
+      "\\begin{table}{$1}\\toprule $2\\bottomrule\\end{table}" % [spec.get, content]
 
   command "template-arg", render, rendered:
     try:

@@ -28,30 +28,34 @@
 [def param; name; [ms [arg name]]]
 [def cmd-ref; name; [link [ms [color #ff4; [arg name]]]; #[arg name]]]
 [def ex; xidoc;
-  [<table>
-    [<tr> [<th> Example][<th> Output]]
-    [<tr>
-      [<td> [ms [arg-raw xidoc]]]
-      [<td> [arg xidoc]]
+  [table cc;
+    [header-row Example; Output]
+    [row
+      [ms [arg-raw xidoc]];
+      [arg xidoc];
     ]
   ]
 ]
 [def math-cmd; name args;
-  [<tr> #[() $][arg name];
-    [<td> [ms [color #666; [(]][color #ff4; [arg name]] [arg args][color #666; [)]]]]
-    [<td> [render [(]$$ [(][arg-expand name] [arg-expand args][)][)]]]
-  ]
+  [html-add-attrs #[() $][arg name]; [row
+    [ms [color #666; [(]][color #ff4; [arg name]] [arg args][color #666; [)]]];
+    [render [(]$$ [(][arg-expand name] [arg-expand args][)][)]];
+  ]]
 ]
 [def math-cmd-nilad; name;
-  [<tr> #[() $][arg name];
-    [<td> [ms [color #666; [(]][color #ff4; [arg name]][color #666; [)]]]]
-    [<td> [render [(]$$ [(][arg-expand name][)][)]]]
-  ]
+  [html-add-attrs #[() $][arg name]; [row
+    [ms [color #666; [(]][color #ff4; [arg name]][color #666; [)]]];
+    [render [(]$$ [(][arg-expand name][)][)]];
+  ]]
 ]
 
 [section Top-level commands;
   [cmd ; whitespace;
     The empty command. Returns the whitespace inside the brackets, allowing it to be “escaped” in commands that strip whitespace.
+  ]
+  [cmd "; text;
+    Puts the given text in quotation marks appropriate for the current language.
+    [ex [" Hello!] [lang czech; [" Ahoj!]]]
   ]
   [cmd #; anything;
     Comment. Always returns nothing, ignoring what's inside.
@@ -88,6 +92,10 @@
   [cmd-nilad ---;
     Returns an em dash: [ms —]
     [ex En dash [---] the character many people don't know how to write.]
+  ]
+  [cmd-nilad ...;
+    Returns an ellipsis: [ms [...]]
+    [ex You can't just substitute three dots for an ellipsis[...]]
   ]
   [cmd-nilad [;];
     Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
@@ -138,6 +146,10 @@
   [cmd hide; text;
     Expands [param text] for its side effects, but doesn't return anything.
   ]
+  [cmd header-row; *fields;
+    Creates a header row for a table with the given fields. Has to be used inside a [cmd-ref table] command.
+    [ex [table [header-row xidoc; HTML; [LaTeX]] [row [ms [() table]]; [ms <table></table>]; [ms \begin{table}{[...]}\end{table}]]]]
+  ]
   [cmd html-add-attrs; attrs[;] cmd;
     If the target is HTML, adds the given [param attributes] to the tag produced by [param cmd]. Supports the [ms .foo] and [ms #foo] syntax for specifying classes and IDs.
     [if-html [ex [html-add-attrs style="color:pink"; [bf Real men don't fear colors.]]]]
@@ -162,6 +174,7 @@
   ]
   [cmd lang; language[;] text;
     Renders [param text] in the specified [param language].
+    [ex [" Hello!] [lang czech; [" Ahoj!]]]
   ]
   [cmd link; ?text[;] address;
     Adds a link to the given [param address] with an optional [param text] visually replacing the address.
@@ -201,6 +214,10 @@
     After expanding [param text], renders it. Useful for complex command defititions.
     [ex [render [raw [it This will be italic despite being inside [ms raw].]]]]
   ]
+  [cmd row; *fields;
+    Creates a row for a table with the given fields. Has to be used inside a [cmd-ref table] command.
+    [ex [table [header-row xidoc; HTML; [LaTeX]] [row [ms [() table]]; [ms <table></table>]; [ms \begin{table}{[...]}\end{table}]]]]
+  ]
   [cmd section; ?title[;] text;
     Creates a section with the given [param title] and [param text] (or without a title if not given). If it's inside another section, it will be a subsection. If it's inside a subsection, it will be a subsubsection. In HTML, this nesting can continue further.
     [ex [section Inception; Are we going too deep?]]
@@ -231,6 +248,10 @@
   [cmd style; stylesheet;
     Styles an HTML document using xidoc's custom syntax for CSS.
     [if-html [ex [style [rule .golden-frame; [: border; 3px solid gold]]][<div> .golden-frame; This text is a work of art!]]]
+  ]
+  [cmd table; ?spec content;
+    Creates a table with the given [param content], which should consist of [cmd-ref row] commands. The [param spec] is used to help [LaTeX] align the table.
+    [ex [table [header-row xidoc; HTML; [LaTeX]] [row [ms [() table]]; [ms <table></table>]; [ms \begin{table}{[...]}\end{table}]]]]
   ]
   [cmd template-arg; name;
     In a document included with [cmd-ref include], returns the given argument passed to [cmd-ref include].
@@ -264,8 +285,8 @@
 ]
 [section Math commands;
   [p These commands are available in [LaTeX] math. That is, inside the [cmd-ref $], [cmd-ref $$] and [cmd-ref $$&] commands. They are meant to make certain common combinations of [LaTeX] commands easier to type.]
-  [<table>
-    [<tr> [<th> Command][<th> Output]]
+  [table cc;
+    [header-row Command; Output]
     [math-cmd /; q]
     [math-cmd /; p[;] q]
     [math-cmd .; \frac{p}{q}]
