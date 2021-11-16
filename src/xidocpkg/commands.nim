@@ -291,6 +291,12 @@ commands defaultCommands:
   command "---", void, unrendered:
     "—"
 
+  command "...", void, rendered:
+    "…"
+
+  command "\"", render, rendered:
+    pQuotation.translate(doc.lookup(lang)) % arg
+
   command "$", raw, rendered:
     doc.stack[^1].commands = mathCommands(doc)
     case doc.target

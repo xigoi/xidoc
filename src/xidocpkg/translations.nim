@@ -7,6 +7,7 @@ type
     pExample
     pExercise
     pProof
+    pQuotation
     pSolution
     pTheorem
 
@@ -26,6 +27,10 @@ const translations* = [
   pProof: [
     lEnglish: "Proof",
     lCzech: "Důkaz",
+  ],
+  pQuotation: [
+    lEnglish: "“$1”",
+    lCzech: "„$1“"
   ],
   pSolution: [
     lEnglish: "Solution",
