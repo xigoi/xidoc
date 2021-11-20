@@ -1,5 +1,4 @@
 import ./error
-import ./types
 import npeg
 import std/strutils
 

@@ -1,13 +1,11 @@
 import std/os
 import std/sequtils
 import std/sets
-import std/strformat
 import std/strutils
 import std/tables
-import xidocpkg/commands
+import xidocpkg/commands/default
 import xidocpkg/error
 import xidocpkg/expand
-import xidocpkg/parser
 import xidocpkg/types
 
 const extensions = toTable {

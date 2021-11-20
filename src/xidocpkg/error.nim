@@ -8,7 +8,6 @@ when not defined(js):
   import ./types
   import std/macros
   import std/pegs
-  import std/sequtils
   import std/strformat
   import std/strutils
   import std/terminal
