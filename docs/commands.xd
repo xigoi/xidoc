@@ -125,6 +125,10 @@
     Colors the [param text] in the given CSS-style [param color].
     [ex You can use [color red; names] or [color #00f; codes]!]
   ]
+  [cmd checkboxes; items;
+    Renders a list of [param items] with checkboxes. Use [ms [() -]] for an unchecked item, [ms [() v]] for a checked item and [ms [() x]] for a crossed item.
+    [ex [checkboxes [v Kill the friend] [- Bury the body] [x Get caught by the police]]]
+  ]
   [cmd def; name[;] ?params[;] body;
     Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command and its variants ([cmd-ref arg-expand], [cmd-ref arg-raw], [cmd-ref arg-raw-escape]).
     [ex [def greet; name; Hello, [arg name]!][greet reader]]

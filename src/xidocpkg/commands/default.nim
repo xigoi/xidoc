@@ -5,6 +5,7 @@ import ../jsinterpret
 import ../parser
 import ../translations
 import ../types
+import ./checkbox
 import ./css
 import ./math
 import ./utils
@@ -19,7 +20,7 @@ import std/tables
 
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
-  htmlUnpairedTags = "br circle img input link meta path".splitWhitespace
+  htmlUnpairedTags = "br circle img input link meta path rect".splitWhitespace
 
 
 commands defaultCommands:
@@ -151,6 +152,15 @@ commands defaultCommands:
       "<b>$1</b>" % arg
     of tLatex:
       "\\textbf{$1}" % arg
+
+  command "checkboxes", raw, rendered:
+    case doc.target
+    of tHtml:
+      doc.stack[^1].commands = checkboxCommands(doc)
+      doc.addToHead.incl """<style>.xd-checkbox-unchecked{list-style-type:"☐ "}.xd-checkbox-checked{list-style-type:"☑ "}.xd-checkbox-crossed{list-style-type:"☒ "}</style>"""
+      &"<ul class=\"xd-checkboxes\">{doc.expandStr(arg)}</style>"
+    else:
+      xidocError "Checkboxes are currently not supported for the LaTeX target"
 
   command "color", (color: expand, text: render), rendered:
     case doc.target
