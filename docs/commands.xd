@@ -235,6 +235,9 @@
   [cmd set-title; title;
     Sets the given [param title] as the title of the document.
   ]
+  [cmd show-title; title;
+    Renders the given [param title] without setting it as the title of the document.
+  ]
   [cmd solution; ?name[;] text;
     Renders a paragraph with the solution to a mathematical problem with an optional [param name].
   ]

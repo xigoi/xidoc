@@ -16,8 +16,8 @@ import std/sugar
 import std/tables
 
 const
-  htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
-  htmlUnpairedTags = "br img input link meta".splitWhitespace
+  htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
+  htmlUnpairedTags = "br circle img input link meta path".splitWhitespace
 
 macro command(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
   let sigLen = sig.len
@@ -344,13 +344,8 @@ commands defaultCommands:
   command "LaTeX", void, rendered:
     case doc.target
     of tHtml:
-      case doc.mathRenderer
-      of mrKatexJsdelivr:
-        initKatexJsdelivr()
-        "<xd-inline-math>\\text{\\LaTeX}</xd-inline-math>"
-      of mrKatex:
-        initKatexJsdelivrCss()
-        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex("\\text{\\LaTeX}", false)
+      doc.addToHead.incl """<style>.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}</style>"""
+      """<span class="xd-latex">L<sup>a</sup>T<sub>e</sub>X</span>"""
     of tLatex:
       "\\LaTeX{}"
 
@@ -598,6 +593,13 @@ commands defaultCommands:
     of tLatex:
       doc.addToHead.incl "\\title{$1}" % arg
     ""
+
+  command "show-title", expand, rendered:
+    case doc.target
+    of tHtml:
+      "<h1>$1</h1>" % arg
+    of tLatex:
+      "\\maketitle"
 
   theoremLikeCommand("solution", pSolution, "$1", "$1")
 
