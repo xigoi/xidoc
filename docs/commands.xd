@@ -125,11 +125,11 @@
     [ex xidoc is [bf awesome]!]
   ]
   [cmd code; ?language[;] code;
-    Renders the [param code] in monospace font. If the [param language] is specified, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language].
+    Renders the [param code] in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language]. For generic monospace text, use the [cmd-ref ms] command.
     [ex [code python; [raw print(f"The answer to the universe and stuff is {6 * 7}.")]]]
   ]
   [cmd code-block; ?language[;] code;
-    Renders the [param code] as a block in monospace font. If the [param language] is specified, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language].
+    Renders the [param code] as a block in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language].
     [ex [code-block javascript; [raw
 const factorial = (n) => {
   let result = 1n;
@@ -208,7 +208,7 @@ const factorial = (n) => {
     [ex Supported targets: [list HTML; [LaTeX]]]
   ]
   [cmd ms; text;
-    Renders [param text] in monospace.
+    Renders [param text] in monospace. If you want to show code, it's recommended to use the [cmd-ref code] or [cmd-ref code-block] command instead.
     [ex In HTML, this will produce [ms <code>]. In [LaTeX], this will produce [ms \texttt].]
   ]
   [cmd p; text;
