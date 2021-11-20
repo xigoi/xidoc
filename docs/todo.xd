@@ -1,0 +1,11 @@
+[inject head.xd]
+[section Planned features;
+  [list
+    Vector image drawing (WIP);
+    Code blocks;
+    Syntax highlighting;
+    JavaScript inclusion;
+    JavaScript generation;
+    Import;
+  ]
+]
