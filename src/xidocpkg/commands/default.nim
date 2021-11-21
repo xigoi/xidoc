@@ -174,7 +174,7 @@ commands defaultCommands:
       if lang.isSome:
         "<code class=\"language-$1\">$2</code>" % [lang.get, code.highlightCode(lang.get)]
       else:
-        "<code>$1</code>" % code
+        "<code>$1</code>" % code.escapeText(doc.target)
     of tLatex:
       # TODO: use minted
       "\\texttt{$1}" % code
@@ -186,7 +186,7 @@ commands defaultCommands:
       if lang.isSome:
         "<pre class=\"language-$1\"><code class=\"language-$1\">$2</code></pre>" % [lang.get, code.highlightCode(lang.get)]
       else:
-        "<pre><code>$1</code></pre>" % code
+        "<pre><code>$1</code></pre>" % code.escapeText(doc.target)
     of tLatex:
       # TODO: use minted
       "\\texttt{$1}" % code
