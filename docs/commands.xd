@@ -8,12 +8,18 @@
   ]
   [rule table;
     [: border-collapse; collapse]
+    [: width; 100%]
+    [: table-layout; fixed]
   ]
   [rule td,th;
     [: border; 1px solid #888]
     [: padding; 0rem 1rem]
-    [: width; 50%]
+  ]
+  [rule td>div,th>div;
     [: overflow-x; auto]
+  ]
+  [rule td>div>table;
+    [: table-layout; initial]
   ]
 ]
 [def cmd; name signature explanation;
@@ -35,7 +41,7 @@
     [header-row Example; Output]
     [row
       [code-block [arg-raw xidoc]];
-      [arg xidoc];
+      [<div> [arg xidoc]];
     ]
   ]
 ]
