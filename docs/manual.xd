@@ -14,17 +14,17 @@ nimble install
 ]
 [section Usage;
   [section Compile some documents;
-    [code shell; [raw
+    [code-block shell; [raw
 xidoc foo.xd bar.xd
     ]]
     [p The default target is HTML. To choose a different target:]
-    [code shell; [raw
+    [code-block shell; [raw
 xidoc --target:latex foo.xd
 xidoc -t:latex foo.xd
     ]]
   ]
   [section Get help;
-    [code shell; [raw
+    [code-block shell; [raw
 xidoc --help
 xidoc -h
     ]]
