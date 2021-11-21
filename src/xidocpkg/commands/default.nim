@@ -91,6 +91,7 @@ commands defaultCommands:
         initKatexJsdelivrCss()
         "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(doc.expandStr(arg), false)
     of tLatex:
+      doc.addToHead.incl "\\usepackage{amssymb}"
       "\\($1\\)" % doc.expandStr(arg)
 
   command "$$", raw, rendered:
@@ -106,6 +107,7 @@ commands defaultCommands:
         initKatexJsdelivrCss()
         "<xd-block-math>$1</xd-block-math>" % renderMathKatex(doc.expandStr(arg), true)
     of tLatex:
+      doc.addToHead.incl "\\usepackage{amssymb}"
       "\\[$1\\]" % doc.expandStr(arg)
 
   command "$$&", raw, rendered:
@@ -121,6 +123,8 @@ commands defaultCommands:
         initKatexJsdelivrCss()
         "<xd-block-math>$1</xd-block-math>" % renderMathKatex("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), true)
     of tLatex:
+      doc.addToHead.incl "\\usepackage{amsmath}"
+      doc.addToHead.incl "\\usepackage{amssymb}"
       "\\begin{align*}$1\\end{align*}" % doc.expandStr(arg)
 
   command "LaTeX", void, rendered:
@@ -443,9 +447,9 @@ commands defaultCommands:
     of tHtml:
       doc.stack[^1].commands = cssCommands(doc)
       doc.addToHead.incl "<style>$1</style>" % doc.expandStr(arg)
-      ""
     else:
-      xidocError "The style command can be used only in the HTML backend"
+      discard
+    ""
 
   command "table", (spec: ?expand, content: render), rendered:
     case doc.target
