@@ -304,18 +304,18 @@ const factorial = (n) => {
   ]
 ]
 [section HTML commands;
-  When compiling to HTML, you can use tag commands to generate arbitrary tags. For example, [ms [raw [<> a; .click-here; "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; CLICK HERE]]] produces a link with the class [ms click-here] and the text [ms CLICK HERE]. Default tags have a shorthand, so this could also be written as [ms [raw [<a> .click-here; "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; CLICK HERE]]]. However, the latter syntax doesn't work for custom tags.
+  When compiling to HTML, you can use tag commands to generate arbitrary tags. For example, [code xidoc; [raw [<> a; .click-here; "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; CLICK HERE]]] produces a link with the class [ms click-here] and the text [ms CLICK HERE]. Default tags have a shorthand, so this could also be written as [code xidoc; [raw [<a> .click-here; "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; CLICK HERE]]]. However, the latter syntax doesn't work for custom tags.
 ]
 [section CSS commands;
-  [p xidoc includes a simple set of commands that can be used to generate CSS without having to embed a completely different syntax in your document. It can be included using the [cmd-ref style] command. (If you prefer normal CSS, use [ms [raw [add-to-head [<style> …]]]].)]
+  [p xidoc includes a simple set of commands that can be used to generate CSS without having to embed a completely different syntax in your document. It can be included using the [cmd-ref style] command. (If you prefer normal CSS, use [code xidoc; [raw [add-to-head [<style> …]]]].)]
   [cmd :; property[;] value;
-    Creates a CSS declaration: [ms property: value;].
+    Creates a CSS declaration: [code css; property: value[;]].
   ]
   [cmd rule; selector[;] declarations;
-    Creates a CSS rule: [ms selector { declarations }].
+    Creates a CSS rule: [code css; selector { declarations }].
   ]
   [cmd var; name[;] ?value;
-    If a [param value] is given, declares a CSS variable: [ms --name: value;]. If used outside a [cmd-ref rule], it's assigned to [ms :root]. If used without a [param value], it gets the value of the given variable: [ms var(--name)].
+    If a [param value] is given, declares a CSS variable: [code css; --name: value[;]]. If used outside a [cmd-ref rule], it's assigned to [ms :root]. If used without a [param value], it gets the value of the given variable: [code css; var(--name)].
   ]
 ]
 [section Math commands;
