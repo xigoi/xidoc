@@ -6,6 +6,9 @@
   [rule pre;
     [: white-space; pre-wrap]
   ]
+  [rule pre.language-xidoc>code.language-xidoc;
+    [: white-space; pre-wrap !important]
+  ]
   [rule table;
     [: border-collapse; collapse]
     [: width; 100%]
@@ -13,10 +16,10 @@
   ]
   [rule td,th;
     [: border; 1px solid #888]
-    [: padding; 0rem 1rem]
   ]
   [rule td>div,th>div;
     [: overflow-x; auto]
+    [: padding; 0rem 1rem]
   ]
   [rule td>div>table;
     [: table-layout; initial]
@@ -24,36 +27,36 @@
 ]
 [def cmd; name signature explanation;
   [html-add-attrs #[arg name];
-    [section [ms [color #666; [(]][color #ff4; [arg name]] [arg signature][color #666; [)]]];
+    [section [code xidoc; [(][arg-expand name] [arg-expand signature][)]];
       [p [arg explanation]]
     ]
   ]
 ]
 [def cmd-nilad; name explanation;
-  [section [ms [color #666; [(]][color #ff4; [arg name]][color #666; [)]]];
+  [section [code xidoc; [(][arg-expand name][)]];
     [p [arg explanation]]
   ]
 ]
 [def param; name; [ms [arg name]]]
-[def cmd-ref; name; [link [ms [color #ff4; [arg name]]]; #[arg name]]]
+[def cmd-ref; name; [link [code xidoc; [(][arg-expand name][)]]; #[arg name]]]
 [def ex; xidoc;
   [table cc;
     [header-row Example; Output]
     [row
-      [code-block [arg-raw xidoc]];
+      [code-block xidoc; [arg-raw xidoc]];
       [<div> [arg xidoc]];
     ]
   ]
 ]
-[def math-cmd; name args;
+[def math-cmd; name signature;
   [html-add-attrs #[() $][arg name]; [row
-    [ms [color #666; [(]][color #ff4; [arg name]] [arg args][color #666; [)]]];
-    [render [(]$$ [(][arg-expand name] [arg-expand args][)][)]];
+    [code xidoc; [(][arg-expand name] [arg-expand signature][)]];
+    [render [(]$$ [(][arg-expand name] [arg-expand signature][)][)]];
   ]]
 ]
 [def math-cmd-nilad; name;
   [html-add-attrs #[() $][arg name]; [row
-    [ms [color #666; [(]][color #ff4; [arg name]][color #666; [)]]];
+    [code xidoc; [(][arg-expand name][)]];
     [render [(]$$ [(][arg-expand name][)][)]];
   ]]
 ]
@@ -131,11 +134,11 @@
     [ex xidoc is [bf awesome]!]
   ]
   [cmd code; ?language[;] code;
-    Renders the [param code] in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language]. For generic monospace text, use the [cmd-ref ms] command.
+    Renders the [param code] in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language]. xidoc is also supported under the name [ms xidoc]. For generic monospace text, use the [cmd-ref ms] command.
     [ex [code python; [raw print(f"The answer to the universe and stuff is {6 * 7}.")]]]
   ]
   [cmd code-block; ?language[;] code;
-    Renders the [param code] as a block in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language].
+    Renders the [param code] as a block in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language]. xidoc is also supported under the name [ms xidoc].
     [ex [code-block javascript; [raw
 const factorial = (n) => {
   let result = 1n;

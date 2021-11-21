@@ -4,6 +4,7 @@ import std/strutils
 
 const katexJs = staticRead("../katex/katex.min.js")
 const prismJs = staticRead("../prism/prism.js")
+const xidocPrismJs = staticRead("../prism/xidoc-prism.js")
 
 when defined(js):
 
@@ -75,6 +76,7 @@ else:
       addExitProc do():
         ctx.duk_destroy_heap
       ctx.duk_eval_string(prismJs)
+      ctx.duk_eval_string(xidocPrismJs)
     let call = "try { Prism.highlight(\"$1\", Prism.languages[\"$2\"], \"$2\") } catch (exc) { \"<ERROR>\"; }" % [code.escapeJs, lang.escapeJs]
     ctx.duk_eval_string(call.cstring)
     result = $ctx.duk_get_string(-1)
