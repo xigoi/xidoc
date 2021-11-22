@@ -180,7 +180,11 @@ const factorial = (n) => {
   ]
   [cmd header-row; *fields;
     Creates a header row for a table with the given fields. Has to be used inside a [cmd-ref table] command.
-    [ex [table [header-row xidoc; HTML; [LaTeX]] [row [ms [() table]]; [ms <table></table>]; [ms \begin{table}{[...]}\end{table}]]]]
+    [ex
+[table
+  [header-row xidoc; HTML; [LaTeX]]
+  [row [code xidoc; [() table]]; [code html; <table></table>]; [code latex; \begin{table}{[...]}\end{table}]]
+]]
   ]
   [cmd html-add-attrs; attrs[;] cmd;
     If the target is HTML, adds the given [param attributes] to the tag produced by [param cmd]. Supports the [ms .foo] and [ms #foo] syntax for specifying classes and IDs.
@@ -248,7 +252,11 @@ const factorial = (n) => {
   ]
   [cmd row; *fields;
     Creates a row for a table with the given fields. Has to be used inside a [cmd-ref table] command.
-    [ex [table [header-row xidoc; HTML; [LaTeX]] [row [ms [() table]]; [ms <table></table>]; [ms \begin{table}{[...]}\end{table}]]]]
+    [ex
+[table
+  [header-row xidoc; HTML; [LaTeX]]
+  [row [code xidoc; [() table]]; [code html; <table></table>]; [code latex; \begin{table}{[...]}\end{table}]]
+]]
   ]
   [cmd section; ?title[;] text;
     Creates a section with the given [param title] and [param text] (or without a title if not given). If it's inside another section, it will be a subsection. If it's inside a subsection, it will be a subsubsection. In HTML, this nesting can continue further.
@@ -286,7 +294,11 @@ const factorial = (n) => {
   ]
   [cmd table; ?spec content;
     Creates a table with the given [param content], which should consist of [cmd-ref row] commands. The [param spec] is used to help [LaTeX] align the table.
-    [ex [table [header-row xidoc; HTML; [LaTeX]] [row [ms [() table]]; [ms <table></table>]; [ms \begin{table}{[...]}\end{table}]]]]
+    [ex
+[table
+  [header-row xidoc; HTML; [LaTeX]]
+  [row [code xidoc; [() table]]; [code html; <table></table>]; [code latex; \begin{table}{[...]}\end{table}]]
+]]
   ]
   [cmd template-arg; name;
     In a document included with [cmd-ref include], returns the given argument passed to [cmd-ref include].
