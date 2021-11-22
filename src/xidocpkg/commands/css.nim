@@ -12,6 +12,9 @@ commands cssCommands:
   command ":", (prop: expand, val: expand), unrendered:
     "$1:$2;" % [prop, val]
 
+  command ":!", (prop: expand, val: expand), unrendered:
+    "$1:$2 !important;" % [prop, val]
+
   command "h*", void, unrendered:
     "h1,h2,h3,h4,h5,h6"
 
