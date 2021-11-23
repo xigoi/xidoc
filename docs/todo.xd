@@ -4,6 +4,9 @@
     Vector image drawing (WIP);
     JavaScript inclusion;
     JavaScript generation;
-    Import;
+    [code xidoc; [raw [import]]];
+    [code xidoc; [raw [<my-tag>] [\mycommand]]];
+    Images;
+    Units;
   ]
 ]
