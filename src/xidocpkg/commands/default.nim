@@ -61,9 +61,6 @@ commands defaultCommands:
   command "#", literal, unrendered:
     ""
 
-  command "", literal, unrendered:
-    arg
-
   command ";", void, unrendered:
     ";"
 

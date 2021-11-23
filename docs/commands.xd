@@ -62,9 +62,6 @@
 ]
 
 [section Top-level commands;
-  [cmd ; whitespace;
-    The empty command. Returns the whitespace inside the brackets, allowing it to be “escaped” in commands that strip whitespace.
-  ]
   [cmd "; text;
     Puts the given text in quotation marks appropriate for the current language.
     [ex [" Hello!] [lang czech; [" Ahoj!]]]

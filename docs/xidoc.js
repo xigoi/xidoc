@@ -2,12 +2,17 @@
 var framePtr = null;
 var excHandler = 0;
 var lastJSError = null;
-var NTI1577058360 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI1577058357 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
-var NTI1577058354 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI1577058307 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
+var NTI1577058362 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI1577058359 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI1577058356 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI33555115 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI1006632967 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI1224739990 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI1325403050 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI637534705 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI1224739887 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI637534694 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI1577058307 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
 var NTI1241519608 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI1241519794 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
 var NTI1241519368 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
@@ -29,12 +34,7 @@ var NTI1241513998 = {size: 0, kind: 22, base: null, node: null, finalizer: null}
 var NTI1241513992 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1241514517 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1241513989 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
-var NTI1224739079 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI1325403050 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
-var NTI637534705 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
-var NTI1224738976 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI637534694 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
-var NTI1761607851 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI1778385115 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI33555132 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI452985127 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
 var NTI1610612756 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
@@ -42,12 +42,12 @@ var NTI872415304 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
 var NTI872415311 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI33555126 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI1593835523 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
-var NTI1577058340 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI1577058368 = {size: 0,kind: 25,base: null,node: null,finalizer: null};
-var NTI1577058333 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI1577058330 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
-var NTI1577058327 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI1577058311 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI1577058342 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI1577058370 = {size: 0,kind: 25,base: null,node: null,finalizer: null};
+var NTI1577058335 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI1577058332 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI1577058329 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI1577058312 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1325400067 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
 var NTI33555129 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI33554438 = {size: 0,kind: 2,base: null,node: null,finalizer: null};
@@ -224,26 +224,26 @@ var NNI1325400067 = {kind: 2, offset: 0, typ: null, name: null, len: 3, sons: {"
 "1": {kind: 1, offset: 1, typ: NTI1325400067, name: "xnkWhitespace", len: 0, sons: null}, 
 "2": {kind: 1, offset: 2, typ: NTI1325400067, name: "xnkCommand", len: 0, sons: null}}};
 NTI1325400067.node = NNI1325400067;
-var NNI1577058333 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI1124073475, name: "Field0", sons: null}, 
+var NNI1577058335 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI1124073475, name: "Field0", sons: null}, 
 {kind: 1, offset: "Field1", len: 0, typ: NTI33554439, name: "Field1", sons: null}, 
-{kind: 1, offset: "Field2", len: 0, typ: NTI1577058368, name: "Field2", sons: null}]};
-NTI1577058333.node = NNI1577058333;
-NTI1577058330.base = NTI1577058333;
-var NNI1577058327 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI1577058330, name: "data", sons: null}, 
+{kind: 1, offset: "Field2", len: 0, typ: NTI1577058370, name: "Field2", sons: null}]};
+NTI1577058335.node = NNI1577058335;
+NTI1577058332.base = NTI1577058335;
+var NNI1577058329 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI1577058332, name: "data", sons: null}, 
 {kind: 1, offset: "counter", len: 0, typ: NTI33554456, name: "counter", sons: null}]};
-NTI1577058327.node = NNI1577058327;
+NTI1577058329.node = NNI1577058329;
 var NNI1593835523 = {kind: 2, offset: 0, typ: null, name: null, len: 2, sons: {"0": {kind: 1, offset: 0, typ: NTI1593835523, name: "lEnglish", len: 0, sons: null}, 
 "1": {kind: 1, offset: 1, typ: NTI1593835523, name: "lCzech", len: 0, sons: null}}};
 NTI1593835523.node = NNI1593835523;
-var NNI1577058340 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "val", len: 0, typ: NTI1593835523, name: "val", sons: null}, 
+var NNI1577058342 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "val", len: 0, typ: NTI1593835523, name: "val", sons: null}, 
 {kind: 1, offset: "has", len: 0, typ: NTI33554466, name: "has", sons: null}]};
-NTI1577058340.node = NNI1577058340;
-var NNI1577058311 = {kind: 2, len: 5, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "args", len: 0, typ: NTI1392508952, name: "args", sons: null}, 
+NTI1577058342.node = NNI1577058342;
+var NNI1577058312 = {kind: 2, len: 5, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "args", len: 0, typ: NTI1392508952, name: "args", sons: null}, 
 {kind: 1, offset: "cmdArg", len: 0, typ: NTI33554439, name: "cmdArg", sons: null}, 
 {kind: 1, offset: "cmdName", len: 0, typ: NTI33554439, name: "cmdName", sons: null}, 
-{kind: 1, offset: "commands", len: 0, typ: NTI1577058327, name: "commands", sons: null}, 
-{kind: 1, offset: "lang", len: 0, typ: NTI1577058340, name: "lang", sons: null}]};
-NTI1577058311.node = NNI1577058311;
+{kind: 1, offset: "commands", len: 0, typ: NTI1577058329, name: "commands", sons: null}, 
+{kind: 1, offset: "lang", len: 0, typ: NTI1577058342, name: "lang", sons: null}]};
+NTI1577058312.node = NNI1577058312;
 var NNI33555126 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI33555126.node = NNI33555126;
 NTI33555126.base = NTI33555125;
@@ -257,18 +257,9 @@ NTI452985127.base = NTI33554439;
 var NNI33555132 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI33555132.node = NNI33555132;
 NTI33555132.base = NTI33555113;
-var NNI1761607851 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "val", len: 0, typ: NTI33554439, name: "val", sons: null}, 
+var NNI1778385115 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "val", len: 0, typ: NTI33554439, name: "val", sons: null}, 
 {kind: 1, offset: "has", len: 0, typ: NTI33554466, name: "has", sons: null}]};
-NTI1761607851.node = NNI1761607851;
-NTI637534694.base = NTI33554439;
-var NNI1224738976 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "val", len: 0, typ: NTI637534694, name: "val", sons: null}, 
-{kind: 1, offset: "has", len: 0, typ: NTI33554466, name: "has", sons: null}]};
-NTI1224738976.node = NNI1224738976;
-NTI637534705.base = NTI33554439;
-NTI1325403050.base = NTI33554439;
-var NNI1224739079 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI33554439, name: "Field0", sons: null}, 
-{kind: 1, offset: "Field1", len: 0, typ: NTI33554439, name: "Field1", sons: null}]};
-NTI1224739079.node = NNI1224739079;
+NTI1778385115.node = NNI1778385115;
 var NNI1241513989 = {kind: 2, offset: 0, typ: null, name: null, len: 33, sons: {"0": {kind: 1, offset: 0, typ: NTI1241513989, name: "pkEmpty", len: 0, sons: null}, 
 "1": {kind: 1, offset: 1, typ: NTI1241513989, name: "pkAny", len: 0, sons: null}, 
 "2": {kind: 1, offset: 2, typ: NTI1241513989, name: "pkAnyRune", len: 0, sons: null}, 
@@ -388,25 +379,34 @@ NTI1241519794.base = NTI1241513993;
 var NNI1241519608 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI1241519608.node = NNI1241519608;
 NTI1241519608.base = NTI33555125;
+var NNI1577058307 = {kind: 2, offset: 0, typ: null, name: null, len: 2, sons: {"0": {kind: 1, offset: 0, typ: NTI1577058307, name: "html", len: 0, sons: null}, 
+"1": {kind: 1, offset: 1, typ: NTI1577058307, name: "latex", len: 0, sons: null}}};
+NTI1577058307.node = NNI1577058307;
+NTI637534694.base = NTI33554439;
+var NNI1224739887 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "val", len: 0, typ: NTI637534694, name: "val", sons: null}, 
+{kind: 1, offset: "has", len: 0, typ: NTI33554466, name: "has", sons: null}]};
+NTI1224739887.node = NNI1224739887;
+NTI637534705.base = NTI33554439;
+NTI1325403050.base = NTI33554439;
+var NNI1224739990 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI33554439, name: "Field0", sons: null}, 
+{kind: 1, offset: "Field1", len: 0, typ: NTI33554439, name: "Field1", sons: null}]};
+NTI1224739990.node = NNI1224739990;
 var NNI1006632967 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI33554456, name: "Field0", sons: null}, 
 {kind: 1, offset: "Field1", len: 0, typ: NTI33554456, name: "Field1", sons: null}]};
 NTI1006632967.node = NNI1006632967;
 var NNI33555115 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI33555115.node = NNI33555115;
 NTI33555115.base = NTI33555114;
-var NNI1577058307 = {kind: 2, offset: 0, typ: null, name: null, len: 2, sons: {"0": {kind: 1, offset: 0, typ: NTI1577058307, name: "html", len: 0, sons: null}, 
-"1": {kind: 1, offset: 1, typ: NTI1577058307, name: "latex", len: 0, sons: null}}};
-NTI1577058307.node = NNI1577058307;
-var NNI1577058360 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI1124073475, name: "Field0", sons: null}, 
+var NNI1577058362 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI1124073475, name: "Field0", sons: null}, 
 {kind: 1, offset: "Field1", len: 0, typ: NTI33554456, name: "Field1", sons: null}, 
 {kind: 1, offset: "Field2", len: 0, typ: NTI33554439, name: "Field2", sons: null}]};
-NTI1577058360.node = NNI1577058360;
-NTI1577058357.base = NTI1577058360;
-var NNI1577058354 = {kind: 2, len: 4, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI1577058357, name: "data", sons: null}, 
+NTI1577058362.node = NNI1577058362;
+NTI1577058359.base = NTI1577058362;
+var NNI1577058356 = {kind: 2, len: 4, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI1577058359, name: "data", sons: null}, 
 {kind: 1, offset: "counter", len: 0, typ: NTI33554456, name: "counter", sons: null}, 
 {kind: 1, offset: "first", len: 0, typ: NTI33554456, name: "first", sons: null}, 
 {kind: 1, offset: "last", len: 0, typ: NTI33554456, name: "last", sons: null}]};
-NTI1577058354.node = NNI1577058354;
+NTI1577058356.node = NNI1577058356;
 
 function cstrToNimstr(c_33556805) {
       var ln = c_33556805.length;
@@ -932,22 +932,6 @@ var ConstSet52 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet53 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet54 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet55 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet56 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet57 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet58 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet59 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet60 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet61 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet62 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet63 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet64 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet65 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet66 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet67 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet68 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet69 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet70 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet71 = setConstr(32, 9, 11, 13, 10, 12);
     var toLowerRanges_939525019 = new Int32Array([65, 90, 532, 192, 214, 532, 216, 222, 532, 393, 394, 705, 433, 434, 717, 904, 906, 537, 910, 911, 563, 913, 929, 532, 931, 939, 532, 1021, 1023, 370, 1024, 1039, 580, 1040, 1071, 532, 1329, 1366, 548, 4256, 4293, 7764, 5024, 5103, 39364, 5104, 5109, 508, 7312, 7354, -2508, 7357, 7359, -2508, 7944, 7951, 492, 7960, 7965, 492, 7976, 7983, 492, 7992, 7999, 492, 8008, 8013, 492, 8040, 8047, 492, 8072, 8079, 492, 8088, 8095, 492, 8104, 8111, 492, 8120, 8121, 492, 8122, 8123, 426, 8136, 8139, 414, 8152, 8153, 492, 8154, 8155, 400, 8168, 8169, 492, 8170, 8171, 388, 8184, 8185, 372, 8186, 8187, 374, 11264, 11310, 548, 11390, 11391, -10315, 65313, 65338, 532, 66560, 66599, 540, 66736, 66771, 540, 68736, 68786, 564, 71840, 71871, 532, 93760, 93791, 532, 125184, 125217, 534]);
     var toLowerSinglets_939525020 = new Int32Array([256, 501, 258, 501, 260, 501, 262, 501, 264, 501, 266, 501, 268, 501, 270, 501, 272, 501, 274, 501, 276, 501, 278, 501, 280, 501, 282, 501, 284, 501, 286, 501, 288, 501, 290, 501, 292, 501, 294, 501, 296, 501, 298, 501, 300, 501, 302, 501, 304, 301, 306, 501, 308, 501, 310, 501, 313, 501, 315, 501, 317, 501, 319, 501, 321, 501, 323, 501, 325, 501, 327, 501, 330, 501, 332, 501, 334, 501, 336, 501, 338, 501, 340, 501, 342, 501, 344, 501, 346, 501, 348, 501, 350, 501, 352, 501, 354, 501, 356, 501, 358, 501, 360, 501, 362, 501, 364, 501, 366, 501, 368, 501, 370, 501, 372, 501, 374, 501, 376, 379, 377, 501, 379, 501, 381, 501, 385, 710, 386, 501, 388, 501, 390, 706, 391, 501, 395, 501, 398, 579, 399, 702, 400, 703, 401, 501, 403, 705, 404, 707, 406, 711, 407, 709, 408, 501, 412, 711, 413, 713, 415, 714, 416, 501, 418, 501, 420, 501, 422, 718, 423, 501, 425, 718, 428, 501, 430, 718, 431, 501, 435, 501, 437, 501, 439, 719, 440, 501, 444, 501, 452, 502, 453, 501, 455, 502, 456, 501, 458, 502, 459, 501, 461, 501, 463, 501, 465, 501, 467, 501, 469, 501, 471, 501, 473, 501, 475, 501, 478, 501, 480, 501, 482, 501, 484, 501, 486, 501, 488, 501, 490, 501, 492, 501, 494, 501, 497, 502, 498, 501, 500, 501, 502, 403, 503, 444, 504, 501, 506, 501, 508, 501, 510, 501, 512, 501, 514, 501, 516, 501, 518, 501, 520, 501, 522, 501, 524, 501, 526, 501, 528, 501, 530, 501, 532, 501, 534, 501, 536, 501, 538, 501, 540, 501, 542, 501, 544, 370, 546, 501, 548, 501, 550, 501, 552, 501, 554, 501, 556, 501, 558, 501, 560, 501, 562, 501, 570, 11295, 571, 501, 573, 337, 574, 11292, 577, 501, 579, 305, 580, 569, 581, 571, 582, 501, 584, 501, 586, 501, 588, 501, 590, 501, 880, 501, 882, 501, 886, 501, 895, 616, 902, 538, 908, 564, 975, 508, 984, 501, 986, 501, 988, 501, 990, 501, 992, 501, 994, 501, 996, 501, 998, 501, 1000, 501, 1002, 501, 1004, 501, 1006, 501, 1012, 440, 1015, 501, 1017, 493, 1018, 501, 1120, 501, 1122, 501, 1124, 501, 1126, 501, 1128, 501, 1130, 501, 1132, 501, 1134, 501, 1136, 501, 1138, 501, 1140, 501, 1142, 501, 1144, 501, 1146, 501, 1148, 501, 1150, 501, 1152, 501, 1162, 501, 1164, 501, 1166, 501, 1168, 501, 1170, 501, 1172, 501, 1174, 501, 1176, 501, 1178, 501, 1180, 501, 1182, 501, 1184, 501, 1186, 501, 1188, 501, 1190, 501, 1192, 501, 1194, 501, 1196, 501, 1198, 501, 1200, 501, 1202, 501, 1204, 501, 1206, 501, 1208, 501, 1210, 501, 1212, 501, 1214, 501, 1216, 515, 1217, 501, 1219, 501, 1221, 501, 1223, 501, 1225, 501, 1227, 501, 1229, 501, 1232, 501, 1234, 501, 1236, 501, 1238, 501, 1240, 501, 1242, 501, 1244, 501, 1246, 501, 1248, 501, 1250, 501, 1252, 501, 1254, 501, 1256, 501, 1258, 501, 1260, 501, 1262, 501, 1264, 501, 1266, 501, 1268, 501, 1270, 501, 1272, 501, 1274, 501, 1276, 501, 1278, 501, 1280, 501, 1282, 501, 1284, 501, 1286, 501, 1288, 501, 1290, 501, 1292, 501, 1294, 501, 1296, 501, 1298, 501, 1300, 501, 1302, 501, 1304, 501, 1306, 501, 1308, 501, 1310, 501, 1312, 501, 1314, 501, 1316, 501, 1318, 501, 1320, 501, 1322, 501, 1324, 501, 1326, 501, 4295, 7764, 4301, 7764, 7680, 501, 7682, 501, 7684, 501, 7686, 501, 7688, 501, 7690, 501, 7692, 501, 7694, 501, 7696, 501, 7698, 501, 7700, 501, 7702, 501, 7704, 501, 7706, 501, 7708, 501, 7710, 501, 7712, 501, 7714, 501, 7716, 501, 7718, 501, 7720, 501, 7722, 501, 7724, 501, 7726, 501, 7728, 501, 7730, 501, 7732, 501, 7734, 501, 7736, 501, 7738, 501, 7740, 501, 7742, 501, 7744, 501, 7746, 501, 7748, 501, 7750, 501, 7752, 501, 7754, 501, 7756, 501, 7758, 501, 7760, 501, 7762, 501, 7764, 501, 7766, 501, 7768, 501, 7770, 501, 7772, 501, 7774, 501, 7776, 501, 7778, 501, 7780, 501, 7782, 501, 7784, 501, 7786, 501, 7788, 501, 7790, 501, 7792, 501, 7794, 501, 7796, 501, 7798, 501, 7800, 501, 7802, 501, 7804, 501, 7806, 501, 7808, 501, 7810, 501, 7812, 501, 7814, 501, 7816, 501, 7818, 501, 7820, 501, 7822, 501, 7824, 501, 7826, 501, 7828, 501, 7838, -7115, 7840, 501, 7842, 501, 7844, 501, 7846, 501, 7848, 501, 7850, 501, 7852, 501, 7854, 501, 7856, 501, 7858, 501, 7860, 501, 7862, 501, 7864, 501, 7866, 501, 7868, 501, 7870, 501, 7872, 501, 7874, 501, 7876, 501, 7878, 501, 7880, 501, 7882, 501, 7884, 501, 7886, 501, 7888, 501, 7890, 501, 7892, 501, 7894, 501, 7896, 501, 7898, 501, 7900, 501, 7902, 501, 7904, 501, 7906, 501, 7908, 501, 7910, 501, 7912, 501, 7914, 501, 7916, 501, 7918, 501, 7920, 501, 7922, 501, 7924, 501, 7926, 501, 7928, 501, 7930, 501, 7932, 501, 7934, 501, 8025, 492, 8027, 492, 8029, 492, 8031, 492, 8124, 491, 8140, 491, 8172, 493, 8188, 491, 8486, -7017, 8490, -7883, 8491, -7762, 8498, 528, 8579, 501, 11360, 501, 11362, -10243, 11363, -3314, 11364, -10227, 11367, 501, 11369, 501, 11371, 501, 11373, -10280, 11374, -10249, 11375, -10283, 11376, -10282, 11378, 501, 11381, 501, 11392, 501, 11394, 501, 11396, 501, 11398, 501, 11400, 501, 11402, 501, 11404, 501, 11406, 501, 11408, 501, 11410, 501, 11412, 501, 11414, 501, 11416, 501, 11418, 501, 11420, 501, 11422, 501, 11424, 501, 11426, 501, 11428, 501, 11430, 501, 11432, 501, 11434, 501, 11436, 501, 11438, 501, 11440, 501, 11442, 501, 11444, 501, 11446, 501, 11448, 501, 11450, 501, 11452, 501, 11454, 501, 11456, 501, 11458, 501, 11460, 501, 11462, 501, 11464, 501, 11466, 501, 11468, 501, 11470, 501, 11472, 501, 11474, 501, 11476, 501, 11478, 501, 11480, 501, 11482, 501, 11484, 501, 11486, 501, 11488, 501, 11490, 501, 11499, 501, 11501, 501, 11506, 501, 42560, 501, 42562, 501, 42564, 501, 42566, 501, 42568, 501, 42570, 501, 42572, 501, 42574, 501, 42576, 501, 42578, 501, 42580, 501, 42582, 501, 42584, 501, 42586, 501, 42588, 501, 42590, 501, 42592, 501, 42594, 501, 42596, 501, 42598, 501, 42600, 501, 42602, 501, 42604, 501, 42624, 501, 42626, 501, 42628, 501, 42630, 501, 42632, 501, 42634, 501, 42636, 501, 42638, 501, 42640, 501, 42642, 501, 42644, 501, 42646, 501, 42648, 501, 42650, 501, 42786, 501, 42788, 501, 42790, 501, 42792, 501, 42794, 501, 42796, 501, 42798, 501, 42802, 501, 42804, 501, 42806, 501, 42808, 501, 42810, 501, 42812, 501, 42814, 501, 42816, 501, 42818, 501, 42820, 501, 42822, 501, 42824, 501, 42826, 501, 42828, 501, 42830, 501, 42832, 501, 42834, 501, 42836, 501, 42838, 501, 42840, 501, 42842, 501, 42844, 501, 42846, 501, 42848, 501, 42850, 501, 42852, 501, 42854, 501, 42856, 501, 42858, 501, 42860, 501, 42862, 501, 42873, 501, 42875, 501, 42877, -34832, 42878, 501, 42880, 501, 42882, 501, 42884, 501, 42886, 501, 42891, 501, 42893, -41780, 42896, 501, 42898, 501, 42902, 501, 42904, 501, 42906, 501, 42908, 501, 42910, 501, 42912, 501, 42914, 501, 42916, 501, 42918, 501, 42920, 501, 42922, -41808, 42923, -41819, 42924, -41815, 42925, -41805, 42926, -41808, 42928, -41758, 42929, -41782, 42930, -41761, 42931, 1428, 42932, 501, 42934, 501, 42936, 501, 42938, 501, 42940, 501, 42942, 501, 42946, 501, 42948, 452, 42949, -41807, 42950, -34884]);
     var toUpperRanges_939525021 = new Int32Array([97, 122, 468, 224, 246, 468, 248, 254, 468, 575, 576, 11315, 598, 599, 295, 650, 651, 283, 891, 893, 630, 941, 943, 463, 945, 961, 468, 963, 971, 468, 973, 974, 437, 1072, 1103, 468, 1104, 1119, 420, 1377, 1414, 452, 4304, 4346, 3508, 4349, 4351, 3508, 5112, 5117, 492, 7299, 7300, -5742, 7936, 7943, 508, 7952, 7957, 508, 7968, 7975, 508, 7984, 7991, 508, 8000, 8005, 508, 8032, 8039, 508, 8048, 8049, 574, 8050, 8053, 586, 8054, 8055, 600, 8056, 8057, 628, 8058, 8059, 612, 8060, 8061, 626, 8064, 8071, 508, 8080, 8087, 508, 8096, 8103, 508, 8112, 8113, 508, 8144, 8145, 508, 8160, 8161, 508, 11312, 11358, 452, 11520, 11557, -6764, 43888, 43967, -38364, 65345, 65370, 468, 66600, 66639, 460, 66776, 66811, 460, 68800, 68850, 436, 71872, 71903, 468, 93792, 93823, 468, 125218, 125251, 466]);
@@ -955,6 +939,22 @@ var ConstSet71 = setConstr(32, 9, 11, 13, 10, 12);
     var alphaRanges_939525024 = new Int32Array([65, 90, 97, 122, 192, 214, 216, 246, 248, 705, 710, 721, 736, 740, 880, 884, 886, 887, 890, 893, 904, 906, 910, 929, 931, 1013, 1015, 1153, 1162, 1327, 1329, 1366, 1376, 1416, 1488, 1514, 1519, 1522, 1568, 1610, 1646, 1647, 1649, 1747, 1765, 1766, 1774, 1775, 1786, 1788, 1810, 1839, 1869, 1957, 1994, 2026, 2036, 2037, 2048, 2069, 2112, 2136, 2144, 2154, 2208, 2228, 2230, 2237, 2308, 2361, 2392, 2401, 2417, 2432, 2437, 2444, 2447, 2448, 2451, 2472, 2474, 2480, 2486, 2489, 2524, 2525, 2527, 2529, 2544, 2545, 2565, 2570, 2575, 2576, 2579, 2600, 2602, 2608, 2610, 2611, 2613, 2614, 2616, 2617, 2649, 2652, 2674, 2676, 2693, 2701, 2703, 2705, 2707, 2728, 2730, 2736, 2738, 2739, 2741, 2745, 2784, 2785, 2821, 2828, 2831, 2832, 2835, 2856, 2858, 2864, 2866, 2867, 2869, 2873, 2908, 2909, 2911, 2913, 2949, 2954, 2958, 2960, 2962, 2965, 2969, 2970, 2974, 2975, 2979, 2980, 2984, 2986, 2990, 3001, 3077, 3084, 3086, 3088, 3090, 3112, 3114, 3129, 3160, 3162, 3168, 3169, 3205, 3212, 3214, 3216, 3218, 3240, 3242, 3251, 3253, 3257, 3296, 3297, 3313, 3314, 3333, 3340, 3342, 3344, 3346, 3386, 3412, 3414, 3423, 3425, 3450, 3455, 3461, 3478, 3482, 3505, 3507, 3515, 3520, 3526, 3585, 3632, 3634, 3635, 3648, 3654, 3713, 3714, 3718, 3722, 3724, 3747, 3751, 3760, 3762, 3763, 3776, 3780, 3804, 3807, 3904, 3911, 3913, 3948, 3976, 3980, 4096, 4138, 4176, 4181, 4186, 4189, 4197, 4198, 4206, 4208, 4213, 4225, 4256, 4293, 4304, 4346, 4348, 4680, 4682, 4685, 4688, 4694, 4698, 4701, 4704, 4744, 4746, 4749, 4752, 4784, 4786, 4789, 4792, 4798, 4802, 4805, 4808, 4822, 4824, 4880, 4882, 4885, 4888, 4954, 4992, 5007, 5024, 5109, 5112, 5117, 5121, 5740, 5743, 5759, 5761, 5786, 5792, 5866, 5873, 5880, 5888, 5900, 5902, 5905, 5920, 5937, 5952, 5969, 5984, 5996, 5998, 6000, 6016, 6067, 6176, 6264, 6272, 6276, 6279, 6312, 6320, 6389, 6400, 6430, 6480, 6509, 6512, 6516, 6528, 6571, 6576, 6601, 6656, 6678, 6688, 6740, 6917, 6963, 6981, 6987, 7043, 7072, 7086, 7087, 7098, 7141, 7168, 7203, 7245, 7247, 7258, 7293, 7296, 7304, 7312, 7354, 7357, 7359, 7401, 7404, 7406, 7411, 7413, 7414, 7424, 7615, 7680, 7957, 7960, 7965, 7968, 8005, 8008, 8013, 8016, 8023, 8031, 8061, 8064, 8116, 8118, 8124, 8130, 8132, 8134, 8140, 8144, 8147, 8150, 8155, 8160, 8172, 8178, 8180, 8182, 8188, 8336, 8348, 8458, 8467, 8473, 8477, 8490, 8493, 8495, 8505, 8508, 8511, 8517, 8521, 8579, 8580, 11264, 11310, 11312, 11358, 11360, 11492, 11499, 11502, 11506, 11507, 11520, 11557, 11568, 11623, 11648, 11670, 11680, 11686, 11688, 11694, 11696, 11702, 11704, 11710, 11712, 11718, 11720, 11726, 11728, 11734, 11736, 11742, 12293, 12294, 12337, 12341, 12347, 12348, 12353, 12438, 12445, 12447, 12449, 12538, 12540, 12543, 12549, 12591, 12593, 12686, 12704, 12730, 12784, 12799, 40960, 42124, 42192, 42237, 42240, 42508, 42512, 42527, 42538, 42539, 42560, 42606, 42623, 42653, 42656, 42725, 42775, 42783, 42786, 42888, 42891, 42943, 42946, 42950, 42999, 43009, 43011, 43013, 43015, 43018, 43020, 43042, 43072, 43123, 43138, 43187, 43250, 43255, 43261, 43262, 43274, 43301, 43312, 43334, 43360, 43388, 43396, 43442, 43488, 43492, 43494, 43503, 43514, 43518, 43520, 43560, 43584, 43586, 43588, 43595, 43616, 43638, 43646, 43695, 43701, 43702, 43705, 43709, 43739, 43741, 43744, 43754, 43762, 43764, 43777, 43782, 43785, 43790, 43793, 43798, 43808, 43814, 43816, 43822, 43824, 43866, 43868, 43879, 43888, 44002, 55216, 55238, 55243, 55291, 63744, 64109, 64112, 64217, 64256, 64262, 64275, 64279, 64287, 64296, 64298, 64310, 64312, 64316, 64320, 64321, 64323, 64324, 64326, 64433, 64467, 64829, 64848, 64911, 64914, 64967, 65008, 65019, 65136, 65140, 65142, 65276, 65313, 65338, 65345, 65370, 65382, 65470, 65474, 65479, 65482, 65487, 65490, 65495, 65498, 65500, 65536, 65547, 65549, 65574, 65576, 65594, 65596, 65597, 65599, 65613, 65616, 65629, 65664, 65786, 66176, 66204, 66208, 66256, 66304, 66335, 66349, 66368, 66370, 66377, 66384, 66421, 66432, 66461, 66464, 66499, 66504, 66511, 66560, 66717, 66736, 66771, 66776, 66811, 66816, 66855, 66864, 66915, 67072, 67382, 67392, 67413, 67424, 67431, 67584, 67589, 67594, 67637, 67639, 67640, 67647, 67669, 67680, 67702, 67712, 67742, 67808, 67826, 67828, 67829, 67840, 67861, 67872, 67897, 67968, 68023, 68030, 68031, 68112, 68115, 68117, 68119, 68121, 68149, 68192, 68220, 68224, 68252, 68288, 68295, 68297, 68324, 68352, 68405, 68416, 68437, 68448, 68466, 68480, 68497, 68608, 68680, 68736, 68786, 68800, 68850, 68864, 68899, 69376, 69404, 69424, 69445, 69600, 69622, 69635, 69687, 69763, 69807, 69840, 69864, 69891, 69926, 69968, 70002, 70019, 70066, 70081, 70084, 70144, 70161, 70163, 70187, 70272, 70278, 70282, 70285, 70287, 70301, 70303, 70312, 70320, 70366, 70405, 70412, 70415, 70416, 70419, 70440, 70442, 70448, 70450, 70451, 70453, 70457, 70493, 70497, 70656, 70708, 70727, 70730, 70784, 70831, 70852, 70853, 71040, 71086, 71128, 71131, 71168, 71215, 71296, 71338, 71424, 71450, 71680, 71723, 71840, 71903, 72096, 72103, 72106, 72144, 72203, 72242, 72284, 72329, 72384, 72440, 72704, 72712, 72714, 72750, 72818, 72847, 72960, 72966, 72968, 72969, 72971, 73008, 73056, 73061, 73063, 73064, 73066, 73097, 73440, 73458, 73728, 74649, 74880, 75075, 77824, 78894, 82944, 83526, 92160, 92728, 92736, 92766, 92880, 92909, 92928, 92975, 92992, 92995, 93027, 93047, 93053, 93071, 93760, 93823, 93952, 94026, 94099, 94111, 94176, 94177, 100352, 101106, 110592, 110878, 110928, 110930, 110948, 110951, 110960, 111355, 113664, 113770, 113776, 113788, 113792, 113800, 113808, 113817, 119808, 119892, 119894, 119964, 119966, 119967, 119973, 119974, 119977, 119980, 119982, 119993, 119997, 120003, 120005, 120069, 120071, 120074, 120077, 120084, 120086, 120092, 120094, 120121, 120123, 120126, 120128, 120132, 120138, 120144, 120146, 120485, 120488, 120512, 120514, 120538, 120540, 120570, 120572, 120596, 120598, 120628, 120630, 120654, 120656, 120686, 120688, 120712, 120714, 120744, 120746, 120770, 120772, 120779, 123136, 123180, 123191, 123197, 123584, 123627, 124928, 125124, 125184, 125251, 126464, 126467, 126469, 126495, 126497, 126498, 126505, 126514, 126516, 126519, 126541, 126543, 126545, 126546, 126561, 126562, 126567, 126570, 126572, 126578, 126580, 126583, 126585, 126588, 126592, 126601, 126603, 126619, 126625, 126627, 126629, 126633, 126635, 126651, 194560, 195101]);
     var alphaSinglets_939525025 = new Int32Array([170, 181, 186, 748, 750, 895, 902, 908, 1369, 1749, 1791, 1808, 1969, 2042, 2074, 2084, 2088, 2365, 2384, 2482, 2493, 2510, 2556, 2654, 2749, 2768, 2809, 2877, 2929, 2947, 2972, 3024, 3133, 3200, 3261, 3294, 3389, 3406, 3517, 3716, 3749, 3773, 3782, 3840, 4159, 4193, 4238, 4295, 4301, 4696, 4800, 6103, 6108, 6314, 6823, 7418, 8025, 8027, 8029, 8126, 8305, 8319, 8450, 8455, 8469, 8484, 8486, 8488, 8526, 11559, 11565, 11631, 11823, 13312, 19893, 19968, 40943, 43259, 43471, 43642, 43697, 43712, 43714, 44032, 55203, 64285, 64318, 67592, 67644, 68096, 69415, 69956, 70006, 70106, 70108, 70280, 70461, 70480, 70751, 70855, 71236, 71352, 71935, 72161, 72163, 72192, 72250, 72272, 72349, 72768, 73030, 73112, 94032, 94179, 94208, 100343, 119970, 119995, 120134, 123214, 125259, 126500, 126503, 126521, 126523, 126530, 126535, 126537, 126539, 126548, 126551, 126553, 126555, 126557, 126559, 126564, 126590, 131072, 173782, 173824, 177972, 177984, 178205, 178208, 183969, 183984, 191456]);
     var spaceRanges_939525026 = new Int32Array([9, 13, 32, 32, 133, 133, 160, 160, 5760, 5760, 8192, 8202, 8232, 8233, 8239, 8239, 8287, 8287, 12288, 12288]);
+var ConstSet56 = setConstr(9, 10, 11);
+var ConstSet57 = setConstr(9, 10, 11);
+var ConstSet58 = setConstr(9, 10, 11);
+var ConstSet59 = setConstr(9, 10, 11);
+var ConstSet60 = setConstr(9, 10, 11);
+var ConstSet61 = setConstr(9, 10, 11);
+var ConstSet62 = setConstr(9, 10, 11);
+var ConstSet63 = setConstr(9, 10, 11);
+var ConstSet64 = setConstr(9, 10, 11);
+var ConstSet65 = setConstr(9, 10, 11);
+var ConstSet66 = setConstr(9, 10, 11);
+var ConstSet67 = setConstr(9, 10, 11);
+var ConstSet68 = setConstr(9, 10, 11);
+var ConstSet69 = setConstr(9, 10, 11);
+var ConstSet70 = setConstr(9, 10, 11);
+var ConstSet71 = setConstr(9, 10, 11);
 var ConstSet72 = setConstr(9, 10, 11);
 var ConstSet73 = setConstr(9, 10, 11);
 var ConstSet74 = setConstr(9, 10, 11);
@@ -1011,46 +1011,30 @@ var ConstSet124 = setConstr(9, 10, 11);
 var ConstSet125 = setConstr(9, 10, 11);
 var ConstSet126 = setConstr(9, 10, 11);
 var ConstSet127 = setConstr(9, 10, 11);
-var ConstSet128 = setConstr(9, 10, 11);
-var ConstSet129 = setConstr(9, 10, 11);
-var ConstSet130 = setConstr(9, 10, 11);
-var ConstSet131 = setConstr(9, 10, 11);
-var ConstSet132 = setConstr(9, 10, 11);
-var ConstSet133 = setConstr(9, 10, 11);
-var ConstSet134 = setConstr(9, 10, 11);
-var ConstSet135 = setConstr(9, 10, 11);
-var ConstSet136 = setConstr(9, 10, 11);
-var ConstSet137 = setConstr(9, 10, 11);
-var ConstSet138 = setConstr(9, 10, 11);
-var ConstSet139 = setConstr(9, 10, 11);
-var ConstSet140 = setConstr(9, 10, 11);
-var ConstSet141 = setConstr(9, 10, 11);
-var ConstSet142 = setConstr(9, 10, 11);
-var ConstSet143 = setConstr(9, 10, 11);
-var ConstSet144 = setConstr(12, 18);
-var ConstSet145 = setConstr(13, 19);
-var ConstSet146 = setConstr(14);
-var ConstSet147 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet148 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet149 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet150 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet151 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet152 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet153 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet154 = setConstr(12, 18);
-var ConstSet155 = setConstr(13, 19);
-var ConstSet156 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet157 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet158 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet159 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet160 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet161 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet162 = setConstr([25, 27]);
-var ConstSet163 = setConstr();
-var ConstSet164 = setConstr(13, 10, 0);
-var ConstSet165 = setConstr();
-var ConstSet166 = setConstr([48, 57]);
-var ConstSet167 = setConstr([65, 90], [97, 122]);
+var ConstSet128 = setConstr(12, 18);
+var ConstSet129 = setConstr(13, 19);
+var ConstSet130 = setConstr(14);
+var ConstSet131 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet132 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet133 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet134 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet135 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet136 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet137 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet138 = setConstr(12, 18);
+var ConstSet139 = setConstr(13, 19);
+var ConstSet140 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet141 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet142 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet143 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet144 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet145 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet146 = setConstr([25, 27]);
+var ConstSet147 = setConstr();
+var ConstSet148 = setConstr(13, 10, 0);
+var ConstSet149 = setConstr();
+var ConstSet150 = setConstr([48, 57]);
+var ConstSet151 = setConstr([65, 90], [97, 122]);
 
 function SetMinus(a_33556920, b_33556921) {
         var result = {};
@@ -1062,11 +1046,11 @@ function SetMinus(a_33556920, b_33556921) {
 
   
 }
-var ConstSet168 = setConstr([1, 255]);
-var ConstSet169 = setConstr([65, 90], [97, 122]);
-var ConstSet170 = setConstr([97, 122], [65, 90], [48, 57], 95);
-var ConstSet171 = setConstr([48, 57]);
-var ConstSet172 = setConstr([48, 57]);
+var ConstSet152 = setConstr([1, 255]);
+var ConstSet153 = setConstr([65, 90], [97, 122]);
+var ConstSet154 = setConstr([97, 122], [65, 90], [48, 57], 95);
+var ConstSet155 = setConstr([48, 57]);
+var ConstSet156 = setConstr([48, 57]);
 
 function negInt(a_33556983) {
   var result_33556984 = 0;
@@ -1076,8 +1060,8 @@ function negInt(a_33556983) {
   return result_33556984;
 
 }
-var ConstSet173 = setConstr(39, 34);
-var ConstSet174 = setConstr(94, [48, 57]);
+var ConstSet157 = setConstr(39, 34);
+var ConstSet158 = setConstr(94, [48, 57]);
 
 function absInt(a_33556989) {
     var Temporary1;
@@ -1096,27 +1080,27 @@ function absInt(a_33556989) {
   return result_33556990;
 
 }
-var ConstSet175 = setConstr(21, 17, 20, 18, 19);
-var ConstSet176 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet159 = setConstr(21, 17, 20, 18, 19);
+var ConstSet160 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet161 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet162 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet163 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet164 = setConstr(9, 10, 11);
+var ConstSet165 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet166 = setConstr(9, 10, 11);
+var ConstSet167 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet168 = setConstr(9, 10, 11);
+var ConstSet169 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet170 = setConstr(12, 18);
+var ConstSet171 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet172 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet173 = setConstr(9, 32);
+var ConstSet174 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet175 = setConstr(13, 19);
+var ConstSet176 = setConstr(13, 19);
 var ConstSet177 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
 var ConstSet178 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
 var ConstSet179 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet180 = setConstr(9, 10, 11);
-var ConstSet181 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet182 = setConstr(9, 10, 11);
-var ConstSet183 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet184 = setConstr(9, 10, 11);
-var ConstSet185 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet186 = setConstr(12, 18);
-var ConstSet187 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet188 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet189 = setConstr(9, 32);
-var ConstSet190 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet191 = setConstr(13, 19);
-var ConstSet192 = setConstr(13, 19);
-var ConstSet193 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet194 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet195 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
 
 function SetPlus(a_33556916, b_33556917) {
         var result = {};
@@ -1127,33 +1111,50 @@ function SetPlus(a_33556916, b_33556917) {
 
   
 }
-var ConstSet196 = setConstr(13, 19);
-var ConstSet197 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet198 = setConstr(13, 19);
-var ConstSet199 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet200 = setConstr(13, 19);
-var ConstSet201 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
-var ConstSet202 = setConstr(12, 18);
-var ConstSet203 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet180 = setConstr(13, 19);
+var ConstSet181 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet182 = setConstr(13, 19);
+var ConstSet183 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet184 = setConstr(13, 19);
+var ConstSet185 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
+var ConstSet186 = setConstr(12, 18);
+var ConstSet187 = setConstr([0, 8], 9, 10, 11, 12, 18, 13, 19, 14, [25, 27]);
       var tokKindToStr_1241517207 = [makeNimstrLit("invalid"), makeNimstrLit("[EOF]"), makeNimstrLit("."), makeNimstrLit("_"), makeNimstrLit("identifier"), makeNimstrLit("string literal"), makeNimstrLit("character set"), makeNimstrLit("("), makeNimstrLit(")"), makeNimstrLit("{"), makeNimstrLit("}"), makeNimstrLit("{@}"), makeNimstrLit("{}"), makeNimstrLit("<-"), makeNimstrLit("/"), makeNimstrLit("*"), makeNimstrLit("+"), makeNimstrLit("&"), makeNimstrLit("!"), makeNimstrLit("?"), makeNimstrLit("@"), makeNimstrLit("built-in"), makeNimstrLit("escaped"), makeNimstrLit("$"), makeNimstrLit("$"), makeNimstrLit("^")];
-var ConstSet204 = setConstr([48, 57]);
-var ConstSet205 = setConstr([1, 47], [58, 255]);
-var ConstSet206 = setConstr(32, [9, 13]);
-var ConstSet207 = setConstr([1, 8], [14, 31], [33, 255]);
-var ConstSet208 = setConstr([97, 122], [65, 90], 95, [48, 57]);
-var ConstSet209 = setConstr([1, 47], [58, 64], [91, 94], 96, [123, 255]);
-var ConstSet210 = setConstr([97, 122], [65, 90]);
-var ConstSet211 = setConstr([1, 64], [91, 96], [123, 255]);
-var ConstSet212 = setConstr([97, 122], [65, 90], 95);
-var ConstSet213 = setConstr(12, 18);
-var ConstSet214 = setConstr(13, 19);
-var ConstSet215 = setConstr([97, 122], [65, 90], [48, 57], 95);
+var ConstSet188 = setConstr([48, 57]);
+var ConstSet189 = setConstr([1, 47], [58, 255]);
+var ConstSet190 = setConstr(32, [9, 13]);
+var ConstSet191 = setConstr([1, 8], [14, 31], [33, 255]);
+var ConstSet192 = setConstr([97, 122], [65, 90], 95, [48, 57]);
+var ConstSet193 = setConstr([1, 47], [58, 64], [91, 94], 96, [123, 255]);
+var ConstSet194 = setConstr([97, 122], [65, 90]);
+var ConstSet195 = setConstr([1, 64], [91, 96], [123, 255]);
+var ConstSet196 = setConstr([97, 122], [65, 90], 95);
+var ConstSet197 = setConstr(12, 18);
+var ConstSet198 = setConstr(13, 19);
+var ConstSet199 = setConstr([97, 122], [65, 90], [48, 57], 95);
+var ConstSet200 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet201 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet202 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet203 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet204 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet205 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet206 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet207 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet208 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet209 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet210 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet211 = setConstr(32, 9, 11, 13, 10, 12);
+          var prismCss_1224736800 = [makeNimstrLit("/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */\x0Acode[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}\x0A"), makeNimstrLit("/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-dark&languages=markup+css+clike+javascript */\x0Acode[class*=language-],pre[class*=language-]{color:#fff;background:0 0;text-shadow:0 -.1em .2em #000;font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}:not(pre)>code[class*=language-],pre[class*=language-]{background:#4c3f33}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border:.3em solid #7a6651;border-radius:.5em;box-shadow:1px 1px .5em #000 inset}:not(pre)>code[class*=language-]{padding:.15em .2em .05em;border-radius:.3em;border:.13em solid #7a6651;box-shadow:1px 1px .3em -.1em #000 inset;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#997f66}.token.punctuation{opacity:.7}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.number,.token.property,.token.symbol,.token.tag{color:#d1939e}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#bce051}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f4b73d}.token.atrule,.token.attr-value,.token.keyword{color:#d1939e}.token.important,.token.regex{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.deleted{color:red}\x0A"), makeNimstrLit("/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-funky&languages=markup+css+clike+javascript */\x0Acode[class*=language-],pre[class*=language-]{font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.4em .8em;margin:.5em 0;overflow:auto;background:url(\'data:image/svg+xml;charset=utf-8,<svg%20version%3D\"1.1\"%20xmlns%3D\"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\"%20width%3D\"100\"%20height%3D\"100\"%20fill%3D\"rgba(0%2C0%2C0%2C.2)\">%0D%0A<polygon%20points%3D\"0%2C50%2050%2C0%200%2C0\"%20%2F>%0D%0A<polygon%20points%3D\"0%2C100%2050%2C100%20100%2C50%20100%2C0\"%20%2F>%0D%0A<%2Fsvg>\');background-size:1em 1em}code[class*=language-]{background:#000;color:#fff;box-shadow:-.3em 0 0 .3em #000,.3em 0 0 .3em #000}:not(pre)>code[class*=language-]{padding:.2em;border-radius:.3em;box-shadow:none;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#aaa}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.number,.token.property,.token.symbol,.token.tag{color:#0cf}.token.attr-name,.token.builtin,.token.char,.token.selector,.token.string{color:#ff0}.language-css .token.string,.token.entity,.token.inserted,.token.operator,.token.url,.token.variable{color:#9acd32}.token.atrule,.token.attr-value,.token.keyword{color:#ff1493}.token.important,.token.regex{color:orange}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.deleted{color:red}pre.diff-highlight.diff-highlight>code .token.deleted:not(.prefix),pre>code.diff-highlight.diff-highlight .token.deleted:not(.prefix){background-color:rgba(255,0,0,.3);display:inline}pre.diff-highlight.diff-highlight>code .token.inserted:not(.prefix),pre>code.diff-highlight.diff-highlight .token.inserted:not(.prefix){background-color:rgba(0,255,128,.3);display:inline}\x0A"), makeNimstrLit("/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript */\x0Acode[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8292a2}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}\x0A"), makeNimstrLit("/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-twilight&languages=markup+css+clike+javascript */\x0Acode[class*=language-],pre[class*=language-]{color:#fff;background:0 0;font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;text-shadow:0 -.1em .2em #000;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}:not(pre)>code[class*=language-],pre[class*=language-]{background:#141414}pre[class*=language-]{border-radius:.5em;border:.3em solid #545454;box-shadow:1px 1px .5em #000 inset;margin:.5em 0;overflow:auto;padding:1em}pre[class*=language-]::-moz-selection{background:#27292a}pre[class*=language-]::selection{background:#27292a}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:hsla(0,0%,93%,.15)}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:hsla(0,0%,93%,.15)}:not(pre)>code[class*=language-]{border-radius:.3em;border:.13em solid #545454;box-shadow:1px 1px .3em -.1em #000 inset;padding:.15em .2em .05em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#777}.token.punctuation{opacity:.7}.token.namespace{opacity:.7}.token.boolean,.token.deleted,.token.number,.token.tag{color:#ce6849}.token.builtin,.token.constant,.token.keyword,.token.property,.token.selector,.token.symbol{color:#f9ed99}.language-css .token.string,.style .token.string,.token.attr-name,.token.attr-value,.token.char,.token.entity,.token.inserted,.token.operator,.token.string,.token.url,.token.variable{color:#909e6a}.token.atrule{color:#7385a5}.token.important,.token.regex{color:#e8c062}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.language-markup .token.attr-name,.language-markup .token.punctuation,.language-markup .token.tag{color:#ac885c}.token{position:relative;z-index:1}.line-highlight.line-highlight{background:hsla(0,0%,33%,.25);background:linear-gradient(to right,hsla(0,0%,33%,.1) 70%,hsla(0,0%,33%,0));border-bottom:1px dashed #545454;border-top:1px dashed #545454;margin-top:.75em;z-index:0}.line-highlight.line-highlight:before,.line-highlight.line-highlight[data-end]:after{background-color:#8693a6;color:#f4f1ef}\x0A"), makeNimstrLit("/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-coy&languages=markup+css+clike+javascript */\x0Acode[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{position:relative;margin:.5em 0;overflow:visible;padding:1px}pre[class*=language-]>code{position:relative;z-index:1;border-left:10px solid #358ccb;box-shadow:-1px 0 0 0 #358ccb,0 0 0 1px #dfdfdf;background-color:#fdfdfd;background-image:linear-gradient(transparent 50%,rgba(69,142,209,.04) 50%);background-size:3em 3em;background-origin:content-box;background-attachment:local}code[class*=language-]{max-height:inherit;height:inherit;padding:0 1em;display:block;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdfdfd;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-bottom:1em}:not(pre)>code[class*=language-]{position:relative;padding:.2em;border-radius:.3em;color:#c92c2c;border:1px solid rgba(0,0,0,.1);display:inline;white-space:normal}pre[class*=language-]:after,pre[class*=language-]:before{content:\'\';display:block;position:absolute;bottom:.75em;left:.18em;width:40%;height:20%;max-height:13em;box-shadow:0 13px 8px #979797;-webkit-transform:rotate(-2deg);-moz-transform:rotate(-2deg);-ms-transform:rotate(-2deg);-o-transform:rotate(-2deg);transform:rotate(-2deg)}pre[class*=language-]:after{right:.75em;left:auto;-webkit-transform:rotate(2deg);-moz-transform:rotate(2deg);-ms-transform:rotate(2deg);-o-transform:rotate(2deg);transform:rotate(2deg)}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#7d8b99}.token.punctuation{color:#5f6364}.token.boolean,.token.constant,.token.deleted,.token.function-name,.token.number,.token.property,.token.symbol,.token.tag{color:#c92c2c}.token.attr-name,.token.builtin,.token.char,.token.function,.token.inserted,.token.selector,.token.string{color:#2f9c0a}.token.entity,.token.operator,.token.url,.token.variable{color:#a67f59;background:rgba(255,255,255,.5)}.token.atrule,.token.attr-value,.token.class-name,.token.keyword{color:#1990b8}.token.important,.token.regex{color:#e90}.language-css .token.string,.style .token.string{color:#a67f59;background:rgba(255,255,255,.5)}.token.important{font-weight:400}.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.namespace{opacity:.7}@media screen and (max-width:767px){pre[class*=language-]:after,pre[class*=language-]:before{bottom:14px;box-shadow:none}}pre[class*=language-].line-numbers.line-numbers{padding-left:0}pre[class*=language-].line-numbers.line-numbers code{padding-left:3.8em}pre[class*=language-].line-numbers.line-numbers .line-numbers-rows{left:0}pre[class*=language-][data-line]{padding-top:0;padding-bottom:0;padding-left:0}pre[data-line] code{position:relative;padding-left:4em}pre .line-highlight{margin-top:0}\x0A"), makeNimstrLit("/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-solarizedlight&languages=markup+css+clike+javascript */\x0Acode[class*=language-],pre[class*=language-]{color:#657b83;font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{background:#073642}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#073642}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{color:#657b83;background:#eee8d5}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}\x0A"), makeNimstrLit("/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript */\x0Acode[class*=language-],pre[class*=language-]{color:#ccc;background:0 0;font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}\x0A")];
+var ConstSet212 = setConstr(0);
+var ConstSet213 = setConstr(0);
+var ConstSet214 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet215 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet216 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet217 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet218 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet219 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet220 = setConstr(47, 47);
-var ConstSet221 = setConstr(47, 47);
+var ConstSet220 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet221 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet222 = setConstr(47, 47);
 var ConstSet223 = setConstr(47, 47);
 var ConstSet224 = setConstr(47, 47);
@@ -1166,11 +1167,11 @@ var ConstSet230 = setConstr(47, 47);
 var ConstSet231 = setConstr(47, 47);
 var ConstSet232 = setConstr(47, 47);
 var ConstSet233 = setConstr(47, 47);
+var ConstSet234 = setConstr(47, 47);
+var ConstSet235 = setConstr(47, 47);
     var FormatOpen_452985184 = ["rb", "wb", "w+b", "r+b", "ab"];
-var ConstSet234 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet235 = setConstr([65, 90]);
 var ConstSet236 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet237 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet237 = setConstr([65, 90]);
 var ConstSet238 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet239 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet240 = setConstr(32, 9, 11, 13, 10, 12);
@@ -1183,9 +1184,14 @@ var ConstSet246 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet247 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet248 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet249 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet250 = setConstr(32, 9, 11, 13, 10, 12);
+            var syntaxHighlightingThemeTable_1224738388 = {data: [{Field0: 203983520, Field1: makeNimstrLit("okaidia"), Field2: 3}, {Field0: -2023672578, Field1: makeNimstrLit("solarized-light"), Field2: 6}, {Field0: 2098521666, Field1: makeNimstrLit("funky"), Field2: 2}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 63010150, Field1: makeNimstrLit("coy"), Field2: 5}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: -1356231671, Field1: makeNimstrLit("tomorrow-night"), Field2: 7}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 767273821, Field1: makeNimstrLit("dark"), Field2: 1}, {Field0: -1944989682, Field1: makeNimstrLit("twilight"), Field2: 4}, {Field0: 1120495519, Field1: makeNimstrLit("default"), Field2: 0}], counter: 8};
+var ConstSet250 = setConstr(0);
 var ConstSet251 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet252 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet253 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet254 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet255 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet256 = setConstr(32, 9, 11, 13, 10, 12);
               var htmlTags_1224736798 = [makeNimstrLit("!--"), makeNimstrLit("!DOCTYPE"), makeNimstrLit("a"), makeNimstrLit("abbr"), makeNimstrLit("acronym"), makeNimstrLit("address"), makeNimstrLit("applet"), makeNimstrLit("area"), makeNimstrLit("article"), makeNimstrLit("aside"), makeNimstrLit("audio"), makeNimstrLit("b"), makeNimstrLit("base"), makeNimstrLit("basefont"), makeNimstrLit("bdi"), makeNimstrLit("bdo"), makeNimstrLit("big"), makeNimstrLit("blockquote"), makeNimstrLit("body"), makeNimstrLit("br"), makeNimstrLit("button"), makeNimstrLit("canvas"), makeNimstrLit("caption"), makeNimstrLit("center"), makeNimstrLit("circle"), makeNimstrLit("cite"), makeNimstrLit("code"), makeNimstrLit("col"), makeNimstrLit("colgroup"), makeNimstrLit("data"), makeNimstrLit("datalist"), makeNimstrLit("dd"), makeNimstrLit("del"), makeNimstrLit("details"), makeNimstrLit("dfn"), makeNimstrLit("dialog"), makeNimstrLit("dir"), makeNimstrLit("div"), makeNimstrLit("dl"), makeNimstrLit("dt"), makeNimstrLit("em"), makeNimstrLit("embed"), makeNimstrLit("fieldset"), makeNimstrLit("figcaption"), makeNimstrLit("figure"), makeNimstrLit("font"), makeNimstrLit("footer"), makeNimstrLit("form"), makeNimstrLit("frame"), makeNimstrLit("frameset"), makeNimstrLit("h1"), makeNimstrLit("h2"), makeNimstrLit("h3"), makeNimstrLit("h4"), makeNimstrLit("h5"), makeNimstrLit("h6"), makeNimstrLit("head"), makeNimstrLit("header"), makeNimstrLit("hr"), makeNimstrLit("html"), makeNimstrLit("i"), makeNimstrLit("iframe"), makeNimstrLit("img"), makeNimstrLit("input"), makeNimstrLit("ins"), makeNimstrLit("kbd"), makeNimstrLit("label"), makeNimstrLit("legend"), makeNimstrLit("li"), makeNimstrLit("link"), makeNimstrLit("main"), makeNimstrLit("map"), makeNimstrLit("mark"), makeNimstrLit("meta"), makeNimstrLit("meter"), makeNimstrLit("nav"), makeNimstrLit("noframes"), makeNimstrLit("noscript"), makeNimstrLit("object"), makeNimstrLit("ol"), makeNimstrLit("optgroup"), makeNimstrLit("option"), makeNimstrLit("output"), makeNimstrLit("p"), makeNimstrLit("param"), makeNimstrLit("path"), makeNimstrLit("picture"), makeNimstrLit("pre"), makeNimstrLit("progress"), makeNimstrLit("q"), makeNimstrLit("rect"), makeNimstrLit("rp"), makeNimstrLit("rt"), makeNimstrLit("ruby"), makeNimstrLit("s"), makeNimstrLit("samp"), makeNimstrLit("script"), makeNimstrLit("section"), makeNimstrLit("select"), makeNimstrLit("small"), makeNimstrLit("source"), makeNimstrLit("span"), makeNimstrLit("strike"), makeNimstrLit("strong"), makeNimstrLit("style"), makeNimstrLit("sub"), makeNimstrLit("summary"), makeNimstrLit("sup"), makeNimstrLit("svg"), makeNimstrLit("table"), makeNimstrLit("tbody"), makeNimstrLit("td"), makeNimstrLit("template"), makeNimstrLit("textarea"), makeNimstrLit("tfoot"), makeNimstrLit("th"), makeNimstrLit("thead"), makeNimstrLit("time"), makeNimstrLit("title"), makeNimstrLit("tr"), makeNimstrLit("track"), makeNimstrLit("tt"), makeNimstrLit("u"), makeNimstrLit("ul"), makeNimstrLit("var"), makeNimstrLit("video"), makeNimstrLit("wbr")];
                     var htmlUnpairedTags_1224736799 = [makeNimstrLit("br"), makeNimstrLit("circle"), makeNimstrLit("img"), makeNimstrLit("input"), makeNimstrLit("link"), makeNimstrLit("meta"), makeNimstrLit("path"), makeNimstrLit("rect")];
       var templates_486540813 = {data: [{Field0: 0, Field1: 0, Field2: []}, {Field0: 2006744169, Field1: 0, Field2: makeNimstrLit("<!DOCTYPE html><html><head><meta charset=\"utf8\"><meta name=\"generator\" content=\"xidoc\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">$1</head><body>$2</body></html>")}, {Field0: 0, Field1: 0, Field2: []}, {Field0: 0, Field1: 0, Field2: []}, {Field0: 0, Field1: 0, Field2: []}, {Field0: 975549885, Field1: 1, Field2: makeNimstrLit("\\documentclass{article}\\usepackage[utf8]{inputenc}\\usepackage{geometry}$1\\begin{document}$2\\end{document}")}, {Field0: 0, Field1: 0, Field2: []}, {Field0: 0, Field1: 0, Field2: []}], counter: 2};
@@ -1554,48 +1560,48 @@ function failedAssertImpl_218103864(msg_218103865) {
   
 }
 
-function mustRehash_1728053523(t_1728053525) {
-  var result_1728053526 = false;
+function mustRehash_1744830739(t_1744830741) {
+  var result_1744830742 = false;
 
-    if (!((t_1728053525.counter < (t_1728053525.data).length))) {
+    if (!((t_1744830741.counter < (t_1744830741.data).length))) {
     failedAssertImpl_218103864(makeNimstrLit("hashcommon.nim(29, 9) `\x0At.counter < t.dataLen` "));
     }
     
-    result_1728053526 = ((mulInt((t_1728053525.data).length, 2) < mulInt(t_1728053525.counter, 3)) || (subInt((t_1728053525.data).length, t_1728053525.counter) < 4));
+    result_1744830742 = ((mulInt((t_1744830741.data).length, 2) < mulInt(t_1744830741.counter, 3)) || (subInt((t_1744830741.data).length, t_1744830741.counter) < 4));
 
-  return result_1728053526;
+  return result_1744830742;
 
 }
 
-function rawInsert_1728053972(t_1728053976, data_1728053977, data_1728053977_Idx, key_1728053978, val_1728053979, hc_1728053980, h_1728053981) {
-    data_1728053977[data_1728053977_Idx][chckIndx(h_1728053981, 0, (data_1728053977[data_1728053977_Idx]).length - 1)].Field1 = nimCopy(null, key_1728053978, NTI33554439);
-    data_1728053977[data_1728053977_Idx][chckIndx(h_1728053981, 0, (data_1728053977[data_1728053977_Idx]).length - 1)].Field2 = val_1728053979;
-    data_1728053977[data_1728053977_Idx][chckIndx(h_1728053981, 0, (data_1728053977[data_1728053977_Idx]).length - 1)].Field0 = hc_1728053980;
+function rawInsert_1744831188(t_1744831192, data_1744831193, data_1744831193_Idx, key_1744831194, val_1744831195, hc_1744831196, h_1744831197) {
+    data_1744831193[data_1744831193_Idx][chckIndx(h_1744831197, 0, (data_1744831193[data_1744831193_Idx]).length - 1)].Field1 = nimCopy(null, key_1744831194, NTI33554439);
+    data_1744831193[data_1744831193_Idx][chckIndx(h_1744831197, 0, (data_1744831193[data_1744831193_Idx]).length - 1)].Field2 = val_1744831195;
+    data_1744831193[data_1744831193_Idx][chckIndx(h_1744831197, 0, (data_1744831193[data_1744831193_Idx]).length - 1)].Field0 = hc_1744831196;
 
   
 }
 
-function enlarge_1728053678(t_1728053681) {
-    var n_1728053684 = [];
-    n_1728053684 = new Array(chckRange(mulInt((t_1728053681.data).length, 2), 0, 2147483647)); for (var i = 0 ; i < chckRange(mulInt((t_1728053681.data).length, 2), 0, 2147483647) ; ++i) { n_1728053684[i] = {Field0: 0, Field1: [], Field2: null}; }    var Temporary1 = t_1728053681.data; t_1728053681.data = n_1728053684; n_1728053684 = Temporary1;    Label2: do {
-      var i_1728053748 = 0;
+function enlarge_1744830894(t_1744830897) {
+    var n_1744830900 = [];
+    n_1744830900 = new Array(chckRange(mulInt((t_1744830897.data).length, 2), 0, 2147483647)); for (var i = 0 ; i < chckRange(mulInt((t_1744830897.data).length, 2), 0, 2147483647) ; ++i) { n_1744830900[i] = {Field0: 0, Field1: [], Field2: null}; }    var Temporary1 = t_1744830897.data; t_1744830897.data = n_1744830900; n_1744830900 = Temporary1;    Label2: do {
+      var i_1744830964 = 0;
       var colontmp__486542103 = 0;
-      colontmp__486542103 = (n_1728053684).length - 1;
+      colontmp__486542103 = (n_1744830900).length - 1;
       var res_486542104 = 0;
       Label3: do {
           Label4: while (true) {
           if (!(res_486542104 <= colontmp__486542103)) break Label4;
-            i_1728053748 = res_486542104;
-            var eh_1728053802 = n_1728053684[chckIndx(i_1728053748, 0, (n_1728053684).length - 1)].Field0;
-            if (isFilled_1191182367(eh_1728053802)) {
-            var j_1728053806 = (eh_1728053802 & (t_1728053681.data).length - 1);
+            i_1744830964 = res_486542104;
+            var eh_1744831018 = n_1744830900[chckIndx(i_1744830964, 0, (n_1744830900).length - 1)].Field0;
+            if (isFilled_1191182367(eh_1744831018)) {
+            var j_1744831022 = (eh_1744831018 & (t_1744830897.data).length - 1);
             Label5: do {
                 Label6: while (true) {
-                if (!isFilled_1191182367(t_1728053681.data[chckIndx(j_1728053806, 0, (t_1728053681.data).length - 1)].Field0)) break Label6;
-                  j_1728053806 = nextTry_1191182370(j_1728053806, (t_1728053681.data).length - 1);
+                if (!isFilled_1191182367(t_1744830897.data[chckIndx(j_1744831022, 0, (t_1744830897.data).length - 1)].Field0)) break Label6;
+                  j_1744831022 = nextTry_1191182370(j_1744831022, (t_1744830897.data).length - 1);
                 }
             } while (false);
-            rawInsert_1728053972(t_1728053681, t_1728053681, "data", n_1728053684[chckIndx(i_1728053748, 0, (n_1728053684).length - 1)].Field1, n_1728053684[chckIndx(i_1728053748, 0, (n_1728053684).length - 1)].Field2, eh_1728053802, j_1728053806);
+            rawInsert_1744831188(t_1744830897, t_1744830897, "data", n_1744830900[chckIndx(i_1744830964, 0, (n_1744830900).length - 1)].Field1, n_1744830900[chckIndx(i_1744830964, 0, (n_1744830900).length - 1)].Field2, eh_1744831018, j_1744831022);
             }
             
             res_486542104 = addInt(res_486542104, 1);
@@ -1606,59 +1612,59 @@ function enlarge_1728053678(t_1728053681) {
   
 }
 
-function rawGetKnownHC_1728054142(t_1728054145, key_1728054146, hc_1728054147) {
-  var result_1728054148 = 0;
+function rawGetKnownHC_1744831358(t_1744831361, key_1744831362, hc_1744831363) {
+  var result_1744831364 = 0;
 
   BeforeRet: do {
-    if (((t_1728054145.data).length == 0)) {
-    result_1728054148 = -1;
+    if (((t_1744831361.data).length == 0)) {
+    result_1744831364 = -1;
     break BeforeRet;
     }
     
-    var h_1728054199 = (hc_1728054147 & (t_1728054145.data).length - 1);
+    var h_1744831415 = (hc_1744831363 & (t_1744831361.data).length - 1);
     Label1: do {
         Label2: while (true) {
-        if (!isFilled_1191182367(t_1728054145.data[chckIndx(h_1728054199, 0, (t_1728054145.data).length - 1)].Field0)) break Label2;
-          if (((t_1728054145.data[chckIndx(h_1728054199, 0, (t_1728054145.data).length - 1)].Field0 == hc_1728054147) && eqStrings(t_1728054145.data[chckIndx(h_1728054199, 0, (t_1728054145.data).length - 1)].Field1, key_1728054146))) {
-          result_1728054148 = h_1728054199;
+        if (!isFilled_1191182367(t_1744831361.data[chckIndx(h_1744831415, 0, (t_1744831361.data).length - 1)].Field0)) break Label2;
+          if (((t_1744831361.data[chckIndx(h_1744831415, 0, (t_1744831361.data).length - 1)].Field0 == hc_1744831363) && eqStrings(t_1744831361.data[chckIndx(h_1744831415, 0, (t_1744831361.data).length - 1)].Field1, key_1744831362))) {
+          result_1744831364 = h_1744831415;
           break BeforeRet;
           }
           
-          h_1728054199 = nextTry_1191182370(h_1728054199, (t_1728054145.data).length - 1);
+          h_1744831415 = nextTry_1191182370(h_1744831415, (t_1744831361.data).length - 1);
         }
     } while (false);
-    result_1728054148 = subInt(-1, h_1728054199);
+    result_1744831364 = subInt(-1, h_1744831415);
   } while (false);
 
-  return result_1728054148;
+  return result_1744831364;
 
 }
 
-function HEX5BHEX5DHEX3D_1728053350(t_1728053353, key_1728053354, val_1728053355) {
-    if (((t_1728053353.data).length == 0)) {
-    var correctSizeHEX60gensym5_1728053404 = slotsNeeded_1191182378(32);
-    t_1728053353.counter = 0;
-    t_1728053353.data = new Array(chckRange(correctSizeHEX60gensym5_1728053404, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym5_1728053404, 0, 2147483647) ; ++i) { t_1728053353.data[i] = {Field0: 0, Field1: [], Field2: null}; }    }
+function HEX5BHEX5DHEX3D_1744830566(t_1744830569, key_1744830570, val_1744830571) {
+    if (((t_1744830569.data).length == 0)) {
+    var correctSizeHEX60gensym5_1744830620 = slotsNeeded_1191182378(32);
+    t_1744830569.counter = 0;
+    t_1744830569.data = new Array(chckRange(correctSizeHEX60gensym5_1744830620, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym5_1744830620, 0, 2147483647) ; ++i) { t_1744830569.data[i] = {Field0: 0, Field1: [], Field2: null}; }    }
     
-    var hc_1728053409 = [0];
-    var index_1728053416 = rawGet_1308622979(t_1728053353, key_1728053354, hc_1728053409, 0);
-    if ((0 <= index_1728053416)) {
-    t_1728053353.data[chckIndx(index_1728053416, 0, (t_1728053353.data).length - 1)].Field2 = val_1728053355;
+    var hc_1744830625 = [0];
+    var index_1744830632 = rawGet_1308622979(t_1744830569, key_1744830570, hc_1744830625, 0);
+    if ((0 <= index_1744830632)) {
+    t_1744830569.data[chckIndx(index_1744830632, 0, (t_1744830569.data).length - 1)].Field2 = val_1744830571;
     }
     else {
-      if (((t_1728053353.data).length == 0)) {
-      var correctSizeHEX60gensym8_1728053518 = slotsNeeded_1191182378(32);
-      t_1728053353.counter = 0;
-      t_1728053353.data = new Array(chckRange(correctSizeHEX60gensym8_1728053518, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym8_1728053518, 0, 2147483647) ; ++i) { t_1728053353.data[i] = {Field0: 0, Field1: [], Field2: null}; }      }
+      if (((t_1744830569.data).length == 0)) {
+      var correctSizeHEX60gensym8_1744830734 = slotsNeeded_1191182378(32);
+      t_1744830569.counter = 0;
+      t_1744830569.data = new Array(chckRange(correctSizeHEX60gensym8_1744830734, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym8_1744830734, 0, 2147483647) ; ++i) { t_1744830569.data[i] = {Field0: 0, Field1: [], Field2: null}; }      }
       
-      if (mustRehash_1728053523(t_1728053353)) {
-      enlarge_1728053678(t_1728053353);
-      index_1728053416 = rawGetKnownHC_1728054142(t_1728053353, key_1728053354, hc_1728053409[0]);
+      if (mustRehash_1744830739(t_1744830569)) {
+      enlarge_1744830894(t_1744830569);
+      index_1744830632 = rawGetKnownHC_1744831358(t_1744830569, key_1744830570, hc_1744830625[0]);
       }
       
-      index_1728053416 = subInt(-1, index_1728053416);
-      rawInsert_1728053972(t_1728053353, t_1728053353, "data", key_1728053354, val_1728053355, hc_1728053409[0], index_1728053416);
-      t_1728053353.counter = addInt(t_1728053353.counter, 1);
+      index_1744830632 = subInt(-1, index_1744830632);
+      rawInsert_1744831188(t_1744830569, t_1744830569, "data", key_1744830570, val_1744830571, hc_1744830625[0], index_1744830632);
+      t_1744830569.counter = addInt(t_1744830569.counter, 1);
     }
     
 
@@ -3617,7 +3623,7 @@ function pop_1308623130(s_1308623132, s_1308623132_Idx) {
   var result_1308623133 = ({args: ({data: [], counter: 0}), cmdArg: [], cmdName: [], commands: ({data: [], counter: 0}), lang: ({val: 0, has: false})});
 
     var L_1308623137 = subInt((s_1308623132[s_1308623132_Idx]).length, 1);
-    result_1308623133 = nimCopy(result_1308623133, s_1308623132[s_1308623132_Idx][chckIndx(L_1308623137, 0, (s_1308623132[s_1308623132_Idx]).length - 1)], NTI1577058311);
+    result_1308623133 = nimCopy(result_1308623133, s_1308623132[s_1308623132_Idx][chckIndx(L_1308623137, 0, (s_1308623132[s_1308623132_Idx]).length - 1)], NTI1577058312);
     if (s_1308623132[s_1308623132_Idx].length < chckRange(L_1308623137, 0, 2147483647)) { for (var i = s_1308623132[s_1308623132_Idx].length ; i < chckRange(L_1308623137, 0, 2147483647) ; ++i) s_1308623132[s_1308623132_Idx].push(({args: ({data: [], counter: 0}), cmdArg: [], cmdName: [], commands: ({data: [], counter: 0}), lang: ({val: 0, has: false})})); }
                else { s_1308623132[s_1308623132_Idx].length = chckRange(L_1308623137, 0, 2147483647); };
 
@@ -3643,7 +3649,7 @@ function HEX3Aanonymous_1308623185() {
                         Label3: while (true) {
                         if (!(0 <= res_486542147)) break Label3;
                           iHEX60gensym8_1308623195 = res_486542147;
-                          var frameHEX60gensym8_1308623196 = nimCopy(null, doc_1308623170.stack[chckIndx(iHEX60gensym8_1308623195, 0, (doc_1308623170.stack).length - 1)], NTI1577058311);
+                          var frameHEX60gensym8_1308623196 = nimCopy(null, doc_1308623170.stack[chckIndx(iHEX60gensym8_1308623195, 0, (doc_1308623170.stack).length - 1)], NTI1577058312);
                           if (hasKey_1308622972(frameHEX60gensym8_1308623196.commands, name_1308623182)) {
                           result_1308623186 = HEX5BHEX5D_1308623076(frameHEX60gensym8_1308623196.commands, name_1308623182);
                           break BeforeRet;
@@ -3699,7 +3705,7 @@ function HEX3Aanonymous_1308623185() {
               var Temporary7 = nodeHEX60gensym7_1308623181[nodeHEX60gensym7_1308623181_Idx];
               if (ConstSet25[Temporary7.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'arg\' is not accessible for type \'XidocNode\' using \'kind = "), reprDiscriminant(Temporary7.kind, NTI1325400067)); }
               var frameHEX60gensym7_1308623309 = {cmdName: nimCopy(null, name_1308623182, NTI33554439), cmdArg: nimCopy(null, Temporary7.arg, NTI33554439), args: ({data: [], counter: 0}), commands: ({data: [], counter: 0}), lang: ({val: 0, has: false})};
-              var Temporary8 = nimCopy(null, frameHEX60gensym7_1308623309, NTI1577058311);
+              var Temporary8 = nimCopy(null, frameHEX60gensym7_1308623309, NTI1577058312);
               doc_1308623170.stack.push(Temporary8);;
               var Temporary9 = nodeHEX60gensym7_1308623181[nodeHEX60gensym7_1308623181_Idx];
               if (ConstSet26[Temporary9.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'arg\' is not accessible for type \'XidocNode\' using \'kind = "), reprDiscriminant(Temporary9.kind, NTI1325400067)); }
@@ -3769,44 +3775,44 @@ function translate_1593835557(phrase_1593835558, lang_1593835559) {
 
 }
 
-function isSome_1224738910(self_1224738912) {
-  var result_1224738913 = false;
+function isSome_1224740443(self_1224740445) {
+  var result_1224740446 = false;
 
-    result_1224738913 = self_1224738912.has;
+    result_1224740446 = self_1224740445.has;
 
-  return result_1224738913;
-
-}
-
-function isNone_1224738935(self_1224738937) {
-  var result_1224738938 = false;
-
-    result_1224738938 = !(self_1224738937.has);
-
-  return result_1224738938;
+  return result_1224740446;
 
 }
 
-function get_1224738927(self_1224738929) {
-  var result_1224738930 = null;
-  var result_1224738930_Idx = 0;
+function isNone_1224740468(self_1224740470) {
+  var result_1224740471 = false;
 
-    if (isNone_1224738935(self_1224738929)) {
+    result_1224740471 = !(self_1224740470.has);
+
+  return result_1224740471;
+
+}
+
+function get_1224740460(self_1224740462) {
+  var result_1224740463 = null;
+  var result_1224740463_Idx = 0;
+
+    if (isNone_1224740468(self_1224740462)) {
     raiseException({message: makeNimstrLit("Can\'t obtain a value from a `none`"), parent: null, m_type: NTI1610612756, name: null, trace: [], up: null}, "UnpackDefect");
     }
     
-    result_1224738930 = self_1224738929; result_1224738930_Idx = "val";
+    result_1224740463 = self_1224740462; result_1224740463_Idx = "val";
 
-  return [result_1224738930, result_1224738930_Idx];
+  return [result_1224740463, result_1224740463_Idx];
 
 }
 
-function HEX5BHEX5D_1761607955(s_1761607957, i_1761607958) {
-  var result_1761607959 = null;
+function HEX5BHEX5D_1778385245(s_1778385247, i_1778385248) {
+  var result_1778385249 = null;
 
-    result_1761607959 = s_1761607957[chckIndx(subInt((s_1761607957).length, i_1761607958), 0, (s_1761607957).length - 1)];
+    result_1778385249 = s_1778385247[chckIndx(subInt((s_1778385247).length, i_1778385248), 0, (s_1778385247).length - 1)];
 
-  return result_1761607959;
+  return result_1778385249;
 
 }
 
@@ -3828,7 +3834,7 @@ function HEX3Aanonymous_1308622919() {
                         Label3: while (true) {
                         if (!(0 <= res_486542171)) break Label3;
                           iHEX60gensym3_1308622930 = res_486542171;
-                          var frameHEX60gensym3_1308622931 = nimCopy(null, doc_1308622886.stack[chckIndx(iHEX60gensym3_1308622930, 0, (doc_1308622886.stack).length - 1)], NTI1577058311);
+                          var frameHEX60gensym3_1308622931 = nimCopy(null, doc_1308622886.stack[chckIndx(iHEX60gensym3_1308622930, 0, (doc_1308622886.stack).length - 1)], NTI1577058312);
                           if (hasKey_1308622972(frameHEX60gensym3_1308622931.commands, name_1308622916)) {
                           result_1308622920 = HEX5BHEX5D_1308623076(frameHEX60gensym3_1308622931.commands, name_1308622916);
                           break BeforeRet;
@@ -3884,7 +3890,7 @@ function HEX3Aanonymous_1308622919() {
               var Temporary7 = nodeHEX60gensym0_1308622915[nodeHEX60gensym0_1308622915_Idx];
               if (ConstSet32[Temporary7.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'arg\' is not accessible for type \'XidocNode\' using \'kind = "), reprDiscriminant(Temporary7.kind, NTI1325400067)); }
               var frameHEX60gensym0_1308623124 = {cmdName: nimCopy(null, name_1308622916, NTI33554439), cmdArg: nimCopy(null, Temporary7.arg, NTI33554439), args: ({data: [], counter: 0}), commands: ({data: [], counter: 0}), lang: ({val: 0, has: false})};
-              var Temporary8 = nimCopy(null, frameHEX60gensym0_1308623124, NTI1577058311);
+              var Temporary8 = nimCopy(null, frameHEX60gensym0_1308623124, NTI1577058312);
               doc_1308622886.stack.push(Temporary8);;
               var Temporary9 = nodeHEX60gensym0_1308622915[nodeHEX60gensym0_1308622915_Idx];
               if (ConstSet33[Temporary9.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'arg\' is not accessible for type \'XidocNode\' using \'kind = "), reprDiscriminant(Temporary9.kind, NTI1325400067)); }
@@ -4699,1247 +4705,79 @@ function parseXidocArguments_1325404662(body_1325404663) {
 
 }
 
-function some_1761607928(val_1761607930) {
-  var result_1761607935 = ({val: [], has: false});
+function some_1778385218(val_1778385220) {
+  var result_1778385225 = ({val: [], has: false});
 
-    result_1761607935.has = true;
-    result_1761607935.val = nimCopy(null, val_1761607930, NTI33554439);
+    result_1778385225.has = true;
+    result_1778385225.val = nimCopy(null, val_1778385220, NTI33554439);
 
-  return result_1761607935;
-
-}
-
-function none_1761607937() {
-  var result_1761607944 = ({val: [], has: false});
-
-  return result_1761607944;
+  return result_1778385225;
 
 }
 
-function HEX5BHEX5D_1761607718(s_1761607720, i_1761607721) {
-  var result_1761607722 = [];
+function none_1778385227() {
+  var result_1778385234 = ({val: [], has: false});
 
-    result_1761607722 = nimCopy(null, s_1761607720[chckIndx(subInt((s_1761607720).length, i_1761607721), 0, (s_1761607720).length - 1)], NTI33554439);
-
-  return result_1761607722;
+  return result_1778385234;
 
 }
 
-function isSome_1761607950(self_1761607952) {
-  var result_1761607953 = false;
+function HEX5BHEX5D_1778384934(s_1778384936, i_1778384937) {
+  var result_1778384938 = [];
 
-    result_1761607953 = self_1761607952.has;
+    result_1778384938 = nimCopy(null, s_1778384936[chckIndx(subInt((s_1778384936).length, i_1778384937), 0, (s_1778384936).length - 1)], NTI33554439);
 
-  return result_1761607953;
-
-}
-
-function isNone_1761607993(self_1761607995) {
-  var result_1761607996 = false;
-
-    result_1761607996 = !(self_1761607995.has);
-
-  return result_1761607996;
+  return result_1778384938;
 
 }
 
-function get_1761607985(self_1761607987) {
-  var result_1761607988 = null;
-  var result_1761607988_Idx = 0;
+function isSome_1778385240(self_1778385242) {
+  var result_1778385243 = false;
 
-    if (isNone_1761607993(self_1761607987)) {
+    result_1778385243 = self_1778385242.has;
+
+  return result_1778385243;
+
+}
+
+function isNone_1778385283(self_1778385285) {
+  var result_1778385286 = false;
+
+    result_1778385286 = !(self_1778385285.has);
+
+  return result_1778385286;
+
+}
+
+function get_1778385275(self_1778385277) {
+  var result_1778385278 = null;
+  var result_1778385278_Idx = 0;
+
+    if (isNone_1778385283(self_1778385277)) {
     raiseException({message: makeNimstrLit("Can\'t obtain a value from a `none`"), parent: null, m_type: NTI1610612756, name: null, trace: [], up: null}, "UnpackDefect");
     }
     
-    result_1761607988 = self_1761607987; result_1761607988_Idx = "val";
+    result_1778385278 = self_1778385277; result_1778385278_Idx = "val";
 
-  return [result_1761607988, result_1761607988_Idx];
+  return [result_1778385278, result_1778385278_Idx];
 
 }
 
-function get_1778385679(self_1778385681, otherwise_1778385682) {
+function get_1795162896(self_1795162898, otherwise_1795162899) {
     var Temporary1;
 
-  var result_1778385683 = [];
+  var result_1795162900 = [];
 
-    if (isSome_1761607950(self_1778385681)) {
-    Temporary1 = self_1778385681.val;
+    if (isSome_1778385240(self_1795162898)) {
+    Temporary1 = self_1795162898.val;
     }
     else {
-    Temporary1 = otherwise_1778385682;
+    Temporary1 = otherwise_1795162899;
     }
     
-    result_1778385683 = nimCopy(null, Temporary1, NTI33554439);
+    result_1795162900 = nimCopy(null, Temporary1, NTI33554439);
 
-  return result_1778385683;
-
-}
-
-function mathCommands_1778384906(doc_1778384907) {
-    
-function HEX3Aanonymous_1778384920(arg_1778384914) {
-      var result_1778384921 = ({rendered: false, str: []});
-
-        var arg_1778384922 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778384914, true, true, ConstSet34));
-        var fmtRes_1778384923 = [mnewString(0)];
-        fmtRes_1778384923[0].push.apply(fmtRes_1778384923[0], makeNimstrLit("["));;
-        formatValue_1627390114(fmtRes_1778384923, 0, arg_1778384922, []);
-        fmtRes_1778384923[0].push.apply(fmtRes_1778384923[0], makeNimstrLit("]"));;
-        result_1778384921 = nimCopy(result_1778384921, {rendered: false, str: nimCopy(null, fmtRes_1778384923[0], NTI33554439)}, NTI1577058309);
-
-      return result_1778384921;
-
-    }
-    
-function HEX3Aanonymous_1778384977(arg_1778384970) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-        var Temporary4;
-
-      var result_1778384978 = ({rendered: false, str: []});
-
-        var args_1778384971 = parseXidocArguments_1325404662(arg_1778384970);
-          if (((args_1778384971).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778384971).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("/"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1778384971).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1778384971).length, 1))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778384971[chckIndx(0, 0, (args_1778384971).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var a_1778385001 = nimCopy(null, Temporary2, NTI1761607851);
-        var b_1778385006 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778384971, 1));
-        if (isSome_1761607950(a_1778385001)) {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{$1}{$2}"), [nimCopy(null, (Temporary4 = get_1761607985(a_1778385001), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, b_1778385006, NTI33554439)]);
-        }
-        else {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{1}{$1}"), [nimCopy(null, b_1778385006, NTI33554439)]);
-        }
-        
-        result_1778384978 = nimCopy(result_1778384978, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1778384978;
-
-    }
-    
-function HEX3Aanonymous_1778385081(arg_1778385075) {
-      var result_1778385082 = ({rendered: false, str: []});
-
-        var arg_1778385083 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778385075, true, true, ConstSet44));
-        result_1778385082 = nimCopy(result_1778385082, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left($1\\right)}"), arg_1778385083), NTI33554439)}, NTI1577058309);
-
-      return result_1778385082;
-
-    }
-    
-function HEX3Aanonymous_1778385136(arg_1778385130) {
-      var result_1778385137 = ({rendered: false, str: []});
-
-        var arg_1778385138 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778385130, true, true, ConstSet45));
-        result_1778385137 = nimCopy(result_1778385137, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left[$1\\right]}"), arg_1778385138), NTI33554439)}, NTI1577058309);
-
-      return result_1778385137;
-
-    }
-    
-function HEX3Aanonymous_1778385191(arg_1778385185) {
-      var result_1778385192 = ({rendered: false, str: []});
-
-        var arg_1778385193 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778385185, true, true, ConstSet46));
-        result_1778385192 = nimCopy(result_1778385192, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left\\{$1\\right\\}}"), arg_1778385193), NTI33554439)}, NTI1577058309);
-
-      return result_1778385192;
-
-    }
-    
-function HEX3Aanonymous_1778385246(arg_1778385240) {
-      var result_1778385247 = ({rendered: false, str: []});
-
-        var arg_1778385248 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778385240, true, true, ConstSet47));
-        result_1778385247 = nimCopy(result_1778385247, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left\\langle $1\\right\\rangle}"), arg_1778385248), NTI33554439)}, NTI1577058309);
-
-      return result_1778385247;
-
-    }
-    
-function HEX3Aanonymous_1778385301(arg_1778385295) {
-      var result_1778385302 = ({rendered: false, str: []});
-
-        var arg_1778385303 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778385295, true, true, ConstSet48));
-        result_1778385302 = nimCopy(result_1778385302, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left\\lvert $1\\right\\rvert}"), arg_1778385303), NTI33554439)}, NTI1577058309);
-
-      return result_1778385302;
-
-    }
-    
-function HEX3Aanonymous_1778385356(arg_1778385350) {
-      var result_1778385357 = ({rendered: false, str: []});
-
-        var arg_1778385358 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778385350, true, true, ConstSet49));
-        result_1778385357 = nimCopy(result_1778385357, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left\\lVert $1\\right\\rVert}"), arg_1778385358), NTI33554439)}, NTI1577058309);
-
-      return result_1778385357;
-
-    }
-    
-function HEX3Aanonymous_1778385411(arg_1778385405) {
-      var result_1778385412 = ({rendered: false, str: []});
-
-        var arg_1778385413 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778385405, true, true, ConstSet50));
-        result_1778385412 = nimCopy(result_1778385412, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\overgroup{\\undergroup{$1}}}"), arg_1778385413), NTI33554439)}, NTI1577058309);
-
-      return result_1778385412;
-
-    }
-    
-function HEX3Aanonymous_1778385467(arg_1778385460) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-        var Temporary4;
-        var Temporary5;
-        var Temporary6;
-        var Temporary7;
-          var Temporary8;
-
-      var result_1778385468 = ({rendered: false, str: []});
-
-        var args_1778385461 = parseXidocArguments_1325404662(arg_1778385460);
-          if (((args_1778385461).length < 2)) Temporary1 = true; else {            Temporary1 = (4 < (args_1778385461).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("int"), makeNimstrLit("2"), makeNimstrLit("4"), HEX24_335544323((args_1778385461).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1778385461).length, 2))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778385461[chckIndx(0, 0, (args_1778385461).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var lb_1778385491 = nimCopy(null, Temporary2, NTI1761607851);
-        if ((1 < subInt((args_1778385461).length, 2))) {
-        Temporary3 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778385461[chckIndx(1, 0, (args_1778385461).length - 1)]));
-        }
-        else {
-        Temporary3 = none_1761607937();
-        }
-        
-        var ub_1778385505 = nimCopy(null, Temporary3, NTI1761607851);
-        var expr_1778385510 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778385461, 2));
-        var varname_1778385515 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778385461, 1));
-        if (isSome_1761607950(lb_1778385491)) {
-        if (isSome_1761607950(ub_1778385505)) {
-        Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\int_{$1}^{$2}$3\\,\\mathrm d$4"), [nimCopy(null, (Temporary6 = get_1761607985(lb_1778385491), Temporary6)[0][Temporary6[1]], NTI33554439), nimCopy(null, (Temporary7 = get_1761607985(ub_1778385505), Temporary7)[0][Temporary7[1]], NTI33554439), nimCopy(null, expr_1778385510, NTI33554439), nimCopy(null, varname_1778385515, NTI33554439)]);
-        }
-        else {
-        Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\int_{$1}$2\\,\\mathrm d$3"), [nimCopy(null, (Temporary8 = get_1761607985(lb_1778385491), Temporary8)[0][Temporary8[1]], NTI33554439), nimCopy(null, expr_1778385510, NTI33554439), nimCopy(null, varname_1778385515, NTI33554439)]);
-        }
-        
-        Temporary4 = Temporary5;
-        }
-        else {
-        Temporary4 = nsuFormatOpenArray(makeNimstrLit("\\int $1\\,\\mathrm d$2"), [nimCopy(null, expr_1778385510, NTI33554439), nimCopy(null, varname_1778385515, NTI33554439)]);
-        }
-        
-        result_1778385468 = nimCopy(result_1778385468, {rendered: false, str: nimCopy(null, Temporary4, NTI33554439)}, NTI1577058309);
-
-      return result_1778385468;
-
-    }
-    
-function HEX3Aanonymous_1778385628(arg_1778385621) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-
-      var result_1778385629 = ({rendered: false, str: []});
-
-        var args_1778385622 = parseXidocArguments_1325404662(arg_1778385621);
-          if (((args_1778385622).length < 0)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778385622).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("lim"), makeNimstrLit("0"), makeNimstrLit("2"), HEX24_335544323((args_1778385622).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1778385622).length, 0))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778385622[chckIndx(0, 0, (args_1778385622).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var varname_1778385652 = nimCopy(null, Temporary2, NTI1761607851);
-        if ((1 < subInt((args_1778385622).length, 0))) {
-        Temporary3 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778385622[chckIndx(1, 0, (args_1778385622).length - 1)]));
-        }
-        else {
-        Temporary3 = none_1761607937();
-        }
-        
-        var point_1778385666 = nimCopy(null, Temporary3, NTI1761607851);
-        result_1778385629 = nimCopy(result_1778385629, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\lim_{$1\\to $2}"), [get_1778385679(varname_1778385652, makeNimstrLit("n")), get_1778385679(point_1778385666, makeNimstrLit("\\infty"))]), NTI33554439)}, NTI1577058309);
-
-      return result_1778385629;
-
-    }
-    
-function HEX3Aanonymous_1778385760(arg_1778385753) {
-          var Temporary1;
-
-      var result_1778385761 = ({rendered: false, str: []});
-
-        var args_1778385754 = parseXidocArguments_1325404662(arg_1778385753);
-          if (((args_1778385754).length < 1)) Temporary1 = true; else {            Temporary1 = (1 < (args_1778385754).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dd"), makeNimstrLit("1"), makeNimstrLit("1"), HEX24_335544323((args_1778385754).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        var x_1778385775 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778385754, 1));
-        result_1778385761 = nimCopy(result_1778385761, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("{\\mathrm d$1}"), [nimCopy(null, x_1778385775, NTI33554439)]), NTI33554439)}, NTI1577058309);
-
-      return result_1778385761;
-
-    }
-    
-function HEX3Aanonymous_1778385829(arg_1778385822) {
-          var Temporary1;
-
-      var result_1778385830 = ({rendered: false, str: []});
-
-        var args_1778385823 = parseXidocArguments_1325404662(arg_1778385822);
-          if (((args_1778385823).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778385823).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dd^"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1778385823).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        var n_1778385844 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778385823, 2));
-        var x_1778385849 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778385823, 1));
-        result_1778385830 = nimCopy(result_1778385830, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("{\\mathrm d^{$1}$2}"), [nimCopy(null, n_1778385844, NTI33554439), nimCopy(null, x_1778385849, NTI33554439)]), NTI33554439)}, NTI1577058309);
-
-      return result_1778385830;
-
-    }
-    
-function HEX3Aanonymous_1778385903(arg_1778385896) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-        var Temporary4;
-
-      var result_1778385904 = ({rendered: false, str: []});
-
-        var args_1778385897 = parseXidocArguments_1325404662(arg_1778385896);
-          if (((args_1778385897).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778385897).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dv"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1778385897).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1778385897).length, 1))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778385897[chckIndx(0, 0, (args_1778385897).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var f_1778385927 = nimCopy(null, Temporary2, NTI1761607851);
-        var x_1778385932 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778385897, 1));
-        if (isSome_1761607950(f_1778385927)) {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\mathrm d$1}{\\mathrm d$2}"), [nimCopy(null, (Temporary4 = get_1761607985(f_1778385927), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, x_1778385932, NTI33554439)]);
-        }
-        else {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\mathrm d}{\\mathrm d$1}"), [nimCopy(null, x_1778385932, NTI33554439)]);
-        }
-        
-        result_1778385904 = nimCopy(result_1778385904, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1778385904;
-
-    }
-    
-function HEX3Aanonymous_1778386008(arg_1778386001) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-        var Temporary4;
-
-      var result_1778386009 = ({rendered: false, str: []});
-
-        var args_1778386002 = parseXidocArguments_1325404662(arg_1778386001);
-          if (((args_1778386002).length < 2)) Temporary1 = true; else {            Temporary1 = (3 < (args_1778386002).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dv^"), makeNimstrLit("2"), makeNimstrLit("3"), HEX24_335544323((args_1778386002).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        var n_1778386019 = expandStr_1308622885(doc_1778384907, args_1778386002[chckIndx(0, 0, (args_1778386002).length - 1)]);
-        if ((0 < subInt((args_1778386002).length, 2))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778386002[chckIndx(1, 0, (args_1778386002).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var f_1778386033 = nimCopy(null, Temporary2, NTI1761607851);
-        var x_1778386038 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778386002, 1));
-        if (isSome_1761607950(f_1778386033)) {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\mathrm d^{$1}$2}{\\mathrm d$3^{$1}}"), [nimCopy(null, n_1778386019, NTI33554439), nimCopy(null, (Temporary4 = get_1761607985(f_1778386033), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, x_1778386038, NTI33554439)]);
-        }
-        else {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\mathrm d^{$1}}{\\mathrm d$2^{$1}}"), [nimCopy(null, n_1778386019, NTI33554439), nimCopy(null, x_1778386038, NTI33554439)]);
-        }
-        
-        result_1778386009 = nimCopy(result_1778386009, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1778386009;
-
-    }
-    
-function HEX3Aanonymous_1778386114(arg_1778386107) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-        var Temporary4;
-
-      var result_1778386115 = ({rendered: false, str: []});
-
-        var args_1778386108 = parseXidocArguments_1325404662(arg_1778386107);
-          if (((args_1778386108).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778386108).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("pdv"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1778386108).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1778386108).length, 1))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778386108[chckIndx(0, 0, (args_1778386108).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var f_1778386138 = nimCopy(null, Temporary2, NTI1761607851);
-        var x_1778386143 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778386108, 1));
-        if (isSome_1761607950(f_1778386138)) {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\partial $1}{\\partial $2}"), [nimCopy(null, (Temporary4 = get_1761607985(f_1778386138), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, x_1778386143, NTI33554439)]);
-        }
-        else {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\partial}{\\partial $1}"), [nimCopy(null, x_1778386143, NTI33554439)]);
-        }
-        
-        result_1778386115 = nimCopy(result_1778386115, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1778386115;
-
-    }
-    
-function HEX3Aanonymous_1778386219(arg_1778386212) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-        var Temporary4;
-
-      var result_1778386220 = ({rendered: false, str: []});
-
-        var args_1778386213 = parseXidocArguments_1325404662(arg_1778386212);
-          if (((args_1778386213).length < 2)) Temporary1 = true; else {            Temporary1 = (3 < (args_1778386213).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("pdv^"), makeNimstrLit("2"), makeNimstrLit("3"), HEX24_335544323((args_1778386213).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        var n_1778386230 = expandStr_1308622885(doc_1778384907, args_1778386213[chckIndx(0, 0, (args_1778386213).length - 1)]);
-        if ((0 < subInt((args_1778386213).length, 2))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1778384907, args_1778386213[chckIndx(1, 0, (args_1778386213).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var f_1778386244 = nimCopy(null, Temporary2, NTI1761607851);
-        var x_1778386249 = expandStr_1308622885(doc_1778384907, HEX5BHEX5D_1761607718(args_1778386213, 1));
-        if (isSome_1761607950(f_1778386244)) {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\partial^{$1}$2}{\\partial $3^{$1}}"), [nimCopy(null, n_1778386230, NTI33554439), nimCopy(null, (Temporary4 = get_1761607985(f_1778386244), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, x_1778386249, NTI33554439)]);
-        }
-        else {
-        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\partial^{$1}}{\\partial $2^{$1}}"), [nimCopy(null, n_1778386230, NTI33554439), nimCopy(null, x_1778386249, NTI33554439)]);
-        }
-        
-        result_1778386220 = nimCopy(result_1778386220, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1778386220;
-
-    }
-    
-function HEX3Aanonymous_1778386324(arg_1778386318) {
-      var result_1778386325 = ({rendered: false, str: []});
-
-        var arg_1778386326 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778386318, true, true, ConstSet51));
-        result_1778386325 = nimCopy(result_1778386325, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{matrix}$1\\end{matrix}"), [nimCopy(null, arg_1778386326, NTI33554439)]), NTI33554439)}, NTI1577058309);
-
-      return result_1778386325;
-
-    }
-    
-function HEX3Aanonymous_1778386379(arg_1778386373) {
-      var result_1778386380 = ({rendered: false, str: []});
-
-        var arg_1778386381 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778386373, true, true, ConstSet52));
-        result_1778386380 = nimCopy(result_1778386380, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{pmatrix}$1\\end{pmatrix}"), [nimCopy(null, arg_1778386381, NTI33554439)]), NTI33554439)}, NTI1577058309);
-
-      return result_1778386380;
-
-    }
-    
-function HEX3Aanonymous_1778386434(arg_1778386428) {
-      var result_1778386435 = ({rendered: false, str: []});
-
-        var arg_1778386436 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778386428, true, true, ConstSet53));
-        result_1778386435 = nimCopy(result_1778386435, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{bmatrix}$1\\end{bmatrix}"), [nimCopy(null, arg_1778386436, NTI33554439)]), NTI33554439)}, NTI1577058309);
-
-      return result_1778386435;
-
-    }
-    
-function HEX3Aanonymous_1778386489(arg_1778386483) {
-      var result_1778386490 = ({rendered: false, str: []});
-
-        var arg_1778386491 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778386483, true, true, ConstSet54));
-        result_1778386490 = nimCopy(result_1778386490, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{vmatrix}$1\\end{vmatrix}"), [nimCopy(null, arg_1778386491, NTI33554439)]), NTI33554439)}, NTI1577058309);
-
-      return result_1778386490;
-
-    }
-    
-function HEX3Aanonymous_1778386544(arg_1778386538) {
-      var result_1778386545 = ({rendered: false, str: []});
-
-        var arg_1778386546 = expandStr_1308622885(doc_1778384907, nsuStrip(arg_1778386538, true, true, ConstSet55));
-        result_1778386545 = nimCopy(result_1778386545, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{Vmatrix}$1\\end{Vmatrix}"), [nimCopy(null, arg_1778386546, NTI33554439)]), NTI33554439)}, NTI1577058309);
-
-      return result_1778386545;
-
-    }
-
-  var result_1778384910 = ({data: [], counter: 0});
-
-    var commands_1778384913 = [({data: [], counter: 0})];
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("_"), HEX3Aanonymous_1778384920);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("/"), HEX3Aanonymous_1778384977);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("."), HEX3Aanonymous_1778385081);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("()"), HEX3Aanonymous_1778385136);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("{}"), HEX3Aanonymous_1778385191);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("<>"), HEX3Aanonymous_1778385246);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("|"), HEX3Aanonymous_1778385301);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("||"), HEX3Aanonymous_1778385356);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("v."), HEX3Aanonymous_1778385411);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("int"), HEX3Aanonymous_1778385467);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("lim"), HEX3Aanonymous_1778385628);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("dd"), HEX3Aanonymous_1778385760);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("dd^"), HEX3Aanonymous_1778385829);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("dv"), HEX3Aanonymous_1778385903);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("dv^"), HEX3Aanonymous_1778386008);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("pdv"), HEX3Aanonymous_1778386114);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("pdv^"), HEX3Aanonymous_1778386219);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("mat"), HEX3Aanonymous_1778386324);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit(".mat"), HEX3Aanonymous_1778386379);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("(mat)"), HEX3Aanonymous_1778386434);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("|mat|"), HEX3Aanonymous_1778386489);
-    HEX5BHEX5DHEX3D_1728053350(commands_1778384913[0], makeNimstrLit("||mat||"), HEX3Aanonymous_1778386544);
-    result_1778384910 = nimCopy(result_1778384910, commands_1778384913[0], NTI1577058327);
-
-  return result_1778384910;
-
-}
-
-function slotsNeeded_1107296305(count_1107296306) {
-  var result_1107296307 = 0;
-
-    result_1107296307 = nextPowerOfTwo_671088843(addInt(divInt(mulInt(count_1107296306, 3), 2), 4));
-
-  return result_1107296307;
-
-}
-
-function isFilled_1107296294(hcode_1107296295) {
-  var result_1107296296 = false;
-
-    result_1107296296 = !((hcode_1107296295 == 0));
-
-  return result_1107296296;
-
-}
-
-function nextTry_1107296297(h_1107296298, maxHash_1107296299) {
-  var result_1107296300 = 0;
-
-    result_1107296300 = (addInt(h_1107296298, 1) & maxHash_1107296299);
-
-  return result_1107296300;
-
-}
-
-function rawGet_1224736916(t_1224736918, key_1224736919, hc_1224736920, hc_1224736920_Idx) {
-            var Temporary3;
-
-  var result_1224736921 = 0;
-
-  BeforeRet: do {
-    hc_1224736920[hc_1224736920_Idx] = hash_1124073894(key_1224736919);
-    if ((hc_1224736920[hc_1224736920_Idx] == 0)) {
-    hc_1224736920[hc_1224736920_Idx] = 314159265;
-    }
-    
-    if (((t_1224736918.data).length == 0)) {
-    result_1224736921 = -1;
-    break BeforeRet;
-    }
-    
-    var h_1224736983 = (hc_1224736920[hc_1224736920_Idx] & (t_1224736918.data).length - 1);
-    Label1: do {
-        Label2: while (true) {
-        if (!isFilled_1107296294(t_1224736918.data[chckIndx(h_1224736983, 0, (t_1224736918.data).length - 1)].Field0)) break Label2;
-            if (!(t_1224736918.data[chckIndx(h_1224736983, 0, (t_1224736918.data).length - 1)].Field0 == hc_1224736920[hc_1224736920_Idx])) Temporary3 = false; else {              Temporary3 = eqStrings(t_1224736918.data[chckIndx(h_1224736983, 0, (t_1224736918.data).length - 1)].Field2, key_1224736919);            }          if (Temporary3) {
-          result_1224736921 = h_1224736983;
-          break BeforeRet;
-          }
-          
-          h_1224736983 = nextTry_1107296297(h_1224736983, (t_1224736918.data).length - 1);
-        }
-    } while (false);
-    result_1224736921 = subInt(-1, h_1224736983);
-  } while (false);
-
-  return result_1224736921;
-
-}
-
-function mustRehash_1224737159(t_1224737161) {
-  var result_1224737162 = false;
-
-    if (!((t_1224737161.counter < (t_1224737161.data).length))) {
-    failedAssertImpl_218103864(makeNimstrLit("hashcommon.nim(29, 9) `\x0At.counter < t.dataLen` "));
-    }
-    
-    result_1224737162 = ((mulInt((t_1224737161.data).length, 2) < mulInt(t_1224737161.counter, 3)) || (subInt((t_1224737161.data).length, t_1224737161.counter) < 4));
-
-  return result_1224737162;
-
-}
-
-function rawGetKnownHC_1224737654(t_1224737657, key_1224737658, hc_1224737659) {
-  var result_1224737660 = 0;
-
-  BeforeRet: do {
-    if (((t_1224737657.data).length == 0)) {
-    result_1224737660 = -1;
-    break BeforeRet;
-    }
-    
-    var h_1224737722 = (hc_1224737659 & (t_1224737657.data).length - 1);
-    Label1: do {
-        Label2: while (true) {
-        if (!isFilled_1107296294(t_1224737657.data[chckIndx(h_1224737722, 0, (t_1224737657.data).length - 1)].Field0)) break Label2;
-          if (((t_1224737657.data[chckIndx(h_1224737722, 0, (t_1224737657.data).length - 1)].Field0 == hc_1224737659) && eqStrings(t_1224737657.data[chckIndx(h_1224737722, 0, (t_1224737657.data).length - 1)].Field2, key_1224737658))) {
-          result_1224737660 = h_1224737722;
-          break BeforeRet;
-          }
-          
-          h_1224737722 = nextTry_1107296297(h_1224737722, (t_1224737657.data).length - 1);
-        }
-    } while (false);
-    result_1224737660 = subInt(-1, h_1224737722);
-  } while (false);
-
-  return result_1224737660;
-
-}
-
-function rawInsert_1224738023(s_1224738025, data_1224738026, data_1224738026_Idx, key_1224738027, hc_1224738028, h_1224738029) {
-    if (((data_1224738026[data_1224738026_Idx]).length == 0)) {
-    var correctSizeHEX60gensym10_1224738089 = slotsNeeded_1107296305(64);
-    s_1224738025.first = -1;
-    s_1224738025.last = -1;
-    s_1224738025.counter = 0;
-    s_1224738025.data = new Array(chckRange(correctSizeHEX60gensym10_1224738089, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym10_1224738089, 0, 2147483647) ; ++i) { s_1224738025.data[i] = {Field0: 0, Field1: 0, Field2: []}; }    }
-    
-    data_1224738026[data_1224738026_Idx][chckIndx(h_1224738029, 0, (data_1224738026[data_1224738026_Idx]).length - 1)].Field2 = nimCopy(null, key_1224738027, NTI33554439);
-    data_1224738026[data_1224738026_Idx][chckIndx(h_1224738029, 0, (data_1224738026[data_1224738026_Idx]).length - 1)].Field0 = hc_1224738028;
-    data_1224738026[data_1224738026_Idx][chckIndx(h_1224738029, 0, (data_1224738026[data_1224738026_Idx]).length - 1)].Field1 = -1;
-    if ((s_1224738025.first < 0)) {
-    s_1224738025.first = h_1224738029;
-    }
-    
-    if ((0 <= s_1224738025.last)) {
-    data_1224738026[data_1224738026_Idx][chckIndx(s_1224738025.last, 0, (data_1224738026[data_1224738026_Idx]).length - 1)].Field1 = h_1224738029;
-    }
-    
-    s_1224738025.last = h_1224738029;
-
-  
-}
-
-function enlarge_1224737353(s_1224737355) {
-    var n_1224737357 = [];
-    n_1224737357 = new Array(chckRange(mulInt((s_1224737355.data).length, 2), 0, 2147483647)); for (var i = 0 ; i < chckRange(mulInt((s_1224737355.data).length, 2), 0, 2147483647) ; ++i) { n_1224737357[i] = {Field0: 0, Field1: 0, Field2: []}; }    var h_1224737420 = s_1224737355.first;
-    s_1224737355.first = -1;
-    s_1224737355.last = -1;
-    var Temporary1 = s_1224737355.data; s_1224737355.data = n_1224737357; n_1224737357 = Temporary1;    Label2: do {
-        Label3: while (true) {
-        if (!(0 <= h_1224737420)) break Label3;
-          var nxt_1224737482 = n_1224737357[chckIndx(h_1224737420, 0, (n_1224737357).length - 1)].Field1;
-          if (isFilled_1107296294(n_1224737357[chckIndx(h_1224737420, 0, (n_1224737357).length - 1)].Field0)) {
-          var j_1224737897 = subInt(-1, rawGetKnownHC_1224737654(s_1224737355, n_1224737357[chckIndx(h_1224737420, 0, (n_1224737357).length - 1)].Field2, n_1224737357[chckIndx(h_1224737420, 0, (n_1224737357).length - 1)].Field0));
-          rawInsert_1224738023(s_1224737355, s_1224737355, "data", n_1224737357[chckIndx(h_1224737420, 0, (n_1224737357).length - 1)].Field2, n_1224737357[chckIndx(h_1224737420, 0, (n_1224737357).length - 1)].Field0, j_1224737897);
-          }
-          
-          h_1224737420 = nxt_1224737482;
-        }
-    } while (false);
-
-  
-}
-
-function incl_1224736829(s_1224736831, key_1224736832) {
-    if (((s_1224736831.data).length == 0)) {
-    var correctSizeHEX60gensym1_1224736893 = slotsNeeded_1107296305(64);
-    s_1224736831.first = -1;
-    s_1224736831.last = -1;
-    s_1224736831.counter = 0;
-    s_1224736831.data = new Array(chckRange(correctSizeHEX60gensym1_1224736893, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym1_1224736893, 0, 2147483647) ; ++i) { s_1224736831.data[i] = {Field0: 0, Field1: 0, Field2: []}; }    }
-    
-    var hc_1224736908 = [0];
-    var index_1224737158 = rawGet_1224736916(s_1224736831, key_1224736832, hc_1224736908, 0);
-    if ((index_1224737158 < 0)) {
-    if (mustRehash_1224737159(s_1224736831)) {
-    enlarge_1224737353(s_1224736831);
-    index_1224737158 = rawGetKnownHC_1224737654(s_1224736831, key_1224736832, hc_1224736908[0]);
-    }
-    
-    rawInsert_1224738023(s_1224736831, s_1224736831, "data", key_1224736832, hc_1224736908[0], subInt(-1, index_1224737158));
-    s_1224736831.counter = addInt(s_1224736831.counter, 1);
-    }
-    
-
-  
-}
-
-function renderMathKatex_1660944394(math_1660944395, displayMode_1660944396) {
-  var result_1660944397 = [];
-
-    var opts_1660944398 = {};
-    opts_1660944398["throwOnError"] = false;
-    opts_1660944398["displayMode"] = displayMode_1660944396;
-    result_1660944397 = nimCopy(null, cstrToNimstr(katex.renderToString(toJSStr(math_1660944395), opts_1660944398)), NTI33554439);
-
-  return result_1660944397;
-
-}
-
-function rawGet_1493172373(t_1493172376, key_1493172377, hc_1493172378, hc_1493172378_Idx) {
-            var Temporary3;
-
-  var result_1493172379 = 0;
-
-  BeforeRet: do {
-    hc_1493172378[hc_1493172378_Idx] = hash_1124073894(key_1493172377);
-    if ((hc_1493172378[hc_1493172378_Idx] == 0)) {
-    hc_1493172378[hc_1493172378_Idx] = 314159265;
-    }
-    
-    if (((t_1493172376.data).length == 0)) {
-    result_1493172379 = -1;
-    break BeforeRet;
-    }
-    
-    var h_1493172430 = (hc_1493172378[hc_1493172378_Idx] & (t_1493172376.data).length - 1);
-    Label1: do {
-        Label2: while (true) {
-        if (!isFilled_1191182367(t_1493172376.data[chckIndx(h_1493172430, 0, (t_1493172376.data).length - 1)].Field0)) break Label2;
-            if (!(t_1493172376.data[chckIndx(h_1493172430, 0, (t_1493172376.data).length - 1)].Field0 == hc_1493172378[hc_1493172378_Idx])) Temporary3 = false; else {              Temporary3 = eqStrings(t_1493172376.data[chckIndx(h_1493172430, 0, (t_1493172376.data).length - 1)].Field1, key_1493172377);            }          if (Temporary3) {
-          result_1493172379 = h_1493172430;
-          break BeforeRet;
-          }
-          
-          h_1493172430 = nextTry_1191182370(h_1493172430, (t_1493172376.data).length - 1);
-        }
-    } while (false);
-    result_1493172379 = subInt(-1, h_1493172430);
-  } while (false);
-
-  return result_1493172379;
-
-}
-
-function hasKey_1711276340(t_1711276343, key_1711276344) {
-  var result_1711276345 = false;
-
-    var hc_1711276346 = [0];
-    result_1711276345 = (0 <= rawGet_1493172373(t_1711276343, key_1711276344, hc_1711276346, 0));
-
-  return result_1711276345;
-
-}
-
-function HEX5BHEX5D_1493173665(t_1493173668, key_1493173669) {
-  var result_1493173670 = [];
-
-    var hcHEX60gensym20_1493173671 = [0];
-    var indexHEX60gensym20_1493173678 = rawGet_1493172373(t_1493173668, key_1493173669, hcHEX60gensym20_1493173671, 0);
-    if ((0 <= indexHEX60gensym20_1493173678)) {
-    result_1493173670 = nimCopy(null, t_1493173668.data[chckIndx(indexHEX60gensym20_1493173678, 0, (t_1493173668.data).length - 1)].Field2, NTI33554439);
-    }
-    else {
-    raiseKeyError_1493173732(key_1493173669);
-    }
-    
-
-  return result_1493173670;
-
-}
-
-function checkboxCommands_1728053256(doc_1728053257) {
-    
-function HEX3Aanonymous_1728053306(arg_1728053300) {
-        var Temporary1;
-
-      var result_1728053307 = ({rendered: false, str: []});
-
-        var arg_1728053308 = renderStr_1308623169(doc_1728053257, nsuStrip(arg_1728053300, true, true, ConstSet65));
-        switch (doc_1728053257.target) {
-        case 0:
-          var fmtRes_1728053309 = [mnewString(0)];
-          fmtRes_1728053309[0].push.apply(fmtRes_1728053309[0], makeNimstrLit("<li class=\"xd-checkbox-unchecked\">"));;
-          formatValue_1627390114(fmtRes_1728053309, 0, arg_1728053308, []);
-          fmtRes_1728053309[0].push.apply(fmtRes_1728053309[0], makeNimstrLit("</li>"));;
-          Temporary1 = fmtRes_1728053309[0];
-          break;
-        case 1:
-          raiseException({message: makeNimstrLit("Checkboxes are currently not supported for the LaTeX target"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-          break;
-        }
-        result_1728053307 = nimCopy(result_1728053307, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
-
-      return result_1728053307;
-
-    }
-    
-function HEX3Aanonymous_1728054385(arg_1728054379) {
-        var Temporary1;
-
-      var result_1728054386 = ({rendered: false, str: []});
-
-        var arg_1728054387 = renderStr_1308623169(doc_1728053257, nsuStrip(arg_1728054379, true, true, ConstSet66));
-        switch (doc_1728053257.target) {
-        case 0:
-          var fmtRes_1728054388 = [mnewString(0)];
-          fmtRes_1728054388[0].push.apply(fmtRes_1728054388[0], makeNimstrLit("<li class=\"xd-checkbox-checked\">"));;
-          formatValue_1627390114(fmtRes_1728054388, 0, arg_1728054387, []);
-          fmtRes_1728054388[0].push.apply(fmtRes_1728054388[0], makeNimstrLit("</li>"));;
-          Temporary1 = fmtRes_1728054388[0];
-          break;
-        case 1:
-          raiseException({message: makeNimstrLit("Checkboxes are currently not supported for the LaTeX target"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-          break;
-        }
-        result_1728054386 = nimCopy(result_1728054386, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
-
-      return result_1728054386;
-
-    }
-    
-function HEX3Aanonymous_1728054441(arg_1728054435) {
-        var Temporary1;
-
-      var result_1728054442 = ({rendered: false, str: []});
-
-        var arg_1728054443 = renderStr_1308623169(doc_1728053257, nsuStrip(arg_1728054435, true, true, ConstSet67));
-        switch (doc_1728053257.target) {
-        case 0:
-          var fmtRes_1728054444 = [mnewString(0)];
-          fmtRes_1728054444[0].push.apply(fmtRes_1728054444[0], makeNimstrLit("<li class=\"xd-checkbox-crossed\">"));;
-          formatValue_1627390114(fmtRes_1728054444, 0, arg_1728054443, []);
-          fmtRes_1728054444[0].push.apply(fmtRes_1728054444[0], makeNimstrLit("</li>"));;
-          Temporary1 = fmtRes_1728054444[0];
-          break;
-        case 1:
-          raiseException({message: makeNimstrLit("Checkboxes are currently not supported for the LaTeX target"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-          break;
-        }
-        result_1728054442 = nimCopy(result_1728054442, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
-
-      return result_1728054442;
-
-    }
-
-  var result_1728053260 = ({data: [], counter: 0});
-
-    var commands_1728053263 = [({data: [], counter: 0})];
-    HEX5BHEX5DHEX3D_1728053350(commands_1728053263[0], makeNimstrLit("-"), HEX3Aanonymous_1728053306);
-    HEX5BHEX5DHEX3D_1728053350(commands_1728053263[0], makeNimstrLit("v"), HEX3Aanonymous_1728054385);
-    HEX5BHEX5DHEX3D_1728053350(commands_1728053263[0], makeNimstrLit("x"), HEX3Aanonymous_1728054441);
-    result_1728053260 = nimCopy(result_1728053260, commands_1728053263[0], NTI1577058327);
-
-  return result_1728053260;
-
-}
-
-function highlightCode_1660944409(code_1660944410, lang_1660944411) {
-  var result_1660944412 = [];
-
-    result_1660944412 = nimCopy(null, code_1660944410, NTI33554439);
-
-  return result_1660944412;
-
-}
-
-function HEX3Aanonymous_1744831187(docHEX60gensym16_1744831188, strHEX60gensym16_1744831189) {
-  var result_1744831190 = [];
-
-    result_1744831190 = nimCopy(null, strHEX60gensym16_1744831189, NTI33554439);
-
-  return result_1744831190;
-
-}
-
-function isSome_1224740740(self_1224740742) {
-  var result_1224740743 = false;
-
-    result_1224740743 = self_1224740742.has;
-
-  return result_1224740743;
-
-}
-
-function get_1224740731(self_1224740733, otherwise_1224740734) {
-    var Temporary1;
-
-  var result_1224740735 = [];
-
-    if (isSome_1224740740(self_1224740733)) {
-    Temporary1 = self_1224740733.val;
-    }
-    else {
-    Temporary1 = otherwise_1224740734;
-    }
-    
-    result_1224740735 = nimCopy(null, Temporary1, NTI637534694);
-
-  return result_1224740735;
-
-}
-
-function some_1224740693(val_1224740695) {
-  var result_1224740696 = ({val: [], has: false});
-
-    result_1224740696.has = true;
-    result_1224740696.val = nimCopy(null, val_1224740695, NTI637534694);
-
-  return result_1224740696;
-
-}
-
-function none_1224740698() {
-  var result_1224740705 = ({val: [], has: false});
-
-  return result_1224740705;
-
-}
-
-function map_1224740675(self_1224740678, callback_1224740680) {
-    var Temporary1;
-
-  var result_1224740685 = ({val: [], has: false});
-
-    if (isSome_1761607950(self_1224740678)) {
-    Temporary1 = some_1224740693(callback_1224740680(self_1224740678.val));
-    }
-    else {
-    Temporary1 = none_1224740698();
-    }
-    
-    result_1224740685 = nimCopy(result_1224740685, Temporary1, NTI1224738976);
-
-  return result_1224740685;
-
-}
-
-function nsuSplitWhitespace(s_637534848, maxsplit_637534849) {
-  var result_637534850 = [];
-
-    result_637534850 = nimCopy(null, [], NTI637534705);
-    Label1: do {
-      var xHEX60gensym77_637534856 = [];
-      var lastHEX60gensym59_1224736792 = 0;
-      var splitsHEX60gensym59_1224736793 = maxsplit_637534849;
-      if (false) {
-      failedAssertImpl_218103864(makeNimstrLit("strutils.nim(381, 9) `not (\'\\x00\' in Whitespace)` "));
-      }
-      
-      Label2: do {
-          Label3: while (true) {
-          if (!(lastHEX60gensym59_1224736792 < (s_637534848).length)) break Label3;
-            Label4: do {
-                Label5: while (true) {
-                if (!((lastHEX60gensym59_1224736792 < (s_637534848).length) && (ConstSet68[s_637534848[chckIndx(lastHEX60gensym59_1224736792, 0, (s_637534848).length - 1)]] != undefined))) break Label5;
-                  lastHEX60gensym59_1224736792 = addInt(lastHEX60gensym59_1224736792, 1);
-                }
-            } while (false);
-            var firstHEX60gensym59_1224736796 = lastHEX60gensym59_1224736792;
-            Label6: do {
-                Label7: while (true) {
-                if (!((lastHEX60gensym59_1224736792 < (s_637534848).length) && !((ConstSet69[s_637534848[chckIndx(lastHEX60gensym59_1224736792, 0, (s_637534848).length - 1)]] != undefined)))) break Label7;
-                  lastHEX60gensym59_1224736792 = addInt(lastHEX60gensym59_1224736792, 1);
-                }
-            } while (false);
-            if ((firstHEX60gensym59_1224736796 <= subInt(lastHEX60gensym59_1224736792, 1))) {
-            if ((splitsHEX60gensym59_1224736793 == 0)) {
-            lastHEX60gensym59_1224736792 = (s_637534848).length;
-            }
-            
-            xHEX60gensym77_637534856 = substr_33557907(s_637534848, firstHEX60gensym59_1224736796, subInt(lastHEX60gensym59_1224736792, 1));
-            var Temporary8 = nimCopy(null, xHEX60gensym77_637534856, NTI33554439);
-            result_637534850.push(Temporary8);;
-            if ((splitsHEX60gensym59_1224736793 == 0)) {
-            break Label2;
-            }
-            
-            splitsHEX60gensym59_1224736793 = subInt(splitsHEX60gensym59_1224736793, 1);
-            }
-            
-          }
-      } while (false);
-    } while (false);
-
-  return result_637534850;
-
-}
-
-function initTable_1493172244(initialSize_1493172247) {
-  var result_1493172248 = ({data: [], counter: 0});
-
-    var correctSizeHEX60gensym0_1493172250 = slotsNeeded_1191182378(chckRange(initialSize_1493172247, 0, 2147483647));
-    result_1493172248.counter = 0;
-    result_1493172248.data = new Array(chckRange(correctSizeHEX60gensym0_1493172250, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym0_1493172250, 0, 2147483647) ; ++i) { result_1493172248.data[i] = {Field0: 0, Field1: [], Field2: []}; }
-  return result_1493172248;
-
-}
-
-function mustRehash_1493172709(t_1493172711) {
-  var result_1493172712 = false;
-
-    if (!((t_1493172711.counter < (t_1493172711.data).length))) {
-    failedAssertImpl_218103864(makeNimstrLit("hashcommon.nim(29, 9) `\x0At.counter < t.dataLen` "));
-    }
-    
-    result_1493172712 = ((mulInt((t_1493172711.data).length, 2) < mulInt(t_1493172711.counter, 3)) || (subInt((t_1493172711.data).length, t_1493172711.counter) < 4));
-
-  return result_1493172712;
-
-}
-
-function rawInsert_1493173158(t_1493173162, data_1493173163, data_1493173163_Idx, key_1493173164, val_1493173165, hc_1493173166, h_1493173167) {
-    data_1493173163[data_1493173163_Idx][chckIndx(h_1493173167, 0, (data_1493173163[data_1493173163_Idx]).length - 1)].Field1 = nimCopy(null, key_1493173164, NTI33554439);
-    data_1493173163[data_1493173163_Idx][chckIndx(h_1493173167, 0, (data_1493173163[data_1493173163_Idx]).length - 1)].Field2 = nimCopy(null, val_1493173165, NTI33554439);
-    data_1493173163[data_1493173163_Idx][chckIndx(h_1493173167, 0, (data_1493173163[data_1493173163_Idx]).length - 1)].Field0 = hc_1493173166;
-
-  
-}
-
-function enlarge_1493172864(t_1493172867) {
-    var n_1493172870 = [];
-    n_1493172870 = new Array(chckRange(mulInt((t_1493172867.data).length, 2), 0, 2147483647)); for (var i = 0 ; i < chckRange(mulInt((t_1493172867.data).length, 2), 0, 2147483647) ; ++i) { n_1493172870[i] = {Field0: 0, Field1: [], Field2: []}; }    var Temporary1 = t_1493172867.data; t_1493172867.data = n_1493172870; n_1493172870 = Temporary1;    Label2: do {
-      var i_1493172934 = 0;
-      var colontmp__486542198 = 0;
-      colontmp__486542198 = (n_1493172870).length - 1;
-      var res_486542199 = 0;
-      Label3: do {
-          Label4: while (true) {
-          if (!(res_486542199 <= colontmp__486542198)) break Label4;
-            i_1493172934 = res_486542199;
-            var eh_1493172988 = n_1493172870[chckIndx(i_1493172934, 0, (n_1493172870).length - 1)].Field0;
-            if (isFilled_1191182367(eh_1493172988)) {
-            var j_1493172992 = (eh_1493172988 & (t_1493172867.data).length - 1);
-            Label5: do {
-                Label6: while (true) {
-                if (!isFilled_1191182367(t_1493172867.data[chckIndx(j_1493172992, 0, (t_1493172867.data).length - 1)].Field0)) break Label6;
-                  j_1493172992 = nextTry_1191182370(j_1493172992, (t_1493172867.data).length - 1);
-                }
-            } while (false);
-            rawInsert_1493173158(t_1493172867, t_1493172867, "data", n_1493172870[chckIndx(i_1493172934, 0, (n_1493172870).length - 1)].Field1, n_1493172870[chckIndx(i_1493172934, 0, (n_1493172870).length - 1)].Field2, eh_1493172988, j_1493172992);
-            }
-            
-            res_486542199 = addInt(res_486542199, 1);
-          }
-      } while (false);
-    } while (false);
-
-  
-}
-
-function rawGetKnownHC_1493173327(t_1493173330, key_1493173331, hc_1493173332) {
-  var result_1493173333 = 0;
-
-  BeforeRet: do {
-    if (((t_1493173330.data).length == 0)) {
-    result_1493173333 = -1;
-    break BeforeRet;
-    }
-    
-    var h_1493173384 = (hc_1493173332 & (t_1493173330.data).length - 1);
-    Label1: do {
-        Label2: while (true) {
-        if (!isFilled_1191182367(t_1493173330.data[chckIndx(h_1493173384, 0, (t_1493173330.data).length - 1)].Field0)) break Label2;
-          if (((t_1493173330.data[chckIndx(h_1493173384, 0, (t_1493173330.data).length - 1)].Field0 == hc_1493173332) && eqStrings(t_1493173330.data[chckIndx(h_1493173384, 0, (t_1493173330.data).length - 1)].Field1, key_1493173331))) {
-          result_1493173333 = h_1493173384;
-          break BeforeRet;
-          }
-          
-          h_1493173384 = nextTry_1191182370(h_1493173384, (t_1493173330.data).length - 1);
-        }
-    } while (false);
-    result_1493173333 = subInt(-1, h_1493173384);
-  } while (false);
-
-  return result_1493173333;
-
-}
-
-function HEX5BHEX5DHEX3D_1493172312(t_1493172315, key_1493172316, val_1493172317) {
-    if (((t_1493172315.data).length == 0)) {
-    var correctSizeHEX60gensym3_1493172367 = slotsNeeded_1191182378(32);
-    t_1493172315.counter = 0;
-    t_1493172315.data = new Array(chckRange(correctSizeHEX60gensym3_1493172367, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym3_1493172367, 0, 2147483647) ; ++i) { t_1493172315.data[i] = {Field0: 0, Field1: [], Field2: []}; }    }
-    
-    var hc_1493172372 = [0];
-    var index_1493172602 = rawGet_1493172373(t_1493172315, key_1493172316, hc_1493172372, 0);
-    if ((0 <= index_1493172602)) {
-    t_1493172315.data[chckIndx(index_1493172602, 0, (t_1493172315.data).length - 1)].Field2 = nimCopy(null, val_1493172317, NTI33554439);
-    }
-    else {
-      if (((t_1493172315.data).length == 0)) {
-      var correctSizeHEX60gensym8_1493172704 = slotsNeeded_1191182378(32);
-      t_1493172315.counter = 0;
-      t_1493172315.data = new Array(chckRange(correctSizeHEX60gensym8_1493172704, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym8_1493172704, 0, 2147483647) ; ++i) { t_1493172315.data[i] = {Field0: 0, Field1: [], Field2: []}; }      }
-      
-      if (mustRehash_1493172709(t_1493172315)) {
-      enlarge_1493172864(t_1493172315);
-      index_1493172602 = rawGetKnownHC_1493173327(t_1493172315, key_1493172316, hc_1493172372[0]);
-      }
-      
-      index_1493172602 = subInt(-1, index_1493172602);
-      rawInsert_1493173158(t_1493172315, t_1493172315, "data", key_1493172316, val_1493172317, hc_1493172372[0], index_1493172602);
-      t_1493172315.counter = addInt(t_1493172315.counter, 1);
-    }
-    
-
-  
-}
-
-function toTable_1493172239(pairs_1493172242) {
-  var result_1493172243 = [({data: [], counter: 0})];
-
-    result_1493172243[0] = nimCopy(result_1493172243[0], initTable_1493172244((pairs_1493172242).length), NTI1392508952);
-    Label1: do {
-      var key_1493172270 = null;
-      var key_1493172270_Idx = 0;
-      var val_1493172271 = null;
-      var val_1493172271_Idx = 0;
-      var i_1493173575 = 0;
-      Label2: do {
-          Label3: while (true) {
-          if (!(i_1493173575 < (pairs_1493172242).length)) break Label3;
-            key_1493172270 = pairs_1493172242[chckIndx(i_1493173575, 0, (pairs_1493172242).length - 1)]; key_1493172270_Idx = "Field0";
-            val_1493172271 = pairs_1493172242[chckIndx(i_1493173575, 0, (pairs_1493172242).length - 1)]; val_1493172271_Idx = "Field1";
-            HEX5BHEX5DHEX3D_1493172312(result_1493172243[0], key_1493172270[key_1493172270_Idx], val_1493172271[val_1493172271_Idx]);
-            i_1493173575 = addInt(i_1493173575, 1);
-          }
-      } while (false);
-    } while (false);
-
-  return result_1493172243[0];
-
-}
-
-function zip_1224740771(s1_1224740774, s2_1224740775) {
-  var result_1224740776 = [];
-
-    var mHEX60gensym8_1224740783 = nimMin((s1_1224740774).length, (s2_1224740775).length);
-    result_1224740776 = new Array(chckRange(mHEX60gensym8_1224740783, 0, 2147483647)); for (var i = 0 ; i < chckRange(mHEX60gensym8_1224740783, 0, 2147483647) ; ++i) { result_1224740776[i] = {Field0: [], Field1: []}; }    Label1: do {
-      var iHEX60gensym8_1224740792 = 0;
-      var i_486542205 = 0;
-      Label2: do {
-          Label3: while (true) {
-          if (!(i_486542205 < mHEX60gensym8_1224740783)) break Label3;
-            iHEX60gensym8_1224740792 = i_486542205;
-            var colontmp__486542203 = nimCopy(null, s1_1224740774[chckIndx(iHEX60gensym8_1224740792, 0, (s1_1224740774).length - 1)], NTI33554439);
-            var colontmp__486542204 = nimCopy(null, s2_1224740775[chckIndx(iHEX60gensym8_1224740792, 0, (s2_1224740775).length - 1)], NTI33554439);
-            result_1224740776[chckIndx(iHEX60gensym8_1224740792, 0, (result_1224740776).length - 1)] = nimCopy(result_1224740776[chckIndx(iHEX60gensym8_1224740792, 0, (result_1224740776).length - 1)], {Field0: nimCopy(null, colontmp__486542203, NTI33554439), Field1: nimCopy(null, colontmp__486542204, NTI33554439)}, NTI1224739079);
-            i_486542205 = addInt(i_486542205, 1);
-          }
-      } while (false);
-    } while (false);
-
-  return result_1224740776;
-
-}
-
-function HEX5BHEX5D_1224741695(s_1224741699, x_1224741700) {
-  var result_1224741701 = [];
-
-    var a_1224741703 = x_1224741700.a;
-    var L_1224741708 = addInt(subInt(subInt((s_1224741699).length, x_1224741700.b), a_1224741703), 1);
-    result_1224741701 = new Array(chckRange(L_1224741708, 0, 2147483647)); for (var i = 0 ; i < chckRange(L_1224741708, 0, 2147483647) ; ++i) { result_1224741701[i] = []; }    Label1: do {
-      var i_1224741717 = 0;
-      var i_486542220 = 0;
-      Label2: do {
-          Label3: while (true) {
-          if (!(i_486542220 < L_1224741708)) break Label3;
-            i_1224741717 = i_486542220;
-            result_1224741701[chckIndx(i_1224741717, 0, (result_1224741701).length - 1)] = nimCopy(null, s_1224741699[chckIndx(addInt(i_1224741717, a_1224741703), 0, (s_1224741699).length - 1)], NTI33554439);
-            i_486542220 = addInt(i_486542220, 1);
-          }
-      } while (false);
-    } while (false);
-
-  return result_1224741701;
-
-}
-
-function nsuJoinSep(a_637535633, sep_637535634) {
-  var result_637535635 = [];
-
-    if ((0 < (a_637535633).length)) {
-    var L_637535642 = mulInt((sep_637535634).length, subInt((a_637535633).length, 1));
-    Label1: do {
-      var i_637535650 = 0;
-      var colontmp__486542223 = 0;
-      colontmp__486542223 = (a_637535633).length - 1;
-      var res_486542224 = 0;
-      Label2: do {
-          Label3: while (true) {
-          if (!(res_486542224 <= colontmp__486542223)) break Label3;
-            i_637535650 = res_486542224;
-            L_637535642 = addInt(L_637535642, (a_637535633[chckIndx(i_637535650, 0, (a_637535633).length - 1)]).length);
-            res_486542224 = addInt(res_486542224, 1);
-          }
-      } while (false);
-    } while (false);
-    result_637535635 = nimCopy(null, mnewString(0), NTI33554439);
-    result_637535635.push.apply(result_637535635, a_637535633[chckIndx(0, 0, (a_637535633).length - 1)]);;
-    Label4: do {
-      var i_637535662 = 0;
-      var colontmp__486542227 = 0;
-      colontmp__486542227 = (a_637535633).length - 1;
-      var res_486542228 = 1;
-      Label5: do {
-          Label6: while (true) {
-          if (!(res_486542228 <= colontmp__486542227)) break Label6;
-            i_637535662 = res_486542228;
-            result_637535635.push.apply(result_637535635, sep_637535634);;
-            result_637535635.push.apply(result_637535635, a_637535633[chckIndx(i_637535662, 0, (a_637535633).length - 1)]);;
-            res_486542228 = addInt(res_486542228, 1);
-          }
-      } while (false);
-    } while (false);
-    }
-    else {
-      result_637535635 = nimCopy(null, [], NTI33554439);
-    }
-    
-
-  return result_637535635;
+  return result_1795162900;
 
 }
 
@@ -6312,7 +5150,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
 
             BeforeRet: do {
               var Temporary1 = pHEX60gensym26_1241514732;
-              if (ConstSet162[Temporary1.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'index\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
+              if (ConstSet146[Temporary1.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'index\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
               var indexHEX60gensym26_1241514736 = Temporary1.index;
               if ((indexHEX60gensym26_1241514736 < 0)) {
               indexHEX60gensym26_1241514736 = addInt(indexHEX60gensym26_1241514736, cHEX60gensym26_1241514734.ml);
@@ -6323,9 +5161,9 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
               break BeforeRet;
               }
               
-              var colontmp__486542262 = nimCopy(null, cHEX60gensym26_1241514734.matches[chckIndx(indexHEX60gensym26_1241514736, 0, (cHEX60gensym26_1241514734.matches).length - 1)], NTI1241514517);
-              var aHEX60gensym26_1241514741 = colontmp__486542262["Field0"];
-              var bHEX60gensym26_1241514742 = colontmp__486542262["Field1"];
+              var colontmp__486542210 = nimCopy(null, cHEX60gensym26_1241514734.matches[chckIndx(indexHEX60gensym26_1241514736, 0, (cHEX60gensym26_1241514734.matches).length - 1)], NTI1241514517);
+              var aHEX60gensym26_1241514741 = colontmp__486542210["Field0"];
+              var bHEX60gensym26_1241514742 = colontmp__486542210["Field1"];
               var nHEX60gensym26_1241514743 = ({kind: 0, term: [], ch: 0, charChoice: null, nt: null, index: 0, sons: []});
               switch (pHEX60gensym26_1241514732.kind) {
               case 25:
@@ -6830,25 +5668,25 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           break;
         case 9:
           var Temporary1 = pHEX60gensym26_1241514726;
-          if (ConstSet72[Temporary1.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
+          if (ConstSet56[Temporary1.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
           result_1241514729 = (Temporary1.term).length;
           Label2: do {
             var iHEX60gensym26_1241515818 = 0;
-            var colontmp__486542235 = 0;
-            colontmp__486542235 = subInt(result_1241514729, 1);
-            var res_486542236 = 0;
+            var colontmp__486542183 = 0;
+            colontmp__486542183 = subInt(result_1241514729, 1);
+            var res_486542184 = 0;
             Label3: do {
                 Label4: while (true) {
-                if (!(res_486542236 <= colontmp__486542235)) break Label4;
-                  iHEX60gensym26_1241515818 = res_486542236;
+                if (!(res_486542184 <= colontmp__486542183)) break Label4;
+                  iHEX60gensym26_1241515818 = res_486542184;
                     if (((sHEX60gensym26_1241514725).length <= addInt(startHEX60gensym26_1241514727, iHEX60gensym26_1241515818))) Temporary5 = true; else {                      var Temporary6 = pHEX60gensym26_1241514726;
-                      if (ConstSet73[Temporary6.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary6.kind, NTI1241513989)); }
+                      if (ConstSet57[Temporary6.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary6.kind, NTI1241513989)); }
                       Temporary5 = !(((Temporary7 = Temporary6.term, Temporary7)[chckIndx(iHEX60gensym26_1241515818, 0, (Temporary7).length - 1)] == sHEX60gensym26_1241514725[chckIndx(addInt(startHEX60gensym26_1241514727, iHEX60gensym26_1241515818), 0, (sHEX60gensym26_1241514725).length - 1)]));                    }                  if (Temporary5) {
                   result_1241514729 = -1;
                   break Label2;
                   }
                   
-                  res_486542236 = addInt(res_486542236, 1);
+                  res_486542184 = addInt(res_486542184, 1);
                 }
             } while (false);
           } while (false);
@@ -6861,7 +5699,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           Label8: do {
               Label9: while (true) {
                 var Temporary10 = pHEX60gensym26_1241514726;
-                if (ConstSet74[Temporary10.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary10.kind, NTI1241513989)); }
+                if (ConstSet58[Temporary10.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary10.kind, NTI1241513989)); }
               if (!(iHEX60gensym26_1241515819 < (Temporary10.term).length)) break Label9;
                 if (((sHEX60gensym26_1241514725).length <= result_1241514729)) {
                 result_1241514729 = -1;
@@ -6869,24 +5707,24 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                 }
                 
                   var Temporary11 = pHEX60gensym26_1241514726;
-                  if (ConstSet75[Temporary11.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary11.kind, NTI1241513989)); }
+                  if (ConstSet59[Temporary11.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary11.kind, NTI1241513989)); }
                 if (((Temporary12 = Temporary11.term, Temporary12)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary12).length - 1)] <= 127)) {
                 var Temporary13 = pHEX60gensym26_1241514726;
-                if (ConstSet76[Temporary13.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary13.kind, NTI1241513989)); }
+                if (ConstSet60[Temporary13.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary13.kind, NTI1241513989)); }
                 aHEX60gensym26_1241515820 = chckRange((Temporary14 = Temporary13.term, Temporary14)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary14).length - 1)], -2147483648, 2147483647);
                 iHEX60gensym26_1241515819 = addInt(iHEX60gensym26_1241515819, 1);
                 }
                 else {
                   var Temporary15 = pHEX60gensym26_1241514726;
-                  if (ConstSet77[Temporary15.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary15.kind, NTI1241513989)); }
+                  if (ConstSet61[Temporary15.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary15.kind, NTI1241513989)); }
                 if ((((Temporary16 = Temporary15.term, Temporary16)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary16).length - 1)] >>> 5) == 6)) {
                   var Temporary17 = pHEX60gensym26_1241514726;
-                  if (ConstSet78[Temporary17.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary17.kind, NTI1241513989)); }
+                  if (ConstSet62[Temporary17.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary17.kind, NTI1241513989)); }
                 if ((iHEX60gensym26_1241515819 <= subInt((Temporary17.term).length, 2))) {
                 var Temporary18 = pHEX60gensym26_1241514726;
-                if (ConstSet79[Temporary18.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary18.kind, NTI1241513989)); }
+                if (ConstSet63[Temporary18.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary18.kind, NTI1241513989)); }
                 var Temporary20 = pHEX60gensym26_1241514726;
-                if (ConstSet80[Temporary20.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary20.kind, NTI1241513989)); }
+                if (ConstSet64[Temporary20.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary20.kind, NTI1241513989)); }
                 aHEX60gensym26_1241515820 = chckRange(((((Temporary19 = Temporary18.term, Temporary19)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary19).length - 1)] & 31) << 6) | ((Temporary21 = Temporary20.term, Temporary21)[chckIndx(addInt(iHEX60gensym26_1241515819, 1), 0, (Temporary21).length - 1)] & 63)), -2147483648, 2147483647);
                 iHEX60gensym26_1241515819 = addInt(iHEX60gensym26_1241515819, 2);
                 }
@@ -6898,17 +5736,17 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                 }
                 else {
                   var Temporary22 = pHEX60gensym26_1241514726;
-                  if (ConstSet81[Temporary22.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary22.kind, NTI1241513989)); }
+                  if (ConstSet65[Temporary22.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary22.kind, NTI1241513989)); }
                 if ((((Temporary23 = Temporary22.term, Temporary23)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary23).length - 1)] >>> 4) == 14)) {
                   var Temporary24 = pHEX60gensym26_1241514726;
-                  if (ConstSet82[Temporary24.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary24.kind, NTI1241513989)); }
+                  if (ConstSet66[Temporary24.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary24.kind, NTI1241513989)); }
                 if ((iHEX60gensym26_1241515819 <= subInt((Temporary24.term).length, 3))) {
                 var Temporary25 = pHEX60gensym26_1241514726;
-                if (ConstSet83[Temporary25.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary25.kind, NTI1241513989)); }
+                if (ConstSet67[Temporary25.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary25.kind, NTI1241513989)); }
                 var Temporary27 = pHEX60gensym26_1241514726;
-                if (ConstSet84[Temporary27.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary27.kind, NTI1241513989)); }
+                if (ConstSet68[Temporary27.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary27.kind, NTI1241513989)); }
                 var Temporary29 = pHEX60gensym26_1241514726;
-                if (ConstSet85[Temporary29.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary29.kind, NTI1241513989)); }
+                if (ConstSet69[Temporary29.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary29.kind, NTI1241513989)); }
                 aHEX60gensym26_1241515820 = chckRange((((((Temporary26 = Temporary25.term, Temporary26)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary26).length - 1)] & 15) << 12) | (((Temporary28 = Temporary27.term, Temporary28)[chckIndx(addInt(iHEX60gensym26_1241515819, 1), 0, (Temporary28).length - 1)] & 63) << 6)) | ((Temporary30 = Temporary29.term, Temporary30)[chckIndx(addInt(iHEX60gensym26_1241515819, 2), 0, (Temporary30).length - 1)] & 63)), -2147483648, 2147483647);
                 iHEX60gensym26_1241515819 = addInt(iHEX60gensym26_1241515819, 3);
                 }
@@ -6920,19 +5758,19 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                 }
                 else {
                   var Temporary31 = pHEX60gensym26_1241514726;
-                  if (ConstSet86[Temporary31.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary31.kind, NTI1241513989)); }
+                  if (ConstSet70[Temporary31.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary31.kind, NTI1241513989)); }
                 if ((((Temporary32 = Temporary31.term, Temporary32)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary32).length - 1)] >>> 3) == 30)) {
                   var Temporary33 = pHEX60gensym26_1241514726;
-                  if (ConstSet87[Temporary33.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary33.kind, NTI1241513989)); }
+                  if (ConstSet71[Temporary33.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary33.kind, NTI1241513989)); }
                 if ((iHEX60gensym26_1241515819 <= subInt((Temporary33.term).length, 4))) {
                 var Temporary34 = pHEX60gensym26_1241514726;
-                if (ConstSet88[Temporary34.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary34.kind, NTI1241513989)); }
+                if (ConstSet72[Temporary34.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary34.kind, NTI1241513989)); }
                 var Temporary36 = pHEX60gensym26_1241514726;
-                if (ConstSet89[Temporary36.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary36.kind, NTI1241513989)); }
+                if (ConstSet73[Temporary36.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary36.kind, NTI1241513989)); }
                 var Temporary38 = pHEX60gensym26_1241514726;
-                if (ConstSet90[Temporary38.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary38.kind, NTI1241513989)); }
+                if (ConstSet74[Temporary38.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary38.kind, NTI1241513989)); }
                 var Temporary40 = pHEX60gensym26_1241514726;
-                if (ConstSet91[Temporary40.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary40.kind, NTI1241513989)); }
+                if (ConstSet75[Temporary40.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary40.kind, NTI1241513989)); }
                 aHEX60gensym26_1241515820 = chckRange(((((((Temporary35 = Temporary34.term, Temporary35)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary35).length - 1)] & 7) << 18) | (((Temporary37 = Temporary36.term, Temporary37)[chckIndx(addInt(iHEX60gensym26_1241515819, 1), 0, (Temporary37).length - 1)] & 63) << 12)) | (((Temporary39 = Temporary38.term, Temporary39)[chckIndx(addInt(iHEX60gensym26_1241515819, 2), 0, (Temporary39).length - 1)] & 63) << 6)) | ((Temporary41 = Temporary40.term, Temporary41)[chckIndx(addInt(iHEX60gensym26_1241515819, 3), 0, (Temporary41).length - 1)] & 63)), -2147483648, 2147483647);
                 iHEX60gensym26_1241515819 = addInt(iHEX60gensym26_1241515819, 4);
                 }
@@ -6944,21 +5782,21 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                 }
                 else {
                   var Temporary42 = pHEX60gensym26_1241514726;
-                  if (ConstSet92[Temporary42.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary42.kind, NTI1241513989)); }
+                  if (ConstSet76[Temporary42.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary42.kind, NTI1241513989)); }
                 if ((((Temporary43 = Temporary42.term, Temporary43)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary43).length - 1)] >>> 2) == 62)) {
                   var Temporary44 = pHEX60gensym26_1241514726;
-                  if (ConstSet93[Temporary44.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary44.kind, NTI1241513989)); }
+                  if (ConstSet77[Temporary44.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary44.kind, NTI1241513989)); }
                 if ((iHEX60gensym26_1241515819 <= subInt((Temporary44.term).length, 5))) {
                 var Temporary45 = pHEX60gensym26_1241514726;
-                if (ConstSet94[Temporary45.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary45.kind, NTI1241513989)); }
+                if (ConstSet78[Temporary45.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary45.kind, NTI1241513989)); }
                 var Temporary47 = pHEX60gensym26_1241514726;
-                if (ConstSet95[Temporary47.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary47.kind, NTI1241513989)); }
+                if (ConstSet79[Temporary47.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary47.kind, NTI1241513989)); }
                 var Temporary49 = pHEX60gensym26_1241514726;
-                if (ConstSet96[Temporary49.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary49.kind, NTI1241513989)); }
+                if (ConstSet80[Temporary49.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary49.kind, NTI1241513989)); }
                 var Temporary51 = pHEX60gensym26_1241514726;
-                if (ConstSet97[Temporary51.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary51.kind, NTI1241513989)); }
+                if (ConstSet81[Temporary51.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary51.kind, NTI1241513989)); }
                 var Temporary53 = pHEX60gensym26_1241514726;
-                if (ConstSet98[Temporary53.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary53.kind, NTI1241513989)); }
+                if (ConstSet82[Temporary53.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary53.kind, NTI1241513989)); }
                 aHEX60gensym26_1241515820 = chckRange((((((((Temporary46 = Temporary45.term, Temporary46)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary46).length - 1)] & 3) << 24) | (((Temporary48 = Temporary47.term, Temporary48)[chckIndx(addInt(iHEX60gensym26_1241515819, 1), 0, (Temporary48).length - 1)] & 63) << 18)) | (((Temporary50 = Temporary49.term, Temporary50)[chckIndx(addInt(iHEX60gensym26_1241515819, 2), 0, (Temporary50).length - 1)] & 63) << 12)) | (((Temporary52 = Temporary51.term, Temporary52)[chckIndx(addInt(iHEX60gensym26_1241515819, 3), 0, (Temporary52).length - 1)] & 63) << 6)) | ((Temporary54 = Temporary53.term, Temporary54)[chckIndx(addInt(iHEX60gensym26_1241515819, 4), 0, (Temporary54).length - 1)] & 63)), -2147483648, 2147483647);
                 iHEX60gensym26_1241515819 = addInt(iHEX60gensym26_1241515819, 5);
                 }
@@ -6970,23 +5808,23 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                 }
                 else {
                   var Temporary55 = pHEX60gensym26_1241514726;
-                  if (ConstSet99[Temporary55.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary55.kind, NTI1241513989)); }
+                  if (ConstSet83[Temporary55.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary55.kind, NTI1241513989)); }
                 if ((((Temporary56 = Temporary55.term, Temporary56)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary56).length - 1)] >>> 1) == 126)) {
                   var Temporary57 = pHEX60gensym26_1241514726;
-                  if (ConstSet100[Temporary57.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary57.kind, NTI1241513989)); }
+                  if (ConstSet84[Temporary57.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary57.kind, NTI1241513989)); }
                 if ((iHEX60gensym26_1241515819 <= subInt((Temporary57.term).length, 6))) {
                 var Temporary58 = pHEX60gensym26_1241514726;
-                if (ConstSet101[Temporary58.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary58.kind, NTI1241513989)); }
+                if (ConstSet85[Temporary58.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary58.kind, NTI1241513989)); }
                 var Temporary60 = pHEX60gensym26_1241514726;
-                if (ConstSet102[Temporary60.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary60.kind, NTI1241513989)); }
+                if (ConstSet86[Temporary60.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary60.kind, NTI1241513989)); }
                 var Temporary62 = pHEX60gensym26_1241514726;
-                if (ConstSet103[Temporary62.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary62.kind, NTI1241513989)); }
+                if (ConstSet87[Temporary62.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary62.kind, NTI1241513989)); }
                 var Temporary64 = pHEX60gensym26_1241514726;
-                if (ConstSet104[Temporary64.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary64.kind, NTI1241513989)); }
+                if (ConstSet88[Temporary64.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary64.kind, NTI1241513989)); }
                 var Temporary66 = pHEX60gensym26_1241514726;
-                if (ConstSet105[Temporary66.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary66.kind, NTI1241513989)); }
+                if (ConstSet89[Temporary66.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary66.kind, NTI1241513989)); }
                 var Temporary68 = pHEX60gensym26_1241514726;
-                if (ConstSet106[Temporary68.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary68.kind, NTI1241513989)); }
+                if (ConstSet90[Temporary68.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary68.kind, NTI1241513989)); }
                 aHEX60gensym26_1241515820 = chckRange(((((((((Temporary59 = Temporary58.term, Temporary59)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary59).length - 1)] & 1) << 30) | (((Temporary61 = Temporary60.term, Temporary61)[chckIndx(addInt(iHEX60gensym26_1241515819, 1), 0, (Temporary61).length - 1)] & 63) << 24)) | (((Temporary63 = Temporary62.term, Temporary63)[chckIndx(addInt(iHEX60gensym26_1241515819, 2), 0, (Temporary63).length - 1)] & 63) << 18)) | (((Temporary65 = Temporary64.term, Temporary65)[chckIndx(addInt(iHEX60gensym26_1241515819, 3), 0, (Temporary65).length - 1)] & 63) << 12)) | (((Temporary67 = Temporary66.term, Temporary67)[chckIndx(addInt(iHEX60gensym26_1241515819, 4), 0, (Temporary67).length - 1)] & 63) << 6)) | ((Temporary69 = Temporary68.term, Temporary69)[chckIndx(addInt(iHEX60gensym26_1241515819, 5), 0, (Temporary69).length - 1)] & 63)), -2147483648, 2147483647);
                 iHEX60gensym26_1241515819 = addInt(iHEX60gensym26_1241515819, 6);
                 }
@@ -6998,7 +5836,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                 }
                 else {
                   var Temporary70 = pHEX60gensym26_1241514726;
-                  if (ConstSet107[Temporary70.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary70.kind, NTI1241513989)); }
+                  if (ConstSet91[Temporary70.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary70.kind, NTI1241513989)); }
                   aHEX60gensym26_1241515820 = chckRange((Temporary71 = Temporary70.term, Temporary71)[chckIndx(iHEX60gensym26_1241515819, 0, (Temporary71).length - 1)], -2147483648, 2147483647);
                   iHEX60gensym26_1241515819 = addInt(iHEX60gensym26_1241515819, 1);
                 }
@@ -7089,32 +5927,32 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           Label72: do {
               Label73: while (true) {
                 var Temporary74 = pHEX60gensym26_1241514726;
-                if (ConstSet108[Temporary74.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary74.kind, NTI1241513989)); }
+                if (ConstSet92[Temporary74.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary74.kind, NTI1241513989)); }
               if (!(iHEX60gensym26_1241516242 < (Temporary74.term).length)) break Label73;
                 Label75: do {
                     Label76: while (true) {
                       var Temporary77 = pHEX60gensym26_1241514726;
-                      if (ConstSet109[Temporary77.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary77.kind, NTI1241513989)); }
+                      if (ConstSet93[Temporary77.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary77.kind, NTI1241513989)); }
                     if (!(iHEX60gensym26_1241516242 < (Temporary77.term).length)) break Label76;
                         var Temporary78 = pHEX60gensym26_1241514726;
-                        if (ConstSet110[Temporary78.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary78.kind, NTI1241513989)); }
+                        if (ConstSet94[Temporary78.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary78.kind, NTI1241513989)); }
                       if (((Temporary79 = Temporary78.term, Temporary79)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary79).length - 1)] <= 127)) {
                       var Temporary80 = pHEX60gensym26_1241514726;
-                      if (ConstSet111[Temporary80.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary80.kind, NTI1241513989)); }
+                      if (ConstSet95[Temporary80.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary80.kind, NTI1241513989)); }
                       aHEX60gensym26_1241516243 = chckRange((Temporary81 = Temporary80.term, Temporary81)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary81).length - 1)], -2147483648, 2147483647);
                       iHEX60gensym26_1241516242 = addInt(iHEX60gensym26_1241516242, 1);
                       }
                       else {
                         var Temporary82 = pHEX60gensym26_1241514726;
-                        if (ConstSet112[Temporary82.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary82.kind, NTI1241513989)); }
+                        if (ConstSet96[Temporary82.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary82.kind, NTI1241513989)); }
                       if ((((Temporary83 = Temporary82.term, Temporary83)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary83).length - 1)] >>> 5) == 6)) {
                         var Temporary84 = pHEX60gensym26_1241514726;
-                        if (ConstSet113[Temporary84.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary84.kind, NTI1241513989)); }
+                        if (ConstSet97[Temporary84.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary84.kind, NTI1241513989)); }
                       if ((iHEX60gensym26_1241516242 <= subInt((Temporary84.term).length, 2))) {
                       var Temporary85 = pHEX60gensym26_1241514726;
-                      if (ConstSet114[Temporary85.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary85.kind, NTI1241513989)); }
+                      if (ConstSet98[Temporary85.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary85.kind, NTI1241513989)); }
                       var Temporary87 = pHEX60gensym26_1241514726;
-                      if (ConstSet115[Temporary87.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary87.kind, NTI1241513989)); }
+                      if (ConstSet99[Temporary87.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary87.kind, NTI1241513989)); }
                       aHEX60gensym26_1241516243 = chckRange(((((Temporary86 = Temporary85.term, Temporary86)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary86).length - 1)] & 31) << 6) | ((Temporary88 = Temporary87.term, Temporary88)[chckIndx(addInt(iHEX60gensym26_1241516242, 1), 0, (Temporary88).length - 1)] & 63)), -2147483648, 2147483647);
                       iHEX60gensym26_1241516242 = addInt(iHEX60gensym26_1241516242, 2);
                       }
@@ -7126,17 +5964,17 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                       }
                       else {
                         var Temporary89 = pHEX60gensym26_1241514726;
-                        if (ConstSet116[Temporary89.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary89.kind, NTI1241513989)); }
+                        if (ConstSet100[Temporary89.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary89.kind, NTI1241513989)); }
                       if ((((Temporary90 = Temporary89.term, Temporary90)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary90).length - 1)] >>> 4) == 14)) {
                         var Temporary91 = pHEX60gensym26_1241514726;
-                        if (ConstSet117[Temporary91.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary91.kind, NTI1241513989)); }
+                        if (ConstSet101[Temporary91.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary91.kind, NTI1241513989)); }
                       if ((iHEX60gensym26_1241516242 <= subInt((Temporary91.term).length, 3))) {
                       var Temporary92 = pHEX60gensym26_1241514726;
-                      if (ConstSet118[Temporary92.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary92.kind, NTI1241513989)); }
+                      if (ConstSet102[Temporary92.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary92.kind, NTI1241513989)); }
                       var Temporary94 = pHEX60gensym26_1241514726;
-                      if (ConstSet119[Temporary94.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary94.kind, NTI1241513989)); }
+                      if (ConstSet103[Temporary94.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary94.kind, NTI1241513989)); }
                       var Temporary96 = pHEX60gensym26_1241514726;
-                      if (ConstSet120[Temporary96.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary96.kind, NTI1241513989)); }
+                      if (ConstSet104[Temporary96.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary96.kind, NTI1241513989)); }
                       aHEX60gensym26_1241516243 = chckRange((((((Temporary93 = Temporary92.term, Temporary93)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary93).length - 1)] & 15) << 12) | (((Temporary95 = Temporary94.term, Temporary95)[chckIndx(addInt(iHEX60gensym26_1241516242, 1), 0, (Temporary95).length - 1)] & 63) << 6)) | ((Temporary97 = Temporary96.term, Temporary97)[chckIndx(addInt(iHEX60gensym26_1241516242, 2), 0, (Temporary97).length - 1)] & 63)), -2147483648, 2147483647);
                       iHEX60gensym26_1241516242 = addInt(iHEX60gensym26_1241516242, 3);
                       }
@@ -7148,19 +5986,19 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                       }
                       else {
                         var Temporary98 = pHEX60gensym26_1241514726;
-                        if (ConstSet121[Temporary98.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary98.kind, NTI1241513989)); }
+                        if (ConstSet105[Temporary98.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary98.kind, NTI1241513989)); }
                       if ((((Temporary99 = Temporary98.term, Temporary99)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary99).length - 1)] >>> 3) == 30)) {
                         var Temporary100 = pHEX60gensym26_1241514726;
-                        if (ConstSet122[Temporary100.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary100.kind, NTI1241513989)); }
+                        if (ConstSet106[Temporary100.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary100.kind, NTI1241513989)); }
                       if ((iHEX60gensym26_1241516242 <= subInt((Temporary100.term).length, 4))) {
                       var Temporary101 = pHEX60gensym26_1241514726;
-                      if (ConstSet123[Temporary101.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary101.kind, NTI1241513989)); }
+                      if (ConstSet107[Temporary101.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary101.kind, NTI1241513989)); }
                       var Temporary103 = pHEX60gensym26_1241514726;
-                      if (ConstSet124[Temporary103.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary103.kind, NTI1241513989)); }
+                      if (ConstSet108[Temporary103.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary103.kind, NTI1241513989)); }
                       var Temporary105 = pHEX60gensym26_1241514726;
-                      if (ConstSet125[Temporary105.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary105.kind, NTI1241513989)); }
+                      if (ConstSet109[Temporary105.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary105.kind, NTI1241513989)); }
                       var Temporary107 = pHEX60gensym26_1241514726;
-                      if (ConstSet126[Temporary107.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary107.kind, NTI1241513989)); }
+                      if (ConstSet110[Temporary107.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary107.kind, NTI1241513989)); }
                       aHEX60gensym26_1241516243 = chckRange(((((((Temporary102 = Temporary101.term, Temporary102)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary102).length - 1)] & 7) << 18) | (((Temporary104 = Temporary103.term, Temporary104)[chckIndx(addInt(iHEX60gensym26_1241516242, 1), 0, (Temporary104).length - 1)] & 63) << 12)) | (((Temporary106 = Temporary105.term, Temporary106)[chckIndx(addInt(iHEX60gensym26_1241516242, 2), 0, (Temporary106).length - 1)] & 63) << 6)) | ((Temporary108 = Temporary107.term, Temporary108)[chckIndx(addInt(iHEX60gensym26_1241516242, 3), 0, (Temporary108).length - 1)] & 63)), -2147483648, 2147483647);
                       iHEX60gensym26_1241516242 = addInt(iHEX60gensym26_1241516242, 4);
                       }
@@ -7172,21 +6010,21 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                       }
                       else {
                         var Temporary109 = pHEX60gensym26_1241514726;
-                        if (ConstSet127[Temporary109.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary109.kind, NTI1241513989)); }
+                        if (ConstSet111[Temporary109.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary109.kind, NTI1241513989)); }
                       if ((((Temporary110 = Temporary109.term, Temporary110)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary110).length - 1)] >>> 2) == 62)) {
                         var Temporary111 = pHEX60gensym26_1241514726;
-                        if (ConstSet128[Temporary111.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary111.kind, NTI1241513989)); }
+                        if (ConstSet112[Temporary111.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary111.kind, NTI1241513989)); }
                       if ((iHEX60gensym26_1241516242 <= subInt((Temporary111.term).length, 5))) {
                       var Temporary112 = pHEX60gensym26_1241514726;
-                      if (ConstSet129[Temporary112.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary112.kind, NTI1241513989)); }
+                      if (ConstSet113[Temporary112.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary112.kind, NTI1241513989)); }
                       var Temporary114 = pHEX60gensym26_1241514726;
-                      if (ConstSet130[Temporary114.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary114.kind, NTI1241513989)); }
+                      if (ConstSet114[Temporary114.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary114.kind, NTI1241513989)); }
                       var Temporary116 = pHEX60gensym26_1241514726;
-                      if (ConstSet131[Temporary116.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary116.kind, NTI1241513989)); }
+                      if (ConstSet115[Temporary116.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary116.kind, NTI1241513989)); }
                       var Temporary118 = pHEX60gensym26_1241514726;
-                      if (ConstSet132[Temporary118.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary118.kind, NTI1241513989)); }
+                      if (ConstSet116[Temporary118.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary118.kind, NTI1241513989)); }
                       var Temporary120 = pHEX60gensym26_1241514726;
-                      if (ConstSet133[Temporary120.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary120.kind, NTI1241513989)); }
+                      if (ConstSet117[Temporary120.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary120.kind, NTI1241513989)); }
                       aHEX60gensym26_1241516243 = chckRange((((((((Temporary113 = Temporary112.term, Temporary113)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary113).length - 1)] & 3) << 24) | (((Temporary115 = Temporary114.term, Temporary115)[chckIndx(addInt(iHEX60gensym26_1241516242, 1), 0, (Temporary115).length - 1)] & 63) << 18)) | (((Temporary117 = Temporary116.term, Temporary117)[chckIndx(addInt(iHEX60gensym26_1241516242, 2), 0, (Temporary117).length - 1)] & 63) << 12)) | (((Temporary119 = Temporary118.term, Temporary119)[chckIndx(addInt(iHEX60gensym26_1241516242, 3), 0, (Temporary119).length - 1)] & 63) << 6)) | ((Temporary121 = Temporary120.term, Temporary121)[chckIndx(addInt(iHEX60gensym26_1241516242, 4), 0, (Temporary121).length - 1)] & 63)), -2147483648, 2147483647);
                       iHEX60gensym26_1241516242 = addInt(iHEX60gensym26_1241516242, 5);
                       }
@@ -7198,23 +6036,23 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                       }
                       else {
                         var Temporary122 = pHEX60gensym26_1241514726;
-                        if (ConstSet134[Temporary122.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary122.kind, NTI1241513989)); }
+                        if (ConstSet118[Temporary122.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary122.kind, NTI1241513989)); }
                       if ((((Temporary123 = Temporary122.term, Temporary123)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary123).length - 1)] >>> 1) == 126)) {
                         var Temporary124 = pHEX60gensym26_1241514726;
-                        if (ConstSet135[Temporary124.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary124.kind, NTI1241513989)); }
+                        if (ConstSet119[Temporary124.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary124.kind, NTI1241513989)); }
                       if ((iHEX60gensym26_1241516242 <= subInt((Temporary124.term).length, 6))) {
                       var Temporary125 = pHEX60gensym26_1241514726;
-                      if (ConstSet136[Temporary125.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary125.kind, NTI1241513989)); }
+                      if (ConstSet120[Temporary125.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary125.kind, NTI1241513989)); }
                       var Temporary127 = pHEX60gensym26_1241514726;
-                      if (ConstSet137[Temporary127.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary127.kind, NTI1241513989)); }
+                      if (ConstSet121[Temporary127.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary127.kind, NTI1241513989)); }
                       var Temporary129 = pHEX60gensym26_1241514726;
-                      if (ConstSet138[Temporary129.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary129.kind, NTI1241513989)); }
+                      if (ConstSet122[Temporary129.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary129.kind, NTI1241513989)); }
                       var Temporary131 = pHEX60gensym26_1241514726;
-                      if (ConstSet139[Temporary131.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary131.kind, NTI1241513989)); }
+                      if (ConstSet123[Temporary131.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary131.kind, NTI1241513989)); }
                       var Temporary133 = pHEX60gensym26_1241514726;
-                      if (ConstSet140[Temporary133.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary133.kind, NTI1241513989)); }
+                      if (ConstSet124[Temporary133.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary133.kind, NTI1241513989)); }
                       var Temporary135 = pHEX60gensym26_1241514726;
-                      if (ConstSet141[Temporary135.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary135.kind, NTI1241513989)); }
+                      if (ConstSet125[Temporary135.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary135.kind, NTI1241513989)); }
                       aHEX60gensym26_1241516243 = chckRange(((((((((Temporary126 = Temporary125.term, Temporary126)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary126).length - 1)] & 1) << 30) | (((Temporary128 = Temporary127.term, Temporary128)[chckIndx(addInt(iHEX60gensym26_1241516242, 1), 0, (Temporary128).length - 1)] & 63) << 24)) | (((Temporary130 = Temporary129.term, Temporary130)[chckIndx(addInt(iHEX60gensym26_1241516242, 2), 0, (Temporary130).length - 1)] & 63) << 18)) | (((Temporary132 = Temporary131.term, Temporary132)[chckIndx(addInt(iHEX60gensym26_1241516242, 3), 0, (Temporary132).length - 1)] & 63) << 12)) | (((Temporary134 = Temporary133.term, Temporary134)[chckIndx(addInt(iHEX60gensym26_1241516242, 4), 0, (Temporary134).length - 1)] & 63) << 6)) | ((Temporary136 = Temporary135.term, Temporary136)[chckIndx(addInt(iHEX60gensym26_1241516242, 5), 0, (Temporary136).length - 1)] & 63)), -2147483648, 2147483647);
                       iHEX60gensym26_1241516242 = addInt(iHEX60gensym26_1241516242, 6);
                       }
@@ -7226,7 +6064,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                       }
                       else {
                         var Temporary137 = pHEX60gensym26_1241514726;
-                        if (ConstSet142[Temporary137.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary137.kind, NTI1241513989)); }
+                        if (ConstSet126[Temporary137.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary137.kind, NTI1241513989)); }
                         aHEX60gensym26_1241516243 = chckRange((Temporary138 = Temporary137.term, Temporary138)[chckIndx(iHEX60gensym26_1241516242, 0, (Temporary138).length - 1)], -2147483648, 2147483647);
                         iHEX60gensym26_1241516242 = addInt(iHEX60gensym26_1241516242, 1);
                       }
@@ -7317,7 +6155,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                 } while (false);
                 if (((sHEX60gensym26_1241514725).length <= result_1241514729)) {
                   var Temporary141 = pHEX60gensym26_1241514726;
-                  if (ConstSet143[Temporary141.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary141.kind, NTI1241513989)); }
+                  if (ConstSet127[Temporary141.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary141.kind, NTI1241513989)); }
                 if (((Temporary141.term).length <= iHEX60gensym26_1241516242)) {
                 break Label72;
                 }
@@ -7339,7 +6177,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           break;
         case 12:
             if (!(startHEX60gensym26_1241514727 < (sHEX60gensym26_1241514725).length)) Temporary142 = false; else {              var Temporary143 = pHEX60gensym26_1241514726;
-              if (ConstSet144[Temporary143.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary143.kind, NTI1241513989)); }
+              if (ConstSet128[Temporary143.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary143.kind, NTI1241513989)); }
               Temporary142 = (Temporary143.ch == sHEX60gensym26_1241514725[chckIndx(startHEX60gensym26_1241514727, 0, (sHEX60gensym26_1241514725).length - 1)]);            }          if (Temporary142) {
           result_1241514729 = 1;
           }
@@ -7350,7 +6188,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           break;
         case 13:
             if (!(startHEX60gensym26_1241514727 < (sHEX60gensym26_1241514725).length)) Temporary144 = false; else {              var Temporary145 = pHEX60gensym26_1241514726;
-              if (ConstSet145[Temporary145.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary145.kind, NTI1241513989)); }
+              if (ConstSet129[Temporary145.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary145.kind, NTI1241513989)); }
               Temporary144 = (Temporary145.charChoice[sHEX60gensym26_1241514725[chckIndx(startHEX60gensym26_1241514727, 0, (sHEX60gensym26_1241514725).length - 1)]] != undefined);            }          if (Temporary144) {
           result_1241514729 = 1;
           }
@@ -7362,7 +6200,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
         case 14:
           var oldMlHEX60gensym26_1241516669 = cHEX60gensym26_1241514728.ml;
           var Temporary146 = pHEX60gensym26_1241514726;
-          if (ConstSet146[Temporary146.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'nt\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary146.kind, NTI1241513989)); }
+          if (ConstSet130[Temporary146.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'nt\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary146.kind, NTI1241513989)); }
           result_1241514729 = matchIt_1241514724(sHEX60gensym26_1241514725, Temporary146.nt.rule, startHEX60gensym26_1241514727, cHEX60gensym26_1241514728);
           if ((result_1241514729 < 0)) {
           cHEX60gensym26_1241514728.ml = oldMlHEX60gensym26_1241516669;
@@ -7374,17 +6212,17 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           result_1241514729 = 0;
           Label147: do {
             var iHEX60gensym26_1241516678 = 0;
-            var colontmp__486542243 = 0;
+            var colontmp__486542191 = 0;
             var Temporary148 = pHEX60gensym26_1241514726;
-            if (ConstSet147[Temporary148.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary148.kind, NTI1241513989)); }
-            colontmp__486542243 = (Temporary148.sons).length - 1;
-            var res_486542244 = 0;
+            if (ConstSet131[Temporary148.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary148.kind, NTI1241513989)); }
+            colontmp__486542191 = (Temporary148.sons).length - 1;
+            var res_486542192 = 0;
             Label149: do {
                 Label150: while (true) {
-                if (!(res_486542244 <= colontmp__486542243)) break Label150;
-                  iHEX60gensym26_1241516678 = res_486542244;
+                if (!(res_486542192 <= colontmp__486542191)) break Label150;
+                  iHEX60gensym26_1241516678 = res_486542192;
                   var Temporary151 = pHEX60gensym26_1241514726;
-                  if (ConstSet148[Temporary151.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary151.kind, NTI1241513989)); }
+                  if (ConstSet132[Temporary151.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary151.kind, NTI1241513989)); }
                   var xHEX60gensym26_1241516679 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary152 = Temporary151.sons, Temporary152)[chckIndx(iHEX60gensym26_1241516678, 0, (Temporary152).length - 1)], addInt(startHEX60gensym26_1241514727, result_1241514729), cHEX60gensym26_1241514728);
                   if ((xHEX60gensym26_1241516679 < 0)) {
                   cHEX60gensym26_1241514728.ml = oldMlHEX60gensym26_1241516670;
@@ -7395,7 +6233,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                   result_1241514729 = addInt(result_1241514729, xHEX60gensym26_1241516679);
                   }
                   
-                  res_486542244 = addInt(res_486542244, 1);
+                  res_486542192 = addInt(res_486542192, 1);
                 }
             } while (false);
           } while (false);
@@ -7404,24 +6242,24 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           var oldMlHEX60gensym26_1241516684 = cHEX60gensym26_1241514728.ml;
           Label153: do {
             var iHEX60gensym26_1241516692 = 0;
-            var colontmp__486542247 = 0;
+            var colontmp__486542195 = 0;
             var Temporary154 = pHEX60gensym26_1241514726;
-            if (ConstSet149[Temporary154.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary154.kind, NTI1241513989)); }
-            colontmp__486542247 = (Temporary154.sons).length - 1;
-            var res_486542248 = 0;
+            if (ConstSet133[Temporary154.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary154.kind, NTI1241513989)); }
+            colontmp__486542195 = (Temporary154.sons).length - 1;
+            var res_486542196 = 0;
             Label155: do {
                 Label156: while (true) {
-                if (!(res_486542248 <= colontmp__486542247)) break Label156;
-                  iHEX60gensym26_1241516692 = res_486542248;
+                if (!(res_486542196 <= colontmp__486542195)) break Label156;
+                  iHEX60gensym26_1241516692 = res_486542196;
                   var Temporary157 = pHEX60gensym26_1241514726;
-                  if (ConstSet150[Temporary157.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary157.kind, NTI1241513989)); }
+                  if (ConstSet134[Temporary157.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary157.kind, NTI1241513989)); }
                   result_1241514729 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary158 = Temporary157.sons, Temporary158)[chckIndx(iHEX60gensym26_1241516692, 0, (Temporary158).length - 1)], startHEX60gensym26_1241514727, cHEX60gensym26_1241514728);
                   if ((0 <= result_1241514729)) {
                   break Label153;
                   }
                   
                   cHEX60gensym26_1241514728.ml = oldMlHEX60gensym26_1241516684;
-                  res_486542248 = addInt(res_486542248, 1);
+                  res_486542196 = addInt(res_486542196, 1);
                 }
             } while (false);
           } while (false);
@@ -7433,7 +6271,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
               Label160: while (true) {
               if (!(addInt(startHEX60gensym26_1241514727, result_1241514729) <= (sHEX60gensym26_1241514725).length)) break Label160;
                 var Temporary161 = pHEX60gensym26_1241514726;
-                if (ConstSet151[Temporary161.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary161.kind, NTI1241513989)); }
+                if (ConstSet135[Temporary161.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary161.kind, NTI1241513989)); }
                 var xHEX60gensym26_1241516694 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary162 = Temporary161.sons, Temporary162)[chckIndx(0, 0, (Temporary162).length - 1)], addInt(startHEX60gensym26_1241514727, result_1241514729), cHEX60gensym26_1241514728);
                 if ((0 <= xHEX60gensym26_1241516694)) {
                 result_1241514729 = addInt(result_1241514729, xHEX60gensym26_1241516694);
@@ -7454,13 +6292,13 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
               Label164: while (true) {
               if (!(addInt(startHEX60gensym26_1241514727, result_1241514729) <= (sHEX60gensym26_1241514725).length)) break Label164;
                 var Temporary165 = pHEX60gensym26_1241514726;
-                if (ConstSet152[Temporary165.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary165.kind, NTI1241513989)); }
+                if (ConstSet136[Temporary165.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary165.kind, NTI1241513989)); }
                 var xHEX60gensym26_1241516708 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary166 = Temporary165.sons, Temporary166)[chckIndx(0, 0, (Temporary166).length - 1)], addInt(startHEX60gensym26_1241514727, result_1241514729), cHEX60gensym26_1241514728);
                 if ((0 <= xHEX60gensym26_1241516708)) {
                 if ((idxHEX60gensym26_1241516703 < 20)) {
-                var colontmp__486542252 = startHEX60gensym26_1241514727;
-                var colontmp__486542253 = subInt(addInt(startHEX60gensym26_1241514727, result_1241514729), 1);
-                cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516703, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516703, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486542252, Field1: colontmp__486542253}, NTI1241514517);
+                var colontmp__486542200 = startHEX60gensym26_1241514727;
+                var colontmp__486542201 = subInt(addInt(startHEX60gensym26_1241514727, result_1241514729), 1);
+                cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516703, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516703, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486542200, Field1: colontmp__486542201}, NTI1241514517);
                 }
                 
                 result_1241514729 = addInt(result_1241514729, xHEX60gensym26_1241516708);
@@ -7479,7 +6317,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
               Label168: while (true) {
               if (!true) break Label168;
                 var Temporary169 = pHEX60gensym26_1241514726;
-                if (ConstSet153[Temporary169.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary169.kind, NTI1241513989)); }
+                if (ConstSet137[Temporary169.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary169.kind, NTI1241513989)); }
                 var xHEX60gensym26_1241516717 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary170 = Temporary169.sons, Temporary170)[chckIndx(0, 0, (Temporary170).length - 1)], addInt(startHEX60gensym26_1241514727, result_1241514729), cHEX60gensym26_1241514728);
                 if ((xHEX60gensym26_1241516717 <= 0)) {
                 break Label167;
@@ -7492,7 +6330,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
         case 18:
           result_1241514729 = 0;
           var Temporary171 = pHEX60gensym26_1241514726;
-          if (ConstSet154[Temporary171.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary171.kind, NTI1241513989)); }
+          if (ConstSet138[Temporary171.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary171.kind, NTI1241513989)); }
           var chHEX60gensym26_1241516722 = Temporary171.ch;
           Label172: do {
               Label173: while (true) {
@@ -7506,7 +6344,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           Label174: do {
               Label175: while (true) {
                 if (!(addInt(startHEX60gensym26_1241514727, result_1241514729) < (sHEX60gensym26_1241514725).length)) Temporary176 = false; else {                  var Temporary177 = pHEX60gensym26_1241514726;
-                  if (ConstSet155[Temporary177.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary177.kind, NTI1241513989)); }
+                  if (ConstSet139[Temporary177.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary177.kind, NTI1241513989)); }
                   Temporary176 = (Temporary177.charChoice[sHEX60gensym26_1241514725[chckIndx(addInt(startHEX60gensym26_1241514727, result_1241514729), 0, (sHEX60gensym26_1241514725).length - 1)]] != undefined);                }              if (!Temporary176) break Label175;
                 result_1241514729 = addInt(result_1241514729, 1);
               }
@@ -7514,13 +6352,13 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           break;
         case 21:
           var Temporary178 = pHEX60gensym26_1241514726;
-          if (ConstSet156[Temporary178.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary178.kind, NTI1241513989)); }
+          if (ConstSet140[Temporary178.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary178.kind, NTI1241513989)); }
           result_1241514729 = nimMax(0, matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary179 = Temporary178.sons, Temporary179)[chckIndx(0, 0, (Temporary179).length - 1)], startHEX60gensym26_1241514727, cHEX60gensym26_1241514728));
           break;
         case 22:
           var oldMlHEX60gensym26_1241516735 = cHEX60gensym26_1241514728.ml;
           var Temporary180 = pHEX60gensym26_1241514726;
-          if (ConstSet157[Temporary180.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary180.kind, NTI1241513989)); }
+          if (ConstSet141[Temporary180.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary180.kind, NTI1241513989)); }
           result_1241514729 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary181 = Temporary180.sons, Temporary181)[chckIndx(0, 0, (Temporary181).length - 1)], startHEX60gensym26_1241514727, cHEX60gensym26_1241514728);
           if ((0 <= result_1241514729)) {
           result_1241514729 = 0;
@@ -7533,7 +6371,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
         case 23:
           var oldMlHEX60gensym26_1241516736 = cHEX60gensym26_1241514728.ml;
           var Temporary182 = pHEX60gensym26_1241514726;
-          if (ConstSet158[Temporary182.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary182.kind, NTI1241513989)); }
+          if (ConstSet142[Temporary182.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary182.kind, NTI1241513989)); }
           result_1241514729 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary183 = Temporary182.sons, Temporary183)[chckIndx(0, 0, (Temporary183).length - 1)], startHEX60gensym26_1241514727, cHEX60gensym26_1241514728);
           if ((result_1241514729 < 0)) {
           result_1241514729 = 0;
@@ -7546,27 +6384,27 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           break;
         case 24:
             var Temporary185 = pHEX60gensym26_1241514726;
-            if (ConstSet159[Temporary185.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary185.kind, NTI1241513989)); }
+            if (ConstSet143[Temporary185.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary185.kind, NTI1241513989)); }
             if (((Temporary185.sons).length == 0)) Temporary184 = true; else {              var Temporary186 = pHEX60gensym26_1241514726;
-              if (ConstSet160[Temporary186.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary186.kind, NTI1241513989)); }
+              if (ConstSet144[Temporary186.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary186.kind, NTI1241513989)); }
               Temporary184 = ((Temporary187 = Temporary186.sons, Temporary187)[chckIndx(0, 0, (Temporary187).length - 1)].kind == 0);            }          if (Temporary184) {
           cHEX60gensym26_1241514728.ml = subInt(cHEX60gensym26_1241514728.ml, 1);
-          var colontmp__486542257 = 0;
-          var colontmp__486542258 = 0;
-          cHEX60gensym26_1241514728.matches[chckIndx(cHEX60gensym26_1241514728.ml, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(cHEX60gensym26_1241514728.ml, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486542257, Field1: colontmp__486542258}, NTI1241514517);
+          var colontmp__486542205 = 0;
+          var colontmp__486542206 = 0;
+          cHEX60gensym26_1241514728.matches[chckIndx(cHEX60gensym26_1241514728.ml, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(cHEX60gensym26_1241514728.ml, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486542205, Field1: colontmp__486542206}, NTI1241514517);
           result_1241514729 = 0;
           }
           else {
             var idxHEX60gensym26_1241516748 = cHEX60gensym26_1241514728.ml;
             var Temporary188 = pHEX60gensym26_1241514726;
-            if (ConstSet161[Temporary188.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary188.kind, NTI1241513989)); }
+            if (ConstSet145[Temporary188.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary188.kind, NTI1241513989)); }
             result_1241514729 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary189 = Temporary188.sons, Temporary189)[chckIndx(0, 0, (Temporary189).length - 1)], startHEX60gensym26_1241514727, cHEX60gensym26_1241514728);
             if ((0 <= result_1241514729)) {
             cHEX60gensym26_1241514728.ml = addInt(cHEX60gensym26_1241514728.ml, 1);
             if ((idxHEX60gensym26_1241516748 < 20)) {
-            var colontmp__486542259 = startHEX60gensym26_1241514727;
-            var colontmp__486542260 = subInt(addInt(startHEX60gensym26_1241514727, result_1241514729), 1);
-            cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516748, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516748, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486542259, Field1: colontmp__486542260}, NTI1241514517);
+            var colontmp__486542207 = startHEX60gensym26_1241514727;
+            var colontmp__486542208 = subInt(addInt(startHEX60gensym26_1241514727, result_1241514729), 1);
+            cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516748, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516748, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486542207, Field1: colontmp__486542208}, NTI1241514517);
             }
             
             }
@@ -7614,48 +6452,63 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
 
 }
 
-function npegsmatchLenCapture(s_1241516835, pattern_1241516836, matches_1241516837, start_1241516838) {
-  var result_1241516839 = 0;
+function substr_33557919(s_33557920, first_33557921) {
+  var result_33557922 = [];
 
-    var c_1241516840 = [({matches: [{Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}], ml: 0, origStart: 0})];
-    c_1241516840[0].origStart = start_1241516838;
-    result_1241516839 = npegsrawMatch(s_1241516835, pattern_1241516836, start_1241516838, c_1241516840[0]);
-    if ((0 <= result_1241516839)) {
-    Label1: do {
-      var kHEX60gensym565_1241516848 = 0;
-      var colontmp__486542231 = 0;
-      colontmp__486542231 = subInt(c_1241516840[0].ml, 1);
-      var res_486542232 = 0;
-      Label2: do {
-          Label3: while (true) {
-          if (!(res_486542232 <= colontmp__486542231)) break Label3;
-            kHEX60gensym565_1241516848 = res_486542232;
-            var startIdxHEX60gensym565_1241516849 = c_1241516840[0].matches[chckIndx(kHEX60gensym565_1241516848, 0, (c_1241516840[0].matches).length - 1)]["Field0"];
-            var endIdxHEX60gensym565_1241516850 = c_1241516840[0].matches[chckIndx(kHEX60gensym565_1241516848, 0, (c_1241516840[0].matches).length - 1)]["Field1"];
-            if (!((startIdxHEX60gensym565_1241516849 == -1))) {
-            matches_1241516837[chckIndx(kHEX60gensym565_1241516848, 0, (matches_1241516837).length - 1)] = nimCopy(null, substr_33557907(s_1241516835, startIdxHEX60gensym565_1241516849, endIdxHEX60gensym565_1241516850), NTI33554439);
-            }
-            else {
-              matches_1241516837[chckIndx(kHEX60gensym565_1241516848, 0, (matches_1241516837).length - 1)] = nimCopy(null, [], NTI33554439);
-            }
-            
-            res_486542232 = addInt(res_486542232, 1);
-          }
-      } while (false);
-    } while (false);
-    }
-    
+    result_33557922 = nimCopy(null, substr_33557907(s_33557920, first_33557921, (s_33557920).length - 1), NTI33554439);
 
-  return result_1241516839;
+  return result_33557922;
 
 }
 
-function npegsmatchCapture(s_1241516867, pattern_1241516868, matches_1241516869, start_1241516870) {
-  var result_1241516871 = false;
+function npegsreplacef(s_1241516995, sub_1241516996, by_1241516997) {
+  var result_1241516998 = [[]];
 
-    result_1241516871 = !((npegsmatchLenCapture(s_1241516867, pattern_1241516868, matches_1241516869, start_1241516870) == -1));
+    result_1241516998[0] = nimCopy(null, [], NTI33554439);
+    var i_1241516999 = 0;
+    var caps_1241517000 = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+    var c_1241517001 = [({matches: [{Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}], ml: 0, origStart: 0})];
+    Label1: do {
+        Label2: while (true) {
+        if (!(i_1241516999 < (s_1241516995).length)) break Label2;
+          c_1241517001[0].ml = 0;
+          var x_1241517002 = npegsrawMatch(s_1241516995, sub_1241516996, i_1241516999, c_1241517001[0]);
+          if ((x_1241517002 <= 0)) {
+          addChar(result_1241516998[0], s_1241516995[chckIndx(i_1241516999, 0, (s_1241516995).length - 1)]);;
+          i_1241516999 = addInt(i_1241516999, 1);
+          }
+          else {
+            Label3: do {
+              var kHEX60gensym579_1241517014 = 0;
+              var colontmp__486542179 = 0;
+              colontmp__486542179 = subInt(c_1241517001[0].ml, 1);
+              var res_486542180 = 0;
+              Label4: do {
+                  Label5: while (true) {
+                  if (!(res_486542180 <= colontmp__486542179)) break Label5;
+                    kHEX60gensym579_1241517014 = res_486542180;
+                    var startIdxHEX60gensym579_1241517015 = c_1241517001[0].matches[chckIndx(kHEX60gensym579_1241517014, 0, (c_1241517001[0].matches).length - 1)]["Field0"];
+                    var endIdxHEX60gensym579_1241517016 = c_1241517001[0].matches[chckIndx(kHEX60gensym579_1241517014, 0, (c_1241517001[0].matches).length - 1)]["Field1"];
+                    if (!((startIdxHEX60gensym579_1241517015 == -1))) {
+                    caps_1241517000[chckIndx(kHEX60gensym579_1241517014, 0, (caps_1241517000).length - 1)] = nimCopy(null, substr_33557907(s_1241516995, startIdxHEX60gensym579_1241517015, endIdxHEX60gensym579_1241517016), NTI33554439);
+                    }
+                    else {
+                      caps_1241517000[chckIndx(kHEX60gensym579_1241517014, 0, (caps_1241517000).length - 1)] = nimCopy(null, [], NTI33554439);
+                    }
+                    
+                    res_486542180 = addInt(res_486542180, 1);
+                  }
+              } while (false);
+            } while (false);
+            nsuAddf(result_1241516998, 0, by_1241516997, caps_1241517000);
+            i_1241516999 = addInt(i_1241516999, x_1241517002);
+          }
+          
+        }
+    } while (false);
+    result_1241516998[0].push.apply(result_1241516998[0], substr_33557919(s_1241516995, i_1241516999));;
 
-  return result_1241516871;
+  return result_1241516998[0];
 
 }
 
@@ -7721,7 +6574,7 @@ function skip_1241517366(c_1241517367) {
           case 35:
             Label3: do {
                 Label4: while (true) {
-                  if (!(pos_1241517368 < (c_1241517367.buf).length)) Temporary5 = false; else {                    Temporary5 = !((ConstSet164[c_1241517367.buf[chckIndx(pos_1241517368, 0, (c_1241517367.buf).length - 1)]] != undefined));                  }                if (!Temporary5) break Label4;
+                  if (!(pos_1241517368 < (c_1241517367.buf).length)) Temporary5 = false; else {                    Temporary5 = !((ConstSet148[c_1241517367.buf[chckIndx(pos_1241517368, 0, (c_1241517367.buf).length - 1)]] != undefined));                  }                if (!Temporary5) break Label4;
                   pos_1241517368 = addInt(pos_1241517368, 1);
                 }
             } while (false);
@@ -7880,7 +6733,7 @@ function getEscapedChar_1241517267(c_1241517268, tok_1241517269) {
       var i_1241517330 = 1;
       Label1: do {
           Label2: while (true) {
-            if (!(c_1241517268.bufpos < (c_1241517268.buf).length)) Temporary4 = false; else {              Temporary4 = (i_1241517330 <= 3);            }            if (!Temporary4) Temporary3 = false; else {              Temporary3 = (ConstSet166[c_1241517268.buf[chckIndx(c_1241517268.bufpos, 0, (c_1241517268.buf).length - 1)]] != undefined);            }          if (!Temporary3) break Label2;
+            if (!(c_1241517268.bufpos < (c_1241517268.buf).length)) Temporary4 = false; else {              Temporary4 = (i_1241517330 <= 3);            }            if (!Temporary4) Temporary3 = false; else {              Temporary3 = (ConstSet150[c_1241517268.buf[chckIndx(c_1241517268.bufpos, 0, (c_1241517268.buf).length - 1)]] != undefined);            }          if (!Temporary3) break Label2;
             val_1241517325 = subInt(addInt(mulInt(val_1241517325, 10), c_1241517268.buf[chckIndx(c_1241517268.bufpos, 0, (c_1241517268.buf).length - 1)]), 48);
             c_1241517268.bufpos = addInt(c_1241517268.bufpos, 1);
             i_1241517330 = addInt(i_1241517330, 1);
@@ -7929,7 +6782,7 @@ function getEscapedChar_1241517267(c_1241517268, tok_1241517269) {
       tok_1241517269.kind = 0;
       break;
     default: 
-      if ((ConstSet167[c_1241517268.buf[chckIndx(c_1241517268.bufpos, 0, (c_1241517268.buf).length - 1)]] != undefined)) {
+      if ((ConstSet151[c_1241517268.buf[chckIndx(c_1241517268.bufpos, 0, (c_1241517268.buf).length - 1)]] != undefined)) {
       tok_1241517269.kind = 0;
       }
       else {
@@ -7948,7 +6801,7 @@ function getCharSet_1241517425(c_1241517426, tok_1241517427) {
             var Temporary3;
 
     tok_1241517427.kind = 6;
-    tok_1241517427.charset = nimCopy(tok_1241517427.charset, ConstSet165, NTI1241519371);
+    tok_1241517427.charset = nimCopy(tok_1241517427.charset, ConstSet149, NTI1241519371);
     var pos_1241517428 = addInt(c_1241517426.bufpos, 1);
     var caret_1241517429 = false;
     if ((pos_1241517428 < (c_1241517426.buf).length)) {
@@ -8027,17 +6880,17 @@ function getCharSet_1241517425(c_1241517426, tok_1241517427) {
             }
             Label4: do {
               var i_1241517474 = 0;
-              var colontmp__486542267 = 0;
-              var colontmp__486542268 = 0;
-              colontmp__486542267 = addInt(ch_1241517434, 1);
-              colontmp__486542268 = ch2_1241517459;
-              var res_486542269 = colontmp__486542267;
+              var colontmp__486542215 = 0;
+              var colontmp__486542216 = 0;
+              colontmp__486542215 = addInt(ch_1241517434, 1);
+              colontmp__486542216 = ch2_1241517459;
+              var res_486542217 = colontmp__486542215;
               Label5: do {
                   Label6: while (true) {
-                  if (!(res_486542269 <= colontmp__486542268)) break Label6;
-                    i_1241517474 = res_486542269;
+                  if (!(res_486542217 <= colontmp__486542216)) break Label6;
+                    i_1241517474 = res_486542217;
                     tok_1241517427.charset[chckRange(i_1241517474, 0, 255)] = true;
-                    res_486542269 = addInt(res_486542269, 1);
+                    res_486542217 = addInt(res_486542217, 1);
                   }
               } while (false);
             } while (false);
@@ -8051,7 +6904,7 @@ function getCharSet_1241517425(c_1241517426, tok_1241517427) {
     
     c_1241517426.bufpos = pos_1241517428;
     if (caret_1241517429) {
-    tok_1241517427.charset = nimCopy(tok_1241517427.charset, SetMinus(ConstSet168, tok_1241517427.charset), NTI1241519371);
+    tok_1241517427.charset = nimCopy(tok_1241517427.charset, SetMinus(ConstSet152, tok_1241517427.charset), NTI1241519371);
     }
     
 
@@ -8067,7 +6920,7 @@ function getSymbol_1241517483(c_1241517484, tok_1241517485) {
         if (!(pos_1241517486 < (c_1241517484.buf).length)) break Label2;
           addChar(tok_1241517485.literal, c_1241517484.buf[chckIndx(pos_1241517486, 0, (c_1241517484.buf).length - 1)]);;
           pos_1241517486 = addInt(pos_1241517486, 1);
-            if (!(pos_1241517486 < (c_1241517484.buf).length)) Temporary3 = false; else {              Temporary3 = !((ConstSet170[c_1241517484.buf[chckIndx(pos_1241517486, 0, (c_1241517484.buf).length - 1)]] != undefined));            }          if (Temporary3) {
+            if (!(pos_1241517486 < (c_1241517484.buf).length)) Temporary3 = false; else {              Temporary3 = !((ConstSet154[c_1241517484.buf[chckIndx(pos_1241517486, 0, (c_1241517484.buf).length - 1)]] != undefined));            }          if (Temporary3) {
           break Label1;
           }
           
@@ -8082,7 +6935,7 @@ function getSymbol_1241517483(c_1241517484, tok_1241517485) {
 function getBuiltin_1241517495(c_1241517496, tok_1241517497) {
       var Temporary1;
 
-      if (!(addInt(c_1241517496.bufpos, 1) < (c_1241517496.buf).length)) Temporary1 = false; else {        Temporary1 = (ConstSet169[c_1241517496.buf[chckIndx(addInt(c_1241517496.bufpos, 1), 0, (c_1241517496.buf).length - 1)]] != undefined);      }    if (Temporary1) {
+      if (!(addInt(c_1241517496.bufpos, 1) < (c_1241517496.buf).length)) Temporary1 = false; else {        Temporary1 = (ConstSet153[c_1241517496.buf[chckIndx(addInt(c_1241517496.bufpos, 1), 0, (c_1241517496.buf).length - 1)]] != undefined);      }    if (Temporary1) {
     c_1241517496.bufpos = addInt(c_1241517496.bufpos, 1);
     getSymbol_1241517483(c_1241517496, tok_1241517497);
     tok_1241517497.kind = 21;
@@ -8146,12 +6999,12 @@ function getDollar_1241517394(c_1241517395, tok_1241517396) {
     pos_1241517397 = addInt(pos_1241517397, 1);
     }
     
-      if (!(pos_1241517397 < (c_1241517395.buf).length)) Temporary2 = false; else {        Temporary2 = (ConstSet171[c_1241517395.buf[chckIndx(pos_1241517397, 0, (c_1241517395.buf).length - 1)]] != undefined);      }    if (Temporary2) {
+      if (!(pos_1241517397 < (c_1241517395.buf).length)) Temporary2 = false; else {        Temporary2 = (ConstSet155[c_1241517395.buf[chckIndx(pos_1241517397, 0, (c_1241517395.buf).length - 1)]] != undefined);      }    if (Temporary2) {
     tok_1241517396.kind = 23;
     tok_1241517396.index = 0;
     Label3: do {
         Label4: while (true) {
-          if (!(pos_1241517397 < (c_1241517395.buf).length)) Temporary5 = false; else {            Temporary5 = (ConstSet172[c_1241517395.buf[chckIndx(pos_1241517397, 0, (c_1241517395.buf).length - 1)]] != undefined);          }        if (!Temporary5) break Label4;
+          if (!(pos_1241517397 < (c_1241517395.buf).length)) Temporary5 = false; else {            Temporary5 = (ConstSet156[c_1241517395.buf[chckIndx(pos_1241517397, 0, (c_1241517395.buf).length - 1)]] != undefined);          }        if (!Temporary5) break Label4;
           tok_1241517396.index = subInt(addInt(mulInt(tok_1241517396.index, 10), c_1241517395.buf[chckIndx(pos_1241517397, 0, (c_1241517395.buf).length - 1)]), 48);
           pos_1241517397 = addInt(pos_1241517397, 1);
         }
@@ -8439,7 +7292,7 @@ function getTok_1241517506(c_1241517507, tok_1241517508) {
       break BeforeRet;
       }
       
-        if ((ConstSet173[c_1241517507.buf[chckIndx(c_1241517507.bufpos, 0, (c_1241517507.buf).length - 1)]] != undefined)) Temporary4 = true; else {          if (!(c_1241517507.buf[chckIndx(c_1241517507.bufpos, 0, (c_1241517507.buf).length - 1)] == 36)) Temporary6 = false; else {            Temporary6 = (addInt(c_1241517507.bufpos, 1) < (c_1241517507.buf).length);          }          if (!Temporary6) Temporary5 = false; else {            Temporary5 = (ConstSet174[c_1241517507.buf[chckIndx(addInt(c_1241517507.bufpos, 1), 0, (c_1241517507.buf).length - 1)]] != undefined);          }          Temporary4 = Temporary5;        }      if (Temporary4) {
+        if ((ConstSet157[c_1241517507.buf[chckIndx(c_1241517507.bufpos, 0, (c_1241517507.buf).length - 1)]] != undefined)) Temporary4 = true; else {          if (!(c_1241517507.buf[chckIndx(c_1241517507.bufpos, 0, (c_1241517507.buf).length - 1)] == 36)) Temporary6 = false; else {            Temporary6 = (addInt(c_1241517507.bufpos, 1) < (c_1241517507.buf).length);          }          if (!Temporary6) Temporary5 = false; else {            Temporary5 = (ConstSet158[c_1241517507.buf[chckIndx(addInt(c_1241517507.bufpos, 1), 0, (c_1241517507.buf).length - 1)]] != undefined);          }          Temporary4 = Temporary5;        }      if (Temporary4) {
       switch (toJSStr(tok_1241517508.literal)) {
       case "i":
         tok_1241517508.modifier = 2;
@@ -8608,7 +7461,7 @@ function getTok_1241517679(p_1241517680) {
 function npegsOptional(a_1241514335) {
   var result_1241514336 = ({kind: 0, term: [], ch: 0, charChoice: null, nt: null, index: 0, sons: []});
 
-    if ((ConstSet175[a_1241514335.kind] != undefined)) {
+    if ((ConstSet159[a_1241514335.kind] != undefined)) {
     result_1241514336 = nimCopy(result_1241514336, a_1241514335, NTI1241513992);
     }
     else {
@@ -8663,7 +7516,7 @@ function len_1241514240(a_1241514241) {
 
   BeforeRet: do {
     var Temporary1 = a_1241514241;
-    if (ConstSet177[Temporary1.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
+    if (ConstSet161[Temporary1.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
     result_1241514242 = (Temporary1.sons).length;
     break BeforeRet;
   } while (false);
@@ -8691,7 +7544,7 @@ function add_1241514246(d_1241514247, s_1241514248) {
     var Temporary1;
 
     var Temporary1 = d_1241514247;
-    if (ConstSet187[Temporary1.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
+    if (ConstSet171[Temporary1.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
     var Temporary2 = nimCopy(null, s_1241514248, NTI1241513992);
     Temporary1.sons.push(Temporary2);;
 
@@ -8717,29 +7570,29 @@ function addSequence_1241514305(dest_1241514306, elem_1241514307) {
 
     var L_1241514308 = subInt(len_1241514240(dest_1241514306), 1);
       if (!(0 <= L_1241514308)) Temporary1 = false; else {        var Temporary2 = dest_1241514306;
-        if (ConstSet178[Temporary2.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary2.kind, NTI1241513989)); }
+        if (ConstSet162[Temporary2.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary2.kind, NTI1241513989)); }
         Temporary1 = ((Temporary3 = Temporary2.sons, Temporary3)[chckIndx(L_1241514308, 0, (Temporary3).length - 1)].kind == 9);      }    if (Temporary1) {
     switch (elem_1241514307.kind) {
     case 9:
       var Temporary4 = dest_1241514306;
-      if (ConstSet179[Temporary4.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary4.kind, NTI1241513989)); }
+      if (ConstSet163[Temporary4.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary4.kind, NTI1241513989)); }
       var Temporary6 = dest_1241514306;
-      if (ConstSet181[Temporary6.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary6.kind, NTI1241513989)); }
+      if (ConstSet165[Temporary6.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary6.kind, NTI1241513989)); }
       var Temporary8 = (Temporary7 = Temporary6.sons, Temporary7)[chckIndx(L_1241514308, 0, (Temporary7).length - 1)];
-      if (ConstSet180[Temporary8.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary8.kind, NTI1241513989)); }
+      if (ConstSet164[Temporary8.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary8.kind, NTI1241513989)); }
       var Temporary9 = elem_1241514307;
-      if (ConstSet182[Temporary9.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary9.kind, NTI1241513989)); }
+      if (ConstSet166[Temporary9.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary9.kind, NTI1241513989)); }
       (Temporary5 = Temporary4.sons, Temporary5)[chckIndx(L_1241514308, 0, (Temporary5).length - 1)] = nimCopy((Temporary5 = Temporary4.sons, Temporary5)[chckIndx(L_1241514308, 0, (Temporary5).length - 1)], npegstermStr((Temporary8.term || []).concat(Temporary9.term || [])), NTI1241513992);
       break;
     case 12:
       var Temporary10 = dest_1241514306;
-      if (ConstSet183[Temporary10.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary10.kind, NTI1241513989)); }
+      if (ConstSet167[Temporary10.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary10.kind, NTI1241513989)); }
       var Temporary12 = dest_1241514306;
-      if (ConstSet185[Temporary12.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary12.kind, NTI1241513989)); }
+      if (ConstSet169[Temporary12.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary12.kind, NTI1241513989)); }
       var Temporary14 = (Temporary13 = Temporary12.sons, Temporary13)[chckIndx(L_1241514308, 0, (Temporary13).length - 1)];
-      if (ConstSet184[Temporary14.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary14.kind, NTI1241513989)); }
+      if (ConstSet168[Temporary14.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary14.kind, NTI1241513989)); }
       var Temporary15 = elem_1241514307;
-      if (ConstSet186[Temporary15.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary15.kind, NTI1241513989)); }
+      if (ConstSet170[Temporary15.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary15.kind, NTI1241513989)); }
       (Temporary11 = Temporary10.sons, Temporary11)[chckIndx(L_1241514308, 0, (Temporary11).length - 1)] = nimCopy((Temporary11 = Temporary10.sons, Temporary11)[chckIndx(L_1241514308, 0, (Temporary11).length - 1)], npegstermStr((Temporary14.term || []).concat([Temporary15.ch])), NTI1241513992);
       break;
     default: 
@@ -8765,27 +7618,27 @@ function npegssequence(a_1241514314) {
     result_1241514315[0] = nimCopy(result_1241514315[0], {kind: 15, sons: [], term: [], ch: 0, charChoice: null, nt: null, index: 0}, NTI1241513992);
     Label1: do {
       var xHEX60gensym12_1241514325 = null;
-      var i_486542290 = 0;
+      var i_486542238 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486542290 < (a_1241514314).length)) break Label3;
-            xHEX60gensym12_1241514325 = a_1241514314[chckIndx(i_486542290, 0, (a_1241514314).length - 1)];
+          if (!(i_486542238 < (a_1241514314).length)) break Label3;
+            xHEX60gensym12_1241514325 = a_1241514314[chckIndx(i_486542238, 0, (a_1241514314).length - 1)];
             if ((xHEX60gensym12_1241514325.kind == 15)) {
             Label4: do {
               var yHEX60gensym12_1241514333 = null;
-              var colontmp__486542284 = [];
+              var colontmp__486542232 = [];
               var Temporary5 = xHEX60gensym12_1241514325;
-              if (ConstSet176[Temporary5.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary5.kind, NTI1241513989)); }
-              colontmp__486542284 = Temporary5.sons;
-              var i_486542286 = 0;
-              var L_486542287 = (colontmp__486542284).length;
+              if (ConstSet160[Temporary5.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary5.kind, NTI1241513989)); }
+              colontmp__486542232 = Temporary5.sons;
+              var i_486542234 = 0;
+              var L_486542235 = (colontmp__486542232).length;
               Label6: do {
                   Label7: while (true) {
-                  if (!(i_486542286 < L_486542287)) break Label7;
-                    yHEX60gensym12_1241514333 = colontmp__486542284[chckIndx(i_486542286, 0, (colontmp__486542284).length - 1)];
+                  if (!(i_486542234 < L_486542235)) break Label7;
+                    yHEX60gensym12_1241514333 = colontmp__486542232[chckIndx(i_486542234, 0, (colontmp__486542232).length - 1)];
                     addSequence_1241514305(result_1241514315[0], yHEX60gensym12_1241514333);
-                    i_486542286 = addInt(i_486542286, 1);
-                    if (!(((colontmp__486542284).length == L_486542287))) {
+                    i_486542234 = addInt(i_486542234, 1);
+                    if (!(((colontmp__486542232).length == L_486542235))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -8797,13 +7650,13 @@ function npegssequence(a_1241514314) {
             addSequence_1241514305(result_1241514315[0], xHEX60gensym12_1241514325);
             }
             
-            i_486542290 = addInt(i_486542290, 1);
+            i_486542238 = addInt(i_486542238, 1);
           }
       } while (false);
     } while (false);
     if ((len_1241514240(result_1241514315[0]) == 1)) {
     var Temporary8 = result_1241514315[0];
-    if (ConstSet188[Temporary8.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary8.kind, NTI1241513989)); }
+    if (ConstSet172[Temporary8.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary8.kind, NTI1241513989)); }
     result_1241514315[0] = nimCopy(result_1241514315[0], (Temporary9 = Temporary8.sons, Temporary9)[chckIndx(0, 0, (Temporary9).length - 1)], NTI1241513992);
     }
     
@@ -8872,7 +7725,7 @@ function arrowIsNextTok_1241517611(c_1241517612) {
     var pos_1241517614 = c_1241517612.bufpos;
     Label1: do {
         Label2: while (true) {
-        if (!((pos_1241517614 < (c_1241517612.buf).length) && (ConstSet189[c_1241517612.buf[chckIndx(pos_1241517614, 0, (c_1241517612.buf).length - 1)]] != undefined))) break Label2;
+        if (!((pos_1241517614 < (c_1241517612.buf).length) && (ConstSet173[c_1241517612.buf[chckIndx(pos_1241517614, 0, (c_1241517612.buf).length - 1)]] != undefined))) break Label2;
           pos_1241517614 = addInt(pos_1241517614, 1);
         }
     } while (false);
@@ -8902,19 +7755,19 @@ function getNonTerminal_1241517704(p_1241517705, name_1241517706) {
   BeforeRet: do {
     Label1: do {
       var i_1241517715 = 0;
-      var colontmp__486542294 = 0;
-      colontmp__486542294 = (p_1241517705.nonterms).length - 1;
-      var res_486542295 = 0;
+      var colontmp__486542242 = 0;
+      colontmp__486542242 = (p_1241517705.nonterms).length - 1;
+      var res_486542243 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(res_486542295 <= colontmp__486542294)) break Label3;
-            i_1241517715 = res_486542295;
+          if (!(res_486542243 <= colontmp__486542242)) break Label3;
+            i_1241517715 = res_486542243;
             result_1241517707 = p_1241517705.nonterms[chckIndx(i_1241517715, 0, (p_1241517705.nonterms).length - 1)];
             if ((nsuCmpIgnoreStyle(result_1241517707.name, name_1241517706) == 0)) {
             break BeforeRet;
             }
             
-            res_486542295 = addInt(res_486542295, 1);
+            res_486542243 = addInt(res_486542243, 1);
           }
       } while (false);
     } while (false);
@@ -8962,21 +7815,21 @@ function spaceCost_1241514464(n_1241514465) {
     default: 
       Label1: do {
         var i_1241514471 = 0;
-        var colontmp__486542298 = 0;
-        colontmp__486542298 = subInt(len_1241514240(n_1241514465), 1);
-        var res_486542299 = 0;
+        var colontmp__486542246 = 0;
+        colontmp__486542246 = subInt(len_1241514240(n_1241514465), 1);
+        var res_486542247 = 0;
         Label2: do {
             Label3: while (true) {
-            if (!(res_486542299 <= colontmp__486542298)) break Label3;
-              i_1241514471 = res_486542299;
+            if (!(res_486542247 <= colontmp__486542246)) break Label3;
+              i_1241514471 = res_486542247;
               var Temporary4 = n_1241514465;
-              if (ConstSet190[Temporary4.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary4.kind, NTI1241513989)); }
+              if (ConstSet174[Temporary4.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary4.kind, NTI1241513989)); }
               result_1241514466 = addInt(result_1241514466, spaceCost_1241514464((Temporary5 = Temporary4.sons, Temporary5)[chckIndx(i_1241514471, 0, (Temporary5).length - 1)]));
               if ((5 <= result_1241514466)) {
               break Label1;
               }
               
-              res_486542299 = addInt(res_486542299, 1);
+              res_486542247 = addInt(res_486542247, 1);
             }
         } while (false);
       } while (false);
@@ -9020,10 +7873,10 @@ function npegscharSet(s_1241514226) {
     
     result_1241514227 = nimCopy(result_1241514227, {kind: 13, term: [], ch: 0, charChoice: null, nt: null, index: 0, sons: []}, NTI1241513992);
     var Temporary1 = result_1241514227;
-    if (ConstSet191[Temporary1.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
+    if (ConstSet175[Temporary1.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
     Temporary1.charChoice = {};
     var Temporary2 = result_1241514227;
-    if (ConstSet192[Temporary2.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary2.kind, NTI1241513989)); }
+    if (ConstSet176[Temporary2.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary2.kind, NTI1241513989)); }
     Temporary2.charChoice = nimCopy(Temporary2.charChoice, s_1241514226, NTI1241513997);
 
   return result_1241514227;
@@ -9095,29 +7948,29 @@ function addChoice_1241514253(dest_1241514254, elem_1241514255) {
 
     var L_1241514256 = subInt(len_1241514240(dest_1241514254), 1);
       if (!(0 <= L_1241514256)) Temporary1 = false; else {        var Temporary2 = dest_1241514254;
-        if (ConstSet194[Temporary2.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary2.kind, NTI1241513989)); }
+        if (ConstSet178[Temporary2.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary2.kind, NTI1241513989)); }
         Temporary1 = ((Temporary3 = Temporary2.sons, Temporary3)[chckIndx(L_1241514256, 0, (Temporary3).length - 1)].kind == 13);      }    if (Temporary1) {
     switch (elem_1241514255.kind) {
     case 13:
       var Temporary4 = dest_1241514254;
-      if (ConstSet195[Temporary4.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary4.kind, NTI1241513989)); }
+      if (ConstSet179[Temporary4.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary4.kind, NTI1241513989)); }
       var Temporary6 = dest_1241514254;
-      if (ConstSet197[Temporary6.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary6.kind, NTI1241513989)); }
+      if (ConstSet181[Temporary6.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary6.kind, NTI1241513989)); }
       var Temporary8 = (Temporary7 = Temporary6.sons, Temporary7)[chckIndx(L_1241514256, 0, (Temporary7).length - 1)];
-      if (ConstSet196[Temporary8.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary8.kind, NTI1241513989)); }
+      if (ConstSet180[Temporary8.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary8.kind, NTI1241513989)); }
       var Temporary9 = elem_1241514255;
-      if (ConstSet198[Temporary9.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary9.kind, NTI1241513989)); }
+      if (ConstSet182[Temporary9.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary9.kind, NTI1241513989)); }
       (Temporary5 = Temporary4.sons, Temporary5)[chckIndx(L_1241514256, 0, (Temporary5).length - 1)] = nimCopy((Temporary5 = Temporary4.sons, Temporary5)[chckIndx(L_1241514256, 0, (Temporary5).length - 1)], npegscharSet(SetPlus(Temporary8.charChoice, Temporary9.charChoice)), NTI1241513992);
       break;
     case 12:
       var Temporary10 = dest_1241514254;
-      if (ConstSet199[Temporary10.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary10.kind, NTI1241513989)); }
+      if (ConstSet183[Temporary10.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary10.kind, NTI1241513989)); }
       var Temporary12 = dest_1241514254;
-      if (ConstSet201[Temporary12.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary12.kind, NTI1241513989)); }
+      if (ConstSet185[Temporary12.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary12.kind, NTI1241513989)); }
       var Temporary14 = (Temporary13 = Temporary12.sons, Temporary13)[chckIndx(L_1241514256, 0, (Temporary13).length - 1)];
-      if (ConstSet200[Temporary14.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary14.kind, NTI1241513989)); }
+      if (ConstSet184[Temporary14.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary14.kind, NTI1241513989)); }
       var Temporary15 = elem_1241514255;
-      if (ConstSet202[Temporary15.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary15.kind, NTI1241513989)); }
+      if (ConstSet186[Temporary15.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary15.kind, NTI1241513989)); }
       (Temporary11 = Temporary10.sons, Temporary11)[chckIndx(L_1241514256, 0, (Temporary11).length - 1)] = nimCopy((Temporary11 = Temporary10.sons, Temporary11)[chckIndx(L_1241514256, 0, (Temporary11).length - 1)], npegscharSet(SetPlus(Temporary14.charChoice, setConstr(Temporary15.ch))), NTI1241513992);
       break;
     default: 
@@ -9143,27 +7996,27 @@ function npegsOrderedChoice(a_1241514276) {
     result_1241514277[0] = nimCopy(result_1241514277[0], {kind: 16, sons: [], term: [], ch: 0, charChoice: null, nt: null, index: 0}, NTI1241513992);
     Label1: do {
       var xHEX60gensym10_1241514296 = null;
-      var i_486542309 = 0;
+      var i_486542257 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486542309 < (a_1241514276).length)) break Label3;
-            xHEX60gensym10_1241514296 = a_1241514276[chckIndx(i_486542309, 0, (a_1241514276).length - 1)];
+          if (!(i_486542257 < (a_1241514276).length)) break Label3;
+            xHEX60gensym10_1241514296 = a_1241514276[chckIndx(i_486542257, 0, (a_1241514276).length - 1)];
             if ((xHEX60gensym10_1241514296.kind == 16)) {
             Label4: do {
               var yHEX60gensym10_1241514304 = null;
-              var colontmp__486542305 = [];
+              var colontmp__486542253 = [];
               var Temporary5 = xHEX60gensym10_1241514296;
-              if (ConstSet193[Temporary5.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary5.kind, NTI1241513989)); }
-              colontmp__486542305 = Temporary5.sons;
-              var i_486542306 = 0;
-              var L_486542307 = (colontmp__486542305).length;
+              if (ConstSet177[Temporary5.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary5.kind, NTI1241513989)); }
+              colontmp__486542253 = Temporary5.sons;
+              var i_486542254 = 0;
+              var L_486542255 = (colontmp__486542253).length;
               Label6: do {
                   Label7: while (true) {
-                  if (!(i_486542306 < L_486542307)) break Label7;
-                    yHEX60gensym10_1241514304 = colontmp__486542305[chckIndx(i_486542306, 0, (colontmp__486542305).length - 1)];
+                  if (!(i_486542254 < L_486542255)) break Label7;
+                    yHEX60gensym10_1241514304 = colontmp__486542253[chckIndx(i_486542254, 0, (colontmp__486542253).length - 1)];
                     addChoice_1241514253(result_1241514277[0], yHEX60gensym10_1241514304);
-                    i_486542306 = addInt(i_486542306, 1);
-                    if (!(((colontmp__486542305).length == L_486542307))) {
+                    i_486542254 = addInt(i_486542254, 1);
+                    if (!(((colontmp__486542253).length == L_486542255))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -9175,13 +8028,13 @@ function npegsOrderedChoice(a_1241514276) {
             addChoice_1241514253(result_1241514277[0], xHEX60gensym10_1241514296);
             }
             
-            i_486542309 = addInt(i_486542309, 1);
+            i_486542257 = addInt(i_486542257, 1);
           }
       } while (false);
     } while (false);
     if ((len_1241514240(result_1241514277[0]) == 1)) {
     var Temporary8 = result_1241514277[0];
-    if (ConstSet203[Temporary8.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary8.kind, NTI1241513989)); }
+    if (ConstSet187[Temporary8.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary8.kind, NTI1241513989)); }
     result_1241514277[0] = nimCopy(result_1241514277[0], (Temporary9 = Temporary8.sons, Temporary9)[chckIndx(0, 0, (Temporary9).length - 1)], NTI1241513992);
     }
     
@@ -9273,12 +8126,12 @@ function npegsGreedyRep(a_1241514356) {
       break;
     case 12:
       var Temporary1 = a_1241514356;
-      if (ConstSet213[Temporary1.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
+      if (ConstSet197[Temporary1.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'ch\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary1.kind, NTI1241513989)); }
       result_1241514357 = nimCopy(result_1241514357, {kind: 18, ch: Temporary1.ch, term: [], charChoice: null, nt: null, index: 0, sons: []}, NTI1241513992);
       break;
     case 13:
       var Temporary2 = a_1241514356;
-      if (ConstSet214[Temporary2.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary2.kind, NTI1241513989)); }
+      if (ConstSet198[Temporary2.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'charChoice\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary2.kind, NTI1241513989)); }
       result_1241514357 = nimCopy(result_1241514357, {kind: 19, charChoice: Temporary2.charChoice, term: [], ch: 0, nt: null, index: 0, sons: []}, NTI1241513992);
       break;
     case 1:
@@ -9347,31 +8200,31 @@ function builtin_1241517748(p_1241517749) {
       result_1241517750 = nimCopy(result_1241517750, newLine_1241514420(), NTI1241513992);
       break;
     case "d":
-      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet204), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet188), NTI1241513992);
       break;
     case "D":
-      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet205), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet189), NTI1241513992);
       break;
     case "s":
-      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet206), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet190), NTI1241513992);
       break;
     case "S":
-      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet207), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet191), NTI1241513992);
       break;
     case "w":
-      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet208), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet192), NTI1241513992);
       break;
     case "W":
-      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet209), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet193), NTI1241513992);
       break;
     case "a":
-      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet210), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet194), NTI1241513992);
       break;
     case "A":
-      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet211), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegscharSet(ConstSet195), NTI1241513992);
       break;
     case "ident":
-      result_1241517750 = nimCopy(result_1241517750, npegssequence([npegscharSet(ConstSet212), npegsGreedyRep(npegscharSet(ConstSet215))]), NTI1241513992);
+      result_1241517750 = nimCopy(result_1241517750, npegssequence([npegscharSet(ConstSet196), npegsGreedyRep(npegscharSet(ConstSet199))]), NTI1241513992);
       break;
     case "letter":
       result_1241517750 = nimCopy(result_1241517750, unicodeLetter_1241514422(), NTI1241513992);
@@ -9755,13 +8608,13 @@ function rawParse_1241517831(p_1241517832) {
     
     Label6: do {
       var i_1241517857 = 0;
-      var colontmp__486542278 = 0;
-      colontmp__486542278 = (p_1241517832.nonterms).length - 1;
-      var res_486542279 = 0;
+      var colontmp__486542226 = 0;
+      colontmp__486542226 = (p_1241517832.nonterms).length - 1;
+      var res_486542227 = 0;
       Label7: do {
           Label8: while (true) {
-          if (!(res_486542279 <= colontmp__486542278)) break Label8;
-            i_1241517857 = res_486542279;
+          if (!(res_486542227 <= colontmp__486542226)) break Label8;
+            i_1241517857 = res_486542227;
             var nt_1241517858 = p_1241517832.nonterms[chckIndx(i_1241517857, 0, (p_1241517832.nonterms).length - 1)];
             if (!((nt_1241517858.flags[0] != undefined))) {
             pegError_1241517631(p_1241517832, (makeNimstrLit("undeclared identifier: ") || []).concat(nt_1241517858.name || []), nt_1241517858.line, nt_1241517858.col);
@@ -9771,7 +8624,7 @@ function rawParse_1241517831(p_1241517832) {
             pegError_1241517631(p_1241517832, (makeNimstrLit("unused rule: ") || []).concat(nt_1241517858.name || []), nt_1241517858.line, nt_1241517858.col);
             }
             }
-            res_486542279 = addInt(res_486542279, 1);
+            res_486542227 = addInt(res_486542227, 1);
           }
       } while (false);
     } while (false);
@@ -9788,7 +8641,7 @@ function parsePeg_1241517867(pattern_1241517868, filename_1241517869, line_12415
     p_1241517873[0].tok.kind = 0;
     p_1241517873[0].tok.modifier = 0;
     p_1241517873[0].tok.literal = nimCopy(null, [], NTI33554439);
-    p_1241517873[0].tok.charset = nimCopy(p_1241517873[0].tok.charset, ConstSet163, NTI1241519371);
+    p_1241517873[0].tok.charset = nimCopy(p_1241517873[0].tok.charset, ConstSet147, NTI1241519371);
     p_1241517873[0].nonterms = nimCopy(null, [], NTI1241519794);
     p_1241517873[0].identIsVerbatim = false;
     getTok_1241517679(p_1241517873[0]);
@@ -9804,6 +8657,1256 @@ function peg_1241517878(pattern_1241517879) {
     result_1241517880 = nimCopy(result_1241517880, parsePeg_1241517867(pattern_1241517879, makeNimstrLit("pattern"), 1, 0), NTI1241513992);
 
   return result_1241517880;
+
+}
+
+function mathCommands_1795162123(doc_1795162124) {
+    
+function HEX3Aanonymous_1795162137(arg_1795162131) {
+      var result_1795162138 = ({rendered: false, str: []});
+
+        var arg_1795162139 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795162131, true, true, ConstSet34));
+        var fmtRes_1795162140 = [mnewString(0)];
+        fmtRes_1795162140[0].push.apply(fmtRes_1795162140[0], makeNimstrLit("["));;
+        formatValue_1627390114(fmtRes_1795162140, 0, arg_1795162139, []);
+        fmtRes_1795162140[0].push.apply(fmtRes_1795162140[0], makeNimstrLit("]"));;
+        result_1795162138 = nimCopy(result_1795162138, {rendered: false, str: nimCopy(null, fmtRes_1795162140[0], NTI33554439)}, NTI1577058309);
+
+      return result_1795162138;
+
+    }
+    
+function HEX3Aanonymous_1795162194(arg_1795162187) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+        var Temporary4;
+
+      var result_1795162195 = ({rendered: false, str: []});
+
+        var args_1795162188 = parseXidocArguments_1325404662(arg_1795162187);
+          if (((args_1795162188).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1795162188).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("/"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1795162188).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1795162188).length, 1))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795162188[chckIndx(0, 0, (args_1795162188).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var a_1795162218 = nimCopy(null, Temporary2, NTI1778385115);
+        var b_1795162223 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795162188, 1));
+        if (isSome_1778385240(a_1795162218)) {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{$1}{$2}"), [nimCopy(null, (Temporary4 = get_1778385275(a_1795162218), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, b_1795162223, NTI33554439)]);
+        }
+        else {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{1}{$1}"), [nimCopy(null, b_1795162223, NTI33554439)]);
+        }
+        
+        result_1795162195 = nimCopy(result_1795162195, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1795162195;
+
+    }
+    
+function HEX3Aanonymous_1795162298(arg_1795162292) {
+      var result_1795162299 = ({rendered: false, str: []});
+
+        var arg_1795162300 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795162292, true, true, ConstSet44));
+        result_1795162299 = nimCopy(result_1795162299, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left($1\\right)}"), arg_1795162300), NTI33554439)}, NTI1577058309);
+
+      return result_1795162299;
+
+    }
+    
+function HEX3Aanonymous_1795162353(arg_1795162347) {
+      var result_1795162354 = ({rendered: false, str: []});
+
+        var arg_1795162355 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795162347, true, true, ConstSet45));
+        result_1795162354 = nimCopy(result_1795162354, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left[$1\\right]}"), arg_1795162355), NTI33554439)}, NTI1577058309);
+
+      return result_1795162354;
+
+    }
+    
+function HEX3Aanonymous_1795162408(arg_1795162402) {
+      var result_1795162409 = ({rendered: false, str: []});
+
+        var arg_1795162410 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795162402, true, true, ConstSet46));
+        result_1795162409 = nimCopy(result_1795162409, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left\\{$1\\right\\}}"), arg_1795162410), NTI33554439)}, NTI1577058309);
+
+      return result_1795162409;
+
+    }
+    
+function HEX3Aanonymous_1795162463(arg_1795162457) {
+      var result_1795162464 = ({rendered: false, str: []});
+
+        var arg_1795162465 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795162457, true, true, ConstSet47));
+        result_1795162464 = nimCopy(result_1795162464, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left\\langle $1\\right\\rangle}"), arg_1795162465), NTI33554439)}, NTI1577058309);
+
+      return result_1795162464;
+
+    }
+    
+function HEX3Aanonymous_1795162518(arg_1795162512) {
+      var result_1795162519 = ({rendered: false, str: []});
+
+        var arg_1795162520 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795162512, true, true, ConstSet48));
+        result_1795162519 = nimCopy(result_1795162519, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left\\lvert $1\\right\\rvert}"), arg_1795162520), NTI33554439)}, NTI1577058309);
+
+      return result_1795162519;
+
+    }
+    
+function HEX3Aanonymous_1795162573(arg_1795162567) {
+      var result_1795162574 = ({rendered: false, str: []});
+
+        var arg_1795162575 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795162567, true, true, ConstSet49));
+        result_1795162574 = nimCopy(result_1795162574, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\left\\lVert $1\\right\\rVert}"), arg_1795162575), NTI33554439)}, NTI1577058309);
+
+      return result_1795162574;
+
+    }
+    
+function HEX3Aanonymous_1795162628(arg_1795162622) {
+      var result_1795162629 = ({rendered: false, str: []});
+
+        var arg_1795162630 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795162622, true, true, ConstSet50));
+        result_1795162629 = nimCopy(result_1795162629, {rendered: false, str: nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{\\overgroup{\\undergroup{$1}}}"), arg_1795162630), NTI33554439)}, NTI1577058309);
+
+      return result_1795162629;
+
+    }
+    
+function HEX3Aanonymous_1795162684(arg_1795162677) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+        var Temporary4;
+        var Temporary5;
+        var Temporary6;
+        var Temporary7;
+          var Temporary8;
+
+      var result_1795162685 = ({rendered: false, str: []});
+
+        var args_1795162678 = parseXidocArguments_1325404662(arg_1795162677);
+          if (((args_1795162678).length < 2)) Temporary1 = true; else {            Temporary1 = (4 < (args_1795162678).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("int"), makeNimstrLit("2"), makeNimstrLit("4"), HEX24_335544323((args_1795162678).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1795162678).length, 2))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795162678[chckIndx(0, 0, (args_1795162678).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var lb_1795162708 = nimCopy(null, Temporary2, NTI1778385115);
+        if ((1 < subInt((args_1795162678).length, 2))) {
+        Temporary3 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795162678[chckIndx(1, 0, (args_1795162678).length - 1)]));
+        }
+        else {
+        Temporary3 = none_1778385227();
+        }
+        
+        var ub_1795162722 = nimCopy(null, Temporary3, NTI1778385115);
+        var expr_1795162727 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795162678, 2));
+        var varname_1795162732 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795162678, 1));
+        if (isSome_1778385240(lb_1795162708)) {
+        if (isSome_1778385240(ub_1795162722)) {
+        Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\int_{$1}^{$2}$3\\,\\mathrm d$4"), [nimCopy(null, (Temporary6 = get_1778385275(lb_1795162708), Temporary6)[0][Temporary6[1]], NTI33554439), nimCopy(null, (Temporary7 = get_1778385275(ub_1795162722), Temporary7)[0][Temporary7[1]], NTI33554439), nimCopy(null, expr_1795162727, NTI33554439), nimCopy(null, varname_1795162732, NTI33554439)]);
+        }
+        else {
+        Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\int_{$1}$2\\,\\mathrm d$3"), [nimCopy(null, (Temporary8 = get_1778385275(lb_1795162708), Temporary8)[0][Temporary8[1]], NTI33554439), nimCopy(null, expr_1795162727, NTI33554439), nimCopy(null, varname_1795162732, NTI33554439)]);
+        }
+        
+        Temporary4 = Temporary5;
+        }
+        else {
+        Temporary4 = nsuFormatOpenArray(makeNimstrLit("\\int $1\\,\\mathrm d$2"), [nimCopy(null, expr_1795162727, NTI33554439), nimCopy(null, varname_1795162732, NTI33554439)]);
+        }
+        
+        result_1795162685 = nimCopy(result_1795162685, {rendered: false, str: nimCopy(null, Temporary4, NTI33554439)}, NTI1577058309);
+
+      return result_1795162685;
+
+    }
+    
+function HEX3Aanonymous_1795162845(arg_1795162838) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+
+      var result_1795162846 = ({rendered: false, str: []});
+
+        var args_1795162839 = parseXidocArguments_1325404662(arg_1795162838);
+          if (((args_1795162839).length < 0)) Temporary1 = true; else {            Temporary1 = (2 < (args_1795162839).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("lim"), makeNimstrLit("0"), makeNimstrLit("2"), HEX24_335544323((args_1795162839).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1795162839).length, 0))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795162839[chckIndx(0, 0, (args_1795162839).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var varname_1795162869 = nimCopy(null, Temporary2, NTI1778385115);
+        if ((1 < subInt((args_1795162839).length, 0))) {
+        Temporary3 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795162839[chckIndx(1, 0, (args_1795162839).length - 1)]));
+        }
+        else {
+        Temporary3 = none_1778385227();
+        }
+        
+        var point_1795162883 = nimCopy(null, Temporary3, NTI1778385115);
+        result_1795162846 = nimCopy(result_1795162846, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\lim_{$1\\to $2}"), [get_1795162896(varname_1795162869, makeNimstrLit("n")), get_1795162896(point_1795162883, makeNimstrLit("\\infty"))]), NTI33554439)}, NTI1577058309);
+
+      return result_1795162846;
+
+    }
+    
+function HEX3Aanonymous_1795162977(arg_1795162970) {
+          var Temporary1;
+
+      var result_1795162978 = ({rendered: false, str: []});
+
+        var args_1795162971 = parseXidocArguments_1325404662(arg_1795162970);
+          if (((args_1795162971).length < 1)) Temporary1 = true; else {            Temporary1 = (1 < (args_1795162971).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dd"), makeNimstrLit("1"), makeNimstrLit("1"), HEX24_335544323((args_1795162971).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        var x_1795162992 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795162971, 1));
+        result_1795162978 = nimCopy(result_1795162978, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("{\\mathrm d$1}"), [nimCopy(null, x_1795162992, NTI33554439)]), NTI33554439)}, NTI1577058309);
+
+      return result_1795162978;
+
+    }
+    
+function HEX3Aanonymous_1795163046(arg_1795163039) {
+          var Temporary1;
+
+      var result_1795163047 = ({rendered: false, str: []});
+
+        var args_1795163040 = parseXidocArguments_1325404662(arg_1795163039);
+          if (((args_1795163040).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1795163040).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dd^"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1795163040).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        var n_1795163061 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795163040, 2));
+        var x_1795163066 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795163040, 1));
+        result_1795163047 = nimCopy(result_1795163047, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("{\\mathrm d^{$1}$2}"), [nimCopy(null, n_1795163061, NTI33554439), nimCopy(null, x_1795163066, NTI33554439)]), NTI33554439)}, NTI1577058309);
+
+      return result_1795163047;
+
+    }
+    
+function HEX3Aanonymous_1795163120(arg_1795163113) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+        var Temporary4;
+
+      var result_1795163121 = ({rendered: false, str: []});
+
+        var args_1795163114 = parseXidocArguments_1325404662(arg_1795163113);
+          if (((args_1795163114).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1795163114).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dv"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1795163114).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1795163114).length, 1))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795163114[chckIndx(0, 0, (args_1795163114).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var f_1795163144 = nimCopy(null, Temporary2, NTI1778385115);
+        var x_1795163149 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795163114, 1));
+        if (isSome_1778385240(f_1795163144)) {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\mathrm d$1}{\\mathrm d$2}"), [nimCopy(null, (Temporary4 = get_1778385275(f_1795163144), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, x_1795163149, NTI33554439)]);
+        }
+        else {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\mathrm d}{\\mathrm d$1}"), [nimCopy(null, x_1795163149, NTI33554439)]);
+        }
+        
+        result_1795163121 = nimCopy(result_1795163121, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1795163121;
+
+    }
+    
+function HEX3Aanonymous_1795163225(arg_1795163218) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+        var Temporary4;
+
+      var result_1795163226 = ({rendered: false, str: []});
+
+        var args_1795163219 = parseXidocArguments_1325404662(arg_1795163218);
+          if (((args_1795163219).length < 2)) Temporary1 = true; else {            Temporary1 = (3 < (args_1795163219).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dv^"), makeNimstrLit("2"), makeNimstrLit("3"), HEX24_335544323((args_1795163219).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        var n_1795163236 = expandStr_1308622885(doc_1795162124, args_1795163219[chckIndx(0, 0, (args_1795163219).length - 1)]);
+        if ((0 < subInt((args_1795163219).length, 2))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795163219[chckIndx(1, 0, (args_1795163219).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var f_1795163250 = nimCopy(null, Temporary2, NTI1778385115);
+        var x_1795163255 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795163219, 1));
+        if (isSome_1778385240(f_1795163250)) {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\mathrm d^{$1}$2}{\\mathrm d$3^{$1}}"), [nimCopy(null, n_1795163236, NTI33554439), nimCopy(null, (Temporary4 = get_1778385275(f_1795163250), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, x_1795163255, NTI33554439)]);
+        }
+        else {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\mathrm d^{$1}}{\\mathrm d$2^{$1}}"), [nimCopy(null, n_1795163236, NTI33554439), nimCopy(null, x_1795163255, NTI33554439)]);
+        }
+        
+        result_1795163226 = nimCopy(result_1795163226, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1795163226;
+
+    }
+    
+function HEX3Aanonymous_1795163331(arg_1795163324) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+        var Temporary4;
+
+      var result_1795163332 = ({rendered: false, str: []});
+
+        var args_1795163325 = parseXidocArguments_1325404662(arg_1795163324);
+          if (((args_1795163325).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1795163325).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("pdv"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1795163325).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1795163325).length, 1))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795163325[chckIndx(0, 0, (args_1795163325).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var f_1795163355 = nimCopy(null, Temporary2, NTI1778385115);
+        var x_1795163360 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795163325, 1));
+        if (isSome_1778385240(f_1795163355)) {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\partial $1}{\\partial $2}"), [nimCopy(null, (Temporary4 = get_1778385275(f_1795163355), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, x_1795163360, NTI33554439)]);
+        }
+        else {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\partial}{\\partial $1}"), [nimCopy(null, x_1795163360, NTI33554439)]);
+        }
+        
+        result_1795163332 = nimCopy(result_1795163332, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1795163332;
+
+    }
+    
+function HEX3Aanonymous_1795163436(arg_1795163429) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+        var Temporary4;
+
+      var result_1795163437 = ({rendered: false, str: []});
+
+        var args_1795163430 = parseXidocArguments_1325404662(arg_1795163429);
+          if (((args_1795163430).length < 2)) Temporary1 = true; else {            Temporary1 = (3 < (args_1795163430).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("pdv^"), makeNimstrLit("2"), makeNimstrLit("3"), HEX24_335544323((args_1795163430).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        var n_1795163447 = expandStr_1308622885(doc_1795162124, args_1795163430[chckIndx(0, 0, (args_1795163430).length - 1)]);
+        if ((0 < subInt((args_1795163430).length, 2))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1795162124, args_1795163430[chckIndx(1, 0, (args_1795163430).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var f_1795163461 = nimCopy(null, Temporary2, NTI1778385115);
+        var x_1795163466 = expandStr_1308622885(doc_1795162124, HEX5BHEX5D_1778384934(args_1795163430, 1));
+        if (isSome_1778385240(f_1795163461)) {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\partial^{$1}$2}{\\partial $3^{$1}}"), [nimCopy(null, n_1795163447, NTI33554439), nimCopy(null, (Temporary4 = get_1778385275(f_1795163461), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, x_1795163466, NTI33554439)]);
+        }
+        else {
+        Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\frac{\\partial^{$1}}{\\partial $2^{$1}}"), [nimCopy(null, n_1795163447, NTI33554439), nimCopy(null, x_1795163466, NTI33554439)]);
+        }
+        
+        result_1795163437 = nimCopy(result_1795163437, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1795163437;
+
+    }
+    
+function HEX3Aanonymous_1795163541(arg_1795163535) {
+      var result_1795163542 = ({rendered: false, str: []});
+
+        var arg_1795163543 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795163535, true, true, ConstSet51));
+        result_1795163542 = nimCopy(result_1795163542, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{matrix}$1\\end{matrix}"), [nimCopy(null, arg_1795163543, NTI33554439)]), NTI33554439)}, NTI1577058309);
+
+      return result_1795163542;
+
+    }
+    
+function HEX3Aanonymous_1795163596(arg_1795163590) {
+      var result_1795163597 = ({rendered: false, str: []});
+
+        var arg_1795163598 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795163590, true, true, ConstSet52));
+        result_1795163597 = nimCopy(result_1795163597, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{pmatrix}$1\\end{pmatrix}"), [nimCopy(null, arg_1795163598, NTI33554439)]), NTI33554439)}, NTI1577058309);
+
+      return result_1795163597;
+
+    }
+    
+function HEX3Aanonymous_1795163651(arg_1795163645) {
+      var result_1795163652 = ({rendered: false, str: []});
+
+        var arg_1795163653 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795163645, true, true, ConstSet53));
+        result_1795163652 = nimCopy(result_1795163652, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{bmatrix}$1\\end{bmatrix}"), [nimCopy(null, arg_1795163653, NTI33554439)]), NTI33554439)}, NTI1577058309);
+
+      return result_1795163652;
+
+    }
+    
+function HEX3Aanonymous_1795163706(arg_1795163700) {
+      var result_1795163707 = ({rendered: false, str: []});
+
+        var arg_1795163708 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795163700, true, true, ConstSet54));
+        result_1795163707 = nimCopy(result_1795163707, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{vmatrix}$1\\end{vmatrix}"), [nimCopy(null, arg_1795163708, NTI33554439)]), NTI33554439)}, NTI1577058309);
+
+      return result_1795163707;
+
+    }
+    
+function HEX3Aanonymous_1795163761(arg_1795163755) {
+      var result_1795163762 = ({rendered: false, str: []});
+
+        var arg_1795163763 = expandStr_1308622885(doc_1795162124, nsuStrip(arg_1795163755, true, true, ConstSet55));
+        result_1795163762 = nimCopy(result_1795163762, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("\\begin{Vmatrix}$1\\end{Vmatrix}"), [nimCopy(null, arg_1795163763, NTI33554439)]), NTI33554439)}, NTI1577058309);
+
+      return result_1795163762;
+
+    }
+    
+function HEX3Aanonymous_1795163817(arg_1795163810) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+        var Temporary4;
+
+      var result_1795163818 = ({rendered: false, str: []});
+
+        var args_1795163811 = parseXidocArguments_1325404662(arg_1795163810);
+          if (((args_1795163811).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1795163811).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("unit"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1795163811).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1795163811).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1795162124, args_1795163811[chckIndx(0, 0, (args_1795163811).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var number_1795163841 = nimCopy(null, Temporary2, NTI1778385115);
+        var unit_1795163846 = renderStr_1308623169(doc_1795162124, HEX5BHEX5D_1778384934(args_1795163811, 1));
+        var unitRendered_1795163847 = npegsreplacef(npegsreplacef(unit_1795163846, peg_1241517878(makeNimstrLit("^{\\letter+}")), makeNimstrLit("\\mathrm{$1}")), peg_1241517878(makeNimstrLit("{!\\letter[^\\\\]}{\\letter+}")), makeNimstrLit("$1\\mathrm{$2}"));
+        if (isSome_1778385240(number_1795163841)) {
+        Temporary3 = ((Temporary4 = get_1778385275(number_1795163841), Temporary4)[0][Temporary4[1]] || []).concat(makeNimstrLit("\\,") || [],unitRendered_1795163847 || []);
+        }
+        else {
+        Temporary3 = unitRendered_1795163847;
+        }
+        
+        result_1795163818 = nimCopy(result_1795163818, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1795163818;
+
+    }
+
+  var result_1795162127 = ({data: [], counter: 0});
+
+    var commands_1795162130 = [({data: [], counter: 0})];
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("_"), HEX3Aanonymous_1795162137);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("/"), HEX3Aanonymous_1795162194);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("."), HEX3Aanonymous_1795162298);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("()"), HEX3Aanonymous_1795162353);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("{}"), HEX3Aanonymous_1795162408);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("<>"), HEX3Aanonymous_1795162463);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("|"), HEX3Aanonymous_1795162518);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("||"), HEX3Aanonymous_1795162573);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("v."), HEX3Aanonymous_1795162628);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("int"), HEX3Aanonymous_1795162684);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("lim"), HEX3Aanonymous_1795162845);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("dd"), HEX3Aanonymous_1795162977);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("dd^"), HEX3Aanonymous_1795163046);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("dv"), HEX3Aanonymous_1795163120);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("dv^"), HEX3Aanonymous_1795163225);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("pdv"), HEX3Aanonymous_1795163331);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("pdv^"), HEX3Aanonymous_1795163436);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("mat"), HEX3Aanonymous_1795163541);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit(".mat"), HEX3Aanonymous_1795163596);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("(mat)"), HEX3Aanonymous_1795163651);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("|mat|"), HEX3Aanonymous_1795163706);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("||mat||"), HEX3Aanonymous_1795163761);
+    HEX5BHEX5DHEX3D_1744830566(commands_1795162130[0], makeNimstrLit("unit"), HEX3Aanonymous_1795163817);
+    result_1795162127 = nimCopy(result_1795162127, commands_1795162130[0], NTI1577058329);
+
+  return result_1795162127;
+
+}
+
+function slotsNeeded_1107296305(count_1107296306) {
+  var result_1107296307 = 0;
+
+    result_1107296307 = nextPowerOfTwo_671088843(addInt(divInt(mulInt(count_1107296306, 3), 2), 4));
+
+  return result_1107296307;
+
+}
+
+function isFilled_1107296294(hcode_1107296295) {
+  var result_1107296296 = false;
+
+    result_1107296296 = !((hcode_1107296295 == 0));
+
+  return result_1107296296;
+
+}
+
+function nextTry_1107296297(h_1107296298, maxHash_1107296299) {
+  var result_1107296300 = 0;
+
+    result_1107296300 = (addInt(h_1107296298, 1) & maxHash_1107296299);
+
+  return result_1107296300;
+
+}
+
+function rawGet_1224738504(t_1224738506, key_1224738507, hc_1224738508, hc_1224738508_Idx) {
+            var Temporary3;
+
+  var result_1224738509 = 0;
+
+  BeforeRet: do {
+    hc_1224738508[hc_1224738508_Idx] = hash_1124073894(key_1224738507);
+    if ((hc_1224738508[hc_1224738508_Idx] == 0)) {
+    hc_1224738508[hc_1224738508_Idx] = 314159265;
+    }
+    
+    if (((t_1224738506.data).length == 0)) {
+    result_1224738509 = -1;
+    break BeforeRet;
+    }
+    
+    var h_1224738571 = (hc_1224738508[hc_1224738508_Idx] & (t_1224738506.data).length - 1);
+    Label1: do {
+        Label2: while (true) {
+        if (!isFilled_1107296294(t_1224738506.data[chckIndx(h_1224738571, 0, (t_1224738506.data).length - 1)].Field0)) break Label2;
+            if (!(t_1224738506.data[chckIndx(h_1224738571, 0, (t_1224738506.data).length - 1)].Field0 == hc_1224738508[hc_1224738508_Idx])) Temporary3 = false; else {              Temporary3 = eqStrings(t_1224738506.data[chckIndx(h_1224738571, 0, (t_1224738506.data).length - 1)].Field2, key_1224738507);            }          if (Temporary3) {
+          result_1224738509 = h_1224738571;
+          break BeforeRet;
+          }
+          
+          h_1224738571 = nextTry_1107296297(h_1224738571, (t_1224738506.data).length - 1);
+        }
+    } while (false);
+    result_1224738509 = subInt(-1, h_1224738571);
+  } while (false);
+
+  return result_1224738509;
+
+}
+
+function mustRehash_1224738747(t_1224738749) {
+  var result_1224738750 = false;
+
+    if (!((t_1224738749.counter < (t_1224738749.data).length))) {
+    failedAssertImpl_218103864(makeNimstrLit("hashcommon.nim(29, 9) `\x0At.counter < t.dataLen` "));
+    }
+    
+    result_1224738750 = ((mulInt((t_1224738749.data).length, 2) < mulInt(t_1224738749.counter, 3)) || (subInt((t_1224738749.data).length, t_1224738749.counter) < 4));
+
+  return result_1224738750;
+
+}
+
+function rawGetKnownHC_1224739242(t_1224739245, key_1224739246, hc_1224739247) {
+  var result_1224739248 = 0;
+
+  BeforeRet: do {
+    if (((t_1224739245.data).length == 0)) {
+    result_1224739248 = -1;
+    break BeforeRet;
+    }
+    
+    var h_1224739310 = (hc_1224739247 & (t_1224739245.data).length - 1);
+    Label1: do {
+        Label2: while (true) {
+        if (!isFilled_1107296294(t_1224739245.data[chckIndx(h_1224739310, 0, (t_1224739245.data).length - 1)].Field0)) break Label2;
+          if (((t_1224739245.data[chckIndx(h_1224739310, 0, (t_1224739245.data).length - 1)].Field0 == hc_1224739247) && eqStrings(t_1224739245.data[chckIndx(h_1224739310, 0, (t_1224739245.data).length - 1)].Field2, key_1224739246))) {
+          result_1224739248 = h_1224739310;
+          break BeforeRet;
+          }
+          
+          h_1224739310 = nextTry_1107296297(h_1224739310, (t_1224739245.data).length - 1);
+        }
+    } while (false);
+    result_1224739248 = subInt(-1, h_1224739310);
+  } while (false);
+
+  return result_1224739248;
+
+}
+
+function rawInsert_1224739611(s_1224739613, data_1224739614, data_1224739614_Idx, key_1224739615, hc_1224739616, h_1224739617) {
+    if (((data_1224739614[data_1224739614_Idx]).length == 0)) {
+    var correctSizeHEX60gensym27_1224739677 = slotsNeeded_1107296305(64);
+    s_1224739613.first = -1;
+    s_1224739613.last = -1;
+    s_1224739613.counter = 0;
+    s_1224739613.data = new Array(chckRange(correctSizeHEX60gensym27_1224739677, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym27_1224739677, 0, 2147483647) ; ++i) { s_1224739613.data[i] = {Field0: 0, Field1: 0, Field2: []}; }    }
+    
+    data_1224739614[data_1224739614_Idx][chckIndx(h_1224739617, 0, (data_1224739614[data_1224739614_Idx]).length - 1)].Field2 = nimCopy(null, key_1224739615, NTI33554439);
+    data_1224739614[data_1224739614_Idx][chckIndx(h_1224739617, 0, (data_1224739614[data_1224739614_Idx]).length - 1)].Field0 = hc_1224739616;
+    data_1224739614[data_1224739614_Idx][chckIndx(h_1224739617, 0, (data_1224739614[data_1224739614_Idx]).length - 1)].Field1 = -1;
+    if ((s_1224739613.first < 0)) {
+    s_1224739613.first = h_1224739617;
+    }
+    
+    if ((0 <= s_1224739613.last)) {
+    data_1224739614[data_1224739614_Idx][chckIndx(s_1224739613.last, 0, (data_1224739614[data_1224739614_Idx]).length - 1)].Field1 = h_1224739617;
+    }
+    
+    s_1224739613.last = h_1224739617;
+
+  
+}
+
+function enlarge_1224738941(s_1224738943) {
+    var n_1224738945 = [];
+    n_1224738945 = new Array(chckRange(mulInt((s_1224738943.data).length, 2), 0, 2147483647)); for (var i = 0 ; i < chckRange(mulInt((s_1224738943.data).length, 2), 0, 2147483647) ; ++i) { n_1224738945[i] = {Field0: 0, Field1: 0, Field2: []}; }    var h_1224739008 = s_1224738943.first;
+    s_1224738943.first = -1;
+    s_1224738943.last = -1;
+    var Temporary1 = s_1224738943.data; s_1224738943.data = n_1224738945; n_1224738945 = Temporary1;    Label2: do {
+        Label3: while (true) {
+        if (!(0 <= h_1224739008)) break Label3;
+          var nxt_1224739070 = n_1224738945[chckIndx(h_1224739008, 0, (n_1224738945).length - 1)].Field1;
+          if (isFilled_1107296294(n_1224738945[chckIndx(h_1224739008, 0, (n_1224738945).length - 1)].Field0)) {
+          var j_1224739485 = subInt(-1, rawGetKnownHC_1224739242(s_1224738943, n_1224738945[chckIndx(h_1224739008, 0, (n_1224738945).length - 1)].Field2, n_1224738945[chckIndx(h_1224739008, 0, (n_1224738945).length - 1)].Field0));
+          rawInsert_1224739611(s_1224738943, s_1224738943, "data", n_1224738945[chckIndx(h_1224739008, 0, (n_1224738945).length - 1)].Field2, n_1224738945[chckIndx(h_1224739008, 0, (n_1224738945).length - 1)].Field0, j_1224739485);
+          }
+          
+          h_1224739008 = nxt_1224739070;
+        }
+    } while (false);
+
+  
+}
+
+function incl_1224738417(s_1224738419, key_1224738420) {
+    if (((s_1224738419.data).length == 0)) {
+    var correctSizeHEX60gensym18_1224738481 = slotsNeeded_1107296305(64);
+    s_1224738419.first = -1;
+    s_1224738419.last = -1;
+    s_1224738419.counter = 0;
+    s_1224738419.data = new Array(chckRange(correctSizeHEX60gensym18_1224738481, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym18_1224738481, 0, 2147483647) ; ++i) { s_1224738419.data[i] = {Field0: 0, Field1: 0, Field2: []}; }    }
+    
+    var hc_1224738496 = [0];
+    var index_1224738746 = rawGet_1224738504(s_1224738419, key_1224738420, hc_1224738496, 0);
+    if ((index_1224738746 < 0)) {
+    if (mustRehash_1224738747(s_1224738419)) {
+    enlarge_1224738941(s_1224738419);
+    index_1224738746 = rawGetKnownHC_1224739242(s_1224738419, key_1224738420, hc_1224738496[0]);
+    }
+    
+    rawInsert_1224739611(s_1224738419, s_1224738419, "data", key_1224738420, hc_1224738496[0], subInt(-1, index_1224738746));
+    s_1224738419.counter = addInt(s_1224738419.counter, 1);
+    }
+    
+
+  
+}
+
+function renderMathKatex_1660944395(math_1660944396, displayMode_1660944397) {
+  var result_1660944398 = [];
+
+    var opts_1660944399 = {};
+    opts_1660944399["throwOnError"] = false;
+    opts_1660944399["displayMode"] = displayMode_1660944397;
+    result_1660944398 = nimCopy(null, cstrToNimstr(katex.renderToString(toJSStr(math_1660944396), opts_1660944399)), NTI33554439);
+
+  return result_1660944398;
+
+}
+
+function rawGet_1493172373(t_1493172376, key_1493172377, hc_1493172378, hc_1493172378_Idx) {
+            var Temporary3;
+
+  var result_1493172379 = 0;
+
+  BeforeRet: do {
+    hc_1493172378[hc_1493172378_Idx] = hash_1124073894(key_1493172377);
+    if ((hc_1493172378[hc_1493172378_Idx] == 0)) {
+    hc_1493172378[hc_1493172378_Idx] = 314159265;
+    }
+    
+    if (((t_1493172376.data).length == 0)) {
+    result_1493172379 = -1;
+    break BeforeRet;
+    }
+    
+    var h_1493172430 = (hc_1493172378[hc_1493172378_Idx] & (t_1493172376.data).length - 1);
+    Label1: do {
+        Label2: while (true) {
+        if (!isFilled_1191182367(t_1493172376.data[chckIndx(h_1493172430, 0, (t_1493172376.data).length - 1)].Field0)) break Label2;
+            if (!(t_1493172376.data[chckIndx(h_1493172430, 0, (t_1493172376.data).length - 1)].Field0 == hc_1493172378[hc_1493172378_Idx])) Temporary3 = false; else {              Temporary3 = eqStrings(t_1493172376.data[chckIndx(h_1493172430, 0, (t_1493172376.data).length - 1)].Field1, key_1493172377);            }          if (Temporary3) {
+          result_1493172379 = h_1493172430;
+          break BeforeRet;
+          }
+          
+          h_1493172430 = nextTry_1191182370(h_1493172430, (t_1493172376.data).length - 1);
+        }
+    } while (false);
+    result_1493172379 = subInt(-1, h_1493172430);
+  } while (false);
+
+  return result_1493172379;
+
+}
+
+function hasKey_1728053556(t_1728053559, key_1728053560) {
+  var result_1728053561 = false;
+
+    var hc_1728053562 = [0];
+    result_1728053561 = (0 <= rawGet_1493172373(t_1728053559, key_1728053560, hc_1728053562, 0));
+
+  return result_1728053561;
+
+}
+
+function HEX5BHEX5D_1493173665(t_1493173668, key_1493173669) {
+  var result_1493173670 = [];
+
+    var hcHEX60gensym20_1493173671 = [0];
+    var indexHEX60gensym20_1493173678 = rawGet_1493172373(t_1493173668, key_1493173669, hcHEX60gensym20_1493173671, 0);
+    if ((0 <= indexHEX60gensym20_1493173678)) {
+    result_1493173670 = nimCopy(null, t_1493173668.data[chckIndx(indexHEX60gensym20_1493173678, 0, (t_1493173668.data).length - 1)].Field2, NTI33554439);
+    }
+    else {
+    raiseKeyError_1493173732(key_1493173669);
+    }
+    
+
+  return result_1493173670;
+
+}
+
+function checkboxCommands_1744830472(doc_1744830473) {
+    
+function HEX3Aanonymous_1744830522(arg_1744830516) {
+        var Temporary1;
+
+      var result_1744830523 = ({rendered: false, str: []});
+
+        var arg_1744830524 = renderStr_1308623169(doc_1744830473, nsuStrip(arg_1744830516, true, true, ConstSet209));
+        switch (doc_1744830473.target) {
+        case 0:
+          var fmtRes_1744830525 = [mnewString(0)];
+          fmtRes_1744830525[0].push.apply(fmtRes_1744830525[0], makeNimstrLit("<li class=\"xd-checkbox-unchecked\">"));;
+          formatValue_1627390114(fmtRes_1744830525, 0, arg_1744830524, []);
+          fmtRes_1744830525[0].push.apply(fmtRes_1744830525[0], makeNimstrLit("</li>"));;
+          Temporary1 = fmtRes_1744830525[0];
+          break;
+        case 1:
+          raiseException({message: makeNimstrLit("Checkboxes are currently not supported for the LaTeX target"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          break;
+        }
+        result_1744830523 = nimCopy(result_1744830523, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+
+      return result_1744830523;
+
+    }
+    
+function HEX3Aanonymous_1744831601(arg_1744831595) {
+        var Temporary1;
+
+      var result_1744831602 = ({rendered: false, str: []});
+
+        var arg_1744831603 = renderStr_1308623169(doc_1744830473, nsuStrip(arg_1744831595, true, true, ConstSet210));
+        switch (doc_1744830473.target) {
+        case 0:
+          var fmtRes_1744831604 = [mnewString(0)];
+          fmtRes_1744831604[0].push.apply(fmtRes_1744831604[0], makeNimstrLit("<li class=\"xd-checkbox-checked\">"));;
+          formatValue_1627390114(fmtRes_1744831604, 0, arg_1744831603, []);
+          fmtRes_1744831604[0].push.apply(fmtRes_1744831604[0], makeNimstrLit("</li>"));;
+          Temporary1 = fmtRes_1744831604[0];
+          break;
+        case 1:
+          raiseException({message: makeNimstrLit("Checkboxes are currently not supported for the LaTeX target"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          break;
+        }
+        result_1744831602 = nimCopy(result_1744831602, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+
+      return result_1744831602;
+
+    }
+    
+function HEX3Aanonymous_1744831657(arg_1744831651) {
+        var Temporary1;
+
+      var result_1744831658 = ({rendered: false, str: []});
+
+        var arg_1744831659 = renderStr_1308623169(doc_1744830473, nsuStrip(arg_1744831651, true, true, ConstSet211));
+        switch (doc_1744830473.target) {
+        case 0:
+          var fmtRes_1744831660 = [mnewString(0)];
+          fmtRes_1744831660[0].push.apply(fmtRes_1744831660[0], makeNimstrLit("<li class=\"xd-checkbox-crossed\">"));;
+          formatValue_1627390114(fmtRes_1744831660, 0, arg_1744831659, []);
+          fmtRes_1744831660[0].push.apply(fmtRes_1744831660[0], makeNimstrLit("</li>"));;
+          Temporary1 = fmtRes_1744831660[0];
+          break;
+        case 1:
+          raiseException({message: makeNimstrLit("Checkboxes are currently not supported for the LaTeX target"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          break;
+        }
+        result_1744831658 = nimCopy(result_1744831658, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+
+      return result_1744831658;
+
+    }
+
+  var result_1744830476 = ({data: [], counter: 0});
+
+    var commands_1744830479 = [({data: [], counter: 0})];
+    HEX5BHEX5DHEX3D_1744830566(commands_1744830479[0], makeNimstrLit("-"), HEX3Aanonymous_1744830522);
+    HEX5BHEX5DHEX3D_1744830566(commands_1744830479[0], makeNimstrLit("v"), HEX3Aanonymous_1744831601);
+    HEX5BHEX5DHEX3D_1744830566(commands_1744830479[0], makeNimstrLit("x"), HEX3Aanonymous_1744831657);
+    result_1744830476 = nimCopy(result_1744830476, commands_1744830479[0], NTI1577058329);
+
+  return result_1744830476;
+
+}
+
+function highlightCode_1660944410(code_1660944411, lang_1660944412) {
+  var result_1660944413 = [];
+
+    result_1660944413 = nimCopy(null, code_1660944411, NTI33554439);
+
+  return result_1660944413;
+
+}
+
+function HEX3Aanonymous_1761608403(docHEX60gensym16_1761608404, strHEX60gensym16_1761608405) {
+  var result_1761608406 = [];
+
+    result_1761608406 = nimCopy(null, strHEX60gensym16_1761608405, NTI33554439);
+
+  return result_1761608406;
+
+}
+
+function isSome_1224742374(self_1224742376) {
+  var result_1224742377 = false;
+
+    result_1224742377 = self_1224742376.has;
+
+  return result_1224742377;
+
+}
+
+function get_1224742365(self_1224742367, otherwise_1224742368) {
+    var Temporary1;
+
+  var result_1224742369 = [];
+
+    if (isSome_1224742374(self_1224742367)) {
+    Temporary1 = self_1224742367.val;
+    }
+    else {
+    Temporary1 = otherwise_1224742368;
+    }
+    
+    result_1224742369 = nimCopy(null, Temporary1, NTI637534694);
+
+  return result_1224742369;
+
+}
+
+function some_1224742327(val_1224742329) {
+  var result_1224742330 = ({val: [], has: false});
+
+    result_1224742330.has = true;
+    result_1224742330.val = nimCopy(null, val_1224742329, NTI637534694);
+
+  return result_1224742330;
+
+}
+
+function none_1224742332() {
+  var result_1224742339 = ({val: [], has: false});
+
+  return result_1224742339;
+
+}
+
+function map_1224742309(self_1224742312, callback_1224742314) {
+    var Temporary1;
+
+  var result_1224742319 = ({val: [], has: false});
+
+    if (isSome_1778385240(self_1224742312)) {
+    Temporary1 = some_1224742327(callback_1224742314(self_1224742312.val));
+    }
+    else {
+    Temporary1 = none_1224742332();
+    }
+    
+    result_1224742319 = nimCopy(result_1224742319, Temporary1, NTI1224739887);
+
+  return result_1224742319;
+
+}
+
+function nsuSplitWhitespace(s_637534848, maxsplit_637534849) {
+  var result_637534850 = [];
+
+    result_637534850 = nimCopy(null, [], NTI637534705);
+    Label1: do {
+      var xHEX60gensym77_637534856 = [];
+      var lastHEX60gensym59_1224736792 = 0;
+      var splitsHEX60gensym59_1224736793 = maxsplit_637534849;
+      if (false) {
+      failedAssertImpl_218103864(makeNimstrLit("strutils.nim(381, 9) `not (\'\\x00\' in Whitespace)` "));
+      }
+      
+      Label2: do {
+          Label3: while (true) {
+          if (!(lastHEX60gensym59_1224736792 < (s_637534848).length)) break Label3;
+            Label4: do {
+                Label5: while (true) {
+                if (!((lastHEX60gensym59_1224736792 < (s_637534848).length) && (ConstSet214[s_637534848[chckIndx(lastHEX60gensym59_1224736792, 0, (s_637534848).length - 1)]] != undefined))) break Label5;
+                  lastHEX60gensym59_1224736792 = addInt(lastHEX60gensym59_1224736792, 1);
+                }
+            } while (false);
+            var firstHEX60gensym59_1224736796 = lastHEX60gensym59_1224736792;
+            Label6: do {
+                Label7: while (true) {
+                if (!((lastHEX60gensym59_1224736792 < (s_637534848).length) && !((ConstSet215[s_637534848[chckIndx(lastHEX60gensym59_1224736792, 0, (s_637534848).length - 1)]] != undefined)))) break Label7;
+                  lastHEX60gensym59_1224736792 = addInt(lastHEX60gensym59_1224736792, 1);
+                }
+            } while (false);
+            if ((firstHEX60gensym59_1224736796 <= subInt(lastHEX60gensym59_1224736792, 1))) {
+            if ((splitsHEX60gensym59_1224736793 == 0)) {
+            lastHEX60gensym59_1224736792 = (s_637534848).length;
+            }
+            
+            xHEX60gensym77_637534856 = substr_33557907(s_637534848, firstHEX60gensym59_1224736796, subInt(lastHEX60gensym59_1224736792, 1));
+            var Temporary8 = nimCopy(null, xHEX60gensym77_637534856, NTI33554439);
+            result_637534850.push(Temporary8);;
+            if ((splitsHEX60gensym59_1224736793 == 0)) {
+            break Label2;
+            }
+            
+            splitsHEX60gensym59_1224736793 = subInt(splitsHEX60gensym59_1224736793, 1);
+            }
+            
+          }
+      } while (false);
+    } while (false);
+
+  return result_637534850;
+
+}
+
+function initTable_1493172244(initialSize_1493172247) {
+  var result_1493172248 = ({data: [], counter: 0});
+
+    var correctSizeHEX60gensym0_1493172250 = slotsNeeded_1191182378(chckRange(initialSize_1493172247, 0, 2147483647));
+    result_1493172248.counter = 0;
+    result_1493172248.data = new Array(chckRange(correctSizeHEX60gensym0_1493172250, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym0_1493172250, 0, 2147483647) ; ++i) { result_1493172248.data[i] = {Field0: 0, Field1: [], Field2: []}; }
+  return result_1493172248;
+
+}
+
+function mustRehash_1493172709(t_1493172711) {
+  var result_1493172712 = false;
+
+    if (!((t_1493172711.counter < (t_1493172711.data).length))) {
+    failedAssertImpl_218103864(makeNimstrLit("hashcommon.nim(29, 9) `\x0At.counter < t.dataLen` "));
+    }
+    
+    result_1493172712 = ((mulInt((t_1493172711.data).length, 2) < mulInt(t_1493172711.counter, 3)) || (subInt((t_1493172711.data).length, t_1493172711.counter) < 4));
+
+  return result_1493172712;
+
+}
+
+function rawInsert_1493173158(t_1493173162, data_1493173163, data_1493173163_Idx, key_1493173164, val_1493173165, hc_1493173166, h_1493173167) {
+    data_1493173163[data_1493173163_Idx][chckIndx(h_1493173167, 0, (data_1493173163[data_1493173163_Idx]).length - 1)].Field1 = nimCopy(null, key_1493173164, NTI33554439);
+    data_1493173163[data_1493173163_Idx][chckIndx(h_1493173167, 0, (data_1493173163[data_1493173163_Idx]).length - 1)].Field2 = nimCopy(null, val_1493173165, NTI33554439);
+    data_1493173163[data_1493173163_Idx][chckIndx(h_1493173167, 0, (data_1493173163[data_1493173163_Idx]).length - 1)].Field0 = hc_1493173166;
+
+  
+}
+
+function enlarge_1493172864(t_1493172867) {
+    var n_1493172870 = [];
+    n_1493172870 = new Array(chckRange(mulInt((t_1493172867.data).length, 2), 0, 2147483647)); for (var i = 0 ; i < chckRange(mulInt((t_1493172867.data).length, 2), 0, 2147483647) ; ++i) { n_1493172870[i] = {Field0: 0, Field1: [], Field2: []}; }    var Temporary1 = t_1493172867.data; t_1493172867.data = n_1493172870; n_1493172870 = Temporary1;    Label2: do {
+      var i_1493172934 = 0;
+      var colontmp__486542280 = 0;
+      colontmp__486542280 = (n_1493172870).length - 1;
+      var res_486542281 = 0;
+      Label3: do {
+          Label4: while (true) {
+          if (!(res_486542281 <= colontmp__486542280)) break Label4;
+            i_1493172934 = res_486542281;
+            var eh_1493172988 = n_1493172870[chckIndx(i_1493172934, 0, (n_1493172870).length - 1)].Field0;
+            if (isFilled_1191182367(eh_1493172988)) {
+            var j_1493172992 = (eh_1493172988 & (t_1493172867.data).length - 1);
+            Label5: do {
+                Label6: while (true) {
+                if (!isFilled_1191182367(t_1493172867.data[chckIndx(j_1493172992, 0, (t_1493172867.data).length - 1)].Field0)) break Label6;
+                  j_1493172992 = nextTry_1191182370(j_1493172992, (t_1493172867.data).length - 1);
+                }
+            } while (false);
+            rawInsert_1493173158(t_1493172867, t_1493172867, "data", n_1493172870[chckIndx(i_1493172934, 0, (n_1493172870).length - 1)].Field1, n_1493172870[chckIndx(i_1493172934, 0, (n_1493172870).length - 1)].Field2, eh_1493172988, j_1493172992);
+            }
+            
+            res_486542281 = addInt(res_486542281, 1);
+          }
+      } while (false);
+    } while (false);
+
+  
+}
+
+function rawGetKnownHC_1493173327(t_1493173330, key_1493173331, hc_1493173332) {
+  var result_1493173333 = 0;
+
+  BeforeRet: do {
+    if (((t_1493173330.data).length == 0)) {
+    result_1493173333 = -1;
+    break BeforeRet;
+    }
+    
+    var h_1493173384 = (hc_1493173332 & (t_1493173330.data).length - 1);
+    Label1: do {
+        Label2: while (true) {
+        if (!isFilled_1191182367(t_1493173330.data[chckIndx(h_1493173384, 0, (t_1493173330.data).length - 1)].Field0)) break Label2;
+          if (((t_1493173330.data[chckIndx(h_1493173384, 0, (t_1493173330.data).length - 1)].Field0 == hc_1493173332) && eqStrings(t_1493173330.data[chckIndx(h_1493173384, 0, (t_1493173330.data).length - 1)].Field1, key_1493173331))) {
+          result_1493173333 = h_1493173384;
+          break BeforeRet;
+          }
+          
+          h_1493173384 = nextTry_1191182370(h_1493173384, (t_1493173330.data).length - 1);
+        }
+    } while (false);
+    result_1493173333 = subInt(-1, h_1493173384);
+  } while (false);
+
+  return result_1493173333;
+
+}
+
+function HEX5BHEX5DHEX3D_1493172312(t_1493172315, key_1493172316, val_1493172317) {
+    if (((t_1493172315.data).length == 0)) {
+    var correctSizeHEX60gensym3_1493172367 = slotsNeeded_1191182378(32);
+    t_1493172315.counter = 0;
+    t_1493172315.data = new Array(chckRange(correctSizeHEX60gensym3_1493172367, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym3_1493172367, 0, 2147483647) ; ++i) { t_1493172315.data[i] = {Field0: 0, Field1: [], Field2: []}; }    }
+    
+    var hc_1493172372 = [0];
+    var index_1493172602 = rawGet_1493172373(t_1493172315, key_1493172316, hc_1493172372, 0);
+    if ((0 <= index_1493172602)) {
+    t_1493172315.data[chckIndx(index_1493172602, 0, (t_1493172315.data).length - 1)].Field2 = nimCopy(null, val_1493172317, NTI33554439);
+    }
+    else {
+      if (((t_1493172315.data).length == 0)) {
+      var correctSizeHEX60gensym8_1493172704 = slotsNeeded_1191182378(32);
+      t_1493172315.counter = 0;
+      t_1493172315.data = new Array(chckRange(correctSizeHEX60gensym8_1493172704, 0, 2147483647)); for (var i = 0 ; i < chckRange(correctSizeHEX60gensym8_1493172704, 0, 2147483647) ; ++i) { t_1493172315.data[i] = {Field0: 0, Field1: [], Field2: []}; }      }
+      
+      if (mustRehash_1493172709(t_1493172315)) {
+      enlarge_1493172864(t_1493172315);
+      index_1493172602 = rawGetKnownHC_1493173327(t_1493172315, key_1493172316, hc_1493172372[0]);
+      }
+      
+      index_1493172602 = subInt(-1, index_1493172602);
+      rawInsert_1493173158(t_1493172315, t_1493172315, "data", key_1493172316, val_1493172317, hc_1493172372[0], index_1493172602);
+      t_1493172315.counter = addInt(t_1493172315.counter, 1);
+    }
+    
+
+  
+}
+
+function toTable_1493172239(pairs_1493172242) {
+  var result_1493172243 = [({data: [], counter: 0})];
+
+    result_1493172243[0] = nimCopy(result_1493172243[0], initTable_1493172244((pairs_1493172242).length), NTI1392508952);
+    Label1: do {
+      var key_1493172270 = null;
+      var key_1493172270_Idx = 0;
+      var val_1493172271 = null;
+      var val_1493172271_Idx = 0;
+      var i_1493173575 = 0;
+      Label2: do {
+          Label3: while (true) {
+          if (!(i_1493173575 < (pairs_1493172242).length)) break Label3;
+            key_1493172270 = pairs_1493172242[chckIndx(i_1493173575, 0, (pairs_1493172242).length - 1)]; key_1493172270_Idx = "Field0";
+            val_1493172271 = pairs_1493172242[chckIndx(i_1493173575, 0, (pairs_1493172242).length - 1)]; val_1493172271_Idx = "Field1";
+            HEX5BHEX5DHEX3D_1493172312(result_1493172243[0], key_1493172270[key_1493172270_Idx], val_1493172271[val_1493172271_Idx]);
+            i_1493173575 = addInt(i_1493173575, 1);
+          }
+      } while (false);
+    } while (false);
+
+  return result_1493172243[0];
+
+}
+
+function zip_1224742405(s1_1224742408, s2_1224742409) {
+  var result_1224742410 = [];
+
+    var mHEX60gensym8_1224742417 = nimMin((s1_1224742408).length, (s2_1224742409).length);
+    result_1224742410 = new Array(chckRange(mHEX60gensym8_1224742417, 0, 2147483647)); for (var i = 0 ; i < chckRange(mHEX60gensym8_1224742417, 0, 2147483647) ; ++i) { result_1224742410[i] = {Field0: [], Field1: []}; }    Label1: do {
+      var iHEX60gensym8_1224742426 = 0;
+      var i_486542287 = 0;
+      Label2: do {
+          Label3: while (true) {
+          if (!(i_486542287 < mHEX60gensym8_1224742417)) break Label3;
+            iHEX60gensym8_1224742426 = i_486542287;
+            var colontmp__486542285 = nimCopy(null, s1_1224742408[chckIndx(iHEX60gensym8_1224742426, 0, (s1_1224742408).length - 1)], NTI33554439);
+            var colontmp__486542286 = nimCopy(null, s2_1224742409[chckIndx(iHEX60gensym8_1224742426, 0, (s2_1224742409).length - 1)], NTI33554439);
+            result_1224742410[chckIndx(iHEX60gensym8_1224742426, 0, (result_1224742410).length - 1)] = nimCopy(result_1224742410[chckIndx(iHEX60gensym8_1224742426, 0, (result_1224742410).length - 1)], {Field0: nimCopy(null, colontmp__486542285, NTI33554439), Field1: nimCopy(null, colontmp__486542286, NTI33554439)}, NTI1224739990);
+            i_486542287 = addInt(i_486542287, 1);
+          }
+      } while (false);
+    } while (false);
+
+  return result_1224742410;
+
+}
+
+function HEX5BHEX5D_1224743329(s_1224743333, x_1224743334) {
+  var result_1224743335 = [];
+
+    var a_1224743337 = x_1224743334.a;
+    var L_1224743342 = addInt(subInt(subInt((s_1224743333).length, x_1224743334.b), a_1224743337), 1);
+    result_1224743335 = new Array(chckRange(L_1224743342, 0, 2147483647)); for (var i = 0 ; i < chckRange(L_1224743342, 0, 2147483647) ; ++i) { result_1224743335[i] = []; }    Label1: do {
+      var i_1224743351 = 0;
+      var i_486542302 = 0;
+      Label2: do {
+          Label3: while (true) {
+          if (!(i_486542302 < L_1224743342)) break Label3;
+            i_1224743351 = i_486542302;
+            result_1224743335[chckIndx(i_1224743351, 0, (result_1224743335).length - 1)] = nimCopy(null, s_1224743333[chckIndx(addInt(i_1224743351, a_1224743337), 0, (s_1224743333).length - 1)], NTI33554439);
+            i_486542302 = addInt(i_486542302, 1);
+          }
+      } while (false);
+    } while (false);
+
+  return result_1224743335;
+
+}
+
+function nsuJoinSep(a_637535633, sep_637535634) {
+  var result_637535635 = [];
+
+    if ((0 < (a_637535633).length)) {
+    var L_637535642 = mulInt((sep_637535634).length, subInt((a_637535633).length, 1));
+    Label1: do {
+      var i_637535650 = 0;
+      var colontmp__486542305 = 0;
+      colontmp__486542305 = (a_637535633).length - 1;
+      var res_486542306 = 0;
+      Label2: do {
+          Label3: while (true) {
+          if (!(res_486542306 <= colontmp__486542305)) break Label3;
+            i_637535650 = res_486542306;
+            L_637535642 = addInt(L_637535642, (a_637535633[chckIndx(i_637535650, 0, (a_637535633).length - 1)]).length);
+            res_486542306 = addInt(res_486542306, 1);
+          }
+      } while (false);
+    } while (false);
+    result_637535635 = nimCopy(null, mnewString(0), NTI33554439);
+    result_637535635.push.apply(result_637535635, a_637535633[chckIndx(0, 0, (a_637535633).length - 1)]);;
+    Label4: do {
+      var i_637535662 = 0;
+      var colontmp__486542309 = 0;
+      colontmp__486542309 = (a_637535633).length - 1;
+      var res_486542310 = 1;
+      Label5: do {
+          Label6: while (true) {
+          if (!(res_486542310 <= colontmp__486542309)) break Label6;
+            i_637535662 = res_486542310;
+            result_637535635.push.apply(result_637535635, sep_637535634);;
+            result_637535635.push.apply(result_637535635, a_637535633[chckIndx(i_637535662, 0, (a_637535633).length - 1)]);;
+            res_486542310 = addInt(res_486542310, 1);
+          }
+      } while (false);
+    } while (false);
+    }
+    else {
+      result_637535635 = nimCopy(null, [], NTI33554439);
+    }
+    
+
+  return result_637535635;
+
+}
+
+function npegsmatchLenCapture(s_1241516835, pattern_1241516836, matches_1241516837, start_1241516838) {
+  var result_1241516839 = 0;
+
+    var c_1241516840 = [({matches: [{Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}, {Field0: 0, Field1: 0}], ml: 0, origStart: 0})];
+    c_1241516840[0].origStart = start_1241516838;
+    result_1241516839 = npegsrawMatch(s_1241516835, pattern_1241516836, start_1241516838, c_1241516840[0]);
+    if ((0 <= result_1241516839)) {
+    Label1: do {
+      var kHEX60gensym565_1241516848 = 0;
+      var colontmp__486542313 = 0;
+      colontmp__486542313 = subInt(c_1241516840[0].ml, 1);
+      var res_486542314 = 0;
+      Label2: do {
+          Label3: while (true) {
+          if (!(res_486542314 <= colontmp__486542313)) break Label3;
+            kHEX60gensym565_1241516848 = res_486542314;
+            var startIdxHEX60gensym565_1241516849 = c_1241516840[0].matches[chckIndx(kHEX60gensym565_1241516848, 0, (c_1241516840[0].matches).length - 1)]["Field0"];
+            var endIdxHEX60gensym565_1241516850 = c_1241516840[0].matches[chckIndx(kHEX60gensym565_1241516848, 0, (c_1241516840[0].matches).length - 1)]["Field1"];
+            if (!((startIdxHEX60gensym565_1241516849 == -1))) {
+            matches_1241516837[chckIndx(kHEX60gensym565_1241516848, 0, (matches_1241516837).length - 1)] = nimCopy(null, substr_33557907(s_1241516835, startIdxHEX60gensym565_1241516849, endIdxHEX60gensym565_1241516850), NTI33554439);
+            }
+            else {
+              matches_1241516837[chckIndx(kHEX60gensym565_1241516848, 0, (matches_1241516837).length - 1)] = nimCopy(null, [], NTI33554439);
+            }
+            
+            res_486542314 = addInt(res_486542314, 1);
+          }
+      } while (false);
+    } while (false);
+    }
+    
+
+  return result_1241516839;
+
+}
+
+function npegsmatchCapture(s_1241516867, pattern_1241516868, matches_1241516869, start_1241516870) {
+  var result_1241516871 = false;
+
+    result_1241516871 = !((npegsmatchLenCapture(s_1241516867, pattern_1241516868, matches_1241516869, start_1241516870) == -1));
+
+  return result_1241516871;
 
 }
 
@@ -9870,11 +9973,11 @@ function normalizePathEnd_620757038(path_620757039, path_620757039_Idx, trailing
     Label1: do {
         Label2: while (true) {
         if (!(1 <= i_620757041)) break Label2;
-          if ((ConstSet222[path_620757039[path_620757039_Idx][chckIndx(subInt(i_620757041, 1), 0, (path_620757039[path_620757039_Idx]).length - 1)]] != undefined)) {
+          if ((ConstSet224[path_620757039[path_620757039_Idx][chckIndx(subInt(i_620757041, 1), 0, (path_620757039[path_620757039_Idx]).length - 1)]] != undefined)) {
           i_620757041 = subInt(i_620757041, 1);
           }
           else {
-            if (!(path_620757039[path_620757039_Idx][chckIndx(subInt(i_620757041, 1), 0, (path_620757039[path_620757039_Idx]).length - 1)] == 46)) Temporary4 = false; else {              Temporary4 = (2 <= i_620757041);            }            if (!Temporary4) Temporary3 = false; else {              Temporary3 = (ConstSet223[path_620757039[path_620757039_Idx][chckIndx(subInt(i_620757041, 2), 0, (path_620757039[path_620757039_Idx]).length - 1)]] != undefined);            }          if (Temporary3) {
+            if (!(path_620757039[path_620757039_Idx][chckIndx(subInt(i_620757041, 1), 0, (path_620757039[path_620757039_Idx]).length - 1)] == 46)) Temporary4 = false; else {              Temporary4 = (2 <= i_620757041);            }            if (!Temporary4) Temporary3 = false; else {              Temporary3 = (ConstSet225[path_620757039[path_620757039_Idx][chckIndx(subInt(i_620757041, 2), 0, (path_620757039[path_620757039_Idx]).length - 1)]] != undefined);            }          if (Temporary3) {
           i_620757041 = subInt(i_620757041, 1);
           }
           else {
@@ -9917,22 +10020,22 @@ function next_1006632970(it_1006632971, x_1006632972) {
   var result_1006632973 = {Field0: 0, Field1: 0};
 
     it_1006632971.prev = it_1006632971.i;
-      if (!!(it_1006632971.notFirst)) Temporary1 = false; else {        Temporary1 = (ConstSet225[x_1006632972[chckIndx(it_1006632971.i, 0, (x_1006632972).length - 1)]] != undefined);      }    if (Temporary1) {
+      if (!!(it_1006632971.notFirst)) Temporary1 = false; else {        Temporary1 = (ConstSet227[x_1006632972[chckIndx(it_1006632971.i, 0, (x_1006632972).length - 1)]] != undefined);      }    if (Temporary1) {
     it_1006632971.i = addInt(it_1006632971.i, 1);
     }
     else {
       Label2: do {
           Label3: while (true) {
-            if (!(it_1006632971.i < (x_1006632972).length)) Temporary4 = false; else {              Temporary4 = !((ConstSet226[x_1006632972[chckIndx(it_1006632971.i, 0, (x_1006632972).length - 1)]] != undefined));            }          if (!Temporary4) break Label3;
+            if (!(it_1006632971.i < (x_1006632972).length)) Temporary4 = false; else {              Temporary4 = !((ConstSet228[x_1006632972[chckIndx(it_1006632971.i, 0, (x_1006632972).length - 1)]] != undefined));            }          if (!Temporary4) break Label3;
             it_1006632971.i = addInt(it_1006632971.i, 1);
           }
       } while (false);
     }
     
     if ((it_1006632971.prev < it_1006632971.i)) {
-    var colontmp__486542317 = it_1006632971.prev;
-    var colontmp__486542318 = subInt(it_1006632971.i, 1);
-    result_1006632973 = nimCopy(result_1006632973, {Field0: colontmp__486542317, Field1: colontmp__486542318}, NTI1006632967);
+    var colontmp__486542322 = it_1006632971.prev;
+    var colontmp__486542323 = subInt(it_1006632971.i, 1);
+    result_1006632973 = nimCopy(result_1006632973, {Field0: colontmp__486542322, Field1: colontmp__486542323}, NTI1006632967);
     }
     else {
     if (hasNext_1006632966(it_1006632971, x_1006632972)) {
@@ -9941,7 +10044,7 @@ function next_1006632970(it_1006632971, x_1006632972) {
     }
     Label5: do {
         Label6: while (true) {
-          if (!(it_1006632971.i < (x_1006632972).length)) Temporary7 = false; else {            Temporary7 = (ConstSet227[x_1006632972[chckIndx(it_1006632971.i, 0, (x_1006632972).length - 1)]] != undefined);          }        if (!Temporary7) break Label6;
+          if (!(it_1006632971.i < (x_1006632972).length)) Temporary7 = false; else {            Temporary7 = (ConstSet229[x_1006632972[chckIndx(it_1006632971.i, 0, (x_1006632972).length - 1)]] != undefined);          }        if (!Temporary7) break Label6;
           it_1006632971.i = addInt(it_1006632971.i, 1);
         }
     } while (false);
@@ -9954,7 +10057,7 @@ function next_1006632970(it_1006632971, x_1006632972) {
 function isSlash_1006633023(x_1006633024, bounds_1006633025) {
   var result_1006633026 = false;
 
-    result_1006633026 = ((bounds_1006633025["Field1"] == bounds_1006633025["Field0"]) && (ConstSet228[x_1006633024[chckIndx(bounds_1006633025["Field0"], 0, (x_1006633024).length - 1)]] != undefined));
+    result_1006633026 = ((bounds_1006633025["Field1"] == bounds_1006633025["Field0"]) && (ConstSet230[x_1006633024[chckIndx(bounds_1006633025["Field0"], 0, (x_1006633024).length - 1)]] != undefined));
 
   return result_1006633026;
 
@@ -9991,7 +10094,7 @@ function addNormalizePath_1006633031(x_1006633032, result_1006633033, result_100
     if (it_1006633036[0].notFirst) {
     Label1: do {
         Label2: while (true) {
-        if (!((it_1006633036[0].i < (x_1006633032).length) && (ConstSet224[x_1006633032[chckIndx(it_1006633036[0].i, 0, (x_1006633032).length - 1)]] != undefined))) break Label2;
+        if (!((it_1006633036[0].i < (x_1006633032).length) && (ConstSet226[x_1006633032[chckIndx(it_1006633036[0].i, 0, (x_1006633032).length - 1)]] != undefined))) break Label2;
           it_1006633036[0].i = addInt(it_1006633036[0].i, 1);
         }
     } while (false);
@@ -10002,7 +10105,7 @@ function addNormalizePath_1006633031(x_1006633032, result_1006633033, result_100
         if (!hasNext_1006632966(it_1006633036[0], x_1006633032)) break Label4;
           var b_1006633049 = next_1006632970(it_1006633036[0], x_1006633032);
             if (!((state_1006633034[state_1006633034_Idx] >> 1) == 0)) Temporary5 = false; else {              Temporary5 = isSlash_1006633023(x_1006633032, b_1006633049);            }          if (Temporary5) {
-            if (((result_1006633033[result_1006633033_Idx]).length == 0)) Temporary6 = true; else {              Temporary6 = !((ConstSet229[result_1006633033[result_1006633033_Idx][chckIndx(subInt((result_1006633033[result_1006633033_Idx]).length, 1), 0, (result_1006633033[result_1006633033_Idx]).length - 1)]] != undefined));            }          if (Temporary6) {
+            if (((result_1006633033[result_1006633033_Idx]).length == 0)) Temporary6 = true; else {              Temporary6 = !((ConstSet231[result_1006633033[result_1006633033_Idx][chckIndx(subInt((result_1006633033[result_1006633033_Idx]).length, 1), 0, (result_1006633033[result_1006633033_Idx]).length - 1)]] != undefined));            }          if (Temporary6) {
           addChar(result_1006633033[result_1006633033_Idx], dirSep_1006633035);;
           }
           
@@ -10014,7 +10117,7 @@ function addNormalizePath_1006633031(x_1006633032, result_1006633033, result_100
           var d_1006633062 = (result_1006633033[result_1006633033_Idx]).length;
           Label7: do {
               Label8: while (true) {
-                if (!((state_1006633034[state_1006633034_Idx] & 1) < subInt(d_1006633062, 1))) Temporary9 = false; else {                  Temporary9 = !((ConstSet230[result_1006633033[result_1006633033_Idx][chckIndx(subInt(d_1006633062, 1), 0, (result_1006633033[result_1006633033_Idx]).length - 1)]] != undefined));                }              if (!Temporary9) break Label8;
+                if (!((state_1006633034[state_1006633034_Idx] & 1) < subInt(d_1006633062, 1))) Temporary9 = false; else {                  Temporary9 = !((ConstSet232[result_1006633033[result_1006633033_Idx][chckIndx(subInt(d_1006633062, 1), 0, (result_1006633033[result_1006633033_Idx]).length - 1)]] != undefined));                }              if (!Temporary9) break Label8;
                 d_1006633062 = subInt(d_1006633062, 1);
               }
           } while (false);
@@ -10025,7 +10128,7 @@ function addNormalizePath_1006633031(x_1006633032, result_1006633033, result_100
           
           }
           else {
-              if (!(0 < (result_1006633033[result_1006633033_Idx]).length)) Temporary10 = false; else {                Temporary10 = !((ConstSet231[result_1006633033[result_1006633033_Idx][chckIndx(subInt((result_1006633033[result_1006633033_Idx]).length, 1), 0, (result_1006633033[result_1006633033_Idx]).length - 1)]] != undefined));              }            if (Temporary10) {
+              if (!(0 < (result_1006633033[result_1006633033_Idx]).length)) Temporary10 = false; else {                Temporary10 = !((ConstSet233[result_1006633033[result_1006633033_Idx][chckIndx(subInt((result_1006633033[result_1006633033_Idx]).length, 1), 0, (result_1006633033[result_1006633033_Idx]).length - 1)]] != undefined));              }            if (Temporary10) {
             addChar(result_1006633033[result_1006633033_Idx], dirSep_1006633035);;
             }
             
@@ -10038,7 +10141,7 @@ function addNormalizePath_1006633031(x_1006633032, result_1006633033, result_100
           }
           else {
           if ((b_1006633049["Field0"] <= b_1006633049["Field1"])) {
-            if (!(0 < (result_1006633033[result_1006633033_Idx]).length)) Temporary11 = false; else {              Temporary11 = !((ConstSet232[result_1006633033[result_1006633033_Idx][chckIndx(subInt((result_1006633033[result_1006633033_Idx]).length, 1), 0, (result_1006633033[result_1006633033_Idx]).length - 1)]] != undefined));            }          if (Temporary11) {
+            if (!(0 < (result_1006633033[result_1006633033_Idx]).length)) Temporary11 = false; else {              Temporary11 = !((ConstSet234[result_1006633033[result_1006633033_Idx][chckIndx(subInt((result_1006633033[result_1006633033_Idx]).length, 1), 0, (result_1006633033[result_1006633033_Idx]).length - 1)]] != undefined));            }          if (Temporary11) {
           addChar(result_1006633033[result_1006633033_Idx], dirSep_1006633035);;
           }
           
@@ -10063,7 +10166,7 @@ function joinPathImpl_620757069(result_620757070, result_620757070_Idx, state_62
         var Temporary4;
           var Temporary5;
 
-    if (!(0 < (tail_620757072).length)) Temporary2 = false; else {      Temporary2 = (ConstSet220[HEX5BHEX5D_33557710(tail_620757072, 1)] != undefined);    }    if (Temporary2) Temporary1 = true; else {      if (!((tail_620757072).length == 0)) Temporary3 = false; else {        if (!(0 < (result_620757070[result_620757070_Idx]).length)) Temporary4 = false; else {          Temporary4 = (ConstSet221[(Temporary5 = HEX5BHEX5D_33557743(result_620757070, result_620757070_Idx, 1), Temporary5)[0][Temporary5[1]]] != undefined);        }        Temporary3 = Temporary4;      }      Temporary1 = Temporary3;    }    var trailingSep_620757081 = Temporary1;
+    if (!(0 < (tail_620757072).length)) Temporary2 = false; else {      Temporary2 = (ConstSet222[HEX5BHEX5D_33557710(tail_620757072, 1)] != undefined);    }    if (Temporary2) Temporary1 = true; else {      if (!((tail_620757072).length == 0)) Temporary3 = false; else {        if (!(0 < (result_620757070[result_620757070_Idx]).length)) Temporary4 = false; else {          Temporary4 = (ConstSet223[(Temporary5 = HEX5BHEX5D_33557743(result_620757070, result_620757070_Idx, 1), Temporary5)[0][Temporary5[1]]] != undefined);        }        Temporary3 = Temporary4;      }      Temporary1 = Temporary3;    }    var trailingSep_620757081 = Temporary1;
     normalizePathEnd_620757038(result_620757070, result_620757070_Idx, false);
     addNormalizePath_1006633031(tail_620757072, result_620757070, result_620757070_Idx, state_620757071, state_620757071_Idx, 47);
     normalizePathEnd_620757038(result_620757070, result_620757070_Idx, trailingSep_620757081);
@@ -10092,15 +10195,6 @@ function HEX2F_620757108(head_620757109, tail_620757110) {
 
 }
 
-function substr_33557919(s_33557920, first_33557921) {
-  var result_33557922 = [];
-
-    result_33557922 = nimCopy(null, substr_33557907(s_33557920, first_33557921, (s_33557920).length - 1), NTI33554439);
-
-  return result_33557922;
-
-}
-
 function nossplitPath(path_620757113) {
     var Temporary4;
 
@@ -10109,19 +10203,19 @@ function nossplitPath(path_620757113) {
     var sepPos_620757117 = -1;
     Label1: do {
       var i_620757123 = 0;
-      var colontmp__486542321 = 0;
-      colontmp__486542321 = subInt((path_620757113).length, 1);
-      var res_486542322 = colontmp__486542321;
+      var colontmp__486542326 = 0;
+      colontmp__486542326 = subInt((path_620757113).length, 1);
+      var res_486542327 = colontmp__486542326;
       Label2: do {
           Label3: while (true) {
-          if (!(0 <= res_486542322)) break Label3;
-            i_620757123 = res_486542322;
-            if ((ConstSet233[path_620757113[chckIndx(i_620757123, 0, (path_620757113).length - 1)]] != undefined)) {
+          if (!(0 <= res_486542327)) break Label3;
+            i_620757123 = res_486542327;
+            if ((ConstSet235[path_620757113[chckIndx(i_620757123, 0, (path_620757113).length - 1)]] != undefined)) {
             sepPos_620757117 = i_620757123;
             break Label1;
             }
             
-            res_486542322 = subInt(res_486542322, 1);
+            res_486542327 = subInt(res_486542327, 1);
           }
       } while (false);
     } while (false);
@@ -10322,20 +10416,20 @@ function readFile_452985260(filename_452985261) {
 
 }
 
-function some_1224742248(val_1224742250) {
-  var result_1224742251 = ({val: 0, has: false});
+function some_1224743882(val_1224743884) {
+  var result_1224743885 = ({val: 0, has: false});
 
-    result_1224742251.has = true;
-    result_1224742251.val = val_1224742250;
+    result_1224743885.has = true;
+    result_1224743885.val = val_1224743884;
 
-  return result_1224742251;
+  return result_1224743885;
 
 }
 
 function nsuToLowerAsciiChar(c_637534276) {
   var result_637534277 = 0;
 
-    if ((ConstSet235[c_637534276] != undefined)) {
+    if ((ConstSet237[c_637534276] != undefined)) {
     result_637534277 = (c_637534276 ^ 32);
     }
     else {
@@ -10370,58 +10464,150 @@ function nsuToLowerAsciiStr(s_637534286) {
 
 }
 
-function cssCommands_1761607689(doc_1761607690) {
+function rawGet_1224737023(t_1224737026, key_1224737027, hc_1224737028, hc_1224737028_Idx) {
+            var Temporary3;
+
+  var result_1224737029 = 0;
+
+  BeforeRet: do {
+    hc_1224737028[hc_1224737028_Idx] = hash_1124073894(key_1224737027);
+    if ((hc_1224737028[hc_1224737028_Idx] == 0)) {
+    hc_1224737028[hc_1224737028_Idx] = 314159265;
+    }
     
-function HEX3Aanonymous_1761607707(arg_1761607697) {
+    if (((t_1224737026.data).length == 0)) {
+    result_1224737029 = -1;
+    break BeforeRet;
+    }
+    
+    var h_1224737091 = (hc_1224737028[hc_1224737028_Idx] & (t_1224737026.data).length - 1);
+    Label1: do {
+        Label2: while (true) {
+        if (!isFilled_1191182367(t_1224737026.data[chckIndx(h_1224737091, 0, (t_1224737026.data).length - 1)].Field0)) break Label2;
+            if (!(t_1224737026.data[chckIndx(h_1224737091, 0, (t_1224737026.data).length - 1)].Field0 == hc_1224737028[hc_1224737028_Idx])) Temporary3 = false; else {              Temporary3 = eqStrings(t_1224737026.data[chckIndx(h_1224737091, 0, (t_1224737026.data).length - 1)].Field1, key_1224737027);            }          if (Temporary3) {
+          result_1224737029 = h_1224737091;
+          break BeforeRet;
+          }
+          
+          h_1224737091 = nextTry_1191182370(h_1224737091, (t_1224737026.data).length - 1);
+        }
+    } while (false);
+    result_1224737029 = subInt(-1, h_1224737091);
+  } while (false);
+
+  return result_1224737029;
+
+}
+
+function hasKey_1224745759(t_1224745762, key_1224745763) {
+  var result_1224745764 = false;
+
+    var hc_1224745765 = [0];
+    result_1224745764 = (0 <= rawGet_1224737023(t_1224745762, key_1224745763, hc_1224745765, 0));
+
+  return result_1224745764;
+
+}
+
+function contains_1224745753(t_1224745756, key_1224745757) {
+  var result_1224745758 = false;
+
+  BeforeRet: do {
+    result_1224745758 = hasKey_1224745759(t_1224745756, key_1224745757);
+    break BeforeRet;
+  } while (false);
+
+  return result_1224745758;
+
+}
+
+function HEX5BHEX5D_1224745830(t_1224745833, key_1224745834) {
+  var result_1224745835 = 0;
+
+    var hcHEX60gensym20_1224745836 = [0];
+    var indexHEX60gensym20_1224745843 = rawGet_1224737023(t_1224745833, key_1224745834, hcHEX60gensym20_1224745836, 0);
+    if ((0 <= indexHEX60gensym20_1224745843)) {
+    result_1224745835 = t_1224745833.data[chckIndx(indexHEX60gensym20_1224745843, 0, (t_1224745833.data).length - 1)].Field2;
+    }
+    else {
+    raiseKeyError_1493173732(key_1224745834);
+    }
+    
+
+  return result_1224745835;
+
+}
+
+function cssCommands_1778384905(doc_1778384906) {
+    
+function HEX3Aanonymous_1778384923(arg_1778384913) {
           var Temporary1;
 
-      var result_1761607708 = ({rendered: false, str: []});
+      var result_1778384924 = ({rendered: false, str: []});
 
-        var args_1761607698 = parseXidocArguments_1325404662(arg_1761607697);
-          if (((args_1761607698).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1761607698).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit(":"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1761607698).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1778384914 = parseXidocArguments_1325404662(arg_1778384913);
+          if (((args_1778384914).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778384914).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit(":"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1778384914).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var prop_1761607726 = expandStr_1308622885(doc_1761607690, HEX5BHEX5D_1761607718(args_1761607698, 2));
-        var val_1761607731 = expandStr_1308622885(doc_1761607690, HEX5BHEX5D_1761607718(args_1761607698, 1));
-        result_1761607708 = nimCopy(result_1761607708, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("$1:$2;"), [nimCopy(null, prop_1761607726, NTI33554439), nimCopy(null, val_1761607731, NTI33554439)]), NTI33554439)}, NTI1577058309);
+        var prop_1778384942 = expandStr_1308622885(doc_1778384906, HEX5BHEX5D_1778384934(args_1778384914, 2));
+        var val_1778384947 = expandStr_1308622885(doc_1778384906, HEX5BHEX5D_1778384934(args_1778384914, 1));
+        result_1778384924 = nimCopy(result_1778384924, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("$1:$2;"), [nimCopy(null, prop_1778384942, NTI33554439), nimCopy(null, val_1778384947, NTI33554439)]), NTI33554439)}, NTI1577058309);
 
-      return result_1761607708;
+      return result_1778384924;
 
     }
     
-function HEX3Aanonymous_1761607784(arg_1761607778) {
-      var result_1761607785 = ({rendered: false, str: []});
+function HEX3Aanonymous_1778385001(arg_1778384994) {
+          var Temporary1;
 
-        if (!(eqStrings(arg_1761607778, []))) {
+      var result_1778385002 = ({rendered: false, str: []});
+
+        var args_1778384995 = parseXidocArguments_1325404662(arg_1778384994);
+          if (((args_1778384995).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778384995).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit(":!"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1778384995).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        var prop_1778385016 = expandStr_1308622885(doc_1778384906, HEX5BHEX5D_1778384934(args_1778384995, 2));
+        var val_1778385021 = expandStr_1308622885(doc_1778384906, HEX5BHEX5D_1778384934(args_1778384995, 1));
+        result_1778385002 = nimCopy(result_1778385002, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("$1:$2 !important;"), [nimCopy(null, prop_1778385016, NTI33554439), nimCopy(null, val_1778385021, NTI33554439)]), NTI33554439)}, NTI1577058309);
+
+      return result_1778385002;
+
+    }
+    
+function HEX3Aanonymous_1778385074(arg_1778385068) {
+      var result_1778385075 = ({rendered: false, str: []});
+
+        if (!(eqStrings(arg_1778385068, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit("h*")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        result_1761607785 = nimCopy(result_1761607785, {rendered: false, str: nimCopy(null, makeNimstrLit("h1,h2,h3,h4,h5,h6"), NTI33554439)}, NTI1577058309);
+        result_1778385075 = nimCopy(result_1778385075, {rendered: false, str: nimCopy(null, makeNimstrLit("h1,h2,h3,h4,h5,h6"), NTI33554439)}, NTI1577058309);
 
-      return result_1761607785;
+      return result_1778385075;
 
     }
     
-function HEX3Aanonymous_1761607839(arg_1761607832) {
+function HEX3Aanonymous_1778385129(arg_1778385122) {
           var Temporary1;
 
-      var result_1761607840 = ({rendered: false, str: []});
+      var result_1778385130 = ({rendered: false, str: []});
 
-        var args_1761607833 = parseXidocArguments_1325404662(arg_1761607832);
-          if (((args_1761607833).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1761607833).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("rule"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1761607833).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1778385123 = parseXidocArguments_1325404662(arg_1778385122);
+          if (((args_1778385123).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778385123).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("rule"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1778385123).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var selector_1761607854 = expandStr_1308622885(doc_1761607690, HEX5BHEX5D_1761607718(args_1761607833, 2));
-        var decls_1761607859 = expandStr_1308622885(doc_1761607690, HEX5BHEX5D_1761607718(args_1761607833, 1));
-        result_1761607840 = nimCopy(result_1761607840, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("$1{$2}"), [nimCopy(null, selector_1761607854, NTI33554439), nimCopy(null, decls_1761607859, NTI33554439)]), NTI33554439)}, NTI1577058309);
+        var selector_1778385144 = expandStr_1308622885(doc_1778384906, HEX5BHEX5D_1778384934(args_1778385123, 2));
+        var decls_1778385149 = expandStr_1308622885(doc_1778384906, HEX5BHEX5D_1778384934(args_1778385123, 1));
+        result_1778385130 = nimCopy(result_1778385130, {rendered: false, str: nimCopy(null, nsuFormatOpenArray(makeNimstrLit("$1{$2}"), [nimCopy(null, selector_1778385144, NTI33554439), nimCopy(null, decls_1778385149, NTI33554439)]), NTI33554439)}, NTI1577058309);
 
-      return result_1761607840;
+      return result_1778385130;
 
     }
     
-function HEX3Aanonymous_1761607913(arg_1761607906) {
+function HEX3Aanonymous_1778385203(arg_1778385196) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
@@ -10429,106 +10615,107 @@ function HEX3Aanonymous_1761607913(arg_1761607906) {
         var Temporary5;
           var Temporary6;
 
-      var result_1761607914 = ({rendered: false, str: []});
+      var result_1778385204 = ({rendered: false, str: []});
 
-        var args_1761607907 = parseXidocArguments_1325404662(arg_1761607906);
-          if (((args_1761607907).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1761607907).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("var"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1761607907).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1778385197 = parseXidocArguments_1325404662(arg_1778385196);
+          if (((args_1778385197).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1778385197).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("var"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1778385197).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var name_1761607924 = expandStr_1308622885(doc_1761607690, args_1761607907[chckIndx(0, 0, (args_1761607907).length - 1)]);
-        if ((0 < subInt((args_1761607907).length, 1))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1761607690, args_1761607907[chckIndx(1, 0, (args_1761607907).length - 1)]));
+        var name_1778385214 = expandStr_1308622885(doc_1778384906, args_1778385197[chckIndx(0, 0, (args_1778385197).length - 1)]);
+        if ((0 < subInt((args_1778385197).length, 1))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1778384906, args_1778385197[chckIndx(1, 0, (args_1778385197).length - 1)]));
         }
         else {
-        Temporary2 = none_1761607937();
+        Temporary2 = none_1778385227();
         }
         
-        var val_1761607945 = nimCopy(null, Temporary2, NTI1761607851);
-        if (isSome_1761607950(val_1761607945)) {
-        if (eqStrings(HEX5BHEX5D_1761607955(doc_1761607690.stack, 2).cmdName, makeNimstrLit("style"))) {
-        Temporary4 = nsuFormatOpenArray(makeNimstrLit(":root{--$1:$2}"), [nimCopy(null, name_1761607924, NTI33554439), nimCopy(null, (Temporary5 = get_1761607985(val_1761607945), Temporary5)[0][Temporary5[1]], NTI33554439)]);
+        var val_1778385235 = nimCopy(null, Temporary2, NTI1778385115);
+        if (isSome_1778385240(val_1778385235)) {
+        if (eqStrings(HEX5BHEX5D_1778385245(doc_1778384906.stack, 2).cmdName, makeNimstrLit("style"))) {
+        Temporary4 = nsuFormatOpenArray(makeNimstrLit(":root{--$1:$2}"), [nimCopy(null, name_1778385214, NTI33554439), nimCopy(null, (Temporary5 = get_1778385275(val_1778385235), Temporary5)[0][Temporary5[1]], NTI33554439)]);
         }
         else {
-        Temporary4 = nsuFormatOpenArray(makeNimstrLit("--$1:$2"), [nimCopy(null, name_1761607924, NTI33554439), nimCopy(null, (Temporary6 = get_1761607985(val_1761607945), Temporary6)[0][Temporary6[1]], NTI33554439)]);
+        Temporary4 = nsuFormatOpenArray(makeNimstrLit("--$1:$2"), [nimCopy(null, name_1778385214, NTI33554439), nimCopy(null, (Temporary6 = get_1778385275(val_1778385235), Temporary6)[0][Temporary6[1]], NTI33554439)]);
         }
         
         Temporary3 = Temporary4;
         }
         else {
-        Temporary3 = nsuFormatSingleElem(makeNimstrLit("var(--$1)"), name_1761607924);
+        Temporary3 = nsuFormatSingleElem(makeNimstrLit("var(--$1)"), name_1778385214);
         }
         
-        result_1761607914 = nimCopy(result_1761607914, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+        result_1778385204 = nimCopy(result_1778385204, {rendered: false, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
 
-      return result_1761607914;
+      return result_1778385204;
 
     }
 
-  var result_1761607693 = ({data: [], counter: 0});
+  var result_1778384909 = ({data: [], counter: 0});
 
-    var commands_1761607696 = [({data: [], counter: 0})];
-    HEX5BHEX5DHEX3D_1728053350(commands_1761607696[0], makeNimstrLit(":"), HEX3Aanonymous_1761607707);
-    HEX5BHEX5DHEX3D_1728053350(commands_1761607696[0], makeNimstrLit("h*"), HEX3Aanonymous_1761607784);
-    HEX5BHEX5DHEX3D_1728053350(commands_1761607696[0], makeNimstrLit("rule"), HEX3Aanonymous_1761607839);
-    HEX5BHEX5DHEX3D_1728053350(commands_1761607696[0], makeNimstrLit("var"), HEX3Aanonymous_1761607913);
-    result_1761607693 = nimCopy(result_1761607693, commands_1761607696[0], NTI1577058327);
+    var commands_1778384912 = [({data: [], counter: 0})];
+    HEX5BHEX5DHEX3D_1744830566(commands_1778384912[0], makeNimstrLit(":"), HEX3Aanonymous_1778384923);
+    HEX5BHEX5DHEX3D_1744830566(commands_1778384912[0], makeNimstrLit(":!"), HEX3Aanonymous_1778385001);
+    HEX5BHEX5DHEX3D_1744830566(commands_1778384912[0], makeNimstrLit("h*"), HEX3Aanonymous_1778385074);
+    HEX5BHEX5DHEX3D_1744830566(commands_1778384912[0], makeNimstrLit("rule"), HEX3Aanonymous_1778385129);
+    HEX5BHEX5DHEX3D_1744830566(commands_1778384912[0], makeNimstrLit("var"), HEX3Aanonymous_1778385203);
+    result_1778384909 = nimCopy(result_1778384909, commands_1778384912[0], NTI1577058329);
 
-  return result_1761607693;
+  return result_1778384909;
 
 }
 
-function HEX5BHEX5D_1711276456(t_1711276459, key_1711276460) {
-  var result_1711276461 = null;
-  var result_1711276461_Idx = 0;
+function HEX5BHEX5D_1728053672(t_1728053675, key_1728053676) {
+  var result_1728053677 = null;
+  var result_1728053677_Idx = 0;
 
-    var hcHEX60gensym22_1711276462 = [0];
-    var indexHEX60gensym22_1711276469 = rawGet_1493172373(t_1711276459, key_1711276460, hcHEX60gensym22_1711276462, 0);
-    if ((0 <= indexHEX60gensym22_1711276469)) {
-    result_1711276461 = t_1711276459.data[chckIndx(indexHEX60gensym22_1711276469, 0, (t_1711276459.data).length - 1)]; result_1711276461_Idx = "Field2";
+    var hcHEX60gensym22_1728053678 = [0];
+    var indexHEX60gensym22_1728053685 = rawGet_1493172373(t_1728053675, key_1728053676, hcHEX60gensym22_1728053678, 0);
+    if ((0 <= indexHEX60gensym22_1728053685)) {
+    result_1728053677 = t_1728053675.data[chckIndx(indexHEX60gensym22_1728053685, 0, (t_1728053675.data).length - 1)]; result_1728053677_Idx = "Field2";
     }
     else {
-    raiseKeyError_1493173732(key_1711276460);
+    raiseKeyError_1493173732(key_1728053676);
     }
     
 
-  return [result_1711276461, result_1711276461_Idx];
+  return [result_1728053677, result_1728053677_Idx];
 
 }
 
-function HEX26_1224745473(x_1224745475, y_1224745476) {
-  var result_1224745477 = [];
+function HEX26_1224747474(x_1224747476, y_1224747477) {
+  var result_1224747478 = [];
 
-    result_1224745477 = new Array(chckRange(addInt((x_1224745475).length, (y_1224745476).length), 0, 2147483647)); for (var i = 0 ; i < chckRange(addInt((x_1224745475).length, (y_1224745476).length), 0, 2147483647) ; ++i) { result_1224745477[i] = []; }    Label1: do {
-      var i_1224745495 = 0;
-      var colontmp__486542350 = 0;
-      colontmp__486542350 = subInt((x_1224745475).length, 1);
-      var res_486542351 = 0;
+    result_1224747478 = new Array(chckRange(addInt((x_1224747476).length, (y_1224747477).length), 0, 2147483647)); for (var i = 0 ; i < chckRange(addInt((x_1224747476).length, (y_1224747477).length), 0, 2147483647) ; ++i) { result_1224747478[i] = []; }    Label1: do {
+      var i_1224747496 = 0;
+      var colontmp__486542355 = 0;
+      colontmp__486542355 = subInt((x_1224747476).length, 1);
+      var res_486542356 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(res_486542351 <= colontmp__486542350)) break Label3;
-            i_1224745495 = res_486542351;
-            result_1224745477[chckIndx(i_1224745495, 0, (result_1224745477).length - 1)] = nimCopy(null, x_1224745475[chckIndx(i_1224745495, 0, (x_1224745475).length - 1)], NTI33554439);
-            res_486542351 = addInt(res_486542351, 1);
+          if (!(res_486542356 <= colontmp__486542355)) break Label3;
+            i_1224747496 = res_486542356;
+            result_1224747478[chckIndx(i_1224747496, 0, (result_1224747478).length - 1)] = nimCopy(null, x_1224747476[chckIndx(i_1224747496, 0, (x_1224747476).length - 1)], NTI33554439);
+            res_486542356 = addInt(res_486542356, 1);
           }
       } while (false);
     } while (false);
     Label4: do {
-      var i_1224745503 = 0;
-      var colontmp__486542354 = 0;
-      colontmp__486542354 = subInt((y_1224745476).length, 1);
-      var res_486542355 = 0;
+      var i_1224747504 = 0;
+      var colontmp__486542359 = 0;
+      colontmp__486542359 = subInt((y_1224747477).length, 1);
+      var res_486542360 = 0;
       Label5: do {
           Label6: while (true) {
-          if (!(res_486542355 <= colontmp__486542354)) break Label6;
-            i_1224745503 = res_486542355;
-            result_1224745477[chckIndx(addInt(i_1224745503, (x_1224745475).length), 0, (result_1224745477).length - 1)] = nimCopy(null, y_1224745476[chckIndx(i_1224745503, 0, (y_1224745476).length - 1)], NTI33554439);
-            res_486542355 = addInt(res_486542355, 1);
+          if (!(res_486542360 <= colontmp__486542359)) break Label6;
+            i_1224747504 = res_486542360;
+            result_1224747478[chckIndx(addInt(i_1224747504, (x_1224747476).length), 0, (result_1224747478).length - 1)] = nimCopy(null, y_1224747477[chckIndx(i_1224747504, 0, (y_1224747477).length - 1)], NTI33554439);
+            res_486542360 = addInt(res_486542360, 1);
           }
       } while (false);
     } while (false);
 
-  return result_1224745477;
+  return result_1224747478;
 
 }
 
@@ -10540,17 +10727,17 @@ function find_872415280(a_872415283, item_872415284) {
     Label1: do {
       var i_872415289 = null;
       var i_872415289_Idx = 0;
-      var i_486542359 = 0;
+      var i_486542364 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486542359 < (a_872415283).length)) break Label3;
-            i_872415289 = a_872415283; i_872415289_Idx = chckIndx(i_486542359, 0, (a_872415283).length - 1);
+          if (!(i_486542364 < (a_872415283).length)) break Label3;
+            i_872415289 = a_872415283; i_872415289_Idx = chckIndx(i_486542364, 0, (a_872415283).length - 1);
             if (eqStrings(i_872415289[i_872415289_Idx], item_872415284)) {
             break BeforeRet;
             }
             
             result_872415285 = addInt(result_872415285, 1);
-            i_486542359 = addInt(i_486542359, 1);
+            i_486542364 = addInt(i_486542364, 1);
           }
       } while (false);
     } while (false);
@@ -10573,136 +10760,126 @@ function contains_872415275(a_872415277, item_872415278) {
 
 }
 
-function defaultCommands_1224736801(doc_1224736802) {
+function defaultCommands_1224738389(doc_1224738390) {
     
-function HEX3Aanonymous_1224738400(arg_1224738394) {
-      var result_1224738401 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224739988(arg_1224739982) {
+      var result_1224739989 = ({rendered: false, str: []});
 
-        var arg_1224738402 = nimCopy(null, arg_1224738394, NTI33554439);
-        result_1224738401 = nimCopy(result_1224738401, {rendered: false, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+        var arg_1224739990 = nimCopy(null, arg_1224739982, NTI33554439);
+        result_1224739989 = nimCopy(result_1224739989, {rendered: false, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
 
-      return result_1224738401;
+      return result_1224739989;
 
     }
     
-function HEX3Aanonymous_1224738455(arg_1224738449) {
-      var result_1224738456 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224740043(arg_1224740037) {
+      var result_1224740044 = ({rendered: false, str: []});
 
-        var arg_1224738457 = nimCopy(null, arg_1224738449, NTI33554439);
-        result_1224738456 = nimCopy(result_1224738456, {rendered: false, str: nimCopy(null, arg_1224738457, NTI33554439)}, NTI1577058309);
-
-      return result_1224738456;
-
-    }
-    
-function HEX3Aanonymous_1224738510(arg_1224738504) {
-      var result_1224738511 = ({rendered: false, str: []});
-
-        if (!(eqStrings(arg_1224738504, []))) {
+        if (!(eqStrings(arg_1224740037, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit(";")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        result_1224738511 = nimCopy(result_1224738511, {rendered: false, str: nimCopy(null, makeNimstrLit(";"), NTI33554439)}, NTI1577058309);
+        result_1224740044 = nimCopy(result_1224740044, {rendered: false, str: nimCopy(null, makeNimstrLit(";"), NTI33554439)}, NTI1577058309);
 
-      return result_1224738511;
-
-    }
-    
-function HEX3Aanonymous_1224738564(arg_1224738558) {
-      var result_1224738565 = ({rendered: false, str: []});
-
-        var arg_1224738566 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224738558, true, true, ConstSet27));
-        result_1224738565 = nimCopy(result_1224738565, {rendered: true, str: nimCopy(null, (makeNimstrLit("[") || []).concat(arg_1224738566 || [],makeNimstrLit("]") || []), NTI33554439)}, NTI1577058309);
-
-      return result_1224738565;
+      return result_1224740044;
 
     }
     
-function HEX3Aanonymous_1224738619(arg_1224738613) {
-      var result_1224738620 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224740097(arg_1224740091) {
+      var result_1224740098 = ({rendered: false, str: []});
 
-        if (!(eqStrings(arg_1224738613, []))) {
+        var arg_1224740099 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224740091, true, true, ConstSet27));
+        result_1224740098 = nimCopy(result_1224740098, {rendered: true, str: nimCopy(null, (makeNimstrLit("[") || []).concat(arg_1224740099 || [],makeNimstrLit("]") || []), NTI33554439)}, NTI1577058309);
+
+      return result_1224740098;
+
+    }
+    
+function HEX3Aanonymous_1224740152(arg_1224740146) {
+      var result_1224740153 = ({rendered: false, str: []});
+
+        if (!(eqStrings(arg_1224740146, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit("(")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        result_1224738620 = nimCopy(result_1224738620, {rendered: false, str: nimCopy(null, makeNimstrLit("["), NTI33554439)}, NTI1577058309);
+        result_1224740153 = nimCopy(result_1224740153, {rendered: false, str: nimCopy(null, makeNimstrLit("["), NTI33554439)}, NTI1577058309);
 
-      return result_1224738620;
+      return result_1224740153;
 
     }
     
-function HEX3Aanonymous_1224738673(arg_1224738667) {
-      var result_1224738674 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224740206(arg_1224740200) {
+      var result_1224740207 = ({rendered: false, str: []});
 
-        if (!(eqStrings(arg_1224738667, []))) {
+        if (!(eqStrings(arg_1224740200, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit(")")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        result_1224738674 = nimCopy(result_1224738674, {rendered: false, str: nimCopy(null, makeNimstrLit("]"), NTI33554439)}, NTI1577058309);
+        result_1224740207 = nimCopy(result_1224740207, {rendered: false, str: nimCopy(null, makeNimstrLit("]"), NTI33554439)}, NTI1577058309);
 
-      return result_1224738674;
+      return result_1224740207;
 
     }
     
-function HEX3Aanonymous_1224738727(arg_1224738721) {
-      var result_1224738728 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224740260(arg_1224740254) {
+      var result_1224740261 = ({rendered: false, str: []});
 
-        if (!(eqStrings(arg_1224738721, []))) {
+        if (!(eqStrings(arg_1224740254, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit("--")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        result_1224738728 = nimCopy(result_1224738728, {rendered: false, str: nimCopy(null, makeNimstrLit("\xE2\x80\x93"), NTI33554439)}, NTI1577058309);
+        result_1224740261 = nimCopy(result_1224740261, {rendered: false, str: nimCopy(null, makeNimstrLit("\xE2\x80\x93"), NTI33554439)}, NTI1577058309);
 
-      return result_1224738728;
+      return result_1224740261;
 
     }
     
-function HEX3Aanonymous_1224738781(arg_1224738775) {
-      var result_1224738782 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224740314(arg_1224740308) {
+      var result_1224740315 = ({rendered: false, str: []});
 
-        if (!(eqStrings(arg_1224738775, []))) {
+        if (!(eqStrings(arg_1224740308, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit("---")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        result_1224738782 = nimCopy(result_1224738782, {rendered: false, str: nimCopy(null, makeNimstrLit("\xE2\x80\x94"), NTI33554439)}, NTI1577058309);
+        result_1224740315 = nimCopy(result_1224740315, {rendered: false, str: nimCopy(null, makeNimstrLit("\xE2\x80\x94"), NTI33554439)}, NTI1577058309);
 
-      return result_1224738782;
+      return result_1224740315;
 
     }
     
-function HEX3Aanonymous_1224738835(arg_1224738829) {
-      var result_1224738836 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224740368(arg_1224740362) {
+      var result_1224740369 = ({rendered: false, str: []});
 
-        if (!(eqStrings(arg_1224738829, []))) {
+        if (!(eqStrings(arg_1224740362, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit("...")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        result_1224738836 = nimCopy(result_1224738836, {rendered: true, str: nimCopy(null, makeNimstrLit("\xE2\x80\xA6"), NTI33554439)}, NTI1577058309);
+        result_1224740369 = nimCopy(result_1224740369, {rendered: true, str: nimCopy(null, makeNimstrLit("\xE2\x80\xA6"), NTI33554439)}, NTI1577058309);
 
-      return result_1224738836;
+      return result_1224740369;
 
     }
     
-function HEX3Aanonymous_1224738889(arg_1224738883) {
+function HEX3Aanonymous_1224740422(arg_1224740416) {
         
-function HEX3Aanonymous_1224738894() {
+function HEX3Aanonymous_1224740427() {
                     var Temporary4;
 
-          var result_1224738895 = 0;
+          var result_1224740428 = 0;
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym43_1224738904 = 0;
+              var iHEX60gensym58_1224740437 = 0;
               var colontmp__486542161 = 0;
-              colontmp__486542161 = subInt((doc_1224736802.stack).length, 1);
+              colontmp__486542161 = subInt((doc_1224738390.stack).length, 1);
               var res_486542162 = colontmp__486542161;
               Label2: do {
                   Label3: while (true) {
                   if (!(0 <= res_486542162)) break Label3;
-                    iHEX60gensym43_1224738904 = res_486542162;
-                    var frameHEX60gensym43_1224738905 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym43_1224738904, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym43_1224738905.lang)) {
-                    result_1224738895 = (Temporary4 = get_1224738927(frameHEX60gensym43_1224738905.lang), Temporary4)[0][Temporary4[1]];
+                    iHEX60gensym58_1224740437 = res_486542162;
+                    var frameHEX60gensym58_1224740438 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym58_1224740437, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym58_1224740438.lang)) {
+                    result_1224740428 = (Temporary4 = get_1224740460(frameHEX60gensym58_1224740438.lang), Temporary4)[0][Temporary4[1]];
                     break BeforeRet;
                     }
                     
@@ -10712,838 +10889,848 @@ function HEX3Aanonymous_1224738894() {
             } while (false);
           } while (false);
 
-          return result_1224738895;
+          return result_1224740428;
 
         }
 
-      var result_1224738890 = ({rendered: false, str: []});
+      var result_1224740423 = ({rendered: false, str: []});
 
-        var arg_1224738891 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224738883, true, true, ConstSet28));
-        result_1224738890 = nimCopy(result_1224738890, {rendered: true, str: nimCopy(null, nsuFormatSingleElem(translate_1593835557(4, HEX3Aanonymous_1224738894()), arg_1224738891), NTI33554439)}, NTI1577058309);
+        var arg_1224740424 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224740416, true, true, ConstSet28));
+        result_1224740423 = nimCopy(result_1224740423, {rendered: true, str: nimCopy(null, nsuFormatSingleElem(translate_1593835557(4, HEX3Aanonymous_1224740427()), arg_1224740424), NTI33554439)}, NTI1577058309);
 
-      return result_1224738890;
+      return result_1224740423;
 
     }
 
-function initKatexJsdelivrCss_1224736809() {
-    incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css\" integrity=\"sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET\" crossorigin=\"anonymous\">"));
+function initKatexJsdelivrCss_1224738397() {
+    incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css\" integrity=\"sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET\" crossorigin=\"anonymous\">"));
 
   
 }
 
-function initKatexJsdelivr_1224738360() {
-    initKatexJsdelivrCss_1224736809();
-    incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<script defer src=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js\" integrity=\"sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb\" crossorigin=\"anonymous\"></script><script type=\"module\">for(let e of document.getElementsByTagName`xd-inline-math`)katex.render(e.innerText,e,{throwOnError:false});for(let e of document.getElementsByTagName`xd-block-math`)katex.render(e.innerText,e,{throwOnError:false,displayMode:true})</script>"));
+function initKatexJsdelivr_1224739948() {
+    initKatexJsdelivrCss_1224738397();
+    incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<script defer src=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js\" integrity=\"sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb\" crossorigin=\"anonymous\"></script><script type=\"module\">for(let e of document.getElementsByTagName`xd-inline-math`)katex.render(e.innerText,e,{throwOnError:false});for(let e of document.getElementsByTagName`xd-block-math`)katex.render(e.innerText,e,{throwOnError:false,displayMode:true})</script>"));
 
   
 }
     
-function HEX3Aanonymous_1224739002(arg_1224738996) {
+function HEX3Aanonymous_1224740535(arg_1224740529) {
         var Temporary1;
           var Temporary2;
 
-      var result_1224739003 = ({rendered: false, str: []});
+      var result_1224740536 = ({rendered: false, str: []});
 
-        var arg_1224739004 = nsuStrip(arg_1224738996, true, true, ConstSet29);
-        HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands = nimCopy(HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands, mathCommands_1778384906(doc_1224736802), NTI1577058327);
-        switch (doc_1224736802.target) {
+        var arg_1224740537 = nsuStrip(arg_1224740529, true, true, ConstSet29);
+        HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands = nimCopy(HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands, mathCommands_1795162123(doc_1224738390), NTI1577058329);
+        switch (doc_1224738390.target) {
         case 0:
-          switch (doc_1224736802.mathRenderer) {
+          switch (doc_1224738390.mathRenderer) {
           case 0:
-            initKatexJsdelivr_1224738360();
-            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-inline-math>$1</xd-inline-math>"), renderStr_1308623169(doc_1224736802, arg_1224739004));
+            initKatexJsdelivr_1224739948();
+            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-inline-math>$1</xd-inline-math>"), renderStr_1308623169(doc_1224738390, arg_1224740537));
             break;
           case 1:
-            initKatexJsdelivrCss_1224736809();
-            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-inline-math>$1</xd-inline-math>"), renderMathKatex_1660944394(expandStr_1308622885(doc_1224736802, arg_1224739004), false));
+            initKatexJsdelivrCss_1224738397();
+            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-inline-math>$1</xd-inline-math>"), renderMathKatex_1660944395(expandStr_1308622885(doc_1224738390, arg_1224740537), false));
             break;
           }
           Temporary1 = Temporary2;
           break;
         case 1:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\($1\\)"), expandStr_1308622885(doc_1224736802, arg_1224739004));
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amssymb}"));
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\($1\\)"), expandStr_1308622885(doc_1224738390, arg_1224740537));
           break;
         }
-        result_1224739003 = nimCopy(result_1224739003, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224740536 = nimCopy(result_1224740536, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224739003;
+      return result_1224740536;
 
     }
     
-function HEX3Aanonymous_1224739061(arg_1224739055) {
+function HEX3Aanonymous_1224740617(arg_1224740611) {
         var Temporary1;
           var Temporary2;
 
-      var result_1224739062 = ({rendered: false, str: []});
+      var result_1224740618 = ({rendered: false, str: []});
 
-        var arg_1224739063 = nsuStrip(arg_1224739055, true, true, ConstSet56);
-        HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands = nimCopy(HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands, mathCommands_1778384906(doc_1224736802), NTI1577058327);
-        switch (doc_1224736802.target) {
+        var arg_1224740619 = nsuStrip(arg_1224740611, true, true, ConstSet200);
+        HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands = nimCopy(HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands, mathCommands_1795162123(doc_1224738390), NTI1577058329);
+        switch (doc_1224738390.target) {
         case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>xd-block-math{display:block}</style>"));
-          switch (doc_1224736802.mathRenderer) {
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>xd-block-math{display:block}</style>"));
+          switch (doc_1224738390.mathRenderer) {
           case 0:
-            initKatexJsdelivr_1224738360();
-            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-block-math>$1</xd-block-math>"), renderStr_1308623169(doc_1224736802, arg_1224739063));
+            initKatexJsdelivr_1224739948();
+            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-block-math>$1</xd-block-math>"), renderStr_1308623169(doc_1224738390, arg_1224740619));
             break;
           case 1:
-            initKatexJsdelivrCss_1224736809();
-            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-block-math>$1</xd-block-math>"), renderMathKatex_1660944394(expandStr_1308622885(doc_1224736802, arg_1224739063), true));
+            initKatexJsdelivrCss_1224738397();
+            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-block-math>$1</xd-block-math>"), renderMathKatex_1660944395(expandStr_1308622885(doc_1224738390, arg_1224740619), true));
             break;
           }
           Temporary1 = Temporary2;
           break;
         case 1:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\[$1\\]"), expandStr_1308622885(doc_1224736802, arg_1224739063));
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amssymb}"));
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\[$1\\]"), expandStr_1308622885(doc_1224738390, arg_1224740619));
           break;
         }
-        result_1224739062 = nimCopy(result_1224739062, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224740618 = nimCopy(result_1224740618, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224739062;
+      return result_1224740618;
 
     }
     
-function HEX3Aanonymous_1224739143(arg_1224739137) {
+function HEX3Aanonymous_1224740722(arg_1224740716) {
         var Temporary1;
           var Temporary2;
 
-      var result_1224739144 = ({rendered: false, str: []});
+      var result_1224740723 = ({rendered: false, str: []});
 
-        var arg_1224739145 = nsuStrip(arg_1224739137, true, true, ConstSet57);
-        HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands = nimCopy(HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands, mathCommands_1778384906(doc_1224736802), NTI1577058327);
-        switch (doc_1224736802.target) {
+        var arg_1224740724 = nsuStrip(arg_1224740716, true, true, ConstSet201);
+        HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands = nimCopy(HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands, mathCommands_1795162123(doc_1224738390), NTI1577058329);
+        switch (doc_1224738390.target) {
         case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>xd-block-math{display:block}</style>"));
-          switch (doc_1224736802.mathRenderer) {
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>xd-block-math{display:block}</style>"));
+          switch (doc_1224738390.mathRenderer) {
           case 0:
-            initKatexJsdelivr_1224738360();
-            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-block-math>\\begin{align*}$1\\end{align*}</xd-block-math>"), renderStr_1308623169(doc_1224736802, arg_1224739145));
+            initKatexJsdelivr_1224739948();
+            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-block-math>\\begin{align*}$1\\end{align*}</xd-block-math>"), renderStr_1308623169(doc_1224738390, arg_1224740724));
             break;
           case 1:
-            initKatexJsdelivrCss_1224736809();
-            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-block-math>$1</xd-block-math>"), renderMathKatex_1660944394(nsuFormatSingleElem(makeNimstrLit("\\begin{align*}$1\\end{align*}"), expandStr_1308622885(doc_1224736802, arg_1224739145)), true));
+            initKatexJsdelivrCss_1224738397();
+            Temporary2 = nsuFormatSingleElem(makeNimstrLit("<xd-block-math>$1</xd-block-math>"), renderMathKatex_1660944395(nsuFormatSingleElem(makeNimstrLit("\\begin{align*}$1\\end{align*}"), expandStr_1308622885(doc_1224738390, arg_1224740724)), true));
             break;
           }
           Temporary1 = Temporary2;
           break;
         case 1:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\begin{align*}$1\\end{align*}"), expandStr_1308622885(doc_1224736802, arg_1224739145));
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amsmath}"));
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amssymb}"));
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\begin{align*}$1\\end{align*}"), expandStr_1308622885(doc_1224738390, arg_1224740724));
           break;
         }
-        result_1224739144 = nimCopy(result_1224739144, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224740723 = nimCopy(result_1224740723, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224739144;
+      return result_1224740723;
 
     }
     
-function HEX3Aanonymous_1224739225(arg_1224739219) {
+function HEX3Aanonymous_1224740850(arg_1224740844) {
         var Temporary1;
 
-      var result_1224739226 = ({rendered: false, str: []});
+      var result_1224740851 = ({rendered: false, str: []});
 
-        if (!(eqStrings(arg_1224739219, []))) {
+        if (!(eqStrings(arg_1224740844, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit("LaTeX")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        switch (doc_1224736802.target) {
+        switch (doc_1224738390.target) {
         case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}</style>"));
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}</style>"));
           Temporary1 = makeNimstrLit("<span class=\"xd-latex\">L<sup>a</sup>T<sub>e</sub>X</span>");
           break;
         case 1:
           Temporary1 = makeNimstrLit("\\LaTeX{}");
           break;
         }
-        result_1224739226 = nimCopy(result_1224739226, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224740851 = nimCopy(result_1224740851, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224739226;
-
-    }
-    
-function HEX3Aanonymous_1224739302(arg_1224739296) {
-      var result_1224739303 = ({rendered: false, str: []});
-
-        var arg_1224739304 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224739296, true, true, ConstSet58));
-        incl_1224736829(doc_1224736802.addToHead, arg_1224739304);
-        result_1224739303 = nimCopy(result_1224739303, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
-
-      return result_1224739303;
+      return result_1224740851;
 
     }
     
-function HEX3Aanonymous_1224739380(arg_1224739374) {
+function HEX3Aanonymous_1224740927(arg_1224740921) {
+      var result_1224740928 = ({rendered: false, str: []});
+
+        var arg_1224740929 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224740921, true, true, ConstSet202));
+        incl_1224738417(doc_1224738390.addToHead, arg_1224740929);
+        result_1224740928 = nimCopy(result_1224740928, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+
+      return result_1224740928;
+
+    }
+    
+function HEX3Aanonymous_1224741005(arg_1224740999) {
         
-function HEX3Aanonymous_1224739385() {
-          var result_1224739386 = [];
+function HEX3Aanonymous_1224741010() {
+          var result_1224741011 = [];
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym62_1224739395 = 0;
-              var colontmp__486542181 = 0;
-              colontmp__486542181 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542182 = colontmp__486542181;
+              var iHEX60gensym77_1224741020 = 0;
+              var colontmp__486542263 = 0;
+              colontmp__486542263 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542264 = colontmp__486542263;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486542182)) break Label3;
-                    iHEX60gensym62_1224739395 = res_486542182;
-                    var frameHEX60gensym62_1224739396 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym62_1224739395, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (hasKey_1711276340(frameHEX60gensym62_1224739396.args, arg_1224739382)) {
-                    result_1224739386 = nimCopy(null, HEX5BHEX5D_1493173665(frameHEX60gensym62_1224739396.args, arg_1224739382), NTI33554439);
+                  if (!(0 <= res_486542264)) break Label3;
+                    iHEX60gensym77_1224741020 = res_486542264;
+                    var frameHEX60gensym77_1224741021 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym77_1224741020, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (hasKey_1728053556(frameHEX60gensym77_1224741021.args, arg_1224741007)) {
+                    result_1224741011 = nimCopy(null, HEX5BHEX5D_1493173665(frameHEX60gensym77_1224741021.args, arg_1224741007), NTI33554439);
                     break BeforeRet;
                     }
                     
-                    res_486542182 = subInt(res_486542182, 1);
+                    res_486542264 = subInt(res_486542264, 1);
                   }
               } while (false);
             } while (false);
           } while (false);
 
-          return result_1224739386;
+          return result_1224741011;
 
         }
 
-      var result_1224739381 = ({rendered: false, str: []});
+      var result_1224741006 = ({rendered: false, str: []});
 
-        var arg_1224739382 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224739374, true, true, ConstSet59));
-        result_1224739381 = nimCopy(result_1224739381, {rendered: true, str: nimCopy(null, renderStr_1308623169(doc_1224736802, HEX3Aanonymous_1224739385()), NTI33554439)}, NTI1577058309);
+        var arg_1224741007 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224740999, true, true, ConstSet203));
+        result_1224741006 = nimCopy(result_1224741006, {rendered: true, str: nimCopy(null, renderStr_1308623169(doc_1224738390, HEX3Aanonymous_1224741010()), NTI33554439)}, NTI1577058309);
 
-      return result_1224739381;
+      return result_1224741006;
 
     }
     
-function HEX3Aanonymous_1224739556(arg_1224739550) {
+function HEX3Aanonymous_1224741181(arg_1224741175) {
         
-function HEX3Aanonymous_1224739561() {
-          var result_1224739562 = [];
+function HEX3Aanonymous_1224741186() {
+          var result_1224741187 = [];
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym65_1224739571 = 0;
-              var colontmp__486542185 = 0;
-              colontmp__486542185 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542186 = colontmp__486542185;
+              var iHEX60gensym80_1224741196 = 0;
+              var colontmp__486542267 = 0;
+              colontmp__486542267 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542268 = colontmp__486542267;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486542186)) break Label3;
-                    iHEX60gensym65_1224739571 = res_486542186;
-                    var frameHEX60gensym65_1224739572 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym65_1224739571, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (hasKey_1711276340(frameHEX60gensym65_1224739572.args, arg_1224739558)) {
-                    result_1224739562 = nimCopy(null, HEX5BHEX5D_1493173665(frameHEX60gensym65_1224739572.args, arg_1224739558), NTI33554439);
+                  if (!(0 <= res_486542268)) break Label3;
+                    iHEX60gensym80_1224741196 = res_486542268;
+                    var frameHEX60gensym80_1224741197 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym80_1224741196, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (hasKey_1728053556(frameHEX60gensym80_1224741197.args, arg_1224741183)) {
+                    result_1224741187 = nimCopy(null, HEX5BHEX5D_1493173665(frameHEX60gensym80_1224741197.args, arg_1224741183), NTI33554439);
                     break BeforeRet;
                     }
                     
-                    res_486542186 = subInt(res_486542186, 1);
+                    res_486542268 = subInt(res_486542268, 1);
                   }
               } while (false);
             } while (false);
           } while (false);
 
-          return result_1224739562;
+          return result_1224741187;
 
         }
 
-      var result_1224739557 = ({rendered: false, str: []});
+      var result_1224741182 = ({rendered: false, str: []});
 
-        var arg_1224739558 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224739550, true, true, ConstSet60));
-        result_1224739557 = nimCopy(result_1224739557, {rendered: false, str: nimCopy(null, expandStr_1308622885(doc_1224736802, HEX3Aanonymous_1224739561()), NTI33554439)}, NTI1577058309);
+        var arg_1224741183 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224741175, true, true, ConstSet204));
+        result_1224741182 = nimCopy(result_1224741182, {rendered: false, str: nimCopy(null, expandStr_1308622885(doc_1224738390, HEX3Aanonymous_1224741186()), NTI33554439)}, NTI1577058309);
 
-      return result_1224739557;
+      return result_1224741182;
 
     }
     
-function HEX3Aanonymous_1224739732(arg_1224739726) {
+function HEX3Aanonymous_1224741357(arg_1224741351) {
         
-function HEX3Aanonymous_1224739737() {
-          var result_1224739738 = [];
+function HEX3Aanonymous_1224741362() {
+          var result_1224741363 = [];
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym68_1224739747 = 0;
-              var colontmp__486542189 = 0;
-              colontmp__486542189 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542190 = colontmp__486542189;
+              var iHEX60gensym83_1224741372 = 0;
+              var colontmp__486542271 = 0;
+              colontmp__486542271 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542272 = colontmp__486542271;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486542190)) break Label3;
-                    iHEX60gensym68_1224739747 = res_486542190;
-                    var frameHEX60gensym68_1224739748 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym68_1224739747, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (hasKey_1711276340(frameHEX60gensym68_1224739748.args, arg_1224739734)) {
-                    result_1224739738 = nimCopy(null, HEX5BHEX5D_1493173665(frameHEX60gensym68_1224739748.args, arg_1224739734), NTI33554439);
+                  if (!(0 <= res_486542272)) break Label3;
+                    iHEX60gensym83_1224741372 = res_486542272;
+                    var frameHEX60gensym83_1224741373 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym83_1224741372, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (hasKey_1728053556(frameHEX60gensym83_1224741373.args, arg_1224741359)) {
+                    result_1224741363 = nimCopy(null, HEX5BHEX5D_1493173665(frameHEX60gensym83_1224741373.args, arg_1224741359), NTI33554439);
                     break BeforeRet;
                     }
                     
-                    res_486542190 = subInt(res_486542190, 1);
+                    res_486542272 = subInt(res_486542272, 1);
                   }
               } while (false);
             } while (false);
           } while (false);
 
-          return result_1224739738;
+          return result_1224741363;
 
         }
-
-      var result_1224739733 = ({rendered: false, str: []});
-
-        var arg_1224739734 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224739726, true, true, ConstSet61));
-        result_1224739733 = nimCopy(result_1224739733, {rendered: false, str: nimCopy(null, HEX3Aanonymous_1224739737(), NTI33554439)}, NTI1577058309);
-
-      return result_1224739733;
-
-    }
-    
-function HEX3Aanonymous_1224739908(arg_1224739902) {
-        
-function HEX3Aanonymous_1224739913() {
-          var result_1224739914 = [];
-
-          BeforeRet: do {
-            Label1: do {
-              var iHEX60gensym71_1224739923 = 0;
-              var colontmp__486542193 = 0;
-              colontmp__486542193 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542194 = colontmp__486542193;
-              Label2: do {
-                  Label3: while (true) {
-                  if (!(0 <= res_486542194)) break Label3;
-                    iHEX60gensym71_1224739923 = res_486542194;
-                    var frameHEX60gensym71_1224739924 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym71_1224739923, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (hasKey_1711276340(frameHEX60gensym71_1224739924.args, arg_1224739910)) {
-                    result_1224739914 = nimCopy(null, HEX5BHEX5D_1493173665(frameHEX60gensym71_1224739924.args, arg_1224739910), NTI33554439);
-                    break BeforeRet;
-                    }
-                    
-                    res_486542194 = subInt(res_486542194, 1);
-                  }
-              } while (false);
-            } while (false);
-          } while (false);
-
-          return result_1224739914;
-
-        }
-
-      var result_1224739909 = ({rendered: false, str: []});
-
-        var arg_1224739910 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224739902, true, true, ConstSet62));
-        result_1224739909 = nimCopy(result_1224739909, {rendered: true, str: nimCopy(null, escapeText_1308622854(HEX3Aanonymous_1224739913(), doc_1224736802.target), NTI33554439)}, NTI1577058309);
-
-      return result_1224739909;
-
-    }
-    
-function HEX3Aanonymous_1224740084(arg_1224740078) {
-        var Temporary1;
-
-      var result_1224740085 = ({rendered: false, str: []});
-
-        var arg_1224740086 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224740078, true, true, ConstSet63));
-        switch (doc_1224736802.target) {
-        case 0:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<b>$1</b>"), arg_1224740086);
-          break;
-        case 1:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\textbf{$1}"), arg_1224740086);
-          break;
-        }
-        result_1224740085 = nimCopy(result_1224740085, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
-
-      return result_1224740085;
-
-    }
-    
-function HEX3Aanonymous_1224740139(arg_1224740133) {
-        var Temporary1;
-
-      var result_1224740140 = ({rendered: false, str: []});
-
-        var arg_1224740141 = nsuStrip(arg_1224740133, true, true, ConstSet64);
-        switch (doc_1224736802.target) {
-        case 0:
-          HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands = nimCopy(HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands, checkboxCommands_1728053256(doc_1224736802), NTI1577058327);
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>.xd-checkbox-unchecked{list-style-type:\"\xE2\x98\x90 \"}.xd-checkbox-checked{list-style-type:\"\xE2\x98\x91 \"}.xd-checkbox-crossed{list-style-type:\"\xE2\x98\x92 \"}</style>"));
-          var fmtRes_1224740169 = [mnewString(0)];
-          fmtRes_1224740169[0].push.apply(fmtRes_1224740169[0], makeNimstrLit("<ul class=\"xd-checkboxes\">"));;
-          formatValue_1627390114(fmtRes_1224740169, 0, expandStr_1308622885(doc_1224736802, arg_1224740141), []);
-          fmtRes_1224740169[0].push.apply(fmtRes_1224740169[0], makeNimstrLit("</style>"));;
-          Temporary1 = fmtRes_1224740169[0];
-          break;
-        default: 
-          raiseException({message: makeNimstrLit("Checkboxes are currently not supported for the LaTeX target"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-          break;
-        }
-        result_1224740140 = nimCopy(result_1224740140, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
-
-      return result_1224740140;
-
-    }
-    
-function HEX3Aanonymous_1224740223(arg_1224740216) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-          var Temporary4;
-          var Temporary5;
-          var Temporary6;
-
-      var result_1224740224 = ({rendered: false, str: []});
-
-        var args_1224740217 = parseXidocArguments_1325404662(arg_1224740216);
-          if (((args_1224740217).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224740217).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("code"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224740217).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1224740217).length, 1))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1224736802, args_1224740217[chckIndx(0, 0, (args_1224740217).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var lang_1224740247 = nimCopy(null, Temporary2, NTI1761607851);
-        var code_1224740252 = expandStr_1308622885(doc_1224736802, HEX5BHEX5D_1761607718(args_1224740217, 1));
-        switch (doc_1224736802.target) {
-        case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+bash+basic+batch+bbcode+bicep+birb+bison+bnf+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+clojure+cmake+cobol+coffeescript+concurnas+csp+coq+crystal+css-extras+csv+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gherkin+git+glsl+gn+go+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+matlab+maxscript+mel+mermaid+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+iecst+stylus+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig */\x0Acode[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8292a2}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}\x0A</style>"));
-          if (isSome_1761607950(lang_1224740247)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<code class=\"language-$1\">$2</code>"), [nimCopy(null, (Temporary5 = get_1761607985(lang_1224740247), Temporary5)[0][Temporary5[1]], NTI33554439), highlightCode_1660944409(code_1224740252, (Temporary6 = get_1761607985(lang_1224740247), Temporary6)[0][Temporary6[1]])]);
-          }
-          else {
-          Temporary4 = nsuFormatSingleElem(makeNimstrLit("<code>$1</code>"), code_1224740252);
-          }
-          
-          Temporary3 = Temporary4;
-          break;
-        case 1:
-          Temporary3 = nsuFormatSingleElem(makeNimstrLit("\\texttt{$1}"), code_1224740252);
-          break;
-        }
-        result_1224740224 = nimCopy(result_1224740224, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1224740224;
-
-    }
-    
-function HEX3Aanonymous_1224740366(arg_1224740359) {
-          var Temporary1;
-        var Temporary2;
-        var Temporary3;
-          var Temporary4;
-          var Temporary5;
-          var Temporary6;
-
-      var result_1224740367 = ({rendered: false, str: []});
-
-        var args_1224740360 = parseXidocArguments_1325404662(arg_1224740359);
-          if (((args_1224740360).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224740360).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("code-block"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224740360).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1224740360).length, 1))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1224736802, args_1224740360[chckIndx(0, 0, (args_1224740360).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var lang_1224740390 = nimCopy(null, Temporary2, NTI1761607851);
-        var code_1224740395 = expandStr_1308622885(doc_1224736802, HEX5BHEX5D_1761607718(args_1224740360, 1));
-        switch (doc_1224736802.target) {
-        case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>/* PrismJS 1.25.0\x0Ahttps://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+bash+basic+batch+bbcode+bicep+birb+bison+bnf+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+clojure+cmake+cobol+coffeescript+concurnas+csp+coq+crystal+css-extras+csv+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gherkin+git+glsl+gn+go+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+matlab+maxscript+mel+mermaid+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+iecst+stylus+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig */\x0Acode[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,\'Andale Mono\',\'Ubuntu Mono\',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8292a2}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}\x0A</style>"));
-          if (isSome_1761607950(lang_1224740390)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<pre class=\"language-$1\"><code class=\"language-$1\">$2</code></pre>"), [nimCopy(null, (Temporary5 = get_1761607985(lang_1224740390), Temporary5)[0][Temporary5[1]], NTI33554439), highlightCode_1660944409(code_1224740395, (Temporary6 = get_1761607985(lang_1224740390), Temporary6)[0][Temporary6[1]])]);
-          }
-          else {
-          Temporary4 = nsuFormatSingleElem(makeNimstrLit("<code>$1</code>"), code_1224740395);
-          }
-          
-          Temporary3 = Temporary4;
-          break;
-        case 1:
-          Temporary3 = nsuFormatSingleElem(makeNimstrLit("\\texttt{$1}"), code_1224740395);
-          break;
-        }
-        result_1224740367 = nimCopy(result_1224740367, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1224740367;
-
-    }
-    
-function HEX3Aanonymous_1224740509(arg_1224740502) {
-          var Temporary1;
-        var Temporary2;
-
-      var result_1224740510 = ({rendered: false, str: []});
-
-        var args_1224740503 = parseXidocArguments_1325404662(arg_1224740502);
-          if (((args_1224740503).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224740503).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("color"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224740503).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        var color_1224740524 = expandStr_1308622885(doc_1224736802, HEX5BHEX5D_1761607718(args_1224740503, 2));
-        var text_1224740529 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224740503, 1));
-        switch (doc_1224736802.target) {
-        case 0:
-          Temporary2 = nsuFormatOpenArray(makeNimstrLit("<span style=\"color:$1\">$2</span>"), [nimCopy(null, color_1224740524, NTI33554439), nimCopy(null, text_1224740529, NTI33554439)]);
-          break;
-        case 1:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage[svgnames]{xcolor}"));
-          Temporary2 = nsuFormatOpenArray(makeNimstrLit("\\textcolor{$1}{$2}"), [nimCopy(null, color_1224740524, NTI33554439), nimCopy(null, text_1224740529, NTI33554439)]);
-          break;
-        }
-        result_1224740510 = nimCopy(result_1224740510, {rendered: true, str: nimCopy(null, Temporary2, NTI33554439)}, NTI1577058309);
-
-      return result_1224740510;
-
-    }
-    
-function HEX3Aanonymous_1224740606(arg_1224740599) {
-          var Temporary1;
-        var Temporary2;
-        
-function HEX3Aanonymous_1224740655(it_1224740666) {
-          var result_1224740669 = [];
-
-            result_1224740669 = nimCopy(null, nsuSplitWhitespace(it_1224740666, -1), NTI637534694);
-
-          return result_1224740669;
-
-        }
-        
-function HEX3Aanonymous_1224740751(arg_1224740752) {
-            var Temporary1;
-
-          var result_1224740753 = ({rendered: false, str: []});
-
-            if (eqStrings(arg_1224740752, [])) {
-            Temporary1 = [];
-            }
-            else {
-            Temporary1 = parseXidocArguments_1325404662(arg_1224740752);
-            }
-            
-            var argsList_1224740758 = nimCopy(null, Temporary1, NTI1325403050);
-            if (!(((argsList_1224740758).length == (params_1224740745).length))) {
-            raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs exactly $2 arguments, $3 given"), [nimCopy(null, name_1224740617, NTI33554439), HEX24_335544323((params_1224740745).length), HEX24_335544323((argsList_1224740758).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-            }
-            
-            var argsTable_1224740797 = toTable_1493172239(zip_1224740771(params_1224740745, argsList_1224740758));
-            HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).args = nimCopy(HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).args, argsTable_1224740797, NTI1392508952);
-            result_1224740753 = nimCopy(result_1224740753, {rendered: true, str: renderStr_1308623169(doc_1224736802, body_1224740636)}, NTI1577058309);
-
-          return result_1224740753;
-
-        }
-
-      var result_1224740607 = ({rendered: false, str: []});
-
-        var args_1224740600 = parseXidocArguments_1325404662(arg_1224740599);
-          if (((args_1224740600).length < 2)) Temporary1 = true; else {            Temporary1 = (3 < (args_1224740600).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("def"), makeNimstrLit("2"), makeNimstrLit("3"), HEX24_335544323((args_1224740600).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        var name_1224740617 = expandStr_1308622885(doc_1224736802, args_1224740600[chckIndx(0, 0, (args_1224740600).length - 1)]);
-        if ((0 < subInt((args_1224740600).length, 2))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1224736802, args_1224740600[chckIndx(1, 0, (args_1224740600).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var paramList_1224740631 = nimCopy(null, Temporary2, NTI1761607851);
-        var body_1224740636 = HEX3Aanonymous_1744831187(doc_1224736802, HEX5BHEX5D_1761607718(args_1224740600, 1));
-        var params_1224740745 = get_1224740731(map_1224740675(paramList_1224740631, HEX3Aanonymous_1224740655), []);
-        HEX5BHEX5DHEX3D_1728053350(doc_1224736802.stack[chckIndx(0, 0, (doc_1224736802.stack).length - 1)].commands, name_1224740617, HEX3Aanonymous_1224740751);
-        result_1224740607 = nimCopy(result_1224740607, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
-
-      return result_1224740607;
-
-    }
-    
-function HEX3Aanonymous_1224740925(arg_1224740918) {
-          var Temporary1;
-        var Temporary2;
-        
-function HEX3Aanonymous_1224740957() {
-                    var Temporary4;
-
-          var result_1224740958 = 0;
-
-          BeforeRet: do {
-            Label1: do {
-              var iHEX60gensym128_1224740967 = 0;
-              var colontmp__486542208 = 0;
-              colontmp__486542208 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542209 = colontmp__486542208;
-              Label2: do {
-                  Label3: while (true) {
-                  if (!(0 <= res_486542209)) break Label3;
-                    iHEX60gensym128_1224740967 = res_486542209;
-                    var frameHEX60gensym128_1224740968 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym128_1224740967, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym128_1224740968.lang)) {
-                    result_1224740958 = (Temporary4 = get_1224738927(frameHEX60gensym128_1224740968.lang), Temporary4)[0][Temporary4[1]];
-                    break BeforeRet;
-                    }
-                    
-                    res_486542209 = subInt(res_486542209, 1);
-                  }
-              } while (false);
-            } while (false);
-          } while (false);
-
-          return result_1224740958;
-
-        }
-        var Temporary3;
-          var Temporary4;
-          var Temporary5;
-
-      var result_1224740926 = ({rendered: false, str: []});
-
-        var args_1224740919 = parseXidocArguments_1325404662(arg_1224740918);
-          if (((args_1224740919).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224740919).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dfn"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224740919).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1224740919).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224740919[chckIndx(0, 0, (args_1224740919).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var thName_1224740949 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224740954 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224740919, 1));
-        var wordHEX60gensym118_1224740991 = translate_1593835557(0, HEX3Aanonymous_1224740957());
-        switch (doc_1224736802.target) {
-        case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
-          if (isSome_1761607950(thName_1224740949)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("dfn"), nimCopy(null, wordHEX60gensym118_1224740991, NTI33554439), nimCopy(null, (Temporary5 = get_1761607985(thName_1224740949), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224740954)]);
-          }
-          else {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("dfn"), nimCopy(null, wordHEX60gensym118_1224740991, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224740954)]);
-          }
-          
-          Temporary3 = Temporary4;
-          break;
-        case 1:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("dfn"), nimCopy(null, wordHEX60gensym118_1224740991, NTI33554439)]));
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("dfn"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224740954)]);
-          break;
-        }
-        result_1224740926 = nimCopy(result_1224740926, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1224740926;
-
-    }
-    
-function HEX3Aanonymous_1224741141(arg_1224741134) {
-          var Temporary1;
-        var Temporary2;
-        
-function HEX3Aanonymous_1224741173() {
-                    var Temporary4;
-
-          var result_1224741174 = 0;
-
-          BeforeRet: do {
-            Label1: do {
-              var iHEX60gensym139_1224741183 = 0;
-              var colontmp__486542212 = 0;
-              colontmp__486542212 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542213 = colontmp__486542212;
-              Label2: do {
-                  Label3: while (true) {
-                  if (!(0 <= res_486542213)) break Label3;
-                    iHEX60gensym139_1224741183 = res_486542213;
-                    var frameHEX60gensym139_1224741184 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym139_1224741183, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym139_1224741184.lang)) {
-                    result_1224741174 = (Temporary4 = get_1224738927(frameHEX60gensym139_1224741184.lang), Temporary4)[0][Temporary4[1]];
-                    break BeforeRet;
-                    }
-                    
-                    res_486542213 = subInt(res_486542213, 1);
-                  }
-              } while (false);
-            } while (false);
-          } while (false);
-
-          return result_1224741174;
-
-        }
-        var Temporary3;
-          var Temporary4;
-          var Temporary5;
-
-      var result_1224741142 = ({rendered: false, str: []});
-
-        var args_1224741135 = parseXidocArguments_1325404662(arg_1224741134);
-          if (((args_1224741135).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224741135).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("example"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224741135).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1224741135).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224741135[chckIndx(0, 0, (args_1224741135).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var thName_1224741165 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224741170 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224741135, 1));
-        var wordHEX60gensym129_1224741207 = translate_1593835557(1, HEX3Aanonymous_1224741173());
-        switch (doc_1224736802.target) {
-        case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
-          if (isSome_1761607950(thName_1224741165)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("example"), nimCopy(null, wordHEX60gensym129_1224741207, NTI33554439), nimCopy(null, (Temporary5 = get_1761607985(thName_1224741165), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224741170)]);
-          }
-          else {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("example"), nimCopy(null, wordHEX60gensym129_1224741207, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224741170)]);
-          }
-          
-          Temporary3 = Temporary4;
-          break;
-        case 1:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("example"), nimCopy(null, wordHEX60gensym129_1224741207, NTI33554439)]));
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("example"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224741170)]);
-          break;
-        }
-        result_1224741142 = nimCopy(result_1224741142, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
-
-      return result_1224741142;
-
-    }
-    
-function HEX3Aanonymous_1224741357(arg_1224741350) {
-          var Temporary1;
-        var Temporary2;
-        
-function HEX3Aanonymous_1224741389() {
-                    var Temporary4;
-
-          var result_1224741390 = 0;
-
-          BeforeRet: do {
-            Label1: do {
-              var iHEX60gensym150_1224741399 = 0;
-              var colontmp__486542216 = 0;
-              colontmp__486542216 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542217 = colontmp__486542216;
-              Label2: do {
-                  Label3: while (true) {
-                  if (!(0 <= res_486542217)) break Label3;
-                    iHEX60gensym150_1224741399 = res_486542217;
-                    var frameHEX60gensym150_1224741400 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym150_1224741399, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym150_1224741400.lang)) {
-                    result_1224741390 = (Temporary4 = get_1224738927(frameHEX60gensym150_1224741400.lang), Temporary4)[0][Temporary4[1]];
-                    break BeforeRet;
-                    }
-                    
-                    res_486542217 = subInt(res_486542217, 1);
-                  }
-              } while (false);
-            } while (false);
-          } while (false);
-
-          return result_1224741390;
-
-        }
-        var Temporary3;
-          var Temporary4;
-          var Temporary5;
 
       var result_1224741358 = ({rendered: false, str: []});
 
-        var args_1224741351 = parseXidocArguments_1325404662(arg_1224741350);
-          if (((args_1224741351).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224741351).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("exercise"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224741351).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        }
-        
-        if ((0 < subInt((args_1224741351).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224741351[chckIndx(0, 0, (args_1224741351).length - 1)]));
-        }
-        else {
-        Temporary2 = none_1761607937();
-        }
-        
-        var thName_1224741381 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224741386 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224741351, 1));
-        var wordHEX60gensym140_1224741423 = translate_1593835557(2, HEX3Aanonymous_1224741389());
-        switch (doc_1224736802.target) {
-        case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
-          if (isSome_1761607950(thName_1224741381)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("exercise"), nimCopy(null, wordHEX60gensym140_1224741423, NTI33554439), nimCopy(null, (Temporary5 = get_1761607985(thName_1224741381), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224741386)]);
-          }
-          else {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("exercise"), nimCopy(null, wordHEX60gensym140_1224741423, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224741386)]);
-          }
-          
-          Temporary3 = Temporary4;
-          break;
-        case 1:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("exercise"), nimCopy(null, wordHEX60gensym140_1224741423, NTI33554439)]));
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("exercise"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224741386)]);
-          break;
-        }
-        result_1224741358 = nimCopy(result_1224741358, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+        var arg_1224741359 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224741351, true, true, ConstSet205));
+        result_1224741358 = nimCopy(result_1224741358, {rendered: false, str: nimCopy(null, HEX3Aanonymous_1224741362(), NTI33554439)}, NTI1577058309);
 
       return result_1224741358;
 
     }
     
-function HEX3Aanonymous_1224741567(arg_1224741561) {
-      var result_1224741568 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224741533(arg_1224741527) {
+        
+function HEX3Aanonymous_1224741538() {
+          var result_1224741539 = [];
 
-        var arg_1224741569 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224741561, true, true, ConstSet70));
-        result_1224741568 = nimCopy(result_1224741568, {rendered: false, str: nimCopy(null, expandStr_1308622885(doc_1224736802, arg_1224741569), NTI33554439)}, NTI1577058309);
+          BeforeRet: do {
+            Label1: do {
+              var iHEX60gensym86_1224741548 = 0;
+              var colontmp__486542275 = 0;
+              colontmp__486542275 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542276 = colontmp__486542275;
+              Label2: do {
+                  Label3: while (true) {
+                  if (!(0 <= res_486542276)) break Label3;
+                    iHEX60gensym86_1224741548 = res_486542276;
+                    var frameHEX60gensym86_1224741549 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym86_1224741548, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (hasKey_1728053556(frameHEX60gensym86_1224741549.args, arg_1224741535)) {
+                    result_1224741539 = nimCopy(null, HEX5BHEX5D_1493173665(frameHEX60gensym86_1224741549.args, arg_1224741535), NTI33554439);
+                    break BeforeRet;
+                    }
+                    
+                    res_486542276 = subInt(res_486542276, 1);
+                  }
+              } while (false);
+            } while (false);
+          } while (false);
 
-      return result_1224741568;
+          return result_1224741539;
+
+        }
+
+      var result_1224741534 = ({rendered: false, str: []});
+
+        var arg_1224741535 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224741527, true, true, ConstSet206));
+        result_1224741534 = nimCopy(result_1224741534, {rendered: true, str: nimCopy(null, escapeText_1308622854(HEX3Aanonymous_1224741538(), doc_1224738390.target), NTI33554439)}, NTI1577058309);
+
+      return result_1224741534;
 
     }
     
-function HEX3Aanonymous_1224741622(arg_1224741616) {
-      var result_1224741623 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224741709(arg_1224741703) {
+        var Temporary1;
 
-        var arg_1224741624 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224741616, true, true, ConstSet71));
-        result_1224741623 = nimCopy(result_1224741623, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+      var result_1224741710 = ({rendered: false, str: []});
 
-      return result_1224741623;
+        var arg_1224741711 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224741703, true, true, ConstSet207));
+        switch (doc_1224738390.target) {
+        case 0:
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<b>$1</b>"), arg_1224741711);
+          break;
+        case 1:
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\textbf{$1}"), arg_1224741711);
+          break;
+        }
+        result_1224741710 = nimCopy(result_1224741710, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+
+      return result_1224741710;
 
     }
     
-function HEX3Aanonymous_1224741678(arg_1224741671) {
+function HEX3Aanonymous_1224741764(arg_1224741758) {
+        var Temporary1;
+
+      var result_1224741765 = ({rendered: false, str: []});
+
+        var arg_1224741766 = nsuStrip(arg_1224741758, true, true, ConstSet208);
+        switch (doc_1224738390.target) {
+        case 0:
+          HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands = nimCopy(HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands, checkboxCommands_1744830472(doc_1224738390), NTI1577058329);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>.xd-checkbox-unchecked{list-style-type:\"\xE2\x98\x90 \"}.xd-checkbox-checked{list-style-type:\"\xE2\x98\x91 \"}.xd-checkbox-crossed{list-style-type:\"\xE2\x98\x92 \"}</style>"));
+          var fmtRes_1224741794 = [mnewString(0)];
+          fmtRes_1224741794[0].push.apply(fmtRes_1224741794[0], makeNimstrLit("<ul class=\"xd-checkboxes\">"));;
+          formatValue_1627390114(fmtRes_1224741794, 0, expandStr_1308622885(doc_1224738390, arg_1224741766), []);
+          fmtRes_1224741794[0].push.apply(fmtRes_1224741794[0], makeNimstrLit("</style>"));;
+          Temporary1 = fmtRes_1224741794[0];
+          break;
+        default: 
+          raiseException({message: makeNimstrLit("Checkboxes are currently not supported for the LaTeX target"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          break;
+        }
+        result_1224741765 = nimCopy(result_1224741765, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+
+      return result_1224741765;
+
+    }
+    
+function HEX3Aanonymous_1224741848(arg_1224741841) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+          var Temporary4;
+          var Temporary5;
+          var Temporary6;
+          var Temporary7;
+
+      var result_1224741849 = ({rendered: false, str: []});
+
+        var args_1224741842 = parseXidocArguments_1325404662(arg_1224741841);
+          if (((args_1224741842).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224741842).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("code"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224741842).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1224741842).length, 1))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1224738390, args_1224741842[chckIndx(0, 0, (args_1224741842).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var lang_1224741872 = nimCopy(null, Temporary2, NTI1778385115);
+        var code_1224741877 = expandStr_1308622885(doc_1224738390, HEX5BHEX5D_1778384934(args_1224741842, 1));
+        switch (doc_1224738390.target) {
+        case 0:
+          var Temporary4 = doc_1224738390;
+          if (ConstSet212[Temporary4.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'syntaxHighlightingTheme\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary4.target, NTI1577058307)); }
+          incl_1224738417(doc_1224738390.addToHead, (makeNimstrLit("<style>") || []).concat(prismCss_1224736800[chckIndx(Temporary4.syntaxHighlightingTheme, 0, (prismCss_1224736800).length - 1)] || [],makeNimstrLit("</style>") || []));
+          if (isSome_1778385240(lang_1224741872)) {
+          Temporary5 = nsuFormatOpenArray(makeNimstrLit("<code class=\"language-$1\">$2</code>"), [nimCopy(null, (Temporary6 = get_1778385275(lang_1224741872), Temporary6)[0][Temporary6[1]], NTI33554439), highlightCode_1660944410(code_1224741877, (Temporary7 = get_1778385275(lang_1224741872), Temporary7)[0][Temporary7[1]])]);
+          }
+          else {
+          Temporary5 = nsuFormatSingleElem(makeNimstrLit("<code>$1</code>"), escapeText_1308622854(code_1224741877, doc_1224738390.target));
+          }
+          
+          Temporary3 = Temporary5;
+          break;
+        case 1:
+          Temporary3 = nsuFormatSingleElem(makeNimstrLit("\\texttt{$1}"), code_1224741877);
+          break;
+        }
+        result_1224741849 = nimCopy(result_1224741849, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1224741849;
+
+    }
+    
+function HEX3Aanonymous_1224742000(arg_1224741993) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+          var Temporary4;
+          var Temporary5;
+          var Temporary6;
+          var Temporary7;
+
+      var result_1224742001 = ({rendered: false, str: []});
+
+        var args_1224741994 = parseXidocArguments_1325404662(arg_1224741993);
+          if (((args_1224741994).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224741994).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("code-block"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224741994).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1224741994).length, 1))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1224738390, args_1224741994[chckIndx(0, 0, (args_1224741994).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var lang_1224742024 = nimCopy(null, Temporary2, NTI1778385115);
+        var code_1224742029 = expandStr_1308622885(doc_1224738390, HEX5BHEX5D_1778384934(args_1224741994, 1));
+        switch (doc_1224738390.target) {
+        case 0:
+          var Temporary4 = doc_1224738390;
+          if (ConstSet213[Temporary4.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'syntaxHighlightingTheme\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary4.target, NTI1577058307)); }
+          incl_1224738417(doc_1224738390.addToHead, (makeNimstrLit("<style>") || []).concat(prismCss_1224736800[chckIndx(Temporary4.syntaxHighlightingTheme, 0, (prismCss_1224736800).length - 1)] || [],makeNimstrLit("</style>") || []));
+          if (isSome_1778385240(lang_1224742024)) {
+          Temporary5 = nsuFormatOpenArray(makeNimstrLit("<pre class=\"language-$1\"><code class=\"language-$1\">$2</code></pre>"), [nimCopy(null, (Temporary6 = get_1778385275(lang_1224742024), Temporary6)[0][Temporary6[1]], NTI33554439), highlightCode_1660944410(code_1224742029, (Temporary7 = get_1778385275(lang_1224742024), Temporary7)[0][Temporary7[1]])]);
+          }
+          else {
+          Temporary5 = nsuFormatSingleElem(makeNimstrLit("<pre><code>$1</code></pre>"), escapeText_1308622854(code_1224742029, doc_1224738390.target));
+          }
+          
+          Temporary3 = Temporary5;
+          break;
+        case 1:
+          Temporary3 = nsuFormatSingleElem(makeNimstrLit("\\texttt{$1}"), code_1224742029);
+          break;
+        }
+        result_1224742001 = nimCopy(result_1224742001, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1224742001;
+
+    }
+    
+function HEX3Aanonymous_1224742143(arg_1224742136) {
+          var Temporary1;
+        var Temporary2;
+
+      var result_1224742144 = ({rendered: false, str: []});
+
+        var args_1224742137 = parseXidocArguments_1325404662(arg_1224742136);
+          if (((args_1224742137).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224742137).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("color"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224742137).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        var color_1224742158 = expandStr_1308622885(doc_1224738390, HEX5BHEX5D_1778384934(args_1224742137, 2));
+        var text_1224742163 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224742137, 1));
+        switch (doc_1224738390.target) {
+        case 0:
+          Temporary2 = nsuFormatOpenArray(makeNimstrLit("<span style=\"color:$1\">$2</span>"), [nimCopy(null, color_1224742158, NTI33554439), nimCopy(null, text_1224742163, NTI33554439)]);
+          break;
+        case 1:
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage[svgnames]{xcolor}"));
+          Temporary2 = nsuFormatOpenArray(makeNimstrLit("\\textcolor{$1}{$2}"), [nimCopy(null, color_1224742158, NTI33554439), nimCopy(null, text_1224742163, NTI33554439)]);
+          break;
+        }
+        result_1224742144 = nimCopy(result_1224742144, {rendered: true, str: nimCopy(null, Temporary2, NTI33554439)}, NTI1577058309);
+
+      return result_1224742144;
+
+    }
+    
+function HEX3Aanonymous_1224742240(arg_1224742233) {
+          var Temporary1;
+        var Temporary2;
+        
+function HEX3Aanonymous_1224742289(it_1224742300) {
+          var result_1224742303 = [];
+
+            result_1224742303 = nimCopy(null, nsuSplitWhitespace(it_1224742300, -1), NTI637534694);
+
+          return result_1224742303;
+
+        }
+        
+function HEX3Aanonymous_1224742385(arg_1224742386) {
+            var Temporary1;
+
+          var result_1224742387 = ({rendered: false, str: []});
+
+            if (eqStrings(arg_1224742386, [])) {
+            Temporary1 = [];
+            }
+            else {
+            Temporary1 = parseXidocArguments_1325404662(arg_1224742386);
+            }
+            
+            var argsList_1224742392 = nimCopy(null, Temporary1, NTI1325403050);
+            if (!(((argsList_1224742392).length == (params_1224742379).length))) {
+            raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs exactly $2 arguments, $3 given"), [nimCopy(null, name_1224742251, NTI33554439), HEX24_335544323((params_1224742379).length), HEX24_335544323((argsList_1224742392).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+            }
+            
+            var argsTable_1224742431 = toTable_1493172239(zip_1224742405(params_1224742379, argsList_1224742392));
+            HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).args = nimCopy(HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).args, argsTable_1224742431, NTI1392508952);
+            result_1224742387 = nimCopy(result_1224742387, {rendered: true, str: renderStr_1308623169(doc_1224738390, body_1224742270)}, NTI1577058309);
+
+          return result_1224742387;
+
+        }
+
+      var result_1224742241 = ({rendered: false, str: []});
+
+        var args_1224742234 = parseXidocArguments_1325404662(arg_1224742233);
+          if (((args_1224742234).length < 2)) Temporary1 = true; else {            Temporary1 = (3 < (args_1224742234).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("def"), makeNimstrLit("2"), makeNimstrLit("3"), HEX24_335544323((args_1224742234).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        var name_1224742251 = expandStr_1308622885(doc_1224738390, args_1224742234[chckIndx(0, 0, (args_1224742234).length - 1)]);
+        if ((0 < subInt((args_1224742234).length, 2))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1224738390, args_1224742234[chckIndx(1, 0, (args_1224742234).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var paramList_1224742265 = nimCopy(null, Temporary2, NTI1778385115);
+        var body_1224742270 = HEX3Aanonymous_1761608403(doc_1224738390, HEX5BHEX5D_1778384934(args_1224742234, 1));
+        var params_1224742379 = get_1224742365(map_1224742309(paramList_1224742265, HEX3Aanonymous_1224742289), []);
+        HEX5BHEX5DHEX3D_1744830566(doc_1224738390.stack[chckIndx(0, 0, (doc_1224738390.stack).length - 1)].commands, name_1224742251, HEX3Aanonymous_1224742385);
+        result_1224742241 = nimCopy(result_1224742241, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+
+      return result_1224742241;
+
+    }
+    
+function HEX3Aanonymous_1224742559(arg_1224742552) {
+          var Temporary1;
+        var Temporary2;
+        
+function HEX3Aanonymous_1224742591() {
+                    var Temporary4;
+
+          var result_1224742592 = 0;
+
+          BeforeRet: do {
+            Label1: do {
+              var iHEX60gensym143_1224742601 = 0;
+              var colontmp__486542290 = 0;
+              colontmp__486542290 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542291 = colontmp__486542290;
+              Label2: do {
+                  Label3: while (true) {
+                  if (!(0 <= res_486542291)) break Label3;
+                    iHEX60gensym143_1224742601 = res_486542291;
+                    var frameHEX60gensym143_1224742602 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym143_1224742601, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym143_1224742602.lang)) {
+                    result_1224742592 = (Temporary4 = get_1224740460(frameHEX60gensym143_1224742602.lang), Temporary4)[0][Temporary4[1]];
+                    break BeforeRet;
+                    }
+                    
+                    res_486542291 = subInt(res_486542291, 1);
+                  }
+              } while (false);
+            } while (false);
+          } while (false);
+
+          return result_1224742592;
+
+        }
+        var Temporary3;
+          var Temporary4;
+          var Temporary5;
+
+      var result_1224742560 = ({rendered: false, str: []});
+
+        var args_1224742553 = parseXidocArguments_1325404662(arg_1224742552);
+          if (((args_1224742553).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224742553).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("dfn"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224742553).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1224742553).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224742553[chckIndx(0, 0, (args_1224742553).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var thName_1224742583 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224742588 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224742553, 1));
+        var wordHEX60gensym133_1224742625 = translate_1593835557(0, HEX3Aanonymous_1224742591());
+        switch (doc_1224738390.target) {
+        case 0:
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
+          if (isSome_1778385240(thName_1224742583)) {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("dfn"), nimCopy(null, wordHEX60gensym133_1224742625, NTI33554439), nimCopy(null, (Temporary5 = get_1778385275(thName_1224742583), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224742588)]);
+          }
+          else {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("dfn"), nimCopy(null, wordHEX60gensym133_1224742625, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224742588)]);
+          }
+          
+          Temporary3 = Temporary4;
+          break;
+        case 1:
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("dfn"), nimCopy(null, wordHEX60gensym133_1224742625, NTI33554439)]));
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("dfn"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224742588)]);
+          break;
+        }
+        result_1224742560 = nimCopy(result_1224742560, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1224742560;
+
+    }
+    
+function HEX3Aanonymous_1224742775(arg_1224742768) {
+          var Temporary1;
+        var Temporary2;
+        
+function HEX3Aanonymous_1224742807() {
+                    var Temporary4;
+
+          var result_1224742808 = 0;
+
+          BeforeRet: do {
+            Label1: do {
+              var iHEX60gensym154_1224742817 = 0;
+              var colontmp__486542294 = 0;
+              colontmp__486542294 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542295 = colontmp__486542294;
+              Label2: do {
+                  Label3: while (true) {
+                  if (!(0 <= res_486542295)) break Label3;
+                    iHEX60gensym154_1224742817 = res_486542295;
+                    var frameHEX60gensym154_1224742818 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym154_1224742817, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym154_1224742818.lang)) {
+                    result_1224742808 = (Temporary4 = get_1224740460(frameHEX60gensym154_1224742818.lang), Temporary4)[0][Temporary4[1]];
+                    break BeforeRet;
+                    }
+                    
+                    res_486542295 = subInt(res_486542295, 1);
+                  }
+              } while (false);
+            } while (false);
+          } while (false);
+
+          return result_1224742808;
+
+        }
+        var Temporary3;
+          var Temporary4;
+          var Temporary5;
+
+      var result_1224742776 = ({rendered: false, str: []});
+
+        var args_1224742769 = parseXidocArguments_1325404662(arg_1224742768);
+          if (((args_1224742769).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224742769).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("example"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224742769).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1224742769).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224742769[chckIndx(0, 0, (args_1224742769).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var thName_1224742799 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224742804 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224742769, 1));
+        var wordHEX60gensym144_1224742841 = translate_1593835557(1, HEX3Aanonymous_1224742807());
+        switch (doc_1224738390.target) {
+        case 0:
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
+          if (isSome_1778385240(thName_1224742799)) {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("example"), nimCopy(null, wordHEX60gensym144_1224742841, NTI33554439), nimCopy(null, (Temporary5 = get_1778385275(thName_1224742799), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224742804)]);
+          }
+          else {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("example"), nimCopy(null, wordHEX60gensym144_1224742841, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224742804)]);
+          }
+          
+          Temporary3 = Temporary4;
+          break;
+        case 1:
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("example"), nimCopy(null, wordHEX60gensym144_1224742841, NTI33554439)]));
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("example"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224742804)]);
+          break;
+        }
+        result_1224742776 = nimCopy(result_1224742776, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1224742776;
+
+    }
+    
+function HEX3Aanonymous_1224742991(arg_1224742984) {
+          var Temporary1;
+        var Temporary2;
+        
+function HEX3Aanonymous_1224743023() {
+                    var Temporary4;
+
+          var result_1224743024 = 0;
+
+          BeforeRet: do {
+            Label1: do {
+              var iHEX60gensym165_1224743033 = 0;
+              var colontmp__486542298 = 0;
+              colontmp__486542298 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542299 = colontmp__486542298;
+              Label2: do {
+                  Label3: while (true) {
+                  if (!(0 <= res_486542299)) break Label3;
+                    iHEX60gensym165_1224743033 = res_486542299;
+                    var frameHEX60gensym165_1224743034 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym165_1224743033, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym165_1224743034.lang)) {
+                    result_1224743024 = (Temporary4 = get_1224740460(frameHEX60gensym165_1224743034.lang), Temporary4)[0][Temporary4[1]];
+                    break BeforeRet;
+                    }
+                    
+                    res_486542299 = subInt(res_486542299, 1);
+                  }
+              } while (false);
+            } while (false);
+          } while (false);
+
+          return result_1224743024;
+
+        }
+        var Temporary3;
+          var Temporary4;
+          var Temporary5;
+
+      var result_1224742992 = ({rendered: false, str: []});
+
+        var args_1224742985 = parseXidocArguments_1325404662(arg_1224742984);
+          if (((args_1224742985).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224742985).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("exercise"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224742985).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1224742985).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224742985[chckIndx(0, 0, (args_1224742985).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var thName_1224743015 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224743020 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224742985, 1));
+        var wordHEX60gensym155_1224743057 = translate_1593835557(2, HEX3Aanonymous_1224743023());
+        switch (doc_1224738390.target) {
+        case 0:
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
+          if (isSome_1778385240(thName_1224743015)) {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("exercise"), nimCopy(null, wordHEX60gensym155_1224743057, NTI33554439), nimCopy(null, (Temporary5 = get_1778385275(thName_1224743015), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224743020)]);
+          }
+          else {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("exercise"), nimCopy(null, wordHEX60gensym155_1224743057, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224743020)]);
+          }
+          
+          Temporary3 = Temporary4;
+          break;
+        case 1:
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("exercise"), nimCopy(null, wordHEX60gensym155_1224743057, NTI33554439)]));
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("exercise"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224743020)]);
+          break;
+        }
+        result_1224742992 = nimCopy(result_1224742992, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1224742992;
+
+    }
+    
+function HEX3Aanonymous_1224743201(arg_1224743195) {
+      var result_1224743202 = ({rendered: false, str: []});
+
+        var arg_1224743203 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224743195, true, true, ConstSet216));
+        result_1224743202 = nimCopy(result_1224743202, {rendered: false, str: nimCopy(null, expandStr_1308622885(doc_1224738390, arg_1224743203), NTI33554439)}, NTI1577058309);
+
+      return result_1224743202;
+
+    }
+    
+function HEX3Aanonymous_1224743256(arg_1224743250) {
+      var result_1224743257 = ({rendered: false, str: []});
+
+        var arg_1224743258 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224743250, true, true, ConstSet217));
+        result_1224743257 = nimCopy(result_1224743257, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+
+      return result_1224743257;
+
+    }
+    
+function HEX3Aanonymous_1224743312(arg_1224743305) {
         var Temporary8;
 
-      var result_1224741679 = ({rendered: false, str: []});
+      var result_1224743313 = ({rendered: false, str: []});
 
-        var args_1224741672 = parseXidocArguments_1325404662(arg_1224741671);
-        if (((args_1224741672).length < 0)) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("header-row"), makeNimstrLit("0"), HEX24_335544323((args_1224741672).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224743306 = parseXidocArguments_1325404662(arg_1224743305);
+        if (((args_1224743306).length < 0)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("header-row"), makeNimstrLit("0"), HEX24_335544323((args_1224743306).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
         Label1: do {
-          var HEX3Atmp_1224741737 = HEX5BHEX5D_1224741695(args_1224741672, HEX2EHEX2E_872415312(0, 1));
-          var iHEX60gensym162_1224741740 = 0;
-          var resultHEX60gensym162_1224741747 = newSeq_452985301(chckRange((HEX3Atmp_1224741737).length, 0, 2147483647));
+          var HEX3Atmp_1224743371 = HEX5BHEX5D_1224743329(args_1224743306, HEX2EHEX2E_872415312(0, 1));
+          var iHEX60gensym177_1224743374 = 0;
+          var resultHEX60gensym177_1224743381 = newSeq_452985301(chckRange((HEX3Atmp_1224743371).length, 0, 2147483647));
           Label2: do {
-            var it_1224741751 = null;
-            var it_1224741751_Idx = 0;
+            var it_1224743385 = null;
+            var it_1224743385_Idx = 0;
             var i_486542001 = 0;
-            var L_486542002 = (HEX3Atmp_1224741737).length;
+            var L_486542002 = (HEX3Atmp_1224743371).length;
             Label3: do {
                 Label4: while (true) {
                 if (!(i_486542001 < L_486542002)) break Label4;
-                  it_1224741751 = HEX3Atmp_1224741737; it_1224741751_Idx = chckIndx(i_486542001, 0, (HEX3Atmp_1224741737).length - 1);
-                  resultHEX60gensym162_1224741747[chckIndx(iHEX60gensym162_1224741740, 0, (resultHEX60gensym162_1224741747).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224736802, it_1224741751[it_1224741751_Idx]), NTI33554439);
-                  iHEX60gensym162_1224741740 = addInt(iHEX60gensym162_1224741740, 1);
+                  it_1224743385 = HEX3Atmp_1224743371; it_1224743385_Idx = chckIndx(i_486542001, 0, (HEX3Atmp_1224743371).length - 1);
+                  resultHEX60gensym177_1224743381[chckIndx(iHEX60gensym177_1224743374, 0, (resultHEX60gensym177_1224743381).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224738390, it_1224743385[it_1224743385_Idx]), NTI33554439);
+                  iHEX60gensym177_1224743374 = addInt(iHEX60gensym177_1224743374, 1);
                   i_486542001 = addInt(i_486542001, 1);
-                  if (!(((HEX3Atmp_1224741737).length == L_486542002))) {
+                  if (!(((HEX3Atmp_1224743371).length == L_486542002))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
@@ -11551,51 +11738,51 @@ function HEX3Aanonymous_1224741678(arg_1224741671) {
             } while (false);
           } while (false);
         } while (false);
-        var entries_1224741756 = nimCopy(null, resultHEX60gensym162_1224741747, NTI452985127);
-          var resultHEX60gensym165_1224741758 = false;
+        var entries_1224743390 = nimCopy(null, resultHEX60gensym177_1224743381, NTI452985127);
+          var resultHEX60gensym180_1224743392 = false;
           Label5: do {
-            var it_1224741779 = null;
+            var it_1224743413 = null;
             var i_486542006 = 0;
-            var L_486542007 = (doc_1224736802.stack).length;
+            var L_486542007 = (doc_1224738390.stack).length;
             Label6: do {
                 Label7: while (true) {
                 if (!(i_486542006 < L_486542007)) break Label7;
-                  it_1224741779 = doc_1224736802.stack[chckIndx(i_486542006, 0, (doc_1224736802.stack).length - 1)];
-                  if (eqStrings(it_1224741779.cmdName, makeNimstrLit("table"))) {
-                  resultHEX60gensym165_1224741758 = true;
+                  it_1224743413 = doc_1224738390.stack[chckIndx(i_486542006, 0, (doc_1224738390.stack).length - 1)];
+                  if (eqStrings(it_1224743413.cmdName, makeNimstrLit("table"))) {
+                  resultHEX60gensym180_1224743392 = true;
                   break Label5;
                   }
                   
                   i_486542006 = addInt(i_486542006, 1);
-                  if (!(((doc_1224736802.stack).length == L_486542007))) {
+                  if (!(((doc_1224738390.stack).length == L_486542007))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
                 }
             } while (false);
           } while (false);
-        if (!(resultHEX60gensym165_1224741758)) {
+        if (!(resultHEX60gensym180_1224743392)) {
         raiseException({message: makeNimstrLit("The header-row command has to be inside a table command"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        switch (doc_1224736802.target) {
+        switch (doc_1224738390.target) {
         case 0:
           Label9: do {
-            var iHEX60gensym169_1224741801 = 0;
-            var resultHEX60gensym169_1224741808 = newSeq_452985301(chckRange((entries_1224741756).length, 0, 2147483647));
+            var iHEX60gensym184_1224743435 = 0;
+            var resultHEX60gensym184_1224743442 = newSeq_452985301(chckRange((entries_1224743390).length, 0, 2147483647));
             Label10: do {
-              var it_1224741812 = null;
-              var it_1224741812_Idx = 0;
+              var it_1224743446 = null;
+              var it_1224743446_Idx = 0;
               var i_486542011 = 0;
-              var L_486542012 = (entries_1224741756).length;
+              var L_486542012 = (entries_1224743390).length;
               Label11: do {
                   Label12: while (true) {
                   if (!(i_486542011 < L_486542012)) break Label12;
-                    it_1224741812 = entries_1224741756; it_1224741812_Idx = chckIndx(i_486542011, 0, (entries_1224741756).length - 1);
-                    resultHEX60gensym169_1224741808[chckIndx(iHEX60gensym169_1224741801, 0, (resultHEX60gensym169_1224741808).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("<th>$1</th>"), it_1224741812[it_1224741812_Idx]), NTI33554439);
-                    iHEX60gensym169_1224741801 = addInt(iHEX60gensym169_1224741801, 1);
+                    it_1224743446 = entries_1224743390; it_1224743446_Idx = chckIndx(i_486542011, 0, (entries_1224743390).length - 1);
+                    resultHEX60gensym184_1224743442[chckIndx(iHEX60gensym184_1224743435, 0, (resultHEX60gensym184_1224743442).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("<th>$1</th>"), it_1224743446[it_1224743446_Idx]), NTI33554439);
+                    iHEX60gensym184_1224743435 = addInt(iHEX60gensym184_1224743435, 1);
                     i_486542011 = addInt(i_486542011, 1);
-                    if (!(((entries_1224741756).length == L_486542012))) {
+                    if (!(((entries_1224743390).length == L_486542012))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -11603,42 +11790,42 @@ function HEX3Aanonymous_1224741678(arg_1224741671) {
               } while (false);
             } while (false);
           } while (false);
-          Temporary8 = nsuFormatSingleElem(makeNimstrLit("<tr>$1</tr>"), nsuJoinSep(resultHEX60gensym169_1224741808, []));
+          Temporary8 = nsuFormatSingleElem(makeNimstrLit("<tr>$1</tr>"), nsuJoinSep(resultHEX60gensym184_1224743442, []));
           break;
         case 1:
-          Temporary8 = nsuFormatSingleElem(makeNimstrLit("$1\\\\\\midrule "), nsuJoinSep(entries_1224741756, makeNimstrLit("&")));
+          Temporary8 = nsuFormatSingleElem(makeNimstrLit("$1\\\\\\midrule "), nsuJoinSep(entries_1224743390, makeNimstrLit("&")));
           break;
         }
-        result_1224741679 = nimCopy(result_1224741679, {rendered: true, str: nimCopy(null, Temporary8, NTI33554439)}, NTI1577058309);
+        result_1224743313 = nimCopy(result_1224743313, {rendered: true, str: nimCopy(null, Temporary8, NTI33554439)}, NTI1577058309);
 
-      return result_1224741679;
+      return result_1224743313;
 
     }
     
-function HEX3Aanonymous_1224741879(arg_1224741872) {
+function HEX3Aanonymous_1224743513(arg_1224743506) {
           var Temporary1;
         var Temporary2;
 
-      var result_1224741880 = ({rendered: false, str: []});
+      var result_1224743514 = ({rendered: false, str: []});
 
-        var args_1224741873 = parseXidocArguments_1325404662(arg_1224741872);
-          if (((args_1224741873).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224741873).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("html-add-attrs"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224741873).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224743507 = parseXidocArguments_1325404662(arg_1224743506);
+          if (((args_1224743507).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224743507).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("html-add-attrs"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224743507).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var args_1224741894 = expandStr_1308622885(doc_1224736802, HEX5BHEX5D_1761607718(args_1224741873, 2));
-        var tag_1224741899 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224741873, 1));
-        switch (doc_1224736802.target) {
+        var args_1224743528 = expandStr_1308622885(doc_1224738390, HEX5BHEX5D_1778384934(args_1224743507, 2));
+        var tag_1224743533 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224743507, 1));
+        switch (doc_1224738390.target) {
         case 0:
-          var matches_1224741900 = [[], []];
-          if (!(npegsmatchCapture(tag_1224741899, peg_1241517878(makeNimstrLit("{\'<\' [a-zA-Z-]+} {.*}")), matches_1224741900, 0))) {
+          var matches_1224743534 = [[], []];
+          if (!(npegsmatchCapture(tag_1224743533, peg_1241517878(makeNimstrLit("{\'<\' [a-zA-Z-]+} {.*}")), matches_1224743534, 0))) {
           raiseException({message: makeNimstrLit("Can\'t add HTML attribute to something that isn\'t an HTML tag"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           }
           
-          var attrs_1224741908 = newSeq_452985301(0);
-          var classes_1224741916 = newSeq_452985301(0);
+          var attrs_1224743542 = newSeq_452985301(0);
+          var classes_1224743550 = newSeq_452985301(0);
           Label3: do {
-            var arg_1224741917 = [];
+            var arg_1224743551 = [];
             var lastHEX60gensym59_486542015 = 0;
             var splitsHEX60gensym59_486542016 = -1;
             if (false) {
@@ -11647,36 +11834,36 @@ function HEX3Aanonymous_1224741879(arg_1224741872) {
             
             Label4: do {
                 Label5: while (true) {
-                if (!(lastHEX60gensym59_486542015 < (args_1224741894).length)) break Label5;
+                if (!(lastHEX60gensym59_486542015 < (args_1224743528).length)) break Label5;
                   Label6: do {
                       Label7: while (true) {
-                      if (!((lastHEX60gensym59_486542015 < (args_1224741894).length) && (ConstSet216[args_1224741894[chckIndx(lastHEX60gensym59_486542015, 0, (args_1224741894).length - 1)]] != undefined))) break Label7;
+                      if (!((lastHEX60gensym59_486542015 < (args_1224743528).length) && (ConstSet218[args_1224743528[chckIndx(lastHEX60gensym59_486542015, 0, (args_1224743528).length - 1)]] != undefined))) break Label7;
                         lastHEX60gensym59_486542015 = addInt(lastHEX60gensym59_486542015, 1);
                       }
                   } while (false);
                   var firstHEX60gensym59_486542019 = lastHEX60gensym59_486542015;
                   Label8: do {
                       Label9: while (true) {
-                      if (!((lastHEX60gensym59_486542015 < (args_1224741894).length) && !((ConstSet217[args_1224741894[chckIndx(lastHEX60gensym59_486542015, 0, (args_1224741894).length - 1)]] != undefined)))) break Label9;
+                      if (!((lastHEX60gensym59_486542015 < (args_1224743528).length) && !((ConstSet219[args_1224743528[chckIndx(lastHEX60gensym59_486542015, 0, (args_1224743528).length - 1)]] != undefined)))) break Label9;
                         lastHEX60gensym59_486542015 = addInt(lastHEX60gensym59_486542015, 1);
                       }
                   } while (false);
                   if ((firstHEX60gensym59_486542019 <= subInt(lastHEX60gensym59_486542015, 1))) {
                   if ((splitsHEX60gensym59_486542016 == 0)) {
-                  lastHEX60gensym59_486542015 = (args_1224741894).length;
+                  lastHEX60gensym59_486542015 = (args_1224743528).length;
                   }
                   
-                  arg_1224741917 = substr_33557907(args_1224741894, firstHEX60gensym59_486542019, subInt(lastHEX60gensym59_486542015, 1));
-                  if (nsuStartsWith(arg_1224741917, makeNimstrLit("#"))) {
-                  attrs_1224741908.push(nsuFormatSingleElem(makeNimstrLit("id=\"$1\""), HEX5BHEX5D_939527322(arg_1224741917, HEX2EHEX2E_872415312(1, 1))));;
+                  arg_1224743551 = substr_33557907(args_1224743528, firstHEX60gensym59_486542019, subInt(lastHEX60gensym59_486542015, 1));
+                  if (nsuStartsWith(arg_1224743551, makeNimstrLit("#"))) {
+                  attrs_1224743542.push(nsuFormatSingleElem(makeNimstrLit("id=\"$1\""), HEX5BHEX5D_939527322(arg_1224743551, HEX2EHEX2E_872415312(1, 1))));;
                   }
                   else {
-                  if (nsuStartsWith(arg_1224741917, makeNimstrLit("."))) {
-                  classes_1224741916.push(HEX5BHEX5D_939527322(arg_1224741917, HEX2EHEX2E_872415312(1, 1)));;
+                  if (nsuStartsWith(arg_1224743551, makeNimstrLit("."))) {
+                  classes_1224743550.push(HEX5BHEX5D_939527322(arg_1224743551, HEX2EHEX2E_872415312(1, 1)));;
                   }
                   else {
-                    var Temporary10 = nimCopy(null, arg_1224741917, NTI33554439);
-                  attrs_1224741908.push(Temporary10);;
+                    var Temporary10 = nimCopy(null, arg_1224743551, NTI33554439);
+                  attrs_1224743542.push(Temporary10);;
                   }
                   }
                   if ((splitsHEX60gensym59_486542016 == 0)) {
@@ -11689,120 +11876,120 @@ function HEX3Aanonymous_1224741879(arg_1224741872) {
                 }
             } while (false);
           } while (false);
-          if (!(((classes_1224741916).length == 0))) {
-          attrs_1224741908.push(nsuFormatSingleElem(makeNimstrLit("class=\"$1\""), nsuJoinSep(classes_1224741916, makeNimstrLit(" "))));;
+          if (!(((classes_1224743550).length == 0))) {
+          attrs_1224743542.push(nsuFormatSingleElem(makeNimstrLit("class=\"$1\""), nsuJoinSep(classes_1224743550, makeNimstrLit(" "))));;
           }
           
-          Temporary2 = nsuJoinSep(matches_1224741900, (makeNimstrLit(" ") || []).concat(nsuJoinSep(attrs_1224741908, makeNimstrLit(" ")) || []));
+          Temporary2 = nsuJoinSep(matches_1224743534, (makeNimstrLit(" ") || []).concat(nsuJoinSep(attrs_1224743542, makeNimstrLit(" ")) || []));
           break;
         default: 
-          Temporary2 = tag_1224741899;
+          Temporary2 = tag_1224743533;
           break;
         }
-        result_1224741880 = nimCopy(result_1224741880, {rendered: true, str: nimCopy(null, Temporary2, NTI33554439)}, NTI1577058309);
+        result_1224743514 = nimCopy(result_1224743514, {rendered: true, str: nimCopy(null, Temporary2, NTI33554439)}, NTI1577058309);
 
-      return result_1224741880;
+      return result_1224743514;
 
     }
     
-function HEX3Aanonymous_1224742025(arg_1224742019) {
+function HEX3Aanonymous_1224743659(arg_1224743653) {
         var Temporary1;
 
-      var result_1224742026 = ({rendered: false, str: []});
+      var result_1224743660 = ({rendered: false, str: []});
 
-        var arg_1224742027 = nsuStrip(arg_1224742019, true, true, ConstSet218);
-        if ((doc_1224736802.target == 0)) {
-        Temporary1 = renderStr_1308623169(doc_1224736802, arg_1224742027);
+        var arg_1224743661 = nsuStrip(arg_1224743653, true, true, ConstSet220);
+        if ((doc_1224738390.target == 0)) {
+        Temporary1 = renderStr_1308623169(doc_1224738390, arg_1224743661);
         }
         else {
         Temporary1 = [];
         }
         
-        result_1224742026 = nimCopy(result_1224742026, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224743660 = nimCopy(result_1224743660, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224742026;
+      return result_1224743660;
 
     }
     
-function HEX3Aanonymous_1224742085(arg_1224742079) {
+function HEX3Aanonymous_1224743719(arg_1224743713) {
         var Temporary1;
 
-      var result_1224742086 = ({rendered: false, str: []});
+      var result_1224743720 = ({rendered: false, str: []});
 
-        var arg_1224742087 = nsuStrip(arg_1224742079, true, true, ConstSet219);
-        if ((doc_1224736802.target == 1)) {
-        Temporary1 = renderStr_1308623169(doc_1224736802, arg_1224742087);
+        var arg_1224743721 = nsuStrip(arg_1224743713, true, true, ConstSet221);
+        if ((doc_1224738390.target == 1)) {
+        Temporary1 = renderStr_1308623169(doc_1224738390, arg_1224743721);
         }
         else {
         Temporary1 = [];
         }
         
-        result_1224742086 = nimCopy(result_1224742086, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224743720 = nimCopy(result_1224743720, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224742086;
+      return result_1224743720;
 
     }
     
-function HEX3Aanonymous_1224742145(arg_1224742138) {
+function HEX3Aanonymous_1224743779(arg_1224743772) {
         var Temporary5;
         var Temporary7;
         
-function HEX3Aanonymous_1224742214() {
+function HEX3Aanonymous_1224743848() {
                     var Temporary4;
 
-          var result_1224742215 = 0;
+          var result_1224743849 = 0;
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym204_1224742224 = 0;
-              var colontmp__486542326 = 0;
-              colontmp__486542326 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542327 = colontmp__486542326;
+              var iHEX60gensym219_1224743858 = 0;
+              var colontmp__486542331 = 0;
+              colontmp__486542331 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542332 = colontmp__486542331;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486542327)) break Label3;
-                    iHEX60gensym204_1224742224 = res_486542327;
-                    var frameHEX60gensym204_1224742225 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym204_1224742224, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym204_1224742225.lang)) {
-                    result_1224742215 = (Temporary4 = get_1224738927(frameHEX60gensym204_1224742225.lang), Temporary4)[0][Temporary4[1]];
+                  if (!(0 <= res_486542332)) break Label3;
+                    iHEX60gensym219_1224743858 = res_486542332;
+                    var frameHEX60gensym219_1224743859 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym219_1224743858, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym219_1224743859.lang)) {
+                    result_1224743849 = (Temporary4 = get_1224740460(frameHEX60gensym219_1224743859.lang), Temporary4)[0][Temporary4[1]];
                     break BeforeRet;
                     }
                     
-                    res_486542327 = subInt(res_486542327, 1);
+                    res_486542332 = subInt(res_486542332, 1);
                   }
               } while (false);
             } while (false);
           } while (false);
 
-          return result_1224742215;
+          return result_1224743849;
 
         }
 
-      var result_1224742146 = ({rendered: false, str: []});
+      var result_1224743780 = ({rendered: false, str: []});
 
-        var args_1224742139 = parseXidocArguments_1325404662(arg_1224742138);
-        if (((args_1224742139).length < 1)) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("include"), makeNimstrLit("1"), HEX24_335544323((args_1224742139).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224743773 = parseXidocArguments_1325404662(arg_1224743772);
+        if (((args_1224743773).length < 1)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("include"), makeNimstrLit("1"), HEX24_335544323((args_1224743773).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var filename_1224742153 = expandStr_1308622885(doc_1224736802, args_1224742139[chckIndx(0, 0, (args_1224742139).length - 1)]);
+        var filename_1224743787 = expandStr_1308622885(doc_1224738390, args_1224743773[chckIndx(0, 0, (args_1224743773).length - 1)]);
         Label1: do {
-          var HEX3Atmp_1224742188 = HEX5BHEX5D_1224741695(args_1224742139, HEX2EHEX2E_872415312(1, 1));
-          var iHEX60gensym199_1224742191 = 0;
-          var resultHEX60gensym199_1224742198 = newSeq_452985301(chckRange((HEX3Atmp_1224742188).length, 0, 2147483647));
+          var HEX3Atmp_1224743822 = HEX5BHEX5D_1224743329(args_1224743773, HEX2EHEX2E_872415312(1, 1));
+          var iHEX60gensym214_1224743825 = 0;
+          var resultHEX60gensym214_1224743832 = newSeq_452985301(chckRange((HEX3Atmp_1224743822).length, 0, 2147483647));
           Label2: do {
-            var it_1224742202 = null;
-            var it_1224742202_Idx = 0;
+            var it_1224743836 = null;
+            var it_1224743836_Idx = 0;
             var i_486542023 = 0;
-            var L_486542024 = (HEX3Atmp_1224742188).length;
+            var L_486542024 = (HEX3Atmp_1224743822).length;
             Label3: do {
                 Label4: while (true) {
                 if (!(i_486542023 < L_486542024)) break Label4;
-                  it_1224742202 = HEX3Atmp_1224742188; it_1224742202_Idx = chckIndx(i_486542023, 0, (HEX3Atmp_1224742188).length - 1);
-                  resultHEX60gensym199_1224742198[chckIndx(iHEX60gensym199_1224742191, 0, (resultHEX60gensym199_1224742198).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224736802, it_1224742202[it_1224742202_Idx]), NTI33554439);
-                  iHEX60gensym199_1224742191 = addInt(iHEX60gensym199_1224742191, 1);
+                  it_1224743836 = HEX3Atmp_1224743822; it_1224743836_Idx = chckIndx(i_486542023, 0, (HEX3Atmp_1224743822).length - 1);
+                  resultHEX60gensym214_1224743832[chckIndx(iHEX60gensym214_1224743825, 0, (resultHEX60gensym214_1224743832).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224738390, it_1224743836[it_1224743836_Idx]), NTI33554439);
+                  iHEX60gensym214_1224743825 = addInt(iHEX60gensym214_1224743825, 1);
                   i_486542023 = addInt(i_486542023, 1);
-                  if (!(((HEX3Atmp_1224742188).length == L_486542024))) {
+                  if (!(((HEX3Atmp_1224743822).length == L_486542024))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
@@ -11810,32 +11997,32 @@ function HEX3Aanonymous_1224742214() {
             } while (false);
           } while (false);
         } while (false);
-        var args_1224742207 = nimCopy(null, resultHEX60gensym199_1224742198, NTI452985127);
-        if (!((modInt((args_1224742207).length, 2) == 0))) {
+        var args_1224743841 = nimCopy(null, resultHEX60gensym214_1224743832, NTI452985127);
+        if (!((modInt((args_1224743841).length, 2) == 0))) {
         raiseException({message: makeNimstrLit("Additional arguments to include must come in pairs"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var path_1224742211 = HEX2F_620757108(nossplitPath(doc_1224736802.path).Field0, filename_1224742153);
+        var path_1224743845 = HEX2F_620757108(nossplitPath(doc_1224738390.path).Field0, filename_1224743787);
 ++excHandler;
         Temporary7 = framePtr;
         try {
-        var subdoc_1224742257 = {path: nimCopy(null, path_1224742211, NTI33554439), body: readFile_452985260(path_1224742211), target: doc_1224736802.target, snippet: true, stack: [{cmdName: makeNimstrLit("[top]"), lang: some_1224742248(HEX3Aanonymous_1224742214()), args: ({data: [], counter: 0}), cmdArg: [], commands: ({data: [], counter: 0})}], addToHead: ({data: [], counter: 0, first: 0, last: 0}), mathRenderer: 0, templateArgs: ({data: [], counter: 0}), verbose: false};
-        subdoc_1224742257.stack[chckIndx(0, 0, (subdoc_1224742257.stack).length - 1)].commands = nimCopy(subdoc_1224742257.stack[chckIndx(0, 0, (subdoc_1224742257.stack).length - 1)].commands, defaultCommands_1224736801(subdoc_1224742257), NTI1577058327);
+        var subdoc_1224743891 = {path: nimCopy(null, path_1224743845, NTI33554439), body: readFile_452985260(path_1224743845), target: doc_1224738390.target, snippet: true, stack: [{cmdName: makeNimstrLit("[top]"), lang: some_1224743882(HEX3Aanonymous_1224743848()), args: ({data: [], counter: 0}), cmdArg: [], commands: ({data: [], counter: 0})}], addToHead: ({data: [], counter: 0, first: 0, last: 0}), mathRenderer: 0, templateArgs: ({data: [], counter: 0}), verbose: false, syntaxHighlightingTheme: 0};
+        subdoc_1224743891.stack[chckIndx(0, 0, (subdoc_1224743891.stack).length - 1)].commands = nimCopy(subdoc_1224743891.stack[chckIndx(0, 0, (subdoc_1224743891.stack).length - 1)].commands, defaultCommands_1224738389(subdoc_1224743891), NTI1577058329);
         Label8: do {
-          var i_1224742265 = 0;
+          var i_1224743899 = 0;
           var colontmp__486542027 = 0;
-          colontmp__486542027 = divInt((args_1224742207).length, 2);
+          colontmp__486542027 = divInt((args_1224743841).length, 2);
           var i_486542028 = 0;
           Label9: do {
               Label10: while (true) {
               if (!(i_486542028 < colontmp__486542027)) break Label10;
-                i_1224742265 = i_486542028;
-                HEX5BHEX5DHEX3D_1493172312(subdoc_1224742257.templateArgs, args_1224742207[chckIndx(mulInt(2, i_1224742265), 0, (args_1224742207).length - 1)], args_1224742207[chckIndx(addInt(mulInt(2, i_1224742265), 1), 0, (args_1224742207).length - 1)]);
+                i_1224743899 = i_486542028;
+                HEX5BHEX5DHEX3D_1493172312(subdoc_1224743891.templateArgs, args_1224743841[chckIndx(mulInt(2, i_1224743899), 0, (args_1224743841).length - 1)], args_1224743841[chckIndx(addInt(mulInt(2, i_1224743899), 1), 0, (args_1224743841).length - 1)]);
                 i_486542028 = addInt(i_486542028, 1);
               }
           } while (false);
         } while (false);
-        Temporary5 = renderStr_1308623169(subdoc_1224742257, subdoc_1224742257.body);
+        Temporary5 = renderStr_1308623169(subdoc_1224743891, subdoc_1224743891.body);
 --excHandler;
 } catch (EXCEPTION) {
  var prevJSError = lastJSError;
@@ -11843,13 +12030,13 @@ function HEX3Aanonymous_1224742214() {
  --excHandler;
         framePtr = Temporary7;
         if (lastJSError && (isObj(lastJSError.m_type, NTI33555115))) {
-        var fmtRes_1224742312 = [mnewString(0)];
-        fmtRes_1224742312[0].push.apply(fmtRes_1224742312[0], makeNimstrLit("Cannot open file "));;
-        formatValue_1627390114(fmtRes_1224742312, 0, filename_1224742153, []);
-        fmtRes_1224742312[0].push.apply(fmtRes_1224742312[0], makeNimstrLit("\x0A(resolved as "));;
-        formatValue_1627390114(fmtRes_1224742312, 0, path_1224742211, []);
-        fmtRes_1224742312[0].push.apply(fmtRes_1224742312[0], makeNimstrLit(")"));;
-        raiseException({message: nimCopy(null, fmtRes_1224742312[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var fmtRes_1224743946 = [mnewString(0)];
+        fmtRes_1224743946[0].push.apply(fmtRes_1224743946[0], makeNimstrLit("Cannot open file "));;
+        formatValue_1627390114(fmtRes_1224743946, 0, filename_1224743787, []);
+        fmtRes_1224743946[0].push.apply(fmtRes_1224743946[0], makeNimstrLit("\x0A(resolved as "));;
+        formatValue_1627390114(fmtRes_1224743946, 0, path_1224743845, []);
+        fmtRes_1224743946[0].push.apply(fmtRes_1224743946[0], makeNimstrLit(")"));;
+        raiseException({message: nimCopy(null, fmtRes_1224743946[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         else {
         	reraiseException();
@@ -11858,30 +12045,30 @@ function HEX3Aanonymous_1224742214() {
         } finally {
         framePtr = Temporary7;
         }
-        result_1224742146 = nimCopy(result_1224742146, {rendered: true, str: nimCopy(null, Temporary5, NTI33554439)}, NTI1577058309);
+        result_1224743780 = nimCopy(result_1224743780, {rendered: true, str: nimCopy(null, Temporary5, NTI33554439)}, NTI1577058309);
 
-      return result_1224742146;
+      return result_1224743780;
 
     }
     
-function HEX3Aanonymous_1224742411(arg_1224742404) {
+function HEX3Aanonymous_1224744048(arg_1224744041) {
           var Temporary1;
         var Temporary2;
         var Temporary4;
 
-      var result_1224742412 = ({rendered: false, str: []});
+      var result_1224744049 = ({rendered: false, str: []});
 
-        var args_1224742405 = parseXidocArguments_1325404662(arg_1224742404);
-          if (((args_1224742405).length < 1)) Temporary1 = true; else {            Temporary1 = (1 < (args_1224742405).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("inject"), makeNimstrLit("1"), makeNimstrLit("1"), HEX24_335544323((args_1224742405).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744042 = parseXidocArguments_1325404662(arg_1224744041);
+          if (((args_1224744042).length < 1)) Temporary1 = true; else {            Temporary1 = (1 < (args_1224744042).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("inject"), makeNimstrLit("1"), makeNimstrLit("1"), HEX24_335544323((args_1224744042).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var filename_1224742426 = expandStr_1308622885(doc_1224736802, HEX5BHEX5D_1761607718(args_1224742405, 1));
-        var path_1224742427 = HEX2F_620757108(nossplitPath(doc_1224736802.path).Field0, filename_1224742426);
+        var filename_1224744063 = expandStr_1308622885(doc_1224738390, HEX5BHEX5D_1778384934(args_1224744042, 1));
+        var path_1224744064 = HEX2F_620757108(nossplitPath(doc_1224738390.path).Field0, filename_1224744063);
 ++excHandler;
         Temporary4 = framePtr;
         try {
-        Temporary2 = renderStr_1308623169(doc_1224736802, readFile_452985260(path_1224742427));
+        Temporary2 = renderStr_1308623169(doc_1224738390, readFile_452985260(path_1224744064));
 --excHandler;
 } catch (EXCEPTION) {
  var prevJSError = lastJSError;
@@ -11889,13 +12076,13 @@ function HEX3Aanonymous_1224742411(arg_1224742404) {
  --excHandler;
         framePtr = Temporary4;
         if (lastJSError && (isObj(lastJSError.m_type, NTI33555115))) {
-        var fmtRes_1224742428 = [mnewString(0)];
-        fmtRes_1224742428[0].push.apply(fmtRes_1224742428[0], makeNimstrLit("Cannot open file "));;
-        formatValue_1627390114(fmtRes_1224742428, 0, filename_1224742426, []);
-        fmtRes_1224742428[0].push.apply(fmtRes_1224742428[0], makeNimstrLit("\x0A(resolved as "));;
-        formatValue_1627390114(fmtRes_1224742428, 0, path_1224742427, []);
-        fmtRes_1224742428[0].push.apply(fmtRes_1224742428[0], makeNimstrLit(")"));;
-        raiseException({message: nimCopy(null, fmtRes_1224742428[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var fmtRes_1224744065 = [mnewString(0)];
+        fmtRes_1224744065[0].push.apply(fmtRes_1224744065[0], makeNimstrLit("Cannot open file "));;
+        formatValue_1627390114(fmtRes_1224744065, 0, filename_1224744063, []);
+        fmtRes_1224744065[0].push.apply(fmtRes_1224744065[0], makeNimstrLit("\x0A(resolved as "));;
+        formatValue_1627390114(fmtRes_1224744065, 0, path_1224744064, []);
+        fmtRes_1224744065[0].push.apply(fmtRes_1224744065[0], makeNimstrLit(")"));;
+        raiseException({message: nimCopy(null, fmtRes_1224744065[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         else {
         	reraiseException();
@@ -11904,46 +12091,46 @@ function HEX3Aanonymous_1224742411(arg_1224742404) {
         } finally {
         framePtr = Temporary4;
         }
-        result_1224742412 = nimCopy(result_1224742412, {rendered: true, str: nimCopy(null, Temporary2, NTI33554439)}, NTI1577058309);
+        result_1224744049 = nimCopy(result_1224744049, {rendered: true, str: nimCopy(null, Temporary2, NTI33554439)}, NTI1577058309);
 
-      return result_1224742412;
+      return result_1224744049;
 
     }
     
-function HEX3Aanonymous_1224742481(arg_1224742475) {
+function HEX3Aanonymous_1224744118(arg_1224744112) {
         var Temporary1;
 
-      var result_1224742482 = ({rendered: false, str: []});
+      var result_1224744119 = ({rendered: false, str: []});
 
-        var arg_1224742483 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224742475, true, true, ConstSet234));
-        switch (doc_1224736802.target) {
+        var arg_1224744120 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224744112, true, true, ConstSet236));
+        switch (doc_1224738390.target) {
         case 0:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<i>$1</i>"), arg_1224742483);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<i>$1</i>"), arg_1224744120);
           break;
         case 1:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\textit{$1}"), arg_1224742483);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\textit{$1}"), arg_1224744120);
           break;
         }
-        result_1224742482 = nimCopy(result_1224742482, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224744119 = nimCopy(result_1224744119, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224742482;
+      return result_1224744119;
 
     }
     
-function HEX3Aanonymous_1224742537(arg_1224742530) {
+function HEX3Aanonymous_1224744174(arg_1224744167) {
           var Temporary1;
         var Temporary2;
 
-      var result_1224742538 = ({rendered: false, str: []});
+      var result_1224744175 = ({rendered: false, str: []});
 
-        var args_1224742531 = parseXidocArguments_1325404662(arg_1224742530);
-          if (((args_1224742531).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224742531).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("lang"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224742531).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744168 = parseXidocArguments_1325404662(arg_1224744167);
+          if (((args_1224744168).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744168).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("lang"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224744168).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var langStr_1224742552 = expandStr_1308622885(doc_1224736802, HEX5BHEX5D_1761607718(args_1224742531, 2));
-        var body_1224742557 = HEX3Aanonymous_1744831187(doc_1224736802, HEX5BHEX5D_1761607718(args_1224742531, 1));
-        switch (toJSStr(nsuToLowerAsciiStr(langStr_1224742552))) {
+        var langStr_1224744189 = expandStr_1308622885(doc_1224738390, HEX5BHEX5D_1778384934(args_1224744168, 2));
+        var body_1224744194 = HEX3Aanonymous_1761608403(doc_1224738390, HEX5BHEX5D_1778384934(args_1224744168, 1));
+        switch (toJSStr(nsuToLowerAsciiStr(langStr_1224744189))) {
         case "en":
         case "english":
           Temporary2 = 0;
@@ -11954,79 +12141,79 @@ function HEX3Aanonymous_1224742537(arg_1224742530) {
           Temporary2 = 1;
           break;
         default: 
-          raiseException({message: nsuFormatSingleElem(makeNimstrLit("Unknown language: $1"), langStr_1224742552), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          raiseException({message: nsuFormatSingleElem(makeNimstrLit("Unknown language: $1"), langStr_1224744189), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           break;
         }
-        var lang_1224742558 = Temporary2;
-        HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).lang = nimCopy(HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).lang, some_1224742248(lang_1224742558), NTI1577058340);
-        result_1224742538 = nimCopy(result_1224742538, {rendered: true, str: nimCopy(null, renderStr_1308623169(doc_1224736802, body_1224742557), NTI33554439)}, NTI1577058309);
+        var lang_1224744195 = Temporary2;
+        HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).lang = nimCopy(HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).lang, some_1224743882(lang_1224744195), NTI1577058342);
+        result_1224744175 = nimCopy(result_1224744175, {rendered: true, str: nimCopy(null, renderStr_1308623169(doc_1224738390, body_1224744194), NTI33554439)}, NTI1577058309);
 
-      return result_1224742538;
+      return result_1224744175;
 
     }
     
-function HEX3Aanonymous_1224742619(arg_1224742612) {
+function HEX3Aanonymous_1224744256(arg_1224744249) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
 
-      var result_1224742620 = ({rendered: false, str: []});
+      var result_1224744257 = ({rendered: false, str: []});
 
-        var args_1224742613 = parseXidocArguments_1325404662(arg_1224742612);
-          if (((args_1224742613).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224742613).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("link"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224742613).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744250 = parseXidocArguments_1325404662(arg_1224744249);
+          if (((args_1224744250).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744250).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("link"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224744250).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224742613).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224742613[chckIndx(0, 0, (args_1224742613).length - 1)]));
+        if ((0 < subInt((args_1224744250).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224744250[chckIndx(0, 0, (args_1224744250).length - 1)]));
         }
         else {
-        Temporary2 = none_1761607937();
+        Temporary2 = none_1778385227();
         }
         
-        var name_1224742643 = nimCopy(null, Temporary2, NTI1761607851);
-        var url_1224742648 = expandStr_1308622885(doc_1224736802, HEX5BHEX5D_1761607718(args_1224742613, 1));
-        switch (doc_1224736802.target) {
+        var name_1224744280 = nimCopy(null, Temporary2, NTI1778385115);
+        var url_1224744285 = expandStr_1308622885(doc_1224738390, HEX5BHEX5D_1778384934(args_1224744250, 1));
+        switch (doc_1224738390.target) {
         case 0:
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("<a href=\"$1\">$2</a>"), [nimCopy(null, url_1224742648, NTI33554439), get_1778385679(name_1224742643, url_1224742648)]);
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("<a href=\"$1\">$2</a>"), [nimCopy(null, url_1224744285, NTI33554439), get_1795162896(name_1224744280, url_1224744285)]);
           break;
         case 1:
           Temporary3 = [];
           break;
         }
-        result_1224742620 = nimCopy(result_1224742620, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+        result_1224744257 = nimCopy(result_1224744257, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
 
-      return result_1224742620;
+      return result_1224744257;
 
     }
     
-function HEX3Aanonymous_1224742718(arg_1224742711) {
+function HEX3Aanonymous_1224744355(arg_1224744348) {
         var Temporary5;
 
-      var result_1224742719 = ({rendered: false, str: []});
+      var result_1224744356 = ({rendered: false, str: []});
 
-        var args_1224742712 = parseXidocArguments_1325404662(arg_1224742711);
-        if (((args_1224742712).length < 0)) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("list"), makeNimstrLit("0"), HEX24_335544323((args_1224742712).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744349 = parseXidocArguments_1325404662(arg_1224744348);
+        if (((args_1224744349).length < 0)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("list"), makeNimstrLit("0"), HEX24_335544323((args_1224744349).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
         Label1: do {
-          var HEX3Atmp_1224742760 = HEX5BHEX5D_1224741695(args_1224742712, HEX2EHEX2E_872415312(0, 1));
-          var iHEX60gensym243_1224742763 = 0;
-          var resultHEX60gensym243_1224742770 = newSeq_452985301(chckRange((HEX3Atmp_1224742760).length, 0, 2147483647));
+          var HEX3Atmp_1224744397 = HEX5BHEX5D_1224743329(args_1224744349, HEX2EHEX2E_872415312(0, 1));
+          var iHEX60gensym258_1224744400 = 0;
+          var resultHEX60gensym258_1224744407 = newSeq_452985301(chckRange((HEX3Atmp_1224744397).length, 0, 2147483647));
           Label2: do {
-            var it_1224742774 = null;
-            var it_1224742774_Idx = 0;
+            var it_1224744411 = null;
+            var it_1224744411_Idx = 0;
             var i_486542032 = 0;
-            var L_486542033 = (HEX3Atmp_1224742760).length;
+            var L_486542033 = (HEX3Atmp_1224744397).length;
             Label3: do {
                 Label4: while (true) {
                 if (!(i_486542032 < L_486542033)) break Label4;
-                  it_1224742774 = HEX3Atmp_1224742760; it_1224742774_Idx = chckIndx(i_486542032, 0, (HEX3Atmp_1224742760).length - 1);
-                  resultHEX60gensym243_1224742770[chckIndx(iHEX60gensym243_1224742763, 0, (resultHEX60gensym243_1224742770).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224736802, it_1224742774[it_1224742774_Idx]), NTI33554439);
-                  iHEX60gensym243_1224742763 = addInt(iHEX60gensym243_1224742763, 1);
+                  it_1224744411 = HEX3Atmp_1224744397; it_1224744411_Idx = chckIndx(i_486542032, 0, (HEX3Atmp_1224744397).length - 1);
+                  resultHEX60gensym258_1224744407[chckIndx(iHEX60gensym258_1224744400, 0, (resultHEX60gensym258_1224744407).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224738390, it_1224744411[it_1224744411_Idx]), NTI33554439);
+                  iHEX60gensym258_1224744400 = addInt(iHEX60gensym258_1224744400, 1);
                   i_486542032 = addInt(i_486542032, 1);
-                  if (!(((HEX3Atmp_1224742760).length == L_486542033))) {
+                  if (!(((HEX3Atmp_1224744397).length == L_486542033))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
@@ -12034,25 +12221,25 @@ function HEX3Aanonymous_1224742718(arg_1224742711) {
             } while (false);
           } while (false);
         } while (false);
-        var items_1224742779 = nimCopy(null, resultHEX60gensym243_1224742770, NTI452985127);
-        switch (doc_1224736802.target) {
+        var items_1224744416 = nimCopy(null, resultHEX60gensym258_1224744407, NTI452985127);
+        switch (doc_1224738390.target) {
         case 0:
           Label6: do {
-            var iHEX60gensym246_1224742801 = 0;
-            var resultHEX60gensym246_1224742808 = newSeq_452985301(chckRange((items_1224742779).length, 0, 2147483647));
+            var iHEX60gensym261_1224744438 = 0;
+            var resultHEX60gensym261_1224744445 = newSeq_452985301(chckRange((items_1224744416).length, 0, 2147483647));
             Label7: do {
-              var it_1224742812 = null;
-              var it_1224742812_Idx = 0;
+              var it_1224744449 = null;
+              var it_1224744449_Idx = 0;
               var i_486542037 = 0;
-              var L_486542038 = (items_1224742779).length;
+              var L_486542038 = (items_1224744416).length;
               Label8: do {
                   Label9: while (true) {
                   if (!(i_486542037 < L_486542038)) break Label9;
-                    it_1224742812 = items_1224742779; it_1224742812_Idx = chckIndx(i_486542037, 0, (items_1224742779).length - 1);
-                    resultHEX60gensym246_1224742808[chckIndx(iHEX60gensym246_1224742801, 0, (resultHEX60gensym246_1224742808).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("<li>$1</li>"), it_1224742812[it_1224742812_Idx]), NTI33554439);
-                    iHEX60gensym246_1224742801 = addInt(iHEX60gensym246_1224742801, 1);
+                    it_1224744449 = items_1224744416; it_1224744449_Idx = chckIndx(i_486542037, 0, (items_1224744416).length - 1);
+                    resultHEX60gensym261_1224744445[chckIndx(iHEX60gensym261_1224744438, 0, (resultHEX60gensym261_1224744445).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("<li>$1</li>"), it_1224744449[it_1224744449_Idx]), NTI33554439);
+                    iHEX60gensym261_1224744438 = addInt(iHEX60gensym261_1224744438, 1);
                     i_486542037 = addInt(i_486542037, 1);
-                    if (!(((items_1224742779).length == L_486542038))) {
+                    if (!(((items_1224744416).length == L_486542038))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -12060,25 +12247,25 @@ function HEX3Aanonymous_1224742718(arg_1224742711) {
               } while (false);
             } while (false);
           } while (false);
-          Temporary5 = nsuFormatSingleElem(makeNimstrLit("<ul>$1</ul>"), nsuJoinSep(resultHEX60gensym246_1224742808, []));
+          Temporary5 = nsuFormatSingleElem(makeNimstrLit("<ul>$1</ul>"), nsuJoinSep(resultHEX60gensym261_1224744445, []));
           break;
         case 1:
           Label10: do {
-            var iHEX60gensym249_1224742838 = 0;
-            var resultHEX60gensym249_1224742845 = newSeq_452985301(chckRange((items_1224742779).length, 0, 2147483647));
+            var iHEX60gensym264_1224744475 = 0;
+            var resultHEX60gensym264_1224744482 = newSeq_452985301(chckRange((items_1224744416).length, 0, 2147483647));
             Label11: do {
-              var it_1224742849 = null;
-              var it_1224742849_Idx = 0;
+              var it_1224744486 = null;
+              var it_1224744486_Idx = 0;
               var i_486542042 = 0;
-              var L_486542043 = (items_1224742779).length;
+              var L_486542043 = (items_1224744416).length;
               Label12: do {
                   Label13: while (true) {
                   if (!(i_486542042 < L_486542043)) break Label13;
-                    it_1224742849 = items_1224742779; it_1224742849_Idx = chckIndx(i_486542042, 0, (items_1224742779).length - 1);
-                    resultHEX60gensym249_1224742845[chckIndx(iHEX60gensym249_1224742838, 0, (resultHEX60gensym249_1224742845).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("\\item $1"), it_1224742849[it_1224742849_Idx]), NTI33554439);
-                    iHEX60gensym249_1224742838 = addInt(iHEX60gensym249_1224742838, 1);
+                    it_1224744486 = items_1224744416; it_1224744486_Idx = chckIndx(i_486542042, 0, (items_1224744416).length - 1);
+                    resultHEX60gensym264_1224744482[chckIndx(iHEX60gensym264_1224744475, 0, (resultHEX60gensym264_1224744482).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("\\item $1"), it_1224744486[it_1224744486_Idx]), NTI33554439);
+                    iHEX60gensym264_1224744475 = addInt(iHEX60gensym264_1224744475, 1);
                     i_486542042 = addInt(i_486542042, 1);
-                    if (!(((items_1224742779).length == L_486542043))) {
+                    if (!(((items_1224744416).length == L_486542043))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -12086,181 +12273,181 @@ function HEX3Aanonymous_1224742718(arg_1224742711) {
               } while (false);
             } while (false);
           } while (false);
-          Temporary5 = nsuFormatSingleElem(makeNimstrLit("\\begin{itemize}$1\\end{iremize}"), nsuJoinSep(resultHEX60gensym249_1224742845, []));
+          Temporary5 = nsuFormatSingleElem(makeNimstrLit("\\begin{itemize}$1\\end{iremize}"), nsuJoinSep(resultHEX60gensym264_1224744482, []));
           break;
         }
-        result_1224742719 = nimCopy(result_1224742719, {rendered: true, str: nimCopy(null, Temporary5, NTI33554439)}, NTI1577058309);
+        result_1224744356 = nimCopy(result_1224744356, {rendered: true, str: nimCopy(null, Temporary5, NTI33554439)}, NTI1577058309);
 
-      return result_1224742719;
+      return result_1224744356;
 
     }
     
-function HEX3Aanonymous_1224742906(arg_1224742900) {
+function HEX3Aanonymous_1224744543(arg_1224744537) {
         var Temporary1;
 
-      var result_1224742907 = ({rendered: false, str: []});
+      var result_1224744544 = ({rendered: false, str: []});
 
-        var arg_1224742908 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224742900, true, true, ConstSet236));
-        switch (doc_1224736802.target) {
+        var arg_1224744545 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224744537, true, true, ConstSet238));
+        switch (doc_1224738390.target) {
         case 0:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<code>$1</code>"), arg_1224742908);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<code>$1</code>"), arg_1224744545);
           break;
         case 1:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\texttt{$1}"), arg_1224742908);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\texttt{$1}"), arg_1224744545);
           break;
         }
-        result_1224742907 = nimCopy(result_1224742907, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224744544 = nimCopy(result_1224744544, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224742907;
+      return result_1224744544;
 
     }
     
-function HEX3Aanonymous_1224742961(arg_1224742955) {
+function HEX3Aanonymous_1224744598(arg_1224744592) {
         var Temporary1;
 
-      var result_1224742962 = ({rendered: false, str: []});
+      var result_1224744599 = ({rendered: false, str: []});
 
-        var arg_1224742963 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224742955, true, true, ConstSet237));
-        switch (doc_1224736802.target) {
+        var arg_1224744600 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224744592, true, true, ConstSet239));
+        switch (doc_1224738390.target) {
         case 0:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<p>$1</p>"), arg_1224742963);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<p>$1</p>"), arg_1224744600);
           break;
         case 1:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\par $1"), arg_1224742963);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\par $1"), arg_1224744600);
           break;
         }
-        result_1224742962 = nimCopy(result_1224742962, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224744599 = nimCopy(result_1224744599, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224742962;
-
-    }
-    
-function HEX3Aanonymous_1224743016(arg_1224743010) {
-      var result_1224743017 = ({rendered: false, str: []});
-
-        var arg_1224743018 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224743010, true, true, ConstSet238));
-        result_1224743017 = nimCopy(result_1224743017, {rendered: true, str: nimCopy(null, nsuStrip(arg_1224743018, true, true, ConstSet239), NTI33554439)}, NTI1577058309);
-
-      return result_1224743017;
+      return result_1224744599;
 
     }
     
-function HEX3Aanonymous_1224743071(arg_1224743065) {
-      var result_1224743072 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224744653(arg_1224744647) {
+      var result_1224744654 = ({rendered: false, str: []});
 
-        var arg_1224743073 = nsuStrip(arg_1224743065, true, true, ConstSet240);
-        result_1224743072 = nimCopy(result_1224743072, {rendered: true, str: nimCopy(null, nsuStrip(arg_1224743073, true, true, ConstSet241), NTI33554439)}, NTI1577058309);
+        var arg_1224744655 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224744647, true, true, ConstSet240));
+        result_1224744654 = nimCopy(result_1224744654, {rendered: true, str: nimCopy(null, nsuStrip(arg_1224744655, true, true, ConstSet241), NTI33554439)}, NTI1577058309);
 
-      return result_1224743072;
+      return result_1224744654;
 
     }
     
-function HEX3Aanonymous_1224743132(arg_1224743125) {
+function HEX3Aanonymous_1224744708(arg_1224744702) {
+      var result_1224744709 = ({rendered: false, str: []});
+
+        var arg_1224744710 = nsuStrip(arg_1224744702, true, true, ConstSet242);
+        result_1224744709 = nimCopy(result_1224744709, {rendered: true, str: nimCopy(null, nsuStrip(arg_1224744710, true, true, ConstSet243), NTI33554439)}, NTI1577058309);
+
+      return result_1224744709;
+
+    }
+    
+function HEX3Aanonymous_1224744769(arg_1224744762) {
           var Temporary1;
         var Temporary2;
         
-function HEX3Aanonymous_1224743164() {
+function HEX3Aanonymous_1224744801() {
                     var Temporary4;
 
-          var result_1224743165 = 0;
+          var result_1224744802 = 0;
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym270_1224743174 = 0;
-              var colontmp__486542330 = 0;
-              colontmp__486542330 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542331 = colontmp__486542330;
+              var iHEX60gensym285_1224744811 = 0;
+              var colontmp__486542335 = 0;
+              colontmp__486542335 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542336 = colontmp__486542335;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486542331)) break Label3;
-                    iHEX60gensym270_1224743174 = res_486542331;
-                    var frameHEX60gensym270_1224743175 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym270_1224743174, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym270_1224743175.lang)) {
-                    result_1224743165 = (Temporary4 = get_1224738927(frameHEX60gensym270_1224743175.lang), Temporary4)[0][Temporary4[1]];
+                  if (!(0 <= res_486542336)) break Label3;
+                    iHEX60gensym285_1224744811 = res_486542336;
+                    var frameHEX60gensym285_1224744812 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym285_1224744811, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym285_1224744812.lang)) {
+                    result_1224744802 = (Temporary4 = get_1224740460(frameHEX60gensym285_1224744812.lang), Temporary4)[0][Temporary4[1]];
                     break BeforeRet;
                     }
                     
-                    res_486542331 = subInt(res_486542331, 1);
+                    res_486542336 = subInt(res_486542336, 1);
                   }
               } while (false);
             } while (false);
           } while (false);
 
-          return result_1224743165;
+          return result_1224744802;
 
         }
         var Temporary3;
           var Temporary4;
           var Temporary5;
 
-      var result_1224743133 = ({rendered: false, str: []});
+      var result_1224744770 = ({rendered: false, str: []});
 
-        var args_1224743126 = parseXidocArguments_1325404662(arg_1224743125);
-          if (((args_1224743126).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224743126).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("proof"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224743126).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744763 = parseXidocArguments_1325404662(arg_1224744762);
+          if (((args_1224744763).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744763).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("proof"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224744763).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224743126).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224743126[chckIndx(0, 0, (args_1224743126).length - 1)]));
+        if ((0 < subInt((args_1224744763).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224744763[chckIndx(0, 0, (args_1224744763).length - 1)]));
         }
         else {
-        Temporary2 = none_1761607937();
+        Temporary2 = none_1778385227();
         }
         
-        var thName_1224743156 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224743161 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224743126, 1));
-        var wordHEX60gensym260_1224743198 = translate_1593835557(3, HEX3Aanonymous_1224743164());
-        switch (doc_1224736802.target) {
+        var thName_1224744793 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224744798 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224744763, 1));
+        var wordHEX60gensym275_1224744835 = translate_1593835557(3, HEX3Aanonymous_1224744801());
+        switch (doc_1224738390.target) {
         case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
-          if (isSome_1761607950(thName_1224743156)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("proof"), nimCopy(null, wordHEX60gensym260_1224743198, NTI33554439), nimCopy(null, (Temporary5 = get_1761607985(thName_1224743156), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224743161)]);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
+          if (isSome_1778385240(thName_1224744793)) {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("proof"), nimCopy(null, wordHEX60gensym275_1224744835, NTI33554439), nimCopy(null, (Temporary5 = get_1778385275(thName_1224744793), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224744798)]);
           }
           else {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("proof"), nimCopy(null, wordHEX60gensym260_1224743198, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224743161)]);
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("proof"), nimCopy(null, wordHEX60gensym275_1224744835, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224744798)]);
           }
           
           Temporary3 = Temporary4;
           break;
         case 1:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("proof"), nimCopy(null, wordHEX60gensym260_1224743198, NTI33554439)]));
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("proof"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224743161)]);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("proof"), nimCopy(null, wordHEX60gensym275_1224744835, NTI33554439)]));
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("proof"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224744798)]);
           break;
         }
-        result_1224743133 = nimCopy(result_1224743133, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+        result_1224744770 = nimCopy(result_1224744770, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
 
-      return result_1224743133;
+      return result_1224744770;
 
     }
     
-function HEX3Aanonymous_1224743343(arg_1224743336) {
+function HEX3Aanonymous_1224744980(arg_1224744973) {
         var Temporary5;
 
-      var result_1224743344 = ({rendered: false, str: []});
+      var result_1224744981 = ({rendered: false, str: []});
 
-        var args_1224743337 = parseXidocArguments_1325404662(arg_1224743336);
-        if (((args_1224743337).length < 0)) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("props"), makeNimstrLit("0"), HEX24_335544323((args_1224743337).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744974 = parseXidocArguments_1325404662(arg_1224744973);
+        if (((args_1224744974).length < 0)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("props"), makeNimstrLit("0"), HEX24_335544323((args_1224744974).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
         Label1: do {
-          var HEX3Atmp_1224743385 = HEX5BHEX5D_1224741695(args_1224743337, HEX2EHEX2E_872415312(0, 1));
-          var iHEX60gensym278_1224743388 = 0;
-          var resultHEX60gensym278_1224743395 = newSeq_452985301(chckRange((HEX3Atmp_1224743385).length, 0, 2147483647));
+          var HEX3Atmp_1224745022 = HEX5BHEX5D_1224743329(args_1224744974, HEX2EHEX2E_872415312(0, 1));
+          var iHEX60gensym293_1224745025 = 0;
+          var resultHEX60gensym293_1224745032 = newSeq_452985301(chckRange((HEX3Atmp_1224745022).length, 0, 2147483647));
           Label2: do {
-            var it_1224743399 = null;
-            var it_1224743399_Idx = 0;
+            var it_1224745036 = null;
+            var it_1224745036_Idx = 0;
             var i_486542047 = 0;
-            var L_486542048 = (HEX3Atmp_1224743385).length;
+            var L_486542048 = (HEX3Atmp_1224745022).length;
             Label3: do {
                 Label4: while (true) {
                 if (!(i_486542047 < L_486542048)) break Label4;
-                  it_1224743399 = HEX3Atmp_1224743385; it_1224743399_Idx = chckIndx(i_486542047, 0, (HEX3Atmp_1224743385).length - 1);
-                  resultHEX60gensym278_1224743395[chckIndx(iHEX60gensym278_1224743388, 0, (resultHEX60gensym278_1224743395).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224736802, it_1224743399[it_1224743399_Idx]), NTI33554439);
-                  iHEX60gensym278_1224743388 = addInt(iHEX60gensym278_1224743388, 1);
+                  it_1224745036 = HEX3Atmp_1224745022; it_1224745036_Idx = chckIndx(i_486542047, 0, (HEX3Atmp_1224745022).length - 1);
+                  resultHEX60gensym293_1224745032[chckIndx(iHEX60gensym293_1224745025, 0, (resultHEX60gensym293_1224745032).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224738390, it_1224745036[it_1224745036_Idx]), NTI33554439);
+                  iHEX60gensym293_1224745025 = addInt(iHEX60gensym293_1224745025, 1);
                   i_486542047 = addInt(i_486542047, 1);
-                  if (!(((HEX3Atmp_1224743385).length == L_486542048))) {
+                  if (!(((HEX3Atmp_1224745022).length == L_486542048))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
@@ -12268,25 +12455,25 @@ function HEX3Aanonymous_1224743343(arg_1224743336) {
             } while (false);
           } while (false);
         } while (false);
-        var items_1224743404 = nimCopy(null, resultHEX60gensym278_1224743395, NTI452985127);
-        switch (doc_1224736802.target) {
+        var items_1224745041 = nimCopy(null, resultHEX60gensym293_1224745032, NTI452985127);
+        switch (doc_1224738390.target) {
         case 0:
           Label6: do {
-            var iHEX60gensym281_1224743426 = 0;
-            var resultHEX60gensym281_1224743433 = newSeq_452985301(chckRange((items_1224743404).length, 0, 2147483647));
+            var iHEX60gensym296_1224745063 = 0;
+            var resultHEX60gensym296_1224745070 = newSeq_452985301(chckRange((items_1224745041).length, 0, 2147483647));
             Label7: do {
-              var it_1224743437 = null;
-              var it_1224743437_Idx = 0;
+              var it_1224745074 = null;
+              var it_1224745074_Idx = 0;
               var i_486542052 = 0;
-              var L_486542053 = (items_1224743404).length;
+              var L_486542053 = (items_1224745041).length;
               Label8: do {
                   Label9: while (true) {
                   if (!(i_486542052 < L_486542053)) break Label9;
-                    it_1224743437 = items_1224743404; it_1224743437_Idx = chckIndx(i_486542052, 0, (items_1224743404).length - 1);
-                    resultHEX60gensym281_1224743433[chckIndx(iHEX60gensym281_1224743426, 0, (resultHEX60gensym281_1224743433).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("<li>$1</li>"), it_1224743437[it_1224743437_Idx]), NTI33554439);
-                    iHEX60gensym281_1224743426 = addInt(iHEX60gensym281_1224743426, 1);
+                    it_1224745074 = items_1224745041; it_1224745074_Idx = chckIndx(i_486542052, 0, (items_1224745041).length - 1);
+                    resultHEX60gensym296_1224745070[chckIndx(iHEX60gensym296_1224745063, 0, (resultHEX60gensym296_1224745070).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("<li>$1</li>"), it_1224745074[it_1224745074_Idx]), NTI33554439);
+                    iHEX60gensym296_1224745063 = addInt(iHEX60gensym296_1224745063, 1);
                     i_486542052 = addInt(i_486542052, 1);
-                    if (!(((items_1224743404).length == L_486542053))) {
+                    if (!(((items_1224745041).length == L_486542053))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -12294,25 +12481,25 @@ function HEX3Aanonymous_1224743343(arg_1224743336) {
               } while (false);
             } while (false);
           } while (false);
-          Temporary5 = nsuFormatSingleElem(makeNimstrLit("<ul>$1</ul>"), nsuJoinSep(resultHEX60gensym281_1224743433, []));
+          Temporary5 = nsuFormatSingleElem(makeNimstrLit("<ul>$1</ul>"), nsuJoinSep(resultHEX60gensym296_1224745070, []));
           break;
         case 1:
           Label10: do {
-            var iHEX60gensym284_1224743463 = 0;
-            var resultHEX60gensym284_1224743470 = newSeq_452985301(chckRange((items_1224743404).length, 0, 2147483647));
+            var iHEX60gensym299_1224745100 = 0;
+            var resultHEX60gensym299_1224745107 = newSeq_452985301(chckRange((items_1224745041).length, 0, 2147483647));
             Label11: do {
-              var it_1224743474 = null;
-              var it_1224743474_Idx = 0;
+              var it_1224745111 = null;
+              var it_1224745111_Idx = 0;
               var i_486542057 = 0;
-              var L_486542058 = (items_1224743404).length;
+              var L_486542058 = (items_1224745041).length;
               Label12: do {
                   Label13: while (true) {
                   if (!(i_486542057 < L_486542058)) break Label13;
-                    it_1224743474 = items_1224743404; it_1224743474_Idx = chckIndx(i_486542057, 0, (items_1224743404).length - 1);
-                    resultHEX60gensym284_1224743470[chckIndx(iHEX60gensym284_1224743463, 0, (resultHEX60gensym284_1224743470).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("\\item $1"), it_1224743474[it_1224743474_Idx]), NTI33554439);
-                    iHEX60gensym284_1224743463 = addInt(iHEX60gensym284_1224743463, 1);
+                    it_1224745111 = items_1224745041; it_1224745111_Idx = chckIndx(i_486542057, 0, (items_1224745041).length - 1);
+                    resultHEX60gensym299_1224745107[chckIndx(iHEX60gensym299_1224745100, 0, (resultHEX60gensym299_1224745107).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("\\item $1"), it_1224745111[it_1224745111_Idx]), NTI33554439);
+                    iHEX60gensym299_1224745100 = addInt(iHEX60gensym299_1224745100, 1);
                     i_486542057 = addInt(i_486542057, 1);
-                    if (!(((items_1224743404).length == L_486542058))) {
+                    if (!(((items_1224745041).length == L_486542058))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -12320,62 +12507,62 @@ function HEX3Aanonymous_1224743343(arg_1224743336) {
               } while (false);
             } while (false);
           } while (false);
-          Temporary5 = nsuFormatSingleElem(makeNimstrLit("\\begin{itemize}$1\\end{iremize}"), nsuJoinSep(resultHEX60gensym284_1224743470, []));
+          Temporary5 = nsuFormatSingleElem(makeNimstrLit("\\begin{itemize}$1\\end{iremize}"), nsuJoinSep(resultHEX60gensym299_1224745107, []));
           break;
         }
-        result_1224743344 = nimCopy(result_1224743344, {rendered: true, str: nimCopy(null, Temporary5, NTI33554439)}, NTI1577058309);
+        result_1224744981 = nimCopy(result_1224744981, {rendered: true, str: nimCopy(null, Temporary5, NTI33554439)}, NTI1577058309);
 
-      return result_1224743344;
-
-    }
-    
-function HEX3Aanonymous_1224743531(arg_1224743525) {
-      var result_1224743532 = ({rendered: false, str: []});
-
-        var arg_1224743533 = nsuStrip(arg_1224743525, true, true, ConstSet242);
-        result_1224743532 = nimCopy(result_1224743532, {rendered: false, str: nimCopy(null, nsuStrip(arg_1224743533, true, true, ConstSet243), NTI33554439)}, NTI1577058309);
-
-      return result_1224743532;
+      return result_1224744981;
 
     }
     
-function HEX3Aanonymous_1224743586(arg_1224743580) {
-      var result_1224743587 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224745168(arg_1224745162) {
+      var result_1224745169 = ({rendered: false, str: []});
 
-        var arg_1224743588 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224743580, true, true, ConstSet244));
-        result_1224743587 = nimCopy(result_1224743587, {rendered: true, str: nimCopy(null, renderStr_1308623169(doc_1224736802, arg_1224743588), NTI33554439)}, NTI1577058309);
+        var arg_1224745170 = nsuStrip(arg_1224745162, true, true, ConstSet244);
+        result_1224745169 = nimCopy(result_1224745169, {rendered: false, str: nimCopy(null, nsuStrip(arg_1224745170, true, true, ConstSet245), NTI33554439)}, NTI1577058309);
 
-      return result_1224743587;
+      return result_1224745169;
 
     }
     
-function HEX3Aanonymous_1224743642(arg_1224743635) {
+function HEX3Aanonymous_1224745223(arg_1224745217) {
+      var result_1224745224 = ({rendered: false, str: []});
+
+        var arg_1224745225 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224745217, true, true, ConstSet246));
+        result_1224745224 = nimCopy(result_1224745224, {rendered: true, str: nimCopy(null, renderStr_1308623169(doc_1224738390, arg_1224745225), NTI33554439)}, NTI1577058309);
+
+      return result_1224745224;
+
+    }
+    
+function HEX3Aanonymous_1224745279(arg_1224745272) {
         var Temporary8;
 
-      var result_1224743643 = ({rendered: false, str: []});
+      var result_1224745280 = ({rendered: false, str: []});
 
-        var args_1224743636 = parseXidocArguments_1325404662(arg_1224743635);
-        if (((args_1224743636).length < 0)) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("row"), makeNimstrLit("0"), HEX24_335544323((args_1224743636).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224745273 = parseXidocArguments_1325404662(arg_1224745272);
+        if (((args_1224745273).length < 0)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("row"), makeNimstrLit("0"), HEX24_335544323((args_1224745273).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
         Label1: do {
-          var HEX3Atmp_1224743684 = HEX5BHEX5D_1224741695(args_1224743636, HEX2EHEX2E_872415312(0, 1));
-          var iHEX60gensym298_1224743687 = 0;
-          var resultHEX60gensym298_1224743694 = newSeq_452985301(chckRange((HEX3Atmp_1224743684).length, 0, 2147483647));
+          var HEX3Atmp_1224745321 = HEX5BHEX5D_1224743329(args_1224745273, HEX2EHEX2E_872415312(0, 1));
+          var iHEX60gensym313_1224745324 = 0;
+          var resultHEX60gensym313_1224745331 = newSeq_452985301(chckRange((HEX3Atmp_1224745321).length, 0, 2147483647));
           Label2: do {
-            var it_1224743698 = null;
-            var it_1224743698_Idx = 0;
+            var it_1224745335 = null;
+            var it_1224745335_Idx = 0;
             var i_486542062 = 0;
-            var L_486542063 = (HEX3Atmp_1224743684).length;
+            var L_486542063 = (HEX3Atmp_1224745321).length;
             Label3: do {
                 Label4: while (true) {
                 if (!(i_486542062 < L_486542063)) break Label4;
-                  it_1224743698 = HEX3Atmp_1224743684; it_1224743698_Idx = chckIndx(i_486542062, 0, (HEX3Atmp_1224743684).length - 1);
-                  resultHEX60gensym298_1224743694[chckIndx(iHEX60gensym298_1224743687, 0, (resultHEX60gensym298_1224743694).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224736802, it_1224743698[it_1224743698_Idx]), NTI33554439);
-                  iHEX60gensym298_1224743687 = addInt(iHEX60gensym298_1224743687, 1);
+                  it_1224745335 = HEX3Atmp_1224745321; it_1224745335_Idx = chckIndx(i_486542062, 0, (HEX3Atmp_1224745321).length - 1);
+                  resultHEX60gensym313_1224745331[chckIndx(iHEX60gensym313_1224745324, 0, (resultHEX60gensym313_1224745331).length - 1)] = nimCopy(null, renderStr_1308623169(doc_1224738390, it_1224745335[it_1224745335_Idx]), NTI33554439);
+                  iHEX60gensym313_1224745324 = addInt(iHEX60gensym313_1224745324, 1);
                   i_486542062 = addInt(i_486542062, 1);
-                  if (!(((HEX3Atmp_1224743684).length == L_486542063))) {
+                  if (!(((HEX3Atmp_1224745321).length == L_486542063))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
@@ -12383,51 +12570,51 @@ function HEX3Aanonymous_1224743642(arg_1224743635) {
             } while (false);
           } while (false);
         } while (false);
-        var entries_1224743703 = nimCopy(null, resultHEX60gensym298_1224743694, NTI452985127);
-          var resultHEX60gensym301_1224743705 = false;
+        var entries_1224745340 = nimCopy(null, resultHEX60gensym313_1224745331, NTI452985127);
+          var resultHEX60gensym316_1224745342 = false;
           Label5: do {
-            var it_1224743709 = null;
+            var it_1224745346 = null;
             var i_486542066 = 0;
-            var L_486542067 = (doc_1224736802.stack).length;
+            var L_486542067 = (doc_1224738390.stack).length;
             Label6: do {
                 Label7: while (true) {
                 if (!(i_486542066 < L_486542067)) break Label7;
-                  it_1224743709 = doc_1224736802.stack[chckIndx(i_486542066, 0, (doc_1224736802.stack).length - 1)];
-                  if (eqStrings(it_1224743709.cmdName, makeNimstrLit("table"))) {
-                  resultHEX60gensym301_1224743705 = true;
+                  it_1224745346 = doc_1224738390.stack[chckIndx(i_486542066, 0, (doc_1224738390.stack).length - 1)];
+                  if (eqStrings(it_1224745346.cmdName, makeNimstrLit("table"))) {
+                  resultHEX60gensym316_1224745342 = true;
                   break Label5;
                   }
                   
                   i_486542066 = addInt(i_486542066, 1);
-                  if (!(((doc_1224736802.stack).length == L_486542067))) {
+                  if (!(((doc_1224738390.stack).length == L_486542067))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
                 }
             } while (false);
           } while (false);
-        if (!(resultHEX60gensym301_1224743705)) {
+        if (!(resultHEX60gensym316_1224745342)) {
         raiseException({message: makeNimstrLit("The row command has to be inside a table command"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        switch (doc_1224736802.target) {
+        switch (doc_1224738390.target) {
         case 0:
           Label9: do {
-            var iHEX60gensym303_1224743731 = 0;
-            var resultHEX60gensym303_1224743738 = newSeq_452985301(chckRange((entries_1224743703).length, 0, 2147483647));
+            var iHEX60gensym318_1224745368 = 0;
+            var resultHEX60gensym318_1224745375 = newSeq_452985301(chckRange((entries_1224745340).length, 0, 2147483647));
             Label10: do {
-              var it_1224743742 = null;
-              var it_1224743742_Idx = 0;
+              var it_1224745379 = null;
+              var it_1224745379_Idx = 0;
               var i_486542071 = 0;
-              var L_486542072 = (entries_1224743703).length;
+              var L_486542072 = (entries_1224745340).length;
               Label11: do {
                   Label12: while (true) {
                   if (!(i_486542071 < L_486542072)) break Label12;
-                    it_1224743742 = entries_1224743703; it_1224743742_Idx = chckIndx(i_486542071, 0, (entries_1224743703).length - 1);
-                    resultHEX60gensym303_1224743738[chckIndx(iHEX60gensym303_1224743731, 0, (resultHEX60gensym303_1224743738).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("<td>$1</td>"), it_1224743742[it_1224743742_Idx]), NTI33554439);
-                    iHEX60gensym303_1224743731 = addInt(iHEX60gensym303_1224743731, 1);
+                    it_1224745379 = entries_1224745340; it_1224745379_Idx = chckIndx(i_486542071, 0, (entries_1224745340).length - 1);
+                    resultHEX60gensym318_1224745375[chckIndx(iHEX60gensym318_1224745368, 0, (resultHEX60gensym318_1224745375).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("<td>$1</td>"), it_1224745379[it_1224745379_Idx]), NTI33554439);
+                    iHEX60gensym318_1224745368 = addInt(iHEX60gensym318_1224745368, 1);
                     i_486542071 = addInt(i_486542071, 1);
-                    if (!(((entries_1224743703).length == L_486542072))) {
+                    if (!(((entries_1224745340).length == L_486542072))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -12435,19 +12622,19 @@ function HEX3Aanonymous_1224743642(arg_1224743635) {
               } while (false);
             } while (false);
           } while (false);
-          Temporary8 = nsuFormatSingleElem(makeNimstrLit("<tr>$1</tr>"), nsuJoinSep(resultHEX60gensym303_1224743738, []));
+          Temporary8 = nsuFormatSingleElem(makeNimstrLit("<tr>$1</tr>"), nsuJoinSep(resultHEX60gensym318_1224745375, []));
           break;
         case 1:
-          Temporary8 = nsuFormatSingleElem(makeNimstrLit("$1\\\\"), nsuJoinSep(entries_1224743703, makeNimstrLit("&")));
+          Temporary8 = nsuFormatSingleElem(makeNimstrLit("$1\\\\"), nsuJoinSep(entries_1224745340, makeNimstrLit("&")));
           break;
         }
-        result_1224743643 = nimCopy(result_1224743643, {rendered: true, str: nimCopy(null, Temporary8, NTI33554439)}, NTI1577058309);
+        result_1224745280 = nimCopy(result_1224745280, {rendered: true, str: nimCopy(null, Temporary8, NTI33554439)}, NTI1577058309);
 
-      return result_1224743643;
+      return result_1224745280;
 
     }
     
-function HEX3Aanonymous_1224743800(arg_1224743793) {
+function HEX3Aanonymous_1224745437(arg_1224745430) {
           var Temporary1;
         var Temporary2;
         var Temporary6;
@@ -12457,48 +12644,48 @@ function HEX3Aanonymous_1224743800(arg_1224743793) {
           var Temporary10;
           var Temporary11;
 
-      var result_1224743801 = ({rendered: false, str: []});
+      var result_1224745438 = ({rendered: false, str: []});
 
-        var args_1224743794 = parseXidocArguments_1325404662(arg_1224743793);
-          if (((args_1224743794).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224743794).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("section"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224743794).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224745431 = parseXidocArguments_1325404662(arg_1224745430);
+          if (((args_1224745431).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224745431).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("section"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224745431).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224743794).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224743794[chckIndx(0, 0, (args_1224743794).length - 1)]));
+        if ((0 < subInt((args_1224745431).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224745431[chckIndx(0, 0, (args_1224745431).length - 1)]));
         }
         else {
-        Temporary2 = none_1761607937();
+        Temporary2 = none_1778385227();
         }
         
-        var name_1224743824 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224743829 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224743794, 1));
-        var resultHEX60gensym315_1224743831 = 0;
+        var name_1224745461 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224745466 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224745431, 1));
+        var resultHEX60gensym330_1224745468 = 0;
         Label3: do {
-          var it_1224743835 = null;
+          var it_1224745472 = null;
           var i_486542075 = 0;
-          var L_486542076 = (doc_1224736802.stack).length;
+          var L_486542076 = (doc_1224738390.stack).length;
           Label4: do {
               Label5: while (true) {
               if (!(i_486542075 < L_486542076)) break Label5;
-                it_1224743835 = doc_1224736802.stack[chckIndx(i_486542075, 0, (doc_1224736802.stack).length - 1)];
-                if (eqStrings(it_1224743835.cmdName, makeNimstrLit("section"))) {
-                resultHEX60gensym315_1224743831 = addInt(resultHEX60gensym315_1224743831, 1);
+                it_1224745472 = doc_1224738390.stack[chckIndx(i_486542075, 0, (doc_1224738390.stack).length - 1)];
+                if (eqStrings(it_1224745472.cmdName, makeNimstrLit("section"))) {
+                resultHEX60gensym330_1224745468 = addInt(resultHEX60gensym330_1224745468, 1);
                 }
                 
                 i_486542075 = addInt(i_486542075, 1);
-                if (!(((doc_1224736802.stack).length == L_486542076))) {
+                if (!(((doc_1224738390.stack).length == L_486542076))) {
                 failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                 }
                 
               }
           } while (false);
         } while (false);
-        var depth_1224743840 = resultHEX60gensym315_1224743831;
-        switch (doc_1224736802.target) {
+        var depth_1224745477 = resultHEX60gensym330_1224745468;
+        switch (doc_1224738390.target) {
         case 0:
-          if (isSome_1761607950(name_1224743824)) {
-          switch (depth_1224743840) {
+          if (isSome_1778385240(name_1224745461)) {
+          switch (depth_1224745477) {
           case 1:
             Temporary8 = makeNimstrLit("h2");
             break;
@@ -12515,39 +12702,39 @@ function HEX3Aanonymous_1224743800(arg_1224743793) {
             Temporary8 = makeNimstrLit("h6");
             break;
           }
-          var headingTag_1224743848 = nimCopy(null, Temporary8, NTI33554439);
-          Temporary7 = nsuFormatOpenArray(makeNimstrLit("<section><$1 class=\"xd-section-heading\">$2</$1>$3</section>"), [nimCopy(null, headingTag_1224743848, NTI33554439), nimCopy(null, (Temporary9 = get_1761607985(name_1224743824), Temporary9)[0][Temporary9[1]], NTI33554439), nimCopy(null, content_1224743829, NTI33554439)]);
+          var headingTag_1224745485 = nimCopy(null, Temporary8, NTI33554439);
+          Temporary7 = nsuFormatOpenArray(makeNimstrLit("<section><$1 class=\"xd-section-heading\">$2</$1>$3</section>"), [nimCopy(null, headingTag_1224745485, NTI33554439), nimCopy(null, (Temporary9 = get_1778385275(name_1224745461), Temporary9)[0][Temporary9[1]], NTI33554439), nimCopy(null, content_1224745466, NTI33554439)]);
           }
           else {
-          Temporary7 = nsuFormatOpenArray(makeNimstrLit("<section>$1</section>"), [nimCopy(null, content_1224743829, NTI33554439)]);
+          Temporary7 = nsuFormatOpenArray(makeNimstrLit("<section>$1</section>"), [nimCopy(null, content_1224745466, NTI33554439)]);
           }
           
           Temporary6 = Temporary7;
           break;
         case 1:
-          if (isSome_1761607950(name_1224743824)) {
-          Temporary10 = nsuFormatOpenArray(makeNimstrLit("\\section*{$1}$2"), [nimCopy(null, (Temporary11 = get_1761607985(name_1224743824), Temporary11)[0][Temporary11[1]], NTI33554439), nimCopy(null, content_1224743829, NTI33554439)]);
+          if (isSome_1778385240(name_1224745461)) {
+          Temporary10 = nsuFormatOpenArray(makeNimstrLit("\\section*{$1}$2"), [nimCopy(null, (Temporary11 = get_1778385275(name_1224745461), Temporary11)[0][Temporary11[1]], NTI33554439), nimCopy(null, content_1224745466, NTI33554439)]);
           }
           else {
-          Temporary10 = nsuFormatOpenArray(makeNimstrLit("\\section*{}$1"), [nimCopy(null, content_1224743829, NTI33554439)]);
+          Temporary10 = nsuFormatOpenArray(makeNimstrLit("\\section*{}$1"), [nimCopy(null, content_1224745466, NTI33554439)]);
           }
           
           Temporary6 = Temporary10;
           break;
         }
-        result_1224743801 = nimCopy(result_1224743801, {rendered: true, str: nimCopy(null, Temporary6, NTI33554439)}, NTI1577058309);
+        result_1224745438 = nimCopy(result_1224745438, {rendered: true, str: nimCopy(null, Temporary6, NTI33554439)}, NTI1577058309);
 
-      return result_1224743801;
+      return result_1224745438;
 
     }
     
-function HEX3Aanonymous_1224743938(arg_1224743932) {
+function HEX3Aanonymous_1224745575(arg_1224745569) {
         var Temporary1;
 
-      var result_1224743939 = ({rendered: false, str: []});
+      var result_1224745576 = ({rendered: false, str: []});
 
-        var arg_1224743940 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224743932, true, true, ConstSet245));
-        switch (toJSStr(nsuToLowerAsciiStr(arg_1224743940))) {
+        var arg_1224745577 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224745569, true, true, ConstSet247));
+        switch (toJSStr(nsuToLowerAsciiStr(arg_1224745577))) {
         case "en":
         case "english":
           Temporary1 = 0;
@@ -12558,23 +12745,23 @@ function HEX3Aanonymous_1224743938(arg_1224743932) {
           Temporary1 = 1;
           break;
         default: 
-          raiseException({message: nsuFormatSingleElem(makeNimstrLit("Unknown language: $1"), arg_1224743940), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          raiseException({message: nsuFormatSingleElem(makeNimstrLit("Unknown language: $1"), arg_1224745577), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           break;
         }
-        doc_1224736802.stack[chckIndx(0, 0, (doc_1224736802.stack).length - 1)].lang = nimCopy(doc_1224736802.stack[chckIndx(0, 0, (doc_1224736802.stack).length - 1)].lang, some_1224742248(Temporary1), NTI1577058340);
-        result_1224743939 = nimCopy(result_1224743939, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+        doc_1224738390.stack[chckIndx(0, 0, (doc_1224738390.stack).length - 1)].lang = nimCopy(doc_1224738390.stack[chckIndx(0, 0, (doc_1224738390.stack).length - 1)].lang, some_1224743882(Temporary1), NTI1577058342);
+        result_1224745576 = nimCopy(result_1224745576, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
 
-      return result_1224743939;
+      return result_1224745576;
 
     }
     
-function HEX3Aanonymous_1224743996(arg_1224743990) {
+function HEX3Aanonymous_1224745633(arg_1224745627) {
         var Temporary1;
 
-      var result_1224743997 = ({rendered: false, str: []});
+      var result_1224745634 = ({rendered: false, str: []});
 
-        var arg_1224743998 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224743990, true, true, ConstSet246));
-        switch (toJSStr(arg_1224743998)) {
+        var arg_1224745635 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224745627, true, true, ConstSet248));
+        switch (toJSStr(arg_1224745635)) {
         case "katex-jsdelivr":
           Temporary1 = 0;
           break;
@@ -12583,313 +12770,337 @@ function HEX3Aanonymous_1224743996(arg_1224743990) {
           Temporary1 = 1;
           break;
         default: 
-          raiseException({message: nsuFormatSingleElem(makeNimstrLit("Invalid value for set-math-renderer: $1"), arg_1224743998), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          raiseException({message: nsuFormatSingleElem(makeNimstrLit("Invalid value for set-math-renderer: $1"), arg_1224745635), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           break;
         }
-        doc_1224736802.mathRenderer = Temporary1;
-        result_1224743997 = nimCopy(result_1224743997, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+        doc_1224738390.mathRenderer = Temporary1;
+        result_1224745634 = nimCopy(result_1224745634, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
 
-      return result_1224743997;
+      return result_1224745634;
 
     }
     
-function HEX3Aanonymous_1224744060(arg_1224744054) {
-      var result_1224744061 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224745697(arg_1224745691) {
+          var Temporary1;
 
-        var arg_1224744062 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224744054, true, true, ConstSet247));
-        switch (doc_1224736802.target) {
+      var result_1224745698 = ({rendered: false, str: []});
+
+        var arg_1224745699 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224745691, true, true, ConstSet249));
+        switch (doc_1224738390.target) {
         case 0:
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatSingleElem(makeNimstrLit("<title>$1</title>"), arg_1224744062));
+          if (!(contains_1224745753(syntaxHighlightingThemeTable_1224738388, arg_1224745699))) {
+          var fmtRes_1224745772 = [mnewString(0)];
+          fmtRes_1224745772[0].push.apply(fmtRes_1224745772[0], makeNimstrLit("Invalid syntax highlighting theme: "));;
+          formatValue_1627390114(fmtRes_1224745772, 0, arg_1224745699, []);
+          raiseException({message: nimCopy(null, fmtRes_1224745772[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          }
+          
+          var Temporary1 = doc_1224738390;
+          if (ConstSet250[Temporary1.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'syntaxHighlightingTheme\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary1.target, NTI1577058307)); }
+          Temporary1.syntaxHighlightingTheme = HEX5BHEX5D_1224745830(syntaxHighlightingThemeTable_1224738388, arg_1224745699);
+          break;
+        default: 
+          break;
+        }
+        result_1224745698 = nimCopy(result_1224745698, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+
+      return result_1224745698;
+
+    }
+    
+function HEX3Aanonymous_1224745956(arg_1224745950) {
+      var result_1224745957 = ({rendered: false, str: []});
+
+        var arg_1224745958 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224745950, true, true, ConstSet251));
+        switch (doc_1224738390.target) {
+        case 0:
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatSingleElem(makeNimstrLit("<title>$1</title>"), arg_1224745958));
           break;
         case 1:
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatSingleElem(makeNimstrLit("\\title{$1}"), arg_1224744062));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatSingleElem(makeNimstrLit("\\title{$1}"), arg_1224745958));
           break;
         }
-        result_1224744061 = nimCopy(result_1224744061, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
+        result_1224745957 = nimCopy(result_1224745957, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
 
-      return result_1224744061;
+      return result_1224745957;
 
     }
     
-function HEX3Aanonymous_1224744161(arg_1224744155) {
+function HEX3Aanonymous_1224746057(arg_1224746051) {
         var Temporary1;
 
-      var result_1224744162 = ({rendered: false, str: []});
+      var result_1224746058 = ({rendered: false, str: []});
 
-        var arg_1224744163 = expandStr_1308622885(doc_1224736802, nsuStrip(arg_1224744155, true, true, ConstSet248));
-        switch (doc_1224736802.target) {
+        var arg_1224746059 = expandStr_1308622885(doc_1224738390, nsuStrip(arg_1224746051, true, true, ConstSet252));
+        switch (doc_1224738390.target) {
         case 0:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<h1>$1</h1>"), arg_1224744163);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<h1>$1</h1>"), arg_1224746059);
           break;
         case 1:
           Temporary1 = makeNimstrLit("\\maketitle");
           break;
         }
-        result_1224744162 = nimCopy(result_1224744162, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224746058 = nimCopy(result_1224746058, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224744162;
+      return result_1224746058;
 
     }
     
-function HEX3Aanonymous_1224744222(arg_1224744215) {
+function HEX3Aanonymous_1224746118(arg_1224746111) {
           var Temporary1;
         var Temporary2;
         
-function HEX3Aanonymous_1224744254() {
+function HEX3Aanonymous_1224746150() {
                     var Temporary4;
 
-          var result_1224744255 = 0;
+          var result_1224746151 = 0;
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym336_1224744264 = 0;
-              var colontmp__486542334 = 0;
-              colontmp__486542334 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542335 = colontmp__486542334;
+              var iHEX60gensym355_1224746160 = 0;
+              var colontmp__486542339 = 0;
+              colontmp__486542339 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542340 = colontmp__486542339;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486542335)) break Label3;
-                    iHEX60gensym336_1224744264 = res_486542335;
-                    var frameHEX60gensym336_1224744265 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym336_1224744264, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym336_1224744265.lang)) {
-                    result_1224744255 = (Temporary4 = get_1224738927(frameHEX60gensym336_1224744265.lang), Temporary4)[0][Temporary4[1]];
+                  if (!(0 <= res_486542340)) break Label3;
+                    iHEX60gensym355_1224746160 = res_486542340;
+                    var frameHEX60gensym355_1224746161 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym355_1224746160, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym355_1224746161.lang)) {
+                    result_1224746151 = (Temporary4 = get_1224740460(frameHEX60gensym355_1224746161.lang), Temporary4)[0][Temporary4[1]];
                     break BeforeRet;
                     }
                     
-                    res_486542335 = subInt(res_486542335, 1);
+                    res_486542340 = subInt(res_486542340, 1);
                   }
               } while (false);
             } while (false);
           } while (false);
 
-          return result_1224744255;
+          return result_1224746151;
 
         }
         var Temporary3;
           var Temporary4;
           var Temporary5;
 
-      var result_1224744223 = ({rendered: false, str: []});
+      var result_1224746119 = ({rendered: false, str: []});
 
-        var args_1224744216 = parseXidocArguments_1325404662(arg_1224744215);
-          if (((args_1224744216).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744216).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("solution"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224744216).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746112 = parseXidocArguments_1325404662(arg_1224746111);
+          if (((args_1224746112).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746112).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("solution"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746112).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224744216).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224744216[chckIndx(0, 0, (args_1224744216).length - 1)]));
+        if ((0 < subInt((args_1224746112).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224746112[chckIndx(0, 0, (args_1224746112).length - 1)]));
         }
         else {
-        Temporary2 = none_1761607937();
+        Temporary2 = none_1778385227();
         }
         
-        var thName_1224744246 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224744251 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224744216, 1));
-        var wordHEX60gensym326_1224744288 = translate_1593835557(5, HEX3Aanonymous_1224744254());
-        switch (doc_1224736802.target) {
+        var thName_1224746142 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224746147 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224746112, 1));
+        var wordHEX60gensym345_1224746184 = translate_1593835557(5, HEX3Aanonymous_1224746150());
+        switch (doc_1224738390.target) {
         case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
-          if (isSome_1761607950(thName_1224744246)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("solution"), nimCopy(null, wordHEX60gensym326_1224744288, NTI33554439), nimCopy(null, (Temporary5 = get_1761607985(thName_1224744246), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224744251)]);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
+          if (isSome_1778385240(thName_1224746142)) {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("solution"), nimCopy(null, wordHEX60gensym345_1224746184, NTI33554439), nimCopy(null, (Temporary5 = get_1778385275(thName_1224746142), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224746147)]);
           }
           else {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("solution"), nimCopy(null, wordHEX60gensym326_1224744288, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224744251)]);
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("solution"), nimCopy(null, wordHEX60gensym345_1224746184, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224746147)]);
           }
           
           Temporary3 = Temporary4;
           break;
         case 1:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("solution"), nimCopy(null, wordHEX60gensym326_1224744288, NTI33554439)]));
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("solution"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224744251)]);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("solution"), nimCopy(null, wordHEX60gensym345_1224746184, NTI33554439)]));
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("solution"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224746147)]);
           break;
         }
-        result_1224744223 = nimCopy(result_1224744223, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+        result_1224746119 = nimCopy(result_1224746119, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
 
-      return result_1224744223;
+      return result_1224746119;
 
     }
     
-function HEX3Aanonymous_1224744433(arg_1224744426) {
+function HEX3Aanonymous_1224746329(arg_1224746322) {
           var Temporary1;
         var Temporary2;
 
-      var result_1224744434 = ({rendered: false, str: []});
+      var result_1224746330 = ({rendered: false, str: []});
 
-        var args_1224744427 = parseXidocArguments_1325404662(arg_1224744426);
-          if (((args_1224744427).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744427).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("spoiler"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224744427).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746323 = parseXidocArguments_1325404662(arg_1224746322);
+          if (((args_1224746323).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746323).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("spoiler"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224746323).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var title_1224744448 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224744427, 2));
-        var content_1224744453 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224744427, 1));
-        switch (doc_1224736802.target) {
+        var title_1224746344 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224746323, 2));
+        var content_1224746349 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224746323, 1));
+        switch (doc_1224738390.target) {
         case 0:
-          Temporary2 = nsuFormatOpenArray(makeNimstrLit("<details class=\"xd-spoiler\"><summary>$1</summary>$2</details>"), [nimCopy(null, title_1224744448, NTI33554439), nimCopy(null, content_1224744453, NTI33554439)]);
+          Temporary2 = nsuFormatOpenArray(makeNimstrLit("<details class=\"xd-spoiler\"><summary>$1</summary>$2</details>"), [nimCopy(null, title_1224746344, NTI33554439), nimCopy(null, content_1224746349, NTI33554439)]);
           break;
         case 1:
           raiseException({message: makeNimstrLit("The spoiler command is not supported in the LaTeX backend"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           break;
         }
-        result_1224744434 = nimCopy(result_1224744434, {rendered: true, str: nimCopy(null, Temporary2, NTI33554439)}, NTI1577058309);
+        result_1224746330 = nimCopy(result_1224746330, {rendered: true, str: nimCopy(null, Temporary2, NTI33554439)}, NTI1577058309);
 
-      return result_1224744434;
+      return result_1224746330;
 
     }
     
-function HEX3Aanonymous_1224744507(arg_1224744500) {
+function HEX3Aanonymous_1224746403(arg_1224746396) {
           var Temporary1;
         var Temporary2;
         
-function HEX3Aanonymous_1224744539() {
+function HEX3Aanonymous_1224746435() {
                     var Temporary4;
 
-          var result_1224744540 = 0;
+          var result_1224746436 = 0;
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym356_1224744549 = 0;
-              var colontmp__486542338 = 0;
-              colontmp__486542338 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542339 = colontmp__486542338;
+              var iHEX60gensym375_1224746445 = 0;
+              var colontmp__486542343 = 0;
+              colontmp__486542343 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542344 = colontmp__486542343;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486542339)) break Label3;
-                    iHEX60gensym356_1224744549 = res_486542339;
-                    var frameHEX60gensym356_1224744550 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym356_1224744549, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym356_1224744550.lang)) {
-                    result_1224744540 = (Temporary4 = get_1224738927(frameHEX60gensym356_1224744550.lang), Temporary4)[0][Temporary4[1]];
+                  if (!(0 <= res_486542344)) break Label3;
+                    iHEX60gensym375_1224746445 = res_486542344;
+                    var frameHEX60gensym375_1224746446 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym375_1224746445, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym375_1224746446.lang)) {
+                    result_1224746436 = (Temporary4 = get_1224740460(frameHEX60gensym375_1224746446.lang), Temporary4)[0][Temporary4[1]];
                     break BeforeRet;
                     }
                     
-                    res_486542339 = subInt(res_486542339, 1);
+                    res_486542344 = subInt(res_486542344, 1);
                   }
               } while (false);
             } while (false);
           } while (false);
 
-          return result_1224744540;
+          return result_1224746436;
 
         }
         var Temporary3;
           var Temporary4;
           var Temporary5;
 
-      var result_1224744508 = ({rendered: false, str: []});
+      var result_1224746404 = ({rendered: false, str: []});
 
-        var args_1224744501 = parseXidocArguments_1325404662(arg_1224744500);
-          if (((args_1224744501).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744501).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("spoiler-solution"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224744501).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746397 = parseXidocArguments_1325404662(arg_1224746396);
+          if (((args_1224746397).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746397).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("spoiler-solution"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746397).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224744501).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224744501[chckIndx(0, 0, (args_1224744501).length - 1)]));
+        if ((0 < subInt((args_1224746397).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224746397[chckIndx(0, 0, (args_1224746397).length - 1)]));
         }
         else {
-        Temporary2 = none_1761607937();
+        Temporary2 = none_1778385227();
         }
         
-        var name_1224744531 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224744536 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224744501, 1));
-        var word_1224744573 = translate_1593835557(5, HEX3Aanonymous_1224744539());
-        switch (doc_1224736802.target) {
+        var name_1224746427 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224746432 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224746397, 1));
+        var word_1224746469 = translate_1593835557(5, HEX3Aanonymous_1224746435());
+        switch (doc_1224738390.target) {
         case 0:
-          if (isSome_1761607950(name_1224744531)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<details class=\"xd-spoiler\"><summary><strong>$1 ($2)</strong></summary>$3</details>"), [nimCopy(null, word_1224744573, NTI33554439), nimCopy(null, (Temporary5 = get_1761607985(name_1224744531), Temporary5)[0][Temporary5[1]], NTI33554439), nimCopy(null, content_1224744536, NTI33554439)]);
+          if (isSome_1778385240(name_1224746427)) {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<details class=\"xd-spoiler\"><summary><strong>$1 ($2)</strong></summary>$3</details>"), [nimCopy(null, word_1224746469, NTI33554439), nimCopy(null, (Temporary5 = get_1778385275(name_1224746427), Temporary5)[0][Temporary5[1]], NTI33554439), nimCopy(null, content_1224746432, NTI33554439)]);
           }
           else {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<details class=\"xd-spoiler\"><summary><strong>$1</strong></summary>$2</details>"), [nimCopy(null, word_1224744573, NTI33554439), nimCopy(null, content_1224744536, NTI33554439)]);
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<details class=\"xd-spoiler\"><summary><strong>$1</strong></summary>$2</details>"), [nimCopy(null, word_1224746469, NTI33554439), nimCopy(null, content_1224746432, NTI33554439)]);
           }
           
           Temporary3 = Temporary4;
           break;
         case 1:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("spoilersolution"), nimCopy(null, word_1224744573, NTI33554439)]));
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("spoilersolution"), nimCopy(null, content_1224744536, NTI33554439)]);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("spoilersolution"), nimCopy(null, word_1224746469, NTI33554439)]));
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("spoilersolution"), nimCopy(null, content_1224746432, NTI33554439)]);
           break;
         }
-        result_1224744508 = nimCopy(result_1224744508, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+        result_1224746404 = nimCopy(result_1224746404, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
 
-      return result_1224744508;
+      return result_1224746404;
 
     }
     
-function HEX3Aanonymous_1224744694(arg_1224744688) {
-        var Temporary1;
+function HEX3Aanonymous_1224746590(arg_1224746584) {
+      var result_1224746591 = ({rendered: false, str: []});
 
-      var result_1224744695 = ({rendered: false, str: []});
-
-        var arg_1224744696 = nsuStrip(arg_1224744688, true, true, ConstSet249);
-        switch (doc_1224736802.target) {
+        var arg_1224746592 = nsuStrip(arg_1224746584, true, true, ConstSet253);
+        switch (doc_1224738390.target) {
         case 0:
-          HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands = nimCopy(HEX5BHEX5D_1761607955(doc_1224736802.stack, 1).commands, cssCommands_1761607689(doc_1224736802), NTI1577058327);
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatSingleElem(makeNimstrLit("<style>$1</style>"), expandStr_1308622885(doc_1224736802, arg_1224744696)));
-          Temporary1 = [];
+          HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands = nimCopy(HEX5BHEX5D_1778385245(doc_1224738390.stack, 1).commands, cssCommands_1778384905(doc_1224738390), NTI1577058329);
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatSingleElem(makeNimstrLit("<style>$1</style>"), expandStr_1308622885(doc_1224738390, arg_1224746592)));
           break;
         default: 
-          raiseException({message: makeNimstrLit("The style command can be used only in the HTML backend"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           break;
         }
-        result_1224744695 = nimCopy(result_1224744695, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224746591 = nimCopy(result_1224746591, {rendered: true, str: nimCopy(null, [], NTI33554439)}, NTI1577058309);
 
-      return result_1224744695;
+      return result_1224746591;
 
     }
     
-function HEX3Aanonymous_1224744777(arg_1224744770) {
+function HEX3Aanonymous_1224746673(arg_1224746666) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
           var Temporary4;
 
-      var result_1224744778 = ({rendered: false, str: []});
+      var result_1224746674 = ({rendered: false, str: []});
 
-        var args_1224744771 = parseXidocArguments_1325404662(arg_1224744770);
-          if (((args_1224744771).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744771).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("table"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224744771).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746667 = parseXidocArguments_1325404662(arg_1224746666);
+          if (((args_1224746667).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746667).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("table"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746667).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224744771).length, 1))) {
-        Temporary2 = some_1761607928(expandStr_1308622885(doc_1224736802, args_1224744771[chckIndx(0, 0, (args_1224744771).length - 1)]));
+        if ((0 < subInt((args_1224746667).length, 1))) {
+        Temporary2 = some_1778385218(expandStr_1308622885(doc_1224738390, args_1224746667[chckIndx(0, 0, (args_1224746667).length - 1)]));
         }
         else {
-        Temporary2 = none_1761607937();
+        Temporary2 = none_1778385227();
         }
         
-        var spec_1224744801 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224744806 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224744771, 1));
-        switch (doc_1224736802.target) {
+        var spec_1224746697 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224746702 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224746667, 1));
+        switch (doc_1224738390.target) {
         case 0:
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("<table>$1</table>"), [nimCopy(null, content_1224744806, NTI33554439)]);
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("<table>$1</table>"), [nimCopy(null, content_1224746702, NTI33554439)]);
           break;
         case 1:
-          if (isNone_1761607993(spec_1224744801)) {
+          if (isNone_1778385283(spec_1224746697)) {
           raiseException({message: makeNimstrLit("Tables in LaTeX currently require a spec"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           }
           
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage{booktabs}"));
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{table}{$1}\\toprule $2\\bottomrule\\end{table}"), [nimCopy(null, (Temporary4 = get_1761607985(spec_1224744801), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, content_1224744806, NTI33554439)]);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{booktabs}"));
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{table}{$1}\\toprule $2\\bottomrule\\end{table}"), [nimCopy(null, (Temporary4 = get_1778385275(spec_1224746697), Temporary4)[0][Temporary4[1]], NTI33554439), nimCopy(null, content_1224746702, NTI33554439)]);
           break;
         }
-        result_1224744778 = nimCopy(result_1224744778, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+        result_1224746674 = nimCopy(result_1224746674, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
 
-      return result_1224744778;
+      return result_1224746674;
 
     }
     
-function HEX3Aanonymous_1224744904(arg_1224744898) {
+function HEX3Aanonymous_1224746800(arg_1224746794) {
         var Temporary1;
         var Temporary3;
         var Temporary4;
 
-      var result_1224744905 = ({rendered: false, str: []});
+      var result_1224746801 = ({rendered: false, str: []});
 
-        var arg_1224744906 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224744898, true, true, ConstSet250));
+        var arg_1224746802 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224746794, true, true, ConstSet254));
 ++excHandler;
         Temporary3 = framePtr;
         try {
-        Temporary1 = (Temporary4 = HEX5BHEX5D_1711276456(doc_1224736802.templateArgs, arg_1224744906), Temporary4)[0][Temporary4[1]];
+        Temporary1 = (Temporary4 = HEX5BHEX5D_1728053672(doc_1224738390.templateArgs, arg_1224746802), Temporary4)[0][Temporary4[1]];
 --excHandler;
 } catch (EXCEPTION) {
  var prevJSError = lastJSError;
@@ -12897,10 +13108,10 @@ function HEX3Aanonymous_1224744904(arg_1224744898) {
  --excHandler;
         framePtr = Temporary3;
         if (lastJSError && (isObj(lastJSError.m_type, NTI33555126))) {
-        var fmtRes_1224744969 = [mnewString(0)];
-        fmtRes_1224744969[0].push.apply(fmtRes_1224744969[0], makeNimstrLit("Template argument not found: "));;
-        formatValue_1627390114(fmtRes_1224744969, 0, arg_1224744906, []);
-        raiseException({message: nimCopy(null, fmtRes_1224744969[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var fmtRes_1224746865 = [mnewString(0)];
+        fmtRes_1224746865[0].push.apply(fmtRes_1224746865[0], makeNimstrLit("Template argument not found: "));;
+        formatValue_1627390114(fmtRes_1224746865, 0, arg_1224746802, []);
+        raiseException({message: nimCopy(null, fmtRes_1224746865[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         else {
         	reraiseException();
@@ -12909,212 +13120,247 @@ function HEX3Aanonymous_1224744904(arg_1224744898) {
         } finally {
         framePtr = Temporary3;
         }
-        result_1224744905 = nimCopy(result_1224744905, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224746801 = nimCopy(result_1224746801, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224744905;
+      return result_1224746801;
 
     }
     
-function HEX3Aanonymous_1224745022(arg_1224745016) {
+function HEX3Aanonymous_1224746918(arg_1224746912) {
         var Temporary1;
 
-      var result_1224745023 = ({rendered: false, str: []});
+      var result_1224746919 = ({rendered: false, str: []});
 
-        var arg_1224745024 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224745016, true, true, ConstSet251));
-        switch (doc_1224736802.target) {
+        var arg_1224746920 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224746912, true, true, ConstSet255));
+        switch (doc_1224738390.target) {
         case 0:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<dfn>$1</dfn>"), arg_1224745024);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<dfn>$1</dfn>"), arg_1224746920);
           break;
         case 1:
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\textit{$1}"), arg_1224745024);
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("\\textit{$1}"), arg_1224746920);
           break;
         }
-        result_1224745023 = nimCopy(result_1224745023, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224746919 = nimCopy(result_1224746919, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224745023;
+      return result_1224746919;
 
     }
     
-function HEX3Aanonymous_1224745083(arg_1224745076) {
+function HEX3Aanonymous_1224746979(arg_1224746972) {
           var Temporary1;
         var Temporary2;
         
-function HEX3Aanonymous_1224745115() {
+function HEX3Aanonymous_1224747011() {
                     var Temporary4;
 
-          var result_1224745116 = 0;
+          var result_1224747012 = 0;
 
           BeforeRet: do {
             Label1: do {
-              var iHEX60gensym386_1224745125 = 0;
-              var colontmp__486542342 = 0;
-              colontmp__486542342 = subInt((doc_1224736802.stack).length, 1);
-              var res_486542343 = colontmp__486542342;
+              var iHEX60gensym404_1224747021 = 0;
+              var colontmp__486542347 = 0;
+              colontmp__486542347 = subInt((doc_1224738390.stack).length, 1);
+              var res_486542348 = colontmp__486542347;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486542343)) break Label3;
-                    iHEX60gensym386_1224745125 = res_486542343;
-                    var frameHEX60gensym386_1224745126 = nimCopy(null, doc_1224736802.stack[chckIndx(iHEX60gensym386_1224745125, 0, (doc_1224736802.stack).length - 1)], NTI1577058311);
-                    if (isSome_1224738910(frameHEX60gensym386_1224745126.lang)) {
-                    result_1224745116 = (Temporary4 = get_1224738927(frameHEX60gensym386_1224745126.lang), Temporary4)[0][Temporary4[1]];
+                  if (!(0 <= res_486542348)) break Label3;
+                    iHEX60gensym404_1224747021 = res_486542348;
+                    var frameHEX60gensym404_1224747022 = nimCopy(null, doc_1224738390.stack[chckIndx(iHEX60gensym404_1224747021, 0, (doc_1224738390.stack).length - 1)], NTI1577058312);
+                    if (isSome_1224740443(frameHEX60gensym404_1224747022.lang)) {
+                    result_1224747012 = (Temporary4 = get_1224740460(frameHEX60gensym404_1224747022.lang), Temporary4)[0][Temporary4[1]];
                     break BeforeRet;
                     }
                     
-                    res_486542343 = subInt(res_486542343, 1);
+                    res_486542348 = subInt(res_486542348, 1);
                   }
               } while (false);
             } while (false);
           } while (false);
 
-          return result_1224745116;
+          return result_1224747012;
 
         }
         var Temporary3;
           var Temporary4;
           var Temporary5;
 
-      var result_1224745084 = ({rendered: false, str: []});
+      var result_1224746980 = ({rendered: false, str: []});
 
-        var args_1224745077 = parseXidocArguments_1325404662(arg_1224745076);
-          if (((args_1224745077).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224745077).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("theorem"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224745077).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746973 = parseXidocArguments_1325404662(arg_1224746972);
+          if (((args_1224746973).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746973).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("theorem"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746973).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224745077).length, 1))) {
-        Temporary2 = some_1761607928(renderStr_1308623169(doc_1224736802, args_1224745077[chckIndx(0, 0, (args_1224745077).length - 1)]));
+        if ((0 < subInt((args_1224746973).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224746973[chckIndx(0, 0, (args_1224746973).length - 1)]));
         }
         else {
-        Temporary2 = none_1761607937();
+        Temporary2 = none_1778385227();
         }
         
-        var thName_1224745107 = nimCopy(null, Temporary2, NTI1761607851);
-        var content_1224745112 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224745077, 1));
-        var wordHEX60gensym376_1224745149 = translate_1593835557(6, HEX3Aanonymous_1224745115());
-        switch (doc_1224736802.target) {
+        var thName_1224747003 = nimCopy(null, Temporary2, NTI1778385115);
+        var content_1224747008 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224746973, 1));
+        var wordHEX60gensym394_1224747045 = translate_1593835557(6, HEX3Aanonymous_1224747011());
+        switch (doc_1224738390.target) {
         case 0:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
-          if (isSome_1761607950(thName_1224745107)) {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("theorem"), nimCopy(null, wordHEX60gensym376_1224745149, NTI33554439), nimCopy(null, (Temporary5 = get_1761607985(thName_1224745107), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224745112)]);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"));
+          if (isSome_1778385240(thName_1224747003)) {
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>"), [makeNimstrLit("theorem"), nimCopy(null, wordHEX60gensym394_1224747045, NTI33554439), nimCopy(null, (Temporary5 = get_1778385275(thName_1224747003), Temporary5)[0][Temporary5[1]], NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224747008)]);
           }
           else {
-          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("theorem"), nimCopy(null, wordHEX60gensym376_1224745149, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224745112)]);
+          Temporary4 = nsuFormatOpenArray(makeNimstrLit("<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>"), [makeNimstrLit("theorem"), nimCopy(null, wordHEX60gensym394_1224747045, NTI33554439), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224747008)]);
           }
           
           Temporary3 = Temporary4;
           break;
         case 1:
-          incl_1224736829(doc_1224736802.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("theorem"), nimCopy(null, wordHEX60gensym376_1224745149, NTI33554439)]));
-          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("theorem"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224745112)]);
+          incl_1224738417(doc_1224738390.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("theorem"), nimCopy(null, wordHEX60gensym394_1224747045, NTI33554439)]));
+          Temporary3 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("theorem"), nsuFormatSingleElem(makeNimstrLit("$1"), content_1224747008)]);
           break;
         }
-        result_1224745084 = nimCopy(result_1224745084, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+        result_1224746980 = nimCopy(result_1224746980, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
 
-      return result_1224745084;
+      return result_1224746980;
 
     }
     
-function HEX3Aanonymous_1224745293(arg_1224745287) {
+function HEX3Aanonymous_1224747189(arg_1224747183) {
         var Temporary1;
 
-      var result_1224745294 = ({rendered: false, str: []});
+      var result_1224747190 = ({rendered: false, str: []});
 
-        var arg_1224745295 = renderStr_1308623169(doc_1224736802, nsuStrip(arg_1224745287, true, true, ConstSet252));
-        switch (doc_1224736802.target) {
+        var arg_1224747191 = renderStr_1308623169(doc_1224738390, nsuStrip(arg_1224747183, true, true, ConstSet256));
+        switch (doc_1224738390.target) {
         case 0:
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatSingleElem(makeNimstrLit("<title>$1</title>"), arg_1224745295));
-          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<h1>$1</h1>"), arg_1224745295);
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatSingleElem(makeNimstrLit("<title>$1</title>"), arg_1224747191));
+          Temporary1 = nsuFormatSingleElem(makeNimstrLit("<h1>$1</h1>"), arg_1224747191);
           break;
         case 1:
-          incl_1224736829(doc_1224736802.addToHead, nsuFormatSingleElem(makeNimstrLit("\\title{$1}"), arg_1224745295));
+          incl_1224738417(doc_1224738390.addToHead, nsuFormatSingleElem(makeNimstrLit("\\title{$1}"), arg_1224747191));
           Temporary1 = makeNimstrLit("\\maketitle");
           break;
         }
-        result_1224745294 = nimCopy(result_1224745294, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
+        result_1224747190 = nimCopy(result_1224747190, {rendered: true, str: nimCopy(null, Temporary1, NTI33554439)}, NTI1577058309);
 
-      return result_1224745294;
+      return result_1224747190;
+
+    }
+    
+function HEX3Aanonymous_1224747291(arg_1224747284) {
+          var Temporary1;
+        var Temporary2;
+        var Temporary3;
+        var Temporary4;
+
+      var result_1224747292 = ({rendered: false, str: []});
+
+        var args_1224747285 = parseXidocArguments_1325404662(arg_1224747284);
+          if (((args_1224747285).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224747285).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("unit"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224747285).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        if ((0 < subInt((args_1224747285).length, 1))) {
+        Temporary2 = some_1778385218(renderStr_1308623169(doc_1224738390, args_1224747285[chckIndx(0, 0, (args_1224747285).length - 1)]));
+        }
+        else {
+        Temporary2 = none_1778385227();
+        }
+        
+        var number_1224747315 = nimCopy(null, Temporary2, NTI1778385115);
+        var unit_1224747320 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224747285, 1));
+        if (isSome_1778385240(number_1224747315)) {
+        Temporary3 = ((Temporary4 = get_1778385275(number_1224747315), Temporary4)[0][Temporary4[1]] || []).concat(makeNimstrLit("\xE2\x80\x89") || [],unit_1224747320 || []);
+        }
+        else {
+        Temporary3 = unit_1224747320;
+        }
+        
+        result_1224747292 = nimCopy(result_1224747292, {rendered: true, str: nimCopy(null, Temporary3, NTI33554439)}, NTI1577058309);
+
+      return result_1224747292;
 
     }
 
-function generateHtmlTag_1224745388(tag_1224745389, args_1224745390, body_1224745391, paired_1224745392) {
+function generateHtmlTag_1224747389(tag_1224747390, args_1224747391, body_1224747392, paired_1224747393) {
     var Temporary5;
 
-  var result_1224745393 = [];
+  var result_1224747394 = [];
 
-    var attrs_1224745401 = newSeq_452985301(0);
-    var classes_1224745409 = newSeq_452985301(0);
+    var attrs_1224747402 = newSeq_452985301(0);
+    var classes_1224747410 = newSeq_452985301(0);
     Label1: do {
-      var arg_1224745413 = null;
-      var arg_1224745413_Idx = 0;
-      var i_486542346 = 0;
-      var L_486542347 = (args_1224745390).length;
+      var arg_1224747414 = null;
+      var arg_1224747414_Idx = 0;
+      var i_486542351 = 0;
+      var L_486542352 = (args_1224747391).length;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486542346 < L_486542347)) break Label3;
-            arg_1224745413 = args_1224745390; arg_1224745413_Idx = chckIndx(i_486542346, 0, (args_1224745390).length - 1);
-            if (nsuStartsWith(arg_1224745413[arg_1224745413_Idx], makeNimstrLit("#"))) {
-            attrs_1224745401.push(nsuFormatSingleElem(makeNimstrLit("id=\"$1\""), HEX5BHEX5D_939527322(arg_1224745413[arg_1224745413_Idx], HEX2EHEX2E_872415312(1, 1))));;
+          if (!(i_486542351 < L_486542352)) break Label3;
+            arg_1224747414 = args_1224747391; arg_1224747414_Idx = chckIndx(i_486542351, 0, (args_1224747391).length - 1);
+            if (nsuStartsWith(arg_1224747414[arg_1224747414_Idx], makeNimstrLit("#"))) {
+            attrs_1224747402.push(nsuFormatSingleElem(makeNimstrLit("id=\"$1\""), HEX5BHEX5D_939527322(arg_1224747414[arg_1224747414_Idx], HEX2EHEX2E_872415312(1, 1))));;
             }
             else {
-            if (nsuStartsWith(arg_1224745413[arg_1224745413_Idx], makeNimstrLit("."))) {
-            classes_1224745409.push(HEX5BHEX5D_939527322(arg_1224745413[arg_1224745413_Idx], HEX2EHEX2E_872415312(1, 1)));;
+            if (nsuStartsWith(arg_1224747414[arg_1224747414_Idx], makeNimstrLit("."))) {
+            classes_1224747410.push(HEX5BHEX5D_939527322(arg_1224747414[arg_1224747414_Idx], HEX2EHEX2E_872415312(1, 1)));;
             }
             else {
-              var Temporary4 = nimCopy(null, arg_1224745413[arg_1224745413_Idx], NTI33554439);
-            attrs_1224745401.push(Temporary4);;
+              var Temporary4 = nimCopy(null, arg_1224747414[arg_1224747414_Idx], NTI33554439);
+            attrs_1224747402.push(Temporary4);;
             }
             }
-            i_486542346 = addInt(i_486542346, 1);
-            if (!(((args_1224745390).length == L_486542347))) {
+            i_486542351 = addInt(i_486542351, 1);
+            if (!(((args_1224747391).length == L_486542352))) {
             failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
             
           }
       } while (false);
     } while (false);
-    if (!(((classes_1224745409).length == 0))) {
-    attrs_1224745401.push(nsuFormatSingleElem(makeNimstrLit("class=\"$1\""), nsuJoinSep(classes_1224745409, makeNimstrLit(" "))));;
+    if (!(((classes_1224747410).length == 0))) {
+    attrs_1224747402.push(nsuFormatSingleElem(makeNimstrLit("class=\"$1\""), nsuJoinSep(classes_1224747410, makeNimstrLit(" "))));;
     }
     
-    if (paired_1224745392) {
-    Temporary5 = nsuFormatOpenArray(makeNimstrLit("<$1>$2</$3>"), [nsuJoinSep(HEX26_1224745473([nimCopy(null, tag_1224745389, NTI33554439)], attrs_1224745401), makeNimstrLit(" ")), nimCopy(null, body_1224745391, NTI33554439), nimCopy(null, tag_1224745389, NTI33554439)]);
+    if (paired_1224747393) {
+    Temporary5 = nsuFormatOpenArray(makeNimstrLit("<$1>$2</$3>"), [nsuJoinSep(HEX26_1224747474([nimCopy(null, tag_1224747390, NTI33554439)], attrs_1224747402), makeNimstrLit(" ")), nimCopy(null, body_1224747392, NTI33554439), nimCopy(null, tag_1224747390, NTI33554439)]);
     }
     else {
-    Temporary5 = nsuFormatOpenArray(makeNimstrLit("<$1 />"), [nsuJoinSep(HEX26_1224745473([nimCopy(null, tag_1224745389, NTI33554439)], attrs_1224745401), makeNimstrLit(" "))]);
+    Temporary5 = nsuFormatOpenArray(makeNimstrLit("<$1 />"), [nsuJoinSep(HEX26_1224747474([nimCopy(null, tag_1224747390, NTI33554439)], attrs_1224747402), makeNimstrLit(" "))]);
     }
     
-    result_1224745393 = nimCopy(null, Temporary5, NTI33554439);
+    result_1224747394 = nimCopy(null, Temporary5, NTI33554439);
 
-  return result_1224745393;
+  return result_1224747394;
 
 }
       
-function HEX3Aanonymous_1224745522(arg_1224745515) {
-        var result_1224745523 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224747523(arg_1224747516) {
+        var result_1224747524 = ({rendered: false, str: []});
 
-          var args_1224745516 = parseXidocArguments_1325404662(arg_1224745515);
-          if (((args_1224745516).length < 2)) {
-          raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("<>"), makeNimstrLit("2"), HEX24_335544323((args_1224745516).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          var args_1224747517 = parseXidocArguments_1325404662(arg_1224747516);
+          if (((args_1224747517).length < 2)) {
+          raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("<>"), makeNimstrLit("2"), HEX24_335544323((args_1224747517).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           }
           
-          var tag_1224745530 = expandStr_1308622885(doc_1224736802, args_1224745516[chckIndx(0, 0, (args_1224745516).length - 1)]);
+          var tag_1224747531 = expandStr_1308622885(doc_1224738390, args_1224747517[chckIndx(0, 0, (args_1224747517).length - 1)]);
           Label1: do {
-            var HEX3Atmp_1224745565 = HEX5BHEX5D_1224741695(args_1224745516, HEX2EHEX2E_872415312(1, 2));
-            var iHEX60gensym403_1224745568 = 0;
-            var resultHEX60gensym403_1224745575 = newSeq_452985301(chckRange((HEX3Atmp_1224745565).length, 0, 2147483647));
+            var HEX3Atmp_1224747566 = HEX5BHEX5D_1224743329(args_1224747517, HEX2EHEX2E_872415312(1, 2));
+            var iHEX60gensym430_1224747569 = 0;
+            var resultHEX60gensym430_1224747576 = newSeq_452985301(chckRange((HEX3Atmp_1224747566).length, 0, 2147483647));
             Label2: do {
-              var it_1224745579 = null;
-              var it_1224745579_Idx = 0;
+              var it_1224747580 = null;
+              var it_1224747580_Idx = 0;
               var i_486542080 = 0;
-              var L_486542081 = (HEX3Atmp_1224745565).length;
+              var L_486542081 = (HEX3Atmp_1224747566).length;
               Label3: do {
                   Label4: while (true) {
                   if (!(i_486542080 < L_486542081)) break Label4;
-                    it_1224745579 = HEX3Atmp_1224745565; it_1224745579_Idx = chckIndx(i_486542080, 0, (HEX3Atmp_1224745565).length - 1);
-                    resultHEX60gensym403_1224745575[chckIndx(iHEX60gensym403_1224745568, 0, (resultHEX60gensym403_1224745575).length - 1)] = nimCopy(null, expandStr_1308622885(doc_1224736802, it_1224745579[it_1224745579_Idx]), NTI33554439);
-                    iHEX60gensym403_1224745568 = addInt(iHEX60gensym403_1224745568, 1);
+                    it_1224747580 = HEX3Atmp_1224747566; it_1224747580_Idx = chckIndx(i_486542080, 0, (HEX3Atmp_1224747566).length - 1);
+                    resultHEX60gensym430_1224747576[chckIndx(iHEX60gensym430_1224747569, 0, (resultHEX60gensym430_1224747576).length - 1)] = nimCopy(null, expandStr_1308622885(doc_1224738390, it_1224747580[it_1224747580_Idx]), NTI33554439);
+                    iHEX60gensym430_1224747569 = addInt(iHEX60gensym430_1224747569, 1);
                     i_486542080 = addInt(i_486542080, 1);
-                    if (!(((HEX3Atmp_1224745565).length == L_486542081))) {
+                    if (!(((HEX3Atmp_1224747566).length == L_486542081))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -13122,42 +13368,42 @@ function HEX3Aanonymous_1224745522(arg_1224745515) {
               } while (false);
             } while (false);
           } while (false);
-          var args_1224745584 = nimCopy(null, resultHEX60gensym403_1224745575, NTI452985127);
-          var body_1224745589 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224745516, 1));
-          result_1224745523 = nimCopy(result_1224745523, {rendered: true, str: nimCopy(null, generateHtmlTag_1224745388(tag_1224745530, args_1224745584, body_1224745589, true), NTI33554439)}, NTI1577058309);
+          var args_1224747585 = nimCopy(null, resultHEX60gensym430_1224747576, NTI452985127);
+          var body_1224747590 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224747517, 1));
+          result_1224747524 = nimCopy(result_1224747524, {rendered: true, str: nimCopy(null, generateHtmlTag_1224747389(tag_1224747531, args_1224747585, body_1224747590, true), NTI33554439)}, NTI1577058309);
 
-        return result_1224745523;
+        return result_1224747524;
 
       }
               
-function HEX3Aanonymous_1224745640(tag_1224745641) {
-                  tag_1224745641 = nimCopy(null, tag_1224745641, NTI33554439);
+function HEX3Aanonymous_1224747641(tag_1224747642) {
+                  tag_1224747642 = nimCopy(null, tag_1224747642, NTI33554439);
                   
-function HEX3Aanonymous_1224745653(arg_1224745646) {
-                    var result_1224745654 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224747654(arg_1224747647) {
+                    var result_1224747655 = ({rendered: false, str: []});
 
-                      var args_1224745647 = parseXidocArguments_1325404662(arg_1224745646);
-                      if (((args_1224745647).length < 0)) {
-                      raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224745641), makeNimstrLit("0"), HEX24_335544323((args_1224745647).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+                      var args_1224747648 = parseXidocArguments_1325404662(arg_1224747647);
+                      if (((args_1224747648).length < 0)) {
+                      raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747642), makeNimstrLit("0"), HEX24_335544323((args_1224747648).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
                       }
                       
                       Label1: do {
-                        var HEX3Atmp_1224745695 = HEX5BHEX5D_1224741695(args_1224745647, HEX2EHEX2E_872415312(0, 1));
-                        var iHEX60gensym415_1224745698 = 0;
-                        var resultHEX60gensym415_1224745705 = newSeq_452985301(chckRange((HEX3Atmp_1224745695).length, 0, 2147483647));
+                        var HEX3Atmp_1224747696 = HEX5BHEX5D_1224743329(args_1224747648, HEX2EHEX2E_872415312(0, 1));
+                        var iHEX60gensym442_1224747699 = 0;
+                        var resultHEX60gensym442_1224747706 = newSeq_452985301(chckRange((HEX3Atmp_1224747696).length, 0, 2147483647));
                         Label2: do {
-                          var it_1224745709 = null;
-                          var it_1224745709_Idx = 0;
+                          var it_1224747710 = null;
+                          var it_1224747710_Idx = 0;
                           var i_486542086 = 0;
-                          var L_486542087 = (HEX3Atmp_1224745695).length;
+                          var L_486542087 = (HEX3Atmp_1224747696).length;
                           Label3: do {
                               Label4: while (true) {
                               if (!(i_486542086 < L_486542087)) break Label4;
-                                it_1224745709 = HEX3Atmp_1224745695; it_1224745709_Idx = chckIndx(i_486542086, 0, (HEX3Atmp_1224745695).length - 1);
-                                resultHEX60gensym415_1224745705[chckIndx(iHEX60gensym415_1224745698, 0, (resultHEX60gensym415_1224745705).length - 1)] = nimCopy(null, expandStr_1308622885(doc_1224736802, it_1224745709[it_1224745709_Idx]), NTI33554439);
-                                iHEX60gensym415_1224745698 = addInt(iHEX60gensym415_1224745698, 1);
+                                it_1224747710 = HEX3Atmp_1224747696; it_1224747710_Idx = chckIndx(i_486542086, 0, (HEX3Atmp_1224747696).length - 1);
+                                resultHEX60gensym442_1224747706[chckIndx(iHEX60gensym442_1224747699, 0, (resultHEX60gensym442_1224747706).length - 1)] = nimCopy(null, expandStr_1308622885(doc_1224738390, it_1224747710[it_1224747710_Idx]), NTI33554439);
+                                iHEX60gensym442_1224747699 = addInt(iHEX60gensym442_1224747699, 1);
                                 i_486542086 = addInt(i_486542086, 1);
-                                if (!(((HEX3Atmp_1224745695).length == L_486542087))) {
+                                if (!(((HEX3Atmp_1224747696).length == L_486542087))) {
                                 failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                                 }
                                 
@@ -13165,38 +13411,38 @@ function HEX3Aanonymous_1224745653(arg_1224745646) {
                           } while (false);
                         } while (false);
                       } while (false);
-                      var args_1224745714 = nimCopy(null, resultHEX60gensym415_1224745705, NTI452985127);
-                      result_1224745654 = nimCopy(result_1224745654, {rendered: true, str: nimCopy(null, generateHtmlTag_1224745388(tag_1224745641, args_1224745714, [], false), NTI33554439)}, NTI1577058309);
+                      var args_1224747715 = nimCopy(null, resultHEX60gensym442_1224747706, NTI452985127);
+                      result_1224747655 = nimCopy(result_1224747655, {rendered: true, str: nimCopy(null, generateHtmlTag_1224747389(tag_1224747642, args_1224747715, [], false), NTI33554439)}, NTI1577058309);
 
-                    return result_1224745654;
+                    return result_1224747655;
 
                   }
                     
-function HEX3Aanonymous_1224745768(arg_1224745761) {
-                      var result_1224745769 = ({rendered: false, str: []});
+function HEX3Aanonymous_1224747769(arg_1224747762) {
+                      var result_1224747770 = ({rendered: false, str: []});
 
-                        var args_1224745762 = parseXidocArguments_1325404662(arg_1224745761);
-                        if (((args_1224745762).length < 1)) {
-                        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224745641), makeNimstrLit("1"), HEX24_335544323((args_1224745762).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+                        var args_1224747763 = parseXidocArguments_1325404662(arg_1224747762);
+                        if (((args_1224747763).length < 1)) {
+                        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747642), makeNimstrLit("1"), HEX24_335544323((args_1224747763).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
                         }
                         
                         Label1: do {
-                          var HEX3Atmp_1224745810 = HEX5BHEX5D_1224741695(args_1224745762, HEX2EHEX2E_872415312(0, 2));
-                          var iHEX60gensym426_1224745813 = 0;
-                          var resultHEX60gensym426_1224745820 = newSeq_452985301(chckRange((HEX3Atmp_1224745810).length, 0, 2147483647));
+                          var HEX3Atmp_1224747811 = HEX5BHEX5D_1224743329(args_1224747763, HEX2EHEX2E_872415312(0, 2));
+                          var iHEX60gensym453_1224747814 = 0;
+                          var resultHEX60gensym453_1224747821 = newSeq_452985301(chckRange((HEX3Atmp_1224747811).length, 0, 2147483647));
                           Label2: do {
-                            var it_1224745824 = null;
-                            var it_1224745824_Idx = 0;
+                            var it_1224747825 = null;
+                            var it_1224747825_Idx = 0;
                             var i_486542091 = 0;
-                            var L_486542092 = (HEX3Atmp_1224745810).length;
+                            var L_486542092 = (HEX3Atmp_1224747811).length;
                             Label3: do {
                                 Label4: while (true) {
                                 if (!(i_486542091 < L_486542092)) break Label4;
-                                  it_1224745824 = HEX3Atmp_1224745810; it_1224745824_Idx = chckIndx(i_486542091, 0, (HEX3Atmp_1224745810).length - 1);
-                                  resultHEX60gensym426_1224745820[chckIndx(iHEX60gensym426_1224745813, 0, (resultHEX60gensym426_1224745820).length - 1)] = nimCopy(null, expandStr_1308622885(doc_1224736802, it_1224745824[it_1224745824_Idx]), NTI33554439);
-                                  iHEX60gensym426_1224745813 = addInt(iHEX60gensym426_1224745813, 1);
+                                  it_1224747825 = HEX3Atmp_1224747811; it_1224747825_Idx = chckIndx(i_486542091, 0, (HEX3Atmp_1224747811).length - 1);
+                                  resultHEX60gensym453_1224747821[chckIndx(iHEX60gensym453_1224747814, 0, (resultHEX60gensym453_1224747821).length - 1)] = nimCopy(null, expandStr_1308622885(doc_1224738390, it_1224747825[it_1224747825_Idx]), NTI33554439);
+                                  iHEX60gensym453_1224747814 = addInt(iHEX60gensym453_1224747814, 1);
                                   i_486542091 = addInt(i_486542091, 1);
-                                  if (!(((HEX3Atmp_1224745810).length == L_486542092))) {
+                                  if (!(((HEX3Atmp_1224747811).length == L_486542092))) {
                                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                                   }
                                   
@@ -13204,104 +13450,105 @@ function HEX3Aanonymous_1224745768(arg_1224745761) {
                             } while (false);
                           } while (false);
                         } while (false);
-                        var args_1224745829 = nimCopy(null, resultHEX60gensym426_1224745820, NTI452985127);
-                        var body_1224745834 = renderStr_1308623169(doc_1224736802, HEX5BHEX5D_1761607718(args_1224745762, 1));
-                        result_1224745769 = nimCopy(result_1224745769, {rendered: true, str: nimCopy(null, generateHtmlTag_1224745388(tag_1224745641, args_1224745829, body_1224745834, true), NTI33554439)}, NTI1577058309);
+                        var args_1224747830 = nimCopy(null, resultHEX60gensym453_1224747821, NTI452985127);
+                        var body_1224747835 = renderStr_1308623169(doc_1224738390, HEX5BHEX5D_1778384934(args_1224747763, 1));
+                        result_1224747770 = nimCopy(result_1224747770, {rendered: true, str: nimCopy(null, generateHtmlTag_1224747389(tag_1224747642, args_1224747830, body_1224747835, true), NTI33554439)}, NTI1577058309);
 
-                      return result_1224745769;
+                      return result_1224747770;
 
                     }
 
-                  if (contains_872415275(htmlUnpairedTags_1224736799, tag_1224745641)) {
-                  HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224745641), HEX3Aanonymous_1224745653);
+                  if (contains_872415275(htmlUnpairedTags_1224736799, tag_1224747642)) {
+                  HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747642), HEX3Aanonymous_1224747654);
                   }
                   else {
-                  HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224745641), HEX3Aanonymous_1224745768);
+                  HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747642), HEX3Aanonymous_1224747769);
                   }
                   
 
                 
               }
 
-  var result_1224736805 = ({data: [], counter: 0});
+  var result_1224738393 = ({data: [], counter: 0});
 
-    var commands_1224736808 = [({data: [], counter: 0})];
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("#"), HEX3Aanonymous_1224738400);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], [], HEX3Aanonymous_1224738455);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit(";"), HEX3Aanonymous_1224738510);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("()"), HEX3Aanonymous_1224738564);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("("), HEX3Aanonymous_1224738619);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit(")"), HEX3Aanonymous_1224738673);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("--"), HEX3Aanonymous_1224738727);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("---"), HEX3Aanonymous_1224738781);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("..."), HEX3Aanonymous_1224738835);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("\""), HEX3Aanonymous_1224738889);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("$"), HEX3Aanonymous_1224739002);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("$$"), HEX3Aanonymous_1224739061);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("$$&"), HEX3Aanonymous_1224739143);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("LaTeX"), HEX3Aanonymous_1224739225);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("add-to-head"), HEX3Aanonymous_1224739302);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("arg"), HEX3Aanonymous_1224739380);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("arg-expand"), HEX3Aanonymous_1224739556);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("arg-raw"), HEX3Aanonymous_1224739732);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("arg-raw-escape"), HEX3Aanonymous_1224739908);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("bf"), HEX3Aanonymous_1224740084);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("checkboxes"), HEX3Aanonymous_1224740139);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("code"), HEX3Aanonymous_1224740223);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("code-block"), HEX3Aanonymous_1224740366);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("color"), HEX3Aanonymous_1224740509);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("def"), HEX3Aanonymous_1224740606);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("dfn"), HEX3Aanonymous_1224740925);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("example"), HEX3Aanonymous_1224741141);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("exercise"), HEX3Aanonymous_1224741357);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("expand"), HEX3Aanonymous_1224741567);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("hide"), HEX3Aanonymous_1224741622);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("header-row"), HEX3Aanonymous_1224741678);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("html-add-attrs"), HEX3Aanonymous_1224741879);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("if-html"), HEX3Aanonymous_1224742025);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("if-latex"), HEX3Aanonymous_1224742085);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("include"), HEX3Aanonymous_1224742145);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("inject"), HEX3Aanonymous_1224742411);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("it"), HEX3Aanonymous_1224742481);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("lang"), HEX3Aanonymous_1224742537);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("link"), HEX3Aanonymous_1224742619);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("list"), HEX3Aanonymous_1224742718);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("ms"), HEX3Aanonymous_1224742906);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("p"), HEX3Aanonymous_1224742961);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("pass"), HEX3Aanonymous_1224743016);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("pass-raw"), HEX3Aanonymous_1224743071);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("proof"), HEX3Aanonymous_1224743132);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("props"), HEX3Aanonymous_1224743343);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("raw"), HEX3Aanonymous_1224743531);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("render"), HEX3Aanonymous_1224743586);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("row"), HEX3Aanonymous_1224743642);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("section"), HEX3Aanonymous_1224743800);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("set-doc-lang"), HEX3Aanonymous_1224743938);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("set-math-renderer"), HEX3Aanonymous_1224743996);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("set-title"), HEX3Aanonymous_1224744060);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("show-title"), HEX3Aanonymous_1224744161);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("solution"), HEX3Aanonymous_1224744222);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("spoiler"), HEX3Aanonymous_1224744433);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("spoiler-solution"), HEX3Aanonymous_1224744507);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("style"), HEX3Aanonymous_1224744694);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("table"), HEX3Aanonymous_1224744777);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("template-arg"), HEX3Aanonymous_1224744904);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("term"), HEX3Aanonymous_1224745022);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("theorem"), HEX3Aanonymous_1224745083);
-    HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("title"), HEX3Aanonymous_1224745293);
-    switch (doc_1224736802.target) {
+    var commands_1224738396 = [({data: [], counter: 0})];
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("#"), HEX3Aanonymous_1224739988);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit(";"), HEX3Aanonymous_1224740043);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("()"), HEX3Aanonymous_1224740097);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("("), HEX3Aanonymous_1224740152);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit(")"), HEX3Aanonymous_1224740206);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("--"), HEX3Aanonymous_1224740260);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("---"), HEX3Aanonymous_1224740314);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("..."), HEX3Aanonymous_1224740368);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("\""), HEX3Aanonymous_1224740422);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("$"), HEX3Aanonymous_1224740535);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("$$"), HEX3Aanonymous_1224740617);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("$$&"), HEX3Aanonymous_1224740722);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("LaTeX"), HEX3Aanonymous_1224740850);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("add-to-head"), HEX3Aanonymous_1224740927);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("arg"), HEX3Aanonymous_1224741005);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("arg-expand"), HEX3Aanonymous_1224741181);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("arg-raw"), HEX3Aanonymous_1224741357);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("arg-raw-escape"), HEX3Aanonymous_1224741533);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("bf"), HEX3Aanonymous_1224741709);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("checkboxes"), HEX3Aanonymous_1224741764);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("code"), HEX3Aanonymous_1224741848);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("code-block"), HEX3Aanonymous_1224742000);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("color"), HEX3Aanonymous_1224742143);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("def"), HEX3Aanonymous_1224742240);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("dfn"), HEX3Aanonymous_1224742559);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("example"), HEX3Aanonymous_1224742775);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("exercise"), HEX3Aanonymous_1224742991);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("expand"), HEX3Aanonymous_1224743201);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("hide"), HEX3Aanonymous_1224743256);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("header-row"), HEX3Aanonymous_1224743312);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("html-add-attrs"), HEX3Aanonymous_1224743513);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("if-html"), HEX3Aanonymous_1224743659);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("if-latex"), HEX3Aanonymous_1224743719);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("include"), HEX3Aanonymous_1224743779);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("inject"), HEX3Aanonymous_1224744048);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("it"), HEX3Aanonymous_1224744118);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("lang"), HEX3Aanonymous_1224744174);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("link"), HEX3Aanonymous_1224744256);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("list"), HEX3Aanonymous_1224744355);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("ms"), HEX3Aanonymous_1224744543);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("p"), HEX3Aanonymous_1224744598);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("pass"), HEX3Aanonymous_1224744653);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("pass-raw"), HEX3Aanonymous_1224744708);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("proof"), HEX3Aanonymous_1224744769);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("props"), HEX3Aanonymous_1224744980);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("raw"), HEX3Aanonymous_1224745168);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("render"), HEX3Aanonymous_1224745223);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("row"), HEX3Aanonymous_1224745279);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("section"), HEX3Aanonymous_1224745437);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("set-doc-lang"), HEX3Aanonymous_1224745575);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("set-math-renderer"), HEX3Aanonymous_1224745633);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("set-syntax-highlighting-theme"), HEX3Aanonymous_1224745697);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("set-title"), HEX3Aanonymous_1224745956);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("show-title"), HEX3Aanonymous_1224746057);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("solution"), HEX3Aanonymous_1224746118);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("spoiler"), HEX3Aanonymous_1224746329);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("spoiler-solution"), HEX3Aanonymous_1224746403);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("style"), HEX3Aanonymous_1224746590);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("table"), HEX3Aanonymous_1224746673);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("template-arg"), HEX3Aanonymous_1224746800);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("term"), HEX3Aanonymous_1224746918);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("theorem"), HEX3Aanonymous_1224746979);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("title"), HEX3Aanonymous_1224747189);
+    HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("unit"), HEX3Aanonymous_1224747291);
+    switch (doc_1224738390.target) {
     case 0:
-      HEX5BHEX5DHEX3D_1728053350(commands_1224736808[0], makeNimstrLit("<>"), HEX3Aanonymous_1224745522);
+      HEX5BHEX5DHEX3D_1744830566(commands_1224738396[0], makeNimstrLit("<>"), HEX3Aanonymous_1224747523);
       Label1: do {
-        var tag_1224745639 = null;
-        var tag_1224745639_Idx = 0;
+        var tag_1224747640 = null;
+        var tag_1224747640_Idx = 0;
         var i_486542094 = 0;
         var L_486542095 = 127;
         Label2: do {
             Label3: while (true) {
             if (!(i_486542094 < L_486542095)) break Label3;
-              tag_1224745639 = htmlTags_1224736798; tag_1224745639_Idx = chckIndx(i_486542094, 0, (htmlTags_1224736798).length - 1);
-              HEX3Aanonymous_1224745640(tag_1224745639[tag_1224745639_Idx]);
+              tag_1224747640 = htmlTags_1224736798; tag_1224747640_Idx = chckIndx(i_486542094, 0, (htmlTags_1224736798).length - 1);
+              HEX3Aanonymous_1224747641(tag_1224747640[tag_1224747640_Idx]);
               i_486542094 = addInt(i_486542094, 1);
               if (!((127 == L_486542095))) {
               failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
@@ -13314,17 +13561,17 @@ function HEX3Aanonymous_1224745768(arg_1224745761) {
     default: 
       break;
     }
-    result_1224736805 = nimCopy(result_1224736805, commands_1224736808[0], NTI1577058327);
+    result_1224738393 = nimCopy(result_1224738393, commands_1224738396[0], NTI1577058329);
 
-  return result_1224736805;
+  return result_1224738393;
 
 }
 
 function newDocument(body_486540815, target_486540816, snippet_486540817, verbose_486540818) {
   var result_486540819 = null;
 
-    result_486540819 = {path: [], body: cstrToNimstr(body_486540815), target: target_486540816, snippet: snippet_486540817, verbose: verbose_486540818, stack: [{cmdName: makeNimstrLit("[top]"), args: ({data: [], counter: 0}), cmdArg: [], commands: ({data: [], counter: 0}), lang: ({val: 0, has: false})}], addToHead: ({data: [], counter: 0, first: 0, last: 0}), mathRenderer: 0, templateArgs: ({data: [], counter: 0})};
-    result_486540819.stack[chckIndx(0, 0, (result_486540819.stack).length - 1)].commands = nimCopy(result_486540819.stack[chckIndx(0, 0, (result_486540819.stack).length - 1)].commands, defaultCommands_1224736801(result_486540819), NTI1577058327);
+    result_486540819 = {path: [], body: cstrToNimstr(body_486540815), target: target_486540816, snippet: snippet_486540817, verbose: verbose_486540818, stack: [{cmdName: makeNimstrLit("[top]"), args: ({data: [], counter: 0}), cmdArg: [], commands: ({data: [], counter: 0}), lang: ({val: 0, has: false})}], addToHead: ({data: [], counter: 0, first: 0, last: 0}), mathRenderer: 0, templateArgs: ({data: [], counter: 0}), syntaxHighlightingTheme: 0};
+    result_486540819.stack[chckIndx(0, 0, (result_486540819.stack).length - 1)].commands = nimCopy(result_486540819.stack[chckIndx(0, 0, (result_486540819.stack).length - 1)].commands, defaultCommands_1224738389(result_486540819), NTI1577058329);
 
   return result_486540819;
 
@@ -13456,31 +13703,31 @@ function render(doc_486540825) {
     }
     else {
       Label2: do {
-        var HEX3Atmp_486541916 = nimCopy(null, doc_486540825.addToHead, NTI1577058354);
+        var HEX3Atmp_486541916 = nimCopy(null, doc_486540825.addToHead, NTI1577058356);
         var iHEX60gensym23_486541919 = 0;
         var resultHEX60gensym23_486541981 = newSeq_452985301(chckRange(len_486541552(HEX3Atmp_486541916), 0, 2147483647));
         Label3: do {
           var itHEX60gensym23_486541985 = [];
-          var length_486542364 = len_486541552(HEX3Atmp_486541916);
+          var length_486542369 = len_486541552(HEX3Atmp_486541916);
           if ((0 < (HEX3Atmp_486541916.data).length)) {
-          var h_486542365 = HEX3Atmp_486541916.first;
-          var idx_486542366 = 0;
+          var h_486542370 = HEX3Atmp_486541916.first;
+          var idx_486542371 = 0;
           Label4: do {
               Label5: while (true) {
-              if (!(0 <= h_486542365)) break Label5;
-                var nxt_486542368 = HEX3Atmp_486541916.data[chckIndx(h_486542365, 0, (HEX3Atmp_486541916.data).length - 1)].Field1;
-                if (isFilled_1107296294(HEX3Atmp_486541916.data[chckIndx(h_486542365, 0, (HEX3Atmp_486541916.data).length - 1)].Field0)) {
-                itHEX60gensym23_486541985 = HEX3Atmp_486541916.data[chckIndx(h_486542365, 0, (HEX3Atmp_486541916.data).length - 1)].Field2;
+              if (!(0 <= h_486542370)) break Label5;
+                var nxt_486542373 = HEX3Atmp_486541916.data[chckIndx(h_486542370, 0, (HEX3Atmp_486541916.data).length - 1)].Field1;
+                if (isFilled_1107296294(HEX3Atmp_486541916.data[chckIndx(h_486542370, 0, (HEX3Atmp_486541916.data).length - 1)].Field0)) {
+                itHEX60gensym23_486541985 = HEX3Atmp_486541916.data[chckIndx(h_486542370, 0, (HEX3Atmp_486541916.data).length - 1)].Field2;
                 resultHEX60gensym23_486541981[chckIndx(iHEX60gensym23_486541919, 0, (resultHEX60gensym23_486541981).length - 1)] = nimCopy(null, itHEX60gensym23_486541985, NTI33554439);
                 iHEX60gensym23_486541919 = addInt(iHEX60gensym23_486541919, 1);
-                if (!((len_486541552(HEX3Atmp_486541916) == length_486542364))) {
+                if (!((len_486541552(HEX3Atmp_486541916) == length_486542369))) {
                 failedAssertImpl_218103864(makeNimstrLit("sets.nim(905, 11) `len(s) == length` the length of the OrderedSet changed while iterating over it"));
                 }
                 
-                idx_486542366 = addInt(idx_486542366, 1);
+                idx_486542371 = addInt(idx_486542371, 1);
                 }
                 
-                h_486542365 = nxt_486542368;
+                h_486542370 = nxt_486542373;
               }
           } while (false);
           }
