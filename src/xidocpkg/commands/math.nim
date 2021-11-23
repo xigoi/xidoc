@@ -4,6 +4,7 @@ import ../parser
 import ../types
 import ./utils
 import std/options
+from std/pegs import peg, replacef
 import std/strformat
 import std/strutils
 import std/tables
@@ -84,3 +85,11 @@ commands mathCommands:
     "\\begin{vmatrix}$1\\end{vmatrix}" % [arg]
   command "||mat||", expand, expand:
     "\\begin{Vmatrix}$1\\end{Vmatrix}" % [arg]
+
+  # Units
+  command "unit", (number: ?render, unit: render), rendered:
+    let unitRendered = unit.replacef(peg"^{\letter+}", "\\mathrm{$1}").replacef(peg"{!\letter[^\\]}{\letter+}", "$1\\mathrm{$2}")
+    if number.isSome:
+      number.get & "\\," & unitRendered
+    else:
+      unitRendered

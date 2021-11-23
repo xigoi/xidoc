@@ -504,6 +504,13 @@ commands defaultCommands:
       doc.addToHead.incl "\\title{$1}" % arg
       "\\maketitle"
 
+  command "unit", (number: ?render, unit: render), rendered:
+    if number.isSome:
+      # U+2009 Thin Space
+      number.get & "\u2009" & unit
+    else:
+      unit
+
   case doc.target
   of tHtml:
 

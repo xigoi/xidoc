@@ -317,6 +317,10 @@ const factorial = (n) => {
   [cmd title; title;
     Renders the given [param title] and sets it as the title of the document.
   ]
+  [cmd unit; ?number unit;
+    Renders a [param unit] or a quantity expressed with a [param number] and [param unit]. Also works inside math commands.
+    [ex [unit 6378; km], [$ [unit 60; [/ km; h]]]]
+  ]
 ]
 [section HTML commands;
   When compiling to HTML, you can use tag commands to generate arbitrary tags. For example, [code xidoc; [raw [<> a; .click-here; "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; CLICK HERE]]] produces a link with the class [ms click-here] and the text [ms CLICK HERE]. Default tags have a shorthand, so this could also be written as [code xidoc; [raw [<a> .click-here; "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; CLICK HERE]]]. However, the latter syntax doesn't work for custom tags.
