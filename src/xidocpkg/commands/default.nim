@@ -21,8 +21,17 @@ import std/tables
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
   htmlUnpairedTags = "br circle img input link meta path rect".splitWhitespace
-  prismCss = staticRead("../../prism/prism.css")
-
+  prismCss = [
+    shtDefault: staticRead("../../prism/default.css"),
+    shtDark: staticRead("../../prism/dark.css"),
+    shtFunky: staticRead("../../prism/funky.css"),
+    shtOkaidia: staticRead("../../prism/okaidia.css"),
+    shtTwilight: staticRead("../../prism/twilight.css"),
+    shtCoy: staticRead("../../prism/coy.css"),
+    shtSolarizedLight: staticRead("../../prism/solarized-light.css"),
+    shtTomorrowNight: staticRead("../../prism/tomorrow-night.css"),
+  ]
+  syntaxHighlightingThemeTable = SyntaxHighlightingTheme.mapIt(($it, it)).toTable
 
 commands defaultCommands:
 
@@ -170,7 +179,7 @@ commands defaultCommands:
   command "code", (lang: ?expand, code: expand), rendered:
     case doc.target
     of tHtml:
-      doc.addToHead.incl("<style>" & prismCss & "</style>")
+      doc.addToHead.incl("<style>" & prismCss[doc.syntaxHighlightingTheme] & "</style>")
       if lang.isSome:
         "<code class=\"language-$1\">$2</code>" % [lang.get, code.highlightCode(lang.get)]
       else:
@@ -182,7 +191,7 @@ commands defaultCommands:
   command "code-block", (lang: ?expand, code: expand), rendered:
     case doc.target
     of tHtml:
-      doc.addToHead.incl("<style>" & prismCss & "</style>")
+      doc.addToHead.incl("<style>" & prismCss[doc.syntaxHighlightingTheme] & "</style>")
       if lang.isSome:
         "<pre class=\"language-$1\"><code class=\"language-$1\">$2</code></pre>" % [lang.get, code.highlightCode(lang.get)]
       else:
@@ -403,6 +412,16 @@ commands defaultCommands:
     of "katex-jsdelivr": mrKatexJsdelivr
     of "katex", "katex-duktape": mrKatex
     else: xidocError "Invalid value for set-math-renderer: $1" % arg
+    ""
+
+  command "set-syntax-highlighting-theme", expand, rendered:
+    case doc.target
+    of tHtml:
+      if arg notin syntaxHighlightingThemeTable:
+        xidocError &"Invalid syntax highlighting theme: {arg}"
+      doc.syntaxHighlightingTheme = syntaxHighlightingThemeTable[arg]
+    else:
+      discard
     ""
 
   command "set-title", expand, rendered:

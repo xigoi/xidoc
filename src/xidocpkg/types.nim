@@ -13,6 +13,15 @@ type
   XidocString* = object
     rendered*: bool
     str*: string
+  SyntaxHighlightingTheme* = enum
+    shtDefault = "default"
+    shtDark = "dark"
+    shtFunky = "funky"
+    shtOkaidia = "okaidia"
+    shtTwilight = "twilight"
+    shtCoy = "coy"
+    shtSolarizedLight = "solarized-light"
+    shtTomorrowNight = "tomorrow-night"
   Command* = proc(arg: string): XidocString
   Frame* = object
     args*: Table[string, string]
@@ -27,9 +36,12 @@ type
     path*: string
     snippet*: bool
     stack*: seq[Frame]
-    target*: Target
     templateArgs*: Table[string, string]
     verbose*: bool
+    case target*: Target
+    of tHtml:
+      syntaxHighlightingTheme*: SyntaxHighlightingTheme
+    else: discard
 
 template lookup*(doc: Document, field: untyped): auto =
   (proc(): auto =
