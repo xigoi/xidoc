@@ -27,6 +27,7 @@ CommandArgs.prototype.exec = function(str) {
 };
 Prism.languages.xidoc = {
   string: { pattern: new CommandArgs("raw|pass-raw") },
+  comment: { pattern: new CommandArgs("#") },
   tag: { pattern: /(\[)[^\s\]]+/, lookbehind: true },
   punctuation: /[[;\]]/,
 };
