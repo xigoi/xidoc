@@ -241,7 +241,7 @@ const factorial = (n) => {
   ]
   [cmd raw; text;
     Returns the given [param text] without expanding it.
-    [ex [raw [I can use [as many brackets [as I want]], but [they] still have to [[be balanced!]]].]]
+    [ex [raw [I can use [as many brackets [as I want]], but [they] still have to [[be balanced]]].]]
   ]
   [cmd render; text;
     After expanding [param text], renders it. Useful for complex command defititions.

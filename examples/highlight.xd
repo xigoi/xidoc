@@ -1,3 +1,4 @@
+[code xidoc; [raw foo [raw bar [baz [quux]] hiad] hlorp]]
 [code python; import __hello__]
 [code html; <b>b</b>]
 [code-block nim; [raw
