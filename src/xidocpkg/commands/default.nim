@@ -1,3 +1,4 @@
+from std/htmlgen as htg import nil
 from std/pegs import match, peg
 import ../error
 import ../expand
@@ -160,7 +161,7 @@ commands defaultCommands:
   command "bf", render, rendered:
     case doc.target
     of tHtml:
-      "<b>$1</b>" % arg
+      htg.b(arg)
     of tLatex:
       "\\textbf{$1}" % arg
 
@@ -180,7 +181,7 @@ commands defaultCommands:
       if lang.isSome:
         "<code class=\"language-$1\">$2</code>" % [lang.get, code.highlightCode(lang.get)]
       else:
-        "<code>$1</code>" % code.escapeText(doc.target)
+        htg.code(code.escapeText(doc.target))
     of tLatex:
       # TODO: use minted
       "\\texttt{$1}" % code
@@ -192,7 +193,7 @@ commands defaultCommands:
       if lang.isSome:
         "<pre class=\"language-$1\"><code class=\"language-$1\">$2</code></pre>" % [lang.get, code.highlightCode(lang.get)]
       else:
-        "<pre><code>$1</code></pre>" % code.escapeText(doc.target)
+        htg.pre(htg.code(code.escapeText(doc.target)))
     of tLatex:
       # TODO: use minted
       "\\texttt{$1}" % code
@@ -200,7 +201,7 @@ commands defaultCommands:
   command "color", (color: expand, text: render), rendered:
     case doc.target
     of tHtml:
-      "<span style=\"color:$1\">$2</span>" % [color, text]
+      htg.span(style = &"color:{color}", text)
     of tLatex:
       doc.addToHead.incl "\\usepackage[svgnames]{xcolor}"
       "\\textcolor{$1}{$2}" % [color, text]
@@ -234,7 +235,7 @@ commands defaultCommands:
       xidocError "The header-row command has to be inside a table command"
     case doc.target
     of tHtml:
-      "<tr>$1</tr>" % entries.mapIt("<th>$1</th>" % it).join
+      htg.tr(entries.mapIt(htg.th(it)).join)
     of tLatex:
       "$1\\\\\\midrule " % entries.join("&")
 
@@ -303,7 +304,7 @@ commands defaultCommands:
   command "it", render, rendered:
     case doc.target
     of tHtml:
-      "<i>$1</i>" % arg
+      htg.i(arg)
     of tLatex:
       "\\textit{$1}" % arg
 
@@ -319,28 +320,28 @@ commands defaultCommands:
   command "link", (name: ?render, url: expand), rendered:
     case doc.target
     of tHtml:
-      "<a href=\"$1\">$2</a>" % [url, name.get(url)]
+      htg.a(href = url, name.get(url))
     of tLatex:
       "" # TODO
 
   command "list", (items: *render), rendered:
     case doc.target
     of tHtml:
-      "<ul>$1</ul>" % items.mapIt("<li>$1</li>" % it).join
+      htg.ul(items.mapIt(htg.li(it)).join)
     of tLatex:
       "\\begin{itemize}$1\\end{iremize}" % items.mapIt("\\item $1" % it).join
 
   command "ms", render, rendered:
     case doc.target
     of tHtml:
-      "<code>$1</code>" % arg
+      htg.code(arg)
     of tLatex:
       "\\texttt{$1}" % arg
 
   command "p", render, rendered:
     case doc.target
     of tHtml:
-      "<p>$1</p>" % arg
+      htg.p(arg)
     of tLatex:
       "\\par $1" % arg
 
@@ -355,7 +356,7 @@ commands defaultCommands:
   command "props", (items: *render), rendered:
     case doc.target
     of tHtml:
-      "<ul>$1</ul>" % items.mapIt("<li>$1</li>" % it).join
+      htg.ul(items.mapIt(htg.li(it)).join)
     of tLatex:
       "\\begin{itemize}$1\\end{iremize}" % items.mapIt("\\item $1" % it).join
 
@@ -370,7 +371,7 @@ commands defaultCommands:
       xidocError "The row command has to be inside a table command"
     case doc.target
     of tHtml:
-      "<tr>$1</tr>" % entries.mapIt("<td>$1</td>" % it).join
+      htg.tr(entries.mapIt(htg.td(it)).join)
     of tLatex:
       "$1\\\\" % entries.join("&")
 
@@ -388,7 +389,7 @@ commands defaultCommands:
           else: "h6"
         "<section><$1 class=\"xd-section-heading\">$2</$1>$3</section>" % [headingTag, name.get, content]
       else:
-        "<section>$1</section>" % [content]
+        htg.section(content)
     of tLatex:
       if name.isSome:
         "\\section*{$1}$2" % [name.get, content]
@@ -424,7 +425,7 @@ commands defaultCommands:
   command "set-title", expand, rendered:
     case doc.target
     of tHtml:
-      doc.addToHead.incl "<title>$1</title>" % arg
+      doc.addToHead.incl htg.title(arg)
     of tLatex:
       doc.addToHead.incl "\\title{$1}" % arg
     ""
@@ -432,7 +433,7 @@ commands defaultCommands:
   command "show-title", expand, rendered:
     case doc.target
     of tHtml:
-      "<h1>$1</h1>" % arg
+      htg.h1(arg)
     of tLatex:
       "\\maketitle"
 
@@ -441,7 +442,7 @@ commands defaultCommands:
   command "spoiler", (title: render, content: render), rendered:
     case doc.target
     of tHtml:
-      "<details class=\"xd-spoiler\"><summary>$1</summary>$2</details>" % [title, content]
+      htg.details(class = "xd-spoiler", htg.summary(title), content)
     of tLatex:
       xidocError "The spoiler command is not supported in the LaTeX backend"
 
@@ -470,7 +471,7 @@ commands defaultCommands:
   command "table", (spec: ?expand, content: render), rendered:
     case doc.target
     of tHtml:
-      "<table>$1</table>" % [content]
+      htg.table(content)
     of tLatex:
       if spec.isNone:
         xidocError "Tables in LaTeX currently require a spec"
@@ -486,7 +487,7 @@ commands defaultCommands:
   command "term", render, rendered:
     case doc.target
     of tHtml:
-      "<dfn>$1</dfn>" % arg
+      htg.dfn(arg)
     of tLatex:
       "\\textit{$1}" % arg
 
@@ -495,8 +496,8 @@ commands defaultCommands:
   command "title", render, rendered:
     case doc.target
     of tHtml:
-      doc.addToHead.incl "<title>$1</title>" % arg
-      "<h1>$1</h1>" % arg
+      doc.addToHead.incl htg.title(arg)
+      htg.h1(arg)
     of tLatex:
       doc.addToHead.incl "\\title{$1}" % arg
       "\\maketitle"

@@ -1,7 +1,7 @@
+from std/htmlgen as htg import nil
 import std/os
 import std/sequtils
 import std/sets
-import std/strformat
 import std/strutils
 import std/tables
 import xidocpkg/commands/default
@@ -42,7 +42,7 @@ when isMainModule and not defined(js):
           output.writeLine rendered
         else:
           if doc.target == tHtml and doc.addToStyle.len != 0:
-            doc.addToHead.incl &"<style>{doc.addToStyle.toSeq.join}</style>"
+            doc.addToHead.incl htg.style(doc.addToStyle.toSeq.join)
           output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered]
         if path != "":
           stderr.writeLine "Rendered file $1" % path
