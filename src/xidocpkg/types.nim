@@ -41,6 +41,7 @@ type
     case target*: Target
     of tHtml:
       syntaxHighlightingTheme*: SyntaxHighlightingTheme
+      addToStyle*: OrderedSet[string]
     else: discard
 
 template lookup*(doc: Document, field: untyped): auto =

@@ -47,7 +47,7 @@ commands defaultCommands:
       let word = phrase.translate(doc.lookup(lang))
       case doc.target
       of tHtml:
-        doc.addToHead.incl "<style>.xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}</style>"
+        doc.addToStyle.incl ".xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}"
         if thName.isSome:
           "<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>" % [cmdName, word, thName.get, htmlTmpl % content]
         else:
@@ -104,7 +104,7 @@ commands defaultCommands:
     doc.stack[^1].commands = mathCommands(doc)
     case doc.target
     of tHtml:
-      doc.addToHead.incl """<style>xd-block-math{display:block}</style>"""
+      doc.addToStyle.incl """xd-block-math{display:block}"""
       case doc.mathRenderer
       of mrKatexJsdelivr:
         initKatexJsdelivr()
@@ -120,7 +120,7 @@ commands defaultCommands:
     doc.stack[^1].commands = mathCommands(doc)
     case doc.target
     of tHtml:
-      doc.addToHead.incl """<style>xd-block-math{display:block}</style>"""
+      doc.addToStyle.incl """xd-block-math{display:block}"""
       case doc.mathRenderer
       of mrKatexJsdelivr:
         initKatexJsdelivr()
@@ -136,7 +136,7 @@ commands defaultCommands:
   command "LaTeX", void, rendered:
     case doc.target
     of tHtml:
-      doc.addToHead.incl """<style>.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}</style>"""
+      doc.addToStyle.incl """.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}"""
       """<span class="xd-latex">L<sup>a</sup>T<sub>e</sub>X</span>"""
     of tLatex:
       "\\LaTeX{}"
@@ -168,15 +168,15 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       doc.stack[^1].commands = checkboxCommands(doc)
-      doc.addToHead.incl """<style>.xd-checkbox-unchecked{list-style-type:"☐ "}.xd-checkbox-checked{list-style-type:"☑ "}.xd-checkbox-crossed{list-style-type:"☒ "}</style>"""
-      &"<ul class=\"xd-checkboxes\">{doc.expandStr(arg)}</style>"
+      doc.addToStyle.incl """.xd-checkbox-unchecked{list-style-type:"☐ "}.xd-checkbox-checked{list-style-type:"☑ "}.xd-checkbox-crossed{list-style-type:"☒ "}"""
+      &"<ul class=\"xd-checkboxes\">{doc.expandStr(arg)}</ul>"
     else:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
 
   command "code", (lang: ?expand, code: expand), rendered:
     case doc.target
     of tHtml:
-      doc.addToHead.incl("<style>" & prismCss[doc.syntaxHighlightingTheme] & "</style>")
+      doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
       if lang.isSome:
         "<code class=\"language-$1\">$2</code>" % [lang.get, code.highlightCode(lang.get)]
       else:
@@ -188,7 +188,7 @@ commands defaultCommands:
   command "code-block", (lang: ?expand, code: expand), rendered:
     case doc.target
     of tHtml:
-      doc.addToHead.incl("<style>" & prismCss[doc.syntaxHighlightingTheme] & "</style>")
+      doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
       if lang.isSome:
         "<pre class=\"language-$1\"><code class=\"language-$1\">$2</code></pre>" % [lang.get, code.highlightCode(lang.get)]
       else:
@@ -462,7 +462,7 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       doc.stack[^1].commands = cssCommands(doc)
-      doc.addToHead.incl "<style>$1</style>" % doc.expandStr(arg)
+      doc.addToStyle.incl doc.expandStr(arg)
     else:
       discard
     ""

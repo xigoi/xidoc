@@ -1,6 +1,7 @@
 import std/os
 import std/sequtils
 import std/sets
+import std/strformat
 import std/strutils
 import std/tables
 import xidocpkg/commands/default
@@ -40,6 +41,8 @@ when isMainModule and not defined(js):
           # TODO: some way to get doc.addToHead
           output.writeLine rendered
         else:
+          if doc.target == tHtml and doc.addToStyle.len != 0:
+            doc.addToHead.incl &"<style>{doc.addToStyle.toSeq.join}</style>"
           output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered]
         if path != "":
           stderr.writeLine "Rendered file $1" % path
