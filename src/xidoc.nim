@@ -14,7 +14,7 @@ const extensions = toTable {
   tLatex: "tex",
 }
 const templates = toTable {
-  tHtml: """<!DOCTYPE html><html><head><meta charset="utf8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body></html>""",
+  tHtml: """<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body></html>""",
   tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage{geometry}$1\begin{document}$2\end{document}""",
 }
 

@@ -28,13 +28,13 @@
 [def cmd; name signature explanation;
   [html-add-attrs #[arg name];
     [section [code xidoc; [(][arg-expand name] [arg-expand signature][)]];
-      [p [arg explanation]]
+      [arg explanation]
     ]
   ]
 ]
 [def cmd-nilad; name explanation;
   [section [code xidoc; [(][arg-expand name][)]];
-    [p [arg explanation]]
+    [arg explanation]
   ]
 ]
 [def param; name; [ms [arg name]]]

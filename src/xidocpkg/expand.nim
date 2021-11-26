@@ -7,7 +7,7 @@ import std/strutils
 proc escapeText*(text: string, target: Target): string =
   case target
   of tHtml:
-    text.multiReplace({"<": "&lt;", ">": "&gt;", "&": "&amp;"})
+    text.multiReplace({"<": "&lt;", "&": "&amp;", "\"": "&quot;"})
   of tLatex:
     text
 
