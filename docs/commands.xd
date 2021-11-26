@@ -49,16 +49,16 @@
   ]
 ]
 [def math-cmd; name signature;
-  [html-add-attrs #[() $][arg name]; [row
+  [row
     [code xidoc; [(][arg-expand name] [arg-expand signature][)]];
     [render [(]$$ [(][arg-expand name] [arg-expand signature][)][)]];
-  ]]
+  ]
 ]
 [def math-cmd-nilad; name;
-  [html-add-attrs #[() $][arg name]; [row
+  [row
     [code xidoc; [(][arg-expand name][)]];
     [render [(]$$ [(][arg-expand name][)][)]];
-  ]]
+  ]
 ]
 
 [section Top-level commands;

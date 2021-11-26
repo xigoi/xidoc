@@ -45,10 +45,11 @@ type
     else: discard
 
 template lookup*(doc: Document, field: untyped): auto =
+  bind isSome
   (proc(): auto =
     for i in countdown(doc.stack.len - 1, 0):
       let frame = doc.stack[i]
-      if frame.field.isSome:
+      if isSome(frame.field):
         return frame.field.get
   )()
 

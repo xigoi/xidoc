@@ -6,12 +6,13 @@ type
     pDefinition
     pExample
     pExercise
+    pLanguageCode
     pProof
     pQuotation
     pSolution
     pTheorem
 
-const translations* = [
+const translations = [
   pDefinition: [
     lEnglish: "Definition",
     lCzech: "Definice",
@@ -23,6 +24,10 @@ const translations* = [
   pExercise: [
     lEnglish: "Exercise",
     lCzech: "Cvičení",
+  ],
+  pLanguageCode: [
+    lEnglish: "en",
+    lCzech: "cs",
   ],
   pProof: [
     lEnglish: "Proof",

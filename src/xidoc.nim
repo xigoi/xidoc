@@ -7,6 +7,7 @@ import std/tables
 import xidocpkg/commands/default
 import xidocpkg/error
 import xidocpkg/expand
+import xidocpkg/translations
 import xidocpkg/types
 
 const extensions = toTable {
@@ -14,7 +15,7 @@ const extensions = toTable {
   tLatex: "tex",
 }
 const templates = toTable {
-  tHtml: """<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body></html>""",
+  tHtml: """<!DOCTYPE html><html lang="$3"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body></html>""",
   tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage{geometry}$1\begin{document}$2\end{document}""",
 }
 
@@ -43,7 +44,7 @@ when isMainModule and not defined(js):
         else:
           if doc.target == tHtml and doc.addToStyle.len != 0:
             doc.addToHead.incl htg.style(doc.addToStyle.toSeq.join)
-          output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered]
+          output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered, translate(pLanguageCode, doc.lookup(lang))]
         if path != "":
           stderr.writeLine "Rendered file $1" % path
       except XidocError:
