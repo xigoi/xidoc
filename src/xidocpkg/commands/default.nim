@@ -49,10 +49,9 @@ commands defaultCommands:
       case doc.target
       of tHtml:
         doc.addToStyle.incl ".xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}"
-        if thName.isSome:
-          "<div class=\"xd-theorem-like xd-$1\"><strong>$2 ($3).</strong> $4</div>" % [cmdName, word, thName.get, htmlTmpl % content]
-        else:
-          "<div class=\"xd-theorem-like xd-$1\"><strong>$2.</strong> $3</div>" % [cmdName, word, htmlTmpl % content]
+        htg.`div`(class = &"xd-theorem-like xd-$1" % cmdName,
+          htg.strong(if thName.isSome: "$1 ($2)." % [word, thName.get] else: "$1." % [word]), " ", htmlTmpl % content
+        )
       of tLatex:
         doc.addToHead.incl "\\usepackage{amsthm}"
         doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % [cmdName, word]
@@ -138,7 +137,7 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       doc.addToStyle.incl """.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}"""
-      """<span class="xd-latex">L<sup>a</sup>T<sub>e</sub>X</span>"""
+      htg.span(class = "xd-latex", "L", htg.sup("a"), "T", htg.sub("e"), "X")
     of tLatex:
       "\\LaTeX{}"
 
@@ -170,7 +169,7 @@ commands defaultCommands:
     of tHtml:
       doc.stack[^1].commands = checkboxCommands(doc)
       doc.addToStyle.incl """.xd-checkbox-unchecked{list-style-type:"☐ "}.xd-checkbox-checked{list-style-type:"☑ "}.xd-checkbox-crossed{list-style-type:"☒ "}"""
-      &"<ul class=\"xd-checkboxes\">{doc.expandStr(arg)}</ul>"
+      htg.ul(class = "xd-checkboxes", doc.expandStr(arg))
     else:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
 
@@ -179,7 +178,7 @@ commands defaultCommands:
     of tHtml:
       doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
       if lang.isSome:
-        "<code class=\"language-$1\">$2</code>" % [lang.get, code.highlightCode(lang.get)]
+        htg.code(class = &"language-{lang.get}", code.highlightCode(lang.get))
       else:
         htg.code(code.escapeText(doc.target))
     of tLatex:
@@ -191,7 +190,7 @@ commands defaultCommands:
     of tHtml:
       doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
       if lang.isSome:
-        "<pre class=\"language-$1\"><code class=\"language-$1\">$2</code></pre>" % [lang.get, code.highlightCode(lang.get)]
+        htg.pre(class = &"language-{lang.get}", htg.code(class = &"language-{lang.get}", code.highlightCode(lang.get)))
       else:
         htg.pre(htg.code(code.escapeText(doc.target)))
     of tLatex:
@@ -387,7 +386,7 @@ commands defaultCommands:
           of 3: "h4"
           of 4: "h5"
           else: "h6"
-        "<section><$1 class=\"xd-section-heading\">$2</$1>$3</section>" % [headingTag, name.get, content]
+        htg.section("<$1 class=\"xd-section-heading\">$2</$1>$3" % [headingTag, name.get, content])
       else:
         htg.section(content)
     of tLatex:
@@ -450,10 +449,9 @@ commands defaultCommands:
     let word = pSolution.translate(doc.lookup(lang))
     case doc.target
     of tHtml:
-      if name.isSome:
-        "<details class=\"xd-spoiler\"><summary><strong>$1 ($2)</strong></summary>$3</details>" % [word, name.get, content]
-      else:
-        "<details class=\"xd-spoiler\"><summary><strong>$1</strong></summary>$2</details>" % [word, content]
+      htg.details(class = "xd-spoiler",
+        htg.summary(htg.strong(if name.isSome: "$1 ($2)" % [word, name.get] else: "$1" % [word])), content
+      )
     of tLatex:
       doc.addToHead.incl "\\usepackage{amsthm}"
       doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % ["spoilersolution", word]
