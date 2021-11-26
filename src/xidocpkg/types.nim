@@ -8,8 +8,8 @@ type
     tHtml = "html"
     tLatex = "latex"
   MathRenderer* = enum
-    mrKatexJsdelivr
     mrKatex
+    mrKatexJsdelivr
   XidocString* = object
     rendered*: bool
     str*: string

@@ -3,6 +3,7 @@ import std/strformat
 import std/strutils
 
 const katexJs = staticRead("../katex/katex.min.js")
+const arrayPrototypeFillJs = staticRead("../katex/array-prototype-fill.min.js")
 const prismJs = staticRead("../prism/prism.js")
 const xidocPrismJs = staticRead("../prism/xidoc-prism.js")
 
@@ -64,6 +65,7 @@ else:
       ctx = duk_create_heap_default()
       addExitProc do():
         ctx.duk_destroy_heap
+      ctx.duk_eval_string(arrayPrototypeFillJs)
       ctx.duk_eval_string(katexJs)
     let call = "katex.renderToString(\"$1\", {throwOnError: false, displayMode: $2})" % [math.escapeJs, $displayMode]
     ctx.duk_eval_string(call.cstring)
