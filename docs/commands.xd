@@ -60,6 +60,9 @@
     [render [(]$$ [(][arg-expand name][)][)]];
   ]
 ]
+[def experimental;
+  [color red; [() Experimental]]
+]
 
 [section Top-level commands;
   [cmd "; text;
@@ -161,6 +164,17 @@ const factorial = (n) => {
   [cmd dfn; ?name[;] text;
     Renders a mathematical definition paragraph with an optional [param name].
     [ex [dfn An [term inertial system] is a system where the law of inertia holds.]]
+  ]
+  [cmd draw; ?width[;] ?height[;] description;
+    [experimental] Draws a vector image with the given dimensions based on the [param description]. The [param description] format won't be documented until it's stabilized.
+    [if-html [ex
+[draw 80; 80;
+  [Rcu 180,240; 120,120;;; yellow]
+  [Lab 60,120; 180,0; 10; red]
+  [Lab 180,0; 300,120; 10; red]
+  [Rau 180,260; 60,100;;; brown]
+]
+    ]]
   ]
   [cmd example; ?name[;] text;
     Renders a mathematical example paragraph with an optional [param name].

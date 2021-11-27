@@ -220,13 +220,13 @@ commands defaultCommands:
 
   theoremLikeCommand("dfn", pDefinition, "$1", "$1")
 
-  command "draw", raw, rendered:
+  command "draw", (width: ?expand, height: ?expand, desc: raw), rendered:
     doc.stack[^1].commands = drawCommands(doc)
     case doc.target
     of tHtml:
-      &"""<svg width="100" height="100" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">{doc.expandStr(arg)}</svg>"""
+      &"""<svg width="{width.get("360")}" height="{height.get("360")}" viewBox="0 0 360 360" version="1.1" xmlns="http://www.w3.org/2000/svg">{doc.expandStr(desc)}</svg>"""
     else:
-      xidocError "The style command can be used only in the HTML backend"
+      xidocError "Drawing is currently not implemented in the LaTeX backend"
 
   theoremLikeCommand("example", pExample, "$1", "$1")
 
