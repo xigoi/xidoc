@@ -1,27 +1,33 @@
 [inject head.xd]
 [section Installation;
-  [p You need [link Nim; https://nim-lang.org/] and [link Nimble; https://github.com/nim-lang/nimble].]
+  [p You need [link Nim; https://nim-lang.org/] and [link Nimble; https://github.com/nim-lang/nimble]. Make sure that [ms ~/.nimble/bin] is in your [ms PATH].]
   [section From the Nimble package repository;
-    [p [ms nimble install xidoc]]
-    [p Make sure that [ms ~/.nimble/bin] is in your [ms PATH].]
+    [code-block shell; nimble install xidoc]
   ]
   [section Building from source;
-    [list
-      Clone the repository;
-      [p [ms nimble install]];
-    ]
+    [code-block shell; [raw
+git clone https://github.com/xigoi/xidoc.git
+cd xidoc
+nimble install
+    ]];
   ]
 ]
 [section Usage;
   [section Compile some documents;
-    [p [ms xidoc foo.xd bar.xd]]
+    [code-block shell; [raw
+xidoc foo.xd bar.xd
+    ]]
     [p The default target is HTML. To choose a different target:]
-    [p [ms xidoc --target:latex foo.xd]]
-    [p [ms xidoc -t:latex foo.xd]]
+    [code-block shell; [raw
+xidoc --target:latex foo.xd
+xidoc -t:latex foo.xd
+    ]]
   ]
   [section Get help;
-    [p [ms xidoc --help]]
-    [p [ms xidoc -h]]
+    [code-block shell; [raw
+xidoc --help
+xidoc -h
+    ]]
   ]
 ]
 [section Syntax;

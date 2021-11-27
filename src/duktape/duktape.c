@@ -11935,6 +11935,8 @@ DUK_INTERNAL DUK_COLD void duk_default_fatal_handler(void *udata, const char *ms
 	 * ====================================================================
 	 */
 	DUK_D(DUK_DPRINT("built-in default fatal error handler called: %s", msg));
+	fprintf(stderr, "*** FATAL ERROR: %s\n", msg ? msg : "no message");
+	fflush(stderr);
 	DUK_ABORT();
 #endif
 

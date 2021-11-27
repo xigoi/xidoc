@@ -1,0 +1,17 @@
+[inject head.xd]
+[style
+  [rule #code;
+    [: width; 100%]
+    [: height; 10rem]
+    [: resize; vertical]
+  ]
+  [rule #code.error;
+    [: border; 2px solid #f00]
+  ]
+]
+[hide [$]]
+[<textarea> #code;]
+[<div> #output;]
+[add-to-head [<script> type=module; [pass-raw
+  import{newDocument,render}from'/xidoc.min.js';let c=document.querySelector`#code`;let o=document.querySelector`#output`;let r=()=>{let d=newDocument("[set-math-renderer katex]"+c.value,0,true);try{o.innerHTML=render(d);c.classList.remove`error`}catch{c.classList.add`error`}};c.addEventListener('input',r);c.value="[section Example;\n  You can [bf play] with xidoc here!\n  Just [it edit] the code and it will be automatically updated.\n  Note that some commands [color red; don't work properly].\n]";r();
+]]]

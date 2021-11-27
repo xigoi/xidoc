@@ -8,11 +8,20 @@ type
     tHtml = "html"
     tLatex = "latex"
   MathRenderer* = enum
+    mrKatex
     mrKatexJsdelivr
-    mrKatexDuktape
   XidocString* = object
     rendered*: bool
     str*: string
+  SyntaxHighlightingTheme* = enum
+    shtDefault = "default"
+    shtDark = "dark"
+    shtFunky = "funky"
+    shtOkaidia = "okaidia"
+    shtTwilight = "twilight"
+    shtCoy = "coy"
+    shtSolarizedLight = "solarized-light"
+    shtTomorrowNight = "tomorrow-night"
   Command* = proc(arg: string): XidocString
   Frame* = object
     args*: Table[string, string]
@@ -27,15 +36,20 @@ type
     path*: string
     snippet*: bool
     stack*: seq[Frame]
-    target*: Target
     templateArgs*: Table[string, string]
     verbose*: bool
+    case target*: Target
+    of tHtml:
+      syntaxHighlightingTheme*: SyntaxHighlightingTheme
+      addToStyle*: OrderedSet[string]
+    else: discard
 
 template lookup*(doc: Document, field: untyped): auto =
+  bind isSome
   (proc(): auto =
     for i in countdown(doc.stack.len - 1, 0):
       let frame = doc.stack[i]
-      if frame.field.isSome:
+      if isSome(frame.field):
         return frame.field.get
   )()
 

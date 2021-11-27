@@ -1,3 +1,7 @@
+[code xidoc; [raw foo [raw bar [baz [quux]] hiad] hlorp]]
+[code python; import __hello__]
+[code html; <b>b</b>]
+[code-block nim; [raw
 type
   XidocError* = ref object of CatchableError
 
@@ -35,7 +39,9 @@ when not defined(js):
         truncatedArg.add "…"
         let numOpeningBrackets = truncatedArg.count('[')
         let numClosingBrackets = truncatedArg.count(']')
-        truncatedArg.add "]…".repeat(numOpeningBrackets - numClosingBrackets)
+        truncatedArg.add "…".repeat(numOpeningBrackets - numClosingBrackets)
       stderr.styledWriteLine styleBright, fgYellow, &"in [{frame.cmdName}{truncatedArg}]"
     stderr.writeLine err.msg
     stderr.writeLine ""
+]]
+[# [code xidoc; nope :(] ]
