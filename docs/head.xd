@@ -43,6 +43,7 @@
   ]
 ]
 [if-html
+  [add-to-head [<link> rel="icon"; href="data:,"]]
   [<header>
     [title xidoc]
     [<nav>
