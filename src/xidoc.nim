@@ -33,6 +33,7 @@ when isMainModule and not defined(js):
         verbose: verbose,
         stack: @[Frame(
           cmdName: "[top]",
+          pos: (1.Positive, 1.Positive),
         )]
       )
       doc.stack[0].commands = defaultCommands(doc)

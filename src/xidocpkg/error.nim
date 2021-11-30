@@ -36,6 +36,6 @@ when not defined(js):
         let numOpeningBrackets = truncatedArg.count('[')
         let numClosingBrackets = truncatedArg.count(']')
         truncatedArg.add "]…".repeat(numOpeningBrackets - numClosingBrackets)
-      stderr.styledWriteLine styleBright, fgYellow, &"in [{frame.cmdName}{truncatedArg}]"
+      stderr.styledWriteLine styleBright, fgYellow, &"(row {frame.pos.row}, col {frame.pos.col}) in [{frame.cmdName}{truncatedArg}]"
     stderr.writeLine err.msg
     stderr.writeLine ""

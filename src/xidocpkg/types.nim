@@ -22,6 +22,7 @@ type
     shtCoy = "coy"
     shtSolarizedLight = "solarized-light"
     shtTomorrowNight = "tomorrow-night"
+  TextPosition* = tuple[row, col: Positive]
   Command* = proc(arg: string): XidocString
   Frame* = object
     args*: Table[string, string]
@@ -29,6 +30,7 @@ type
     cmdName*: string
     commands*: Table[string, Command]
     lang*: Option[Language]
+    pos*: TextPosition
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: string

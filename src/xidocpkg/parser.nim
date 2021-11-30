@@ -12,10 +12,11 @@ type
     of xnkString:
       str*: string
     of xnkWhitespace:
-      discard
+      ws*: string
     of xnkCommand:
       name*: string
       arg*: string
+      call*: string
   XidocNodes* = seq[XidocNode]
 
 grammar "xidoc":
@@ -26,10 +27,10 @@ grammar "xidoc":
 const xidocParser = peg("text", output: XidocNodes):
   textChars <- >+xidoc.textChar:
     output.add XidocNode(kind: xnkString, str: $1)
-  whitespace <- +Space:
-    output.add XidocNode(kind: xnkWhitespace)
-  command <- '[' * >*xidoc.commandChar * >xidoc.unparsedText * ']':
-    output.add XidocNode(kind: xnkCommand, name: $1, arg: $2)
+  whitespace <- >+Space:
+    output.add XidocNode(kind: xnkWhitespace, ws: $1)
+  command <- >('[' * >*xidoc.commandChar * >xidoc.unparsedText * ']'):
+    output.add XidocNode(kind: xnkCommand, name: $2, arg: $3, call: $1)
   chunk <- command | textChars | whitespace
   text <- *chunk * !1
 
