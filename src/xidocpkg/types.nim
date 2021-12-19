@@ -33,7 +33,6 @@ type
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: string
-    mathRenderer*: MathRenderer
     snippet*: bool
     stack*: seq[Frame]
     templateArgs*: Table[string, string]

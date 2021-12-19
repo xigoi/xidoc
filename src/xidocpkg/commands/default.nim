@@ -37,11 +37,11 @@ const
 
 commands defaultCommands:
 
-  proc initKatexJsdelivrCss() =
+  proc initKatexCss() =
     doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
 
   proc initKatexJsdelivr() =
-    initKatexJsdelivrCss()
+    initKatexCss()
     doc.addToHead.incl """<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.getElementsByTagName`xd-inline-math`)katex.render(e.innerText,e,{throwOnError:false});for(let e of document.getElementsByTagName`xd-block-math`)katex.render(e.innerText,e,{throwOnError:false,displayMode:true})</script>"""
 
   template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string) =
@@ -90,13 +90,8 @@ commands defaultCommands:
     doc.stack[^1].commands = mathCommands(doc)
     case doc.target
     of tHtml:
-      case doc.mathRenderer
-      of mrKatexJsdelivr:
-        initKatexJsdelivr()
-        "<xd-inline-math>$1</xd-inline-math>" % doc.renderStr(arg)
-      of mrKatex:
-        initKatexJsdelivrCss()
-        "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(doc.expandStr(arg), false)
+      initKatexCss()
+      "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(doc.expandStr(arg), false)
     of tLatex:
       doc.addToHead.incl "\\usepackage{amssymb}"
       "\\($1\\)" % doc.expandStr(arg)
@@ -106,13 +101,8 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       doc.addToStyle.incl """xd-block-math{display:block}"""
-      case doc.mathRenderer
-      of mrKatexJsdelivr:
-        initKatexJsdelivr()
-        "<xd-block-math>$1</xd-block-math>" % doc.renderStr(arg)
-      of mrKatex:
-        initKatexJsdelivrCss()
-        "<xd-block-math>$1</xd-block-math>" % renderMathKatex(doc.expandStr(arg), true)
+      initKatexCss()
+      "<xd-block-math>$1</xd-block-math>" % renderMathKatex(doc.expandStr(arg), true)
     of tLatex:
       doc.addToHead.incl "\\usepackage{amssymb}"
       "\\[$1\\]" % doc.expandStr(arg)
@@ -122,13 +112,8 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       doc.addToStyle.incl """xd-block-math{display:block}"""
-      case doc.mathRenderer
-      of mrKatexJsdelivr:
-        initKatexJsdelivr()
-        "<xd-block-math>\\begin{align*}$1\\end{align*}</xd-block-math>" % doc.renderStr(arg)
-      of mrKatex:
-        initKatexJsdelivrCss()
-        "<xd-block-math>$1</xd-block-math>" % renderMathKatex("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), true)
+      initKatexCss()
+      "<xd-block-math>$1</xd-block-math>" % renderMathKatex("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), true)
     of tLatex:
       doc.addToHead.incl "\\usepackage{amsmath}"
       doc.addToHead.incl "\\usepackage{amssymb}"
@@ -421,10 +406,7 @@ commands defaultCommands:
     ""
 
   command "set-math-renderer", expand, rendered:
-    doc.mathRenderer = case arg
-    of "katex-jsdelivr": mrKatexJsdelivr
-    of "katex", "katex-duktape": mrKatex
-    else: xidocError "Invalid value for set-math-renderer: $1" % arg
+    stderr.writeLine "Warning: set-math-renderer is deprecated. Math rendering will always be done at compile time."
     ""
 
   command "set-syntax-highlighting-theme", expand, rendered:

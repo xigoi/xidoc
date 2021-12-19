@@ -276,13 +276,6 @@ const factorial = (n) => {
   [cmd set-doc-lang; language;
     Sets the global [param language] of the document. Returns nothing.
   ]
-  [cmd set-math-renderer; renderer;
-    Determines how [LaTeX] math will be rendered in HTML. The options are:
-    [list
-      [ms katex] — uses [link KaTeX; https://katex.org/], rendered during compilation. The stylesheets will still be fetched on the client side using [link jsDelivr; https://www.jsdelivr.com/]. Default and highly recommended.;
-      [ms katex-jsdelivr] — uses [link KaTeX; https://katex.org/], loaded on the client side from [link jsDelivr; https://www.jsdelivr.com/].;
-    ]
-  ]
   [cmd set-syntax-highlighting-theme; theme;
     Sets the [param theme] for syntax highlighting with the [cmd-ref code] and [cmd-ref code-block] commands. The available themes are [ms default], [ms dark], [ms funky], [ms okaidia], [ms twilight], [ms coy], [ms solarized-light], and [ms tomorrow-night]. You can try out these themes on [link the Prism website; https://prismjs.com/].
   ]
