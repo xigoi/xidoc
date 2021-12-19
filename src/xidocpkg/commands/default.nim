@@ -40,10 +40,6 @@ commands defaultCommands:
   proc initKatexCss() =
     doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
 
-  proc initKatexJsdelivr() =
-    initKatexCss()
-    doc.addToHead.incl """<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script><script type="module">for(let e of document.getElementsByTagName`xd-inline-math`)katex.render(e.innerText,e,{throwOnError:false});for(let e of document.getElementsByTagName`xd-block-math`)katex.render(e.innerText,e,{throwOnError:false,displayMode:true})</script>"""
-
   template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string) =
     command cmdName, (thName: ?render, content: render), rendered:
       let word = phrase.translate(doc.lookup(lang))
@@ -80,7 +76,7 @@ commands defaultCommands:
   command "---", void, unrendered:
     "—"
 
-  command "...", void, rendered:
+  command "...", void, unrendered:
     "…"
 
   command "\"", render, rendered:
