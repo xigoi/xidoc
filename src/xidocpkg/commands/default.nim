@@ -22,7 +22,7 @@ import std/tables
 
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
-  htmlUnpairedTags = "br circle img input link meta path rect".splitWhitespace
+  htmlSelfClosingTags = "area base br circle col embed hr img input link meta param source path rect track wbr".splitWhitespace
   prismCss = [
     shtDefault: staticRead("../../prism/default.css"),
     shtDark: staticRead("../../prism/dark.css"),
@@ -283,16 +283,16 @@ commands defaultCommands:
   command "include", (filename: expand, args: *render), rendered:
     if args.len mod 2 != 0:
       xidocError "Additional arguments to include must come in pairs"
-    let path = doc.path.splitPath.head / filename
+    let path = doc.lookup(path).splitPath.head / filename
     try:
       let subdoc = Document(
-        path: path,
         body: readFile(path),
         target: doc.target,
         snippet: true,
         stack: @[Frame(
           cmdName: "[top]",
           lang: some doc.lookup(lang),
+          path: some(path),
         )]
       )
       subdoc.stack[0].commands = defaultCommands(subdoc)
@@ -303,7 +303,8 @@ commands defaultCommands:
       xidocError &"Cannot open file {filename}\n(resolved as {path})"
 
   command "inject", (filename: expand), rendered:
-    let path = doc.path.splitPath.head / filename
+    let path = doc.lookup(path).splitPath.head / filename
+    doc.stack[^1].path = some(path)
     try:
       doc.renderStr(readFile(path))
     except IOError:
@@ -337,7 +338,7 @@ commands defaultCommands:
     of tHtml:
       htg.ul(items.mapIt(htg.li(it)).join)
     of tLatex:
-      "\\begin{itemize}$1\\end{iremize}" % items.mapIt("\\item $1" % it).join
+      "\\begin{itemize}$1\\end{itemize}" % items.mapIt("\\item $1" % it).join
 
   command "ms", render, rendered:
     case doc.target
@@ -399,10 +400,16 @@ commands defaultCommands:
       else:
         htg.section(content)
     of tLatex:
+      let cmd =
+        case depth
+        of 1: "section"
+        of 2: "subsection"
+        of 3: "subsubsection"
+        else: xidocError "Sections can only be nested 3 levels deep in LaTeX"
       if name.isSome:
-        "\\section*{$1}$2" % [name.get, content]
+        "\\$1*{$2}$3" % [cmd, name.get, content]
       else:
-        "\\section*{}$1" % [content]
+        "\\$1*{}$2" % [cmd, content]
 
   command "set-doc-lang", expand, rendered:
     doc.stack[0].lang = some(
@@ -542,7 +549,7 @@ commands defaultCommands:
     for tag in htmlTags:
       # This proc makes sure that tag is captured by value
       (proc(tag: string) =
-        if tag in htmlUnpairedTags:
+        if tag in htmlSelfClosingTags:
           command "<$1>" % tag, (args: *expand), rendered:
             generateHtmlTag(tag, args, paired = false)
         else:

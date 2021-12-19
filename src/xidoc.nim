@@ -1,4 +1,5 @@
 from std/htmlgen as htg import nil
+import std/options
 import std/os
 import std/sequtils
 import std/sets
@@ -26,13 +27,13 @@ when isMainModule and not defined(js):
 
     proc renderFile(path: string, input, output: File) =
       let doc = Document(
-        path: path,
         body: input.readAll,
         target: target,
         snippet: snippet,
         verbose: verbose,
         stack: @[Frame(
           cmdName: "[top]",
+          path: some(path),
         )]
       )
       doc.stack[0].commands = defaultCommands(doc)

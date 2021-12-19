@@ -1,3 +1,5 @@
+import std/options
+
 type
   XidocError* = ref object of CatchableError
 
@@ -26,7 +28,7 @@ when not defined(js):
 
   proc printXidocError*(err: XidocError, doc: Document) =
     stderr.writeLine ""
-    stderr.styledWriteLine styleBright, fgRed, &"Error while rendering file {doc.path}"
+    stderr.styledWriteLine styleBright, fgRed, &"Error while rendering file {doc.stack[0].path.get}"
     for frame in doc.stack[1..^1]:
       const maxDisplayedArgLength = 48
       var truncatedArg = frame.cmdArg.replace(peg"\s+", " ")

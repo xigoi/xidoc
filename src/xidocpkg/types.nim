@@ -29,11 +29,11 @@ type
     cmdName*: string
     commands*: Table[string, Command]
     lang*: Option[Language]
+    path*: Option[string]
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: string
     mathRenderer*: MathRenderer
-    path*: string
     snippet*: bool
     stack*: seq[Frame]
     templateArgs*: Table[string, string]
