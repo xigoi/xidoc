@@ -1,10 +1,13 @@
+from std/htmlgen as htg import nil
+from std/pegs import peg, replacef
 import ../error
 import ../expand
+import ../jsinterpret
 import ../parser
 import ../types
 import ./utils
 import std/options
-from std/pegs import peg, replacef
+import std/sets
 import std/strformat
 import std/strutils
 import std/tables
@@ -93,3 +96,24 @@ commands mathCommands:
       number.get & "\\," & unitRendered
     else:
       unitRendered
+
+proc renderMath*(doc: Document, latex: string, displayMode: bool): string =
+  case doc.target
+  of tHtml:
+    doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
+    if displayMode:
+      doc.addToStyle.incl """xd-block-math{display:block}"""
+    let format = if displayMode: "<xd-block-math>$1</xd-block-math>" else: "<xd-inline-math>$1</xd-inline-math>"
+    format % renderMathKatex(latex, displayMode)
+  of tLatex:
+    doc.addToHead.incl "\\usepackage{amssymb}"
+    let format = if displayMode: "\\[$1\\]" else: "\\($1\\)"
+    format % doc.expandStr(latex)
+
+commands proofCommands:
+
+  command ".<", render, rendered:
+    htg.div(class = "xd-subproof", doc.renderMath("(\\Leftarrow)", displayMode = false) & " " & arg)
+
+  command ".>", render, rendered:
+    htg.div(class = "xd-subproof", doc.renderMath("(\\Rightarrow)", displayMode = false) & " " & arg)

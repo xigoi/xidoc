@@ -37,11 +37,11 @@ const
 
 commands defaultCommands:
 
-  proc initKatexCss() =
-    doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
-
-  template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string) =
-    command cmdName, (thName: ?render, content: render), rendered:
+  template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string, before: untyped = ()) =
+    command cmdName, (thName: ?render, content: raw), rendered:
+      when typeof(before) is void:
+        before
+      let content = doc.renderStr(content)
       let word = phrase.translate(doc.lookup(lang))
       case doc.target
       of tHtml:
@@ -84,36 +84,15 @@ commands defaultCommands:
 
   command "$", raw, rendered:
     doc.stack[^1].commands = mathCommands(doc)
-    case doc.target
-    of tHtml:
-      initKatexCss()
-      "<xd-inline-math>$1</xd-inline-math>" % renderMathKatex(doc.expandStr(arg), false)
-    of tLatex:
-      doc.addToHead.incl "\\usepackage{amssymb}"
-      "\\($1\\)" % doc.expandStr(arg)
+    doc.renderMath(doc.expandStr(arg), displayMode = false)
 
   command "$$", raw, rendered:
     doc.stack[^1].commands = mathCommands(doc)
-    case doc.target
-    of tHtml:
-      doc.addToStyle.incl """xd-block-math{display:block}"""
-      initKatexCss()
-      "<xd-block-math>$1</xd-block-math>" % renderMathKatex(doc.expandStr(arg), true)
-    of tLatex:
-      doc.addToHead.incl "\\usepackage{amssymb}"
-      "\\[$1\\]" % doc.expandStr(arg)
+    doc.renderMath(doc.expandStr(arg), displayMode = true)
 
   command "$$&", raw, rendered:
     doc.stack[^1].commands = mathCommands(doc)
-    case doc.target
-    of tHtml:
-      doc.addToStyle.incl """xd-block-math{display:block}"""
-      initKatexCss()
-      "<xd-block-math>$1</xd-block-math>" % renderMathKatex("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), true)
-    of tLatex:
-      doc.addToHead.incl "\\usepackage{amsmath}"
-      doc.addToHead.incl "\\usepackage{amssymb}"
-      "\\begin{align*}$1\\end{align*}" % doc.expandStr(arg)
+    doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true)
 
   command "LaTeX", void, rendered:
     case doc.target
@@ -341,7 +320,8 @@ commands defaultCommands:
   command "pass-raw", raw, rendered:
     arg.strip
 
-  theoremLikeCommand("proof", pProof, "$1", "$1")
+  theoremLikeCommand("proof", pProof, "$1", "$1"):
+    doc.stack[^1].commands = proofCommands(doc)
 
   command "props", (items: *render), rendered:
     case doc.target
