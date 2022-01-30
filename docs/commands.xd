@@ -191,6 +191,13 @@ const factorial = (n) => {
   [cmd expand; text;
     After expanding [param text], expands it again. Useful for complex command defititions.
   ]
+  [cmd-nilad get-doc-path-absolute;
+    Gets the absolute path of the current document.
+  ]
+  [cmd get-doc-path-relative-to-containing; name;
+    Gets the path of the current document, relative to the nearest ancestor that contains a file/directory/symlink with the given [param name].
+    [ex Within the Git repository of xidoc, the command reference is located at [ms [get-doc-path-relative-to-containing .git]].]
+  ]
   [cmd hide; text;
     Expands [param text] for its side effects, but doesn't return anything.
   ]

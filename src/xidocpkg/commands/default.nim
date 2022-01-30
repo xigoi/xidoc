@@ -200,6 +200,20 @@ commands defaultCommands:
   command "expand", expand, expanded:
     doc.expandStr(arg)
 
+  command "get-doc-path-absolute", void, expanded:
+    doc.stack[0].path.map(path => absolutePath(path)).get("")
+
+  command "get-doc-path-relative-to-containing", expand, expanded:
+    doc.stack[0].path.map(path => (
+      var ancestor = path.parentDir
+      while ancestor != "":
+        let candidate = ancestor / arg
+        if fileExists(candidate) or dirExists(candidate) or symlinkExists(candidate):
+          break
+        ancestor = ancestor.parentDir
+      path.relativePath(ancestor)
+    )).get("")
+
   command "hide", expand, rendered:
     ""
 
