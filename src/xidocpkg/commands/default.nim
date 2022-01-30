@@ -166,9 +166,9 @@ commands defaultCommands:
       doc.addToHead.incl "\\usepackage[svgnames]{xcolor}"
       "\\textcolor{$1}{$2}" % [color, text]
 
-  command "def", (name: expand, paramList: ?expand, body: raw), rendered:
+  template def(global: static bool): string {.dirty.} =
     let params = paramList.map(it => it.splitWhitespace).get(@[])
-    doc.stack[0].commands[name] = proc(arg: string): XidocString =
+    doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: string): XidocString =
       let argsList = if arg == "": @[] else: parseXidocArguments(arg)
       if argsList.len != params.len:
         xidocError "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len]
@@ -177,6 +177,11 @@ commands defaultCommands:
       doc.stack[^1].args = argsTable
       result = XidocString(rendered: true, str: doc.renderStr(body))
     ""
+  command "def", (name: expand, paramList: ?expand, body: raw), rendered:
+    def(global = false)
+
+  command "def-global", (name: expand, paramList: ?expand, body: raw), rendered:
+    def(global = true)
 
   theoremLikeCommand("dfn", pDefinition, "$1", "$1")
 

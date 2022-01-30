@@ -158,8 +158,12 @@ const factorial = (n) => {
     [ex [checkboxes [v Kill the friend] [- Bury the body] [x Get caught by the police]]]
   ]
   [cmd def; name[;] ?params[;] body;
-    Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command and its variants ([cmd-ref arg-expand], [cmd-ref arg-raw], [cmd-ref arg-raw-escape]).
+    Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command and its variants ([cmd-ref arg-expand], [cmd-ref arg-raw], [cmd-ref arg-raw-escape]). The command will only be visible in the scope where it was defined[;] if you want it to be visible everywhere, use [cmd-ref def-global].
     [ex [def greet; name; Hello, [arg name]!][greet reader]]
+  ]
+  [cmd def-global; name[;] ?params[;] body;
+    Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command and its variants ([cmd-ref arg-expand], [cmd-ref arg-raw], [cmd-ref arg-raw-escape]). The command will be visible everywhere[;] if you want it to be visible only in the scope where it was defined, use [cmd-ref def].
+    [ex [hide [def-global greet; name; Hello, [arg name]!]][greet reader]]
   ]
   [cmd dfn; ?name[;] text;
     Renders a mathematical definition paragraph with an optional [param name].
