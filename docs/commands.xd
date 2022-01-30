@@ -64,6 +64,7 @@
   [color red; [() Experimental]]
 ]
 
+[p This is a reference of all xidoc commands. A question mark [ms ?] before a parameter means that it's optional. An asterisk [ms *] before a parameter means that it can take any number of values.]
 [section Top-level commands;
   [cmd "; text;
     Puts the given text in quotation marks appropriate for the current language.
