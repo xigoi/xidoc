@@ -189,7 +189,7 @@ const factorial = (n) => {
     [ex [exercise Determine if the Collatz sequence reaches [$ 1] for every initial value.]]
   ]
   [cmd expand; text;
-    After expanding [param text], expands it again. Useful for complex command defititions.
+    After expanding [param text], expands it again. Useful for complex command definitions.
   ]
   [cmd-nilad get-doc-path-absolute;
     Gets the absolute path of the current document.
@@ -270,7 +270,7 @@ const factorial = (n) => {
     [ex [raw [I can use [as many brackets [as I want]], but [they] still have to [[be balanced]]].]]
   ]
   [cmd render; text;
-    After expanding [param text], renders it. Useful for complex command defititions.
+    After expanding [param text], renders it. Useful for complex command definitions.
     [ex [render [raw [it This will be italic despite being inside [ms raw].]]]]
   ]
   [cmd row; *fields;
