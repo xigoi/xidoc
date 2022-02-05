@@ -355,6 +355,13 @@ commands defaultCommands:
   command "render", expand, rendered:
     doc.renderStr(arg)
 
+  command "replace-suffix", (sub: expand, by: expand, str: expand), expanded:
+    var str = str
+    if str.endsWith(sub):
+      str.removeSuffix(sub)
+      str &= by
+    str
+
   command "row", (entries: *render), rendered:
     if not doc.stack.anyIt(it.cmdName == "table"):
       xidocError "The row command has to be inside a table command"
