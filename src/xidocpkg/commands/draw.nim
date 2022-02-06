@@ -61,6 +61,8 @@ commands drawCommands:
       &"""<circle cx={a.x+r} cy={a.y+r} r={r} stroke-width="{width}" stroke="{color}" fill="{fill}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   command "Ccr", (c: expand, r: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
     drawParseArgs
@@ -69,6 +71,8 @@ commands drawCommands:
       &"""<circle cx={c.x} cy={c.y} r={r} stroke-width="{width}" stroke="{color}" fill="{fill}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   command "Lab", (a: expand, b: expand, width: ?expand, color: ?expand), rendered:
     drawParseArgs
@@ -77,6 +81,8 @@ commands drawCommands:
       &"""<line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke-width="{width}" stroke="{color}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   command "Lau", (a: expand, u: expand, width: ?expand, color: ?expand), rendered:
     drawParseArgs
@@ -85,6 +91,8 @@ commands drawCommands:
       &"""<line x1={a.x} y1={a.y} x2={a.x+u.x} y2={a.y+u.y} stroke-width="{width}" stroke="{color}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   command "Lcu", (c: expand, u: expand, width: ?expand, color: ?expand), rendered:
     drawParseArgs
@@ -93,6 +101,8 @@ commands drawCommands:
       &"""<line x1={c.x-u.x} y1={c.y-u.y} x2={c.x+u.x} y2={c.y+u.y} stroke-width="{width}" stroke="{color}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   command "Rab", (a: expand, b: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
     drawParseArgs
@@ -101,6 +111,8 @@ commands drawCommands:
       &"""<rect x={a.x} y={a.y} width={b.x-a.x} height={b.y-a.y} stroke-width="{width}" stroke="{color}" fill="{fill}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   command "Rau", (a: expand, u: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
     drawParseArgs
@@ -109,6 +121,8 @@ commands drawCommands:
       &"""<rect x={a.x} y={a.y} width={u.x} height={u.y} stroke-width="{width}" stroke="{color}" fill="{fill}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   command "Rcu", (c: expand, u: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
     drawParseArgs
@@ -117,3 +131,5 @@ commands drawCommands:
       &"""<rect x={c.x-u.x} y={c.y-u.y} width={2*u.x} height={2*u.y} stroke-width="{width}" stroke="{color}" fill="{fill}" />"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"

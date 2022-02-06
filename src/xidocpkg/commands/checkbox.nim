@@ -14,6 +14,8 @@ commands checkboxCommands:
       htg.li(class = "xd-checkbox-unchecked", arg)
     of tLatex:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
+    of tGemtext:
+      xidocError "Checkboxes are currently not supported for the Gemtext target"
 
   command "v", render, rendered:
     case doc.target
@@ -21,6 +23,8 @@ commands checkboxCommands:
       htg.li(class = "xd-checkbox-checked", arg)
     of tLatex:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
+    of tGemtext:
+      xidocError "Checkboxes are currently not supported for the Gemtext target"
 
   command "x", render, rendered:
     case doc.target
@@ -28,3 +32,5 @@ commands checkboxCommands:
       htg.li(class = "xd-checkbox-crossed", arg)
     of tLatex:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
+    of tGemtext:
+      xidocError "Checkboxes are currently not supported for the Gemtext target"

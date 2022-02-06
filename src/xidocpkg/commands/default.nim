@@ -53,6 +53,8 @@ commands defaultCommands:
         doc.addToHead.incl "\\usepackage{amsthm}"
         doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % [cmdName, word]
         "\\begin{$1}$2\end{$1}" % [cmdName, latexTmpl % content]
+      of tGemtext:
+        "\n\n$1. $2" % [if thName.isSome: "$1 ($2)" % [word, thName.get] else: "$1" % [word], content]
 
 
   command "#", literal, unrendered:
@@ -101,6 +103,8 @@ commands defaultCommands:
       htg.span(class = "xd-latex", "L", htg.sup("a"), "T", htg.sub("e"), "X")
     of tLatex:
       "\\LaTeX{}"
+    of tGemtext:
+      "LaTeX"
 
   command "add-to-head", render, rendered:
     doc.addToHead.incl arg
@@ -124,6 +128,8 @@ commands defaultCommands:
       htg.b(arg)
     of tLatex:
       "\\textbf{$1}" % arg
+    of tGemtext:
+      arg
 
   command "checkboxes", raw, rendered:
     case doc.target
@@ -145,6 +151,8 @@ commands defaultCommands:
     of tLatex:
       # TODO: use minted
       "\\texttt{$1}" % code
+    of tGemtext:
+      "\n```\n{$1}\n```\n" % code
 
   command "code-block", (lang: ?expand, code: expand), rendered:
     case doc.target
@@ -157,6 +165,8 @@ commands defaultCommands:
     of tLatex:
       # TODO: use minted
       "\\texttt{$1}" % code
+    of tGemtext:
+      "\n```\n{$1}\n```\n" % code
 
   command "color", (color: expand, text: render), rendered:
     case doc.target
@@ -165,6 +175,8 @@ commands defaultCommands:
     of tLatex:
       doc.addToHead.incl "\\usepackage[svgnames]{xcolor}"
       "\\textcolor{$1}{$2}" % [color, text]
+    of tGemtext:
+      text
 
   template def(global: static bool): string {.dirty.} =
     let params = paramList.map(it => it.splitWhitespace).get(@[])
@@ -177,6 +189,7 @@ commands defaultCommands:
       doc.stack[^1].args = argsTable
       result = XidocString(rendered: true, str: doc.renderStr(body))
     ""
+
   command "def", (name: expand, paramList: ?expand, body: raw), rendered:
     def(global = false)
 
@@ -190,8 +203,10 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       &"""<svg width="{width.get("360")}" height="{height.get("360")}" viewBox="0 0 360 360" version="1.1" xmlns="http://www.w3.org/2000/svg">{doc.expandStr(desc)}</svg>"""
-    else:
+    of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
+    of tGemtext:
+      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   theoremLikeCommand("example", pExample, "$1", "$1")
 
@@ -225,6 +240,8 @@ commands defaultCommands:
       htg.tr(entries.mapIt(htg.th(it)).join)
     of tLatex:
       "$1\\\\\\midrule " % entries.join("&")
+    of tGemtext:
+      xidocError "Tables are currently not supported in the Gemtext backend"
 
   command "html-add-attrs", (args: expand, tag: render), rendered:
     case doc.target
@@ -255,6 +272,12 @@ commands defaultCommands:
 
   command "if-latex", raw, rendered:
     if doc.target == tLatex:
+      doc.renderStr(arg)
+    else:
+      ""
+
+  command "if-gemtext", raw, rendered:
+    if doc.target == tGemtext:
       doc.renderStr(arg)
     else:
       ""
@@ -295,6 +318,8 @@ commands defaultCommands:
       htg.i(arg)
     of tLatex:
       "\\textit{$1}" % arg
+    of tGemtext:
+      arg
 
   command "lang", (langStr: expand, body: raw), rendered:
     let lang =
@@ -311,6 +336,8 @@ commands defaultCommands:
       htg.a(href = url, name.get(url))
     of tLatex:
       "" # TODO
+    of tGemtext:
+      if name.isSome: "\n=> $1 $2" % [url, name.get] else: "\n=> $1" % [url]
 
   command "list", (items: *render), rendered:
     case doc.target
@@ -318,6 +345,8 @@ commands defaultCommands:
       htg.ul(items.mapIt(htg.li(it)).join)
     of tLatex:
       "\\begin{itemize}$1\\end{itemize}" % items.mapIt("\\item $1" % it).join
+    of tGemtext:
+      "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
   command "ms", render, rendered:
     case doc.target
@@ -325,6 +354,8 @@ commands defaultCommands:
       htg.code(arg)
     of tLatex:
       "\\texttt{$1}" % arg
+    of tGemtext:
+      "\n```\n{$1}\n```\n" % arg
 
   command "p", render, rendered:
     case doc.target
@@ -332,6 +363,8 @@ commands defaultCommands:
       htg.p(arg)
     of tLatex:
       "\\par $1" % arg
+    of tGemtext:
+      "\n\n$1" % arg
 
   command "pass", expand, rendered:
     arg.strip
@@ -348,6 +381,8 @@ commands defaultCommands:
       htg.ul(items.mapIt(htg.li(it)).join)
     of tLatex:
       "\\begin{itemize}$1\\end{iremize}" % items.mapIt("\\item $1" % it).join
+    of tGemtext:
+      "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
   command "raw", raw, unrendered:
     arg.strip
@@ -370,6 +405,8 @@ commands defaultCommands:
       htg.tr(entries.mapIt(htg.td(it)).join)
     of tLatex:
       "$1\\\\" % entries.join("&")
+    of tGemtext:
+      xidocError "Tables are currently not supported in the Gemtext backend"
 
   command "section", (name: ?render, content: render), rendered:
     let depth = doc.stack.countIt(it.cmdName == "section")
@@ -397,6 +434,16 @@ commands defaultCommands:
         "\\$1*{$2}$3" % [cmd, name.get, content]
       else:
         "\\$1*{}$2" % [cmd, content]
+    of tGemtext:
+      if name.isSome:
+        let prefix =
+          case depth
+          of 1: "## "
+          of 2: "### "
+          else: ""
+        "\n\n$1$2\n\n$3" % [prefix, name.get, content]
+      else:
+        "\n\n$1" % [content]
 
   command "set-doc-lang", expand, rendered:
     doc.stack[0].lang = some(
@@ -427,6 +474,8 @@ commands defaultCommands:
       doc.addToHead.incl htg.title(arg)
     of tLatex:
       doc.addToHead.incl "\\title{$1}" % arg
+    else:
+      discard
     ""
 
   command "show-title", expand, rendered:
@@ -435,6 +484,8 @@ commands defaultCommands:
       htg.h1(arg)
     of tLatex:
       "\\maketitle"
+    of tGemtext:
+      "\n# $1\n\n" % arg
 
   theoremLikeCommand("solution", pSolution, "$1", "$1")
 
@@ -444,6 +495,8 @@ commands defaultCommands:
       htg.details(class = "xd-spoiler", htg.summary(title), content)
     of tLatex:
       xidocError "The spoiler command is not supported in the LaTeX backend"
+    of tGemtext:
+      xidocError "The spoiler command is not supported in the Gemtext backend"
 
   command "spoiler-solution", (name: ?render, content: render), rendered:
     let word = pSolution.translate(doc.lookup(lang))
@@ -456,6 +509,8 @@ commands defaultCommands:
       doc.addToHead.incl "\\usepackage{amsthm}"
       doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % ["spoilersolution", word]
       "\\begin{$1}$2\end{$1}" % ["spoilersolution", content]
+    of tGemtext:
+      xidocError "The spoiler-solution command is not supported in the Gemtext backend"
 
   command "style", raw, rendered:
     case doc.target
@@ -475,6 +530,8 @@ commands defaultCommands:
         xidocError "Tables in LaTeX currently require a spec"
       doc.addToHead.incl "\\usepackage{booktabs}"
       "\\begin{table}{$1}\\toprule $2\\bottomrule\\end{table}" % [spec.get, content]
+    of tGemtext:
+      xidocError "Tables are currently not supported in the Gemtext backend"
 
   command "template-arg", render, rendered:
     try:
@@ -488,6 +545,8 @@ commands defaultCommands:
       htg.dfn(arg)
     of tLatex:
       "\\textit{$1}" % arg
+    of tGemtext:
+      arg
 
   theoremLikeCommand("theorem", pTheorem, "$1", "$1")
 
@@ -499,6 +558,8 @@ commands defaultCommands:
     of tLatex:
       doc.addToHead.incl "\\title{$1}" % arg
       "\\maketitle"
+    of tGemtext:
+      "# $1\n\n" % arg
 
   command "unit", (number: ?render, unit: render), rendered:
     if number.isSome:

@@ -7,6 +7,7 @@ type
   Target* = enum
     tHtml = "html"
     tLatex = "latex"
+    tGemtext = "gemtext"
   MathRenderer* = enum
     mrKatex
     mrKatexJsdelivr

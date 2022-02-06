@@ -10,6 +10,8 @@ proc escapeText*(text: string, target: Target): string =
     text.multiReplace({"<": "&lt;", "&": "&amp;", "\"": "&quot;"})
   of tLatex:
     text
+  of tGemtext:
+    text
 
 template expand(doc: Document, str: string, render: static bool) =
   for node in str.parseXidoc(doc.verbose):

@@ -109,6 +109,9 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool): string =
     doc.addToHead.incl "\\usepackage{amssymb}"
     let format = if displayMode: "\\[$1\\]" else: "\\($1\\)"
     format % doc.expandStr(latex)
+  of tGemtext:
+    # TODO: use maTeXt
+    &"\n```\n{latex}\n```\n"
 
 commands proofCommands:
 

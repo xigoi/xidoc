@@ -4,21 +4,22 @@ import std/os
 import std/sequtils
 import std/sets
 import std/strutils
-import std/tables
 import xidocpkg/commands/default
 import xidocpkg/error
 import xidocpkg/expand
 import xidocpkg/translations
 import xidocpkg/types
 
-const extensions = toTable {
+const extensions = [
   tHtml: "html",
   tLatex: "tex",
-}
-const templates = toTable {
+  tGemtext: "gmi",
+]
+const templates = [
   tHtml: """<!DOCTYPE html><html lang="$3"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body></html>""",
   tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage{geometry}$1\begin{document}$2\end{document}""",
-}
+  tGemtext: "$1$2",
+]
 
 when isMainModule and not defined(js):
   import cligen
