@@ -1,6 +1,6 @@
 # Package
 
-version       = "2022.1.30"
+version       = "2022.2.6"
 author        = "Adam Blažek"
 description   = "A consistent markup language"
 license       = "GPL-3.0-only"
