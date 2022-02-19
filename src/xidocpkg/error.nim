@@ -6,6 +6,10 @@ type
 template xidocError*(msge: string) =
   raise XidocError(msg: msge)
 
+proc xidocWarning*(msge: string) =
+  when not defined(js):
+    stderr.writeLine("Warning: " & msge)
+
 when not defined(js):
   import ./types
   import std/macros

@@ -82,13 +82,13 @@ else: # when library
 
   proc newDocument(body: cstring, target = tHtml, snippet = false, verbose = false): Document {.exportc.} =
     result = Document(
-      path: "",
       body: $body,
       target: target,
       snippet: snippet,
       verbose: verbose,
       stack: @[Frame(
         cmdName: "[top]",
+        path: some(""),
       )]
     )
     result.stack[0].commands = defaultCommands(result)
