@@ -54,7 +54,7 @@ commands drawCommands:
     when declared(fill):
       let fill = fill.filter(nonEmpty).get("transparent")
 
-  command "Car", (a: expand, r: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+  command "Car", (a: String, r: String, width: ?String, color: ?String, fill: ?String), Markup:
     drawParseArgs
     case doc.target
     of tHtml:
@@ -64,7 +64,7 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  command "Ccr", (c: expand, r: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+  command "Ccr", (c: String, r: String, width: ?String, color: ?String, fill: ?String), Markup:
     drawParseArgs
     case doc.target
     of tHtml:
@@ -74,7 +74,7 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  command "Lab", (a: expand, b: expand, width: ?expand, color: ?expand), rendered:
+  command "Lab", (a: String, b: String, width: ?String, color: ?String), Markup:
     drawParseArgs
     case doc.target
     of tHtml:
@@ -84,7 +84,7 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  command "Lau", (a: expand, u: expand, width: ?expand, color: ?expand), rendered:
+  command "Lau", (a: String, u: String, width: ?String, color: ?String), Markup:
     drawParseArgs
     case doc.target
     of tHtml:
@@ -94,7 +94,7 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  command "Lcu", (c: expand, u: expand, width: ?expand, color: ?expand), rendered:
+  command "Lcu", (c: String, u: String, width: ?String, color: ?String), Markup:
     drawParseArgs
     case doc.target
     of tHtml:
@@ -104,7 +104,7 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  command "Rab", (a: expand, b: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+  command "Rab", (a: String, b: String, width: ?String, color: ?String, fill: ?String), Markup:
     drawParseArgs
     case doc.target
     of tHtml:
@@ -114,7 +114,7 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  command "Rau", (a: expand, u: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+  command "Rau", (a: String, u: String, width: ?String, color: ?String, fill: ?String), Markup:
     drawParseArgs
     case doc.target
     of tHtml:
@@ -124,7 +124,7 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  command "Rcu", (c: expand, u: expand, width: ?expand, color: ?expand, fill: ?expand), rendered:
+  command "Rcu", (c: String, u: String, width: ?String, color: ?String, fill: ?String), Markup:
     drawParseArgs
     case doc.target
     of tHtml:

@@ -12,14 +12,14 @@ type
     mrKatex
     mrKatexJsdelivr
   XidocType* = enum
-    xtString
-    xtMarkup
-    xtList
+    String
+    Markup
+    List
   XidocValue* = object
     case typ*: XidocType
-    of xtString, xtMarkup:
+    of String, Markup:
       str*: string
-    of xtList:
+    of List:
       list*: seq[XidocValue]
   SyntaxHighlightingTheme* = enum
     shtDefault = "default"

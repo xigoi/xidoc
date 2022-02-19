@@ -10,7 +10,14 @@ import std/sets
 import std/strutils
 import std/tables
 
-macro command*(name: string, sig: untyped, rendered: untyped, body: untyped): untyped =
+func getter(typ: NimNode): NimNode =
+  ident:
+    case $typ
+    of "String", "Markup": "str"
+    of "List": "list"
+    else: error "invalid type: " & typ.treeRepr; ""
+
+macro command*(name: string, sig: untyped, retTyp: XidocType, body: untyped): untyped =
   let sigLen = sig.len
   let arg = genSym(nskParam, "arg")
   let logic =
@@ -27,13 +34,10 @@ macro command*(name: string, sig: untyped, rendered: untyped, body: untyped): un
       quote:
         let arg {.inject.} = `arg`.strip
         `body`
-    elif sig == ident"expand":
+    elif sig.kind == nnkIdent:
+      let get = getter(sig)
       quote:
-        let arg {.inject.} = doc.expandStr(`arg`.strip)
-        `body`
-    elif sig == ident"render":
-      quote:
-        let arg {.inject.} = doc.renderStr(`arg`.strip)
+        let arg {.inject.} = doc.expand(`arg`.strip, `sig`).`get`
         `body`
     else:
       var starPos = none int
@@ -63,14 +67,11 @@ macro command*(name: string, sig: untyped, rendered: untyped, body: untyped): un
               xidocError "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len]
       let unpacks = nnkStmtList.newTree
       proc process(str: NimNode, typ: NimNode): NimNode =
-        if typ == ident"render":
-          return quote: renderStr(doc, `str`)
-        elif typ == ident"expand":
-          return quote: expandStr(doc, `str`)
-        elif typ == ident"raw":
+        if typ == ident"raw":
           return str
         else:
-          error "invalid type"
+          let get = getter(typ)
+          return quote: expand(doc, `str`, `typ`).`get`
       if starPos.isSome:
         block beforeStar:
           for index, pair in sig[0..<starPos.get(sigLen)]:
@@ -135,10 +136,9 @@ macro command*(name: string, sig: untyped, rendered: untyped, body: untyped): un
         `unpacks`
         block:
           `body`
-  let typ = if rendered == ident"rendered": xtMarkup else: xtString
-  let typLit = newLit(typ)
+  let retTypLit = newLit(retTyp)
   quote:
-    commands[`name`] = proc(`arg`: string): XidocValue = XidocValue(typ: `typLit`, str: `logic`)
+    commands[`name`] = proc(`arg`: string): XidocValue = XidocValue(typ: `retTyp`, str: `logic`)
 
 template commands*(name, defs: untyped) =
   proc name*(doc {.inject.}: Document): Table[string, Command] =

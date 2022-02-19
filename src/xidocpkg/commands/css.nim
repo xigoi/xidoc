@@ -9,20 +9,20 @@ import std/tables
 
 commands cssCommands:
 
-  command ":", (prop: expand, val: expand), unrendered:
+  command ":", (prop: String, val: String), String:
     "$1:$2;" % [prop, val]
 
-  command ":!", (prop: expand, val: expand), unrendered:
+  command ":!", (prop: String, val: String), String:
     "$1:$2 !important;" % [prop, val]
 
-  command "h*", void, unrendered:
+  command "h*", void, String:
     "h1,h2,h3,h4,h5,h6"
 
-  command "rule", (selector: expand, decls: expand), unrendered:
+  command "rule", (selector: String, decls: String), String:
     # TODO: rule nesting
     "$1{$2}" % [selector, decls]
 
-  command "var", (name: expand, val: ?expand), unrendered:
+  command "var", (name: String, val: ?String), String:
     if val.isSome:
       if doc.stack[^2].cmdName == "style":
         ":root{--$1:$2}" % [name, val.get]

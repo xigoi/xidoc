@@ -17,23 +17,23 @@ proc addIfNeeded(s1: var string, s2: string) =
   if not (s2 == " " and s1 != "" and s1[^1] == ' '):
     s1.add s2
 
-proc expand(doc: Document, str: string, typ: XidocType): XidocValue =
+proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
   result = XidocValue(typ: typ)
   for node in str.parseXidoc(doc.verbose):
     case node.kind
       of xnkString:
         case typ
-        of xtString:
+        of String:
           result.str.addIfNeeded node.str
-        of xtMarkup:
+        of Markup:
           result.str.addIfNeeded node.str.escapeText(doc.target)
-        of xtList:
-          result.list.add XidocValue(typ: xtString, str: node.str)
+        of List:
+          result.list.add XidocValue(typ: String, str: node.str)
       of xnkWhitespace:
         case typ
-        of xtString, xtMarkup:
+        of String, Markup:
           result.str.addIfNeeded " "
-        of xtList:
+        of List:
           discard
       of xnkCommand:
         let name = node.name
@@ -45,29 +45,29 @@ proc expand(doc: Document, str: string, typ: XidocType): XidocValue =
         let val = command(node.arg)
         discard doc.stack.pop
         case typ
-        of xtString:
+        of String:
           case val.typ
-          of xtString, xtMarkup:
+          of String, Markup:
             result.str.addIfNeeded val.str
-          of xtList:
+          of List:
             xidocError "Cannot convert a List to a String"
-        of xtMarkup:
+        of Markup:
           case val.typ
-          of xtString:
+          of String:
             result.str.addIfNeeded val.str.escapeText(doc.target)
-          of xtMarkup:
+          of Markup:
             result.str.addIfNeeded val.str
-          of xtList:
+          of List:
             xidocError "Cannot convert a List to a Markup"
-        of xtList:
+        of List:
           case val.typ
-          of xtString, xtMarkup:
+          of String, Markup:
             result.list.add val
-          of xtList:
+          of List:
             result.list &= val
 
 proc expandStr*(doc: Document, str: string): string =
-  doc.expand(str, xtString).str
+  doc.expand(str, String).str
 
 proc renderStr*(doc: Document, str = doc.body): string =
-  doc.expand(str, xtMarkup).str
+  doc.expand(str, Markup).str
