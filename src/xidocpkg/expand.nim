@@ -13,29 +13,62 @@ proc escapeText*(text: string, target: Target): string =
   of tGemtext:
     text
 
-template expand(doc: Document, str: string, render: static bool) =
+proc expand(doc: Document, str: string, typ: XidocType): XidocValue =
+  result = XidocValue(typ: typ)
+  var lastIsWhitespace = false
   for node in str.parseXidoc(doc.verbose):
-    result.add case node.kind
+    case node.kind
       of xnkString:
-        when render: node.str.escapeText(doc.target)
-        else: node.str
-      of xnkWhitespace: " "
+        lastIsWhitespace = false
+        case typ
+        of xtString:
+          result.str.add node.str
+        of xtMarkup:
+          result.str.add node.str.escapeText(doc.target)
+        of xtList:
+          result.list.add XidocValue(typ: xtString, str: node.str)
+      of xnkWhitespace:
+        case typ
+        of xtString, xtMarkup:
+          if not lastIsWhitespace:
+            result.str.add " "
+          lastIsWhitespace = true
+        of xtList:
+          discard
       of xnkCommand:
-        let name {.inject.} = node.name
+        lastIsWhitespace = false
+        let name = node.name
         let command = doc.lookup(commands, name)
         if command.isNil:
           xidocError &"Command not found: {name}"
         var frame = Frame(cmdName: name, cmdArg: node.arg)
         doc.stack.add frame
-        let xstr = command(node.arg)
+        let val = command(node.arg)
         discard doc.stack.pop
-        if render and not xstr.rendered:
-          xstr.str.escapeText(doc.target)
-        else:
-          xstr.str
+        case typ
+        of xtString:
+          case val.typ
+          of xtString, xtMarkup:
+            result.str.add val.str
+          of xtList:
+            xidocError "Cannot convert a List to a String"
+        of xtMarkup:
+          case val.typ
+          of xtString:
+            result.str.add val.str.escapeText(doc.target)
+          of xtMarkup:
+            result.str.add val.str
+          of xtList:
+            xidocError "Cannot convert a List to a Markup"
+        of xtList:
+          case val.typ
+          of xtString, xtMarkup:
+            result.list.add val
+          of xtList:
+            result.list &= val
 
 proc expandStr*(doc: Document, str: string): string =
-  doc.expand(str, render = false)
+  doc.expand(str, xtString).str
 
 proc renderStr*(doc: Document, str = doc.body): string =
-  doc.expand(str, render = true)
+  doc.expand(str, xtMarkup).str

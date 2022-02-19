@@ -126,9 +126,10 @@ macro command*(name: string, sig: untyped, rendered: untyped, body: untyped): un
         `unpacks`
         block:
           `body`
-  let rendered = newLit(rendered == ident"rendered")
+  let typ = if rendered == ident"rendered": xtMarkup else: xtString
+  let typLit = newLit(typ)
   quote:
-    commands[`name`] = proc(`arg`: string): XidocString = XidocString(rendered: `rendered`, str: `logic`)
+    commands[`name`] = proc(`arg`: string): XidocValue = XidocValue(typ: `typLit`, str: `logic`)
 
 template commands*(name, defs: untyped) =
   proc name*(doc {.inject.}: Document): Table[string, Command] =

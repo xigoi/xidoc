@@ -181,14 +181,14 @@ commands defaultCommands:
 
   template def(global: static bool): string {.dirty.} =
     let params = paramList.map(it => it.splitWhitespace).get(@[])
-    doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: string): XidocString =
+    doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: string): XidocValue =
       let argsList = if arg == "": @[] else: parseXidocArguments(arg)
       if argsList.len != params.len:
         xidocError "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len]
       # Merging the following two lines into one causes the thing to break. WTF?
       let argsTable = zip(params, argsList).toTable
       doc.stack[^1].args = argsTable
-      result = XidocString(rendered: true, str: doc.renderStr(body))
+      result = XidocValue(typ: xtMarkup, str: doc.renderStr(body))
     ""
 
   command "def", (name: expand, paramList: ?expand, body: raw), rendered:

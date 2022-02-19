@@ -11,9 +11,16 @@ type
   MathRenderer* = enum
     mrKatex
     mrKatexJsdelivr
-  XidocString* = object
-    rendered*: bool
-    str*: string
+  XidocType* = enum
+    xtString
+    xtMarkup
+    xtList
+  XidocValue* = object
+    case typ*: XidocType
+    of xtString, xtMarkup:
+      str*: string
+    of xtList:
+      list*: seq[XidocValue]
   SyntaxHighlightingTheme* = enum
     shtDefault = "default"
     shtDark = "dark"
@@ -24,7 +31,7 @@ type
     shtCoy = "coy"
     shtSolarizedLight = "solarized-light"
     shtTomorrowNight = "tomorrow-night"
-  Command* = proc(arg: string): XidocString
+  Command* = proc(arg: string): XidocValue
   Frame* = object
     args*: Table[string, string]
     cmdArg*: string
