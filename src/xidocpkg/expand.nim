@@ -13,30 +13,29 @@ proc escapeText*(text: string, target: Target): string =
   of tGemtext:
     text
 
+proc addIfNeeded(s1: var string, s2: string) =
+  if not (s2 == " " and s1 != "" and s1[^1] == ' '):
+    s1.add s2
+
 proc expand(doc: Document, str: string, typ: XidocType): XidocValue =
   result = XidocValue(typ: typ)
-  var lastIsWhitespace = false
   for node in str.parseXidoc(doc.verbose):
     case node.kind
       of xnkString:
-        lastIsWhitespace = false
         case typ
         of xtString:
-          result.str.add node.str
+          result.str.addIfNeeded node.str
         of xtMarkup:
-          result.str.add node.str.escapeText(doc.target)
+          result.str.addIfNeeded node.str.escapeText(doc.target)
         of xtList:
           result.list.add XidocValue(typ: xtString, str: node.str)
       of xnkWhitespace:
         case typ
         of xtString, xtMarkup:
-          if not lastIsWhitespace:
-            result.str.add " "
-          lastIsWhitespace = true
+          result.str.addIfNeeded " "
         of xtList:
           discard
       of xnkCommand:
-        lastIsWhitespace = false
         let name = node.name
         let command = doc.lookup(commands, name)
         if command.isNil:
@@ -49,15 +48,15 @@ proc expand(doc: Document, str: string, typ: XidocType): XidocValue =
         of xtString:
           case val.typ
           of xtString, xtMarkup:
-            result.str.add val.str
+            result.str.addIfNeeded val.str
           of xtList:
             xidocError "Cannot convert a List to a String"
         of xtMarkup:
           case val.typ
           of xtString:
-            result.str.add val.str.escapeText(doc.target)
+            result.str.addIfNeeded val.str.escapeText(doc.target)
           of xtMarkup:
-            result.str.add val.str
+            result.str.addIfNeeded val.str
           of xtList:
             xidocError "Cannot convert a List to a Markup"
         of xtList:
