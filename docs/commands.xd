@@ -289,7 +289,7 @@ const factorial = (n) => {
     Sets the global [param language] of the document. Returns nothing.
   ]
   [cmd set-syntax-highlighting-theme; theme;
-    Sets the [param theme] for syntax highlighting with the [cmd-ref code] and [cmd-ref code-block] commands. The available themes are [ms default], [ms dark], [ms funky], [ms okaidia], [ms twilight], [ms coy], [ms solarized-light], and [ms tomorrow-night]. You can try out these themes on [link the Prism website; https://prismjs.com/].
+    Sets the [param theme] for syntax highlighting with the [cmd-ref code] and [cmd-ref code-block] commands. The available themes are [ms default], [ms dark], [ms funky], [ms okaidia], [ms twilight], [ms coy], [ms solarized-light], and [ms tomorrow-night]. You can try out these themes on [link the Prism website; https://prismjs.com/]. There is also [ms funky-x], a modification of [ms funky] with a black background instead of weird stripes.
   ]
   [cmd set-title; title;
     Sets the given [param title] as the title of the document.

@@ -1,12 +1,12 @@
-const CommandArgs = function(name) {
+const CommandArgs = function (name) {
   this.name = name;
   this.pattern = new RegExp("\\[(" + name + ")\\s");
 };
-CommandArgs.prototype.exec = function(str) {
+CommandArgs.prototype.exec = function (str) {
   const match = this.pattern.exec(str);
   if (match === null) {
-    return null
-  };
+    return null;
+  }
   const start = match.index + match[0].length;
   var i = start;
   for (var unclosedCount = 1; unclosedCount > 0 && i < str.length; i++) {

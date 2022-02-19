@@ -18,6 +18,7 @@ type
     shtDefault = "default"
     shtDark = "dark"
     shtFunky = "funky"
+    shtFunkyX = "funky-x"
     shtOkaidia = "okaidia"
     shtTwilight = "twilight"
     shtCoy = "coy"

@@ -27,6 +27,7 @@ const
     shtDefault: staticRead("../../prism/default.css"),
     shtDark: staticRead("../../prism/dark.css"),
     shtFunky: staticRead("../../prism/funky.css"),
+    shtFunkyX: staticRead("../../prism/funky-x.css"),
     shtOkaidia: staticRead("../../prism/okaidia.css"),
     shtTwilight: staticRead("../../prism/twilight.css"),
     shtCoy: staticRead("../../prism/coy.css"),
