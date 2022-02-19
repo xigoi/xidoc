@@ -62,64 +62,73 @@ macro command*(name: string, sig: untyped, rendered: untyped, body: untyped): un
             if `args`.len < `minLen` or `args`.len > `maxLen`:
               xidocError "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [`name`, $`minLen`, $`maxLen`, $`args`.len]
       let unpacks = nnkStmtList.newTree
-      template process(kind: NimNode): (proc(doc: Document, str: string): string {.nimcall.}) =
-        if kind == ident"render":
-          renderStr
-        elif kind == ident"expand":
-          expandStr
-        elif kind == ident"raw":
-          (proc(doc: Document, str: string): string = str)
+      proc process(str: NimNode, typ: NimNode): NimNode =
+        if typ == ident"render":
+          return quote: renderStr(doc, `str`)
+        elif typ == ident"expand":
+          return quote: expandStr(doc, `str`)
+        elif typ == ident"raw":
+          return str
         else:
-          error "invalid kind"
-          (proc(doc: Document, str: string): string = str)
+          error "invalid type"
       if starPos.isSome:
         block beforeStar:
           for index, pair in sig[0..<starPos.get(sigLen)]:
             let name = pair[0]
-            let process = process(pair[1])
+            let str = quote:
+              `args`[`index`]
+            let processed = process(str, pair[1])
             unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[`index`])
+              let `name` {.inject.} = `processed`
         block star:
           let start = starPos.get
           let ende = sigLen - start
           let pair = sig[start]
           let name = pair[0]
-          let process = process(pair[1][1])
+          let processedIt = process(ident"it", pair[1][1])
           unpacks.add quote do:
-            let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`process`(doc, it))
+            let `name` {.inject.} = `args`[`start`..^`ende`].mapIt(`processedIt`)
         block afterStar:
           for index, pair in sig[starPos.get + 1 .. ^1]:
             let index = sigLen - index - starPos.get - 1
             let name = pair[0]
-            let process = process(pair[1])
+            let str = quote:
+              `args`[^`index`]
+            let processed = process(str, pair[1])
             unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[^`index`])
+              let `name` {.inject.} = `processed`
       else: # starPos.isNone
         block beforeQuestion:
           for index, pair in sig[0..<questionPos.a]:
             let name = pair[0]
-            let process = process(pair[1])
+            let str = quote:
+              `args`[`index`]
+            let processed = process(str, pair[1])
             unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[`index`])
+              let `name` {.inject.} = `processed`
         block question:
           let minLen = sigLen - questionPos.len
           let start = questionPos.a
           for index, pair in sig[questionPos]:
             let name = pair[0]
-            let process = process(pair[1][1])
+            let str = quote:
+              `args`[`start` + `index`]
+            let processed = process(str, pair[1][1])
             unpacks.add quote do:
               let `name` {.inject.} =
                 if `args`.len - `minLen` > `index`:
-                  some `process`(doc, `args`[`start` + `index`])
+                  some `processed`
                 else:
                   none string
         block afterQuestion:
           for index, pair in sig[questionPos.b + 1 .. ^1]:
             let index = sigLen - index - questionPos.b - 1
             let name = pair[0]
-            let process = process(pair[1])
+            let str = quote:
+              `args`[^`index`]
+            let processed = process(str, pair[1])
             unpacks.add quote do:
-              let `name` {.inject.} = `process`(doc, `args`[^`index`])
+              let `name` {.inject.} = `processed`
       quote:
         let `args` = parseXidocArguments(`arg`)
         `lenCheck`
