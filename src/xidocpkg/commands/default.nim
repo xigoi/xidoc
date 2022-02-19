@@ -216,6 +216,14 @@ commands defaultCommands:
   command "expand", String, String:
     doc.expandStr(arg)
 
+  command "for-each", (name: String, list: List, tmpl: raw), List:
+    var results: seq[XidocValue]
+    for item in list:
+      let itemCopy = item
+      doc.stack[^1].commands[name] = (_) => itemCopy
+      results.add doc.expand(tmpl, item.typ)
+    results
+
   command "get-doc-path-absolute", void, String:
     doc.stack[0].path.map(path => absolutePath(path)).get("")
 
@@ -325,6 +333,9 @@ commands defaultCommands:
     of tGemtext:
       arg
 
+  command "join", (sep: Markup, list: List), Markup:
+    list.mapIt(it.str).join(sep)
+
   command "lang", (langStr: String, body: raw), Markup:
     let lang =
       case langStr.toLowerAscii
@@ -351,6 +362,10 @@ commands defaultCommands:
       "\\begin{itemize}$1\\end{itemize}" % items.mapIt("\\item $1" % it).join
     of tGemtext:
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
+
+  command "list-files", String, List:
+    let currentDir = doc.lookup(path).splitFile.dir
+    walkFiles(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
 
   command "ms", Markup, Markup:
     case doc.target
@@ -492,6 +507,9 @@ commands defaultCommands:
       "\n# $1\n\n" % arg
 
   theoremLikeCommand("solution", pSolution, "$1", "$1")
+
+  command "space", void, String:
+    " "
 
   command "spoiler", (title: Markup, content: Markup), Markup:
     case doc.target

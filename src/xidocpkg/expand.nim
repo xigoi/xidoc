@@ -64,7 +64,7 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
           of String, Markup:
             result.list.add val
           of List:
-            result.list &= val
+            result.list &= val.list
 
 proc expandStr*(doc: Document, str: string): string =
   doc.expand(str, String).str

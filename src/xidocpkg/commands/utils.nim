@@ -10,12 +10,12 @@ import std/sets
 import std/strutils
 import std/tables
 
-func getter(typ: NimNode): NimNode =
+func getter(typ: NimNode | XidocType): NimNode =
   ident:
     case $typ
     of "String", "Markup": "str"
     of "List": "list"
-    else: error "invalid type: " & typ.treeRepr; ""
+    else: error "invalid type: " & $typ; ""
 
 macro command*(name: string, sig: untyped, retTyp: XidocType, body: untyped): untyped =
   let sigLen = sig.len
@@ -136,9 +136,9 @@ macro command*(name: string, sig: untyped, retTyp: XidocType, body: untyped): un
         `unpacks`
         block:
           `body`
-  let retTypLit = newLit(retTyp)
+  let retGet = getter(retTyp)
   quote:
-    commands[`name`] = proc(`arg`: string): XidocValue = XidocValue(typ: `retTyp`, str: `logic`)
+    commands[`name`] = proc(`arg`: string): XidocValue = XidocValue(typ: `retTyp`, `retGet`: `logic`)
 
 template commands*(name, defs: untyped) =
   proc name*(doc {.inject.}: Document): Table[string, Command] =

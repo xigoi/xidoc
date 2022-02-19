@@ -191,6 +191,10 @@ const factorial = (n) => {
   [cmd expand; text;
     After expanding [param text], expands it again. Useful for complex command defititions.
   ]
+  [cmd for-each; name[;] list[;] template;
+    Applies the [param template] to each item of the [param list], making it available as [param name].
+    [ex [join [space]; [for-each lang; HTML [LaTeX] Gemtext; xidoc compiles to [lang].]]]
+  ]
   [cmd-nilad get-doc-path-absolute;
     Gets the absolute path of the current document.
   ]
@@ -231,6 +235,10 @@ const factorial = (n) => {
     Renders [param text] in italics.
     [ex xidoc is [it fantastic!]]
   ]
+  [cmd join; separator[;] list;
+    Joins the [param list] using the given [param separator].
+    [ex [join [space]; [for-each lang; HTML [LaTeX] Gemtext; xidoc compiles to [lang].]]]
+  ]
   [cmd lang; language[;] text;
     Renders [param text] in the specified [param language].
     [ex [" Hello!] [lang czech; [" Ahoj!]]]
@@ -242,6 +250,10 @@ const factorial = (n) => {
   [cmd list; *items;
     Creates an unordered list of [param items].
     [ex Supported targets: [list HTML; [LaTeX]]]
+  ]
+  [cmd list-files; pattern;
+    Lists all files that match the glob [param pattern], relative to the current file.
+    [ex The xidoc sources of this documentation are: [join ,[space]; [list-files *.xd]].]
   ]
   [cmd ms; text;
     Renders [param text] in monospace. If you want to show code, it's recommended to use the [cmd-ref code] or [cmd-ref code-block] command instead.
@@ -299,6 +311,9 @@ const factorial = (n) => {
   ]
   [cmd solution; ?name[;] text;
     Renders a paragraph with the solution to a mathematical problem with an optional [param name].
+  ]
+  [cmd-nilad space;
+    Returns a space character. Useful in commands that strip whitespace.
   ]
   [cmd spoiler; visible[;] secret;
     Hides the [param secret] text until the [param visible] text is clicked. Works only in environments that support interactivity.
