@@ -363,6 +363,10 @@ commands defaultCommands:
     of tGemtext:
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
+  command "list-dirs", String, List:
+    let currentDir = doc.lookup(path).splitFile.dir
+    walkDirs(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
+
   command "list-files", String, List:
     let currentDir = doc.lookup(path).splitFile.dir
     walkFiles(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))

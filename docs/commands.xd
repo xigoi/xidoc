@@ -251,6 +251,10 @@ const factorial = (n) => {
     Creates an unordered list of [param items].
     [ex Supported targets: [list HTML; [LaTeX]]]
   ]
+  [cmd list-dirs; pattern;
+    Lists all directories that match the glob [param pattern], relative to the current file.
+    [ex The subdirectories of the [ms src] directory of xidoc are: [join ,[space]; [list-dirs ../src/*]].]
+  ]
   [cmd list-files; pattern;
     Lists all files that match the glob [param pattern], relative to the current file.
     [ex The xidoc sources of this documentation are: [join ,[space]; [list-files *.xd]].]
