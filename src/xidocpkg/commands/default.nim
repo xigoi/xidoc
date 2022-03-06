@@ -52,8 +52,8 @@ commands defaultCommands:
         )
       of tLatex:
         doc.addToHead.incl "\\usepackage{amsthm}"
-        doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % [cmdName, word]
-        "\\begin{$1}$2\end{$1}" % [cmdName, latexTmpl % content]
+        doc.addToHead.incl "\\theoremstyle{definition}\\newtheorem*{XD$1}{$2}" % [cmdName, word]
+        "\\begin{XD$1}$2\\end{XD$1}" % [cmdName, latexTmpl % content]
       of tGemtext:
         "\n\n$1. $2" % [if thName.isSome: "$1 ($2)" % [word, thName.get] else: "$1" % [word], content]
 
@@ -83,7 +83,12 @@ commands defaultCommands:
     "…"
 
   command "\"", Markup, Markup:
-    pQuotation.translate(doc.lookup(lang)) % arg
+    case doc.target
+    of tLatex:
+      doc.addToHead.incl "\\usepackage{csquotes}"
+      "\\enquote{$1}" % arg
+    else:
+      pQuotation.translate(doc.lookup(lang)) % arg
 
   command "$", raw, Markup:
     doc.stack[^1].commands = mathCommands(doc)
@@ -95,7 +100,7 @@ commands defaultCommands:
 
   command "$$&", raw, Markup:
     doc.stack[^1].commands = mathCommands(doc)
-    doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true)
+    doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true, addDelimiters = false)
 
   command "LaTeX", void, Markup:
     case doc.target
@@ -165,7 +170,8 @@ commands defaultCommands:
         htg.pre(htg.code(code.escapeText(doc.target)))
     of tLatex:
       # TODO: use minted
-      "\\texttt{$1}" % code
+      doc.addToHead.incl "\\usepackage{minted}"
+      "\\begin{minted}$1\n$2\n\\end{minted}\n" % [lang.map(lang => "{$1}" % lang).get(""), code]
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 

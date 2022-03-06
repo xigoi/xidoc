@@ -6,7 +6,8 @@ type
     pDefinition
     pExample
     pExercise
-    pLanguageCode
+    pHtmlLanguageCode
+    pLatexLanguageName
     pProof
     pQuotation
     pSolution
@@ -25,9 +26,13 @@ const translations = [
     lEnglish: "Exercise",
     lCzech: "Cvičení",
   ],
-  pLanguageCode: [
+  pHtmlLanguageCode: [
     lEnglish: "en",
     lCzech: "cs",
+  ],
+  pLatexLanguageName: [
+    lEnglish: "english",
+    lCzech: "czech",
   ],
   pProof: [
     lEnglish: "Proof",

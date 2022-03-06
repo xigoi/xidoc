@@ -97,7 +97,7 @@ commands mathCommands:
     else:
       unitRendered
 
-proc renderMath*(doc: Document, latex: string, displayMode: bool): string =
+proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters = true): string =
   case doc.target
   of tHtml:
     doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
@@ -106,9 +106,13 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool): string =
     let format = if displayMode: "<xd-block-math>$1</xd-block-math>" else: "<xd-inline-math>$1</xd-inline-math>"
     format % renderMathKatex(latex, displayMode)
   of tLatex:
+    doc.addToHead.incl "\\usepackage{amsmath}"
     doc.addToHead.incl "\\usepackage{amssymb}"
     let format = if displayMode: "\\[$1\\]" else: "\\($1\\)"
-    format % doc.expandStr(latex)
+    if addDelimiters:
+      format % latex
+    else:
+      latex
   of tGemtext:
     # TODO: use maTeXt
     &"\n```\n{latex}\n```\n"

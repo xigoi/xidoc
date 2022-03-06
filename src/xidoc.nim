@@ -17,7 +17,7 @@ const extensions = [
 ]
 const templates = [
   tHtml: """<!DOCTYPE html><html lang="$3"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body></html>""",
-  tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage{geometry}$1\begin{document}$2\end{document}""",
+  tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage[$3]{babel}\usepackage{geometry}$1\begin{document}$2\end{document}""",
   tGemtext: "$1$2",
 ]
 
@@ -46,7 +46,15 @@ when isMainModule and not defined(js):
         else:
           if doc.target == tHtml and doc.addToStyle.len != 0:
             doc.addToHead.incl htg.style(doc.addToStyle.toSeq.join)
-          output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered, translate(pLanguageCode, doc.lookup(lang))]
+          let languageString =
+            case target
+            of tHtml:
+              translate(pHtmlLanguageCode, doc.lookup(lang))
+            of tLatex:
+              translate(pLatexLanguageName, doc.lookup(lang))
+            else:
+              ""
+          output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered, languageString]
         if path != "":
           stderr.writeLine "Rendered file $1" % path
       except XidocError:
@@ -73,7 +81,7 @@ when isMainModule and not defined(js):
           stderr.writeLine "Cannot open file $1" % path
 
   dispatch xidoc, help = {
-    "target": "what language to transpile to; one of \"html\", \"latex\"",
+    "target": "what language to transpile to; one of \"html\", \"latex\", \"gemtext\"",
     "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
     "verbose": "show more detailed errors",
   }
