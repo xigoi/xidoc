@@ -330,7 +330,7 @@ const factorial = (n) => {
     Styles an HTML document using xidoc's custom syntax for CSS.
     [if-html [ex [style [rule .golden-frame; [: border; 3px solid gold]]][<div> .golden-frame; This text is a work of art!]]]
   ]
-  [cmd table; ?spec content;
+  [cmd table; ?spec[;] content;
     Creates a table with the given [param content], which should consist of [cmd-ref row] commands. The [param spec] is used to help [LaTeX] align the table.
     [ex
 [table
@@ -349,10 +349,10 @@ const factorial = (n) => {
     Introduces [param phrase] as a new term. Useful in definitions.
     [ex A [term group] is a monoid where every element has an inverse.]
   ]
-  [cmd title; title;
-    Renders the given [param title] and sets it as the title of the document.
+  [cmd title; title[;] ?author;
+    Renders the given [param title] and sets it as the title of the document. If an [param author] is specified, their name is mentioned under the title.
   ]
-  [cmd unit; ?number unit;
+  [cmd unit; ?number[;] unit;
     Renders a [param unit] or a quantity expressed with a [param number] and [param unit]. Also works inside math commands.
     [ex [unit 6378; km], [$ [unit 60; [/ km; h]]]]
   ]

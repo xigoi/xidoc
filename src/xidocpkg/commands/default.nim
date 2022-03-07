@@ -582,16 +582,18 @@ commands defaultCommands:
 
   theoremLikeCommand("theorem", pTheorem, "$1", "$1")
 
-  command "title", Markup, Markup:
+  command "title", (title: Markup, author: ?Markup), Markup:
     case doc.target
     of tHtml:
-      doc.addToHead.incl htg.title(arg)
-      htg.h1(arg)
+      doc.addToHead.incl htg.title(title)
+      htg.h1(title) & author.map(author => htg.address(author)).get("")
     of tLatex:
-      doc.addToHead.incl "\\title{$1}" % arg
+      doc.addToHead.incl "\\title{$1}" % title
+      if author.isSome:
+        doc.addToHead.incl "\\author{$1}" % author.get
       "\\maketitle"
     of tGemtext:
-      "# $1\n\n" % arg
+      "# $1\n\n" % title
 
   command "unit", (number: ?Markup, unit: Markup), Markup:
     if number.isSome:
@@ -633,6 +635,11 @@ commands defaultCommands:
           command "<$1>" % tag, (args: *String, body: Markup), Markup:
             generateHtmlTag(tag, args, body)
       )(tag)
+
+  of tLatex:
+
+    command "\\", (command: String, args: *Markup), Markup:
+      "\\" & args.mapIt("{$1}" % it).join
 
   else:
     discard
