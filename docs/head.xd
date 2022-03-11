@@ -45,7 +45,8 @@
 [if-html
   [add-to-head [<link> rel="icon"; href="data:,"]]
   [<header>
-    [title xidoc]
+    [set-title xidoc]
+    [show-title [xidoc] xidoc]
     [<nav>
       [link Introduction; /]
       [link Manual; /manual.html]

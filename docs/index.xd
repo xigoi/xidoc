@@ -54,6 +54,9 @@
     Solve the Halting Problem;
   ]
 ]
+[section Logo;
+  [p The logo of xidoc is the letter ξ (xi) rendered in the color #d0c.]
+]
 [section Source Code;
   xidoc is available [link on GitHub; https://github.com/xigoi/xidoc] under the GNU GPL 3 licence.
 ]

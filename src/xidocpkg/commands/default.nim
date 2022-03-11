@@ -602,6 +602,17 @@ commands defaultCommands:
     else:
       unit
 
+  command "xidoc", void, Markup:
+    case doc.target
+    of tHtml:
+      doc.addToStyle.incl ".xd-logo{color:#d0c;font-weight:bold}"
+      htg.span(class = "xd-logo", "ξ")
+    of tLatex:
+      doc.addToHead.incl "\\usepackage[svgnames]{xcolor}"
+      "\\textcolor{#d0c}{\\(\\xi\\)}"
+    of tGemtext:
+      "[ξ]"
+
   case doc.target
   of tHtml:
 
