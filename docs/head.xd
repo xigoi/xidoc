@@ -43,7 +43,7 @@
   ]
 ]
 [if-html
-  [add-to-head [<link> rel="icon"; href="data:,"]]
+  [add-to-head [<link> rel="icon"; href="/logo.svg"]]
   [<header>
     [set-title xidoc]
     [show-title [xidoc] xidoc]
