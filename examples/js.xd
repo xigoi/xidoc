@@ -1,0 +1,3 @@
+[js-call (function(name) { return "Hello " + name[;] }); world]
+[# [code-block python; print("hi")] ]
+[$$ \pi]

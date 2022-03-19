@@ -50,6 +50,10 @@ commands mathCommands:
       "\\int $1\\,\\mathrm d$2" % [expr, varname]
   command "lim", (varname: ?String, point: ?String), String:
     "\\lim_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
+  command "liminf", (varname: ?String, point: ?String), String:
+    "\\liminf_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
+  command "limsup", (varname: ?String, point: ?String), String:
+    "\\limsup_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
 
   # Inspired by the physics package
   command "dd", (x: String), String:

@@ -239,6 +239,10 @@ const factorial = (n) => {
     Joins the [param list] using the given [param separator].
     [ex [join [space]; [for-each lang; HTML [LaTeX] Gemtext; xidoc compiles to [lang].]]]
   ]
+  [cmd js-call; function[;] *arguments;
+    Calls the given JavaScript [param function] with the given [param arguments] as strings and returns the result as a string. Useful for doing complex logic when xidoc's built-ins don't suffice. Note that the JavaScript engine currently used by xidoc is [link Duktape; https://duktape.org/], which supports only ES5 and certain ES6 features. Notably, it doesn't support arrow functions, so for an anonymous function, you need to use the old [code javascript; (function() { … })] syntax.
+    [ex The area of a circle with radius 6 is [js-call [raw (function(radius) { return Math.PI * radius * radius; })]; 6].]
+  ]
   [cmd lang; language[;] text;
     Renders [param text] in the specified [param language].
     [ex [" Hello!] [lang czech; [" Ahoj!]]]

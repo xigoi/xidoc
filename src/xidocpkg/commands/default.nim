@@ -342,6 +342,9 @@ commands defaultCommands:
   command "join", (sep: Markup, list: List), Markup:
     list.mapIt(it.str).join(sep)
 
+  command "js-call", (function: String, args: *String), String:
+    jsCall(function, args)
+
   command "lang", (langStr: String, body: raw), Markup:
     let lang =
       case langStr.toLowerAscii
@@ -370,12 +373,20 @@ commands defaultCommands:
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
   command "list-dirs", String, List:
-    let currentDir = doc.lookup(path).splitFile.dir
-    walkDirs(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
+    when defined(js):
+      xidocError "The list-dirs command is not available when using JavaScript"
+      @[]
+    else:
+      let currentDir = doc.lookup(path).splitFile.dir
+      walkDirs(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
 
   command "list-files", String, List:
-    let currentDir = doc.lookup(path).splitFile.dir
-    walkFiles(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
+    when defined(js):
+      xidocError "The list-files command is not available when using JavaScript"
+      @[]
+    else:
+      let currentDir = doc.lookup(path).splitFile.dir
+      walkFiles(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
 
   command "ms", Markup, Markup:
     case doc.target
