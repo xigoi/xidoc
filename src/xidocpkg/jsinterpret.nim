@@ -47,77 +47,87 @@ else:
 
   {.passl: "-lm"}
   {.compile: "../duktape/duktape.c"}
-  {.push importc, header: "duktape/duktape.h".}
+  {.push header: "duktape/duktape.h".}
 
   type
-    duk_context = object
+    DukContext {.importc: "duk_context".} = object
 
-  proc duk_create_heap_default(): ptr duk_context
-  proc duk_destroy_heap(ctx: ptr duk_context)
-  proc duk_eval_string(ctx: ptr duk_context, str: cstring)
-  proc duk_get_prop_string(ctx: ptr duk_context, obj_idx: cint, key: cstring): cint
-  proc duk_get_string(ctx: ptr duk_context, idx: cint): cstring
-  proc duk_pcall(ctx: ptr duk_context, nargs: cint): cint
-  proc duk_peval_string(ctx: ptr duk_context, str: cstring): cint
-  proc duk_pop(ctx: ptr duk_context)
-  proc duk_push_boolean(ctx: ptr duk_context, val: cint)
-  proc duk_push_object(ctx: ptr duk_context)
-  proc duk_push_string(ctx: ptr duk_context, str: cstring)
-  proc duk_put_prop_string(ctx: ptr duk_context, obj_idx: cint, key: cstring)
-  proc duk_remove(ctx: ptr duk_context, idx: cint)
-  proc duk_safe_to_string(ctx: ptr duk_context, idx: cint): cstring
+  proc createHeapDefault(): ptr DukContext {.importc: "duk_create_heap_default".}
+  proc destroyHeap(ctx: ptr DukContext) {.importc: "duk_destroy_heap".}
+  proc evalString(ctx: ptr DukContext, str: cstring) {.importc: "duk_eval_string".}
+  proc evalStringNoResult(ctx: ptr DukContext, str: cstring) {.importc: "duk_eval_string_noresult".}
+  proc getPropString(ctx: ptr DukContext, obj_idx: cint, key: cstring): cint {.importc: "duk_get_prop_string".}
+  proc getString(ctx: ptr DukContext, idx: cint): cstring {.importc: "duk_get_string".}
+  proc pop(ctx: ptr DukContext) {.importc: "duk_pop".}
+  proc protectedCall(ctx: ptr DukContext, nargs: cint): cint {.importc: "duk_pcall".}
+  proc protectedEvalString(ctx: ptr DukContext, str: cstring): cint {.importc: "duk_peval_string".}
+  proc pushBoolean(ctx: ptr DukContext, val: cint) {.importc: "duk_push_boolean".}
+  proc pushObject(ctx: ptr DukContext) {.importc: "duk_push_object".}
+  proc pushString(ctx: ptr DukContext, str: cstring) {.importc: "duk_push_string".}
+  proc putGlobalString(ctx: ptr DukContext, key: cstring) {.importc: "duk_put_global_string".}
+  proc putPropString(ctx: ptr DukContext, obj_idx: cint, key: cstring) {.importc: "duk_put_prop_string".}
+  proc remove(ctx: ptr DukContext, idx: cint) {.importc: "duk_remove".}
+  proc safeToString(ctx: ptr DukContext, idx: cint): cstring {.importc: "duk_safe_to_string".}
 
   {.pop.}
 
-  proc renderMathKatex*(math: string, displayMode: bool): string =
-    var ctx {.global.}: ptr duk_context
+  var ctx: ptr DukContext
+
+  proc initCtx() =
     once:
-      ctx = duk_create_heap_default()
+      ctx = createHeapDefault()
       addExitProc do():
-        ctx.duk_destroy_heap
-      ctx.duk_eval_string(arrayPrototypeFillJs)
-      ctx.duk_eval_string(katexJs)
-    ctx.duk_eval_string("katex.renderToString")
-    ctx.duk_push_string(math)
-    ctx.duk_push_object
-    ctx.duk_push_boolean(displayMode.cint)
-    ctx.duk_put_prop_string(-2, "displayMode")
-    if ctx.duk_pcall(2) != 0:
-      xidocError "Error while rendering math: $1\n$2" % [math, $ctx.duk_safe_to_string(-1)]
-    result = $ctx.duk_get_string(-1)
-    ctx.duk_pop
+        ctx.destroyHeap
+
+  proc renderMathKatex*(math: string, displayMode: bool): string =
+    once:
+      initCtx()
+      ctx.evalStringNoResult(arrayPrototypeFillJs)
+      ctx.evalStringNoResult(katexJs)
+    ctx.evalString("katex.renderToString")
+    ctx.pushString(math)
+    ctx.pushObject
+    ctx.pushBoolean(displayMode.cint)
+    ctx.putPropString(-2, "displayMode")
+    if ctx.protectedCall(2) != 0:
+      xidocError "Error while rendering math: $1\n$2" % [math, $ctx.safeToString(-1)]
+    result = $ctx.getString(-1)
+    ctx.pop
 
   proc highlightCode*(code: string, lang: string): string =
-    var ctx {.global.}: ptr duk_context
     once:
-      ctx = duk_create_heap_default()
-      addExitProc do():
-        ctx.duk_destroy_heap
-      ctx.duk_eval_string(prismJs)
-      ctx.duk_eval_string(xidocPrismJs)
-    ctx.duk_eval_string("Prism.highlight")
-    ctx.duk_push_string(code)
-    ctx.duk_eval_string("Prism.languages")
-    if ctx.duk_get_prop_string(-1, lang) == 0:
+      initCtx()
+      ctx.evalStringNoResult(prismJs)
+      ctx.evalStringNoResult(xidocPrismJs)
+    ctx.evalString("Prism.highlight")
+    ctx.pushString(code)
+    ctx.evalString("Prism.languages")
+    if ctx.getPropString(-1, lang) == 0:
       xidocError &"Unknown language for syntax highlighting: {lang}"
-    ctx.duk_remove(-2)
-    ctx.duk_push_string(lang)
-    if ctx.duk_pcall(3) != 0:
-      xidocError "Error while highlighting code\n$1" % [$ctx.duk_safe_to_string(-1)]
-    result = $ctx.duk_get_string(-1)
-    ctx.duk_pop
+    ctx.remove(-2)
+    ctx.pushString(lang)
+    if ctx.protectedCall(3) != 0:
+      xidocError "Error while highlighting code\n$1" % [$ctx.safeToString(-1)]
+    result = $ctx.getString(-1)
+    ctx.pop
 
   proc jsCall*(function: string, args: varargs[string]): string =
-    var ctx {.global.}: ptr duk_context
-    once:
-      ctx = duk_create_heap_default()
-      addExitProc do():
-        ctx.duk_destroy_heap
-    if ctx.duk_peval_string(function) != 0:
-      xidocError "Invalid JavaScript function: $1\n$2" % [function, $ctx.duk_safe_to_string(-1)]
+    initCtx()
+    if ctx.protectedEvalString(function) != 0:
+      xidocError "Invalid JavaScript function: $1\n$2" % [function, $ctx.safeToString(-1)]
     for arg in args:
-      ctx.duk_push_string(arg.cstring)
-    if ctx.duk_pcall(args.len.cint) != 0:
-      xidocError "Error while calling JavaScript function: $1\n$2" % [function, $ctx.duk_safe_to_string(-1)]
-    result = $ctx.duk_safe_to_string(-1)
-    ctx.duk_pop
+      ctx.pushString(arg.cstring)
+    if ctx.protectedCall(args.len.cint) != 0:
+      xidocError "Error while calling JavaScript function: $1\n$2" % [function, $ctx.safeToString(-1)]
+    result = $ctx.safeToString(-1)
+    ctx.pop
+
+  proc jsEval*(code: string, values: varargs[(string, string)]): string =
+    initCtx()
+    for (name, val) in values:
+      ctx.pushString(val.cstring)
+      ctx.putGlobalString(name.cstring)
+    if ctx.protectedEvalString(code) != 0:
+      xidocError "Error while evaluating JavaScript code:\n$1" % [$ctx.safeToString(-1)]
+    result = $ctx.safeToString(-1)
+    ctx.pop

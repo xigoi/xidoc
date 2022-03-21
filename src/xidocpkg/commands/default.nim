@@ -345,6 +345,14 @@ commands defaultCommands:
   command "js-call", (function: String, args: *String), String:
     jsCall(function, args)
 
+  command "js-eval", (code: String, args: *String), String:
+    if args.len mod 2 != 0:
+      xidocError "Arguments to js-eval must come in pairs of name; value"
+    var values = newSeqOfCap[(string, string)](args.len div 2)
+    for i in 0 ..< args.len div 2:
+      values.add (args[2 * i], args[2 * i + 1])
+    jsEval(code, values)
+
   command "lang", (langStr: String, body: raw), Markup:
     let lang =
       case langStr.toLowerAscii
