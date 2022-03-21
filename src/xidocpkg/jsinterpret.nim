@@ -41,6 +41,9 @@ when defined(js):
   proc jsCall*(code: string, args: varargs[string]): string =
     xidocError "JavaScript evaluation is currently not available when using JavaScript (how ironic)"
 
+  proc jsEval*(code: string, values: varargs[(string, string)]): string =
+    xidocError "JavaScript evaluation is currently not available when using JavaScript (how ironic)"
+
 else:
 
   import std/exitprocs

@@ -5,8 +5,8 @@ var lastJSError = null;
 var NTI1610612810 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1610612807 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
 var NTI1610612804 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI1224741825 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
-var NTI1224741786 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI1224741930 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI1224741891 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
 var NTI33555115 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI1040187399 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI1224740355 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
@@ -416,8 +416,8 @@ NTI1040187399.node = NNI1040187399;
 var NNI33555115 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI33555115.node = NNI33555115;
 NTI33555115.base = NTI33555114;
-NTI1224741786.base = NTI1610612742;
-NTI1224741825.base = NTI1610612742;
+NTI1224741891.base = NTI1610612742;
+NTI1224741930.base = NTI1610612742;
 var NNI1610612810 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI1157627907, name: "Field0", sons: null}, 
 {kind: 1, offset: "Field1", len: 0, typ: NTI33554456, name: "Field1", sons: null}, 
 {kind: 1, offset: "Field2", len: 0, typ: NTI33554439, name: "Field2", sons: null}]};
@@ -1495,12 +1495,12 @@ var ConstSet387 = setConstr(0, 1);
 var ConstSet388 = setConstr(0, 1);
 var ConstSet389 = setConstr(0, 1);
 var ConstSet390 = setConstr(0, 1);
-var ConstSet391 = setConstr([65, 90]);
+var ConstSet391 = setConstr(0, 1);
 var ConstSet392 = setConstr(0, 1);
-var ConstSet393 = setConstr(0, 1);
+var ConstSet393 = setConstr([65, 90]);
 var ConstSet394 = setConstr(0, 1);
 var ConstSet395 = setConstr(0, 1);
-var ConstSet396 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet396 = setConstr(0, 1);
 var ConstSet397 = setConstr(0, 1);
 var ConstSet398 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet399 = setConstr(0, 1);
@@ -1509,77 +1509,79 @@ var ConstSet401 = setConstr(0, 1);
 var ConstSet402 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet403 = setConstr(0, 1);
 var ConstSet404 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet405 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet405 = setConstr(0, 1);
 var ConstSet406 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet407 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet408 = setConstr(0, 1);
-var ConstSet409 = setConstr(0, 1);
-var ConstSet410 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet408 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet409 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet410 = setConstr(0, 1);
 var ConstSet411 = setConstr(0, 1);
 var ConstSet412 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet413 = setConstr(0);
-var ConstSet414 = setConstr(0, 1);
-var ConstSet415 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet416 = setConstr(32, 9, 11, 13, 10, 12);
-var ConstSet417 = setConstr(0, 1);
+var ConstSet413 = setConstr(0, 1);
+var ConstSet414 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet415 = setConstr(0);
+var ConstSet416 = setConstr(0, 1);
+var ConstSet417 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet418 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet419 = setConstr(0, 1);
-var ConstSet420 = setConstr(0, 1);
+var ConstSet420 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet421 = setConstr(0, 1);
 var ConstSet422 = setConstr(0, 1);
 var ConstSet423 = setConstr(0, 1);
 var ConstSet424 = setConstr(0, 1);
 var ConstSet425 = setConstr(0, 1);
-var ConstSet426 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet426 = setConstr(0, 1);
 var ConstSet427 = setConstr(0, 1);
 var ConstSet428 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet429 = setConstr(0, 1);
 var ConstSet430 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet431 = setConstr(0, 1);
+var ConstSet432 = setConstr(32, 9, 11, 13, 10, 12);
             var syntaxHighlightingThemeTable_1224738380 = {data: [{Field0: 203983520, Field1: makeNimstrLit("okaidia"), Field2: 4}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 2098521666, Field1: makeNimstrLit("funky"), Field2: 2}, {Field0: -1431576765, Field1: makeNimstrLit("funky-x"), Field2: 3}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 63010150, Field1: makeNimstrLit("coy"), Field2: 6}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: -1356231671, Field1: makeNimstrLit("tomorrow-night"), Field2: 8}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: -1944989682, Field1: makeNimstrLit("twilight"), Field2: 5}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 0, Field1: [], Field2: 0}, {Field0: 767273821, Field1: makeNimstrLit("dark"), Field2: 1}, {Field0: -2023672578, Field1: makeNimstrLit("solarized-light"), Field2: 7}, {Field0: 1120495519, Field1: makeNimstrLit("default"), Field2: 0}], counter: 9};
-var ConstSet431 = setConstr(0);
-var ConstSet432 = setConstr(0, 1);
-var ConstSet433 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet433 = setConstr(0);
 var ConstSet434 = setConstr(0, 1);
 var ConstSet435 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet436 = setConstr(0, 1);
-var ConstSet437 = setConstr(0);
+var ConstSet437 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet438 = setConstr(0, 1);
-var ConstSet439 = setConstr(0, 1);
+var ConstSet439 = setConstr(0);
 var ConstSet440 = setConstr(0, 1);
 var ConstSet441 = setConstr(0, 1);
-var ConstSet442 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet442 = setConstr(0, 1);
 var ConstSet443 = setConstr(0, 1);
-var ConstSet444 = setConstr(0, 1);
+var ConstSet444 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet445 = setConstr(0, 1);
 var ConstSet446 = setConstr(0, 1);
 var ConstSet447 = setConstr(0, 1);
 var ConstSet448 = setConstr(0, 1);
 var ConstSet449 = setConstr(0, 1);
 var ConstSet450 = setConstr(0, 1);
-var ConstSet451 = setConstr(0);
+var ConstSet451 = setConstr(0, 1);
 var ConstSet452 = setConstr(0, 1);
-var ConstSet453 = setConstr(0, 1);
+var ConstSet453 = setConstr(0);
 var ConstSet454 = setConstr(0, 1);
-var ConstSet455 = setConstr(32, 9, 11, 13, 10, 12);
+var ConstSet455 = setConstr(0, 1);
 var ConstSet456 = setConstr(0, 1);
 var ConstSet457 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet458 = setConstr(0, 1);
-var ConstSet459 = setConstr(0);
+var ConstSet459 = setConstr(32, 9, 11, 13, 10, 12);
 var ConstSet460 = setConstr(0, 1);
-var ConstSet461 = setConstr(0, 1);
+var ConstSet461 = setConstr(0);
 var ConstSet462 = setConstr(0, 1);
 var ConstSet463 = setConstr(0, 1);
-var ConstSet464 = setConstr(0);
+var ConstSet464 = setConstr(0, 1);
 var ConstSet465 = setConstr(0, 1);
-var ConstSet466 = setConstr(0, 1);
+var ConstSet466 = setConstr(0);
 var ConstSet467 = setConstr(0, 1);
-              var htmlTags_1224736790 = [makeNimstrLit("!--"), makeNimstrLit("!DOCTYPE"), makeNimstrLit("a"), makeNimstrLit("abbr"), makeNimstrLit("acronym"), makeNimstrLit("address"), makeNimstrLit("applet"), makeNimstrLit("area"), makeNimstrLit("article"), makeNimstrLit("aside"), makeNimstrLit("audio"), makeNimstrLit("b"), makeNimstrLit("base"), makeNimstrLit("basefont"), makeNimstrLit("bdi"), makeNimstrLit("bdo"), makeNimstrLit("big"), makeNimstrLit("blockquote"), makeNimstrLit("body"), makeNimstrLit("br"), makeNimstrLit("button"), makeNimstrLit("canvas"), makeNimstrLit("caption"), makeNimstrLit("center"), makeNimstrLit("circle"), makeNimstrLit("cite"), makeNimstrLit("code"), makeNimstrLit("col"), makeNimstrLit("colgroup"), makeNimstrLit("data"), makeNimstrLit("datalist"), makeNimstrLit("dd"), makeNimstrLit("del"), makeNimstrLit("details"), makeNimstrLit("dfn"), makeNimstrLit("dialog"), makeNimstrLit("dir"), makeNimstrLit("div"), makeNimstrLit("dl"), makeNimstrLit("dt"), makeNimstrLit("em"), makeNimstrLit("embed"), makeNimstrLit("fieldset"), makeNimstrLit("figcaption"), makeNimstrLit("figure"), makeNimstrLit("font"), makeNimstrLit("footer"), makeNimstrLit("form"), makeNimstrLit("frame"), makeNimstrLit("frameset"), makeNimstrLit("h1"), makeNimstrLit("h2"), makeNimstrLit("h3"), makeNimstrLit("h4"), makeNimstrLit("h5"), makeNimstrLit("h6"), makeNimstrLit("head"), makeNimstrLit("header"), makeNimstrLit("hr"), makeNimstrLit("html"), makeNimstrLit("i"), makeNimstrLit("iframe"), makeNimstrLit("img"), makeNimstrLit("input"), makeNimstrLit("ins"), makeNimstrLit("kbd"), makeNimstrLit("label"), makeNimstrLit("legend"), makeNimstrLit("li"), makeNimstrLit("link"), makeNimstrLit("main"), makeNimstrLit("map"), makeNimstrLit("mark"), makeNimstrLit("meta"), makeNimstrLit("meter"), makeNimstrLit("nav"), makeNimstrLit("noframes"), makeNimstrLit("noscript"), makeNimstrLit("object"), makeNimstrLit("ol"), makeNimstrLit("optgroup"), makeNimstrLit("option"), makeNimstrLit("output"), makeNimstrLit("p"), makeNimstrLit("param"), makeNimstrLit("path"), makeNimstrLit("picture"), makeNimstrLit("pre"), makeNimstrLit("progress"), makeNimstrLit("q"), makeNimstrLit("rect"), makeNimstrLit("rp"), makeNimstrLit("rt"), makeNimstrLit("ruby"), makeNimstrLit("s"), makeNimstrLit("samp"), makeNimstrLit("script"), makeNimstrLit("section"), makeNimstrLit("select"), makeNimstrLit("small"), makeNimstrLit("source"), makeNimstrLit("span"), makeNimstrLit("strike"), makeNimstrLit("strong"), makeNimstrLit("style"), makeNimstrLit("sub"), makeNimstrLit("summary"), makeNimstrLit("sup"), makeNimstrLit("svg"), makeNimstrLit("table"), makeNimstrLit("tbody"), makeNimstrLit("td"), makeNimstrLit("template"), makeNimstrLit("textarea"), makeNimstrLit("tfoot"), makeNimstrLit("th"), makeNimstrLit("thead"), makeNimstrLit("time"), makeNimstrLit("title"), makeNimstrLit("tr"), makeNimstrLit("track"), makeNimstrLit("tt"), makeNimstrLit("u"), makeNimstrLit("ul"), makeNimstrLit("var"), makeNimstrLit("video"), makeNimstrLit("wbr")];
-                    var htmlSelfClosingTags_1224736791 = [makeNimstrLit("area"), makeNimstrLit("base"), makeNimstrLit("br"), makeNimstrLit("circle"), makeNimstrLit("col"), makeNimstrLit("embed"), makeNimstrLit("hr"), makeNimstrLit("img"), makeNimstrLit("input"), makeNimstrLit("link"), makeNimstrLit("meta"), makeNimstrLit("param"), makeNimstrLit("source"), makeNimstrLit("path"), makeNimstrLit("rect"), makeNimstrLit("track"), makeNimstrLit("wbr")];
 var ConstSet468 = setConstr(0, 1);
 var ConstSet469 = setConstr(0, 1);
+              var htmlTags_1224736790 = [makeNimstrLit("!--"), makeNimstrLit("!DOCTYPE"), makeNimstrLit("a"), makeNimstrLit("abbr"), makeNimstrLit("acronym"), makeNimstrLit("address"), makeNimstrLit("applet"), makeNimstrLit("area"), makeNimstrLit("article"), makeNimstrLit("aside"), makeNimstrLit("audio"), makeNimstrLit("b"), makeNimstrLit("base"), makeNimstrLit("basefont"), makeNimstrLit("bdi"), makeNimstrLit("bdo"), makeNimstrLit("big"), makeNimstrLit("blockquote"), makeNimstrLit("body"), makeNimstrLit("br"), makeNimstrLit("button"), makeNimstrLit("canvas"), makeNimstrLit("caption"), makeNimstrLit("center"), makeNimstrLit("circle"), makeNimstrLit("cite"), makeNimstrLit("code"), makeNimstrLit("col"), makeNimstrLit("colgroup"), makeNimstrLit("data"), makeNimstrLit("datalist"), makeNimstrLit("dd"), makeNimstrLit("del"), makeNimstrLit("details"), makeNimstrLit("dfn"), makeNimstrLit("dialog"), makeNimstrLit("dir"), makeNimstrLit("div"), makeNimstrLit("dl"), makeNimstrLit("dt"), makeNimstrLit("em"), makeNimstrLit("embed"), makeNimstrLit("fieldset"), makeNimstrLit("figcaption"), makeNimstrLit("figure"), makeNimstrLit("font"), makeNimstrLit("footer"), makeNimstrLit("form"), makeNimstrLit("frame"), makeNimstrLit("frameset"), makeNimstrLit("h1"), makeNimstrLit("h2"), makeNimstrLit("h3"), makeNimstrLit("h4"), makeNimstrLit("h5"), makeNimstrLit("h6"), makeNimstrLit("head"), makeNimstrLit("header"), makeNimstrLit("hr"), makeNimstrLit("html"), makeNimstrLit("i"), makeNimstrLit("iframe"), makeNimstrLit("img"), makeNimstrLit("input"), makeNimstrLit("ins"), makeNimstrLit("kbd"), makeNimstrLit("label"), makeNimstrLit("legend"), makeNimstrLit("li"), makeNimstrLit("link"), makeNimstrLit("main"), makeNimstrLit("map"), makeNimstrLit("mark"), makeNimstrLit("meta"), makeNimstrLit("meter"), makeNimstrLit("nav"), makeNimstrLit("noframes"), makeNimstrLit("noscript"), makeNimstrLit("object"), makeNimstrLit("ol"), makeNimstrLit("optgroup"), makeNimstrLit("option"), makeNimstrLit("output"), makeNimstrLit("p"), makeNimstrLit("param"), makeNimstrLit("path"), makeNimstrLit("picture"), makeNimstrLit("pre"), makeNimstrLit("progress"), makeNimstrLit("q"), makeNimstrLit("rect"), makeNimstrLit("rp"), makeNimstrLit("rt"), makeNimstrLit("ruby"), makeNimstrLit("s"), makeNimstrLit("samp"), makeNimstrLit("script"), makeNimstrLit("section"), makeNimstrLit("select"), makeNimstrLit("small"), makeNimstrLit("source"), makeNimstrLit("span"), makeNimstrLit("strike"), makeNimstrLit("strong"), makeNimstrLit("style"), makeNimstrLit("sub"), makeNimstrLit("summary"), makeNimstrLit("sup"), makeNimstrLit("svg"), makeNimstrLit("table"), makeNimstrLit("tbody"), makeNimstrLit("td"), makeNimstrLit("template"), makeNimstrLit("textarea"), makeNimstrLit("tfoot"), makeNimstrLit("th"), makeNimstrLit("thead"), makeNimstrLit("time"), makeNimstrLit("title"), makeNimstrLit("tr"), makeNimstrLit("track"), makeNimstrLit("tt"), makeNimstrLit("u"), makeNimstrLit("ul"), makeNimstrLit("var"), makeNimstrLit("video"), makeNimstrLit("wbr")];
+                    var htmlSelfClosingTags_1224736791 = [makeNimstrLit("area"), makeNimstrLit("base"), makeNimstrLit("br"), makeNimstrLit("circle"), makeNimstrLit("col"), makeNimstrLit("embed"), makeNimstrLit("hr"), makeNimstrLit("img"), makeNimstrLit("input"), makeNimstrLit("link"), makeNimstrLit("meta"), makeNimstrLit("param"), makeNimstrLit("source"), makeNimstrLit("path"), makeNimstrLit("rect"), makeNimstrLit("track"), makeNimstrLit("wbr")];
 var ConstSet470 = setConstr(0, 1);
 var ConstSet471 = setConstr(0, 1);
 var ConstSet472 = setConstr(0, 1);
+var ConstSet473 = setConstr(0, 1);
+var ConstSet474 = setConstr(0, 1);
       var templates_486539277 = [makeNimstrLit("<!DOCTYPE html><html lang=\"$3\"><head><meta charset=\"utf-8\"><meta name=\"generator\" content=\"xidoc\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">$1</head><body>$2</body></html>"), makeNimstrLit("\\documentclass{article}\\usepackage[utf8]{inputenc}\\usepackage[$3]{babel}\\usepackage{geometry}$1\\begin{document}$2\\end{document}"), makeNimstrLit("$1$2")];
 if (!Math.trunc) {
   Math.trunc = function(v) {
@@ -1981,13 +1983,13 @@ function enlarge_1778385364(t_1778385367) {
     var n_1778385370 = [];
     n_1778385370 = new Array(chckRange(mulInt((t_1778385367.data).length, 2), 0, 2147483647)); for (var i = 0 ; i < chckRange(mulInt((t_1778385367.data).length, 2), 0, 2147483647) ; ++i) { n_1778385370[i] = {Field0: 0, Field1: [], Field2: null}; }    var Temporary1 = t_1778385367.data; t_1778385367.data = n_1778385370; n_1778385370 = Temporary1;    Label2: do {
       var i_1778385434 = 0;
-      var colontmp__486539827 = 0;
-      colontmp__486539827 = (n_1778385370).length - 1;
-      var res_486539828 = 0;
+      var colontmp__486539837 = 0;
+      colontmp__486539837 = (n_1778385370).length - 1;
+      var res_486539838 = 0;
       Label3: do {
           Label4: while (true) {
-          if (!(res_486539828 <= colontmp__486539827)) break Label4;
-            i_1778385434 = res_486539828;
+          if (!(res_486539838 <= colontmp__486539837)) break Label4;
+            i_1778385434 = res_486539838;
             var eh_1778385488 = n_1778385370[chckIndx(i_1778385434, 0, (n_1778385370).length - 1)].Field0;
             if (isFilled_1358954527(eh_1778385488)) {
             var j_1778385492 = (eh_1778385488 & (t_1778385367.data).length - 1);
@@ -2000,7 +2002,7 @@ function enlarge_1778385364(t_1778385367) {
             rawInsert_1778385658(t_1778385367, t_1778385367, "data", n_1778385370[chckIndx(i_1778385434, 0, (n_1778385370).length - 1)].Field1, n_1778385370[chckIndx(i_1778385434, 0, (n_1778385370).length - 1)].Field2, eh_1778385488, j_1778385492);
             }
             
-            res_486539828 = addInt(res_486539828, 1);
+            res_486539838 = addInt(res_486539838, 1);
           }
       } while (false);
     } while (false);
@@ -2669,18 +2671,18 @@ function collectCaptures_1342177455(caps_1342177457) {
     var resultHEX60gensym1_1342177487 = newSeq_1342177461(0);
     Label1: do {
       var it_1342177509 = null;
-      var i_486539851 = 0;
-      var L_486539852 = (caps_1342177457.capList).length;
+      var i_486539861 = 0;
+      var L_486539862 = (caps_1342177457.capList).length;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486539851 < L_486539852)) break Label3;
-            it_1342177509 = caps_1342177457.capList[chckIndx(i_486539851, 0, (caps_1342177457.capList).length - 1)];
+          if (!(i_486539861 < L_486539862)) break Label3;
+            it_1342177509 = caps_1342177457.capList[chckIndx(i_486539861, 0, (caps_1342177457.capList).length - 1)];
             if ((ConstSet10[it_1342177509.ck] != undefined)) {
             resultHEX60gensym1_1342177487.push(it_1342177509);;
             }
             
-            i_486539851 = addInt(i_486539851, 1);
-            if (!(((caps_1342177457.capList).length == L_486539852))) {
+            i_486539861 = addInt(i_486539861, 1);
+            if (!(((caps_1342177457.capList).length == L_486539862))) {
             failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
             
@@ -2749,13 +2751,13 @@ function slice_1392511907(s_1392511908, iFrom_1392511909, iTo_1392511910) {
     (result_1392511911.length = chckRange(len_1392511912, 0, 2147483647));
     Label1: do {
       var i_1392511917 = 0;
-      var i_486539859 = 0;
+      var i_486539869 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486539859 < len_1392511912)) break Label3;
-            i_1392511917 = i_486539859;
+          if (!(i_486539869 < len_1392511912)) break Label3;
+            i_1392511917 = i_486539869;
             result_1392511911[chckIndx(i_1392511917, 0, (result_1392511911).length - 1)] = s_1392511908[chckIndx(addInt(i_1392511917, iFrom_1392511909), 0, (s_1392511908).length - 1)];
-            i_486539859 = addInt(i_486539859, 1);
+            i_486539869 = addInt(i_486539869, 1);
           }
       } while (false);
     } while (false);
@@ -2785,11 +2787,11 @@ function fixCaptures_1325401012(s_1325401014, capStack_1325401019, fm_1325401020
     var iFrom_1325401182 = findTop_1325401059(capStack_1325401019, fm_1325401020);
     Label1: do {
       var i_1325401187 = 0;
-      var i_486539855 = iFrom_1325401182;
+      var i_486539865 = iFrom_1325401182;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486539855 < capStack_1325401019.top)) break Label3;
-            i_1325401187 = i_486539855;
+          if (!(i_486539865 < capStack_1325401019.top)) break Label3;
+            i_1325401187 = i_486539865;
             if (!((i_1325401187 < capStack_1325401019.top))) {
             failedAssertImpl_218103864(makeNimstrLit("stack.nim(45, 10) `i < capStack.top` "));
             }
@@ -2826,7 +2828,7 @@ function fixCaptures_1325401012(s_1325401014, capStack_1325401019, fm_1325401020
               HEX5BHEX5D_1325401403(result_1325401021, i2_1325401317).len = subInt(subInt((result_1325401021.capList).length, i2_1325401317), 1);
             }
             
-            i_486539855 = addInt(i_486539855, 1);
+            i_486539865 = addInt(i_486539865, 1);
           }
       } while (false);
     } while (false);
@@ -3532,17 +3534,17 @@ function multiReplace_654313162(s_654313163, replacements_654313164) {
     Label1: do {
       var sub_654313180 = [];
       var by_654313181 = [];
-      var i_486539862 = 0;
+      var i_486539872 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486539862 < (replacements_654313164).length)) break Label3;
-            sub_654313180 = replacements_654313164[chckIndx(i_486539862, 0, (replacements_654313164).length - 1)]["Field0"];
-            by_654313181 = replacements_654313164[chckIndx(i_486539862, 0, (replacements_654313164).length - 1)]["Field1"];
+          if (!(i_486539872 < (replacements_654313164).length)) break Label3;
+            sub_654313180 = replacements_654313164[chckIndx(i_486539872, 0, (replacements_654313164).length - 1)]["Field0"];
+            by_654313181 = replacements_654313164[chckIndx(i_486539872, 0, (replacements_654313164).length - 1)]["Field1"];
             if ((0 < (sub_654313180).length)) {
             fastChk_654313167[sub_654313180[chckIndx(0, 0, (sub_654313180).length - 1)]] = true;
             }
             
-            i_486539862 = addInt(i_486539862, 1);
+            i_486539872 = addInt(i_486539872, 1);
           }
       } while (false);
     } while (false);
@@ -3554,19 +3556,19 @@ function multiReplace_654313162(s_654313163, replacements_654313164) {
             Label7: do {
               var sub_654313194 = [];
               var by_654313195 = [];
-              var i_486539866 = 0;
+              var i_486539876 = 0;
               Label8: do {
                   Label9: while (true) {
-                  if (!(i_486539866 < (replacements_654313164).length)) break Label9;
-                    sub_654313194 = replacements_654313164[chckIndx(i_486539866, 0, (replacements_654313164).length - 1)]["Field0"];
-                    by_654313195 = replacements_654313164[chckIndx(i_486539866, 0, (replacements_654313164).length - 1)]["Field1"];
+                  if (!(i_486539876 < (replacements_654313164).length)) break Label9;
+                    sub_654313194 = replacements_654313164[chckIndx(i_486539876, 0, (replacements_654313164).length - 1)]["Field0"];
+                    by_654313195 = replacements_654313164[chckIndx(i_486539876, 0, (replacements_654313164).length - 1)]["Field1"];
                       if (!(0 < (sub_654313194).length)) Temporary10 = false; else {                        Temporary10 = nsuContinuesWith(s_654313163, sub_654313194, chckRange(i_654313166, 0, 2147483647));                      }                    if (Temporary10) {
                     result_654313165.push.apply(result_654313165, by_654313195);;
                     i_654313166 = addInt(i_654313166, (sub_654313194).length);
                     break Label6;
                     }
                     
-                    i_486539866 = addInt(i_486539866, 1);
+                    i_486539876 = addInt(i_486539876, 1);
                   }
               } while (false);
             } while (false);
@@ -3955,15 +3957,15 @@ function nsuRepeatChar(c_654312443, count_654312444) {
     result_654312445 = nimCopy(null, mnewString(count_654312444), NTI33554439);
     Label1: do {
       var i_654312450 = 0;
-      var colontmp__486539879 = 0;
-      colontmp__486539879 = subInt(count_654312444, 1);
-      var res_486539880 = 0;
+      var colontmp__486539889 = 0;
+      colontmp__486539889 = subInt(count_654312444, 1);
+      var res_486539890 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(res_486539880 <= colontmp__486539879)) break Label3;
-            i_654312450 = res_486539880;
+          if (!(res_486539890 <= colontmp__486539889)) break Label3;
+            i_654312450 = res_486539890;
             result_654312445[chckIndx(i_654312450, 0, (result_654312445).length - 1)] = c_654312443;
-            res_486539880 = addInt(res_486539880, 1);
+            res_486539890 = addInt(res_486539890, 1);
           }
       } while (false);
     } while (false);
@@ -4056,15 +4058,15 @@ function add_1308623140(x_1308623142, x_1308623142_Idx, y_1308623143) {
                else { x_1308623142[x_1308623142_Idx].length = Temporary1; };
     Label2: do {
       var i_1308623164 = 0;
-      var colontmp__486539883 = 0;
-      colontmp__486539883 = (y_1308623143).length - 1;
-      var res_486539884 = 0;
+      var colontmp__486539893 = 0;
+      colontmp__486539893 = (y_1308623143).length - 1;
+      var res_486539894 = 0;
       Label3: do {
           Label4: while (true) {
-          if (!(res_486539884 <= colontmp__486539883)) break Label4;
-            i_1308623164 = res_486539884;
+          if (!(res_486539894 <= colontmp__486539893)) break Label4;
+            i_1308623164 = res_486539894;
             x_1308623142[x_1308623142_Idx][chckIndx(addInt(xl_1308623148, i_1308623164), 0, (x_1308623142[x_1308623142_Idx]).length - 1)] = nimCopy(x_1308623142[x_1308623142_Idx][chckIndx(addInt(xl_1308623148, i_1308623164), 0, (x_1308623142[x_1308623142_Idx]).length - 1)], y_1308623143[chckIndx(i_1308623164, 0, (y_1308623143).length - 1)], NTI1610612742);
-            res_486539884 = addInt(res_486539884, 1);
+            res_486539894 = addInt(res_486539894, 1);
           }
       } while (false);
     } while (false);
@@ -4088,20 +4090,20 @@ function HEX3Aanonymous_1308622913() {
                 BeforeRet: do {
                   Label1: do {
                     var iHEX60gensym4_1308622924 = 0;
-                    var colontmp__486539870 = 0;
-                    colontmp__486539870 = subInt((doc_1308622880.stack).length, 1);
-                    var res_486539871 = colontmp__486539870;
+                    var colontmp__486539880 = 0;
+                    colontmp__486539880 = subInt((doc_1308622880.stack).length, 1);
+                    var res_486539881 = colontmp__486539880;
                     Label2: do {
                         Label3: while (true) {
-                        if (!(0 <= res_486539871)) break Label3;
-                          iHEX60gensym4_1308622924 = res_486539871;
+                        if (!(0 <= res_486539881)) break Label3;
+                          iHEX60gensym4_1308622924 = res_486539881;
                           var frameHEX60gensym4_1308622925 = nimCopy(null, doc_1308622880.stack[chckIndx(iHEX60gensym4_1308622924, 0, (doc_1308622880.stack).length - 1)], NTI1610612745);
                           if (hasKey_1308622966(frameHEX60gensym4_1308622925.commands, name_1308622910)) {
                           result_1308622914 = HEX5BHEX5D_1308623070(frameHEX60gensym4_1308622925.commands, name_1308622910);
                           break BeforeRet;
                           }
                           
-                          res_486539871 = subInt(res_486539871, 1);
+                          res_486539881 = subInt(res_486539881, 1);
                         }
                     } while (false);
                   } while (false);
@@ -4127,14 +4129,14 @@ function HEX3Aanonymous_1308622913() {
     result_1308622883 = nimCopy(result_1308622883, {typ: typ_1308622882, str: [], list: []}, NTI1610612742);
     Label1: do {
       var node_1308622905 = null;
-      var colontmp__486539840 = [];
-      colontmp__486539840 = parseXidoc_1325402727(str_1308622881, doc_1308622880.verbose);
-      var i_486539842 = 0;
-      var L_486539843 = (colontmp__486539840).length;
+      var colontmp__486539850 = [];
+      colontmp__486539850 = parseXidoc_1325402727(str_1308622881, doc_1308622880.verbose);
+      var i_486539852 = 0;
+      var L_486539853 = (colontmp__486539850).length;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486539842 < L_486539843)) break Label3;
-            node_1308622905 = colontmp__486539840[chckIndx(i_486539842, 0, (colontmp__486539840).length - 1)];
+          if (!(i_486539852 < L_486539853)) break Label3;
+            node_1308622905 = colontmp__486539850[chckIndx(i_486539852, 0, (colontmp__486539850).length - 1)];
             switch (node_1308622905.kind) {
             case 0:
               switch (typ_1308622882) {
@@ -4252,8 +4254,8 @@ function HEX3Aanonymous_1308622913() {
               }
               break;
             }
-            i_486539842 = addInt(i_486539842, 1);
-            if (!(((colontmp__486539840).length == L_486539843))) {
+            i_486539852 = addInt(i_486539852, 1);
+            if (!(((colontmp__486539850).length == L_486539853))) {
             failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
             
@@ -5747,9 +5749,9 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
               break BeforeRet;
               }
               
-              var colontmp__486539944 = nimCopy(null, cHEX60gensym26_1241514734.matches[chckIndx(indexHEX60gensym26_1241514736, 0, (cHEX60gensym26_1241514734.matches).length - 1)], NTI1241514517);
-              var aHEX60gensym26_1241514741 = colontmp__486539944["Field0"];
-              var bHEX60gensym26_1241514742 = colontmp__486539944["Field1"];
+              var colontmp__486539954 = nimCopy(null, cHEX60gensym26_1241514734.matches[chckIndx(indexHEX60gensym26_1241514736, 0, (cHEX60gensym26_1241514734.matches).length - 1)], NTI1241514517);
+              var aHEX60gensym26_1241514741 = colontmp__486539954["Field0"];
+              var bHEX60gensym26_1241514742 = colontmp__486539954["Field1"];
               var nHEX60gensym26_1241514743 = ({kind: 0, term: [], ch: 0, charChoice: null, nt: null, index: 0, sons: []});
               switch (pHEX60gensym26_1241514732.kind) {
               case 25:
@@ -6258,13 +6260,13 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           result_1241514729 = (Temporary1.term).length;
           Label2: do {
             var iHEX60gensym26_1241515818 = 0;
-            var colontmp__486539917 = 0;
-            colontmp__486539917 = subInt(result_1241514729, 1);
-            var res_486539918 = 0;
+            var colontmp__486539927 = 0;
+            colontmp__486539927 = subInt(result_1241514729, 1);
+            var res_486539928 = 0;
             Label3: do {
                 Label4: while (true) {
-                if (!(res_486539918 <= colontmp__486539917)) break Label4;
-                  iHEX60gensym26_1241515818 = res_486539918;
+                if (!(res_486539928 <= colontmp__486539927)) break Label4;
+                  iHEX60gensym26_1241515818 = res_486539928;
                     if (((sHEX60gensym26_1241514725).length <= addInt(startHEX60gensym26_1241514727, iHEX60gensym26_1241515818))) Temporary5 = true; else {                      var Temporary6 = pHEX60gensym26_1241514726;
                       if (ConstSet110[Temporary6.kind]===undefined) { raiseFieldError2(makeNimstrLit("field \'term\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary6.kind, NTI1241513989)); }
                       Temporary5 = !(((Temporary7 = Temporary6.term, Temporary7)[chckIndx(iHEX60gensym26_1241515818, 0, (Temporary7).length - 1)] == sHEX60gensym26_1241514725[chckIndx(addInt(startHEX60gensym26_1241514727, iHEX60gensym26_1241515818), 0, (sHEX60gensym26_1241514725).length - 1)]));                    }                  if (Temporary5) {
@@ -6272,7 +6274,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                   break Label2;
                   }
                   
-                  res_486539918 = addInt(res_486539918, 1);
+                  res_486539928 = addInt(res_486539928, 1);
                 }
             } while (false);
           } while (false);
@@ -6798,15 +6800,15 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           result_1241514729 = 0;
           Label147: do {
             var iHEX60gensym26_1241516678 = 0;
-            var colontmp__486539925 = 0;
+            var colontmp__486539935 = 0;
             var Temporary148 = pHEX60gensym26_1241514726;
             if (ConstSet184[Temporary148.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary148.kind, NTI1241513989)); }
-            colontmp__486539925 = (Temporary148.sons).length - 1;
-            var res_486539926 = 0;
+            colontmp__486539935 = (Temporary148.sons).length - 1;
+            var res_486539936 = 0;
             Label149: do {
                 Label150: while (true) {
-                if (!(res_486539926 <= colontmp__486539925)) break Label150;
-                  iHEX60gensym26_1241516678 = res_486539926;
+                if (!(res_486539936 <= colontmp__486539935)) break Label150;
+                  iHEX60gensym26_1241516678 = res_486539936;
                   var Temporary151 = pHEX60gensym26_1241514726;
                   if (ConstSet185[Temporary151.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary151.kind, NTI1241513989)); }
                   var xHEX60gensym26_1241516679 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary152 = Temporary151.sons, Temporary152)[chckIndx(iHEX60gensym26_1241516678, 0, (Temporary152).length - 1)], addInt(startHEX60gensym26_1241514727, result_1241514729), cHEX60gensym26_1241514728);
@@ -6819,7 +6821,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                   result_1241514729 = addInt(result_1241514729, xHEX60gensym26_1241516679);
                   }
                   
-                  res_486539926 = addInt(res_486539926, 1);
+                  res_486539936 = addInt(res_486539936, 1);
                 }
             } while (false);
           } while (false);
@@ -6828,15 +6830,15 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
           var oldMlHEX60gensym26_1241516684 = cHEX60gensym26_1241514728.ml;
           Label153: do {
             var iHEX60gensym26_1241516692 = 0;
-            var colontmp__486539929 = 0;
+            var colontmp__486539939 = 0;
             var Temporary154 = pHEX60gensym26_1241514726;
             if (ConstSet186[Temporary154.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary154.kind, NTI1241513989)); }
-            colontmp__486539929 = (Temporary154.sons).length - 1;
-            var res_486539930 = 0;
+            colontmp__486539939 = (Temporary154.sons).length - 1;
+            var res_486539940 = 0;
             Label155: do {
                 Label156: while (true) {
-                if (!(res_486539930 <= colontmp__486539929)) break Label156;
-                  iHEX60gensym26_1241516692 = res_486539930;
+                if (!(res_486539940 <= colontmp__486539939)) break Label156;
+                  iHEX60gensym26_1241516692 = res_486539940;
                   var Temporary157 = pHEX60gensym26_1241514726;
                   if (ConstSet187[Temporary157.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary157.kind, NTI1241513989)); }
                   result_1241514729 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary158 = Temporary157.sons, Temporary158)[chckIndx(iHEX60gensym26_1241516692, 0, (Temporary158).length - 1)], startHEX60gensym26_1241514727, cHEX60gensym26_1241514728);
@@ -6845,7 +6847,7 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                   }
                   
                   cHEX60gensym26_1241514728.ml = oldMlHEX60gensym26_1241516684;
-                  res_486539930 = addInt(res_486539930, 1);
+                  res_486539940 = addInt(res_486539940, 1);
                 }
             } while (false);
           } while (false);
@@ -6882,9 +6884,9 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
                 var xHEX60gensym26_1241516708 = matchIt_1241514724(sHEX60gensym26_1241514725, (Temporary166 = Temporary165.sons, Temporary166)[chckIndx(0, 0, (Temporary166).length - 1)], addInt(startHEX60gensym26_1241514727, result_1241514729), cHEX60gensym26_1241514728);
                 if ((0 <= xHEX60gensym26_1241516708)) {
                 if ((idxHEX60gensym26_1241516703 < 20)) {
-                var colontmp__486539934 = startHEX60gensym26_1241514727;
-                var colontmp__486539935 = subInt(addInt(startHEX60gensym26_1241514727, result_1241514729), 1);
-                cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516703, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516703, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486539934, Field1: colontmp__486539935}, NTI1241514517);
+                var colontmp__486539944 = startHEX60gensym26_1241514727;
+                var colontmp__486539945 = subInt(addInt(startHEX60gensym26_1241514727, result_1241514729), 1);
+                cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516703, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516703, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486539944, Field1: colontmp__486539945}, NTI1241514517);
                 }
                 
                 result_1241514729 = addInt(result_1241514729, xHEX60gensym26_1241516708);
@@ -6975,9 +6977,9 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
               if (ConstSet197[Temporary186.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary186.kind, NTI1241513989)); }
               Temporary184 = ((Temporary187 = Temporary186.sons, Temporary187)[chckIndx(0, 0, (Temporary187).length - 1)].kind == 0);            }          if (Temporary184) {
           cHEX60gensym26_1241514728.ml = subInt(cHEX60gensym26_1241514728.ml, 1);
-          var colontmp__486539939 = 0;
-          var colontmp__486539940 = 0;
-          cHEX60gensym26_1241514728.matches[chckIndx(cHEX60gensym26_1241514728.ml, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(cHEX60gensym26_1241514728.ml, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486539939, Field1: colontmp__486539940}, NTI1241514517);
+          var colontmp__486539949 = 0;
+          var colontmp__486539950 = 0;
+          cHEX60gensym26_1241514728.matches[chckIndx(cHEX60gensym26_1241514728.ml, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(cHEX60gensym26_1241514728.ml, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486539949, Field1: colontmp__486539950}, NTI1241514517);
           result_1241514729 = 0;
           }
           else {
@@ -6988,9 +6990,9 @@ function matchBackRef_1241514730(sHEX60gensym26_1241514731, pHEX60gensym26_12415
             if ((0 <= result_1241514729)) {
             cHEX60gensym26_1241514728.ml = addInt(cHEX60gensym26_1241514728.ml, 1);
             if ((idxHEX60gensym26_1241516748 < 20)) {
-            var colontmp__486539941 = startHEX60gensym26_1241514727;
-            var colontmp__486539942 = subInt(addInt(startHEX60gensym26_1241514727, result_1241514729), 1);
-            cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516748, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516748, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486539941, Field1: colontmp__486539942}, NTI1241514517);
+            var colontmp__486539951 = startHEX60gensym26_1241514727;
+            var colontmp__486539952 = subInt(addInt(startHEX60gensym26_1241514727, result_1241514729), 1);
+            cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516748, 0, (cHEX60gensym26_1241514728.matches).length - 1)] = nimCopy(cHEX60gensym26_1241514728.matches[chckIndx(idxHEX60gensym26_1241516748, 0, (cHEX60gensym26_1241514728.matches).length - 1)], {Field0: colontmp__486539951, Field1: colontmp__486539952}, NTI1241514517);
             }
             
             }
@@ -7066,13 +7068,13 @@ function npegsreplacef(s_1241516995, sub_1241516996, by_1241516997) {
           else {
             Label3: do {
               var kHEX60gensym579_1241517014 = 0;
-              var colontmp__486539913 = 0;
-              colontmp__486539913 = subInt(c_1241517001[0].ml, 1);
-              var res_486539914 = 0;
+              var colontmp__486539923 = 0;
+              colontmp__486539923 = subInt(c_1241517001[0].ml, 1);
+              var res_486539924 = 0;
               Label4: do {
                   Label5: while (true) {
-                  if (!(res_486539914 <= colontmp__486539913)) break Label5;
-                    kHEX60gensym579_1241517014 = res_486539914;
+                  if (!(res_486539924 <= colontmp__486539923)) break Label5;
+                    kHEX60gensym579_1241517014 = res_486539924;
                     var startIdxHEX60gensym579_1241517015 = c_1241517001[0].matches[chckIndx(kHEX60gensym579_1241517014, 0, (c_1241517001[0].matches).length - 1)]["Field0"];
                     var endIdxHEX60gensym579_1241517016 = c_1241517001[0].matches[chckIndx(kHEX60gensym579_1241517014, 0, (c_1241517001[0].matches).length - 1)]["Field1"];
                     if (!((startIdxHEX60gensym579_1241517015 == -1))) {
@@ -7082,7 +7084,7 @@ function npegsreplacef(s_1241516995, sub_1241516996, by_1241516997) {
                       caps_1241517000[chckIndx(kHEX60gensym579_1241517014, 0, (caps_1241517000).length - 1)] = nimCopy(null, [], NTI33554439);
                     }
                     
-                    res_486539914 = addInt(res_486539914, 1);
+                    res_486539924 = addInt(res_486539924, 1);
                   }
               } while (false);
             } while (false);
@@ -7466,17 +7468,17 @@ function getCharSet_1241517425(c_1241517426, tok_1241517427) {
             }
             Label4: do {
               var i_1241517474 = 0;
-              var colontmp__486539949 = 0;
-              var colontmp__486539950 = 0;
-              colontmp__486539949 = addInt(ch_1241517434, 1);
-              colontmp__486539950 = ch2_1241517459;
-              var res_486539951 = colontmp__486539949;
+              var colontmp__486539959 = 0;
+              var colontmp__486539960 = 0;
+              colontmp__486539959 = addInt(ch_1241517434, 1);
+              colontmp__486539960 = ch2_1241517459;
+              var res_486539961 = colontmp__486539959;
               Label5: do {
                   Label6: while (true) {
-                  if (!(res_486539951 <= colontmp__486539950)) break Label6;
-                    i_1241517474 = res_486539951;
+                  if (!(res_486539961 <= colontmp__486539960)) break Label6;
+                    i_1241517474 = res_486539961;
                     tok_1241517427.charset[chckRange(i_1241517474, 0, 255)] = true;
-                    res_486539951 = addInt(res_486539951, 1);
+                    res_486539961 = addInt(res_486539961, 1);
                   }
               } while (false);
             } while (false);
@@ -8204,27 +8206,27 @@ function npegssequence(a_1241514314) {
     result_1241514315[0] = nimCopy(result_1241514315[0], {kind: 15, sons: [], term: [], ch: 0, charChoice: null, nt: null, index: 0}, NTI1241513992);
     Label1: do {
       var xHEX60gensym12_1241514325 = ({kind: 0, term: [], ch: 0, charChoice: null, nt: null, index: 0, sons: []});
-      var i_486539972 = 0;
+      var i_486539982 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486539972 < (a_1241514314).length)) break Label3;
-            xHEX60gensym12_1241514325 = a_1241514314[chckIndx(i_486539972, 0, (a_1241514314).length - 1)];
+          if (!(i_486539982 < (a_1241514314).length)) break Label3;
+            xHEX60gensym12_1241514325 = a_1241514314[chckIndx(i_486539982, 0, (a_1241514314).length - 1)];
             if ((xHEX60gensym12_1241514325.kind == 15)) {
             Label4: do {
               var yHEX60gensym12_1241514333 = ({kind: 0, term: [], ch: 0, charChoice: null, nt: null, index: 0, sons: []});
-              var colontmp__486539966 = [];
+              var colontmp__486539976 = [];
               var Temporary5 = xHEX60gensym12_1241514325;
               if (ConstSet213[Temporary5.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary5.kind, NTI1241513989)); }
-              colontmp__486539966 = Temporary5.sons;
-              var i_486539968 = 0;
-              var L_486539969 = (colontmp__486539966).length;
+              colontmp__486539976 = Temporary5.sons;
+              var i_486539978 = 0;
+              var L_486539979 = (colontmp__486539976).length;
               Label6: do {
                   Label7: while (true) {
-                  if (!(i_486539968 < L_486539969)) break Label7;
-                    yHEX60gensym12_1241514333 = colontmp__486539966[chckIndx(i_486539968, 0, (colontmp__486539966).length - 1)];
+                  if (!(i_486539978 < L_486539979)) break Label7;
+                    yHEX60gensym12_1241514333 = colontmp__486539976[chckIndx(i_486539978, 0, (colontmp__486539976).length - 1)];
                     addSequence_1241514305(result_1241514315[0], yHEX60gensym12_1241514333);
-                    i_486539968 = addInt(i_486539968, 1);
-                    if (!(((colontmp__486539966).length == L_486539969))) {
+                    i_486539978 = addInt(i_486539978, 1);
+                    if (!(((colontmp__486539976).length == L_486539979))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -8236,7 +8238,7 @@ function npegssequence(a_1241514314) {
             addSequence_1241514305(result_1241514315[0], xHEX60gensym12_1241514325);
             }
             
-            i_486539972 = addInt(i_486539972, 1);
+            i_486539982 = addInt(i_486539982, 1);
           }
       } while (false);
     } while (false);
@@ -8341,19 +8343,19 @@ function getNonTerminal_1241517704(p_1241517705, name_1241517706) {
   BeforeRet: do {
     Label1: do {
       var i_1241517715 = 0;
-      var colontmp__486539976 = 0;
-      colontmp__486539976 = (p_1241517705.nonterms).length - 1;
-      var res_486539977 = 0;
+      var colontmp__486539986 = 0;
+      colontmp__486539986 = (p_1241517705.nonterms).length - 1;
+      var res_486539987 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(res_486539977 <= colontmp__486539976)) break Label3;
-            i_1241517715 = res_486539977;
+          if (!(res_486539987 <= colontmp__486539986)) break Label3;
+            i_1241517715 = res_486539987;
             result_1241517707 = p_1241517705.nonterms[chckIndx(i_1241517715, 0, (p_1241517705.nonterms).length - 1)];
             if ((nsuCmpIgnoreStyle(result_1241517707.name, name_1241517706) == 0)) {
             break BeforeRet;
             }
             
-            res_486539977 = addInt(res_486539977, 1);
+            res_486539987 = addInt(res_486539987, 1);
           }
       } while (false);
     } while (false);
@@ -8401,13 +8403,13 @@ function spaceCost_1241514464(n_1241514465) {
     default: 
       Label1: do {
         var i_1241514471 = 0;
-        var colontmp__486539980 = 0;
-        colontmp__486539980 = subInt(len_1241514240(n_1241514465), 1);
-        var res_486539981 = 0;
+        var colontmp__486539990 = 0;
+        colontmp__486539990 = subInt(len_1241514240(n_1241514465), 1);
+        var res_486539991 = 0;
         Label2: do {
             Label3: while (true) {
-            if (!(res_486539981 <= colontmp__486539980)) break Label3;
-              i_1241514471 = res_486539981;
+            if (!(res_486539991 <= colontmp__486539990)) break Label3;
+              i_1241514471 = res_486539991;
               var Temporary4 = n_1241514465;
               if (ConstSet227[Temporary4.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary4.kind, NTI1241513989)); }
               result_1241514466 = addInt(result_1241514466, spaceCost_1241514464((Temporary5 = Temporary4.sons, Temporary5)[chckIndx(i_1241514471, 0, (Temporary5).length - 1)]));
@@ -8415,7 +8417,7 @@ function spaceCost_1241514464(n_1241514465) {
               break Label1;
               }
               
-              res_486539981 = addInt(res_486539981, 1);
+              res_486539991 = addInt(res_486539991, 1);
             }
         } while (false);
       } while (false);
@@ -8582,27 +8584,27 @@ function npegsOrderedChoice(a_1241514276) {
     result_1241514277[0] = nimCopy(result_1241514277[0], {kind: 16, sons: [], term: [], ch: 0, charChoice: null, nt: null, index: 0}, NTI1241513992);
     Label1: do {
       var xHEX60gensym10_1241514296 = ({kind: 0, term: [], ch: 0, charChoice: null, nt: null, index: 0, sons: []});
-      var i_486539991 = 0;
+      var i_486540001 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486539991 < (a_1241514276).length)) break Label3;
-            xHEX60gensym10_1241514296 = a_1241514276[chckIndx(i_486539991, 0, (a_1241514276).length - 1)];
+          if (!(i_486540001 < (a_1241514276).length)) break Label3;
+            xHEX60gensym10_1241514296 = a_1241514276[chckIndx(i_486540001, 0, (a_1241514276).length - 1)];
             if ((xHEX60gensym10_1241514296.kind == 16)) {
             Label4: do {
               var yHEX60gensym10_1241514304 = ({kind: 0, term: [], ch: 0, charChoice: null, nt: null, index: 0, sons: []});
-              var colontmp__486539987 = [];
+              var colontmp__486539997 = [];
               var Temporary5 = xHEX60gensym10_1241514296;
               if (ConstSet230[Temporary5.kind]!==undefined) { raiseFieldError2(makeNimstrLit("field \'sons\' is not accessible for type \'Peg\' using \'kind = "), reprDiscriminant(Temporary5.kind, NTI1241513989)); }
-              colontmp__486539987 = Temporary5.sons;
-              var i_486539988 = 0;
-              var L_486539989 = (colontmp__486539987).length;
+              colontmp__486539997 = Temporary5.sons;
+              var i_486539998 = 0;
+              var L_486539999 = (colontmp__486539997).length;
               Label6: do {
                   Label7: while (true) {
-                  if (!(i_486539988 < L_486539989)) break Label7;
-                    yHEX60gensym10_1241514304 = colontmp__486539987[chckIndx(i_486539988, 0, (colontmp__486539987).length - 1)];
+                  if (!(i_486539998 < L_486539999)) break Label7;
+                    yHEX60gensym10_1241514304 = colontmp__486539997[chckIndx(i_486539998, 0, (colontmp__486539997).length - 1)];
                     addChoice_1241514253(result_1241514277[0], yHEX60gensym10_1241514304);
-                    i_486539988 = addInt(i_486539988, 1);
-                    if (!(((colontmp__486539987).length == L_486539989))) {
+                    i_486539998 = addInt(i_486539998, 1);
+                    if (!(((colontmp__486539997).length == L_486539999))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -8614,7 +8616,7 @@ function npegsOrderedChoice(a_1241514276) {
             addChoice_1241514253(result_1241514277[0], xHEX60gensym10_1241514296);
             }
             
-            i_486539991 = addInt(i_486539991, 1);
+            i_486540001 = addInt(i_486540001, 1);
           }
       } while (false);
     } while (false);
@@ -9194,13 +9196,13 @@ function rawParse_1241517831(p_1241517832) {
     
     Label6: do {
       var i_1241517857 = 0;
-      var colontmp__486539960 = 0;
-      colontmp__486539960 = (p_1241517832.nonterms).length - 1;
-      var res_486539961 = 0;
+      var colontmp__486539970 = 0;
+      colontmp__486539970 = (p_1241517832.nonterms).length - 1;
+      var res_486539971 = 0;
       Label7: do {
           Label8: while (true) {
-          if (!(res_486539961 <= colontmp__486539960)) break Label8;
-            i_1241517857 = res_486539961;
+          if (!(res_486539971 <= colontmp__486539970)) break Label8;
+            i_1241517857 = res_486539971;
             var nt_1241517858 = p_1241517832.nonterms[chckIndx(i_1241517857, 0, (p_1241517832.nonterms).length - 1)];
             if (!((nt_1241517858.flags[0] != undefined))) {
             pegError_1241517631(p_1241517832, (makeNimstrLit("undeclared identifier: ") || []).concat(nt_1241517858.name || []), nt_1241517858.line, nt_1241517858.col);
@@ -9210,7 +9212,7 @@ function rawParse_1241517831(p_1241517832) {
             pegError_1241517631(p_1241517832, (makeNimstrLit("unused rule: ") || []).concat(nt_1241517858.name || []), nt_1241517858.line, nt_1241517858.col);
             }
             }
-            res_486539961 = addInt(res_486539961, 1);
+            res_486539971 = addInt(res_486539971, 1);
           }
       } while (false);
     } while (false);
@@ -10398,13 +10400,13 @@ function enlarge_1526727296(t_1526727299) {
     var n_1526727302 = [];
     n_1526727302 = new Array(chckRange(mulInt((t_1526727299.data).length, 2), 0, 2147483647)); for (var i = 0 ; i < chckRange(mulInt((t_1526727299.data).length, 2), 0, 2147483647) ; ++i) { n_1526727302[i] = {Field0: 0, Field1: [], Field2: []}; }    var Temporary1 = t_1526727299.data; t_1526727299.data = n_1526727302; n_1526727302 = Temporary1;    Label2: do {
       var i_1526727366 = 0;
-      var colontmp__486540011 = 0;
-      colontmp__486540011 = (n_1526727302).length - 1;
-      var res_486540012 = 0;
+      var colontmp__486540021 = 0;
+      colontmp__486540021 = (n_1526727302).length - 1;
+      var res_486540022 = 0;
       Label3: do {
           Label4: while (true) {
-          if (!(res_486540012 <= colontmp__486540011)) break Label4;
-            i_1526727366 = res_486540012;
+          if (!(res_486540022 <= colontmp__486540021)) break Label4;
+            i_1526727366 = res_486540022;
             var eh_1526727420 = n_1526727302[chckIndx(i_1526727366, 0, (n_1526727302).length - 1)].Field0;
             if (isFilled_1358954527(eh_1526727420)) {
             var j_1526727424 = (eh_1526727420 & (t_1526727299.data).length - 1);
@@ -10417,7 +10419,7 @@ function enlarge_1526727296(t_1526727299) {
             rawInsert_1526727590(t_1526727299, t_1526727299, "data", n_1526727302[chckIndx(i_1526727366, 0, (n_1526727302).length - 1)].Field1, n_1526727302[chckIndx(i_1526727366, 0, (n_1526727302).length - 1)].Field2, eh_1526727420, j_1526727424);
             }
             
-            res_486540012 = addInt(res_486540012, 1);
+            res_486540022 = addInt(res_486540022, 1);
           }
       } while (false);
     } while (false);
@@ -10513,15 +10515,15 @@ function zip_1224740822(s1_1224740825, s2_1224740826) {
     var mHEX60gensym8_1224740834 = nimMin((s1_1224740825).length, (s2_1224740826).length);
     result_1224740827 = new Array(chckRange(mHEX60gensym8_1224740834, 0, 2147483647)); for (var i = 0 ; i < chckRange(mHEX60gensym8_1224740834, 0, 2147483647) ; ++i) { result_1224740827[i] = {Field0: [], Field1: []}; }    Label1: do {
       var iHEX60gensym8_1224740843 = 0;
-      var i_486540018 = 0;
+      var i_486540028 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486540018 < mHEX60gensym8_1224740834)) break Label3;
-            iHEX60gensym8_1224740843 = i_486540018;
-            var colontmp__486540016 = nimCopy(null, s1_1224740825[chckIndx(iHEX60gensym8_1224740843, 0, (s1_1224740825).length - 1)], NTI33554439);
-            var colontmp__486540017 = nimCopy(null, s2_1224740826[chckIndx(iHEX60gensym8_1224740843, 0, (s2_1224740826).length - 1)], NTI33554439);
-            result_1224740827[chckIndx(iHEX60gensym8_1224740843, 0, (result_1224740827).length - 1)] = nimCopy(result_1224740827[chckIndx(iHEX60gensym8_1224740843, 0, (result_1224740827).length - 1)], {Field0: nimCopy(null, colontmp__486540016, NTI33554439), Field1: nimCopy(null, colontmp__486540017, NTI33554439)}, NTI1224739262);
-            i_486540018 = addInt(i_486540018, 1);
+          if (!(i_486540028 < mHEX60gensym8_1224740834)) break Label3;
+            iHEX60gensym8_1224740843 = i_486540028;
+            var colontmp__486540026 = nimCopy(null, s1_1224740825[chckIndx(iHEX60gensym8_1224740843, 0, (s1_1224740825).length - 1)], NTI33554439);
+            var colontmp__486540027 = nimCopy(null, s2_1224740826[chckIndx(iHEX60gensym8_1224740843, 0, (s2_1224740826).length - 1)], NTI33554439);
+            result_1224740827[chckIndx(iHEX60gensym8_1224740843, 0, (result_1224740827).length - 1)] = nimCopy(result_1224740827[chckIndx(iHEX60gensym8_1224740843, 0, (result_1224740827).length - 1)], {Field0: nimCopy(null, colontmp__486540026, NTI33554439), Field1: nimCopy(null, colontmp__486540027, NTI33554439)}, NTI1224739262);
+            i_486540028 = addInt(i_486540028, 1);
           }
       } while (false);
     } while (false);
@@ -10536,31 +10538,31 @@ function nsuSplitChar(s_654311915, sep_654311916, maxsplit_654311917) {
     result_654311918 = nimCopy(null, [], NTI654311762);
     Label1: do {
       var xHEX60gensym67_654311924 = [];
-      var lastHEX60gensym34_486540035 = 0;
-      var splitsHEX60gensym34_486540036 = maxsplit_654311917;
+      var lastHEX60gensym34_486540045 = 0;
+      var splitsHEX60gensym34_486540046 = maxsplit_654311917;
       Label2: do {
           Label3: while (true) {
-          if (!(lastHEX60gensym34_486540035 <= (s_654311915).length)) break Label3;
-            var firstHEX60gensym34_486540038 = lastHEX60gensym34_486540035;
+          if (!(lastHEX60gensym34_486540045 <= (s_654311915).length)) break Label3;
+            var firstHEX60gensym34_486540048 = lastHEX60gensym34_486540045;
             Label4: do {
                 Label5: while (true) {
-                if (!((lastHEX60gensym34_486540035 < (s_654311915).length) && !((s_654311915[chckIndx(lastHEX60gensym34_486540035, 0, (s_654311915).length - 1)] == sep_654311916)))) break Label5;
-                  lastHEX60gensym34_486540035 = addInt(lastHEX60gensym34_486540035, 1);
+                if (!((lastHEX60gensym34_486540045 < (s_654311915).length) && !((s_654311915[chckIndx(lastHEX60gensym34_486540045, 0, (s_654311915).length - 1)] == sep_654311916)))) break Label5;
+                  lastHEX60gensym34_486540045 = addInt(lastHEX60gensym34_486540045, 1);
                 }
             } while (false);
-            if ((splitsHEX60gensym34_486540036 == 0)) {
-            lastHEX60gensym34_486540035 = (s_654311915).length;
+            if ((splitsHEX60gensym34_486540046 == 0)) {
+            lastHEX60gensym34_486540045 = (s_654311915).length;
             }
             
-            xHEX60gensym67_654311924 = substr_33557922(s_654311915, firstHEX60gensym34_486540038, subInt(lastHEX60gensym34_486540035, 1));
+            xHEX60gensym67_654311924 = substr_33557922(s_654311915, firstHEX60gensym34_486540048, subInt(lastHEX60gensym34_486540045, 1));
             var Temporary6 = nimCopy(null, xHEX60gensym67_654311924, NTI33554439);
             result_654311918.push(Temporary6);;
-            if ((splitsHEX60gensym34_486540036 == 0)) {
+            if ((splitsHEX60gensym34_486540046 == 0)) {
             break Label2;
             }
             
-            splitsHEX60gensym34_486540036 = subInt(splitsHEX60gensym34_486540036, 1);
-            lastHEX60gensym34_486540035 = addInt(lastHEX60gensym34_486540035, 1);
+            splitsHEX60gensym34_486540046 = subInt(splitsHEX60gensym34_486540046, 1);
+            lastHEX60gensym34_486540045 = addInt(lastHEX60gensym34_486540045, 1);
           }
       } while (false);
     } while (false);
@@ -10752,18 +10754,18 @@ function nsuformatBiggestFloat(f_654313336, format_654313337, precision_65431333
     
     Label1: do {
       var i_654313347 = 0;
-      var colontmp__486540047 = 0;
-      colontmp__486540047 = (result_654313340).length;
-      var i_486540048 = 0;
+      var colontmp__486540057 = 0;
+      colontmp__486540057 = (result_654313340).length;
+      var i_486540058 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486540048 < colontmp__486540047)) break Label3;
-            i_654313347 = i_486540048;
+          if (!(i_486540058 < colontmp__486540057)) break Label3;
+            i_654313347 = i_486540058;
             if ((ConstSet311[result_654313340[chckIndx(i_654313347, 0, (result_654313340).length - 1)]] != undefined)) {
             result_654313340[chckIndx(i_654313347, 0, (result_654313340).length - 1)] = decimalSep_654313339;
             }
             
-            i_486540048 = addInt(i_486540048, 1);
+            i_486540058 = addInt(i_486540058, 1);
           }
       } while (false);
     } while (false);
@@ -10816,15 +10818,15 @@ function nsuToUpperAsciiStr(s_654311518) {
     result_654311519 = nimCopy(null, mnewString(chckRange((s_654311518).length, 0, 2147483647)), NTI33554439);
     Label1: do {
       var iHEX60gensym11_654311525 = 0;
-      var colontmp__486540053 = 0;
-      colontmp__486540053 = subInt((s_654311518).length, 1);
-      var res_486540054 = 0;
+      var colontmp__486540063 = 0;
+      colontmp__486540063 = subInt((s_654311518).length, 1);
+      var res_486540064 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(res_486540054 <= colontmp__486540053)) break Label3;
-            iHEX60gensym11_654311525 = res_486540054;
+          if (!(res_486540064 <= colontmp__486540063)) break Label3;
+            iHEX60gensym11_654311525 = res_486540064;
             result_654311519[chckIndx(iHEX60gensym11_654311525, 0, (result_654311519).length - 1)] = nsuToUpperAsciiChar(s_654311518[chckIndx(iHEX60gensym11_654311525, 0, (s_654311518).length - 1)]);
-            res_486540054 = addInt(res_486540054, 1);
+            res_486540064 = addInt(res_486540064, 1);
           }
       } while (false);
     } while (false);
@@ -11934,9 +11936,9 @@ function next_1040187402(it_1040187403, x_1040187404) {
     }
     
     if ((it_1040187403.prev < it_1040187403.i)) {
-    var colontmp__486540069 = it_1040187403.prev;
-    var colontmp__486540070 = subInt(it_1040187403.i, 1);
-    result_1040187405 = nimCopy(result_1040187405, {Field0: colontmp__486540069, Field1: colontmp__486540070}, NTI1040187399);
+    var colontmp__486540079 = it_1040187403.prev;
+    var colontmp__486540080 = subInt(it_1040187403.i, 1);
+    result_1040187405 = nimCopy(result_1040187405, {Field0: colontmp__486540079, Field1: colontmp__486540080}, NTI1040187399);
     }
     else {
     if (hasNext_1040187398(it_1040187403, x_1040187404)) {
@@ -12128,13 +12130,13 @@ function HEX5BHEX5D_1224742513(s_1224742517, x_1224742518) {
     var L_1224742526 = addInt(subInt(subInt((s_1224742517).length, x_1224742518.b), a_1224742521), 1);
     result_1224742519 = new Array(chckRange(L_1224742526, 0, 2147483647)); for (var i = 0 ; i < chckRange(L_1224742526, 0, 2147483647) ; ++i) { result_1224742519[i] = []; }    Label1: do {
       var i_1224742535 = 0;
-      var i_486540073 = 0;
+      var i_486540083 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486540073 < L_1224742526)) break Label3;
-            i_1224742535 = i_486540073;
+          if (!(i_486540083 < L_1224742526)) break Label3;
+            i_1224742535 = i_486540083;
             result_1224742519[chckIndx(i_1224742535, 0, (result_1224742519).length - 1)] = nimCopy(null, s_1224742517[chckIndx(addInt(i_1224742535, a_1224742521), 0, (s_1224742517).length - 1)], NTI33554439);
-            i_486540073 = addInt(i_486540073, 1);
+            i_486540083 = addInt(i_486540083, 1);
           }
       } while (false);
     } while (false);
@@ -12150,15 +12152,15 @@ function nsuJoinSep(a_654312849, sep_654312850) {
     var L_654312858 = mulInt((sep_654312850).length, subInt((a_654312849).length, 1));
     Label1: do {
       var i_654312866 = 0;
-      var colontmp__486540076 = 0;
-      colontmp__486540076 = (a_654312849).length - 1;
-      var res_486540077 = 0;
+      var colontmp__486540086 = 0;
+      colontmp__486540086 = (a_654312849).length - 1;
+      var res_486540087 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(res_486540077 <= colontmp__486540076)) break Label3;
-            i_654312866 = res_486540077;
+          if (!(res_486540087 <= colontmp__486540086)) break Label3;
+            i_654312866 = res_486540087;
             L_654312858 = addInt(L_654312858, (a_654312849[chckIndx(i_654312866, 0, (a_654312849).length - 1)]).length);
-            res_486540077 = addInt(res_486540077, 1);
+            res_486540087 = addInt(res_486540087, 1);
           }
       } while (false);
     } while (false);
@@ -12166,16 +12168,16 @@ function nsuJoinSep(a_654312849, sep_654312850) {
     result_654312851.push.apply(result_654312851, a_654312849[chckIndx(0, 0, (a_654312849).length - 1)]);;
     Label4: do {
       var i_654312878 = 0;
-      var colontmp__486540080 = 0;
-      colontmp__486540080 = (a_654312849).length - 1;
-      var res_486540081 = 1;
+      var colontmp__486540090 = 0;
+      colontmp__486540090 = (a_654312849).length - 1;
+      var res_486540091 = 1;
       Label5: do {
           Label6: while (true) {
-          if (!(res_486540081 <= colontmp__486540080)) break Label6;
-            i_654312878 = res_486540081;
+          if (!(res_486540091 <= colontmp__486540090)) break Label6;
+            i_654312878 = res_486540091;
             result_654312851.push.apply(result_654312851, sep_654312850);;
             result_654312851.push.apply(result_654312851, a_654312849[chckIndx(i_654312878, 0, (a_654312849).length - 1)]);;
-            res_486540081 = addInt(res_486540081, 1);
+            res_486540091 = addInt(res_486540091, 1);
           }
       } while (false);
     } while (false);
@@ -12198,13 +12200,13 @@ function npegsmatchLenCapture(s_1241516835, pattern_1241516836, matches_12415168
     if ((0 <= result_1241516839)) {
     Label1: do {
       var kHEX60gensym565_1241516848 = 0;
-      var colontmp__486540084 = 0;
-      colontmp__486540084 = subInt(c_1241516840[0].ml, 1);
-      var res_486540085 = 0;
+      var colontmp__486540094 = 0;
+      colontmp__486540094 = subInt(c_1241516840[0].ml, 1);
+      var res_486540095 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(res_486540085 <= colontmp__486540084)) break Label3;
-            kHEX60gensym565_1241516848 = res_486540085;
+          if (!(res_486540095 <= colontmp__486540094)) break Label3;
+            kHEX60gensym565_1241516848 = res_486540095;
             var startIdxHEX60gensym565_1241516849 = c_1241516840[0].matches[chckIndx(kHEX60gensym565_1241516848, 0, (c_1241516840[0].matches).length - 1)]["Field0"];
             var endIdxHEX60gensym565_1241516850 = c_1241516840[0].matches[chckIndx(kHEX60gensym565_1241516848, 0, (c_1241516840[0].matches).length - 1)]["Field1"];
             if (!((startIdxHEX60gensym565_1241516849 == -1))) {
@@ -12214,7 +12216,7 @@ function npegsmatchLenCapture(s_1241516835, pattern_1241516836, matches_12415168
               matches_1241516837[chckIndx(kHEX60gensym565_1241516848, 0, (matches_1241516837).length - 1)] = nimCopy(null, [], NTI33554439);
             }
             
-            res_486540085 = addInt(res_486540085, 1);
+            res_486540095 = addInt(res_486540095, 1);
           }
       } while (false);
     } while (false);
@@ -12282,19 +12284,19 @@ function nossplitPath(path_1023410297) {
     var sepPos_1023410301 = -1;
     Label1: do {
       var i_1023410307 = 0;
-      var colontmp__486540088 = 0;
-      colontmp__486540088 = subInt((path_1023410297).length, 1);
-      var res_486540089 = colontmp__486540088;
+      var colontmp__486540098 = 0;
+      colontmp__486540098 = subInt((path_1023410297).length, 1);
+      var res_486540099 = colontmp__486540098;
       Label2: do {
           Label3: while (true) {
-          if (!(0 <= res_486540089)) break Label3;
-            i_1023410307 = res_486540089;
+          if (!(0 <= res_486540099)) break Label3;
+            i_1023410307 = res_486540099;
             if ((ConstSet381[path_1023410297[chckIndx(i_1023410307, 0, (path_1023410297).length - 1)]] != undefined)) {
             sepPos_1023410301 = i_1023410307;
             break Label1;
             }
             
-            res_486540089 = subInt(res_486540089, 1);
+            res_486540099 = subInt(res_486540099, 1);
           }
       } while (false);
     } while (false);
@@ -12514,10 +12516,19 @@ function jsCall_1677721631(code_1677721632, args_1677721633) {
 
 }
 
+function jsEval_1677721635(code_1677721636, values_1677721637) {
+  var result_1677721638 = [];
+
+    raiseException({message: makeNimstrLit("JavaScript evaluation is currently not available when using JavaScript (how ironic)"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+
+  return result_1677721638;
+
+}
+
 function nsuToLowerAsciiChar(c_654311492) {
   var result_654311493 = 0;
 
-    if ((ConstSet391[c_654311492] != undefined)) {
+    if ((ConstSet393[c_654311492] != undefined)) {
     result_654311493 = (c_654311492 ^ 32);
     }
     else {
@@ -12559,8 +12570,8 @@ function HEX3Aanonymous_1845497474(arg_1845497468) {
 
       var result_1845497475 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1845497461, nsuStrip(arg_1845497468, true, true, ConstSet410), 1);
-        if (ConstSet409[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var Temporary1 = expand_1308622879(doc_1845497461, nsuStrip(arg_1845497468, true, true, ConstSet412), 1);
+        if (ConstSet411[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
         var arg_1845497476 = nimCopy(null, Temporary1.str, NTI33554439);
         result_1845497475 = nimCopy(result_1845497475, {typ: 1, str: nimCopy(null, (makeNimstrLit("<div class=\"xd-subproof\">") || []).concat(renderMath_1845495832(doc_1845497461, makeNimstrLit("(\\Leftarrow)"), false, true) || [],makeNimstrLit(" ") || [],arg_1845497476 || [],makeNimstrLit("</div>") || []), NTI33554439), list: []}, NTI1610612742);
 
@@ -12573,8 +12584,8 @@ function HEX3Aanonymous_1845497529(arg_1845497523) {
 
       var result_1845497530 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1845497461, nsuStrip(arg_1845497523, true, true, ConstSet412), 1);
-        if (ConstSet411[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var Temporary1 = expand_1308622879(doc_1845497461, nsuStrip(arg_1845497523, true, true, ConstSet414), 1);
+        if (ConstSet413[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
         var arg_1845497531 = nimCopy(null, Temporary1.str, NTI33554439);
         result_1845497530 = nimCopy(result_1845497530, {typ: 1, str: nimCopy(null, (makeNimstrLit("<div class=\"xd-subproof\">") || []).concat(renderMath_1845495832(doc_1845497461, makeNimstrLit("(\\Rightarrow)"), false, true) || [],makeNimstrLit(" ") || [],arg_1845497531 || [],makeNimstrLit("</div>") || []), NTI33554439), list: []}, NTI1610612742);
 
@@ -12675,42 +12686,42 @@ function rawGet_1224737015(t_1224737018, key_1224737019, hc_1224737020, hc_12247
 
 }
 
-function hasKey_1224745653(t_1224745656, key_1224745657) {
-  var result_1224745658 = false;
+function hasKey_1224745792(t_1224745795, key_1224745796) {
+  var result_1224745797 = false;
 
-    var hc_1224745659 = [0];
-    result_1224745658 = (0 <= rawGet_1224737015(t_1224745656, key_1224745657, hc_1224745659, 0));
+    var hc_1224745798 = [0];
+    result_1224745797 = (0 <= rawGet_1224737015(t_1224745795, key_1224745796, hc_1224745798, 0));
 
-  return result_1224745658;
+  return result_1224745797;
 
 }
 
-function contains_1224745647(t_1224745650, key_1224745651) {
-  var result_1224745652 = false;
+function contains_1224745786(t_1224745789, key_1224745790) {
+  var result_1224745791 = false;
 
   BeforeRet: do {
-    result_1224745652 = hasKey_1224745653(t_1224745650, key_1224745651);
+    result_1224745791 = hasKey_1224745792(t_1224745789, key_1224745790);
     break BeforeRet;
   } while (false);
 
-  return result_1224745652;
+  return result_1224745791;
 
 }
 
-function HEX5BHEX5D_1224745724(t_1224745727, key_1224745728) {
-  var result_1224745729 = 0;
+function HEX5BHEX5D_1224745863(t_1224745866, key_1224745867) {
+  var result_1224745868 = 0;
 
-    var hcHEX60gensym20_1224745730 = [0];
-    var indexHEX60gensym20_1224745737 = rawGet_1224737015(t_1224745727, key_1224745728, hcHEX60gensym20_1224745730, 0);
-    if ((0 <= indexHEX60gensym20_1224745737)) {
-    result_1224745729 = t_1224745727.data[chckIndx(indexHEX60gensym20_1224745737, 0, (t_1224745727.data).length - 1)].Field2;
+    var hcHEX60gensym20_1224745869 = [0];
+    var indexHEX60gensym20_1224745876 = rawGet_1224737015(t_1224745866, key_1224745867, hcHEX60gensym20_1224745869, 0);
+    if ((0 <= indexHEX60gensym20_1224745876)) {
+    result_1224745868 = t_1224745866.data[chckIndx(indexHEX60gensym20_1224745876, 0, (t_1224745866.data).length - 1)].Field2;
     }
     else {
-    raiseKeyError_1526728164(key_1224745728);
+    raiseKeyError_1526728164(key_1224745867);
     }
     
 
-  return result_1224745729;
+  return result_1224745868;
 
 }
 
@@ -12729,10 +12740,10 @@ function HEX3Aanonymous_1811939355(arg_1811939345) {
         }
         
         var Temporary2 = expand_1308622879(doc_1811939338, HEX5BHEX5D_1811939366(args_1811939346, 2), 0);
-        if (ConstSet443[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
+        if (ConstSet445[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
         var prop_1811939374 = nimCopy(null, Temporary2.str, NTI33554439);
         var Temporary3 = expand_1308622879(doc_1811939338, HEX5BHEX5D_1811939366(args_1811939346, 1), 0);
-        if (ConstSet444[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if (ConstSet446[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         var val_1811939379 = nimCopy(null, Temporary3.str, NTI33554439);
         Label4: do {
         } while (false);
@@ -12755,10 +12766,10 @@ function HEX3Aanonymous_1811939433(arg_1811939426) {
         }
         
         var Temporary2 = expand_1308622879(doc_1811939338, HEX5BHEX5D_1811939366(args_1811939427, 2), 0);
-        if (ConstSet445[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
+        if (ConstSet447[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
         var prop_1811939448 = nimCopy(null, Temporary2.str, NTI33554439);
         var Temporary3 = expand_1308622879(doc_1811939338, HEX5BHEX5D_1811939366(args_1811939427, 1), 0);
-        if (ConstSet446[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if (ConstSet448[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         var val_1811939453 = nimCopy(null, Temporary3.str, NTI33554439);
         Label4: do {
         } while (false);
@@ -12794,10 +12805,10 @@ function HEX3Aanonymous_1811939561(arg_1811939554) {
         }
         
         var Temporary2 = expand_1308622879(doc_1811939338, HEX5BHEX5D_1811939366(args_1811939555, 2), 0);
-        if (ConstSet447[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
+        if (ConstSet449[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
         var selector_1811939576 = nimCopy(null, Temporary2.str, NTI33554439);
         var Temporary3 = expand_1308622879(doc_1811939338, HEX5BHEX5D_1811939366(args_1811939555, 1), 0);
-        if (ConstSet448[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if (ConstSet450[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         var decls_1811939581 = nimCopy(null, Temporary3.str, NTI33554439);
         Label4: do {
         } while (false);
@@ -12823,11 +12834,11 @@ function HEX3Aanonymous_1811939635(arg_1811939628) {
         }
         
         var Temporary2 = expand_1308622879(doc_1811939338, args_1811939629[chckIndx(0, 0, (args_1811939629).length - 1)], 0);
-        if (ConstSet449[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
+        if (ConstSet451[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
         var name_1811939646 = nimCopy(null, Temporary2.str, NTI33554439);
         if ((0 < subInt((args_1811939629).length, 1))) {
         var Temporary4 = expand_1308622879(doc_1811939338, args_1811939629[chckIndx(1, 0, (args_1811939629).length - 1)], 0);
-        if (ConstSet450[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
+        if (ConstSet452[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
         Temporary3 = some_1811939650(Temporary4.str);
         }
         else {
@@ -12889,39 +12900,39 @@ function HEX5BHEX5D_1761608104(t_1761608107, key_1761608108) {
 
 }
 
-function HEX26_1224747687(x_1224747689, y_1224747690) {
-  var result_1224747691 = [];
+function HEX26_1224747826(x_1224747828, y_1224747829) {
+  var result_1224747830 = [];
 
-    result_1224747691 = new Array(chckRange(addInt((x_1224747689).length, (y_1224747690).length), 0, 2147483647)); for (var i = 0 ; i < chckRange(addInt((x_1224747689).length, (y_1224747690).length), 0, 2147483647) ; ++i) { result_1224747691[i] = []; }    Label1: do {
-      var i_1224747709 = 0;
-      var colontmp__486540130 = 0;
-      colontmp__486540130 = subInt((x_1224747689).length, 1);
-      var res_486540131 = 0;
+    result_1224747830 = new Array(chckRange(addInt((x_1224747828).length, (y_1224747829).length), 0, 2147483647)); for (var i = 0 ; i < chckRange(addInt((x_1224747828).length, (y_1224747829).length), 0, 2147483647) ; ++i) { result_1224747830[i] = []; }    Label1: do {
+      var i_1224747848 = 0;
+      var colontmp__486540140 = 0;
+      colontmp__486540140 = subInt((x_1224747828).length, 1);
+      var res_486540141 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(res_486540131 <= colontmp__486540130)) break Label3;
-            i_1224747709 = res_486540131;
-            result_1224747691[chckIndx(i_1224747709, 0, (result_1224747691).length - 1)] = nimCopy(null, x_1224747689[chckIndx(i_1224747709, 0, (x_1224747689).length - 1)], NTI33554439);
-            res_486540131 = addInt(res_486540131, 1);
+          if (!(res_486540141 <= colontmp__486540140)) break Label3;
+            i_1224747848 = res_486540141;
+            result_1224747830[chckIndx(i_1224747848, 0, (result_1224747830).length - 1)] = nimCopy(null, x_1224747828[chckIndx(i_1224747848, 0, (x_1224747828).length - 1)], NTI33554439);
+            res_486540141 = addInt(res_486540141, 1);
           }
       } while (false);
     } while (false);
     Label4: do {
-      var i_1224747717 = 0;
-      var colontmp__486540134 = 0;
-      colontmp__486540134 = subInt((y_1224747690).length, 1);
-      var res_486540135 = 0;
+      var i_1224747856 = 0;
+      var colontmp__486540144 = 0;
+      colontmp__486540144 = subInt((y_1224747829).length, 1);
+      var res_486540145 = 0;
       Label5: do {
           Label6: while (true) {
-          if (!(res_486540135 <= colontmp__486540134)) break Label6;
-            i_1224747717 = res_486540135;
-            result_1224747691[chckIndx(addInt(i_1224747717, (x_1224747689).length), 0, (result_1224747691).length - 1)] = nimCopy(null, y_1224747690[chckIndx(i_1224747717, 0, (y_1224747690).length - 1)], NTI33554439);
-            res_486540135 = addInt(res_486540135, 1);
+          if (!(res_486540145 <= colontmp__486540144)) break Label6;
+            i_1224747856 = res_486540145;
+            result_1224747830[chckIndx(addInt(i_1224747856, (x_1224747828).length), 0, (result_1224747830).length - 1)] = nimCopy(null, y_1224747829[chckIndx(i_1224747856, 0, (y_1224747829).length - 1)], NTI33554439);
+            res_486540145 = addInt(res_486540145, 1);
           }
       } while (false);
     } while (false);
 
-  return result_1224747691;
+  return result_1224747830;
 
 }
 
@@ -12932,17 +12943,17 @@ function find_872415280(a_872415283, item_872415284) {
     result_872415285 = 0;
     Label1: do {
       var i_872415289 = [];
-      var i_486540139 = 0;
+      var i_486540149 = 0;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486540139 < (a_872415283).length)) break Label3;
-            i_872415289 = a_872415283[chckIndx(i_486540139, 0, (a_872415283).length - 1)];
+          if (!(i_486540149 < (a_872415283).length)) break Label3;
+            i_872415289 = a_872415283[chckIndx(i_486540149, 0, (a_872415283).length - 1)];
             if (eqStrings(i_872415289, item_872415284)) {
             break BeforeRet;
             }
             
             result_872415285 = addInt(result_872415285, 1);
-            i_486540139 = addInt(i_486540139, 1);
+            i_486540149 = addInt(i_486540149, 1);
           }
       } while (false);
     } while (false);
@@ -13079,20 +13090,20 @@ function HEX3Aanonymous_1224738869() {
             BeforeRet: do {
               Label1: do {
                 var iHEX60gensym48_1224738879 = 0;
-                var colontmp__486539892 = 0;
-                colontmp__486539892 = subInt((doc_1224738382.stack).length, 1);
-                var res_486539893 = colontmp__486539892;
+                var colontmp__486539902 = 0;
+                colontmp__486539902 = subInt((doc_1224738382.stack).length, 1);
+                var res_486539903 = colontmp__486539902;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486539893)) break Label3;
-                      iHEX60gensym48_1224738879 = res_486539893;
+                    if (!(0 <= res_486539903)) break Label3;
+                      iHEX60gensym48_1224738879 = res_486539903;
                       var frameHEX60gensym48_1224738880 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym48_1224738879, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                       if (isSome_1224738885(frameHEX60gensym48_1224738880.lang)) {
                       result_1224738870 = get_1224738902(frameHEX60gensym48_1224738880.lang);
                       break BeforeRet;
                       }
                       
-                      res_486539893 = subInt(res_486539893, 1);
+                      res_486539903 = subInt(res_486539903, 1);
                     }
                 } while (false);
               } while (false);
@@ -13209,20 +13220,20 @@ function HEX3Aanonymous_1224739314() {
           BeforeRet: do {
             Label1: do {
               var iHEX60gensym67_1224739324 = 0;
-              var colontmp__486539994 = 0;
-              colontmp__486539994 = subInt((doc_1224738382.stack).length, 1);
-              var res_486539995 = colontmp__486539994;
+              var colontmp__486540004 = 0;
+              colontmp__486540004 = subInt((doc_1224738382.stack).length, 1);
+              var res_486540005 = colontmp__486540004;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486539995)) break Label3;
-                    iHEX60gensym67_1224739324 = res_486539995;
+                  if (!(0 <= res_486540005)) break Label3;
+                    iHEX60gensym67_1224739324 = res_486540005;
                     var frameHEX60gensym67_1224739325 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym67_1224739324, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                     if (hasKey_1761607988(frameHEX60gensym67_1224739325.args, arg_1224739311)) {
                     result_1224739315 = nimCopy(null, HEX5BHEX5D_1526728097(frameHEX60gensym67_1224739325.args, arg_1224739311), NTI33554439);
                     break BeforeRet;
                     }
                     
-                    res_486539995 = subInt(res_486539995, 1);
+                    res_486540005 = subInt(res_486540005, 1);
                   }
               } while (false);
             } while (false);
@@ -13252,20 +13263,20 @@ function HEX3Aanonymous_1224739490() {
           BeforeRet: do {
             Label1: do {
               var iHEX60gensym70_1224739500 = 0;
-              var colontmp__486539998 = 0;
-              colontmp__486539998 = subInt((doc_1224738382.stack).length, 1);
-              var res_486539999 = colontmp__486539998;
+              var colontmp__486540008 = 0;
+              colontmp__486540008 = subInt((doc_1224738382.stack).length, 1);
+              var res_486540009 = colontmp__486540008;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486539999)) break Label3;
-                    iHEX60gensym70_1224739500 = res_486539999;
+                  if (!(0 <= res_486540009)) break Label3;
+                    iHEX60gensym70_1224739500 = res_486540009;
                     var frameHEX60gensym70_1224739501 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym70_1224739500, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                     if (hasKey_1761607988(frameHEX60gensym70_1224739501.args, arg_1224739487)) {
                     result_1224739491 = nimCopy(null, HEX5BHEX5D_1526728097(frameHEX60gensym70_1224739501.args, arg_1224739487), NTI33554439);
                     break BeforeRet;
                     }
                     
-                    res_486539999 = subInt(res_486539999, 1);
+                    res_486540009 = subInt(res_486540009, 1);
                   }
               } while (false);
             } while (false);
@@ -13295,20 +13306,20 @@ function HEX3Aanonymous_1224739666() {
           BeforeRet: do {
             Label1: do {
               var iHEX60gensym73_1224739676 = 0;
-              var colontmp__486540002 = 0;
-              colontmp__486540002 = subInt((doc_1224738382.stack).length, 1);
-              var res_486540003 = colontmp__486540002;
+              var colontmp__486540012 = 0;
+              colontmp__486540012 = subInt((doc_1224738382.stack).length, 1);
+              var res_486540013 = colontmp__486540012;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486540003)) break Label3;
-                    iHEX60gensym73_1224739676 = res_486540003;
+                  if (!(0 <= res_486540013)) break Label3;
+                    iHEX60gensym73_1224739676 = res_486540013;
                     var frameHEX60gensym73_1224739677 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym73_1224739676, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                     if (hasKey_1761607988(frameHEX60gensym73_1224739677.args, arg_1224739663)) {
                     result_1224739667 = nimCopy(null, HEX5BHEX5D_1526728097(frameHEX60gensym73_1224739677.args, arg_1224739663), NTI33554439);
                     break BeforeRet;
                     }
                     
-                    res_486540003 = subInt(res_486540003, 1);
+                    res_486540013 = subInt(res_486540013, 1);
                   }
               } while (false);
             } while (false);
@@ -13338,20 +13349,20 @@ function HEX3Aanonymous_1224739842() {
           BeforeRet: do {
             Label1: do {
               var iHEX60gensym76_1224739852 = 0;
-              var colontmp__486540006 = 0;
-              colontmp__486540006 = subInt((doc_1224738382.stack).length, 1);
-              var res_486540007 = colontmp__486540006;
+              var colontmp__486540016 = 0;
+              colontmp__486540016 = subInt((doc_1224738382.stack).length, 1);
+              var res_486540017 = colontmp__486540016;
               Label2: do {
                   Label3: while (true) {
-                  if (!(0 <= res_486540007)) break Label3;
-                    iHEX60gensym76_1224739852 = res_486540007;
+                  if (!(0 <= res_486540017)) break Label3;
+                    iHEX60gensym76_1224739852 = res_486540017;
                     var frameHEX60gensym76_1224739853 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym76_1224739852, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                     if (hasKey_1761607988(frameHEX60gensym76_1224739853.args, arg_1224739839)) {
                     result_1224739843 = nimCopy(null, HEX5BHEX5D_1526728097(frameHEX60gensym76_1224739853.args, arg_1224739839), NTI33554439);
                     break BeforeRet;
                     }
                     
-                    res_486540007 = subInt(res_486540007, 1);
+                    res_486540017 = subInt(res_486540017, 1);
                   }
               } while (false);
             } while (false);
@@ -13759,20 +13770,20 @@ function HEX3Aanonymous_1224741232() {
             BeforeRet: do {
               Label1: do {
                 var iHEX60gensym174_1224741242 = 0;
-                var colontmp__486540021 = 0;
-                colontmp__486540021 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540022 = colontmp__486540021;
+                var colontmp__486540031 = 0;
+                colontmp__486540031 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540032 = colontmp__486540031;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540022)) break Label3;
-                      iHEX60gensym174_1224741242 = res_486540022;
+                    if (!(0 <= res_486540032)) break Label3;
+                      iHEX60gensym174_1224741242 = res_486540032;
                       var frameHEX60gensym174_1224741243 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym174_1224741242, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                       if (isSome_1224738885(frameHEX60gensym174_1224741243.lang)) {
                       result_1224741233 = get_1224738902(frameHEX60gensym174_1224741243.lang);
                       break BeforeRet;
                       }
                       
-                      res_486540022 = subInt(res_486540022, 1);
+                      res_486540032 = subInt(res_486540032, 1);
                     }
                 } while (false);
               } while (false);
@@ -13921,20 +13932,20 @@ function HEX3Aanonymous_1224741607() {
             BeforeRet: do {
               Label1: do {
                 var iHEX60gensym207_1224741617 = 0;
-                var colontmp__486540057 = 0;
-                colontmp__486540057 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540058 = colontmp__486540057;
+                var colontmp__486540067 = 0;
+                colontmp__486540067 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540068 = colontmp__486540067;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540058)) break Label3;
-                      iHEX60gensym207_1224741617 = res_486540058;
+                    if (!(0 <= res_486540068)) break Label3;
+                      iHEX60gensym207_1224741617 = res_486540068;
                       var frameHEX60gensym207_1224741618 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym207_1224741617, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                       if (isSome_1224738885(frameHEX60gensym207_1224741618.lang)) {
                       result_1224741608 = get_1224738902(frameHEX60gensym207_1224741618.lang);
                       break BeforeRet;
                       }
                       
-                      res_486540058 = subInt(res_486540058, 1);
+                      res_486540068 = subInt(res_486540068, 1);
                     }
                 } while (false);
               } while (false);
@@ -14019,20 +14030,20 @@ function HEX3Aanonymous_1224741848() {
             BeforeRet: do {
               Label1: do {
                 var iHEX60gensym221_1224741858 = 0;
-                var colontmp__486540061 = 0;
-                colontmp__486540061 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540062 = colontmp__486540061;
+                var colontmp__486540071 = 0;
+                colontmp__486540071 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540072 = colontmp__486540071;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540062)) break Label3;
-                      iHEX60gensym221_1224741858 = res_486540062;
+                    if (!(0 <= res_486540072)) break Label3;
+                      iHEX60gensym221_1224741858 = res_486540072;
                       var frameHEX60gensym221_1224741859 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym221_1224741858, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                       if (isSome_1224738885(frameHEX60gensym221_1224741859.lang)) {
                       result_1224741849 = get_1224738902(frameHEX60gensym221_1224741859.lang);
                       break BeforeRet;
                       }
                       
-                      res_486540062 = subInt(res_486540062, 1);
+                      res_486540072 = subInt(res_486540072, 1);
                     }
                 } while (false);
               } while (false);
@@ -14496,20 +14507,20 @@ function HEX3Aanonymous_1224743090() {
             BeforeRet: do {
               Label1: do {
                 var iHEX60gensym311_1224743100 = 0;
-                var colontmp__486540092 = 0;
-                colontmp__486540092 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540093 = colontmp__486540092;
+                var colontmp__486540102 = 0;
+                colontmp__486540102 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540103 = colontmp__486540102;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540093)) break Label3;
-                      iHEX60gensym311_1224743100 = res_486540093;
+                    if (!(0 <= res_486540103)) break Label3;
+                      iHEX60gensym311_1224743100 = res_486540103;
                       var frameHEX60gensym311_1224743101 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym311_1224743100, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                       if (isSome_1811939668(frameHEX60gensym311_1224743101.path)) {
                       result_1224743091 = nimCopy(null, get_1811939703(frameHEX60gensym311_1224743101.path), NTI33554439);
                       break BeforeRet;
                       }
                       
-                      res_486540093 = subInt(res_486540093, 1);
+                      res_486540103 = subInt(res_486540103, 1);
                     }
                 } while (false);
               } while (false);
@@ -14527,20 +14538,20 @@ function HEX3Aanonymous_1224743127() {
             BeforeRet: do {
               Label1: do {
                 var iHEX60gensym312_1224743137 = 0;
-                var colontmp__486540097 = 0;
-                colontmp__486540097 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540098 = colontmp__486540097;
+                var colontmp__486540107 = 0;
+                colontmp__486540107 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540108 = colontmp__486540107;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540098)) break Label3;
-                      iHEX60gensym312_1224743137 = res_486540098;
+                    if (!(0 <= res_486540108)) break Label3;
+                      iHEX60gensym312_1224743137 = res_486540108;
                       var frameHEX60gensym312_1224743138 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym312_1224743137, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                       if (isSome_1224738885(frameHEX60gensym312_1224743138.lang)) {
                       result_1224743128 = get_1224738902(frameHEX60gensym312_1224743138.lang);
                       break BeforeRet;
                       }
                       
-                      res_486540098 = subInt(res_486540098, 1);
+                      res_486540108 = subInt(res_486540108, 1);
                     }
                 } while (false);
               } while (false);
@@ -14651,20 +14662,20 @@ function HEX3Aanonymous_1224743348() {
             BeforeRet: do {
               Label1: do {
                 var iHEX60gensym323_1224743358 = 0;
-                var colontmp__486540101 = 0;
-                colontmp__486540101 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540102 = colontmp__486540101;
+                var colontmp__486540111 = 0;
+                colontmp__486540111 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540112 = colontmp__486540111;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540102)) break Label3;
-                      iHEX60gensym323_1224743358 = res_486540102;
+                    if (!(0 <= res_486540112)) break Label3;
+                      iHEX60gensym323_1224743358 = res_486540112;
                       var frameHEX60gensym323_1224743359 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym323_1224743358, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
                       if (isSome_1811939668(frameHEX60gensym323_1224743359.path)) {
                       result_1224743349 = nimCopy(null, get_1811939703(frameHEX60gensym323_1224743359.path), NTI33554439);
                       break BeforeRet;
                       }
                       
-                      res_486540102 = subInt(res_486540102, 1);
+                      res_486540112 = subInt(res_486540112, 1);
                     }
                 } while (false);
               } while (false);
@@ -14848,23 +14859,90 @@ function HEX3Aanonymous_1224743610(arg_1224743603) {
     }
     
 function HEX3Aanonymous_1224743726(arg_1224743719) {
-          var Temporary1;
-        var Temporary2;
-          var Temporary4;
+        var Temporary1;
+                  var Temporary6;
 
       var result_1224743727 = ({typ: 0, str: [], list: []});
 
         var args_1224743720 = parseXidocArguments_1325404692(arg_1224743719);
-          if (((args_1224743720).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224743720).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("lang"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224743720).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        if (((args_1224743720).length < 1)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("js-eval"), makeNimstrLit("1"), HEX24_335544323((args_1224743720).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var Temporary2 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224743720, 2), 0);
-        if (ConstSet390[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
-        var langStr_1224743741 = nimCopy(null, Temporary2.str, NTI33554439);
-        var body_1224743746 = HEX5BHEX5D_1811939366(args_1224743720, 1);
+        var Temporary1 = expand_1308622879(doc_1224738382, args_1224743720[chckIndx(0, 0, (args_1224743720).length - 1)], 0);
+        if (ConstSet390[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var code_1224743734 = nimCopy(null, Temporary1.str, NTI33554439);
+        Label2: do {
+          var HEX3Atmp_1224743769 = HEX5BHEX5D_1224742513(args_1224743720, HEX2EHEX2E_872415312(1, 1));
+          var iHEX60gensym369_1224743772 = 0;
+          var resultHEX60gensym369_1224743779 = newSeq_452985301(chckRange((HEX3Atmp_1224743769).length, 0, 2147483647));
+          Label3: do {
+            var it_1224743783 = [];
+            var i_486539697 = 0;
+            var L_486539698 = (HEX3Atmp_1224743769).length;
+            Label4: do {
+                Label5: while (true) {
+                if (!(i_486539697 < L_486539698)) break Label5;
+                  it_1224743783 = HEX3Atmp_1224743769[chckIndx(i_486539697, 0, (HEX3Atmp_1224743769).length - 1)];
+                  var Temporary6 = expand_1308622879(doc_1224738382, it_1224743783, 0);
+                  if (ConstSet391[Temporary6.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary6.typ, NTI1610612741)); }
+                  resultHEX60gensym369_1224743779[chckIndx(iHEX60gensym369_1224743772, 0, (resultHEX60gensym369_1224743779).length - 1)] = nimCopy(null, Temporary6.str, NTI33554439);
+                  iHEX60gensym369_1224743772 = addInt(iHEX60gensym369_1224743772, 1);
+                  i_486539697 = addInt(i_486539697, 1);
+                  if (!(((HEX3Atmp_1224743769).length == L_486539698))) {
+                  failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
+                  }
+                  
+                }
+            } while (false);
+          } while (false);
+        } while (false);
+        var args_1224743788 = nimCopy(null, resultHEX60gensym369_1224743779, NTI452985127);
+        Label7: do {
+          if (!((modInt((args_1224743788).length, 2) == 0))) {
+          raiseException({message: makeNimstrLit("Arguments to js-eval must come in pairs of name; value"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          }
+          
+          var values_1224743799 = [];
+          Label8: do {
+            var i_1224743807 = 0;
+            var colontmp__486539702 = 0;
+            colontmp__486539702 = divInt((args_1224743788).length, 2);
+            var i_486539703 = 0;
+            Label9: do {
+                Label10: while (true) {
+                if (!(i_486539703 < colontmp__486539702)) break Label10;
+                  i_1224743807 = i_486539703;
+                  values_1224743799.push({Field0: nimCopy(null, args_1224743788[chckIndx(mulInt(2, i_1224743807), 0, (args_1224743788).length - 1)], NTI33554439), Field1: nimCopy(null, args_1224743788[chckIndx(addInt(mulInt(2, i_1224743807), 1), 0, (args_1224743788).length - 1)], NTI33554439)});;
+                  i_486539703 = addInt(i_486539703, 1);
+                }
+            } while (false);
+          } while (false);
+        } while (false);
+        result_1224743727 = nimCopy(result_1224743727, {typ: 0, str: nimCopy(null, jsEval_1677721635(code_1224743734, values_1224743799), NTI33554439), list: []}, NTI1610612742);
+
+      return result_1224743727;
+
+    }
+    
+function HEX3Aanonymous_1224743865(arg_1224743858) {
+          var Temporary1;
+        var Temporary2;
+          var Temporary4;
+
+      var result_1224743866 = ({typ: 0, str: [], list: []});
+
+        var args_1224743859 = parseXidocArguments_1325404692(arg_1224743858);
+          if (((args_1224743859).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224743859).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("lang"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224743859).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        }
+        
+        var Temporary2 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224743859, 2), 0);
+        if (ConstSet392[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
+        var langStr_1224743880 = nimCopy(null, Temporary2.str, NTI33554439);
+        var body_1224743885 = HEX5BHEX5D_1811939366(args_1224743859, 1);
         Label3: do {
-          switch (toJSStr(nsuToLowerAsciiStr(langStr_1224743741))) {
+          switch (toJSStr(nsuToLowerAsciiStr(langStr_1224743880))) {
           case "en":
           case "english":
             Temporary4 = 0;
@@ -14875,19 +14953,19 @@ function HEX3Aanonymous_1224743726(arg_1224743719) {
             Temporary4 = 1;
             break;
           default: 
-            raiseException({message: nsuFormatSingleElem(makeNimstrLit("Unknown language: $1"), langStr_1224743741), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+            raiseException({message: nsuFormatSingleElem(makeNimstrLit("Unknown language: $1"), langStr_1224743880), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
             break;
           }
-          var lang_1224743747 = Temporary4;
-          HEX5BHEX5D_1811939673(doc_1224738382.stack, 1).lang = nimCopy(HEX5BHEX5D_1811939673(doc_1224738382.stack, 1).lang, some_1224743161(lang_1224743747), NTI1610612777);
+          var lang_1224743886 = Temporary4;
+          HEX5BHEX5D_1811939673(doc_1224738382.stack, 1).lang = nimCopy(HEX5BHEX5D_1811939673(doc_1224738382.stack, 1).lang, some_1224743161(lang_1224743886), NTI1610612777);
         } while (false);
-        result_1224743727 = nimCopy(result_1224743727, {typ: 1, str: nimCopy(null, renderStr_1308623226(doc_1224738382, body_1224743746), NTI33554439), list: []}, NTI1610612742);
+        result_1224743866 = nimCopy(result_1224743866, {typ: 1, str: nimCopy(null, renderStr_1308623226(doc_1224738382, body_1224743885), NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224743727;
+      return result_1224743866;
 
     }
     
-function HEX3Aanonymous_1224743808(arg_1224743801) {
+function HEX3Aanonymous_1224743947(arg_1224743940) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
@@ -14895,81 +14973,81 @@ function HEX3Aanonymous_1224743808(arg_1224743801) {
           var Temporary6;
             var Temporary7;
 
-      var result_1224743809 = ({typ: 0, str: [], list: []});
+      var result_1224743948 = ({typ: 0, str: [], list: []});
 
-        var args_1224743802 = parseXidocArguments_1325404692(arg_1224743801);
-          if (((args_1224743802).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224743802).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("link"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224743802).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224743941 = parseXidocArguments_1325404692(arg_1224743940);
+          if (((args_1224743941).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224743941).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("link"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224743941).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224743802).length, 1))) {
-        var Temporary3 = expand_1308622879(doc_1224738382, args_1224743802[chckIndx(0, 0, (args_1224743802).length - 1)], 1);
-        if (ConstSet392[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if ((0 < subInt((args_1224743941).length, 1))) {
+        var Temporary3 = expand_1308622879(doc_1224738382, args_1224743941[chckIndx(0, 0, (args_1224743941).length - 1)], 1);
+        if (ConstSet394[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         Temporary2 = some_1811939650(Temporary3.str);
         }
         else {
         Temporary2 = none_1811939655();
         }
         
-        var name_1224743832 = nimCopy(null, Temporary2, NTI1610612790);
-        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224743802, 1), 0);
-        if (ConstSet393[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
-        var url_1224743837 = nimCopy(null, Temporary4.str, NTI33554439);
+        var name_1224743971 = nimCopy(null, Temporary2, NTI1610612790);
+        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224743941, 1), 0);
+        if (ConstSet395[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
+        var url_1224743976 = nimCopy(null, Temporary4.str, NTI33554439);
         Label5: do {
           switch (doc_1224738382.target) {
           case 0:
-            Temporary6 = (makeNimstrLit("<a href=\"") || []).concat(url_1224743837 || [],makeNimstrLit("\">") || [],get_1828716815(name_1224743832, url_1224743837) || [],makeNimstrLit("</a>") || []);
+            Temporary6 = (makeNimstrLit("<a href=\"") || []).concat(url_1224743976 || [],makeNimstrLit("\">") || [],get_1828716815(name_1224743971, url_1224743976) || [],makeNimstrLit("</a>") || []);
             break;
           case 1:
             Temporary6 = [];
             break;
           case 2:
-            if (isSome_1811939668(name_1224743832)) {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("\x0A=> $1 $2"), [nimCopy(null, url_1224743837, NTI33554439), nimCopy(null, get_1811939703(name_1224743832), NTI33554439)]);
+            if (isSome_1811939668(name_1224743971)) {
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("\x0A=> $1 $2"), [nimCopy(null, url_1224743976, NTI33554439), nimCopy(null, get_1811939703(name_1224743971), NTI33554439)]);
             }
             else {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("\x0A=> $1"), [nimCopy(null, url_1224743837, NTI33554439)]);
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("\x0A=> $1"), [nimCopy(null, url_1224743976, NTI33554439)]);
             }
             
             Temporary6 = Temporary7;
             break;
           }
         } while (false);
-        result_1224743809 = nimCopy(result_1224743809, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
+        result_1224743948 = nimCopy(result_1224743948, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224743809;
+      return result_1224743948;
 
     }
     
-function HEX3Aanonymous_1224743929(arg_1224743922) {
+function HEX3Aanonymous_1224744068(arg_1224744061) {
                   var Temporary5;
           var Temporary7;
 
-      var result_1224743930 = ({typ: 0, str: [], list: []});
+      var result_1224744069 = ({typ: 0, str: [], list: []});
 
-        var args_1224743923 = parseXidocArguments_1325404692(arg_1224743922);
-        if (((args_1224743923).length < 0)) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("list"), makeNimstrLit("0"), HEX24_335544323((args_1224743923).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744062 = parseXidocArguments_1325404692(arg_1224744061);
+        if (((args_1224744062).length < 0)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("list"), makeNimstrLit("0"), HEX24_335544323((args_1224744062).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
         Label1: do {
-          var HEX3Atmp_1224743971 = HEX5BHEX5D_1224742513(args_1224743923, HEX2EHEX2E_872415312(0, 1));
-          var iHEX60gensym393_1224743974 = 0;
-          var resultHEX60gensym393_1224743981 = newSeq_452985301(chckRange((HEX3Atmp_1224743971).length, 0, 2147483647));
+          var HEX3Atmp_1224744110 = HEX5BHEX5D_1224742513(args_1224744062, HEX2EHEX2E_872415312(0, 1));
+          var iHEX60gensym409_1224744113 = 0;
+          var resultHEX60gensym409_1224744120 = newSeq_452985301(chckRange((HEX3Atmp_1224744110).length, 0, 2147483647));
           Label2: do {
-            var it_1224743985 = [];
-            var i_486539699 = 0;
-            var L_486539700 = (HEX3Atmp_1224743971).length;
+            var it_1224744124 = [];
+            var i_486539709 = 0;
+            var L_486539710 = (HEX3Atmp_1224744110).length;
             Label3: do {
                 Label4: while (true) {
-                if (!(i_486539699 < L_486539700)) break Label4;
-                  it_1224743985 = HEX3Atmp_1224743971[chckIndx(i_486539699, 0, (HEX3Atmp_1224743971).length - 1)];
-                  var Temporary5 = expand_1308622879(doc_1224738382, it_1224743985, 1);
-                  if (ConstSet394[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
-                  resultHEX60gensym393_1224743981[chckIndx(iHEX60gensym393_1224743974, 0, (resultHEX60gensym393_1224743981).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
-                  iHEX60gensym393_1224743974 = addInt(iHEX60gensym393_1224743974, 1);
-                  i_486539699 = addInt(i_486539699, 1);
-                  if (!(((HEX3Atmp_1224743971).length == L_486539700))) {
+                if (!(i_486539709 < L_486539710)) break Label4;
+                  it_1224744124 = HEX3Atmp_1224744110[chckIndx(i_486539709, 0, (HEX3Atmp_1224744110).length - 1)];
+                  var Temporary5 = expand_1308622879(doc_1224738382, it_1224744124, 1);
+                  if (ConstSet396[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
+                  resultHEX60gensym409_1224744120[chckIndx(iHEX60gensym409_1224744113, 0, (resultHEX60gensym409_1224744120).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
+                  iHEX60gensym409_1224744113 = addInt(iHEX60gensym409_1224744113, 1);
+                  i_486539709 = addInt(i_486539709, 1);
+                  if (!(((HEX3Atmp_1224744110).length == L_486539710))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
@@ -14977,25 +15055,25 @@ function HEX3Aanonymous_1224743929(arg_1224743922) {
             } while (false);
           } while (false);
         } while (false);
-        var items_1224743990 = nimCopy(null, resultHEX60gensym393_1224743981, NTI452985127);
+        var items_1224744129 = nimCopy(null, resultHEX60gensym409_1224744120, NTI452985127);
         Label6: do {
           switch (doc_1224738382.target) {
           case 0:
             Label8: do {
-              var iHEX60gensym396_1224744012 = 0;
-              var resultHEX60gensym396_1224744019 = newSeq_452985301(chckRange((items_1224743990).length, 0, 2147483647));
+              var iHEX60gensym412_1224744151 = 0;
+              var resultHEX60gensym412_1224744158 = newSeq_452985301(chckRange((items_1224744129).length, 0, 2147483647));
               Label9: do {
-                var it_1224744023 = [];
-                var i_486539710 = 0;
-                var L_486539711 = (items_1224743990).length;
+                var it_1224744162 = [];
+                var i_486539720 = 0;
+                var L_486539721 = (items_1224744129).length;
                 Label10: do {
                     Label11: while (true) {
-                    if (!(i_486539710 < L_486539711)) break Label11;
-                      it_1224744023 = items_1224743990[chckIndx(i_486539710, 0, (items_1224743990).length - 1)];
-                      resultHEX60gensym396_1224744019[chckIndx(iHEX60gensym396_1224744012, 0, (resultHEX60gensym396_1224744019).length - 1)] = nimCopy(null, (makeNimstrLit("<li>") || []).concat(it_1224744023 || [],makeNimstrLit("</li>") || []), NTI33554439);
-                      iHEX60gensym396_1224744012 = addInt(iHEX60gensym396_1224744012, 1);
-                      i_486539710 = addInt(i_486539710, 1);
-                      if (!(((items_1224743990).length == L_486539711))) {
+                    if (!(i_486539720 < L_486539721)) break Label11;
+                      it_1224744162 = items_1224744129[chckIndx(i_486539720, 0, (items_1224744129).length - 1)];
+                      resultHEX60gensym412_1224744158[chckIndx(iHEX60gensym412_1224744151, 0, (resultHEX60gensym412_1224744158).length - 1)] = nimCopy(null, (makeNimstrLit("<li>") || []).concat(it_1224744162 || [],makeNimstrLit("</li>") || []), NTI33554439);
+                      iHEX60gensym412_1224744151 = addInt(iHEX60gensym412_1224744151, 1);
+                      i_486539720 = addInt(i_486539720, 1);
+                      if (!(((items_1224744129).length == L_486539721))) {
                       failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                       }
                       
@@ -15003,24 +15081,24 @@ function HEX3Aanonymous_1224743929(arg_1224743922) {
                 } while (false);
               } while (false);
             } while (false);
-            Temporary7 = (makeNimstrLit("<ul>") || []).concat(nsuJoinSep(resultHEX60gensym396_1224744019, []) || [],makeNimstrLit("</ul>") || []);
+            Temporary7 = (makeNimstrLit("<ul>") || []).concat(nsuJoinSep(resultHEX60gensym412_1224744158, []) || [],makeNimstrLit("</ul>") || []);
             break;
           case 1:
             Label12: do {
-              var iHEX60gensym399_1224744049 = 0;
-              var resultHEX60gensym399_1224744056 = newSeq_452985301(chckRange((items_1224743990).length, 0, 2147483647));
+              var iHEX60gensym415_1224744188 = 0;
+              var resultHEX60gensym415_1224744195 = newSeq_452985301(chckRange((items_1224744129).length, 0, 2147483647));
               Label13: do {
-                var it_1224744060 = [];
-                var i_486539715 = 0;
-                var L_486539716 = (items_1224743990).length;
+                var it_1224744199 = [];
+                var i_486539725 = 0;
+                var L_486539726 = (items_1224744129).length;
                 Label14: do {
                     Label15: while (true) {
-                    if (!(i_486539715 < L_486539716)) break Label15;
-                      it_1224744060 = items_1224743990[chckIndx(i_486539715, 0, (items_1224743990).length - 1)];
-                      resultHEX60gensym399_1224744056[chckIndx(iHEX60gensym399_1224744049, 0, (resultHEX60gensym399_1224744056).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("\\item $1"), it_1224744060), NTI33554439);
-                      iHEX60gensym399_1224744049 = addInt(iHEX60gensym399_1224744049, 1);
-                      i_486539715 = addInt(i_486539715, 1);
-                      if (!(((items_1224743990).length == L_486539716))) {
+                    if (!(i_486539725 < L_486539726)) break Label15;
+                      it_1224744199 = items_1224744129[chckIndx(i_486539725, 0, (items_1224744129).length - 1)];
+                      resultHEX60gensym415_1224744195[chckIndx(iHEX60gensym415_1224744188, 0, (resultHEX60gensym415_1224744195).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("\\item $1"), it_1224744199), NTI33554439);
+                      iHEX60gensym415_1224744188 = addInt(iHEX60gensym415_1224744188, 1);
+                      i_486539725 = addInt(i_486539725, 1);
+                      if (!(((items_1224744129).length == L_486539726))) {
                       failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                       }
                       
@@ -15028,24 +15106,24 @@ function HEX3Aanonymous_1224743929(arg_1224743922) {
                 } while (false);
               } while (false);
             } while (false);
-            Temporary7 = nsuFormatSingleElem(makeNimstrLit("\\begin{itemize}$1\\end{itemize}"), nsuJoinSep(resultHEX60gensym399_1224744056, []));
+            Temporary7 = nsuFormatSingleElem(makeNimstrLit("\\begin{itemize}$1\\end{itemize}"), nsuJoinSep(resultHEX60gensym415_1224744195, []));
             break;
           case 2:
             Label16: do {
-              var iHEX60gensym402_1224744086 = 0;
-              var resultHEX60gensym402_1224744093 = newSeq_452985301(chckRange((items_1224743990).length, 0, 2147483647));
+              var iHEX60gensym418_1224744225 = 0;
+              var resultHEX60gensym418_1224744232 = newSeq_452985301(chckRange((items_1224744129).length, 0, 2147483647));
               Label17: do {
-                var it_1224744097 = [];
-                var i_486539720 = 0;
-                var L_486539721 = (items_1224743990).length;
+                var it_1224744236 = [];
+                var i_486539730 = 0;
+                var L_486539731 = (items_1224744129).length;
                 Label18: do {
                     Label19: while (true) {
-                    if (!(i_486539720 < L_486539721)) break Label19;
-                      it_1224744097 = items_1224743990[chckIndx(i_486539720, 0, (items_1224743990).length - 1)];
-                      resultHEX60gensym402_1224744093[chckIndx(iHEX60gensym402_1224744086, 0, (resultHEX60gensym402_1224744093).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("* $1"), it_1224744097), NTI33554439);
-                      iHEX60gensym402_1224744086 = addInt(iHEX60gensym402_1224744086, 1);
-                      i_486539720 = addInt(i_486539720, 1);
-                      if (!(((items_1224743990).length == L_486539721))) {
+                    if (!(i_486539730 < L_486539731)) break Label19;
+                      it_1224744236 = items_1224744129[chckIndx(i_486539730, 0, (items_1224744129).length - 1)];
+                      resultHEX60gensym418_1224744232[chckIndx(iHEX60gensym418_1224744225, 0, (resultHEX60gensym418_1224744232).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("* $1"), it_1224744236), NTI33554439);
+                      iHEX60gensym418_1224744225 = addInt(iHEX60gensym418_1224744225, 1);
+                      i_486539730 = addInt(i_486539730, 1);
+                      if (!(((items_1224744129).length == L_486539731))) {
                       failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                       }
                       
@@ -15053,153 +15131,153 @@ function HEX3Aanonymous_1224743929(arg_1224743922) {
                 } while (false);
               } while (false);
             } while (false);
-            Temporary7 = nsuFormatSingleElem(makeNimstrLit("\x0A$1\x0A"), nsuJoinSep(resultHEX60gensym402_1224744093, makeNimstrLit("\x0A")));
+            Temporary7 = nsuFormatSingleElem(makeNimstrLit("\x0A$1\x0A"), nsuJoinSep(resultHEX60gensym418_1224744232, makeNimstrLit("\x0A")));
             break;
           }
         } while (false);
-        result_1224743930 = nimCopy(result_1224743930, {typ: 1, str: nimCopy(null, Temporary7, NTI33554439), list: []}, NTI1610612742);
+        result_1224744069 = nimCopy(result_1224744069, {typ: 1, str: nimCopy(null, Temporary7, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224743930;
-
-    }
-    
-function HEX3Aanonymous_1224744154(arg_1224744148) {
-        var Temporary1;
-
-      var result_1224744155 = ({typ: 0, str: [], list: []});
-
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744148, true, true, ConstSet396), 0);
-        if (ConstSet395[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224744156 = nimCopy(null, Temporary1.str, NTI33554439);
-        raiseException({message: makeNimstrLit("The list-dirs command is not available when using JavaScript"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        result_1224744155 = nimCopy(result_1224744155, {typ: 2, list: nimCopy(null, [], NTI1224741786), str: []}, NTI1610612742);
-
-      return result_1224744155;
+      return result_1224744069;
 
     }
     
-function HEX3Aanonymous_1224744213(arg_1224744207) {
+function HEX3Aanonymous_1224744293(arg_1224744287) {
         var Temporary1;
 
-      var result_1224744214 = ({typ: 0, str: [], list: []});
+      var result_1224744294 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744207, true, true, ConstSet398), 0);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744287, true, true, ConstSet398), 0);
         if (ConstSet397[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224744215 = nimCopy(null, Temporary1.str, NTI33554439);
-        raiseException({message: makeNimstrLit("The list-files command is not available when using JavaScript"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
-        result_1224744214 = nimCopy(result_1224744214, {typ: 2, list: nimCopy(null, [], NTI1224741825), str: []}, NTI1610612742);
+        var arg_1224744295 = nimCopy(null, Temporary1.str, NTI33554439);
+        raiseException({message: makeNimstrLit("The list-dirs command is not available when using JavaScript"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        result_1224744294 = nimCopy(result_1224744294, {typ: 2, list: nimCopy(null, [], NTI1224741891), str: []}, NTI1610612742);
 
-      return result_1224744214;
+      return result_1224744294;
 
     }
     
-function HEX3Aanonymous_1224744272(arg_1224744266) {
+function HEX3Aanonymous_1224744352(arg_1224744346) {
         var Temporary1;
-        var Temporary2;
 
-      var result_1224744273 = ({typ: 0, str: [], list: []});
+      var result_1224744353 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744266, true, true, ConstSet400), 1);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744346, true, true, ConstSet400), 0);
         if (ConstSet399[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224744274 = nimCopy(null, Temporary1.str, NTI33554439);
-        switch (doc_1224738382.target) {
-        case 0:
-          Temporary2 = (makeNimstrLit("<code>") || []).concat(arg_1224744274 || [],makeNimstrLit("</code>") || []);
-          break;
-        case 1:
-          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\\texttt{$1}"), arg_1224744274);
-          break;
-        case 2:
-          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\x0A```\x0A{$1}\x0A```\x0A"), arg_1224744274);
-          break;
-        }
-        result_1224744273 = nimCopy(result_1224744273, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
+        var arg_1224744354 = nimCopy(null, Temporary1.str, NTI33554439);
+        raiseException({message: makeNimstrLit("The list-files command is not available when using JavaScript"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        result_1224744353 = nimCopy(result_1224744353, {typ: 2, list: nimCopy(null, [], NTI1224741930), str: []}, NTI1610612742);
 
-      return result_1224744273;
+      return result_1224744353;
 
     }
     
-function HEX3Aanonymous_1224744327(arg_1224744321) {
+function HEX3Aanonymous_1224744411(arg_1224744405) {
         var Temporary1;
         var Temporary2;
 
-      var result_1224744328 = ({typ: 0, str: [], list: []});
+      var result_1224744412 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744321, true, true, ConstSet402), 1);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744405, true, true, ConstSet402), 1);
         if (ConstSet401[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224744329 = nimCopy(null, Temporary1.str, NTI33554439);
+        var arg_1224744413 = nimCopy(null, Temporary1.str, NTI33554439);
         switch (doc_1224738382.target) {
         case 0:
-          Temporary2 = (makeNimstrLit("<p>") || []).concat(arg_1224744329 || [],makeNimstrLit("</p>") || []);
+          Temporary2 = (makeNimstrLit("<code>") || []).concat(arg_1224744413 || [],makeNimstrLit("</code>") || []);
           break;
         case 1:
-          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\\par $1"), arg_1224744329);
+          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\\texttt{$1}"), arg_1224744413);
           break;
         case 2:
-          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\x0A\x0A$1"), arg_1224744329);
+          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\x0A```\x0A{$1}\x0A```\x0A"), arg_1224744413);
           break;
         }
-        result_1224744328 = nimCopy(result_1224744328, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
+        result_1224744412 = nimCopy(result_1224744412, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224744328;
+      return result_1224744412;
 
     }
     
-function HEX3Aanonymous_1224744382(arg_1224744376) {
+function HEX3Aanonymous_1224744466(arg_1224744460) {
+        var Temporary1;
+        var Temporary2;
+
+      var result_1224744467 = ({typ: 0, str: [], list: []});
+
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744460, true, true, ConstSet404), 1);
+        if (ConstSet403[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224744468 = nimCopy(null, Temporary1.str, NTI33554439);
+        switch (doc_1224738382.target) {
+        case 0:
+          Temporary2 = (makeNimstrLit("<p>") || []).concat(arg_1224744468 || [],makeNimstrLit("</p>") || []);
+          break;
+        case 1:
+          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\\par $1"), arg_1224744468);
+          break;
+        case 2:
+          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\x0A\x0A$1"), arg_1224744468);
+          break;
+        }
+        result_1224744467 = nimCopy(result_1224744467, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
+
+      return result_1224744467;
+
+    }
+    
+function HEX3Aanonymous_1224744521(arg_1224744515) {
         var Temporary1;
 
-      var result_1224744383 = ({typ: 0, str: [], list: []});
+      var result_1224744522 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744376, true, true, ConstSet404), 0);
-        if (ConstSet403[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224744384 = nimCopy(null, Temporary1.str, NTI33554439);
-        result_1224744383 = nimCopy(result_1224744383, {typ: 1, str: nimCopy(null, nsuStrip(arg_1224744384, true, true, ConstSet405), NTI33554439), list: []}, NTI1610612742);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224744515, true, true, ConstSet406), 0);
+        if (ConstSet405[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224744523 = nimCopy(null, Temporary1.str, NTI33554439);
+        result_1224744522 = nimCopy(result_1224744522, {typ: 1, str: nimCopy(null, nsuStrip(arg_1224744523, true, true, ConstSet407), NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224744383;
-
-    }
-    
-function HEX3Aanonymous_1224744437(arg_1224744431) {
-      var result_1224744438 = ({typ: 0, str: [], list: []});
-
-        var arg_1224744439 = nsuStrip(arg_1224744431, true, true, ConstSet406);
-        result_1224744438 = nimCopy(result_1224744438, {typ: 1, str: nimCopy(null, nsuStrip(arg_1224744439, true, true, ConstSet407), NTI33554439), list: []}, NTI1610612742);
-
-      return result_1224744438;
+      return result_1224744522;
 
     }
     
-function HEX3Aanonymous_1224744499(arg_1224744492) {
+function HEX3Aanonymous_1224744576(arg_1224744570) {
+      var result_1224744577 = ({typ: 0, str: [], list: []});
+
+        var arg_1224744578 = nsuStrip(arg_1224744570, true, true, ConstSet408);
+        result_1224744577 = nimCopy(result_1224744577, {typ: 1, str: nimCopy(null, nsuStrip(arg_1224744578, true, true, ConstSet409), NTI33554439), list: []}, NTI1610612742);
+
+      return result_1224744577;
+
+    }
+    
+function HEX3Aanonymous_1224744638(arg_1224744631) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
           
-function HEX3Aanonymous_1224744540() {
-            var result_1224744541 = 0;
+function HEX3Aanonymous_1224744679() {
+            var result_1224744680 = 0;
 
             BeforeRet: do {
               Label1: do {
-                var iHEX60gensym434_1224744550 = 0;
-                var colontmp__486540105 = 0;
-                colontmp__486540105 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540106 = colontmp__486540105;
+                var iHEX60gensym450_1224744689 = 0;
+                var colontmp__486540115 = 0;
+                colontmp__486540115 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540116 = colontmp__486540115;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540106)) break Label3;
-                      iHEX60gensym434_1224744550 = res_486540106;
-                      var frameHEX60gensym434_1224744551 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym434_1224744550, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
-                      if (isSome_1224738885(frameHEX60gensym434_1224744551.lang)) {
-                      result_1224744541 = get_1224738902(frameHEX60gensym434_1224744551.lang);
+                    if (!(0 <= res_486540116)) break Label3;
+                      iHEX60gensym450_1224744689 = res_486540116;
+                      var frameHEX60gensym450_1224744690 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym450_1224744689, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
+                      if (isSome_1224738885(frameHEX60gensym450_1224744690.lang)) {
+                      result_1224744680 = get_1224738902(frameHEX60gensym450_1224744690.lang);
                       break BeforeRet;
                       }
                       
-                      res_486540106 = subInt(res_486540106, 1);
+                      res_486540116 = subInt(res_486540116, 1);
                     }
                 } while (false);
               } while (false);
             } while (false);
 
-            return result_1224744541;
+            return result_1224744680;
 
           }
           var Temporary5;
@@ -15207,96 +15285,96 @@ function HEX3Aanonymous_1224744540() {
             var Temporary7;
             var Temporary8;
 
-      var result_1224744500 = ({typ: 0, str: [], list: []});
+      var result_1224744639 = ({typ: 0, str: [], list: []});
 
-        var args_1224744493 = parseXidocArguments_1325404692(arg_1224744492);
-          if (((args_1224744493).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744493).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("proof"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224744493).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744632 = parseXidocArguments_1325404692(arg_1224744631);
+          if (((args_1224744632).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224744632).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("proof"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224744632).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224744493).length, 1))) {
-        var Temporary3 = expand_1308622879(doc_1224738382, args_1224744493[chckIndx(0, 0, (args_1224744493).length - 1)], 1);
-        if (ConstSet408[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if ((0 < subInt((args_1224744632).length, 1))) {
+        var Temporary3 = expand_1308622879(doc_1224738382, args_1224744632[chckIndx(0, 0, (args_1224744632).length - 1)], 1);
+        if (ConstSet410[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         Temporary2 = some_1811939650(Temporary3.str);
         }
         else {
         Temporary2 = none_1811939655();
         }
         
-        var thName_1224744523 = nimCopy(null, Temporary2, NTI1610612790);
-        var content_1224744528 = HEX5BHEX5D_1811939366(args_1224744493, 1);
+        var thName_1224744662 = nimCopy(null, Temporary2, NTI1610612790);
+        var content_1224744667 = HEX5BHEX5D_1811939366(args_1224744632, 1);
         Label4: do {
           HEX5BHEX5D_1811939673(doc_1224738382.stack, 1).commands = nimCopy(HEX5BHEX5D_1811939673(doc_1224738382.stack, 1).commands, proofCommands_1845497460(doc_1224738382), NTI1610612764);
-          var contentHEX60gensym419_1224744537 = renderStr_1308623226(doc_1224738382, content_1224744528);
-          var wordHEX60gensym419_1224744574 = translate_1627389991(5, HEX3Aanonymous_1224744540());
+          var contentHEX60gensym435_1224744676 = renderStr_1308623226(doc_1224738382, content_1224744667);
+          var wordHEX60gensym435_1224744713 = translate_1627389991(5, HEX3Aanonymous_1224744679());
           switch (doc_1224738382.target) {
           case 0:
             var Temporary6 = doc_1224738382;
-            if (ConstSet413[Temporary6.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary6.target, NTI1610612739)); }
+            if (ConstSet415[Temporary6.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary6.target, NTI1610612739)); }
             incl_1845495857(Temporary6.addToStyle, makeNimstrLit(".xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}"));
-            var fmtRes_1224744598 = mnewString(0);
-            fmtRes_1224744598.push.apply(fmtRes_1224744598, makeNimstrLit("xd-theorem-like xd-$1"));;
-            if (isSome_1811939668(thName_1224744523)) {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)."), [nimCopy(null, wordHEX60gensym419_1224744574, NTI33554439), nimCopy(null, get_1811939703(thName_1224744523), NTI33554439)]);
+            var fmtRes_1224744737 = mnewString(0);
+            fmtRes_1224744737.push.apply(fmtRes_1224744737, makeNimstrLit("xd-theorem-like xd-$1"));;
+            if (isSome_1811939668(thName_1224744662)) {
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)."), [nimCopy(null, wordHEX60gensym435_1224744713, NTI33554439), nimCopy(null, get_1811939703(thName_1224744662), NTI33554439)]);
             }
             else {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1."), [nimCopy(null, wordHEX60gensym419_1224744574, NTI33554439)]);
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1."), [nimCopy(null, wordHEX60gensym435_1224744713, NTI33554439)]);
             }
             
-            Temporary5 = (makeNimstrLit("<div class=\"") || []).concat(nsuFormatSingleElem(fmtRes_1224744598, makeNimstrLit("proof")) || [],makeNimstrLit("\"><strong>") || [],Temporary7 || [],makeNimstrLit("</strong> ") || [],nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym419_1224744537) || [],makeNimstrLit("</div>") || []);
+            Temporary5 = (makeNimstrLit("<div class=\"") || []).concat(nsuFormatSingleElem(fmtRes_1224744737, makeNimstrLit("proof")) || [],makeNimstrLit("\"><strong>") || [],Temporary7 || [],makeNimstrLit("</strong> ") || [],nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym435_1224744676) || [],makeNimstrLit("</div>") || []);
             break;
           case 1:
             incl_1845495857(doc_1224738382.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-            incl_1845495857(doc_1224738382.addToHead, nsuFormatOpenArray(makeNimstrLit("\\theoremstyle{definition}\\newtheorem*{XD$1}{$2}"), [makeNimstrLit("proof"), nimCopy(null, wordHEX60gensym419_1224744574, NTI33554439)]));
-            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\begin{XD$1}$2\\end{XD$1}"), [makeNimstrLit("proof"), nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym419_1224744537)]);
+            incl_1845495857(doc_1224738382.addToHead, nsuFormatOpenArray(makeNimstrLit("\\theoremstyle{definition}\\newtheorem*{XD$1}{$2}"), [makeNimstrLit("proof"), nimCopy(null, wordHEX60gensym435_1224744713, NTI33554439)]));
+            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\begin{XD$1}$2\\end{XD$1}"), [makeNimstrLit("proof"), nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym435_1224744676)]);
             break;
           case 2:
-            if (isSome_1811939668(thName_1224744523)) {
-            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)"), [nimCopy(null, wordHEX60gensym419_1224744574, NTI33554439), nimCopy(null, get_1811939703(thName_1224744523), NTI33554439)]);
+            if (isSome_1811939668(thName_1224744662)) {
+            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)"), [nimCopy(null, wordHEX60gensym435_1224744713, NTI33554439), nimCopy(null, get_1811939703(thName_1224744662), NTI33554439)]);
             }
             else {
-            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1"), [nimCopy(null, wordHEX60gensym419_1224744574, NTI33554439)]);
+            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1"), [nimCopy(null, wordHEX60gensym435_1224744713, NTI33554439)]);
             }
             
-            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1. $2"), [nimCopy(null, Temporary8, NTI33554439), nimCopy(null, contentHEX60gensym419_1224744537, NTI33554439)]);
+            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1. $2"), [nimCopy(null, Temporary8, NTI33554439), nimCopy(null, contentHEX60gensym435_1224744676, NTI33554439)]);
             break;
           }
         } while (false);
-        result_1224744500 = nimCopy(result_1224744500, {typ: 1, str: nimCopy(null, Temporary5, NTI33554439), list: []}, NTI1610612742);
+        result_1224744639 = nimCopy(result_1224744639, {typ: 1, str: nimCopy(null, Temporary5, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224744500;
+      return result_1224744639;
 
     }
     
-function HEX3Aanonymous_1224744742(arg_1224744735) {
+function HEX3Aanonymous_1224744881(arg_1224744874) {
                   var Temporary5;
           var Temporary7;
 
-      var result_1224744743 = ({typ: 0, str: [], list: []});
+      var result_1224744882 = ({typ: 0, str: [], list: []});
 
-        var args_1224744736 = parseXidocArguments_1325404692(arg_1224744735);
-        if (((args_1224744736).length < 0)) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("props"), makeNimstrLit("0"), HEX24_335544323((args_1224744736).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224744875 = parseXidocArguments_1325404692(arg_1224744874);
+        if (((args_1224744875).length < 0)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("props"), makeNimstrLit("0"), HEX24_335544323((args_1224744875).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
         Label1: do {
-          var HEX3Atmp_1224744784 = HEX5BHEX5D_1224742513(args_1224744736, HEX2EHEX2E_872415312(0, 1));
-          var iHEX60gensym443_1224744787 = 0;
-          var resultHEX60gensym443_1224744794 = newSeq_452985301(chckRange((HEX3Atmp_1224744784).length, 0, 2147483647));
+          var HEX3Atmp_1224744923 = HEX5BHEX5D_1224742513(args_1224744875, HEX2EHEX2E_872415312(0, 1));
+          var iHEX60gensym459_1224744926 = 0;
+          var resultHEX60gensym459_1224744933 = newSeq_452985301(chckRange((HEX3Atmp_1224744923).length, 0, 2147483647));
           Label2: do {
-            var it_1224744798 = [];
-            var i_486539726 = 0;
-            var L_486539727 = (HEX3Atmp_1224744784).length;
+            var it_1224744937 = [];
+            var i_486539736 = 0;
+            var L_486539737 = (HEX3Atmp_1224744923).length;
             Label3: do {
                 Label4: while (true) {
-                if (!(i_486539726 < L_486539727)) break Label4;
-                  it_1224744798 = HEX3Atmp_1224744784[chckIndx(i_486539726, 0, (HEX3Atmp_1224744784).length - 1)];
-                  var Temporary5 = expand_1308622879(doc_1224738382, it_1224744798, 1);
-                  if (ConstSet414[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
-                  resultHEX60gensym443_1224744794[chckIndx(iHEX60gensym443_1224744787, 0, (resultHEX60gensym443_1224744794).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
-                  iHEX60gensym443_1224744787 = addInt(iHEX60gensym443_1224744787, 1);
-                  i_486539726 = addInt(i_486539726, 1);
-                  if (!(((HEX3Atmp_1224744784).length == L_486539727))) {
+                if (!(i_486539736 < L_486539737)) break Label4;
+                  it_1224744937 = HEX3Atmp_1224744923[chckIndx(i_486539736, 0, (HEX3Atmp_1224744923).length - 1)];
+                  var Temporary5 = expand_1308622879(doc_1224738382, it_1224744937, 1);
+                  if (ConstSet416[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
+                  resultHEX60gensym459_1224744933[chckIndx(iHEX60gensym459_1224744926, 0, (resultHEX60gensym459_1224744933).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
+                  iHEX60gensym459_1224744926 = addInt(iHEX60gensym459_1224744926, 1);
+                  i_486539736 = addInt(i_486539736, 1);
+                  if (!(((HEX3Atmp_1224744923).length == L_486539737))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
@@ -15304,25 +15382,25 @@ function HEX3Aanonymous_1224744742(arg_1224744735) {
             } while (false);
           } while (false);
         } while (false);
-        var items_1224744803 = nimCopy(null, resultHEX60gensym443_1224744794, NTI452985127);
+        var items_1224744942 = nimCopy(null, resultHEX60gensym459_1224744933, NTI452985127);
         Label6: do {
           switch (doc_1224738382.target) {
           case 0:
             Label8: do {
-              var iHEX60gensym446_1224744825 = 0;
-              var resultHEX60gensym446_1224744832 = newSeq_452985301(chckRange((items_1224744803).length, 0, 2147483647));
+              var iHEX60gensym462_1224744964 = 0;
+              var resultHEX60gensym462_1224744971 = newSeq_452985301(chckRange((items_1224744942).length, 0, 2147483647));
               Label9: do {
-                var it_1224744836 = [];
-                var i_486539737 = 0;
-                var L_486539738 = (items_1224744803).length;
+                var it_1224744975 = [];
+                var i_486539747 = 0;
+                var L_486539748 = (items_1224744942).length;
                 Label10: do {
                     Label11: while (true) {
-                    if (!(i_486539737 < L_486539738)) break Label11;
-                      it_1224744836 = items_1224744803[chckIndx(i_486539737, 0, (items_1224744803).length - 1)];
-                      resultHEX60gensym446_1224744832[chckIndx(iHEX60gensym446_1224744825, 0, (resultHEX60gensym446_1224744832).length - 1)] = nimCopy(null, (makeNimstrLit("<li>") || []).concat(it_1224744836 || [],makeNimstrLit("</li>") || []), NTI33554439);
-                      iHEX60gensym446_1224744825 = addInt(iHEX60gensym446_1224744825, 1);
-                      i_486539737 = addInt(i_486539737, 1);
-                      if (!(((items_1224744803).length == L_486539738))) {
+                    if (!(i_486539747 < L_486539748)) break Label11;
+                      it_1224744975 = items_1224744942[chckIndx(i_486539747, 0, (items_1224744942).length - 1)];
+                      resultHEX60gensym462_1224744971[chckIndx(iHEX60gensym462_1224744964, 0, (resultHEX60gensym462_1224744971).length - 1)] = nimCopy(null, (makeNimstrLit("<li>") || []).concat(it_1224744975 || [],makeNimstrLit("</li>") || []), NTI33554439);
+                      iHEX60gensym462_1224744964 = addInt(iHEX60gensym462_1224744964, 1);
+                      i_486539747 = addInt(i_486539747, 1);
+                      if (!(((items_1224744942).length == L_486539748))) {
                       failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                       }
                       
@@ -15330,24 +15408,24 @@ function HEX3Aanonymous_1224744742(arg_1224744735) {
                 } while (false);
               } while (false);
             } while (false);
-            Temporary7 = (makeNimstrLit("<ul>") || []).concat(nsuJoinSep(resultHEX60gensym446_1224744832, []) || [],makeNimstrLit("</ul>") || []);
+            Temporary7 = (makeNimstrLit("<ul>") || []).concat(nsuJoinSep(resultHEX60gensym462_1224744971, []) || [],makeNimstrLit("</ul>") || []);
             break;
           case 1:
             Label12: do {
-              var iHEX60gensym449_1224744862 = 0;
-              var resultHEX60gensym449_1224744869 = newSeq_452985301(chckRange((items_1224744803).length, 0, 2147483647));
+              var iHEX60gensym465_1224745001 = 0;
+              var resultHEX60gensym465_1224745008 = newSeq_452985301(chckRange((items_1224744942).length, 0, 2147483647));
               Label13: do {
-                var it_1224744873 = [];
-                var i_486539742 = 0;
-                var L_486539743 = (items_1224744803).length;
+                var it_1224745012 = [];
+                var i_486539752 = 0;
+                var L_486539753 = (items_1224744942).length;
                 Label14: do {
                     Label15: while (true) {
-                    if (!(i_486539742 < L_486539743)) break Label15;
-                      it_1224744873 = items_1224744803[chckIndx(i_486539742, 0, (items_1224744803).length - 1)];
-                      resultHEX60gensym449_1224744869[chckIndx(iHEX60gensym449_1224744862, 0, (resultHEX60gensym449_1224744869).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("\\item $1"), it_1224744873), NTI33554439);
-                      iHEX60gensym449_1224744862 = addInt(iHEX60gensym449_1224744862, 1);
-                      i_486539742 = addInt(i_486539742, 1);
-                      if (!(((items_1224744803).length == L_486539743))) {
+                    if (!(i_486539752 < L_486539753)) break Label15;
+                      it_1224745012 = items_1224744942[chckIndx(i_486539752, 0, (items_1224744942).length - 1)];
+                      resultHEX60gensym465_1224745008[chckIndx(iHEX60gensym465_1224745001, 0, (resultHEX60gensym465_1224745008).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("\\item $1"), it_1224745012), NTI33554439);
+                      iHEX60gensym465_1224745001 = addInt(iHEX60gensym465_1224745001, 1);
+                      i_486539752 = addInt(i_486539752, 1);
+                      if (!(((items_1224744942).length == L_486539753))) {
                       failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                       }
                       
@@ -15355,24 +15433,24 @@ function HEX3Aanonymous_1224744742(arg_1224744735) {
                 } while (false);
               } while (false);
             } while (false);
-            Temporary7 = nsuFormatSingleElem(makeNimstrLit("\\begin{itemize}$1\\end{iremize}"), nsuJoinSep(resultHEX60gensym449_1224744869, []));
+            Temporary7 = nsuFormatSingleElem(makeNimstrLit("\\begin{itemize}$1\\end{iremize}"), nsuJoinSep(resultHEX60gensym465_1224745008, []));
             break;
           case 2:
             Label16: do {
-              var iHEX60gensym452_1224744899 = 0;
-              var resultHEX60gensym452_1224744906 = newSeq_452985301(chckRange((items_1224744803).length, 0, 2147483647));
+              var iHEX60gensym468_1224745038 = 0;
+              var resultHEX60gensym468_1224745045 = newSeq_452985301(chckRange((items_1224744942).length, 0, 2147483647));
               Label17: do {
-                var it_1224744910 = [];
-                var i_486539747 = 0;
-                var L_486539748 = (items_1224744803).length;
+                var it_1224745049 = [];
+                var i_486539757 = 0;
+                var L_486539758 = (items_1224744942).length;
                 Label18: do {
                     Label19: while (true) {
-                    if (!(i_486539747 < L_486539748)) break Label19;
-                      it_1224744910 = items_1224744803[chckIndx(i_486539747, 0, (items_1224744803).length - 1)];
-                      resultHEX60gensym452_1224744906[chckIndx(iHEX60gensym452_1224744899, 0, (resultHEX60gensym452_1224744906).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("* $1"), it_1224744910), NTI33554439);
-                      iHEX60gensym452_1224744899 = addInt(iHEX60gensym452_1224744899, 1);
-                      i_486539747 = addInt(i_486539747, 1);
-                      if (!(((items_1224744803).length == L_486539748))) {
+                    if (!(i_486539757 < L_486539758)) break Label19;
+                      it_1224745049 = items_1224744942[chckIndx(i_486539757, 0, (items_1224744942).length - 1)];
+                      resultHEX60gensym468_1224745045[chckIndx(iHEX60gensym468_1224745038, 0, (resultHEX60gensym468_1224745045).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("* $1"), it_1224745049), NTI33554439);
+                      iHEX60gensym468_1224745038 = addInt(iHEX60gensym468_1224745038, 1);
+                      i_486539757 = addInt(i_486539757, 1);
+                      if (!(((items_1224744942).length == L_486539758))) {
                       failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                       }
                       
@@ -15380,105 +15458,105 @@ function HEX3Aanonymous_1224744742(arg_1224744735) {
                 } while (false);
               } while (false);
             } while (false);
-            Temporary7 = nsuFormatSingleElem(makeNimstrLit("\x0A$1\x0A"), nsuJoinSep(resultHEX60gensym452_1224744906, makeNimstrLit("\x0A")));
+            Temporary7 = nsuFormatSingleElem(makeNimstrLit("\x0A$1\x0A"), nsuJoinSep(resultHEX60gensym468_1224745045, makeNimstrLit("\x0A")));
             break;
           }
         } while (false);
-        result_1224744743 = nimCopy(result_1224744743, {typ: 1, str: nimCopy(null, Temporary7, NTI33554439), list: []}, NTI1610612742);
+        result_1224744882 = nimCopy(result_1224744882, {typ: 1, str: nimCopy(null, Temporary7, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224744743;
-
-    }
-    
-function HEX3Aanonymous_1224744967(arg_1224744961) {
-      var result_1224744968 = ({typ: 0, str: [], list: []});
-
-        var arg_1224744969 = nsuStrip(arg_1224744961, true, true, ConstSet415);
-        result_1224744968 = nimCopy(result_1224744968, {typ: 0, str: nimCopy(null, nsuStrip(arg_1224744969, true, true, ConstSet416), NTI33554439), list: []}, NTI1610612742);
-
-      return result_1224744968;
+      return result_1224744882;
 
     }
     
-function HEX3Aanonymous_1224745022(arg_1224745016) {
+function HEX3Aanonymous_1224745106(arg_1224745100) {
+      var result_1224745107 = ({typ: 0, str: [], list: []});
+
+        var arg_1224745108 = nsuStrip(arg_1224745100, true, true, ConstSet417);
+        result_1224745107 = nimCopy(result_1224745107, {typ: 0, str: nimCopy(null, nsuStrip(arg_1224745108, true, true, ConstSet418), NTI33554439), list: []}, NTI1610612742);
+
+      return result_1224745107;
+
+    }
+    
+function HEX3Aanonymous_1224745161(arg_1224745155) {
         var Temporary1;
 
-      var result_1224745023 = ({typ: 0, str: [], list: []});
+      var result_1224745162 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745016, true, true, ConstSet418), 0);
-        if (ConstSet417[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224745024 = nimCopy(null, Temporary1.str, NTI33554439);
-        result_1224745023 = nimCopy(result_1224745023, {typ: 1, str: nimCopy(null, renderStr_1308623226(doc_1224738382, arg_1224745024), NTI33554439), list: []}, NTI1610612742);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745155, true, true, ConstSet420), 0);
+        if (ConstSet419[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224745163 = nimCopy(null, Temporary1.str, NTI33554439);
+        result_1224745162 = nimCopy(result_1224745162, {typ: 1, str: nimCopy(null, renderStr_1308623226(doc_1224738382, arg_1224745163), NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745023;
+      return result_1224745162;
 
     }
     
-function HEX3Aanonymous_1224745078(arg_1224745071) {
+function HEX3Aanonymous_1224745217(arg_1224745210) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
         var Temporary4;
 
-      var result_1224745079 = ({typ: 0, str: [], list: []});
+      var result_1224745218 = ({typ: 0, str: [], list: []});
 
-        var args_1224745072 = parseXidocArguments_1325404692(arg_1224745071);
-          if (((args_1224745072).length < 3)) Temporary1 = true; else {            Temporary1 = (3 < (args_1224745072).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("replace-suffix"), makeNimstrLit("3"), makeNimstrLit("3"), HEX24_335544323((args_1224745072).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224745211 = parseXidocArguments_1325404692(arg_1224745210);
+          if (((args_1224745211).length < 3)) Temporary1 = true; else {            Temporary1 = (3 < (args_1224745211).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("replace-suffix"), makeNimstrLit("3"), makeNimstrLit("3"), HEX24_335544323((args_1224745211).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var Temporary2 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224745072, 3), 0);
-        if (ConstSet419[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
-        var sub_1224745093 = nimCopy(null, Temporary2.str, NTI33554439);
-        var Temporary3 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224745072, 2), 0);
-        if (ConstSet420[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
-        var by_1224745098 = nimCopy(null, Temporary3.str, NTI33554439);
-        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224745072, 1), 0);
-        if (ConstSet421[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
-        var str_1224745103 = nimCopy(null, Temporary4.str, NTI33554439);
+        var Temporary2 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224745211, 3), 0);
+        if (ConstSet421[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
+        var sub_1224745232 = nimCopy(null, Temporary2.str, NTI33554439);
+        var Temporary3 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224745211, 2), 0);
+        if (ConstSet422[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        var by_1224745237 = nimCopy(null, Temporary3.str, NTI33554439);
+        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224745211, 1), 0);
+        if (ConstSet423[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
+        var str_1224745242 = nimCopy(null, Temporary4.str, NTI33554439);
         Label5: do {
-          var str_1224745104 = [nimCopy(null, str_1224745103, NTI33554439)];
-          if (nsuEndsWith(str_1224745104[0], sub_1224745093)) {
-          nsuRemoveSuffixString(str_1224745104, 0, sub_1224745093);
-          str_1224745104[0].push.apply(str_1224745104[0], by_1224745098);;
+          var str_1224745243 = [nimCopy(null, str_1224745242, NTI33554439)];
+          if (nsuEndsWith(str_1224745243[0], sub_1224745232)) {
+          nsuRemoveSuffixString(str_1224745243, 0, sub_1224745232);
+          str_1224745243[0].push.apply(str_1224745243[0], by_1224745237);;
           }
           
         } while (false);
-        result_1224745079 = nimCopy(result_1224745079, {typ: 0, str: nimCopy(null, str_1224745104[0], NTI33554439), list: []}, NTI1610612742);
+        result_1224745218 = nimCopy(result_1224745218, {typ: 0, str: nimCopy(null, str_1224745243[0], NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745079;
+      return result_1224745218;
 
     }
     
-function HEX3Aanonymous_1224745158(arg_1224745151) {
+function HEX3Aanonymous_1224745297(arg_1224745290) {
                   var Temporary5;
           var Temporary10;
 
-      var result_1224745159 = ({typ: 0, str: [], list: []});
+      var result_1224745298 = ({typ: 0, str: [], list: []});
 
-        var args_1224745152 = parseXidocArguments_1325404692(arg_1224745151);
-        if (((args_1224745152).length < 0)) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("row"), makeNimstrLit("0"), HEX24_335544323((args_1224745152).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224745291 = parseXidocArguments_1325404692(arg_1224745290);
+        if (((args_1224745291).length < 0)) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("row"), makeNimstrLit("0"), HEX24_335544323((args_1224745291).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
         Label1: do {
-          var HEX3Atmp_1224745200 = HEX5BHEX5D_1224742513(args_1224745152, HEX2EHEX2E_872415312(0, 1));
-          var iHEX60gensym484_1224745203 = 0;
-          var resultHEX60gensym484_1224745210 = newSeq_452985301(chckRange((HEX3Atmp_1224745200).length, 0, 2147483647));
+          var HEX3Atmp_1224745339 = HEX5BHEX5D_1224742513(args_1224745291, HEX2EHEX2E_872415312(0, 1));
+          var iHEX60gensym500_1224745342 = 0;
+          var resultHEX60gensym500_1224745349 = newSeq_452985301(chckRange((HEX3Atmp_1224745339).length, 0, 2147483647));
           Label2: do {
-            var it_1224745214 = [];
-            var i_486539753 = 0;
-            var L_486539754 = (HEX3Atmp_1224745200).length;
+            var it_1224745353 = [];
+            var i_486539763 = 0;
+            var L_486539764 = (HEX3Atmp_1224745339).length;
             Label3: do {
                 Label4: while (true) {
-                if (!(i_486539753 < L_486539754)) break Label4;
-                  it_1224745214 = HEX3Atmp_1224745200[chckIndx(i_486539753, 0, (HEX3Atmp_1224745200).length - 1)];
-                  var Temporary5 = expand_1308622879(doc_1224738382, it_1224745214, 1);
-                  if (ConstSet422[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
-                  resultHEX60gensym484_1224745210[chckIndx(iHEX60gensym484_1224745203, 0, (resultHEX60gensym484_1224745210).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
-                  iHEX60gensym484_1224745203 = addInt(iHEX60gensym484_1224745203, 1);
-                  i_486539753 = addInt(i_486539753, 1);
-                  if (!(((HEX3Atmp_1224745200).length == L_486539754))) {
+                if (!(i_486539763 < L_486539764)) break Label4;
+                  it_1224745353 = HEX3Atmp_1224745339[chckIndx(i_486539763, 0, (HEX3Atmp_1224745339).length - 1)];
+                  var Temporary5 = expand_1308622879(doc_1224738382, it_1224745353, 1);
+                  if (ConstSet424[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
+                  resultHEX60gensym500_1224745349[chckIndx(iHEX60gensym500_1224745342, 0, (resultHEX60gensym500_1224745349).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
+                  iHEX60gensym500_1224745342 = addInt(iHEX60gensym500_1224745342, 1);
+                  i_486539763 = addInt(i_486539763, 1);
+                  if (!(((HEX3Atmp_1224745339).length == L_486539764))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
@@ -15486,51 +15564,51 @@ function HEX3Aanonymous_1224745158(arg_1224745151) {
             } while (false);
           } while (false);
         } while (false);
-        var entries_1224745219 = nimCopy(null, resultHEX60gensym484_1224745210, NTI452985127);
+        var entries_1224745358 = nimCopy(null, resultHEX60gensym500_1224745349, NTI452985127);
         Label6: do {
-            var resultHEX60gensym487_1224745221 = false;
+            var resultHEX60gensym503_1224745360 = false;
             Label7: do {
-              var it_1224745225 = ({args: ({data: [], counter: 0}), cmdArg: [], cmdName: [], commands: ({data: [], counter: 0}), lang: ({val: 0, has: false}), path: ({val: [], has: false})});
-              var i_486539758 = 0;
-              var L_486539759 = (doc_1224738382.stack).length;
+              var it_1224745364 = ({args: ({data: [], counter: 0}), cmdArg: [], cmdName: [], commands: ({data: [], counter: 0}), lang: ({val: 0, has: false}), path: ({val: [], has: false})});
+              var i_486539768 = 0;
+              var L_486539769 = (doc_1224738382.stack).length;
               Label8: do {
                   Label9: while (true) {
-                  if (!(i_486539758 < L_486539759)) break Label9;
-                    it_1224745225 = doc_1224738382.stack[chckIndx(i_486539758, 0, (doc_1224738382.stack).length - 1)];
-                    if (eqStrings(it_1224745225.cmdName, makeNimstrLit("table"))) {
-                    resultHEX60gensym487_1224745221 = true;
+                  if (!(i_486539768 < L_486539769)) break Label9;
+                    it_1224745364 = doc_1224738382.stack[chckIndx(i_486539768, 0, (doc_1224738382.stack).length - 1)];
+                    if (eqStrings(it_1224745364.cmdName, makeNimstrLit("table"))) {
+                    resultHEX60gensym503_1224745360 = true;
                     break Label7;
                     }
                     
-                    i_486539758 = addInt(i_486539758, 1);
-                    if (!(((doc_1224738382.stack).length == L_486539759))) {
+                    i_486539768 = addInt(i_486539768, 1);
+                    if (!(((doc_1224738382.stack).length == L_486539769))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
                   }
               } while (false);
             } while (false);
-          if (!(resultHEX60gensym487_1224745221)) {
+          if (!(resultHEX60gensym503_1224745360)) {
           raiseException({message: makeNimstrLit("The row command has to be inside a table command"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           }
           
           switch (doc_1224738382.target) {
           case 0:
             Label11: do {
-              var iHEX60gensym489_1224745247 = 0;
-              var resultHEX60gensym489_1224745254 = newSeq_452985301(chckRange((entries_1224745219).length, 0, 2147483647));
+              var iHEX60gensym505_1224745386 = 0;
+              var resultHEX60gensym505_1224745393 = newSeq_452985301(chckRange((entries_1224745358).length, 0, 2147483647));
               Label12: do {
-                var it_1224745258 = [];
-                var i_486539768 = 0;
-                var L_486539769 = (entries_1224745219).length;
+                var it_1224745397 = [];
+                var i_486539778 = 0;
+                var L_486539779 = (entries_1224745358).length;
                 Label13: do {
                     Label14: while (true) {
-                    if (!(i_486539768 < L_486539769)) break Label14;
-                      it_1224745258 = entries_1224745219[chckIndx(i_486539768, 0, (entries_1224745219).length - 1)];
-                      resultHEX60gensym489_1224745254[chckIndx(iHEX60gensym489_1224745247, 0, (resultHEX60gensym489_1224745254).length - 1)] = nimCopy(null, (makeNimstrLit("<td>") || []).concat(it_1224745258 || [],makeNimstrLit("</td>") || []), NTI33554439);
-                      iHEX60gensym489_1224745247 = addInt(iHEX60gensym489_1224745247, 1);
-                      i_486539768 = addInt(i_486539768, 1);
-                      if (!(((entries_1224745219).length == L_486539769))) {
+                    if (!(i_486539778 < L_486539779)) break Label14;
+                      it_1224745397 = entries_1224745358[chckIndx(i_486539778, 0, (entries_1224745358).length - 1)];
+                      resultHEX60gensym505_1224745393[chckIndx(iHEX60gensym505_1224745386, 0, (resultHEX60gensym505_1224745393).length - 1)] = nimCopy(null, (makeNimstrLit("<td>") || []).concat(it_1224745397 || [],makeNimstrLit("</td>") || []), NTI33554439);
+                      iHEX60gensym505_1224745386 = addInt(iHEX60gensym505_1224745386, 1);
+                      i_486539778 = addInt(i_486539778, 1);
+                      if (!(((entries_1224745358).length == L_486539779))) {
                       failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                       }
                       
@@ -15538,23 +15616,23 @@ function HEX3Aanonymous_1224745158(arg_1224745151) {
                 } while (false);
               } while (false);
             } while (false);
-            Temporary10 = (makeNimstrLit("<tr>") || []).concat(nsuJoinSep(resultHEX60gensym489_1224745254, []) || [],makeNimstrLit("</tr>") || []);
+            Temporary10 = (makeNimstrLit("<tr>") || []).concat(nsuJoinSep(resultHEX60gensym505_1224745393, []) || [],makeNimstrLit("</tr>") || []);
             break;
           case 1:
-            Temporary10 = nsuFormatSingleElem(makeNimstrLit("$1\\\\"), nsuJoinSep(entries_1224745219, makeNimstrLit("&")));
+            Temporary10 = nsuFormatSingleElem(makeNimstrLit("$1\\\\"), nsuJoinSep(entries_1224745358, makeNimstrLit("&")));
             break;
           case 2:
             raiseException({message: makeNimstrLit("Tables are currently not supported in the Gemtext backend"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
             break;
           }
         } while (false);
-        result_1224745159 = nimCopy(result_1224745159, {typ: 1, str: nimCopy(null, Temporary10, NTI33554439), list: []}, NTI1610612742);
+        result_1224745298 = nimCopy(result_1224745298, {typ: 1, str: nimCopy(null, Temporary10, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745159;
+      return result_1224745298;
 
     }
     
-function HEX3Aanonymous_1224745316(arg_1224745309) {
+function HEX3Aanonymous_1224745455(arg_1224745448) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
@@ -15567,53 +15645,53 @@ function HEX3Aanonymous_1224745316(arg_1224745309) {
             var Temporary14;
             var Temporary15;
 
-      var result_1224745317 = ({typ: 0, str: [], list: []});
+      var result_1224745456 = ({typ: 0, str: [], list: []});
 
-        var args_1224745310 = parseXidocArguments_1325404692(arg_1224745309);
-          if (((args_1224745310).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224745310).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("section"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224745310).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224745449 = parseXidocArguments_1325404692(arg_1224745448);
+          if (((args_1224745449).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224745449).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("section"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224745449).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224745310).length, 1))) {
-        var Temporary3 = expand_1308622879(doc_1224738382, args_1224745310[chckIndx(0, 0, (args_1224745310).length - 1)], 1);
-        if (ConstSet423[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if ((0 < subInt((args_1224745449).length, 1))) {
+        var Temporary3 = expand_1308622879(doc_1224738382, args_1224745449[chckIndx(0, 0, (args_1224745449).length - 1)], 1);
+        if (ConstSet425[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         Temporary2 = some_1811939650(Temporary3.str);
         }
         else {
         Temporary2 = none_1811939655();
         }
         
-        var name_1224745340 = nimCopy(null, Temporary2, NTI1610612790);
-        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224745310, 1), 1);
-        if (ConstSet424[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
-        var content_1224745345 = nimCopy(null, Temporary4.str, NTI33554439);
+        var name_1224745479 = nimCopy(null, Temporary2, NTI1610612790);
+        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224745449, 1), 1);
+        if (ConstSet426[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
+        var content_1224745484 = nimCopy(null, Temporary4.str, NTI33554439);
         Label5: do {
-          var resultHEX60gensym506_1224745347 = 0;
+          var resultHEX60gensym522_1224745486 = 0;
           Label6: do {
-            var it_1224745351 = ({args: ({data: [], counter: 0}), cmdArg: [], cmdName: [], commands: ({data: [], counter: 0}), lang: ({val: 0, has: false}), path: ({val: [], has: false})});
-            var i_486539773 = 0;
-            var L_486539774 = (doc_1224738382.stack).length;
+            var it_1224745490 = ({args: ({data: [], counter: 0}), cmdArg: [], cmdName: [], commands: ({data: [], counter: 0}), lang: ({val: 0, has: false}), path: ({val: [], has: false})});
+            var i_486539783 = 0;
+            var L_486539784 = (doc_1224738382.stack).length;
             Label7: do {
                 Label8: while (true) {
-                if (!(i_486539773 < L_486539774)) break Label8;
-                  it_1224745351 = doc_1224738382.stack[chckIndx(i_486539773, 0, (doc_1224738382.stack).length - 1)];
-                  if (eqStrings(it_1224745351.cmdName, makeNimstrLit("section"))) {
-                  resultHEX60gensym506_1224745347 = addInt(resultHEX60gensym506_1224745347, 1);
+                if (!(i_486539783 < L_486539784)) break Label8;
+                  it_1224745490 = doc_1224738382.stack[chckIndx(i_486539783, 0, (doc_1224738382.stack).length - 1)];
+                  if (eqStrings(it_1224745490.cmdName, makeNimstrLit("section"))) {
+                  resultHEX60gensym522_1224745486 = addInt(resultHEX60gensym522_1224745486, 1);
                   }
                   
-                  i_486539773 = addInt(i_486539773, 1);
-                  if (!(((doc_1224738382.stack).length == L_486539774))) {
+                  i_486539783 = addInt(i_486539783, 1);
+                  if (!(((doc_1224738382.stack).length == L_486539784))) {
                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                   }
                   
                 }
             } while (false);
           } while (false);
-          var depth_1224745356 = resultHEX60gensym506_1224745347;
+          var depth_1224745495 = resultHEX60gensym522_1224745486;
           switch (doc_1224738382.target) {
           case 0:
-            if (isSome_1811939668(name_1224745340)) {
-            switch (depth_1224745356) {
+            if (isSome_1811939668(name_1224745479)) {
+            switch (depth_1224745495) {
             case 1:
               Temporary11 = makeNimstrLit("h2");
               break;
@@ -15630,17 +15708,17 @@ function HEX3Aanonymous_1224745316(arg_1224745309) {
               Temporary11 = makeNimstrLit("h6");
               break;
             }
-            var headingTag_1224745364 = nimCopy(null, Temporary11, NTI33554439);
-            Temporary10 = (makeNimstrLit("<section>") || []).concat(nsuFormatOpenArray(makeNimstrLit("<$1 class=\"xd-section-heading\">$2</$1>$3"), [nimCopy(null, headingTag_1224745364, NTI33554439), nimCopy(null, get_1811939703(name_1224745340), NTI33554439), nimCopy(null, content_1224745345, NTI33554439)]) || [],makeNimstrLit("</section>") || []);
+            var headingTag_1224745503 = nimCopy(null, Temporary11, NTI33554439);
+            Temporary10 = (makeNimstrLit("<section>") || []).concat(nsuFormatOpenArray(makeNimstrLit("<$1 class=\"xd-section-heading\">$2</$1>$3"), [nimCopy(null, headingTag_1224745503, NTI33554439), nimCopy(null, get_1811939703(name_1224745479), NTI33554439), nimCopy(null, content_1224745484, NTI33554439)]) || [],makeNimstrLit("</section>") || []);
             }
             else {
-            Temporary10 = (makeNimstrLit("<section>") || []).concat(content_1224745345 || [],makeNimstrLit("</section>") || []);
+            Temporary10 = (makeNimstrLit("<section>") || []).concat(content_1224745484 || [],makeNimstrLit("</section>") || []);
             }
             
             Temporary9 = Temporary10;
             break;
           case 1:
-            switch (depth_1224745356) {
+            switch (depth_1224745495) {
             case 1:
               Temporary12 = makeNimstrLit("section");
               break;
@@ -15654,19 +15732,19 @@ function HEX3Aanonymous_1224745316(arg_1224745309) {
               raiseException({message: makeNimstrLit("Sections can only be nested 3 levels deep in LaTeX"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
               break;
             }
-            var cmd_1224745380 = nimCopy(null, Temporary12, NTI33554439);
-            if (isSome_1811939668(name_1224745340)) {
-            Temporary13 = nsuFormatOpenArray(makeNimstrLit("\\$1*{$2}$3"), [nimCopy(null, cmd_1224745380, NTI33554439), nimCopy(null, get_1811939703(name_1224745340), NTI33554439), nimCopy(null, content_1224745345, NTI33554439)]);
+            var cmd_1224745519 = nimCopy(null, Temporary12, NTI33554439);
+            if (isSome_1811939668(name_1224745479)) {
+            Temporary13 = nsuFormatOpenArray(makeNimstrLit("\\$1*{$2}$3"), [nimCopy(null, cmd_1224745519, NTI33554439), nimCopy(null, get_1811939703(name_1224745479), NTI33554439), nimCopy(null, content_1224745484, NTI33554439)]);
             }
             else {
-            Temporary13 = nsuFormatOpenArray(makeNimstrLit("\\$1*{}$2"), [nimCopy(null, cmd_1224745380, NTI33554439), nimCopy(null, content_1224745345, NTI33554439)]);
+            Temporary13 = nsuFormatOpenArray(makeNimstrLit("\\$1*{}$2"), [nimCopy(null, cmd_1224745519, NTI33554439), nimCopy(null, content_1224745484, NTI33554439)]);
             }
             
             Temporary9 = Temporary13;
             break;
           case 2:
-            if (isSome_1811939668(name_1224745340)) {
-            switch (depth_1224745356) {
+            if (isSome_1811939668(name_1224745479)) {
+            switch (depth_1224745495) {
             case 1:
               Temporary15 = makeNimstrLit("## ");
               break;
@@ -15677,33 +15755,33 @@ function HEX3Aanonymous_1224745316(arg_1224745309) {
               Temporary15 = [];
               break;
             }
-            var prefix_1224745410 = nimCopy(null, Temporary15, NTI33554439);
-            Temporary14 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1$2\x0A\x0A$3"), [nimCopy(null, prefix_1224745410, NTI33554439), nimCopy(null, get_1811939703(name_1224745340), NTI33554439), nimCopy(null, content_1224745345, NTI33554439)]);
+            var prefix_1224745549 = nimCopy(null, Temporary15, NTI33554439);
+            Temporary14 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1$2\x0A\x0A$3"), [nimCopy(null, prefix_1224745549, NTI33554439), nimCopy(null, get_1811939703(name_1224745479), NTI33554439), nimCopy(null, content_1224745484, NTI33554439)]);
             }
             else {
-            Temporary14 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1"), [nimCopy(null, content_1224745345, NTI33554439)]);
+            Temporary14 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1"), [nimCopy(null, content_1224745484, NTI33554439)]);
             }
             
             Temporary9 = Temporary14;
             break;
           }
         } while (false);
-        result_1224745317 = nimCopy(result_1224745317, {typ: 1, str: nimCopy(null, Temporary9, NTI33554439), list: []}, NTI1610612742);
+        result_1224745456 = nimCopy(result_1224745456, {typ: 1, str: nimCopy(null, Temporary9, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745317;
+      return result_1224745456;
 
     }
     
-function HEX3Aanonymous_1224745478(arg_1224745472) {
+function HEX3Aanonymous_1224745617(arg_1224745611) {
         var Temporary1;
         var Temporary2;
 
-      var result_1224745479 = ({typ: 0, str: [], list: []});
+      var result_1224745618 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745472, true, true, ConstSet426), 0);
-        if (ConstSet425[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224745480 = nimCopy(null, Temporary1.str, NTI33554439);
-        switch (toJSStr(nsuToLowerAsciiStr(arg_1224745480))) {
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745611, true, true, ConstSet428), 0);
+        if (ConstSet427[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224745619 = nimCopy(null, Temporary1.str, NTI33554439);
+        switch (toJSStr(nsuToLowerAsciiStr(arg_1224745619))) {
         case "en":
         case "english":
           Temporary2 = 0;
@@ -15714,143 +15792,143 @@ function HEX3Aanonymous_1224745478(arg_1224745472) {
           Temporary2 = 1;
           break;
         default: 
-          raiseException({message: nsuFormatSingleElem(makeNimstrLit("Unknown language: $1"), arg_1224745480), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          raiseException({message: nsuFormatSingleElem(makeNimstrLit("Unknown language: $1"), arg_1224745619), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           break;
         }
         doc_1224738382.stack[chckIndx(0, 0, (doc_1224738382.stack).length - 1)].lang = nimCopy(doc_1224738382.stack[chckIndx(0, 0, (doc_1224738382.stack).length - 1)].lang, some_1224743161(Temporary2), NTI1610612777);
-        result_1224745479 = nimCopy(result_1224745479, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
+        result_1224745618 = nimCopy(result_1224745618, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745479;
+      return result_1224745618;
 
     }
     
-function HEX3Aanonymous_1224745536(arg_1224745530) {
+function HEX3Aanonymous_1224745675(arg_1224745669) {
         var Temporary1;
 
-      var result_1224745537 = ({typ: 0, str: [], list: []});
+      var result_1224745676 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745530, true, true, ConstSet428), 0);
-        if (ConstSet427[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224745538 = nimCopy(null, Temporary1.str, NTI33554439);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745669, true, true, ConstSet430), 0);
+        if (ConstSet429[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224745677 = nimCopy(null, Temporary1.str, NTI33554439);
         xidocWarning_1291845638(makeNimstrLit("set-math-renderer is deprecated. Math rendering will always be done at compile time."));
-        result_1224745537 = nimCopy(result_1224745537, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
+        result_1224745676 = nimCopy(result_1224745676, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745537;
+      return result_1224745676;
 
     }
     
-function HEX3Aanonymous_1224745591(arg_1224745585) {
+function HEX3Aanonymous_1224745730(arg_1224745724) {
         var Temporary1;
           var Temporary2;
 
-      var result_1224745592 = ({typ: 0, str: [], list: []});
+      var result_1224745731 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745585, true, true, ConstSet430), 0);
-        if (ConstSet429[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224745593 = nimCopy(null, Temporary1.str, NTI33554439);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745724, true, true, ConstSet432), 0);
+        if (ConstSet431[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224745732 = nimCopy(null, Temporary1.str, NTI33554439);
         switch (doc_1224738382.target) {
         case 0:
-          if (!(contains_1224745647(syntaxHighlightingThemeTable_1224738380, arg_1224745593))) {
-          var fmtRes_1224745666 = [mnewString(0)];
-          fmtRes_1224745666[0].push.apply(fmtRes_1224745666[0], makeNimstrLit("Invalid syntax highlighting theme: "));;
-          formatValue_1644167330(fmtRes_1224745666, 0, arg_1224745593, []);
-          raiseException({message: nimCopy(null, fmtRes_1224745666[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          if (!(contains_1224745786(syntaxHighlightingThemeTable_1224738380, arg_1224745732))) {
+          var fmtRes_1224745805 = [mnewString(0)];
+          fmtRes_1224745805[0].push.apply(fmtRes_1224745805[0], makeNimstrLit("Invalid syntax highlighting theme: "));;
+          formatValue_1644167330(fmtRes_1224745805, 0, arg_1224745732, []);
+          raiseException({message: nimCopy(null, fmtRes_1224745805[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           }
           
           var Temporary2 = doc_1224738382;
-          if (ConstSet431[Temporary2.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'syntaxHighlightingTheme\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary2.target, NTI1610612739)); }
-          Temporary2.syntaxHighlightingTheme = HEX5BHEX5D_1224745724(syntaxHighlightingThemeTable_1224738380, arg_1224745593);
+          if (ConstSet433[Temporary2.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'syntaxHighlightingTheme\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary2.target, NTI1610612739)); }
+          Temporary2.syntaxHighlightingTheme = HEX5BHEX5D_1224745863(syntaxHighlightingThemeTable_1224738380, arg_1224745732);
           break;
         default: 
           break;
         }
-        result_1224745592 = nimCopy(result_1224745592, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
+        result_1224745731 = nimCopy(result_1224745731, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745592;
+      return result_1224745731;
 
     }
     
-function HEX3Aanonymous_1224745850(arg_1224745844) {
+function HEX3Aanonymous_1224745989(arg_1224745983) {
         var Temporary1;
 
-      var result_1224745851 = ({typ: 0, str: [], list: []});
+      var result_1224745990 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745844, true, true, ConstSet433), 0);
-        if (ConstSet432[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224745852 = nimCopy(null, Temporary1.str, NTI33554439);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745983, true, true, ConstSet435), 0);
+        if (ConstSet434[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224745991 = nimCopy(null, Temporary1.str, NTI33554439);
         switch (doc_1224738382.target) {
         case 0:
-          incl_1845495857(doc_1224738382.addToHead, (makeNimstrLit("<title>") || []).concat(arg_1224745852 || [],makeNimstrLit("</title>") || []));
+          incl_1845495857(doc_1224738382.addToHead, (makeNimstrLit("<title>") || []).concat(arg_1224745991 || [],makeNimstrLit("</title>") || []));
           break;
         case 1:
-          incl_1845495857(doc_1224738382.addToHead, nsuFormatSingleElem(makeNimstrLit("\\title{$1}"), arg_1224745852));
+          incl_1845495857(doc_1224738382.addToHead, nsuFormatSingleElem(makeNimstrLit("\\title{$1}"), arg_1224745991));
           break;
         default: 
           break;
         }
-        result_1224745851 = nimCopy(result_1224745851, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
+        result_1224745990 = nimCopy(result_1224745990, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745851;
+      return result_1224745990;
 
     }
     
-function HEX3Aanonymous_1224745951(arg_1224745945) {
+function HEX3Aanonymous_1224746090(arg_1224746084) {
         var Temporary1;
         var Temporary2;
 
-      var result_1224745952 = ({typ: 0, str: [], list: []});
+      var result_1224746091 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224745945, true, true, ConstSet435), 0);
-        if (ConstSet434[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224745953 = nimCopy(null, Temporary1.str, NTI33554439);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224746084, true, true, ConstSet437), 0);
+        if (ConstSet436[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224746092 = nimCopy(null, Temporary1.str, NTI33554439);
         switch (doc_1224738382.target) {
         case 0:
-          Temporary2 = (makeNimstrLit("<h1>") || []).concat(arg_1224745953 || [],makeNimstrLit("</h1>") || []);
+          Temporary2 = (makeNimstrLit("<h1>") || []).concat(arg_1224746092 || [],makeNimstrLit("</h1>") || []);
           break;
         case 1:
           Temporary2 = makeNimstrLit("\\maketitle");
           break;
         case 2:
-          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\x0A# $1\x0A\x0A"), arg_1224745953);
+          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\x0A# $1\x0A\x0A"), arg_1224746092);
           break;
         }
-        result_1224745952 = nimCopy(result_1224745952, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
+        result_1224746091 = nimCopy(result_1224746091, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224745952;
+      return result_1224746091;
 
     }
     
-function HEX3Aanonymous_1224746013(arg_1224746006) {
+function HEX3Aanonymous_1224746152(arg_1224746145) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
           
-function HEX3Aanonymous_1224746046() {
-            var result_1224746047 = 0;
+function HEX3Aanonymous_1224746185() {
+            var result_1224746186 = 0;
 
             BeforeRet: do {
               Label1: do {
-                var iHEX60gensym534_1224746056 = 0;
-                var colontmp__486540110 = 0;
-                colontmp__486540110 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540111 = colontmp__486540110;
+                var iHEX60gensym550_1224746195 = 0;
+                var colontmp__486540120 = 0;
+                colontmp__486540120 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540121 = colontmp__486540120;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540111)) break Label3;
-                      iHEX60gensym534_1224746056 = res_486540111;
-                      var frameHEX60gensym534_1224746057 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym534_1224746056, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
-                      if (isSome_1224738885(frameHEX60gensym534_1224746057.lang)) {
-                      result_1224746047 = get_1224738902(frameHEX60gensym534_1224746057.lang);
+                    if (!(0 <= res_486540121)) break Label3;
+                      iHEX60gensym550_1224746195 = res_486540121;
+                      var frameHEX60gensym550_1224746196 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym550_1224746195, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
+                      if (isSome_1224738885(frameHEX60gensym550_1224746196.lang)) {
+                      result_1224746186 = get_1224738902(frameHEX60gensym550_1224746196.lang);
                       break BeforeRet;
                       }
                       
-                      res_486540111 = subInt(res_486540111, 1);
+                      res_486540121 = subInt(res_486540121, 1);
                     }
                 } while (false);
               } while (false);
             } while (false);
 
-            return result_1224746047;
+            return result_1224746186;
 
           }
           var Temporary5;
@@ -15858,102 +15936,102 @@ function HEX3Aanonymous_1224746046() {
             var Temporary7;
             var Temporary8;
 
-      var result_1224746014 = ({typ: 0, str: [], list: []});
+      var result_1224746153 = ({typ: 0, str: [], list: []});
 
-        var args_1224746007 = parseXidocArguments_1325404692(arg_1224746006);
-          if (((args_1224746007).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746007).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("solution"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746007).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746146 = parseXidocArguments_1325404692(arg_1224746145);
+          if (((args_1224746146).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746146).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("solution"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746146).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224746007).length, 1))) {
-        var Temporary3 = expand_1308622879(doc_1224738382, args_1224746007[chckIndx(0, 0, (args_1224746007).length - 1)], 1);
-        if (ConstSet436[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if ((0 < subInt((args_1224746146).length, 1))) {
+        var Temporary3 = expand_1308622879(doc_1224738382, args_1224746146[chckIndx(0, 0, (args_1224746146).length - 1)], 1);
+        if (ConstSet438[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         Temporary2 = some_1811939650(Temporary3.str);
         }
         else {
         Temporary2 = none_1811939655();
         }
         
-        var thName_1224746037 = nimCopy(null, Temporary2, NTI1610612790);
-        var content_1224746042 = HEX5BHEX5D_1811939366(args_1224746007, 1);
+        var thName_1224746176 = nimCopy(null, Temporary2, NTI1610612790);
+        var content_1224746181 = HEX5BHEX5D_1811939366(args_1224746146, 1);
         Label4: do {
-          var contentHEX60gensym521_1224746043 = renderStr_1308623226(doc_1224738382, content_1224746042);
-          var wordHEX60gensym521_1224746080 = translate_1627389991(7, HEX3Aanonymous_1224746046());
+          var contentHEX60gensym537_1224746182 = renderStr_1308623226(doc_1224738382, content_1224746181);
+          var wordHEX60gensym537_1224746219 = translate_1627389991(7, HEX3Aanonymous_1224746185());
           switch (doc_1224738382.target) {
           case 0:
             var Temporary6 = doc_1224738382;
-            if (ConstSet437[Temporary6.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary6.target, NTI1610612739)); }
+            if (ConstSet439[Temporary6.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary6.target, NTI1610612739)); }
             incl_1845495857(Temporary6.addToStyle, makeNimstrLit(".xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}"));
-            var fmtRes_1224746104 = mnewString(0);
-            fmtRes_1224746104.push.apply(fmtRes_1224746104, makeNimstrLit("xd-theorem-like xd-$1"));;
-            if (isSome_1811939668(thName_1224746037)) {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)."), [nimCopy(null, wordHEX60gensym521_1224746080, NTI33554439), nimCopy(null, get_1811939703(thName_1224746037), NTI33554439)]);
+            var fmtRes_1224746243 = mnewString(0);
+            fmtRes_1224746243.push.apply(fmtRes_1224746243, makeNimstrLit("xd-theorem-like xd-$1"));;
+            if (isSome_1811939668(thName_1224746176)) {
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)."), [nimCopy(null, wordHEX60gensym537_1224746219, NTI33554439), nimCopy(null, get_1811939703(thName_1224746176), NTI33554439)]);
             }
             else {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1."), [nimCopy(null, wordHEX60gensym521_1224746080, NTI33554439)]);
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1."), [nimCopy(null, wordHEX60gensym537_1224746219, NTI33554439)]);
             }
             
-            Temporary5 = (makeNimstrLit("<div class=\"") || []).concat(nsuFormatSingleElem(fmtRes_1224746104, makeNimstrLit("solution")) || [],makeNimstrLit("\"><strong>") || [],Temporary7 || [],makeNimstrLit("</strong> ") || [],nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym521_1224746043) || [],makeNimstrLit("</div>") || []);
+            Temporary5 = (makeNimstrLit("<div class=\"") || []).concat(nsuFormatSingleElem(fmtRes_1224746243, makeNimstrLit("solution")) || [],makeNimstrLit("\"><strong>") || [],Temporary7 || [],makeNimstrLit("</strong> ") || [],nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym537_1224746182) || [],makeNimstrLit("</div>") || []);
             break;
           case 1:
             incl_1845495857(doc_1224738382.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-            incl_1845495857(doc_1224738382.addToHead, nsuFormatOpenArray(makeNimstrLit("\\theoremstyle{definition}\\newtheorem*{XD$1}{$2}"), [makeNimstrLit("solution"), nimCopy(null, wordHEX60gensym521_1224746080, NTI33554439)]));
-            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\begin{XD$1}$2\\end{XD$1}"), [makeNimstrLit("solution"), nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym521_1224746043)]);
+            incl_1845495857(doc_1224738382.addToHead, nsuFormatOpenArray(makeNimstrLit("\\theoremstyle{definition}\\newtheorem*{XD$1}{$2}"), [makeNimstrLit("solution"), nimCopy(null, wordHEX60gensym537_1224746219, NTI33554439)]));
+            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\begin{XD$1}$2\\end{XD$1}"), [makeNimstrLit("solution"), nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym537_1224746182)]);
             break;
           case 2:
-            if (isSome_1811939668(thName_1224746037)) {
-            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)"), [nimCopy(null, wordHEX60gensym521_1224746080, NTI33554439), nimCopy(null, get_1811939703(thName_1224746037), NTI33554439)]);
+            if (isSome_1811939668(thName_1224746176)) {
+            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)"), [nimCopy(null, wordHEX60gensym537_1224746219, NTI33554439), nimCopy(null, get_1811939703(thName_1224746176), NTI33554439)]);
             }
             else {
-            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1"), [nimCopy(null, wordHEX60gensym521_1224746080, NTI33554439)]);
+            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1"), [nimCopy(null, wordHEX60gensym537_1224746219, NTI33554439)]);
             }
             
-            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1. $2"), [nimCopy(null, Temporary8, NTI33554439), nimCopy(null, contentHEX60gensym521_1224746043, NTI33554439)]);
+            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1. $2"), [nimCopy(null, Temporary8, NTI33554439), nimCopy(null, contentHEX60gensym537_1224746182, NTI33554439)]);
             break;
           }
         } while (false);
-        result_1224746014 = nimCopy(result_1224746014, {typ: 1, str: nimCopy(null, Temporary5, NTI33554439), list: []}, NTI1610612742);
+        result_1224746153 = nimCopy(result_1224746153, {typ: 1, str: nimCopy(null, Temporary5, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746014;
+      return result_1224746153;
 
     }
     
-function HEX3Aanonymous_1224746247(arg_1224746241) {
-      var result_1224746248 = ({typ: 0, str: [], list: []});
+function HEX3Aanonymous_1224746386(arg_1224746380) {
+      var result_1224746387 = ({typ: 0, str: [], list: []});
 
-        if (!(eqStrings(arg_1224746241, []))) {
+        if (!(eqStrings(arg_1224746380, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit("space")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        result_1224746248 = nimCopy(result_1224746248, {typ: 0, str: nimCopy(null, makeNimstrLit(" "), NTI33554439), list: []}, NTI1610612742);
+        result_1224746387 = nimCopy(result_1224746387, {typ: 0, str: nimCopy(null, makeNimstrLit(" "), NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746248;
+      return result_1224746387;
 
     }
     
-function HEX3Aanonymous_1224746302(arg_1224746295) {
+function HEX3Aanonymous_1224746441(arg_1224746434) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
           var Temporary5;
 
-      var result_1224746303 = ({typ: 0, str: [], list: []});
+      var result_1224746442 = ({typ: 0, str: [], list: []});
 
-        var args_1224746296 = parseXidocArguments_1325404692(arg_1224746295);
-          if (((args_1224746296).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746296).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("spoiler"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224746296).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746435 = parseXidocArguments_1325404692(arg_1224746434);
+          if (((args_1224746435).length < 2)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746435).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("spoiler"), makeNimstrLit("2"), makeNimstrLit("2"), HEX24_335544323((args_1224746435).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var Temporary2 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224746296, 2), 1);
-        if (ConstSet438[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
-        var title_1224746317 = nimCopy(null, Temporary2.str, NTI33554439);
-        var Temporary3 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224746296, 1), 1);
-        if (ConstSet439[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
-        var content_1224746322 = nimCopy(null, Temporary3.str, NTI33554439);
+        var Temporary2 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224746435, 2), 1);
+        if (ConstSet440[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
+        var title_1224746456 = nimCopy(null, Temporary2.str, NTI33554439);
+        var Temporary3 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224746435, 1), 1);
+        if (ConstSet441[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        var content_1224746461 = nimCopy(null, Temporary3.str, NTI33554439);
         Label4: do {
           switch (doc_1224738382.target) {
           case 0:
-            Temporary5 = (makeNimstrLit("<details class=\"xd-spoiler\"><summary>") || []).concat(title_1224746317 || [],makeNimstrLit("</summary>") || [],content_1224746322 || [],makeNimstrLit("</details>") || []);
+            Temporary5 = (makeNimstrLit("<details class=\"xd-spoiler\"><summary>") || []).concat(title_1224746456 || [],makeNimstrLit("</summary>") || [],content_1224746461 || [],makeNimstrLit("</details>") || []);
             break;
           case 1:
             raiseException({message: makeNimstrLit("The spoiler command is not supported in the LaTeX backend"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
@@ -15963,186 +16041,186 @@ function HEX3Aanonymous_1224746302(arg_1224746295) {
             break;
           }
         } while (false);
-        result_1224746303 = nimCopy(result_1224746303, {typ: 1, str: nimCopy(null, Temporary5, NTI33554439), list: []}, NTI1610612742);
+        result_1224746442 = nimCopy(result_1224746442, {typ: 1, str: nimCopy(null, Temporary5, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746303;
+      return result_1224746442;
 
     }
     
-function HEX3Aanonymous_1224746376(arg_1224746369) {
+function HEX3Aanonymous_1224746515(arg_1224746508) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
         var Temporary4;
           
-function HEX3Aanonymous_1224746408() {
-            var result_1224746409 = 0;
+function HEX3Aanonymous_1224746547() {
+            var result_1224746548 = 0;
 
             BeforeRet: do {
               Label1: do {
-                var iHEX60gensym567_1224746418 = 0;
-                var colontmp__486540114 = 0;
-                colontmp__486540114 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540115 = colontmp__486540114;
+                var iHEX60gensym583_1224746557 = 0;
+                var colontmp__486540124 = 0;
+                colontmp__486540124 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540125 = colontmp__486540124;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540115)) break Label3;
-                      iHEX60gensym567_1224746418 = res_486540115;
-                      var frameHEX60gensym567_1224746419 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym567_1224746418, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
-                      if (isSome_1224738885(frameHEX60gensym567_1224746419.lang)) {
-                      result_1224746409 = get_1224738902(frameHEX60gensym567_1224746419.lang);
+                    if (!(0 <= res_486540125)) break Label3;
+                      iHEX60gensym583_1224746557 = res_486540125;
+                      var frameHEX60gensym583_1224746558 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym583_1224746557, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
+                      if (isSome_1224738885(frameHEX60gensym583_1224746558.lang)) {
+                      result_1224746548 = get_1224738902(frameHEX60gensym583_1224746558.lang);
                       break BeforeRet;
                       }
                       
-                      res_486540115 = subInt(res_486540115, 1);
+                      res_486540125 = subInt(res_486540125, 1);
                     }
                 } while (false);
               } while (false);
             } while (false);
 
-            return result_1224746409;
+            return result_1224746548;
 
           }
           var Temporary6;
             var Temporary7;
 
-      var result_1224746377 = ({typ: 0, str: [], list: []});
+      var result_1224746516 = ({typ: 0, str: [], list: []});
 
-        var args_1224746370 = parseXidocArguments_1325404692(arg_1224746369);
-          if (((args_1224746370).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746370).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("spoiler-solution"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746370).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746509 = parseXidocArguments_1325404692(arg_1224746508);
+          if (((args_1224746509).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746509).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("spoiler-solution"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746509).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224746370).length, 1))) {
-        var Temporary3 = expand_1308622879(doc_1224738382, args_1224746370[chckIndx(0, 0, (args_1224746370).length - 1)], 1);
-        if (ConstSet440[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if ((0 < subInt((args_1224746509).length, 1))) {
+        var Temporary3 = expand_1308622879(doc_1224738382, args_1224746509[chckIndx(0, 0, (args_1224746509).length - 1)], 1);
+        if (ConstSet442[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         Temporary2 = some_1811939650(Temporary3.str);
         }
         else {
         Temporary2 = none_1811939655();
         }
         
-        var name_1224746400 = nimCopy(null, Temporary2, NTI1610612790);
-        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224746370, 1), 1);
-        if (ConstSet441[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
-        var content_1224746405 = nimCopy(null, Temporary4.str, NTI33554439);
+        var name_1224746539 = nimCopy(null, Temporary2, NTI1610612790);
+        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224746509, 1), 1);
+        if (ConstSet443[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
+        var content_1224746544 = nimCopy(null, Temporary4.str, NTI33554439);
         Label5: do {
-          var word_1224746442 = translate_1627389991(7, HEX3Aanonymous_1224746408());
+          var word_1224746581 = translate_1627389991(7, HEX3Aanonymous_1224746547());
           switch (doc_1224738382.target) {
           case 0:
-            if (isSome_1811939668(name_1224746400)) {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)"), [nimCopy(null, word_1224746442, NTI33554439), nimCopy(null, get_1811939703(name_1224746400), NTI33554439)]);
+            if (isSome_1811939668(name_1224746539)) {
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)"), [nimCopy(null, word_1224746581, NTI33554439), nimCopy(null, get_1811939703(name_1224746539), NTI33554439)]);
             }
             else {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1"), [nimCopy(null, word_1224746442, NTI33554439)]);
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1"), [nimCopy(null, word_1224746581, NTI33554439)]);
             }
             
-            Temporary6 = (makeNimstrLit("<details class=\"xd-spoiler\"><summary><strong>") || []).concat(Temporary7 || [],makeNimstrLit("</strong></summary>") || [],content_1224746405 || [],makeNimstrLit("</details>") || []);
+            Temporary6 = (makeNimstrLit("<details class=\"xd-spoiler\"><summary><strong>") || []).concat(Temporary7 || [],makeNimstrLit("</strong></summary>") || [],content_1224746544 || [],makeNimstrLit("</details>") || []);
             break;
           case 1:
             incl_1845495857(doc_1224738382.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-            incl_1845495857(doc_1224738382.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("spoilersolution"), nimCopy(null, word_1224746442, NTI33554439)]));
-            Temporary6 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("spoilersolution"), nimCopy(null, content_1224746405, NTI33554439)]);
+            incl_1845495857(doc_1224738382.addToHead, nsuFormatOpenArray(makeNimstrLit("\\newtheorem{$1}{$2}[section]"), [makeNimstrLit("spoilersolution"), nimCopy(null, word_1224746581, NTI33554439)]));
+            Temporary6 = nsuFormatOpenArray(makeNimstrLit("\\begin{$1}$2\x1Bnd{$1}"), [makeNimstrLit("spoilersolution"), nimCopy(null, content_1224746544, NTI33554439)]);
             break;
           case 2:
             raiseException({message: makeNimstrLit("The spoiler-solution command is not supported in the Gemtext backend"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
             break;
           }
         } while (false);
-        result_1224746377 = nimCopy(result_1224746377, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
+        result_1224746516 = nimCopy(result_1224746516, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746377;
+      return result_1224746516;
 
     }
     
-function HEX3Aanonymous_1224746563(arg_1224746557) {
+function HEX3Aanonymous_1224746702(arg_1224746696) {
           var Temporary1;
 
-      var result_1224746564 = ({typ: 0, str: [], list: []});
+      var result_1224746703 = ({typ: 0, str: [], list: []});
 
-        var arg_1224746565 = nsuStrip(arg_1224746557, true, true, ConstSet442);
+        var arg_1224746704 = nsuStrip(arg_1224746696, true, true, ConstSet444);
         switch (doc_1224738382.target) {
         case 0:
           HEX5BHEX5D_1811939673(doc_1224738382.stack, 1).commands = nimCopy(HEX5BHEX5D_1811939673(doc_1224738382.stack, 1).commands, cssCommands_1811939337(doc_1224738382), NTI1610612764);
           var Temporary1 = doc_1224738382;
-          if (ConstSet451[Temporary1.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary1.target, NTI1610612739)); }
-          incl_1845495857(Temporary1.addToStyle, expandStr_1308623222(doc_1224738382, arg_1224746565));
+          if (ConstSet453[Temporary1.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary1.target, NTI1610612739)); }
+          incl_1845495857(Temporary1.addToStyle, expandStr_1308623222(doc_1224738382, arg_1224746704));
           break;
         default: 
           break;
         }
-        result_1224746564 = nimCopy(result_1224746564, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
+        result_1224746703 = nimCopy(result_1224746703, {typ: 1, str: nimCopy(null, [], NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746564;
+      return result_1224746703;
 
     }
     
-function HEX3Aanonymous_1224746646(arg_1224746639) {
+function HEX3Aanonymous_1224746785(arg_1224746778) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
         var Temporary4;
           var Temporary6;
 
-      var result_1224746647 = ({typ: 0, str: [], list: []});
+      var result_1224746786 = ({typ: 0, str: [], list: []});
 
-        var args_1224746640 = parseXidocArguments_1325404692(arg_1224746639);
-          if (((args_1224746640).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746640).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("table"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746640).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224746779 = parseXidocArguments_1325404692(arg_1224746778);
+          if (((args_1224746779).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746779).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("table"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746779).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224746640).length, 1))) {
-        var Temporary3 = expand_1308622879(doc_1224738382, args_1224746640[chckIndx(0, 0, (args_1224746640).length - 1)], 0);
-        if (ConstSet452[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if ((0 < subInt((args_1224746779).length, 1))) {
+        var Temporary3 = expand_1308622879(doc_1224738382, args_1224746779[chckIndx(0, 0, (args_1224746779).length - 1)], 0);
+        if (ConstSet454[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         Temporary2 = some_1811939650(Temporary3.str);
         }
         else {
         Temporary2 = none_1811939655();
         }
         
-        var spec_1224746670 = nimCopy(null, Temporary2, NTI1610612790);
-        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224746640, 1), 1);
-        if (ConstSet453[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
-        var content_1224746675 = nimCopy(null, Temporary4.str, NTI33554439);
+        var spec_1224746809 = nimCopy(null, Temporary2, NTI1610612790);
+        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224746779, 1), 1);
+        if (ConstSet455[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
+        var content_1224746814 = nimCopy(null, Temporary4.str, NTI33554439);
         Label5: do {
           switch (doc_1224738382.target) {
           case 0:
-            Temporary6 = (makeNimstrLit("<table>") || []).concat(content_1224746675 || [],makeNimstrLit("</table>") || []);
+            Temporary6 = (makeNimstrLit("<table>") || []).concat(content_1224746814 || [],makeNimstrLit("</table>") || []);
             break;
           case 1:
-            if (isNone_1811939711(spec_1224746670)) {
+            if (isNone_1811939711(spec_1224746809)) {
             raiseException({message: makeNimstrLit("Tables in LaTeX currently require a spec"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
             }
             
             incl_1845495857(doc_1224738382.addToHead, makeNimstrLit("\\usepackage{booktabs}"));
-            Temporary6 = nsuFormatOpenArray(makeNimstrLit("\\begin{table}{$1}\\toprule $2\\bottomrule\\end{table}"), [nimCopy(null, get_1811939703(spec_1224746670), NTI33554439), nimCopy(null, content_1224746675, NTI33554439)]);
+            Temporary6 = nsuFormatOpenArray(makeNimstrLit("\\begin{table}{$1}\\toprule $2\\bottomrule\\end{table}"), [nimCopy(null, get_1811939703(spec_1224746809), NTI33554439), nimCopy(null, content_1224746814, NTI33554439)]);
             break;
           case 2:
             raiseException({message: makeNimstrLit("Tables are currently not supported in the Gemtext backend"), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
             break;
           }
         } while (false);
-        result_1224746647 = nimCopy(result_1224746647, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
+        result_1224746786 = nimCopy(result_1224746786, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746647;
+      return result_1224746786;
 
     }
     
-function HEX3Aanonymous_1224746773(arg_1224746767) {
+function HEX3Aanonymous_1224746912(arg_1224746906) {
         var Temporary1;
         var Temporary2;
         var Temporary4;
         var Temporary5;
 
-      var result_1224746774 = ({typ: 0, str: [], list: []});
+      var result_1224746913 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224746767, true, true, ConstSet455), 1);
-        if (ConstSet454[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224746775 = nimCopy(null, Temporary1.str, NTI33554439);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224746906, true, true, ConstSet457), 1);
+        if (ConstSet456[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224746914 = nimCopy(null, Temporary1.str, NTI33554439);
 ++excHandler;
         Temporary4 = framePtr;
         try {
-        Temporary2 = (Temporary5 = HEX5BHEX5D_1761608104(doc_1224738382.templateArgs, arg_1224746775), Temporary5)[0][Temporary5[1]];
+        Temporary2 = (Temporary5 = HEX5BHEX5D_1761608104(doc_1224738382.templateArgs, arg_1224746914), Temporary5)[0][Temporary5[1]];
 --excHandler;
 } catch (EXCEPTION) {
  var prevJSError = lastJSError;
@@ -16150,10 +16228,10 @@ function HEX3Aanonymous_1224746773(arg_1224746767) {
  --excHandler;
         framePtr = Temporary4;
         if (lastJSError && (isObj(lastJSError.m_type, NTI33555126))) {
-        var fmtRes_1224746838 = [mnewString(0)];
-        fmtRes_1224746838[0].push.apply(fmtRes_1224746838[0], makeNimstrLit("Template argument not found: "));;
-        formatValue_1644167330(fmtRes_1224746838, 0, arg_1224746775, []);
-        raiseException({message: nimCopy(null, fmtRes_1224746838[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var fmtRes_1224746977 = [mnewString(0)];
+        fmtRes_1224746977[0].push.apply(fmtRes_1224746977[0], makeNimstrLit("Template argument not found: "));;
+        formatValue_1644167330(fmtRes_1224746977, 0, arg_1224746914, []);
+        raiseException({message: nimCopy(null, fmtRes_1224746977[0], NTI33554439), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         else {
         	reraiseException();
@@ -16162,69 +16240,69 @@ function HEX3Aanonymous_1224746773(arg_1224746767) {
         } finally {
         framePtr = Temporary4;
         }
-        result_1224746774 = nimCopy(result_1224746774, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
+        result_1224746913 = nimCopy(result_1224746913, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746774;
+      return result_1224746913;
 
     }
     
-function HEX3Aanonymous_1224746891(arg_1224746885) {
+function HEX3Aanonymous_1224747030(arg_1224747024) {
         var Temporary1;
         var Temporary2;
 
-      var result_1224746892 = ({typ: 0, str: [], list: []});
+      var result_1224747031 = ({typ: 0, str: [], list: []});
 
-        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224746885, true, true, ConstSet457), 1);
-        if (ConstSet456[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-        var arg_1224746893 = nimCopy(null, Temporary1.str, NTI33554439);
+        var Temporary1 = expand_1308622879(doc_1224738382, nsuStrip(arg_1224747024, true, true, ConstSet459), 1);
+        if (ConstSet458[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+        var arg_1224747032 = nimCopy(null, Temporary1.str, NTI33554439);
         switch (doc_1224738382.target) {
         case 0:
-          Temporary2 = (makeNimstrLit("<dfn>") || []).concat(arg_1224746893 || [],makeNimstrLit("</dfn>") || []);
+          Temporary2 = (makeNimstrLit("<dfn>") || []).concat(arg_1224747032 || [],makeNimstrLit("</dfn>") || []);
           break;
         case 1:
-          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\\textit{$1}"), arg_1224746893);
+          Temporary2 = nsuFormatSingleElem(makeNimstrLit("\\textit{$1}"), arg_1224747032);
           break;
         case 2:
-          Temporary2 = arg_1224746893;
+          Temporary2 = arg_1224747032;
           break;
         }
-        result_1224746892 = nimCopy(result_1224746892, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
+        result_1224747031 = nimCopy(result_1224747031, {typ: 1, str: nimCopy(null, Temporary2, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746892;
+      return result_1224747031;
 
     }
     
-function HEX3Aanonymous_1224746953(arg_1224746946) {
+function HEX3Aanonymous_1224747092(arg_1224747085) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
           
-function HEX3Aanonymous_1224746986() {
-            var result_1224746987 = 0;
+function HEX3Aanonymous_1224747125() {
+            var result_1224747126 = 0;
 
             BeforeRet: do {
               Label1: do {
-                var iHEX60gensym605_1224746996 = 0;
-                var colontmp__486540122 = 0;
-                colontmp__486540122 = subInt((doc_1224738382.stack).length, 1);
-                var res_486540123 = colontmp__486540122;
+                var iHEX60gensym621_1224747135 = 0;
+                var colontmp__486540132 = 0;
+                colontmp__486540132 = subInt((doc_1224738382.stack).length, 1);
+                var res_486540133 = colontmp__486540132;
                 Label2: do {
                     Label3: while (true) {
-                    if (!(0 <= res_486540123)) break Label3;
-                      iHEX60gensym605_1224746996 = res_486540123;
-                      var frameHEX60gensym605_1224746997 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym605_1224746996, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
-                      if (isSome_1224738885(frameHEX60gensym605_1224746997.lang)) {
-                      result_1224746987 = get_1224738902(frameHEX60gensym605_1224746997.lang);
+                    if (!(0 <= res_486540133)) break Label3;
+                      iHEX60gensym621_1224747135 = res_486540133;
+                      var frameHEX60gensym621_1224747136 = nimCopy(null, doc_1224738382.stack[chckIndx(iHEX60gensym621_1224747135, 0, (doc_1224738382.stack).length - 1)], NTI1610612745);
+                      if (isSome_1224738885(frameHEX60gensym621_1224747136.lang)) {
+                      result_1224747126 = get_1224738902(frameHEX60gensym621_1224747136.lang);
                       break BeforeRet;
                       }
                       
-                      res_486540123 = subInt(res_486540123, 1);
+                      res_486540133 = subInt(res_486540133, 1);
                     }
                 } while (false);
               } while (false);
             } while (false);
 
-            return result_1224746987;
+            return result_1224747126;
 
           }
           var Temporary5;
@@ -16232,183 +16310,183 @@ function HEX3Aanonymous_1224746986() {
             var Temporary7;
             var Temporary8;
 
-      var result_1224746954 = ({typ: 0, str: [], list: []});
+      var result_1224747093 = ({typ: 0, str: [], list: []});
 
-        var args_1224746947 = parseXidocArguments_1325404692(arg_1224746946);
-          if (((args_1224746947).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224746947).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("theorem"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224746947).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224747086 = parseXidocArguments_1325404692(arg_1224747085);
+          if (((args_1224747086).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224747086).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("theorem"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224747086).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224746947).length, 1))) {
-        var Temporary3 = expand_1308622879(doc_1224738382, args_1224746947[chckIndx(0, 0, (args_1224746947).length - 1)], 1);
-        if (ConstSet458[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if ((0 < subInt((args_1224747086).length, 1))) {
+        var Temporary3 = expand_1308622879(doc_1224738382, args_1224747086[chckIndx(0, 0, (args_1224747086).length - 1)], 1);
+        if (ConstSet460[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         Temporary2 = some_1811939650(Temporary3.str);
         }
         else {
         Temporary2 = none_1811939655();
         }
         
-        var thName_1224746977 = nimCopy(null, Temporary2, NTI1610612790);
-        var content_1224746982 = HEX5BHEX5D_1811939366(args_1224746947, 1);
+        var thName_1224747116 = nimCopy(null, Temporary2, NTI1610612790);
+        var content_1224747121 = HEX5BHEX5D_1811939366(args_1224747086, 1);
         Label4: do {
-          var contentHEX60gensym592_1224746983 = renderStr_1308623226(doc_1224738382, content_1224746982);
-          var wordHEX60gensym592_1224747020 = translate_1627389991(8, HEX3Aanonymous_1224746986());
+          var contentHEX60gensym608_1224747122 = renderStr_1308623226(doc_1224738382, content_1224747121);
+          var wordHEX60gensym608_1224747159 = translate_1627389991(8, HEX3Aanonymous_1224747125());
           switch (doc_1224738382.target) {
           case 0:
             var Temporary6 = doc_1224738382;
-            if (ConstSet459[Temporary6.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary6.target, NTI1610612739)); }
+            if (ConstSet461[Temporary6.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary6.target, NTI1610612739)); }
             incl_1845495857(Temporary6.addToStyle, makeNimstrLit(".xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}"));
-            var fmtRes_1224747044 = mnewString(0);
-            fmtRes_1224747044.push.apply(fmtRes_1224747044, makeNimstrLit("xd-theorem-like xd-$1"));;
-            if (isSome_1811939668(thName_1224746977)) {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)."), [nimCopy(null, wordHEX60gensym592_1224747020, NTI33554439), nimCopy(null, get_1811939703(thName_1224746977), NTI33554439)]);
+            var fmtRes_1224747183 = mnewString(0);
+            fmtRes_1224747183.push.apply(fmtRes_1224747183, makeNimstrLit("xd-theorem-like xd-$1"));;
+            if (isSome_1811939668(thName_1224747116)) {
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)."), [nimCopy(null, wordHEX60gensym608_1224747159, NTI33554439), nimCopy(null, get_1811939703(thName_1224747116), NTI33554439)]);
             }
             else {
-            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1."), [nimCopy(null, wordHEX60gensym592_1224747020, NTI33554439)]);
+            Temporary7 = nsuFormatOpenArray(makeNimstrLit("$1."), [nimCopy(null, wordHEX60gensym608_1224747159, NTI33554439)]);
             }
             
-            Temporary5 = (makeNimstrLit("<div class=\"") || []).concat(nsuFormatSingleElem(fmtRes_1224747044, makeNimstrLit("theorem")) || [],makeNimstrLit("\"><strong>") || [],Temporary7 || [],makeNimstrLit("</strong> ") || [],nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym592_1224746983) || [],makeNimstrLit("</div>") || []);
+            Temporary5 = (makeNimstrLit("<div class=\"") || []).concat(nsuFormatSingleElem(fmtRes_1224747183, makeNimstrLit("theorem")) || [],makeNimstrLit("\"><strong>") || [],Temporary7 || [],makeNimstrLit("</strong> ") || [],nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym608_1224747122) || [],makeNimstrLit("</div>") || []);
             break;
           case 1:
             incl_1845495857(doc_1224738382.addToHead, makeNimstrLit("\\usepackage{amsthm}"));
-            incl_1845495857(doc_1224738382.addToHead, nsuFormatOpenArray(makeNimstrLit("\\theoremstyle{definition}\\newtheorem*{XD$1}{$2}"), [makeNimstrLit("theorem"), nimCopy(null, wordHEX60gensym592_1224747020, NTI33554439)]));
-            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\begin{XD$1}$2\\end{XD$1}"), [makeNimstrLit("theorem"), nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym592_1224746983)]);
+            incl_1845495857(doc_1224738382.addToHead, nsuFormatOpenArray(makeNimstrLit("\\theoremstyle{definition}\\newtheorem*{XD$1}{$2}"), [makeNimstrLit("theorem"), nimCopy(null, wordHEX60gensym608_1224747159, NTI33554439)]));
+            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\\begin{XD$1}$2\\end{XD$1}"), [makeNimstrLit("theorem"), nsuFormatSingleElem(makeNimstrLit("$1"), contentHEX60gensym608_1224747122)]);
             break;
           case 2:
-            if (isSome_1811939668(thName_1224746977)) {
-            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)"), [nimCopy(null, wordHEX60gensym592_1224747020, NTI33554439), nimCopy(null, get_1811939703(thName_1224746977), NTI33554439)]);
+            if (isSome_1811939668(thName_1224747116)) {
+            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1 ($2)"), [nimCopy(null, wordHEX60gensym608_1224747159, NTI33554439), nimCopy(null, get_1811939703(thName_1224747116), NTI33554439)]);
             }
             else {
-            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1"), [nimCopy(null, wordHEX60gensym592_1224747020, NTI33554439)]);
+            Temporary8 = nsuFormatOpenArray(makeNimstrLit("$1"), [nimCopy(null, wordHEX60gensym608_1224747159, NTI33554439)]);
             }
             
-            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1. $2"), [nimCopy(null, Temporary8, NTI33554439), nimCopy(null, contentHEX60gensym592_1224746983, NTI33554439)]);
+            Temporary5 = nsuFormatOpenArray(makeNimstrLit("\x0A\x0A$1. $2"), [nimCopy(null, Temporary8, NTI33554439), nimCopy(null, contentHEX60gensym608_1224747122, NTI33554439)]);
             break;
           }
         } while (false);
-        result_1224746954 = nimCopy(result_1224746954, {typ: 1, str: nimCopy(null, Temporary5, NTI33554439), list: []}, NTI1610612742);
+        result_1224747093 = nimCopy(result_1224747093, {typ: 1, str: nimCopy(null, Temporary5, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224746954;
+      return result_1224747093;
 
     }
     
-function HEX3Aanonymous_1224747188(arg_1224747181) {
+function HEX3Aanonymous_1224747327(arg_1224747320) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
         var Temporary4;
           var Temporary6;
             
-function HEX3Aanonymous_1224747241(author_1224747252) {
-              var result_1224747255 = [];
+function HEX3Aanonymous_1224747380(author_1224747391) {
+              var result_1224747394 = [];
 
-                result_1224747255 = nimCopy(null, (makeNimstrLit("<address>") || []).concat(author_1224747252 || [],makeNimstrLit("</address>") || []), NTI33554439);
+                result_1224747394 = nimCopy(null, (makeNimstrLit("<address>") || []).concat(author_1224747391 || [],makeNimstrLit("</address>") || []), NTI33554439);
 
-              return result_1224747255;
+              return result_1224747394;
 
             }
 
-      var result_1224747189 = ({typ: 0, str: [], list: []});
+      var result_1224747328 = ({typ: 0, str: [], list: []});
 
-        var args_1224747182 = parseXidocArguments_1325404692(arg_1224747181);
-          if (((args_1224747182).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224747182).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("title"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224747182).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224747321 = parseXidocArguments_1325404692(arg_1224747320);
+          if (((args_1224747321).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224747321).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("title"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224747321).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        var Temporary2 = expand_1308622879(doc_1224738382, args_1224747182[chckIndx(0, 0, (args_1224747182).length - 1)], 1);
-        if (ConstSet460[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
-        var title_1224747199 = nimCopy(null, Temporary2.str, NTI33554439);
-        if ((0 < subInt((args_1224747182).length, 1))) {
-        var Temporary4 = expand_1308622879(doc_1224738382, args_1224747182[chckIndx(1, 0, (args_1224747182).length - 1)], 1);
-        if (ConstSet461[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
+        var Temporary2 = expand_1308622879(doc_1224738382, args_1224747321[chckIndx(0, 0, (args_1224747321).length - 1)], 1);
+        if (ConstSet462[Temporary2.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary2.typ, NTI1610612741)); }
+        var title_1224747338 = nimCopy(null, Temporary2.str, NTI33554439);
+        if ((0 < subInt((args_1224747321).length, 1))) {
+        var Temporary4 = expand_1308622879(doc_1224738382, args_1224747321[chckIndx(1, 0, (args_1224747321).length - 1)], 1);
+        if (ConstSet463[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
         Temporary3 = some_1811939650(Temporary4.str);
         }
         else {
         Temporary3 = none_1811939655();
         }
         
-        var author_1224747213 = nimCopy(null, Temporary3, NTI1610612790);
+        var author_1224747352 = nimCopy(null, Temporary3, NTI1610612790);
         Label5: do {
           switch (doc_1224738382.target) {
           case 0:
-            incl_1845495857(doc_1224738382.addToHead, (makeNimstrLit("<title>") || []).concat(title_1224747199 || [],makeNimstrLit("</title>") || []));
-            Temporary6 = (makeNimstrLit("<h1>") || []).concat(title_1224747199 || [],makeNimstrLit("</h1>") || [],get_1828716815(map_1224740472(author_1224747213, HEX3Aanonymous_1224747241), []) || []);
+            incl_1845495857(doc_1224738382.addToHead, (makeNimstrLit("<title>") || []).concat(title_1224747338 || [],makeNimstrLit("</title>") || []));
+            Temporary6 = (makeNimstrLit("<h1>") || []).concat(title_1224747338 || [],makeNimstrLit("</h1>") || [],get_1828716815(map_1224740472(author_1224747352, HEX3Aanonymous_1224747380), []) || []);
             break;
           case 1:
-            incl_1845495857(doc_1224738382.addToHead, nsuFormatSingleElem(makeNimstrLit("\\title{$1}"), title_1224747199));
-            if (isSome_1811939668(author_1224747213)) {
-            incl_1845495857(doc_1224738382.addToHead, nsuFormatSingleElem(makeNimstrLit("\\author{$1}"), get_1811939703(author_1224747213)));
+            incl_1845495857(doc_1224738382.addToHead, nsuFormatSingleElem(makeNimstrLit("\\title{$1}"), title_1224747338));
+            if (isSome_1811939668(author_1224747352)) {
+            incl_1845495857(doc_1224738382.addToHead, nsuFormatSingleElem(makeNimstrLit("\\author{$1}"), get_1811939703(author_1224747352)));
             }
             
             Temporary6 = makeNimstrLit("\\maketitle");
             break;
           case 2:
-            Temporary6 = nsuFormatSingleElem(makeNimstrLit("# $1\x0A\x0A"), title_1224747199);
+            Temporary6 = nsuFormatSingleElem(makeNimstrLit("# $1\x0A\x0A"), title_1224747338);
             break;
           }
         } while (false);
-        result_1224747189 = nimCopy(result_1224747189, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
+        result_1224747328 = nimCopy(result_1224747328, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224747189;
+      return result_1224747328;
 
     }
     
-function HEX3Aanonymous_1224747404(arg_1224747397) {
+function HEX3Aanonymous_1224747543(arg_1224747536) {
           var Temporary1;
         var Temporary2;
         var Temporary3;
         var Temporary4;
           var Temporary6;
 
-      var result_1224747405 = ({typ: 0, str: [], list: []});
+      var result_1224747544 = ({typ: 0, str: [], list: []});
 
-        var args_1224747398 = parseXidocArguments_1325404692(arg_1224747397);
-          if (((args_1224747398).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224747398).length);          }        if (Temporary1) {
-        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("unit"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224747398).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+        var args_1224747537 = parseXidocArguments_1325404692(arg_1224747536);
+          if (((args_1224747537).length < 1)) Temporary1 = true; else {            Temporary1 = (2 < (args_1224747537).length);          }        if (Temporary1) {
+        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 and at most $3 arguments, $4 given"), [makeNimstrLit("unit"), makeNimstrLit("1"), makeNimstrLit("2"), HEX24_335544323((args_1224747537).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
-        if ((0 < subInt((args_1224747398).length, 1))) {
-        var Temporary3 = expand_1308622879(doc_1224738382, args_1224747398[chckIndx(0, 0, (args_1224747398).length - 1)], 1);
-        if (ConstSet462[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
+        if ((0 < subInt((args_1224747537).length, 1))) {
+        var Temporary3 = expand_1308622879(doc_1224738382, args_1224747537[chckIndx(0, 0, (args_1224747537).length - 1)], 1);
+        if (ConstSet464[Temporary3.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary3.typ, NTI1610612741)); }
         Temporary2 = some_1811939650(Temporary3.str);
         }
         else {
         Temporary2 = none_1811939655();
         }
         
-        var number_1224747428 = nimCopy(null, Temporary2, NTI1610612790);
-        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224747398, 1), 1);
-        if (ConstSet463[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
-        var unit_1224747433 = nimCopy(null, Temporary4.str, NTI33554439);
+        var number_1224747567 = nimCopy(null, Temporary2, NTI1610612790);
+        var Temporary4 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224747537, 1), 1);
+        if (ConstSet465[Temporary4.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary4.typ, NTI1610612741)); }
+        var unit_1224747572 = nimCopy(null, Temporary4.str, NTI33554439);
         Label5: do {
-          if (isSome_1811939668(number_1224747428)) {
-          Temporary6 = (get_1811939703(number_1224747428) || []).concat(makeNimstrLit("\xE2\x80\x89") || [],unit_1224747433 || []);
+          if (isSome_1811939668(number_1224747567)) {
+          Temporary6 = (get_1811939703(number_1224747567) || []).concat(makeNimstrLit("\xE2\x80\x89") || [],unit_1224747572 || []);
           }
           else {
-          Temporary6 = unit_1224747433;
+          Temporary6 = unit_1224747572;
           }
           
         } while (false);
-        result_1224747405 = nimCopy(result_1224747405, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
+        result_1224747544 = nimCopy(result_1224747544, {typ: 1, str: nimCopy(null, Temporary6, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224747405;
+      return result_1224747544;
 
     }
     
-function HEX3Aanonymous_1224747508(arg_1224747502) {
+function HEX3Aanonymous_1224747647(arg_1224747641) {
         var Temporary1;
           var Temporary2;
 
-      var result_1224747509 = ({typ: 0, str: [], list: []});
+      var result_1224747648 = ({typ: 0, str: [], list: []});
 
-        if (!(eqStrings(arg_1224747502, []))) {
+        if (!(eqStrings(arg_1224747641, []))) {
         raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 must be called without an argument"), [makeNimstrLit("xidoc")]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
         }
         
         switch (doc_1224738382.target) {
         case 0:
           var Temporary2 = doc_1224738382;
-          if (ConstSet464[Temporary2.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary2.target, NTI1610612739)); }
+          if (ConstSet466[Temporary2.target]===undefined) { raiseFieldError2(makeNimstrLit("field \'addToStyle\' is not accessible for type \'Document\' using \'target = "), reprDiscriminant(Temporary2.target, NTI1610612739)); }
           incl_1845495857(Temporary2.addToStyle, makeNimstrLit(".xd-logo{color:#d0c;font-weight:bold}"));
           Temporary1 = makeNimstrLit("<span class=\"xd-logo\">\xCE\xBE</span>");
           break;
@@ -16420,97 +16498,97 @@ function HEX3Aanonymous_1224747508(arg_1224747502) {
           Temporary1 = makeNimstrLit("[\xCE\xBE]");
           break;
         }
-        result_1224747509 = nimCopy(result_1224747509, {typ: 1, str: nimCopy(null, Temporary1, NTI33554439), list: []}, NTI1610612742);
+        result_1224747648 = nimCopy(result_1224747648, {typ: 1, str: nimCopy(null, Temporary1, NTI33554439), list: []}, NTI1610612742);
 
-      return result_1224747509;
+      return result_1224747648;
 
     }
 
-function generateHtmlTag_1224747602(tag_1224747603, args_1224747604, body_1224747605, paired_1224747606) {
+function generateHtmlTag_1224747741(tag_1224747742, args_1224747743, body_1224747744, paired_1224747745) {
     var Temporary5;
 
-  var result_1224747607 = [];
+  var result_1224747746 = [];
 
-    var attrs_1224747615 = newSeq_452985301(0);
-    var classes_1224747623 = newSeq_452985301(0);
+    var attrs_1224747754 = newSeq_452985301(0);
+    var classes_1224747762 = newSeq_452985301(0);
     Label1: do {
-      var arg_1224747627 = [];
-      var i_486540126 = 0;
-      var L_486540127 = (args_1224747604).length;
+      var arg_1224747766 = [];
+      var i_486540136 = 0;
+      var L_486540137 = (args_1224747743).length;
       Label2: do {
           Label3: while (true) {
-          if (!(i_486540126 < L_486540127)) break Label3;
-            arg_1224747627 = args_1224747604[chckIndx(i_486540126, 0, (args_1224747604).length - 1)];
-            if (nsuStartsWith(arg_1224747627, makeNimstrLit("#"))) {
-            attrs_1224747615.push(nsuFormatSingleElem(makeNimstrLit("id=\"$1\""), HEX5BHEX5D_939527322(arg_1224747627, HEX2EHEX2E_872415312(1, 1))));;
+          if (!(i_486540136 < L_486540137)) break Label3;
+            arg_1224747766 = args_1224747743[chckIndx(i_486540136, 0, (args_1224747743).length - 1)];
+            if (nsuStartsWith(arg_1224747766, makeNimstrLit("#"))) {
+            attrs_1224747754.push(nsuFormatSingleElem(makeNimstrLit("id=\"$1\""), HEX5BHEX5D_939527322(arg_1224747766, HEX2EHEX2E_872415312(1, 1))));;
             }
             else {
-            if (nsuStartsWith(arg_1224747627, makeNimstrLit("."))) {
-            classes_1224747623.push(HEX5BHEX5D_939527322(arg_1224747627, HEX2EHEX2E_872415312(1, 1)));;
+            if (nsuStartsWith(arg_1224747766, makeNimstrLit("."))) {
+            classes_1224747762.push(HEX5BHEX5D_939527322(arg_1224747766, HEX2EHEX2E_872415312(1, 1)));;
             }
             else {
-              var Temporary4 = nimCopy(null, arg_1224747627, NTI33554439);
-            attrs_1224747615.push(Temporary4);;
+              var Temporary4 = nimCopy(null, arg_1224747766, NTI33554439);
+            attrs_1224747754.push(Temporary4);;
             }
             }
-            i_486540126 = addInt(i_486540126, 1);
-            if (!(((args_1224747604).length == L_486540127))) {
+            i_486540136 = addInt(i_486540136, 1);
+            if (!(((args_1224747743).length == L_486540137))) {
             failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
             
           }
       } while (false);
     } while (false);
-    if (!(((classes_1224747623).length == 0))) {
-    attrs_1224747615.push(nsuFormatSingleElem(makeNimstrLit("class=\"$1\""), nsuJoinSep(classes_1224747623, makeNimstrLit(" "))));;
+    if (!(((classes_1224747762).length == 0))) {
+    attrs_1224747754.push(nsuFormatSingleElem(makeNimstrLit("class=\"$1\""), nsuJoinSep(classes_1224747762, makeNimstrLit(" "))));;
     }
     
-    if (paired_1224747606) {
-    Temporary5 = nsuFormatOpenArray(makeNimstrLit("<$1>$2</$3>"), [nsuJoinSep(HEX26_1224747687([nimCopy(null, tag_1224747603, NTI33554439)], attrs_1224747615), makeNimstrLit(" ")), nimCopy(null, body_1224747605, NTI33554439), nimCopy(null, tag_1224747603, NTI33554439)]);
+    if (paired_1224747745) {
+    Temporary5 = nsuFormatOpenArray(makeNimstrLit("<$1>$2</$3>"), [nsuJoinSep(HEX26_1224747826([nimCopy(null, tag_1224747742, NTI33554439)], attrs_1224747754), makeNimstrLit(" ")), nimCopy(null, body_1224747744, NTI33554439), nimCopy(null, tag_1224747742, NTI33554439)]);
     }
     else {
-    Temporary5 = nsuFormatOpenArray(makeNimstrLit("<$1 />"), [nsuJoinSep(HEX26_1224747687([nimCopy(null, tag_1224747603, NTI33554439)], attrs_1224747615), makeNimstrLit(" "))]);
+    Temporary5 = nsuFormatOpenArray(makeNimstrLit("<$1 />"), [nsuJoinSep(HEX26_1224747826([nimCopy(null, tag_1224747742, NTI33554439)], attrs_1224747754), makeNimstrLit(" "))]);
     }
     
-    result_1224747607 = nimCopy(null, Temporary5, NTI33554439);
+    result_1224747746 = nimCopy(null, Temporary5, NTI33554439);
 
-  return result_1224747607;
+  return result_1224747746;
 
 }
       
-function HEX3Aanonymous_1224747736(arg_1224747729) {
+function HEX3Aanonymous_1224747875(arg_1224747868) {
           var Temporary1;
                     var Temporary6;
           var Temporary7;
 
-        var result_1224747737 = ({typ: 0, str: [], list: []});
+        var result_1224747876 = ({typ: 0, str: [], list: []});
 
-          var args_1224747730 = parseXidocArguments_1325404692(arg_1224747729);
-          if (((args_1224747730).length < 2)) {
-          raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("<>"), makeNimstrLit("2"), HEX24_335544323((args_1224747730).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          var args_1224747869 = parseXidocArguments_1325404692(arg_1224747868);
+          if (((args_1224747869).length < 2)) {
+          raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("<>"), makeNimstrLit("2"), HEX24_335544323((args_1224747869).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           }
           
-          var Temporary1 = expand_1308622879(doc_1224738382, args_1224747730[chckIndx(0, 0, (args_1224747730).length - 1)], 0);
-          if (ConstSet465[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-          var tag_1224747744 = nimCopy(null, Temporary1.str, NTI33554439);
+          var Temporary1 = expand_1308622879(doc_1224738382, args_1224747869[chckIndx(0, 0, (args_1224747869).length - 1)], 0);
+          if (ConstSet467[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+          var tag_1224747883 = nimCopy(null, Temporary1.str, NTI33554439);
           Label2: do {
-            var HEX3Atmp_1224747779 = HEX5BHEX5D_1224742513(args_1224747730, HEX2EHEX2E_872415312(1, 2));
-            var iHEX60gensym654_1224747782 = 0;
-            var resultHEX60gensym654_1224747789 = newSeq_452985301(chckRange((HEX3Atmp_1224747779).length, 0, 2147483647));
+            var HEX3Atmp_1224747918 = HEX5BHEX5D_1224742513(args_1224747869, HEX2EHEX2E_872415312(1, 2));
+            var iHEX60gensym670_1224747921 = 0;
+            var resultHEX60gensym670_1224747928 = newSeq_452985301(chckRange((HEX3Atmp_1224747918).length, 0, 2147483647));
             Label3: do {
-              var it_1224747793 = [];
-              var i_486539785 = 0;
-              var L_486539786 = (HEX3Atmp_1224747779).length;
+              var it_1224747932 = [];
+              var i_486539795 = 0;
+              var L_486539796 = (HEX3Atmp_1224747918).length;
               Label4: do {
                   Label5: while (true) {
-                  if (!(i_486539785 < L_486539786)) break Label5;
-                    it_1224747793 = HEX3Atmp_1224747779[chckIndx(i_486539785, 0, (HEX3Atmp_1224747779).length - 1)];
-                    var Temporary6 = expand_1308622879(doc_1224738382, it_1224747793, 0);
-                    if (ConstSet466[Temporary6.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary6.typ, NTI1610612741)); }
-                    resultHEX60gensym654_1224747789[chckIndx(iHEX60gensym654_1224747782, 0, (resultHEX60gensym654_1224747789).length - 1)] = nimCopy(null, Temporary6.str, NTI33554439);
-                    iHEX60gensym654_1224747782 = addInt(iHEX60gensym654_1224747782, 1);
-                    i_486539785 = addInt(i_486539785, 1);
-                    if (!(((HEX3Atmp_1224747779).length == L_486539786))) {
+                  if (!(i_486539795 < L_486539796)) break Label5;
+                    it_1224747932 = HEX3Atmp_1224747918[chckIndx(i_486539795, 0, (HEX3Atmp_1224747918).length - 1)];
+                    var Temporary6 = expand_1308622879(doc_1224738382, it_1224747932, 0);
+                    if (ConstSet468[Temporary6.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary6.typ, NTI1610612741)); }
+                    resultHEX60gensym670_1224747928[chckIndx(iHEX60gensym670_1224747921, 0, (resultHEX60gensym670_1224747928).length - 1)] = nimCopy(null, Temporary6.str, NTI33554439);
+                    iHEX60gensym670_1224747921 = addInt(iHEX60gensym670_1224747921, 1);
+                    i_486539795 = addInt(i_486539795, 1);
+                    if (!(((HEX3Atmp_1224747918).length == L_486539796))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -16518,49 +16596,49 @@ function HEX3Aanonymous_1224747736(arg_1224747729) {
               } while (false);
             } while (false);
           } while (false);
-          var args_1224747798 = nimCopy(null, resultHEX60gensym654_1224747789, NTI452985127);
-          var Temporary7 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224747730, 1), 1);
-          if (ConstSet467[Temporary7.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary7.typ, NTI1610612741)); }
-          var body_1224747803 = nimCopy(null, Temporary7.str, NTI33554439);
+          var args_1224747937 = nimCopy(null, resultHEX60gensym670_1224747928, NTI452985127);
+          var Temporary7 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224747869, 1), 1);
+          if (ConstSet469[Temporary7.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary7.typ, NTI1610612741)); }
+          var body_1224747942 = nimCopy(null, Temporary7.str, NTI33554439);
           Label8: do {
           } while (false);
-          result_1224747737 = nimCopy(result_1224747737, {typ: 1, str: nimCopy(null, generateHtmlTag_1224747602(tag_1224747744, args_1224747798, body_1224747803, true), NTI33554439), list: []}, NTI1610612742);
+          result_1224747876 = nimCopy(result_1224747876, {typ: 1, str: nimCopy(null, generateHtmlTag_1224747741(tag_1224747883, args_1224747937, body_1224747942, true), NTI33554439), list: []}, NTI1610612742);
 
-        return result_1224747737;
+        return result_1224747876;
 
       }
               
-function HEX3Aanonymous_1224747854(tag_1224747855) {
-                  tag_1224747855 = nimCopy(null, tag_1224747855, NTI33554439);
+function HEX3Aanonymous_1224747993(tag_1224747994) {
+                  tag_1224747994 = nimCopy(null, tag_1224747994, NTI33554439);
                   
-function HEX3Aanonymous_1224747867(arg_1224747860) {
+function HEX3Aanonymous_1224748006(arg_1224747999) {
                                 var Temporary5;
 
-                    var result_1224747868 = ({typ: 0, str: [], list: []});
+                    var result_1224748007 = ({typ: 0, str: [], list: []});
 
-                      var args_1224747861 = parseXidocArguments_1325404692(arg_1224747860);
-                      if (((args_1224747861).length < 0)) {
-                      raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747855), makeNimstrLit("0"), HEX24_335544323((args_1224747861).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+                      var args_1224748000 = parseXidocArguments_1325404692(arg_1224747999);
+                      if (((args_1224748000).length < 0)) {
+                      raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747994), makeNimstrLit("0"), HEX24_335544323((args_1224748000).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
                       }
                       
                       Label1: do {
-                        var HEX3Atmp_1224747909 = HEX5BHEX5D_1224742513(args_1224747861, HEX2EHEX2E_872415312(0, 1));
-                        var iHEX60gensym667_1224747912 = 0;
-                        var resultHEX60gensym667_1224747919 = newSeq_452985301(chckRange((HEX3Atmp_1224747909).length, 0, 2147483647));
+                        var HEX3Atmp_1224748048 = HEX5BHEX5D_1224742513(args_1224748000, HEX2EHEX2E_872415312(0, 1));
+                        var iHEX60gensym683_1224748051 = 0;
+                        var resultHEX60gensym683_1224748058 = newSeq_452985301(chckRange((HEX3Atmp_1224748048).length, 0, 2147483647));
                         Label2: do {
-                          var it_1224747923 = [];
-                          var i_486539792 = 0;
-                          var L_486539793 = (HEX3Atmp_1224747909).length;
+                          var it_1224748062 = [];
+                          var i_486539802 = 0;
+                          var L_486539803 = (HEX3Atmp_1224748048).length;
                           Label3: do {
                               Label4: while (true) {
-                              if (!(i_486539792 < L_486539793)) break Label4;
-                                it_1224747923 = HEX3Atmp_1224747909[chckIndx(i_486539792, 0, (HEX3Atmp_1224747909).length - 1)];
-                                var Temporary5 = expand_1308622879(doc_1224738382, it_1224747923, 0);
-                                if (ConstSet468[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
-                                resultHEX60gensym667_1224747919[chckIndx(iHEX60gensym667_1224747912, 0, (resultHEX60gensym667_1224747919).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
-                                iHEX60gensym667_1224747912 = addInt(iHEX60gensym667_1224747912, 1);
-                                i_486539792 = addInt(i_486539792, 1);
-                                if (!(((HEX3Atmp_1224747909).length == L_486539793))) {
+                              if (!(i_486539802 < L_486539803)) break Label4;
+                                it_1224748062 = HEX3Atmp_1224748048[chckIndx(i_486539802, 0, (HEX3Atmp_1224748048).length - 1)];
+                                var Temporary5 = expand_1308622879(doc_1224738382, it_1224748062, 0);
+                                if (ConstSet470[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
+                                resultHEX60gensym683_1224748058[chckIndx(iHEX60gensym683_1224748051, 0, (resultHEX60gensym683_1224748058).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
+                                iHEX60gensym683_1224748051 = addInt(iHEX60gensym683_1224748051, 1);
+                                i_486539802 = addInt(i_486539802, 1);
+                                if (!(((HEX3Atmp_1224748048).length == L_486539803))) {
                                 failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                                 }
                                 
@@ -16568,44 +16646,44 @@ function HEX3Aanonymous_1224747867(arg_1224747860) {
                           } while (false);
                         } while (false);
                       } while (false);
-                      var args_1224747928 = nimCopy(null, resultHEX60gensym667_1224747919, NTI452985127);
+                      var args_1224748067 = nimCopy(null, resultHEX60gensym683_1224748058, NTI452985127);
                       Label6: do {
                       } while (false);
-                      result_1224747868 = nimCopy(result_1224747868, {typ: 1, str: nimCopy(null, generateHtmlTag_1224747602(tag_1224747855, args_1224747928, [], false), NTI33554439), list: []}, NTI1610612742);
+                      result_1224748007 = nimCopy(result_1224748007, {typ: 1, str: nimCopy(null, generateHtmlTag_1224747741(tag_1224747994, args_1224748067, [], false), NTI33554439), list: []}, NTI1610612742);
 
-                    return result_1224747868;
+                    return result_1224748007;
 
                   }
                     
-function HEX3Aanonymous_1224747982(arg_1224747975) {
+function HEX3Aanonymous_1224748121(arg_1224748114) {
                                   var Temporary5;
                         var Temporary6;
 
-                      var result_1224747983 = ({typ: 0, str: [], list: []});
+                      var result_1224748122 = ({typ: 0, str: [], list: []});
 
-                        var args_1224747976 = parseXidocArguments_1325404692(arg_1224747975);
-                        if (((args_1224747976).length < 1)) {
-                        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747855), makeNimstrLit("1"), HEX24_335544323((args_1224747976).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+                        var args_1224748115 = parseXidocArguments_1325404692(arg_1224748114);
+                        if (((args_1224748115).length < 1)) {
+                        raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747994), makeNimstrLit("1"), HEX24_335544323((args_1224748115).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
                         }
                         
                         Label1: do {
-                          var HEX3Atmp_1224748024 = HEX5BHEX5D_1224742513(args_1224747976, HEX2EHEX2E_872415312(0, 2));
-                          var iHEX60gensym681_1224748027 = 0;
-                          var resultHEX60gensym681_1224748034 = newSeq_452985301(chckRange((HEX3Atmp_1224748024).length, 0, 2147483647));
+                          var HEX3Atmp_1224748163 = HEX5BHEX5D_1224742513(args_1224748115, HEX2EHEX2E_872415312(0, 2));
+                          var iHEX60gensym697_1224748166 = 0;
+                          var resultHEX60gensym697_1224748173 = newSeq_452985301(chckRange((HEX3Atmp_1224748163).length, 0, 2147483647));
                           Label2: do {
-                            var it_1224748038 = [];
-                            var i_486539798 = 0;
-                            var L_486539799 = (HEX3Atmp_1224748024).length;
+                            var it_1224748177 = [];
+                            var i_486539808 = 0;
+                            var L_486539809 = (HEX3Atmp_1224748163).length;
                             Label3: do {
                                 Label4: while (true) {
-                                if (!(i_486539798 < L_486539799)) break Label4;
-                                  it_1224748038 = HEX3Atmp_1224748024[chckIndx(i_486539798, 0, (HEX3Atmp_1224748024).length - 1)];
-                                  var Temporary5 = expand_1308622879(doc_1224738382, it_1224748038, 0);
-                                  if (ConstSet469[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
-                                  resultHEX60gensym681_1224748034[chckIndx(iHEX60gensym681_1224748027, 0, (resultHEX60gensym681_1224748034).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
-                                  iHEX60gensym681_1224748027 = addInt(iHEX60gensym681_1224748027, 1);
-                                  i_486539798 = addInt(i_486539798, 1);
-                                  if (!(((HEX3Atmp_1224748024).length == L_486539799))) {
+                                if (!(i_486539808 < L_486539809)) break Label4;
+                                  it_1224748177 = HEX3Atmp_1224748163[chckIndx(i_486539808, 0, (HEX3Atmp_1224748163).length - 1)];
+                                  var Temporary5 = expand_1308622879(doc_1224738382, it_1224748177, 0);
+                                  if (ConstSet471[Temporary5.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary5.typ, NTI1610612741)); }
+                                  resultHEX60gensym697_1224748173[chckIndx(iHEX60gensym697_1224748166, 0, (resultHEX60gensym697_1224748173).length - 1)] = nimCopy(null, Temporary5.str, NTI33554439);
+                                  iHEX60gensym697_1224748166 = addInt(iHEX60gensym697_1224748166, 1);
+                                  i_486539808 = addInt(i_486539808, 1);
+                                  if (!(((HEX3Atmp_1224748163).length == L_486539809))) {
                                   failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                                   }
                                   
@@ -16613,61 +16691,61 @@ function HEX3Aanonymous_1224747982(arg_1224747975) {
                             } while (false);
                           } while (false);
                         } while (false);
-                        var args_1224748043 = nimCopy(null, resultHEX60gensym681_1224748034, NTI452985127);
-                        var Temporary6 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224747976, 1), 1);
-                        if (ConstSet470[Temporary6.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary6.typ, NTI1610612741)); }
-                        var body_1224748048 = nimCopy(null, Temporary6.str, NTI33554439);
+                        var args_1224748182 = nimCopy(null, resultHEX60gensym697_1224748173, NTI452985127);
+                        var Temporary6 = expand_1308622879(doc_1224738382, HEX5BHEX5D_1811939366(args_1224748115, 1), 1);
+                        if (ConstSet472[Temporary6.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary6.typ, NTI1610612741)); }
+                        var body_1224748187 = nimCopy(null, Temporary6.str, NTI33554439);
                         Label7: do {
                         } while (false);
-                        result_1224747983 = nimCopy(result_1224747983, {typ: 1, str: nimCopy(null, generateHtmlTag_1224747602(tag_1224747855, args_1224748043, body_1224748048, true), NTI33554439), list: []}, NTI1610612742);
+                        result_1224748122 = nimCopy(result_1224748122, {typ: 1, str: nimCopy(null, generateHtmlTag_1224747741(tag_1224747994, args_1224748182, body_1224748187, true), NTI33554439), list: []}, NTI1610612742);
 
-                      return result_1224747983;
+                      return result_1224748122;
 
                     }
 
-                  if (contains_872415275(htmlSelfClosingTags_1224736791, tag_1224747855)) {
-                  HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747855), HEX3Aanonymous_1224747867);
+                  if (contains_872415275(htmlSelfClosingTags_1224736791, tag_1224747994)) {
+                  HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747994), HEX3Aanonymous_1224748006);
                   }
                   else {
-                  HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747855), HEX3Aanonymous_1224747982);
+                  HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], nsuFormatSingleElem(makeNimstrLit("<$1>"), tag_1224747994), HEX3Aanonymous_1224748121);
                   }
                   
 
                 
               }
       
-function HEX3Aanonymous_1224748104(arg_1224748097) {
+function HEX3Aanonymous_1224748243(arg_1224748236) {
           var Temporary1;
                     var Temporary6;
 
-        var result_1224748105 = ({typ: 0, str: [], list: []});
+        var result_1224748244 = ({typ: 0, str: [], list: []});
 
-          var args_1224748098 = parseXidocArguments_1325404692(arg_1224748097);
-          if (((args_1224748098).length < 1)) {
-          raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("\\"), makeNimstrLit("1"), HEX24_335544323((args_1224748098).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
+          var args_1224748237 = parseXidocArguments_1325404692(arg_1224748236);
+          if (((args_1224748237).length < 1)) {
+          raiseException({message: nsuFormatOpenArray(makeNimstrLit("Command $1 needs at least $2 arguments, $3 given"), [makeNimstrLit("\\"), makeNimstrLit("1"), HEX24_335544323((args_1224748237).length)]), m_type: NTI1291845636, parent: null, name: null, trace: [], up: null}, "XidocError:ObjectType");
           }
           
-          var Temporary1 = expand_1308622879(doc_1224738382, args_1224748098[chckIndx(0, 0, (args_1224748098).length - 1)], 0);
-          if (ConstSet471[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
-          var command_1224748112 = nimCopy(null, Temporary1.str, NTI33554439);
+          var Temporary1 = expand_1308622879(doc_1224738382, args_1224748237[chckIndx(0, 0, (args_1224748237).length - 1)], 0);
+          if (ConstSet473[Temporary1.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary1.typ, NTI1610612741)); }
+          var command_1224748251 = nimCopy(null, Temporary1.str, NTI33554439);
           Label2: do {
-            var HEX3Atmp_1224748147 = HEX5BHEX5D_1224742513(args_1224748098, HEX2EHEX2E_872415312(1, 1));
-            var iHEX60gensym696_1224748150 = 0;
-            var resultHEX60gensym696_1224748157 = newSeq_452985301(chckRange((HEX3Atmp_1224748147).length, 0, 2147483647));
+            var HEX3Atmp_1224748286 = HEX5BHEX5D_1224742513(args_1224748237, HEX2EHEX2E_872415312(1, 1));
+            var iHEX60gensym712_1224748289 = 0;
+            var resultHEX60gensym712_1224748296 = newSeq_452985301(chckRange((HEX3Atmp_1224748286).length, 0, 2147483647));
             Label3: do {
-              var it_1224748161 = [];
-              var i_486539807 = 0;
-              var L_486539808 = (HEX3Atmp_1224748147).length;
+              var it_1224748300 = [];
+              var i_486539817 = 0;
+              var L_486539818 = (HEX3Atmp_1224748286).length;
               Label4: do {
                   Label5: while (true) {
-                  if (!(i_486539807 < L_486539808)) break Label5;
-                    it_1224748161 = HEX3Atmp_1224748147[chckIndx(i_486539807, 0, (HEX3Atmp_1224748147).length - 1)];
-                    var Temporary6 = expand_1308622879(doc_1224738382, it_1224748161, 1);
-                    if (ConstSet472[Temporary6.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary6.typ, NTI1610612741)); }
-                    resultHEX60gensym696_1224748157[chckIndx(iHEX60gensym696_1224748150, 0, (resultHEX60gensym696_1224748157).length - 1)] = nimCopy(null, Temporary6.str, NTI33554439);
-                    iHEX60gensym696_1224748150 = addInt(iHEX60gensym696_1224748150, 1);
-                    i_486539807 = addInt(i_486539807, 1);
-                    if (!(((HEX3Atmp_1224748147).length == L_486539808))) {
+                  if (!(i_486539817 < L_486539818)) break Label5;
+                    it_1224748300 = HEX3Atmp_1224748286[chckIndx(i_486539817, 0, (HEX3Atmp_1224748286).length - 1)];
+                    var Temporary6 = expand_1308622879(doc_1224738382, it_1224748300, 1);
+                    if (ConstSet474[Temporary6.typ]===undefined) { raiseFieldError2(makeNimstrLit("field \'str\' is not accessible for type \'XidocValue\' using \'typ = "), reprDiscriminant(Temporary6.typ, NTI1610612741)); }
+                    resultHEX60gensym712_1224748296[chckIndx(iHEX60gensym712_1224748289, 0, (resultHEX60gensym712_1224748296).length - 1)] = nimCopy(null, Temporary6.str, NTI33554439);
+                    iHEX60gensym712_1224748289 = addInt(iHEX60gensym712_1224748289, 1);
+                    i_486539817 = addInt(i_486539817, 1);
+                    if (!(((HEX3Atmp_1224748286).length == L_486539818))) {
                     failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                     }
                     
@@ -16675,23 +16753,23 @@ function HEX3Aanonymous_1224748104(arg_1224748097) {
               } while (false);
             } while (false);
           } while (false);
-          var args_1224748166 = nimCopy(null, resultHEX60gensym696_1224748157, NTI452985127);
+          var args_1224748305 = nimCopy(null, resultHEX60gensym712_1224748296, NTI452985127);
           Label7: do {
             Label8: do {
-              var iHEX60gensym699_1224748188 = 0;
-              var resultHEX60gensym699_1224748195 = newSeq_452985301(chckRange((args_1224748166).length, 0, 2147483647));
+              var iHEX60gensym715_1224748327 = 0;
+              var resultHEX60gensym715_1224748334 = newSeq_452985301(chckRange((args_1224748305).length, 0, 2147483647));
               Label9: do {
-                var it_1224748199 = [];
-                var i_486539818 = 0;
-                var L_486539819 = (args_1224748166).length;
+                var it_1224748338 = [];
+                var i_486539828 = 0;
+                var L_486539829 = (args_1224748305).length;
                 Label10: do {
                     Label11: while (true) {
-                    if (!(i_486539818 < L_486539819)) break Label11;
-                      it_1224748199 = args_1224748166[chckIndx(i_486539818, 0, (args_1224748166).length - 1)];
-                      resultHEX60gensym699_1224748195[chckIndx(iHEX60gensym699_1224748188, 0, (resultHEX60gensym699_1224748195).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{$1}"), it_1224748199), NTI33554439);
-                      iHEX60gensym699_1224748188 = addInt(iHEX60gensym699_1224748188, 1);
-                      i_486539818 = addInt(i_486539818, 1);
-                      if (!(((args_1224748166).length == L_486539819))) {
+                    if (!(i_486539828 < L_486539829)) break Label11;
+                      it_1224748338 = args_1224748305[chckIndx(i_486539828, 0, (args_1224748305).length - 1)];
+                      resultHEX60gensym715_1224748334[chckIndx(iHEX60gensym715_1224748327, 0, (resultHEX60gensym715_1224748334).length - 1)] = nimCopy(null, nsuFormatSingleElem(makeNimstrLit("{$1}"), it_1224748338), NTI33554439);
+                      iHEX60gensym715_1224748327 = addInt(iHEX60gensym715_1224748327, 1);
+                      i_486539828 = addInt(i_486539828, 1);
+                      if (!(((args_1224748305).length == L_486539829))) {
                       failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
                       }
                       
@@ -16700,9 +16778,9 @@ function HEX3Aanonymous_1224748104(arg_1224748097) {
               } while (false);
             } while (false);
           } while (false);
-          result_1224748105 = nimCopy(result_1224748105, {typ: 1, str: nimCopy(null, (makeNimstrLit("\\") || []).concat(nsuJoinSep(resultHEX60gensym699_1224748195, []) || []), NTI33554439), list: []}, NTI1610612742);
+          result_1224748244 = nimCopy(result_1224748244, {typ: 1, str: nimCopy(null, (makeNimstrLit("\\") || []).concat(nsuJoinSep(resultHEX60gensym715_1224748334, []) || []), NTI33554439), list: []}, NTI1610612742);
 
-        return result_1224748105;
+        return result_1224748244;
 
       }
 
@@ -16753,53 +16831,54 @@ function HEX3Aanonymous_1224748104(arg_1224748097) {
     HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("it"), HEX3Aanonymous_1224743443);
     HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("join"), HEX3Aanonymous_1224743499);
     HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("js-call"), HEX3Aanonymous_1224743610);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("lang"), HEX3Aanonymous_1224743726);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("link"), HEX3Aanonymous_1224743808);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("list"), HEX3Aanonymous_1224743929);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("list-dirs"), HEX3Aanonymous_1224744154);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("list-files"), HEX3Aanonymous_1224744213);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("ms"), HEX3Aanonymous_1224744272);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("p"), HEX3Aanonymous_1224744327);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("pass"), HEX3Aanonymous_1224744382);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("pass-raw"), HEX3Aanonymous_1224744437);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("proof"), HEX3Aanonymous_1224744499);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("props"), HEX3Aanonymous_1224744742);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("raw"), HEX3Aanonymous_1224744967);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("render"), HEX3Aanonymous_1224745022);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("replace-suffix"), HEX3Aanonymous_1224745078);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("row"), HEX3Aanonymous_1224745158);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("section"), HEX3Aanonymous_1224745316);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("set-doc-lang"), HEX3Aanonymous_1224745478);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("set-math-renderer"), HEX3Aanonymous_1224745536);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("set-syntax-highlighting-theme"), HEX3Aanonymous_1224745591);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("set-title"), HEX3Aanonymous_1224745850);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("show-title"), HEX3Aanonymous_1224745951);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("solution"), HEX3Aanonymous_1224746013);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("space"), HEX3Aanonymous_1224746247);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("spoiler"), HEX3Aanonymous_1224746302);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("spoiler-solution"), HEX3Aanonymous_1224746376);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("style"), HEX3Aanonymous_1224746563);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("table"), HEX3Aanonymous_1224746646);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("template-arg"), HEX3Aanonymous_1224746773);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("term"), HEX3Aanonymous_1224746891);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("theorem"), HEX3Aanonymous_1224746953);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("title"), HEX3Aanonymous_1224747188);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("unit"), HEX3Aanonymous_1224747404);
-    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("xidoc"), HEX3Aanonymous_1224747508);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("js-eval"), HEX3Aanonymous_1224743726);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("lang"), HEX3Aanonymous_1224743865);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("link"), HEX3Aanonymous_1224743947);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("list"), HEX3Aanonymous_1224744068);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("list-dirs"), HEX3Aanonymous_1224744293);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("list-files"), HEX3Aanonymous_1224744352);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("ms"), HEX3Aanonymous_1224744411);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("p"), HEX3Aanonymous_1224744466);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("pass"), HEX3Aanonymous_1224744521);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("pass-raw"), HEX3Aanonymous_1224744576);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("proof"), HEX3Aanonymous_1224744638);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("props"), HEX3Aanonymous_1224744881);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("raw"), HEX3Aanonymous_1224745106);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("render"), HEX3Aanonymous_1224745161);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("replace-suffix"), HEX3Aanonymous_1224745217);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("row"), HEX3Aanonymous_1224745297);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("section"), HEX3Aanonymous_1224745455);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("set-doc-lang"), HEX3Aanonymous_1224745617);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("set-math-renderer"), HEX3Aanonymous_1224745675);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("set-syntax-highlighting-theme"), HEX3Aanonymous_1224745730);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("set-title"), HEX3Aanonymous_1224745989);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("show-title"), HEX3Aanonymous_1224746090);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("solution"), HEX3Aanonymous_1224746152);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("space"), HEX3Aanonymous_1224746386);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("spoiler"), HEX3Aanonymous_1224746441);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("spoiler-solution"), HEX3Aanonymous_1224746515);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("style"), HEX3Aanonymous_1224746702);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("table"), HEX3Aanonymous_1224746785);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("template-arg"), HEX3Aanonymous_1224746912);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("term"), HEX3Aanonymous_1224747030);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("theorem"), HEX3Aanonymous_1224747092);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("title"), HEX3Aanonymous_1224747327);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("unit"), HEX3Aanonymous_1224747543);
+    HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("xidoc"), HEX3Aanonymous_1224747647);
     switch (doc_1224738382.target) {
     case 0:
-      HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("<>"), HEX3Aanonymous_1224747736);
+      HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("<>"), HEX3Aanonymous_1224747875);
       Label1: do {
-        var tag_1224747853 = [];
-        var i_486539802 = 0;
-        var L_486539803 = 127;
+        var tag_1224747992 = [];
+        var i_486539812 = 0;
+        var L_486539813 = 127;
         Label2: do {
             Label3: while (true) {
-            if (!(i_486539802 < L_486539803)) break Label3;
-              tag_1224747853 = htmlTags_1224736790[chckIndx(i_486539802, 0, (htmlTags_1224736790).length - 1)];
-              HEX3Aanonymous_1224747854(tag_1224747853);
-              i_486539802 = addInt(i_486539802, 1);
-              if (!((127 == L_486539803))) {
+            if (!(i_486539812 < L_486539813)) break Label3;
+              tag_1224747992 = htmlTags_1224736790[chckIndx(i_486539812, 0, (htmlTags_1224736790).length - 1)];
+              HEX3Aanonymous_1224747993(tag_1224747992);
+              i_486539812 = addInt(i_486539812, 1);
+              if (!((127 == L_486539813))) {
               failedAssertImpl_218103864(makeNimstrLit("iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
               }
               
@@ -16808,7 +16887,7 @@ function HEX3Aanonymous_1224748104(arg_1224748097) {
       } while (false);
       break;
     case 1:
-      HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("\\"), HEX3Aanonymous_1224748104);
+      HEX5BHEX5DHEX3D_1778385036(commands_1224738388[0], makeNimstrLit("\\"), HEX3Aanonymous_1224748243);
       break;
     default: 
       break;
@@ -16854,26 +16933,26 @@ function render(doc_486539292) {
         var resultHEX60gensym6_486539592 = newSeq_452985301(chckRange(len_486539482(HEX3Atmp_486539567), 0, 2147483647));
         Label3: do {
           var itHEX60gensym6_486539596 = [];
-          var length_486540144 = len_486539482(HEX3Atmp_486539567);
+          var length_486540154 = len_486539482(HEX3Atmp_486539567);
           if ((0 < (HEX3Atmp_486539567.data).length)) {
-          var h_486540145 = HEX3Atmp_486539567.first;
-          var idx_486540146 = 0;
+          var h_486540155 = HEX3Atmp_486539567.first;
+          var idx_486540156 = 0;
           Label4: do {
               Label5: while (true) {
-              if (!(0 <= h_486540145)) break Label5;
-                var nxt_486540148 = HEX3Atmp_486539567.data[chckIndx(h_486540145, 0, (HEX3Atmp_486539567.data).length - 1)].Field1;
-                if (isFilled_1140850726(HEX3Atmp_486539567.data[chckIndx(h_486540145, 0, (HEX3Atmp_486539567.data).length - 1)].Field0)) {
-                itHEX60gensym6_486539596 = HEX3Atmp_486539567.data[chckIndx(h_486540145, 0, (HEX3Atmp_486539567.data).length - 1)].Field2;
+              if (!(0 <= h_486540155)) break Label5;
+                var nxt_486540158 = HEX3Atmp_486539567.data[chckIndx(h_486540155, 0, (HEX3Atmp_486539567.data).length - 1)].Field1;
+                if (isFilled_1140850726(HEX3Atmp_486539567.data[chckIndx(h_486540155, 0, (HEX3Atmp_486539567.data).length - 1)].Field0)) {
+                itHEX60gensym6_486539596 = HEX3Atmp_486539567.data[chckIndx(h_486540155, 0, (HEX3Atmp_486539567.data).length - 1)].Field2;
                 resultHEX60gensym6_486539592[chckIndx(iHEX60gensym6_486539570, 0, (resultHEX60gensym6_486539592).length - 1)] = nimCopy(null, itHEX60gensym6_486539596, NTI33554439);
                 iHEX60gensym6_486539570 = addInt(iHEX60gensym6_486539570, 1);
-                if (!((len_486539482(HEX3Atmp_486539567) == length_486540144))) {
+                if (!((len_486539482(HEX3Atmp_486539567) == length_486540154))) {
                 failedAssertImpl_218103864(makeNimstrLit("sets.nim(905, 11) `len(s) == length` the length of the OrderedSet changed while iterating over it"));
                 }
                 
-                idx_486540146 = addInt(idx_486540146, 1);
+                idx_486540156 = addInt(idx_486540156, 1);
                 }
                 
-                h_486540145 = nxt_486540148;
+                h_486540155 = nxt_486540158;
               }
           } while (false);
           }
