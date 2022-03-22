@@ -235,16 +235,32 @@ const factorial = (n) => {
     Renders [param text] in italics.
     [ex xidoc is [it fantastic!]]
   ]
+  [cmd janet-call; function[;] *arguments;
+    Calls the given [link Janet; https://janet-lang.org/] [param function] with the given [param arguments] as strings and returns the result, which has to be a string. Useful for doing complex logic when xidoc's built-ins don't suffice. Note that all Janet is evaluated in the same context, which you can make use of, but be careful!
+    [ex The circumference of a circle with radius 6 is [janet-call [raw (fn [radius] (describe (* 2 math/pi (scan-number radius))))]; 6].]
+  ]
+  [cmd janet-eval; code[;] *(name[;] value);
+    Evaluates the given [link Janet; https://janet-lang.org/] [param code]. If some pairs of [param name] and [param value] are given, the code will have access to global definitions with the given names and values. Useful for doing complex logic when xidoc's built-ins don't suffice.Note that all Janet is evaluated in the same context, which you can make use of, but be careful!
+    [ex The greatest common divisor of 128 and 168 is [janet-eval [raw (do
+  (defn gcd [a b]
+    (if (= b 0)
+      a
+      (gcd b (% a b))))
+  (describe (gcd
+    (scan-number a)
+    (scan-number b))))
+    ]; a;128 ; b;168].]
+  ]
   [cmd join; separator[;] list;
     Joins the [param list] using the given [param separator].
     [ex [join [space]; [for-each lang; HTML [LaTeX] Gemtext; xidoc compiles to [lang].]]]
   ]
   [cmd js-call; function[;] *arguments;
-    Calls the given JavaScript [param function] with the given [param arguments] as strings and returns the result as a string. Useful for doing complex logic when xidoc's built-ins don't suffice. Note that the JavaScript engine currently used by xidoc is [link Duktape; https://duktape.org/], which supports only ES5 and certain ES6 features. Notably, it doesn't support arrow functions, so for an anonymous function, you need to use the old [code javascript; (function() { … })] syntax. Also note that all JavaScript is evaluated in the same context, which you can make use of, but be careful!
+    Calls the given [link JavaScript; https://developer.mozilla.org/en-US/docs/Web/JavaScript] [param function] with the given [param arguments] as strings and returns the result as a string. Useful for doing complex logic when xidoc's built-ins don't suffice. Note that the JavaScript engine currently used by xidoc is [link Duktape; https://duktape.org/], which supports only ES5 and certain ES6 features. Notably, it doesn't support arrow functions, so for an anonymous function, you need to use the old [code javascript; (function() { … })] syntax. Also note that all JavaScript is evaluated in the same context, which you can make use of, but be careful!
     [ex The area of a circle with radius 6 is [js-call [raw (function(radius) { return Math.PI * radius * radius; })]; 6].]
   ]
   [cmd js-eval; code[;] *(name[;] value);
-    Evaluates the given JavaScript [param code]. If some pairs of [param name] and [param value] are given, the code will have access to global variables with the given names and values. Useful for doing complex logic when xidoc's built-ins don't suffice. Note that the JavaScript engine currently used by xidoc is [link Duktape; https://duktape.org/], which supports only ES5 and certain ES6 features. Notably, it doesn't support arrow functions, so for an anonymous function, you need to use the old [code javascript; (function() { … })] syntax. Also note that all JavaScript is evaluated in the same context, which you can make use of, but be careful!
+    Evaluates the given [link JavaScript; https://developer.mozilla.org/en-US/docs/Web/JavaScript] [param code]. If some pairs of [param name] and [param value] are given, the code will have access to global variables with the given names and values. Useful for doing complex logic when xidoc's built-ins don't suffice. Note that the JavaScript engine currently used by xidoc is [link Duktape; https://duktape.org/], which supports only ES5 and certain ES6 features. Notably, it doesn't support arrow functions, so for an anonymous function, you need to use the old [code javascript; (function() { … })] syntax. Also note that all JavaScript is evaluated in the same context, which you can make use of, but be careful!
     [ex The roots of the polynomial [$ 3x^2 - 18x + 24] are [js-eval [raw {
   var determinant = b*b - 4*a*c;
   var root1 = (-b + Math.sqrt(determinant)) / (2 * a);

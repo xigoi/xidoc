@@ -1,0 +1,7 @@
+[janet-call [raw (fn [name] (string "Hello " name))]; world]
+[janet-eval "Hello xigoi"]
+[janet-eval [raw (string "Hello " name)]; name; world]
+[janet-eval [raw (string "Hello " name)]; name; xigoi]
+[janet-eval [raw (upscope (defn greet [name] (string "Hello " name)) nil)]]
+[janet-eval [raw (greet name)]; name; world]
+[janet-call [raw greet]; xigoi]

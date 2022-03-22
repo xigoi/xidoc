@@ -131,6 +131,6 @@ else:
       ctx.pushString(val.cstring)
       ctx.putGlobalString(name.cstring)
     if ctx.protectedEvalString(code) != 0:
-      xidocError "Error while evaluating JavaScript code:\n$1" % [$ctx.safeToString(-1)]
+      xidocError "Error while evaluating JavaScript code\n$1" % [$ctx.safeToString(-1)]
     result = $ctx.safeToString(-1)
     ctx.pop

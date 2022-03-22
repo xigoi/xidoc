@@ -3,6 +3,7 @@ from std/pegs import match, peg
 import ../error
 import ../expand
 import ../jsinterpret
+import ../janetinterpret
 import ../parser
 import ../translations
 import ../types
@@ -338,6 +339,17 @@ commands defaultCommands:
       "\\textit{$1}" % arg
     of tGemtext:
       arg
+
+  command "janet-call", (function: String, args: *String), String:
+    janetCall(function, args, doc.lookup(path))
+
+  command "janet-eval", (code: String, args: *String), String:
+    if args.len mod 2 != 0:
+      xidocError "Arguments to janet-eval must come in pairs of name; value"
+    var values = newSeqOfCap[(string, string)](args.len div 2)
+    for i in 0 ..< args.len div 2:
+      values.add (args[2 * i], args[2 * i + 1])
+    janetEval(code, values, doc.lookup(path))
 
   command "join", (sep: Markup, list: List), Markup:
     list.mapIt(it.str).join(sep)
