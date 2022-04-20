@@ -6,7 +6,7 @@ environment:
   site: xidoc.nim.town
 tasks:
   - package: |
-      cd $site
+      cd docs
       tar -cvz . > ../site.tar.gz
   - upload: |
       hut pages publish -d $site site.tar.gz
