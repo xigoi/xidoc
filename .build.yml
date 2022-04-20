@@ -7,6 +7,6 @@ environment:
 tasks:
   - package: |
       cd xidoc/docs
-      tar -cvz . > ../site.tar.gz
+      tar -cvz . > ../../site.tar.gz
   - upload: |
       hut pages publish -d $site site.tar.gz
