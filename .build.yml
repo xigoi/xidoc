@@ -1,0 +1,12 @@
+image: alpine/edge
+oauth: pages.sr.ht/PAGES:RW
+packages:
+  - hut
+environment:
+  site: xidoc.nim.town
+tasks:
+  - package: |
+      cd $site
+      tar -cvz . > ../site.tar.gz
+  - upload: |
+      hut pages publish -d $site site.tar.gz
