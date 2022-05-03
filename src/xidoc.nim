@@ -58,7 +58,7 @@ when isMainModule and not defined(js):
         if path != "":
           stderr.writeLine "Rendered file $1" % path
       except XidocError:
-        printXidocError(getCurrentException().XidocError, doc)
+        stderr.writeLine getCurrentException().XidocError.format(doc, termColors = true)
 
     if paths.len == 0:
       renderFile("", stdin, stdout)
@@ -109,5 +109,21 @@ else: # when library
       templates[doc.target] % [doc.addToHead.toSeq.join, rendered]
     resultStr.cstring
 
+  type
+    XidocResult {.exportc.} = object
+      case success*: bool
+      of true:
+        markup*: cstring
+      of false:
+        err*: cstring
+
+  proc renderXidoc(body: cstring, target = tHtml, snippet = false, verbose = false): XidocResult {.exportc.} =
+    let doc = newDocument(body, target, snippet, verbose)
+    try:
+      let rendered = doc.render
+      XidocResult(success: true, markup: rendered)
+    except XidocError:
+      XidocResult(success: false, err: getCurrentException().XidocError.format(doc, termColors = false))
+
   when defined(js):
-    {.emit: "export {newDocument, render};".}
+    {.emit: "export {newDocument, render, renderXidoc};".}

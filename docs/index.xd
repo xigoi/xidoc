@@ -1,6 +1,6 @@
 [inject head.xd]
 [style [rule pre; [: overflow; auto]]]
-[p [color #d0c; [bf xidoc]] is a consistent markup language that compiles to HTML and [LaTeX]. It's currently very work-in-progress, but I'm already using it for my school notes and this documentation.]
+[p [color #d0c; [bf xidoc]] is a consistent and powerful markup language that compiles to HTML, [LaTeX] and Gemtext.]
 [section A Quick Look;
   [p For a more interactive experience, you can try the online [link playground; /playground.html].]
   [section xidoc code;

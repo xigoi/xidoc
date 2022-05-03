@@ -2,16 +2,39 @@
 [style
   [rule #code;
     [: width; 100%]
-    [: height; 10rem]
+    [: min-height; 10rem]
     [: resize; vertical]
   ]
   [rule #code.error;
     [: border; 2px solid #f00]
+  ]
+  [rule #output.error;
+    [: color; #f00]
+    [: font-weight; bold]
+    [: font-family; [var monospace]]
+    [: margin-top; 1rem]
   ]
 ]
 [hide [$]]
 [<textarea> #code;]
 [<div> #output;]
 [add-to-head [<script> type=module; [pass-raw
-  import{newDocument,render}from'/xidoc.min.js';let c=document.querySelector`#code`;let o=document.querySelector`#output`;let r=()=>{let d=newDocument("[set-math-renderer katex]"+c.value,0,true);try{o.innerHTML=render(d);c.classList.remove`error`}catch{c.classList.add`error`}};c.addEventListener('input',r);c.value="[section Example;\n  You can [bf play] with xidoc here!\n  Just [it edit] the code and it will be automatically updated.\n  Note that some commands [color red; don't work properly] due to the limitations of the JavaScript version of xidoc.\n]";r();
+  import { renderXidoc } from "/xidoc.min.js";
+  const code = document.querySelector("#code")
+  const output = document.querySelector("#output")
+  const render = () => {
+    let result = renderXidoc(code.value, 0, true);
+    if (result.success) {
+      code.classList.remove("error");
+      output.classList.remove("error");
+      output.innerHTML = result.markup;
+    } else {
+      code.classList.add("error");
+      output.classList.add("error");
+      output.innerText = result.err;
+    }
+  }
+  code.addEventListener("input", render);
+  code.value = "[section Example;\n  You can [bf play] with xidoc here!\n  Just [it edit] the code and it will be automatically updated.\n  Note that some commands [color red; don't work properly] due to the limitations of the JavaScript version of xidoc.\n]";
+  render();
 ]]]
