@@ -1,1 +1,2 @@
 src/duktape/** linguist-vendored
+src/janet/** linguist-vendored

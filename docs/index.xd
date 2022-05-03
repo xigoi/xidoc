@@ -1,6 +1,6 @@
 [inject head.xd]
 [style [rule pre; [: overflow; auto]]]
-[p [bf xidoc] is a consistent markup language that compiles to HTML and [LaTeX]. It's currently very work-in-progress, but I'm already using it for my school notes and this documentation.]
+[p [color #d0c; [bf xidoc]] is a consistent markup language that compiles to HTML and [LaTeX]. It's currently very work-in-progress, but I'm already using it for my school notes and this documentation.]
 [section A Quick Look;
   [p For a more interactive experience, you can try the online [link playground; /playground.html].]
   [section xidoc code;
@@ -50,13 +50,12 @@
 [section What can I not do with xidoc?;
   [list
     Make the back-end of a web app;
-    Check if an integer is prime;
     Solve the Halting Problem;
   ]
 ]
 [section Logo;
-  [p The logo of xidoc is the letter ξ (xi) rendered in the color #d0c.]
+  [p The logo of xidoc is the letter ξ (xi) rendered in the color [color #d0c; #d0c].]
 ]
 [section Source Code;
-  xidoc is available [link on GitHub; https://github.com/xigoi/xidoc] under the GNU GPL 3 licence.
+  xidoc is available on [link SourceHut; https://sr.ht/~xigoi/xidoc/] and [link GitHub; https://github.com/xigoi/xidoc] under the GNU General Public Licence 3. (SourceHut is strongly preferred because [link it is important for free software to use free software infrastructure; https://drewdevault.com/2022/03/29/free-software-free-infrastructure.html].)
 ]

@@ -4,9 +4,11 @@
   [var serif; Constantia,"Lucida Bright",Lucidabright,"Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif]
   [var sans-serif; -apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,Noto,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif]
   [var monospace; Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace]
+  [var xidoc-color; #d0c]
+  [var xidoc-color-darker; #908]
+  [var xidoc-color-lighter; #f2e]
   [rule a;
-    [: color; #fa0]
-    [: text-decoration; none]
+    [: color; [var xidoc-color-lighter]]
   ]
   [rule body;
     [: width; min(800px,calc(100% - 8px))]
@@ -33,9 +35,14 @@
     [: justify-content; center]
   ]
   [rule nav a;
+    [: background-color; [var xidoc-color-darker]]
+    [: color; #fff]
     [: display; block]
-    [: margin; 1rem]
     [: font-family; sans-serif]
+    [: font-weight; bold]
+    [: margin; .5rem]
+    [: padding; .5rem]
+    [: text-decoration; none]
   ]
   [rule textarea;
     [: background-color; inherit]
