@@ -41,7 +41,7 @@ else:
   proc initJanet(): cint {.importc: "janet_init".}
   proc janetCoreEnv(replacements: ptr JanetTable): ptr JanetTable {.importc: "janet_core_env".}
   proc protectedCall(fun: ptr JanetFunction, argc: cint, argv: ptr Janet, outp: ptr Janet, fiber: ptr ptr JanetFiber): JanetSignal {.importc: "janet_pcall".}
-  proc toJanet(x: cstring): Janet {.importc: "janet_wrap_string".}
+  proc toJanet(x: cstring): Janet {.importc: "janet_cstringv".}
   proc unwrapFunction(x: Janet): ptr JanetFunction {.importc: "janet_unwrap_function".}
   proc unwrapString(x: Janet): cstring {.importc: "janet_unwrap_string".}
 
