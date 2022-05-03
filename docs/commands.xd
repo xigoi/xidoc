@@ -266,11 +266,11 @@ const factorial = (n) => {
   [cmd js-eval; code[;] *(name[;] value);
     Evaluates the given [link JavaScript; https://developer.mozilla.org/en-US/docs/Web/JavaScript] [param code]. If some pairs of [param name] and [param value] are given, the code will have access to global variables with the given names and values. Useful for doing complex logic when xidoc's built-ins don't suffice. Note that the JavaScript engine currently used by xidoc is [link Duktape; https://duktape.org/], which supports only ES5 and certain ES6 features. Notably, it doesn't support arrow functions, so for an anonymous function, you need to use the old [code javascript; (function() { … })] syntax. Also note that all JavaScript is evaluated in the same context, which you can make use of, but be careful!
     [ex The roots of the polynomial [$ 3x^2 - 18x + 24] are [js-eval [raw {
-  var determinant = b*b - 4*a*c;
-  var root1 = (-b + Math.sqrt(determinant)) / (2 * a);
-  var root2 = (-b - Math.sqrt(determinant)) / (2 * a);
+  var discriminant = b*b - 4*a*c;
+  var root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+  var root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
   root1 + ", " + root2
-}]; a;3 ; b;-18 ; c;24]]
+}]; a;3 ; b;-18 ; c;24].]
   ]
   [cmd lang; language[;] text;
     Renders [param text] in the specified [param language].
