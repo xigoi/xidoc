@@ -40,8 +40,6 @@ else:
   proc doBytes(env: ptr JanetTable, bytes: cstring, len: cint, sourcePath: cstring, outp: ptr Janet): cint {.importc: "janet_dobytes".}
   proc initJanet(): cint {.importc: "janet_init".}
   proc janetCoreEnv(replacements: ptr JanetTable): ptr JanetTable {.importc: "janet_core_env".}
-  proc newJanetTable(capacity: cint): ptr JanetTable {.importc: "janet_table".}
-  proc `{}=`(t: ptr JanetTable, key: Janet, value: Janet) {.importc: "janet_table_put".}
   proc protectedCall(fun: ptr JanetFunction, argc: cint, argv: ptr Janet, outp: ptr Janet, fiber: ptr ptr JanetFiber): JanetSignal {.importc: "janet_pcall".}
   proc toJanet(x: cstring): Janet {.importc: "janet_wrap_string".}
   proc unwrapFunction(x: Janet): ptr JanetFunction {.importc: "janet_unwrap_function".}
@@ -62,9 +60,9 @@ else:
       xidocError "Error while evaluating Janet function (see above): $1" % [function]
     if not functionValue.isType(jtFunction):
       xidocError "Invalid Janet function: $1" % [function]
+    let f = functionValue.unwrapFunction
     let wrappedArgs = args.mapIt(it.cstring.toJanet)
     var value: Janet
-    let f = functionValue.unwrapFunction
     if f.protectedCall(args.len.cint, wrappedArgs[0].unsafeAddr, value.addr, nil) == jsError:
       xidocError "Error while calling Janet function: $1\n$2" % [function, $value.unwrapString]
     if not value.isType(jtString):

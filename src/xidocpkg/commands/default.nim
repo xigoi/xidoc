@@ -138,6 +138,15 @@ commands defaultCommands:
     of tGemtext:
       arg
 
+  command "block-quote", Markup, Markup:
+    case doc.target
+    of tHtml:
+      htg.blockquote(arg)
+    of tLatex:
+      "\\begin{quote}$1\\end{quote}" % arg
+    of tGemtext:
+      "\n> $1\n" % arg
+
   command "checkboxes", raw, Markup:
     case doc.target
     of tHtml:

@@ -38,6 +38,10 @@ commands mathCommands:
     "{\\left\\lVert $1\\right\\rVert}" % arg
   command "v.", String, String:
     "{\\overgroup{\\undergroup{$1}}}" % arg
+  command "floor", String, String:
+    "{\\left\\lfloor $1\\right\\rfloor}" % arg
+  command "ceil", String, String:
+    "{\\left\\lceil $1\\right\\rceil}" % arg
 
   # Analysis/Calculus
   command "int", (lb: ?String, ub: ?String, expr: String, varname: String), String:
