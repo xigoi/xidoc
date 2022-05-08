@@ -30,12 +30,6 @@ xidoc -t:latex foo.xd
 xidoc --snippet snip.xd
 xidoc -s snip.xd
     ]]
-    [p The default target is HTML. To choose a different target:]
-    [code-block shell; [raw
-xidoc --target:latex foo.xd
-xidoc -t:latex foo.xd
-# Permitted values: -t:html, -t:latex, -t:gemtext
-    ]]
   ]
   [section Get help;
     [code-block shell; [raw
