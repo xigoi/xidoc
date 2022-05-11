@@ -23,6 +23,7 @@ const templates = [
 
 when isMainModule and not defined(js):
   import cligen
+  import std/terminal
 
   proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string]) =
 
@@ -58,7 +59,7 @@ when isMainModule and not defined(js):
         if path != "":
           stderr.writeLine "Rendered file $1" % path
       except XidocError:
-        stderr.writeLine getCurrentException().XidocError.format(doc, termColors = true)
+        stderr.writeLine getCurrentException().XidocError.format(doc, termColors = stderr.isATty)
 
     if paths.len == 0:
       renderFile("", stdin, stdout)
