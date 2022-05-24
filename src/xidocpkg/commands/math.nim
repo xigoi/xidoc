@@ -6,6 +6,7 @@ import ../jsinterpret
 import ../parser
 import ../types
 import ./utils
+import matext
 import std/options
 import std/sets
 import std/strformat
@@ -122,8 +123,7 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters 
     else:
       latex
   of tGemtext:
-    # TODO: use maTeXt
-    &"\n```\n{latex}\n```\n"
+    &"\n```\n{latex.matext}\n```\n"
 
 commands proofCommands:
 

@@ -14,6 +14,7 @@ bin           = @["xidoc"]
 requires "nim >= 1.4.8"
 
 requires "cligen >= 1.5.12"
+requires "matext >= 2022.5.13"
 requires "npeg >= 0.24.1"
 
 
