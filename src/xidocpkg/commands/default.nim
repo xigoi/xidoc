@@ -374,6 +374,16 @@ commands defaultCommands:
       values.add (args[2 * i], args[2 * i + 1])
     jsEval(code, values)
 
+  command "js-module", String, Markup:
+    if doc.target == tHtml:
+      doc.addToHead.incl htg.script(`type` = "module", arg)
+    ""
+
+  command "js-module-raw", raw, Markup:
+    if doc.target == tHtml:
+      doc.addToHead.incl htg.script(`type` = "module", arg)
+    ""
+
   command "lang", (langStr: String, body: raw), Markup:
     let lang =
       case langStr.toLowerAscii

@@ -272,6 +272,13 @@ const factorial = (n) => {
   root1 + ", " + root2
 }]; a;3 ; b;-18 ; c;24].]
   ]
+  [cmd js-module; code;
+    If the target is HTML, adds the given JavaScript code to the page as a JavaScript module. If you don't need to use any xidoc commands inside the code, it's recommended to use [cmd-ref js-module-raw].
+  ]
+  [cmd js-module-raw; code;
+    Works as a combination of [cmd-ref js-module] and [cmd-ref raw].
+    [if-html [ex [<span> #change-me; I will be changed] [js-module-raw document.getElementById("change-me").innerText = "I was changed"]]]
+  ]
   [cmd lang; language[;] text;
     Renders [param text] in the specified [param language].
     [ex [" Hello!] [lang czech; [" Ahoj!]]]
