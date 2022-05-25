@@ -8,6 +8,7 @@ type
     pExercise
     pHtmlLanguageCode
     pLatexLanguageName
+    pLemma
     pProof
     pQuotation
     pSolution
@@ -33,6 +34,10 @@ const translations = [
   pLatexLanguageName: [
     lEnglish: "english",
     lCzech: "czech",
+  ],
+  pLemma: [
+    lEnglish: "Lemma",
+    lCzech: "Lemma",
   ],
   pProof: [
     lEnglish: "Proof",

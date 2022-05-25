@@ -283,6 +283,9 @@ const factorial = (n) => {
     Renders [param text] in the specified [param language].
     [ex [" Hello!] [lang czech; [" Ahoj!]]]
   ]
+  [cmd lemma; ?name[;] text;
+    Renders a mathematical lemma paragraph with an optional [param name].
+  ]
   [cmd link; ?text[;] address;
     Adds a link to the given [param address] with an optional [param text] visually replacing the address.
     [ex [link xidoc; http://xidoc.nim.town/] is made in [link Nim; https://nim-lang.org/].]
@@ -421,6 +424,11 @@ const factorial = (n) => {
 ]
 [section Math commands;
   [p These commands are available in [LaTeX] math. That is, inside the [cmd-ref $], [cmd-ref $$] and [cmd-ref $$&] commands. They are meant to make certain common combinations of [LaTeX] commands easier to type.]
+  [cmd _; something;
+    Produces literal square brackets in the LaTeX code.
+    [ex [$ \sqrt[_ 3]{2}]]
+  ]
+  [p The following commands should be self-explanatory from the examples:]
   [table cc;
     [header-row Command; Output]
     [math-cmd /; q]
@@ -451,6 +459,8 @@ const factorial = (n) => {
     [math-cmd-nilad lim]
     [math-cmd lim; m]
     [math-cmd lim; x[;] 0]
+    [math-cmd-nilad liminf]
+    [math-cmd-nilad limsup]
     [math-cmd int; x[;] t]
     [math-cmd int; T[;] x[;] t]
     [math-cmd int; t_1[;] t_2[;] x[;] t]

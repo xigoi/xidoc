@@ -393,6 +393,8 @@ commands defaultCommands:
     doc.stack[^1].lang = some lang
     doc.renderStr(body)
 
+  theoremLikeCommand("lemma", pLemma, "$1", "$1")
+
   command "link", (name: ?Markup, url: String), Markup:
     case doc.target
     of tHtml:
