@@ -22,8 +22,8 @@ import std/sugar
 import std/tables
 
 const
-  htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
-  htmlSelfClosingTags = "area base br circle col embed hr img input link meta param source path rect track wbr".splitWhitespace
+  htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset g h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li line link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture polyline pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
+  htmlSelfClosingTags = "area base br circle col embed hr img input line link meta param polyline source path rect track wbr".splitWhitespace
   prismCss = [
     shtDefault: staticRead("../../prism/default.css"),
     shtDark: staticRead("../../prism/dark.css"),

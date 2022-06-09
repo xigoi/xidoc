@@ -27,6 +27,6 @@ commands cssCommands:
       if doc.stack[^2].cmdName == "style":
         ":root{--$1:$2}" % [name, val.get]
       else:
-        "--$1:$2" % [name, val.get]
+        "--$1:$2;" % [name, val.get]
     else:
       "var(--$1)" % name
