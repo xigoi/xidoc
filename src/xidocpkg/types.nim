@@ -52,6 +52,9 @@ type
       addToStyle*: OrderedSet[string]
     else: discard
 
+proc isWhitespaceSensitive*(target: Target): bool =
+  target == tGemtext
+
 template lookup*(doc: Document, field: untyped): auto =
   bind isSome
   (proc(): auto =

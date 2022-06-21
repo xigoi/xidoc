@@ -14,8 +14,16 @@ proc escapeText*(text: string, target: Target): string =
     text
 
 proc addIfNeeded(s1: var string, s2: string) =
-  if not (s2 == " " and s1 != "" and s1[^1] == ' '):
-    s1.add s2
+  let s1Last =
+    if s1 == "":
+      '\0'
+    else:
+      s1[^1]
+  if s2 in [" ", "\n"] and s1Last in [' ', '\n']:
+    if s2 == "\n" and s1Last == ' ':
+      s1[^1] = '\n'
+    return
+  s1.add s2
 
 proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
   result = XidocValue(typ: typ)
@@ -32,7 +40,12 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
       of xnkWhitespace:
         case typ
         of String, Markup:
-          result.str.addIfNeeded " "
+          let whitespace =
+            if node.newline and not doc.target.isWhitespaceSensitive:
+              "\n"
+            else:
+              " "
+          result.str.addIfNeeded whitespace
         of List:
           discard
       of xnkCommand:
