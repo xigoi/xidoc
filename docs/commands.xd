@@ -306,6 +306,10 @@ const factorial = (n) => {
     Renders [param text] in monospace. If you want to show code, it's recommended to use the [cmd-ref code] or [cmd-ref code-block] command instead.
     [ex In HTML, this will produce [ms <code>]. In [LaTeX], this will produce [ms \texttt].]
   ]
+  [cmd ordered-list; *items;
+    Creates an ordered list of [param items].
+    [ex TOP 5 LIST OF SMALLEST POSITIVE INTEGERS: [ordered-list 1; 2; 3; 4; 5]]
+  ]
   [cmd p; text;
     Creates a paragraph with the given [param text].
   ]

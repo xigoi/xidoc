@@ -438,6 +438,16 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % arg
 
+  command "ordered-list", (items: *Markup), Markup:
+    case doc.target
+    of tHtml:
+      htg.ol(items.mapIt(htg.li(it)).join)
+    of tLatex:
+      "\\begin{enumerate}$1\\end{enumerate}" % items.mapIt("\\item $1" % it).join
+    of tGemtext:
+      # TODO: add numbers
+      "\n$1\n" % items.mapIt("* $1" % it).join("\n")
+
   command "p", Markup, Markup:
     case doc.target
     of tHtml:
