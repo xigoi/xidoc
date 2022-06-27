@@ -103,6 +103,9 @@ commands defaultCommands:
     doc.stack[^1].commands = mathCommands(doc)
     doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true, addDelimiters = false)
 
+  command "\\", literal, String:
+    arg.strip(chars = {'\n'}).dedent
+
   command "LaTeX", void, Markup:
     case doc.target
     of tHtml:
@@ -128,6 +131,12 @@ commands defaultCommands:
 
   command "arg-raw-escape", String, Markup:
     escapeText(doc.lookup(args, arg), doc.target)
+
+  # command "arg\\", String, String:
+  #   doc.lookup(args, arg).dedent
+
+  # command "arg\\-escape", String, String:
+  #   escapeText(doc.lookup(args, arg).dedent, doc.target)
 
   command "bf", Markup, Markup:
     case doc.target
@@ -458,10 +467,10 @@ commands defaultCommands:
       "\n\n$1" % arg
 
   command "pass", String, Markup:
-    arg.strip
+    arg
 
   command "pass-raw", raw, Markup:
-    arg.strip
+    arg
 
   theoremLikeCommand("proof", pProof, "$1", "$1"):
     doc.stack[^1].commands = proofCommands(doc)
@@ -476,7 +485,7 @@ commands defaultCommands:
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
   command "raw", raw, String:
-    arg.strip
+    arg
 
   command "render", String, Markup:
     doc.renderStr(arg)

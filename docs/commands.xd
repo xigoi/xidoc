@@ -114,6 +114,15 @@
     Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
     [ex [list This[;] is[;] only[;] one[;] item]]
   ]
+  [cmd \; text;
+    Removes the least common indentation from all lines of [arg text], then returns it without expanding. A [" smarter] version of [cmd-ref raw].
+    [ex
+[code-block nim; [\
+  for word in ["This", "correctly", "removes", "indentation"]:
+    echo word
+]]
+    ]
+  ]
   [cmd add-to-head; directive;
     Adds the [param directive] to the head of the document. Returns nothing.
   ]
@@ -129,6 +138,12 @@
   ]
   [cmd arg-raw-escape; parameter;
     Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered.
+  ]
+  [# arg\; parameter;
+    Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it. Strips common indentation.
+  ]
+  [# arg\-escape; parameter;
+    Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered. Strips common indentation.
   ]
   [cmd bf; text;
     Renders [param text] in bold face.

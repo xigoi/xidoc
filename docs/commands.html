@@ -42,10 +42,10 @@ td>div>table{table-layout:initial;}code[class*=language-],pre[class*=language-]{
 
 <header>
 <h1><span class="xd-logo">ξ</span> xidoc</h1>
-<nav><a href="/">Introduction</a>
-<a href="/manual.html">Manual</a>
-<a href="/commands.html">Commands</a>
-<a href="/playground.html">Playground</a></nav></header>
+<nav><a href=".">Introduction</a>
+<a href="manual.html">Manual</a>
+<a href="commands.html">Commands</a>
+<a href="playground.html">Playground</a></nav></header>
 <p>This is a reference of all xidoc commands. A question mark <code>?</code> before a parameter means that it's optional. An asterisk <code>*</code> before a parameter means that it can take any number of values.</p>
 <section><h2 class="xd-section-heading">Top-level commands</h2><section id="&quot;"><h3 class="xd-section-heading"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">"</span> text<span class="token punctuation">]</span></code></h3>Puts the given text in quotation marks appropriate for the current language.
 <table><tr><th>Example</th><th>Output</th></tr>
@@ -83,6 +83,13 @@ td>div>table{table-layout:initial;}code[class*=language-],pre[class*=language-]{
 <section><h3 class="xd-section-heading"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">;</span><span class="token punctuation">]</span></code></h3>Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
 <table><tr><th>Example</th><th>Output</th></tr>
 <tr><td><pre class="language-xidoc"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">list</span> This<span class="token punctuation">[</span><span class="token tag">;</span><span class="token punctuation">]</span> is<span class="token punctuation">[</span><span class="token tag">;</span><span class="token punctuation">]</span> only<span class="token punctuation">[</span><span class="token tag">;</span><span class="token punctuation">]</span> one<span class="token punctuation">[</span><span class="token tag">;</span><span class="token punctuation">]</span> item<span class="token punctuation">]</span></code></pre></td><td><div><ul><li>This; is; only; one; item</li></ul></div></td></tr></table></section>
+<section id="\"><h3 class="xd-section-heading"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">\</span> text<span class="token punctuation">]</span></code></h3>Removes the least common indentation from all lines of , then returns it without expanding. A “smarter” version of <a href="#raw"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">raw</span><span class="token punctuation">]</span></code></a>.
+<table><tr><th>Example</th><th>Output</th></tr>
+<tr><td><pre class="language-xidoc"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">code-block</span> nim<span class="token punctuation">;</span> <span class="token punctuation">[</span><span class="token tag">\</span>
+  for word in <span class="token punctuation">[</span><span class="token tag">"This",</span> "correctly", "removes", "indentation"<span class="token punctuation">]</span>:
+    echo word
+<span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre></td><td><div><pre class="language-nim"><code class="language-nim"><span class="token keyword">for</span> word <span class="token operator">in</span> <span class="token punctuation">[</span><span class="token string">"This"</span><span class="token punctuation">,</span> <span class="token string">"correctly"</span><span class="token punctuation">,</span> <span class="token string">"removes"</span><span class="token punctuation">,</span> <span class="token string">"indentation"</span><span class="token punctuation">]</span><span class="token operator">:</span>
+  echo word</code></pre></div></td></tr></table></section>
 <section id="add-to-head"><h3 class="xd-section-heading"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">add-to-head</span> directive<span class="token punctuation">]</span></code></h3>Adds the <code>directive</code> to the head of the document. Returns nothing.</section>
 <section id="arg"><h3 class="xd-section-heading"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">arg</span> parameter<span class="token punctuation">]</span></code></h3>Inside a command definition (<a href="#def"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">def</span><span class="token punctuation">]</span></code></a>), renders the argument given to the <code>parameter</code>.
 <table><tr><th>Example</th><th>Output</th></tr>

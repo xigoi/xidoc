@@ -2,7 +2,7 @@
 [style [rule pre; [: overflow; auto]]]
 [p [color #d0c; [bf xidoc]] is a consistent and powerful markup language that compiles to HTML, [LaTeX] and Gemtext.]
 [section A Quick Look;
-  [p For a more interactive experience, you can try the online [link playground; /playground.html].]
+  [p For a more interactive experience, you can try the online [link playground; playground.html].]
   [section xidoc code;
     [code-block xidoc; [raw
 [section HTML;
