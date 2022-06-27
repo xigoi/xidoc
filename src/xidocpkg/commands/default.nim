@@ -2,8 +2,8 @@ from std/htmlgen as htg import nil
 from std/pegs import match, peg
 import ../error
 import ../expand
-import ../jsinterpret
 import ../janetinterpret
+import ../jsinterpret
 import ../parser
 import ../translations
 import ../types
@@ -12,6 +12,7 @@ import ./css
 import ./draw
 import ./math
 import ./utils
+import matext
 import std/options
 import std/os
 import std/sequtils
@@ -437,6 +438,19 @@ commands defaultCommands:
     else:
       let currentDir = doc.lookup(path).splitFile.dir
       walkFiles(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
+
+  command "matext", String, Markup:
+    let math = try:
+      arg.matext
+    except ValueError:
+      xidocError "Error when parsing math: $1" % arg
+    case doc.target
+    of tHtml:
+      htg.pre(class = "xd-matext", math)
+    of tLatex:
+      "\\begin{verbatim}$1\\end{verbatim}" % math
+    of tGemtext:
+      "\n```\n{$1}\n```\n" % math
 
   command "ms", Markup, Markup:
     case doc.target

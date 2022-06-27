@@ -317,6 +317,10 @@ const factorial = (n) => {
     Lists all files that match the glob [param pattern], relative to the current file.
     [ex The xidoc sources of this documentation are: [join ,[space]; [list-files *.xd]].]
   ]
+  [cmd matext; latex;
+    Renders the given [LaTeX] [param math] using [link maTeXt; https://xigoi.srht.site/matext/] and presents it as preformatted text.
+    [ex [matext \vec x \cdot \vec y = \sum_{i=0}^n x_i \cdot y_i]]
+  ]
   [cmd ms; text;
     Renders [param text] in monospace. If you want to show code, it's recommended to use the [cmd-ref code] or [cmd-ref code-block] command instead.
     [ex In HTML, this will produce [ms <code>]. In [LaTeX], this will produce [ms \texttt].]

@@ -123,7 +123,11 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters 
     else:
       latex
   of tGemtext:
-    &"\n```\n{latex.matext}\n```\n"
+    let math = try:
+      latex.matext
+    except ValueError:
+      xidocError "Error when parsing math: $1" % latex
+    &"\n```\n{math}\n```\n"
 
 commands proofCommands:
 
