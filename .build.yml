@@ -2,11 +2,9 @@ image: alpine/edge
 oauth: pages.sr.ht/PAGES:RW
 packages:
   - hut
-environment:
-  site: xidoc.nim.town
 tasks:
   - package: |
       cd xidoc/docs
       tar -cvz . > ../../site.tar.gz
   - upload: |
-      hut pages publish -d $site site.tar.gz
+      hut pages publish -d xigoi.srht.site -s xidoc site.tar.gz
