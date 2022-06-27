@@ -23,6 +23,7 @@
   ]
   [rule [h*];
     [: font-family; [var sans-serif]]
+    [: color; [var xidoc-color-lighter]]
   ]
   [rule header;
     [: display; flex]
