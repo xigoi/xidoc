@@ -107,6 +107,10 @@ commands defaultCommands:
   command "\\", literal, String:
     arg.strip(chars = {'\n'}).dedent
 
+  command "=s", (key: String, val: String), Markup:
+    resultArgs[key] = XidocValue(typ: String, str: val)
+    ""
+
   command "LaTeX", void, Markup:
     case doc.target
     of tHtml:
@@ -204,6 +208,12 @@ commands defaultCommands:
       "\\textcolor{$1}{$2}" % [color, text]
     of tGemtext:
       text
+
+  command "debug", (args: *String), String:
+    var res = args.join(" | ")
+    for key, val in named:
+      res.add " | $1 = $2" % [key, $val]
+    res
 
   template def(global: static bool): string {.dirty.} =
     let params = paramList.map(it => it.splitWhitespace).get(@[])

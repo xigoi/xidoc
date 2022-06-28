@@ -3,6 +3,7 @@ import ./parser
 import ./types
 import std/strformat
 import std/strutils
+import std/tables
 
 proc escapeText*(text: string, target: Target): string =
   case target
@@ -78,6 +79,8 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
             result.list.add val
           of List:
             result.list &= val.list
+        for key, val in val.args:
+          result.args[key] = val
 
 proc expandStr*(doc: Document, str: string): string =
   doc.expand(str, String).str

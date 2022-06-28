@@ -37,7 +37,9 @@ macro command*(name: string, sig: untyped, retTyp: XidocType, body: untyped): un
     elif sig.kind == nnkIdent:
       let get = getter(sig)
       quote:
-        let arg {.inject.} = doc.expand(`arg`.strip, `sig`).`get`
+        let val = doc.expand(`arg`.strip, `sig`)
+        let arg {.inject.} = val.`get`
+        let named {.inject.} = val.args
         `body`
     else:
       var starPos = none int
@@ -71,7 +73,11 @@ macro command*(name: string, sig: untyped, retTyp: XidocType, body: untyped): un
           return str
         else:
           let get = getter(typ)
-          return quote: expand(doc, `str`, `typ`).`get`
+          return quote:
+            let val = doc.expand(`str`, `typ`)
+            for key, value in val.args:
+              named[key] = value
+            val.`get`
       if starPos.isSome:
         block beforeStar:
           for index, pair in sig[0..<starPos.get(sigLen)]:
@@ -133,12 +139,15 @@ macro command*(name: string, sig: untyped, retTyp: XidocType, body: untyped): un
       quote:
         let `args` = parseXidocArguments(`arg`)
         `lenCheck`
+        var named {.inject.}: Table[string, XidocValue]
         `unpacks`
         block:
           `body`
   let retGet = getter(retTyp)
   quote:
-    commands[`name`] = proc(`arg`: string): XidocValue = XidocValue(typ: `retTyp`, `retGet`: `logic`)
+    commands[`name`] = proc(`arg`: string): XidocValue =
+      var resultArgs {.inject, used.}: Table[string, XidocValue]
+      XidocValue(typ: `retTyp`, `retGet`: `logic`, args: resultArgs)
 
 template commands*(name, defs: untyped) =
   proc name*(doc {.inject.}: Document): Table[string, Command] =

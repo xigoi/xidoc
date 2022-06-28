@@ -21,6 +21,7 @@ type
       str*: string
     of List:
       list*: seq[XidocValue]
+    args*: Table[string, XidocValue]
   SyntaxHighlightingTheme* = enum
     shtDefault = "default"
     shtDark = "dark"
@@ -71,3 +72,10 @@ template lookup*(doc: Document, field: untyped, key: typed): auto =
       if frame.field.hasKey(key):
         return frame.field[key]
   )()
+
+template `$`(val: XidocValue): string =
+  case val.typ
+  of String, Markup:
+    val.str
+  of List:
+    $val.list
