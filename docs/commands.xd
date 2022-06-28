@@ -382,6 +382,10 @@ const factorial = (n) => {
       Evaluates [param text] only if the target is [LaTeX], otherwise returns nothing.
       [ex [if-latex You can see this only if you're in [LaTeX]!]]
     ]
+    [cmd if-gemtext; text;
+      Evaluates [param text] only if the target is Gemtext, otherwise returns nothing.
+      [ex [if-gemtext You can see this only if you're in Gemtext!]]
+    ]
   ]
 
   [section List manipulation;
