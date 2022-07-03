@@ -8,7 +8,72 @@ import std/os
 import std/sequtils
 import std/sets
 import std/strutils
+import std/sugar
 import std/tables
+
+proc expandArguments(doc: Document, name: string, arg: string, types: seq[ParamType]): seq[XidocValue] =
+  let args = parseXidocArguments(arg)
+  var starPos = none int
+  var questionPos = 0..<0
+  for index, (kind, base) in types:
+    case kind
+    of ptkMultiple:
+      if likely starPos.isNone:
+        starPos = some index
+      else:
+        xidocError "There can only be one star parameter"
+      break
+    of ptkOptional:
+      if questionPos == 0..<0:
+        questionPos = index..index
+      else:
+        questionPos.b = index
+    of ptkOne:
+      discard
+    # TODO: handle ambiguous optional params
+  if starPos.isSome:
+    let minLen = types.len - 1
+    if args.len < minLen:
+      xidocError "Command $1 needs at least $2 arguments, $3 given" % [name, $minLen, $args.len]
+  else:
+    let minLen = types.len - questionPos.len
+    let maxLen = types.len
+    if args.len < minLen or args.len > maxLen:
+      xidocError "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [name, $minLen, $maxLen, $args.len]
+  if starPos.isSome:
+    block beforeStar:
+      for index, typ in types[0..<starPos.get]:
+        let val = doc.expand(args[index], typ.base)
+        result.add val
+    block star:
+      let start = starPos.get
+      let ende = ^(types.len - start)
+      let base = types[start].base
+      let vals = args[start..ende].map(arg => doc.expand(arg, base))
+      result.add XidocValue(typ: List, list: vals)
+    block afterStar:
+      for index, typ in types[starPos.get + 1 .. ^1]:
+        let index = ^(types.len - index - starPos.get - 1)
+        let val = doc.expand(args[index], typ.base)
+        result.add val
+  else: # starPos.isNone
+    block beforeQuestion:
+      for index, typ in types[0..<questionPos.a]:
+        let val = doc.expand(args[index], typ.base)
+        result.add val
+    block question:
+      let minLen = types.len - questionPos.len
+      let start = questionPos.a
+      for index, typ in types[questionPos]:
+        if args.len - minLen > index:
+          let val = doc.expand(args[start + index], typ.base)
+          # TODO: optional type
+          result.add XidocValue(typ: List, list: @[val])
+    block afterQuestion:
+      for index, typ in types[questionPos.b + 1 .. ^1]:
+        let index = ^(types.len - index - questionPos.b - 1)
+        let val = doc.expand(args[index], typ.base)
+        result.add val
 
 func getter(typ: NimNode | XidocType): NimNode =
   ident:

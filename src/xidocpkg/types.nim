@@ -21,6 +21,13 @@ type
       str*: string
     of List:
       list*: seq[XidocValue]
+  ParamTypeKind* = enum
+    ptkOne
+    ptkOptional
+    ptkMultiple
+  ParamType* = tuple
+    kind: ParamTypeKind
+    base: XidocType
   SyntaxHighlightingTheme* = enum
     shtDefault = "default"
     shtDark = "dark"
@@ -71,3 +78,15 @@ template lookup*(doc: Document, field: untyped, key: typed): auto =
       if frame.field.hasKey(key):
         return frame.field[key]
   )()
+
+converter one*(typ: XidocType): ParamType =
+  result.kind = ptkOne
+  result.base = typ
+
+proc `?`*(typ: XidocType): ParamType =
+  result.kind = ptkOptional
+  result.base = typ
+
+proc `*`*(typ: XidocType): ParamType =
+  result.kind = ptkMultiple
+  result.base = typ
