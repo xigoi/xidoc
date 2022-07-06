@@ -15,12 +15,15 @@ type
     String
     Markup
     List
+    Optional
   XidocValue* = object
     case typ*: XidocType
     of String, Markup:
       str*: string
     of List:
       list*: seq[XidocValue]
+    of Optional:
+      opt*: Option[ref XidocValue]
   ParamTypeKind* = enum
     ptkOne
     ptkOptional
@@ -79,7 +82,7 @@ template lookup*(doc: Document, field: untyped, key: typed): auto =
         return frame.field[key]
   )()
 
-converter one*(typ: XidocType): ParamType =
+proc `!`*(typ: XidocType): ParamType =
   result.kind = ptkOne
   result.base = typ
 
