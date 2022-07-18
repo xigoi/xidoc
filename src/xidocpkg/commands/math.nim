@@ -18,7 +18,7 @@ commands mathCommands:
   command "_", String, String:
     &"[{arg}]"
 
-  command "/", (a: ?String, b: String), String:
+  command "/", (a: ?String, b: !String), String:
     if a.isSome:
       "\\frac{$1}{$2}" % [a.get, b]
     else:
@@ -45,7 +45,7 @@ commands mathCommands:
     "{\\left\\lceil $1\\right\\rceil}" % arg
 
   # Analysis/Calculus
-  command "int", (lb: ?String, ub: ?String, expr: String, varname: String), String:
+  command "int", (lb: ?String, ub: ?String, expr: !String, varname: !String), String:
     if lb.isSome:
       if ub.isSome:
         "\\int_{$1}^{$2}$3\\,\\mathrm d$4" % [lb.get, ub.get, expr, varname]
@@ -61,26 +61,26 @@ commands mathCommands:
     "\\limsup_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
 
   # Inspired by the physics package
-  command "dd", (x: String), String:
+  command "dd", (x: !String), String:
     "{\\mathrm d$1}" % [x]
-  command "dd^", (n: String, x: String), String:
+  command "dd^", (n: !String, x: !String), String:
     "{\\mathrm d^{$1}$2}" % [n, x]
-  command "dv", (f: ?String, x: String), String:
+  command "dv", (f: ?String, x: !String), String:
     if f.isSome:
       "\\frac{\\mathrm d$1}{\\mathrm d$2}" % [f.get, x]
     else:
       "\\frac{\\mathrm d}{\\mathrm d$1}" % [x]
-  command "dv^", (n: String, f: ?String, x: String), String:
+  command "dv^", (n: !String, f: ?String, x: !String), String:
     if f.isSome:
       "\\frac{\\mathrm d^{$1}$2}{\\mathrm d$3^{$1}}" % [n, f.get, x]
     else:
       "\\frac{\\mathrm d^{$1}}{\\mathrm d$2^{$1}}" % [n, x]
-  command "pdv", (f: ?String, x: String), String:
+  command "pdv", (f: ?String, x: !String), String:
     if f.isSome:
       "\\frac{\\partial $1}{\\partial $2}" % [f.get, x]
     else:
       "\\frac{\\partial}{\\partial $1}" % [x]
-  command "pdv^", (n: String, f: ?String, x: String), String:
+  command "pdv^", (n: !String, f: ?String, x: !String), String:
     if f.isSome:
       "\\frac{\\partial^{$1}$2}{\\partial $3^{$1}}" % [n, f.get, x]
     else:
@@ -99,7 +99,7 @@ commands mathCommands:
     "\\begin{Vmatrix}$1\\end{Vmatrix}" % [arg]
 
   # Units
-  command "unit", (number: ?String, unit: Markup), String:
+  command "unit", (number: ?String, unit: !Markup), String:
     let unitRendered = unit.replacef(peg"^{\letter+}", "\\mathrm{$1}").replacef(peg"{!\letter[^\\]}{\letter+}", "$1\\mathrm{$2}")
     if number.isSome:
       number.get & "\\," & unitRendered

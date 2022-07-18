@@ -15,8 +15,8 @@ proc expandArguments(doc: Document, name: string, arg: string, types: openArray[
   let args = parseXidocArguments(arg)
   var starPos = none int
   var questionPos = 0..<0
-  for index, (kind, base) in types:
-    case kind
+  for index, typ in types:
+    case typ.kind
     of ptkMultiple:
       if likely starPos.isNone:
         starPos = some index
@@ -28,7 +28,7 @@ proc expandArguments(doc: Document, name: string, arg: string, types: openArray[
         questionPos = index..index
       else:
         questionPos.b = index
-    of ptkOne:
+    of ptkOne, ptkRaw:
       discard
     # TODO: handle ambiguous optional params
   if starPos.isSome:
@@ -40,10 +40,15 @@ proc expandArguments(doc: Document, name: string, arg: string, types: openArray[
     let maxLen = types.len
     if args.len < minLen or args.len > maxLen:
       xidocError "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [name, $minLen, $maxLen, $args.len]
+  proc expandIfNotRaw(doc: Document, arg: string, typ: ParamType): XidocValue =
+    if typ.kind == ptkRaw:
+      XidocValue(typ: String, str: arg)
+    else:
+      doc.expand(arg, typ.base)
   if starPos.isSome:
     block beforeStar:
       for index, typ in types[0..<starPos.get]:
-        let val = doc.expand(args[index], typ.base)
+        let val = doc.expandIfNotRaw(args[index], typ)
         result.add val
     block star:
       let start = starPos.get
@@ -54,25 +59,27 @@ proc expandArguments(doc: Document, name: string, arg: string, types: openArray[
     block afterStar:
       for index, typ in types[starPos.get + 1 .. ^1]:
         let index = ^(types.len - index - starPos.get - 1)
-        let val = doc.expand(args[index], typ.base)
+        let val = doc.expandIfNotRaw(args[index], typ)
         result.add val
   else: # starPos.isNone
     block beforeQuestion:
       for index, typ in types[0..<questionPos.a]:
-        let val = doc.expand(args[index], typ.base)
+        let val = doc.expandIfNotRaw(args[index], typ)
         result.add val
     block question:
       let minLen = types.len - questionPos.len
       let start = questionPos.a
       for index, typ in types[questionPos]:
         if args.len - minLen > index:
-          let val = doc.expand(args[start + index], typ.base)
-          # TODO: optional type
-          result.add XidocValue(typ: List, list: @[val])
+          var val = new XidocValue
+          val[] = doc.expand(args[start + index], typ.base)
+          result.add XidocValue(typ: Optional, opt: some(val))
+        else:
+          result.add XidocValue(typ: Optional, opt: none(ref XidocValue))
     block afterQuestion:
       for index, typ in types[questionPos.b + 1 .. ^1]:
         let index = ^(types.len - index - questionPos.b - 1)
-        let val = doc.expand(args[index], typ.base)
+        let val = doc.expandIfNotRaw(args[index], typ)
         result.add val
 
 func getter(typ: NimNode | XidocType): NimNode =
@@ -82,11 +89,17 @@ func getter(typ: NimNode | XidocType): NimNode =
     of "List": "list"
     else: error "invalid type: " & $typ; ""
 
+func to(val: XidocValue, _: typedesc[XidocValue]): XidocValue =
+  val
+
 func to(val: XidocValue, _: typedesc[string]): string =
   val.str
 
-func to(val: XidocValue, _: typedesc[seq[XidocType]]): seq[XidocType] =
-  val.list
+func to[T](val: XidocValue, _: typedesc[seq[T]]): seq[T] =
+  val.list.map(x => x.to(T))
+
+func to[T](val: XidocValue, _: typedesc[Option[T]]): Option[T] =
+  val.opt.map(x => x[].to(T))
 
 func xidocTypeToNimType(typ: NimNode | XidocType): NimNode =
   case $typ
@@ -94,6 +107,9 @@ func xidocTypeToNimType(typ: NimNode | XidocType): NimNode =
   of "List":
     quote:
       seq[XidocValue]
+  of "Optional":
+    quote:
+      Option[XidocValue]
   else: error "invalid type: " & $typ; ident""
 
 func paramTypeToNimType(typ: NimNode): NimNode =
@@ -101,6 +117,8 @@ func paramTypeToNimType(typ: NimNode): NimNode =
     if typ.kind == nnkPrefix:
       typ[1]
     else:
+      if $typ == "Raw":
+        return ident"string"
       typ
   let baseNim = xidocTypeToNimType(base)
   if typ.kind == nnkPrefix:
@@ -112,7 +130,7 @@ func paramTypeToNimType(typ: NimNode): NimNode =
         seq[`baseNim`]
     of "?":
       quote:
-        seq[`baseNim`]
+        Option[`baseNim`]
     else: error "invalid type: " & $typ; ident""
   else:
     baseNim

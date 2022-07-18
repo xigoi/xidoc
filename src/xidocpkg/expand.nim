@@ -37,6 +37,8 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
           result.str.addIfNeeded node.str.escapeText(doc.target)
         of List:
           result.list.add XidocValue(typ: String, str: node.str)
+        of Optional:
+          discard # TODO
       of xnkWhitespace:
         case typ
         of String, Markup:
@@ -48,6 +50,8 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
           result.str.addIfNeeded whitespace
         of List:
           discard
+        of Optional:
+          discard # TODO
       of xnkCommand:
         let name = node.name
         let command = doc.lookup(commands, name)
@@ -64,6 +68,8 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
             result.str.addIfNeeded val.str
           of List:
             xidocError "Cannot convert a List to a String"
+          of Optional:
+            discard # TODO
         of Markup:
           case val.typ
           of String:
@@ -72,12 +78,18 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
             result.str.addIfNeeded val.str
           of List:
             xidocError "Cannot convert a List to a Markup"
+          of Optional:
+            discard # TODO
         of List:
           case val.typ
           of String, Markup:
             result.list.add val
           of List:
             result.list &= val.list
+          of Optional:
+            discard # TODO
+        of Optional:
+          discard # TODO
 
 proc expandStr*(doc: Document, str: string): string =
   doc.expand(str, String).str

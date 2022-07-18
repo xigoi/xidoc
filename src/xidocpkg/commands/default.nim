@@ -41,7 +41,7 @@ const
 commands defaultCommands:
 
   template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string, before: untyped = ()) =
-    command cmdName, (thName: ?Markup, content: raw), Markup:
+    command cmdName, (thName: ?Markup, content: Raw), Markup:
       when typeof(before) is void:
         before
       let content = doc.renderStr(content)
@@ -166,7 +166,7 @@ commands defaultCommands:
     else:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
 
-  command "code", (lang: ?String, code: String), Markup:
+  command "code", (lang: ?String, code: !String), Markup:
     case doc.target
     of tHtml:
       doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
@@ -180,7 +180,7 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 
-  command "code-block", (lang: ?String, code: String), Markup:
+  command "code-block", (lang: ?String, code: !String), Markup:
     case doc.target
     of tHtml:
       doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
@@ -195,7 +195,7 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 
-  command "color", (color: String, text: Markup), Markup:
+  command "color", (color: !String, text: !Markup), Markup:
     case doc.target
     of tHtml:
       htg.span(style = &"color:{color}", text)
@@ -217,15 +217,15 @@ commands defaultCommands:
       result = XidocValue(typ: Markup, str: doc.renderStr(body))
     ""
 
-  command "def", (name: String, paramList: ?String, body: raw), Markup:
+  command "def", (name: !String, paramList: ?String, body: Raw), Markup:
     def(global = false)
 
-  command "def-global", (name: String, paramList: ?String, body: raw), Markup:
+  command "def-global", (name: !String, paramList: ?String, body: Raw), Markup:
     def(global = true)
 
   theoremLikeCommand("dfn", pDefinition, "$1", "$1")
 
-  command "draw", (width: ?String, height: ?String, desc: raw), Markup:
+  command "draw", (width: ?String, height: ?String, desc: Raw), Markup:
     doc.stack[^1].commands = drawCommands(doc)
     case doc.target
     of tHtml:
@@ -242,7 +242,7 @@ commands defaultCommands:
   command "expand", String, String:
     doc.expandStr(arg)
 
-  command "for-each", (name: String, list: List, tmpl: raw), List:
+  command "for-each", (name: !String, list: !List, tmpl: Raw), List:
     var results: seq[XidocValue]
     for item in list:
       let itemCopy = item
@@ -281,7 +281,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
-  command "html-add-attrs", (args: String, tag: Markup), Markup:
+  command "html-add-attrs", (args: !String, tag: !Markup), Markup:
     case doc.target
     of tHtml:
       var matches: array[2, string]
@@ -320,7 +320,7 @@ commands defaultCommands:
     else:
       ""
 
-  command "include", (filename: String, args: *Markup), Markup:
+  command "include", (filename: !String, args: *Markup), Markup:
     if args.len mod 2 != 0:
       xidocError "Additional arguments to include must come in pairs"
     let path = doc.lookup(path).splitPath.head / filename
@@ -342,7 +342,7 @@ commands defaultCommands:
     except IOError:
       xidocError &"Cannot open file {filename}\n(resolved as {path})"
 
-  command "inject", (filename: String), Markup:
+  command "inject", (filename: !String), Markup:
     let path = doc.lookup(path).splitPath.head / filename
     doc.stack[^1].path = some(path)
     try:
@@ -359,10 +359,10 @@ commands defaultCommands:
     of tGemtext:
       arg
 
-  command "janet-call", (function: String, args: *String), String:
+  command "janet-call", (function: !String, args: *String), String:
     janetCall(function, args, doc.lookup(path))
 
-  command "janet-eval", (code: String, args: *String), String:
+  command "janet-eval", (code: !String, args: *String), String:
     if args.len mod 2 != 0:
       xidocError "Arguments to janet-eval must come in pairs of name; value"
     var values = newSeqOfCap[(string, string)](args.len div 2)
@@ -370,13 +370,13 @@ commands defaultCommands:
       values.add (args[2 * i], args[2 * i + 1])
     janetEval(code, values, doc.lookup(path))
 
-  command "join", (sep: Markup, list: List), Markup:
+  command "join", (sep: !Markup, list: !List), Markup:
     list.mapIt(it.str).join(sep)
 
-  command "js-call", (function: String, args: *String), String:
+  command "js-call", (function: !String, args: *String), String:
     jsCall(function, args)
 
-  command "js-eval", (code: String, args: *String), String:
+  command "js-eval", (code: !String, args: *String), String:
     if args.len mod 2 != 0:
       xidocError "Arguments to js-eval must come in pairs of name; value"
     var values = newSeqOfCap[(string, string)](args.len div 2)
@@ -394,7 +394,7 @@ commands defaultCommands:
       doc.addToHead.incl htg.script(`type` = "module", arg)
     ""
 
-  command "lang", (langStr: String, body: raw), Markup:
+  command "lang", (langStr: !String, body: Raw), Markup:
     let lang =
       case langStr.toLowerAscii
       of "en", "english": lEnglish
@@ -405,7 +405,7 @@ commands defaultCommands:
 
   theoremLikeCommand("lemma", pLemma, "$1", "$1")
 
-  command "link", (name: ?Markup, url: String), Markup:
+  command "link", (name: ?Markup, url: !String), Markup:
     case doc.target
     of tHtml:
       htg.a(href = url, name.get(url))
@@ -504,7 +504,7 @@ commands defaultCommands:
   command "render", String, Markup:
     doc.renderStr(arg)
 
-  command "replace-suffix", (sub: String, by: String, str: String), String:
+  command "replace-suffix", (sub: !String, by: !String, str: !String), String:
     var str = str
     if str.endsWith(sub):
       str.removeSuffix(sub)
@@ -522,7 +522,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
-  command "section", (name: ?Markup, content: Markup), Markup:
+  command "section", (name: ?Markup, content: !Markup), Markup:
     let depth = doc.stack.countIt(it.cmdName == "section")
     case doc.target
     of tHtml:
@@ -606,7 +606,7 @@ commands defaultCommands:
   command "space", void, String:
     " "
 
-  command "spoiler", (title: Markup, content: Markup), Markup:
+  command "spoiler", (title: !Markup, content: !Markup), Markup:
     case doc.target
     of tHtml:
       htg.details(class = "xd-spoiler", htg.summary(title), content)
@@ -615,7 +615,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "The spoiler command is not supported in the Gemtext backend"
 
-  command "spoiler-solution", (name: ?Markup, content: Markup), Markup:
+  command "spoiler-solution", (name: ?Markup, content: !Markup), Markup:
     let word = pSolution.translate(doc.lookup(lang))
     case doc.target
     of tHtml:
@@ -638,7 +638,7 @@ commands defaultCommands:
       discard
     ""
 
-  command "table", (spec: ?String, content: Markup), Markup:
+  command "table", (spec: ?String, content: !Markup), Markup:
     case doc.target
     of tHtml:
       htg.table(content)
@@ -667,7 +667,7 @@ commands defaultCommands:
 
   theoremLikeCommand("theorem", pTheorem, "$1", "$1")
 
-  command "title", (title: Markup, author: ?Markup), Markup:
+  command "title", (title: !Markup, author: ?Markup), Markup:
     case doc.target
     of tHtml:
       doc.addToHead.incl htg.title(title)
@@ -680,7 +680,7 @@ commands defaultCommands:
     of tGemtext:
       "# $1\n\n" % title
 
-  command "unit", (number: ?Markup, unit: Markup), Markup:
+  command "unit", (number: ?Markup, unit: !Markup), Markup:
     if number.isSome:
       # U+2009 Thin Space
       number.get & "\u2009" & unit
@@ -718,7 +718,7 @@ commands defaultCommands:
       else:
         "<$1 />" % [(@[tag] & attrs).join(" ")]
 
-    command "<>", (tag: String, args: *String, body: Markup), Markup:
+    command "<>", (tag: !String, args: *String, body: !Markup), Markup:
       generateHtmlTag(tag, args, body)
 
     for tag in htmlTags:
@@ -728,13 +728,13 @@ commands defaultCommands:
           command "<$1>" % tag, (args: *String), Markup:
             generateHtmlTag(tag, args, paired = false)
         else:
-          command "<$1>" % tag, (args: *String, body: Markup), Markup:
+          command "<$1>" % tag, (args: *String, body: !Markup), Markup:
             generateHtmlTag(tag, args, body)
       )(tag)
 
   of tLatex:
 
-    command "\\", (command: String, args: *Markup), Markup:
+    command "\\", (command: !String, args: *Markup), Markup:
       "\\" & args.mapIt("{$1}" % it).join
 
   else:

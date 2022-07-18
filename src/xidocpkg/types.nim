@@ -28,9 +28,10 @@ type
     ptkOne
     ptkOptional
     ptkMultiple
-  ParamType* = tuple
-    kind: ParamTypeKind
-    base: XidocType
+    ptkRaw
+  ParamType* = object
+    kind*: ParamTypeKind
+    base*: XidocType
   SyntaxHighlightingTheme* = enum
     shtDefault = "default"
     shtDark = "dark"
@@ -93,3 +94,5 @@ proc `?`*(typ: XidocType): ParamType =
 proc `*`*(typ: XidocType): ParamType =
   result.kind = ptkMultiple
   result.base = typ
+
+const Raw* = ParamType(kind: ptkRaw)
