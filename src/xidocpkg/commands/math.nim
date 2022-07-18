@@ -106,6 +106,16 @@ commands mathCommands:
     else:
       unitRendered
 
+  # Prevent accidental nested math
+  command "$", literal, Markup:
+    xidocError "Math can't be nested inside math"
+
+  command "$$", literal, Markup:
+    xidocError "Math can't be nested inside math"
+
+  command "$$&", literal, Markup:
+    xidocError "Math can't be nested inside math"
+
 proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters = true): string =
   case doc.target
   of tHtml:
