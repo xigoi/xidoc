@@ -11,9 +11,8 @@ import macros
 
 commands cssCommands:
 
-  expandMacros:
-    command ":", (prop: !String, val: !String), String:
-      "$1:$2;" % [prop, val]
+  command ":", (prop: !String, val: !String), String:
+    "$1:$2;" % [prop, val]
 
   command ":!", (prop: !String, val: !String), String:
     "$1:$2 !important;" % [prop, val]

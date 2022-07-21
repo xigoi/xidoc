@@ -511,6 +511,10 @@ commands defaultCommands:
       str &= by
     str
 
+  command "reset", (key: !String), Markup:
+    doc.settings[key] = none(string)
+    ""
+
   command "row", (entries: *Markup), Markup:
     if not doc.stack.anyIt(it.cmdName == "table"):
       xidocError "The row command has to be inside a table command"
@@ -558,6 +562,10 @@ commands defaultCommands:
         "\n\n$1$2\n\n$3" % [prefix, name.get, content]
       else:
         "\n\n$1" % [content]
+
+  command "set", (key: !String, val: !String), Markup:
+    doc.settings[key] = some(val)
+    ""
 
   command "set-doc-lang", String, Markup:
     doc.stack[0].lang = some(

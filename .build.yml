@@ -7,4 +7,4 @@ tasks:
       cd xidoc/docs
       tar -cvz . > ../../site.tar.gz
   - upload: |
-      hut pages publish -d xigoi.srht.site -s xidoc site.tar.gz
+      hut pages publish -d xidoc.nim.town site.tar.gz
