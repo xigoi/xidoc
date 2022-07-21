@@ -3,8 +3,8 @@ oauth: pages.sr.ht/PAGES:RW
 packages:
   - hut
 tasks:
-  - package: |
-      cd xidoc/docs
-      tar -cvz . > ../../site.tar.gz
   - upload: |
-      hut pages publish -d xidoc.nim.town site.tar.gz
+      if test $(git branch --show-current) = master; then
+        tar -cvzC xidoc/docs -f site.tar.gz
+        hut pages publish -d xidoc.nim.town site.tar.gz
+      fi
