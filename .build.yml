@@ -5,6 +5,6 @@ packages:
 tasks:
   - upload: |
       if test "$(git -C xidoc rev-parse HEAD)" = "$(git -C xidoc rev-parse master)"; then
-        tar -cvzC xidoc/docs -f site.tar.gz
+        tar -cvzC xidoc/docs . -f site.tar.gz
         hut pages publish -d xidoc.nim.town site.tar.gz
       fi
