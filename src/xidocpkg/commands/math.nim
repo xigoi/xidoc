@@ -106,20 +106,28 @@ commands mathCommands:
     else:
       unitRendered
 
+  # Why is this necessary???
+  {.warning[UnreachableCode]: off.}
+
   # Prevent accidental nested math
   command "$", literal, Markup:
     xidocError "Math can't be nested inside math"
+    ""
 
   command "$$", literal, Markup:
     xidocError "Math can't be nested inside math"
+    ""
 
   command "$$&", literal, Markup:
     xidocError "Math can't be nested inside math"
+    ""
+
+  {.warning[UnreachableCode]: on.}
 
 proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters = true): string =
   case doc.target
   of tHtml:
-    doc.addToHead.incl """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">"""
+    doc.addToHead.incl """<link rel="stylesheet" href="$1" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">""" % doc.settings["katex-stylesheet-path"].get("https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css")
     if displayMode:
       doc.addToStyle.incl """xd-block-math{display:block}"""
     let format = if displayMode: "<xd-block-math>$1</xd-block-math>" else: "<xd-inline-math>$1</xd-inline-math>"
