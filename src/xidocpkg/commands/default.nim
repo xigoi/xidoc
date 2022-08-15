@@ -139,14 +139,20 @@ commands defaultCommands:
     of tGemtext:
       arg
 
-  command "block-quote", Markup, Markup:
+  command "block-quote", (quote: Markup, author: ?Markup), Markup:
     case doc.target
     of tHtml:
-      htg.blockquote(arg)
+      htg.blockquote:
+        if author.isSome:
+          htg.p(quote) & htg.p(htg.cite(author.get))
+        else:
+          quote
     of tLatex:
-      "\\begin{quote}$1\\end{quote}" % arg
+      # TODO author support
+      "\\begin{quote}$1\\end{quote}" % quote
     of tGemtext:
-      "\n> $1\n" % arg
+      # TODO author support
+      "\n> $1\n" % quote
 
   command "checkboxes", raw, Markup:
     case doc.target
@@ -404,6 +410,25 @@ commands defaultCommands:
       "" # TODO
     of tGemtext:
       if name.isSome: "\n=> $1 $2" % [url, name.get] else: "\n=> $1" % [url]
+
+  command "link-image", (alt: String, url: String, link: ?String), Markup:
+    case doc.target
+    of tHtml:
+      if link.isSome:
+        htg.a(href = link.get, htg.img(src = url, alt = alt))
+      else:
+        htg.img(src = url, alt = alt)
+    of tLatex:
+      xidocError "Linking images is not supported in the LaTeX backend"
+    of tGemtext:
+      if link.isSome:
+        xidocError "Linking images with an additional link is not supported in the Gemtext backend"
+      "\n=> $1 \u{1e5bc} $2" % [url, alt]
+
+  command "link-stylesheet", (url: String), Markup:
+    if doc.target == tHtml:
+      doc.addToHead.incl(htg.link(rel = "stylesheet", href = url))
+    ""
 
   command "list", (items: *Markup), Markup:
     case doc.target
