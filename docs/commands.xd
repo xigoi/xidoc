@@ -122,10 +122,10 @@
     [cmd raw; text;
       Returns the given [param text] without expanding it.
       [ex [raw [I can use [as many brackets [as I want]], but [they] still have to [[be balanced]]].]]
-      [cmd \; text;
+      [cmd raw<; text;
         Removes the least common indentation from all lines of [param text], then returns it without expanding. A [" smarter] version of [cmd-ref raw].
         [ex
-[code-block nim; [\
+[code-block nim; [raw<
   for word in ["This", "correctly", "removes", "indentation"]:
     echo word
 ]]

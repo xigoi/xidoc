@@ -104,9 +104,6 @@ commands defaultCommands:
     doc.stack[^1].commands = mathCommands(doc)
     doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true, addDelimiters = false)
 
-  command "\\", literal, String:
-    arg.strip(chars = {'\n'}).dedent
-
   command "LaTeX", void, Markup:
     case doc.target
     of tHtml:
@@ -132,12 +129,6 @@ commands defaultCommands:
 
   command "arg-raw-escape", String, Markup:
     escapeText(doc.lookup(args, arg), doc.target)
-
-  # command "arg\\", String, String:
-  #   doc.lookup(args, arg).dedent
-
-  # command "arg\\-escape", String, String:
-  #   escapeText(doc.lookup(args, arg).dedent, doc.target)
 
   command "bf", Markup, Markup:
     case doc.target
@@ -500,6 +491,9 @@ commands defaultCommands:
 
   command "raw", raw, String:
     arg
+
+  command "raw<", literal, String:
+    arg.strip(chars = {'\n'}).dedent
 
   command "render", String, Markup:
     doc.renderStr(arg)
