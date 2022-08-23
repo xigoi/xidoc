@@ -42,7 +42,7 @@ type
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: string
-    settings*: Table[string, Option[string]]
+    settings*: Table[string, string]
     snippet*: bool
     stack*: seq[Frame]
     templateArgs*: Table[string, string]

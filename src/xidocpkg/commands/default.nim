@@ -531,7 +531,7 @@ commands defaultCommands:
     str
 
   command "reset", (key: String), Markup:
-    doc.settings[key] = none(string)
+    doc.settings.del(key)
     ""
 
   command "row", (entries: *Markup), Markup:
@@ -583,7 +583,7 @@ commands defaultCommands:
         "\n\n$1" % [content]
 
   command "set", (key: String, val: String), Markup:
-    doc.settings[key] = some(val)
+    doc.settings[key] = val
     ""
 
   command "set-doc-lang", String, Markup:
