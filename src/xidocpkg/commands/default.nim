@@ -53,12 +53,11 @@ commands defaultCommands:
           htg.strong(if thName.isSome: "$1 ($2)." % [word, thName.get] else: "$1." % [word]), " ", htmlTmpl % content
         )
       of tLatex:
-        doc.addToHead.incl "\\usepackage{amsthm}"
-        doc.addToHead.incl "\\theoremstyle{definition}\\newtheorem*{XD$1}{$2}" % [cmdName, word]
-        "\\begin{XD$1}$2\\end{XD$1}" % [cmdName, latexTmpl % content]
+        doc.addToHead.incl "usepackage"{"amsthm"}
+        doc.addToHead.incl "theoremstyle"{"definition"} & "newtheorem*"{"XD" & cmdName}{word}
+        env("XD" & cmdName, latexTmpl % content)
       of tGemtext:
         "\n\n$1. $2" % [if thName.isSome: "$1 ($2)" % [word, thName.get] else: "$1" % [word], content]
-
 
   proc commentCmd(arg: Literal): String {.command: "#".} =
     ""
@@ -87,8 +86,8 @@ commands defaultCommands:
   proc quoteCmd(arg: !Markup): Markup {.command: "\"".} =
     case doc.target
     of tLatex:
-      doc.addToHead.incl "\\usepackage{csquotes}"
-      "\\enquote{$1}" % arg
+      doc.addToHead.incl "usepackage"{"csquotes"}
+      "enquote"{arg}
     else:
       pQuotation.translate(doc.lookup(lang)) % arg
 
@@ -102,7 +101,7 @@ commands defaultCommands:
 
   proc alignedMathCmd(arg: Raw): Markup {.command: "$$&".} =
     doc.stack[^1].commands = mathCommands(doc)
-    doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true, addDelimiters = false)
+    doc.renderMath(env("align*", doc.expandStr(arg)), displayMode = true, addDelimiters = false)
 
   proc LaTeXCmd(): Markup {.command: "LaTeX".} =
     case doc.target
@@ -110,7 +109,7 @@ commands defaultCommands:
       doc.addToStyle.incl """.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}"""
       htg.span(class = "xd-latex", "L", htg.sup("a"), "T", htg.sub("e"), "X")
     of tLatex:
-      "\\LaTeX{}"
+      "LaTeX"{""}
     of tGemtext:
       "LaTeX"
 
@@ -130,14 +129,14 @@ commands defaultCommands:
   proc argRawEscapeCmd(arg: !String): Markup {.command: "arg-raw-escape".} =
     escapeText(doc.lookup(args, arg), doc.target)
 
-  proc bfCmd(text: !Markup): Markup {.command: "bf".} =
+  proc bfCmd(arg: !Markup): Markup {.command: "bf".} =
     case doc.target
     of tHtml:
-      htg.b(text)
+      htg.b(arg)
     of tLatex:
-      "\\textbf{$1}" % text
+      "textbf"{arg}
     of tGemtext:
-      text
+      arg
 
   proc blockQuoteCmd(quote: !Markup, author: ?Markup): Markup {.command: "block-quote".} =
     case doc.target
@@ -149,7 +148,7 @@ commands defaultCommands:
           quote
     of tLatex:
       # TODO author support
-      "\\begin{quote}$1\\end{quote}" % quote
+      env("quote", quote)
     of tGemtext:
       # TODO author support
       "\n> $1\n" % quote
@@ -173,7 +172,7 @@ commands defaultCommands:
         htg.code(code.escapeText(doc.target))
     of tLatex:
       # TODO: use minted
-      "\\texttt{$1}" % code
+      "texttt"{code}
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 
@@ -186,9 +185,8 @@ commands defaultCommands:
       else:
         htg.pre(htg.code(code.escapeText(doc.target)))
     of tLatex:
-      # TODO: use minted
       doc.addToHead.incl "\\usepackage{minted}"
-      "\\begin{minted}$1\n$2\n\\end{minted}\n" % [lang.map(lang => "{$1}" % lang).get(""), code]
+      env("minted", lang.map(lang => "{$1}" % lang).get("") & "\n" & code) & "\n"
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 
@@ -197,8 +195,8 @@ commands defaultCommands:
     of tHtml:
       htg.span(style = &"color:{color}", text)
     of tLatex:
-      doc.addToHead.incl "\\usepackage[svgnames]{xcolor}"
-      "\\textcolor{$1}{$2}" % [color, text]
+      doc.addToHead.incl "usepackage"["svgnames"]{"xcolor"}
+      "textcolor"{color}{text}
     of tGemtext:
       text
 
@@ -247,7 +245,7 @@ commands defaultCommands:
       else:
         htg.figure(content)
     of tLatex:
-      "\\begin{figure}[h]\\centering$1\\end{figure}" % (content & caption.map(c => "\\caption{$1}" % c).get(""))
+      env("figure", "[h]\\centering" & content & caption.map(c => "caption"{c}).get(""))
     of tGemtext:
       "\n" & content & caption.map(c => "\n" & c).get("")
 
@@ -364,7 +362,7 @@ commands defaultCommands:
     of tHtml:
       htg.i(arg)
     of tLatex:
-      "\\textit{$1}" % arg
+      "textit"{arg}
     of tGemtext:
       arg
 
@@ -447,7 +445,7 @@ commands defaultCommands:
     of tHtml:
       htg.ul(items.mapIt(htg.li(it)).join)
     of tLatex:
-      "\\begin{itemize}$1\\end{itemize}" % items.mapIt("\\item $1" % it).join
+      env("itemize", items.mapIt("\\item $1" % it).join)
     of tGemtext:
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
@@ -476,7 +474,7 @@ commands defaultCommands:
     of tHtml:
       htg.pre(class = "xd-matext", math)
     of tLatex:
-      "\\begin{verbatim}$1\\end{verbatim}" % math
+      env("verbatim", math) & "\n"
     of tGemtext:
       "\n```\n{$1}\n```\n" % math
 
@@ -485,7 +483,7 @@ commands defaultCommands:
     of tHtml:
       htg.code(arg)
     of tLatex:
-      "\\texttt{$1}" % arg
+      "texttt"{arg}
     of tGemtext:
       "\n```\n{$1}\n```\n" % arg
 
@@ -494,7 +492,7 @@ commands defaultCommands:
     of tHtml:
       htg.ol(items.mapIt(htg.li(it)).join)
     of tLatex:
-      "\\begin{enumerate}$1\\end{enumerate}" % items.mapIt("\\item $1" % it).join
+      env("enumerate", items.mapIt("\\item $1" % it).join)
     of tGemtext:
       # TODO: add numbers
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
@@ -504,7 +502,7 @@ commands defaultCommands:
     of tHtml:
       htg.p(arg)
     of tLatex:
-      "\\par $1" % arg
+      "\\par " & arg
     of tGemtext:
       "\n\n$1" % arg
 
@@ -522,7 +520,7 @@ commands defaultCommands:
     of tHtml:
       htg.ul(items.mapIt(htg.li(it)).join)
     of tLatex:
-      "\\begin{itemize}$1\\end{iremize}" % items.mapIt("\\item $1" % it).join
+      env("itemize", items.mapIt("\\item $1" % it).join)
     of tGemtext:
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
@@ -626,7 +624,7 @@ commands defaultCommands:
     of tHtml:
       doc.addToHead.incl htg.title(arg)
     of tLatex:
-      doc.addToHead.incl "\\title{$1}" % arg
+      doc.addToHead.incl "title"{arg}
     else:
       discard
     ""
@@ -662,9 +660,9 @@ commands defaultCommands:
         htg.summary(htg.strong(if name.isSome: "$1 ($2)" % [word, name.get] else: "$1" % [word])), content
       )
     of tLatex:
-      doc.addToHead.incl "\\usepackage{amsthm}"
-      doc.addToHead.incl "\\newtheorem{$1}{$2}[section]" % ["spoilersolution", word]
-      "\\begin{$1}$2\end{$1}" % ["spoilersolution", content]
+      doc.addToHead.incl "usepackage"{"amsthm"}
+      doc.addToHead.incl "newtheorem"{"XDspoilersolution"}{word}
+      env("XDspoilersolution", content)
     of tGemtext:
       xidocError "The spoiler-solution command is not supported in the Gemtext backend"
 
@@ -684,8 +682,8 @@ commands defaultCommands:
     of tLatex:
       if spec.isNone:
         xidocError "Tables in LaTeX currently require a spec"
-      doc.addToHead.incl "\\usepackage{booktabs}"
-      "\\begin{table}{$1}\\toprule $2\\bottomrule\\end{table}" % [spec.get, content]
+      doc.addToHead.incl "usepackage"{"booktabs"}
+      env("table", "{" & spec.get & "}\\toprule " & content & "\\bottomrule")
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
@@ -700,7 +698,7 @@ commands defaultCommands:
     of tHtml:
       htg.dfn(arg)
     of tLatex:
-      "\\textit{$1}" % arg
+      "textit"{arg}
     of tGemtext:
       arg
 
@@ -712,9 +710,9 @@ commands defaultCommands:
       doc.addToHead.incl htg.title(title)
       htg.h1(title) & author.map(author => htg.address(author)).get("")
     of tLatex:
-      doc.addToHead.incl "\\title{$1}" % title
+      doc.addToHead.incl "title"{title}
       if author.isSome:
-        doc.addToHead.incl "\\author{$1}" % author.get
+        doc.addToHead.incl "author"{author.get}
       "\\maketitle"
     of tGemtext:
       "# $1\n\n" % title
@@ -732,8 +730,8 @@ commands defaultCommands:
       doc.addToStyle.incl ".xd-logo{color:#d0c;font-weight:bold}"
       htg.span(class = "xd-logo", "ξ")
     of tLatex:
-      doc.addToHead.incl "\\usepackage[svgnames]{xcolor}"
-      "\\textcolor{#d0c}{\\(\\xi\\)}"
+      doc.addToHead.incl "usepackage"["svgnames"]{"xcolor"}
+      "textcolor"{"#d0c"}{"\\(\\xi\\)"}
     of tGemtext:
       "[ξ]"
 

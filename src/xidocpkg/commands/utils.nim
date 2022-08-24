@@ -170,3 +170,12 @@ template commands*(name, defs: untyped) =
     var commands {.inject.}: Table[string, Command]
     defs
     commands
+
+func `{}`*(cmd: string, arg: string): string =
+  (if cmd.startsWith("\\"): "" else: "\\") & cmd & "{" & arg & "}"
+
+func `[]`*(cmd: string, arg: string): string =
+  (if cmd.startsWith("\\"): "" else: "\\") & cmd & "[" & arg & "]"
+
+func env*(name: string, content: string): string =
+  "\\begin{" & name & "}" & content & "\\end{" & name & "}"
