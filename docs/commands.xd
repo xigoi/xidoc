@@ -1,7 +1,27 @@
 [inject head.xd]
 [style
-  [rule .command>h3,.command>h4;
+  [rule .command;
+    [: background-color; #111]
+    [: border; 1px solid #333]
+    [: margin; 0 0 .5rem 0]
+    [: padding; .3rem]
+  ]
+  [rule .command>.command;
+    [: background-color; #222]
+    [: border; 1px solid #444]
+    [: margin; .5rem 0 0 0]
+  ]
+  [rule .command>h3,.command>h4,.command>h5;
     [: font-size; inherit]
+    [: margin; .1rem 0 .1rem 0]
+    [: margin-bottom; .1rem]
+  ]
+  [rule .command code;
+    [:! background-color; inherit]
+    [:! padding; 0]
+  ]
+  [rule h2,h3;
+    [: margin; 1rem 0 0 0]
   ]
   [rule pre;
     [: white-space; pre-wrap]
@@ -14,7 +34,7 @@
     [: width; 100%]
     [: table-layout; fixed]
   ]
-  [rule td,th;
+  [rule td;
     [: border; 1px solid #888]
   ]
   [rule td>div,th>div;
@@ -23,6 +43,10 @@
   ]
   [rule td>div>table;
     [: table-layout; initial]
+  ]
+  [rule th;
+    [: background-color; [var xidoc-color-darker]]
+    [: font-family; [var sans-serif]]
   ]
 ]
 [def cmd; name signature explanation;
@@ -80,61 +104,96 @@
       Returns a left square bracket.
       [ex I'm a sad robot :[(]]
     ]
-    [cmd (); text;
-      Wraps [param text] in square brackets.
-      [ex [() this-is-not-a-command]]
-    ]
     [cmd-nilad );
       Returns a right square bracket.
       [ex I'm a happy robot :[)]]
+    ]
+    [cmd (); text;
+      Wraps [param text] in square brackets.
+      [ex [() this-is-not-a-command]]
     ]
     [cmd-nilad [;];
       Returns a semicolon. Useful for “escaping” semicolons in commands that take multiple arguments.
       [ex [list This[;] is[;] only[;] one[;] item]]
     ]
-    [cmd \; text;
-      Removes the least common indentation from all lines of [arg text], then returns it without expanding. A [" smarter] version of [cmd-ref raw].
-      [ex
-[code-block nim; [\
-  for word in ["This", "correctly", "removes", "indentation"]:
-    echo word
-]]
-      ]
-    ]
-    [cmd expand; text;
-      After expanding [param text], expands it again. Useful for complex command definitions.
-    ]
-    [cmd hide; text;
-      Expands [param text] for its side effects, but doesn't return anything.
-    ]
-    [cmd pass; code;
-      Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. The [param code] is still expanded so you can parametrize it, see the [cmd-ref pass-raw] command if you don't want this.
-      [if-html [ex [pass <em>Haha!</em> I'm in! <code>'; DROP TABLE xidoc;</code> Oh no, this is a static site…]]]
-    ]
-    [cmd pass-raw; code;
-      Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. Works as a combination of [cmd-ref pass] and [cmd-ref raw].
-    ]
-    [cmd add-to-head; directive;
-      Adds the [param directive] to the head of the document. Returns nothing.
+    [cmd-nilad space;
+      Returns a space character. Useful in commands that strip whitespace.
     ]
     [cmd raw; text;
       Returns the given [param text] without expanding it.
       [ex [raw [I can use [as many brackets [as I want]], but [they] still have to [[be balanced]]].]]
+      [cmd raw<; text;
+        Removes the least common indentation from all lines of [param text], then returns it without expanding. A [" smarter] version of [cmd-ref raw].
+        [ex
+[code-block nim; [raw<
+  for word in ["This", "correctly", "removes", "indentation"]:
+    echo word
+]]
+        ]
+      ]
+    ]
+    [cmd pass; code;
+      Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. The [param code] is still expanded so you can parametrize it, see the [cmd-ref pass-raw] command if you don't want this.
+      [if-html [ex [pass <em>Haha!</em> I'm in! <code>'; DROP TABLE xidoc;</code> Oh no, this is a static site…]]]
+      [cmd pass-raw; code;
+        Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. Works as a combination of [cmd-ref pass] and [cmd-ref raw].
+      ]
+    ]
+    [cmd hide; text;
+      Expands [param text] for its side effects, but doesn't return anything.
+    ]
+    [cmd expand; text;
+      After expanding [param text], expands it again. Useful for complex command definitions.
     ]
     [cmd render; text;
       After expanding [param text], renders it. Useful for complex command definitions.
       [ex [render [raw [it This will be italic despite being inside [ms raw].]]]]
     ]
-    [cmd-nilad space;
-      Returns a space character. Useful in commands that strip whitespace.
+    [cmd add-to-head; directive;
+      Adds the [param directive] to the head of the document. Returns nothing.
     ]
   ]
 
-  [section Formatting;
+  [section Inline formatting;
     [cmd bf; text;
       Renders [param text] in bold face.
       [ex xidoc is [bf awesome]!]
     ]
+    [cmd code; ?language[;] code;
+      Renders the [param code] in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language]. xidoc is also supported under the name [ms xidoc]. For generic monospace text, use the [cmd-ref ms] command.
+      [ex [code python; [raw print(f"The answer to the universe and stuff is {6 * 7}.")]]]
+    ]
+    [cmd color; color text;
+      Colors the [param text] in the given CSS-style [param color].
+      [ex You can use [color red; names] or [color #00f; codes]!]
+    ]
+    [cmd it; text;
+      Renders [param text] in italics.
+      [ex xidoc is [it fantastic!]]
+    ]
+    [cmd lang; language[;] text;
+      Renders [param text] with the conventions of the specified [param language].
+      [ex [" Hello!] [lang czech; [" Ahoj!]]]
+    ]
+    [cmd link; ?text[;] address;
+      Adds a link to the given [param address] with an optional [param text] visually replacing the address.
+      [ex [link xidoc; http://xidoc.nim.town/] is made in [link Nim; https://nim-lang.org/].]
+    ]
+    [cmd ms; text;
+      Renders [param text] in monospace. If you want to show code, it's recommended to use the [cmd-ref code] or [cmd-ref code-block] command instead.
+      [ex In HTML, this will produce [ms <code>]. In [LaTeX], this will produce [ms \texttt].]
+    ]
+    [cmd term; phrase;
+      Introduces [param phrase] as a new term. Useful in definitions.
+      [ex A [term group] is a monoid where every element has an inverse.]
+    ]
+    [cmd unit; ?number[;] unit;
+      Renders a [param unit] or a quantity expressed with a [param number] and [param unit]. Also works inside math commands.
+      [ex [unit 6378; km], [$ [unit 60; [/ km; h]]]]
+    ]
+  ]
+
+  [section Block formatting;
     [cmd block-quote; text;
       Creates a block quote.
       [ex [p The first rule in the Zen of Nim is:] [block-quote Copying bad design is not good design.]]
@@ -142,10 +201,6 @@
     [cmd checkboxes; items;
       Renders a list of [param items] with checkboxes. Use [ms [() -]] for an unchecked item, [ms [() v]] for a checked item and [ms [() x]] for a crossed item.
       [ex [checkboxes [v Kill the friend] [- Bury the body] [x Get caught by the police]]]
-    ]
-    [cmd code; ?language[;] code;
-      Renders the [param code] in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language]. xidoc is also supported under the name [ms xidoc]. For generic monospace text, use the [cmd-ref ms] command.
-      [ex [code python; [raw print(f"The answer to the universe and stuff is {6 * 7}.")]]]
     ]
     [cmd code-block; ?language[;] code;
       Renders the [param code] as a block in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language]. xidoc is also supported under the name [ms xidoc].
@@ -159,37 +214,16 @@ const factorial = (n) => {
 }
 ]]]
     ]
-    [cmd color; color text;
-      Colors the [param text] in the given CSS-style [param color].
-      [ex You can use [color red; names] or [color #00f; codes]!]
+    [cmd figure; content[;] ?caption;
+      Creates a figure with the given [param content] and an optional [param caption].
     ]
-    [cmd header-row; *fields;
-      Creates a header row for a table with the given fields. Has to be used inside a [cmd-ref table] command.
-      [ex
-[table
-  [header-row xidoc; HTML; [LaTeX]]
-  [row [code xidoc; [() table]]; [code html; <table></table>]; [code latex; \begin{table}{[...]}\end{table}]]
-]]
-    ]
-    [cmd it; text;
-      Renders [param text] in italics.
-      [ex xidoc is [it fantastic!]]
-    ]
-    [cmd lang; language[;] text;
-      Renders [param text] in the specified [param language].
-      [ex [" Hello!] [lang czech; [" Ahoj!]]]
-    ]
-    [cmd link; ?text[;] address;
-      Adds a link to the given [param address] with an optional [param text] visually replacing the address.
-      [ex [link xidoc; http://xidoc.nim.town/] is made in [link Nim; https://nim-lang.org/].]
+    [cmd link-image; alt[;] url[;] ?link;
+      Inserts an image loaded at viewing time from the given [param url]. A substitute [param alt] text must be given in case the image can't be displayed. If a [param link] is provided, the image will be a link to the given URL.
+      [ex [link-image xidoc logo; logo.svg; https://xidoc.nim.town/]]
     ]
     [cmd list; *items;
       Creates an unordered list of [param items].
       [ex Supported targets: [list HTML; [LaTeX]; Gemtext]]
-    ]
-    [cmd ms; text;
-      Renders [param text] in monospace. If you want to show code, it's recommended to use the [cmd-ref code] or [cmd-ref code-block] command instead.
-      [ex In HTML, this will produce [ms <code>]. In [LaTeX], this will produce [ms \texttt].]
     ]
     [cmd ordered-list; *items;
       Creates an ordered list of [param items].
@@ -198,20 +232,9 @@ const factorial = (n) => {
     [cmd p; text;
       Creates a paragraph with the given [param text].
     ]
-    [cmd row; *fields;
-      Creates a row for a table with the given fields. Has to be used inside a [cmd-ref table] command.
-      [ex
-[table
-  [header-row xidoc; HTML; [LaTeX]]
-  [row [code xidoc; [() table]]; [code html; <table></table>]; [code latex; \begin{table}{[...]}\end{table}]]
-]]
-    ]
     [cmd section; ?title[;] text;
       Creates a section with the given [param title] and [param text] (or without a title if not given). If it's inside another section, it will be a subsection. If it's inside a subsection, it will be a subsubsection. In HTML, this nesting can continue further.
       [ex [section Inception; Are we going too deep?]]
-    ]
-    [cmd show-title; title;
-      Renders the given [param title] without setting it as the title of the document.
     ]
     [cmd spoiler; visible[;] secret;
       Hides the [param secret] text until the [param visible] text is clicked. Works only in environments that support interactivity.
@@ -224,17 +247,18 @@ const factorial = (n) => {
   [header-row xidoc; HTML; [LaTeX]]
   [row [code xidoc; [() table]]; [code html; <table></table>]; [code latex; \begin{table}{[...]}\end{table}]]
 ]]
-    ]
-    [cmd term; phrase;
-      Introduces [param phrase] as a new term. Useful in definitions.
-      [ex A [term group] is a monoid where every element has an inverse.]
+      [cmd row; *fields;
+        Creates a row for a table with the given fields. Has to be used inside a [cmd-ref table] command.
+      ]
+      [cmd header-row; *fields;
+        Creates a header row for a table with the given fields. Has to be used inside a [cmd-ref table] command.
+      ]
     ]
     [cmd title; title[;] ?author;
       Renders the given [param title] and sets it as the title of the document. If an [param author] is specified, their name is mentioned under the title.
-    ]
-    [cmd unit; ?number[;] unit;
-      Renders a [param unit] or a quantity expressed with a [param number] and [param unit]. Also works inside math commands.
-      [ex [unit 6378; km], [$ [unit 60; [/ km; h]]]]
+      [cmd show-title; title;
+        Renders the given [param title] without setting it as the title of the document.
+      ]
     ]
   ]
 
@@ -258,6 +282,7 @@ const factorial = (n) => {
   ]
 
   [section Math;
+    [p In HTML, [LaTeX] math is rendered using [link KaTeX; https://katex.org/]. This requires a stylesheet and fonts, which are downloaded from the [link jsDelivr; https://www.jsdelivr.com/] CDN by default. If you'd like to use a different CDN or self-hoost the files, use [code xidoc; [raw [set katex-stylesheet-path; path/to/katex.min.css]]] to point xidoc to the stylesheet.]
     [cmd $; latex;
       Renders [LaTeX] inline math.
       [ex Einstein's famous equation is [$ E = m c^2].]
@@ -265,10 +290,10 @@ const factorial = (n) => {
     [cmd $$; latex;
       Renders [LaTeX] block math.
       [ex [$$ (A+B)^n = \sum_{k=0}^n {n \choose k} A^{n-k} B^k]]
-    ]
-    [cmd $$&; latex;
-      Renders [LaTeX] aligned block math (with the [ms align] environment).
-      [ex [$$& ((f \circ g) \circ h)(x) &= f(g(h(x))) \\ &= (f \circ (g \circ h))(x)]]
+      [cmd $$&; latex;
+        Renders [LaTeX] aligned block math (with the [ms align] environment).
+        [ex [$$& ((f \circ g) \circ h)(x) &= f(g(h(x))) \\ &= (f \circ (g \circ h))(x)]]
+      ]
     ]
     [cmd matext; latex;
       Renders the given [LaTeX] [param math] using [link maTeXt; https://xigoi.srht.site/matext/] and presents it as preformatted text.
@@ -277,6 +302,14 @@ const factorial = (n) => {
     [cmd dfn; ?name[;] text;
       Renders a mathematical definition paragraph with an optional [param name].
       [ex [dfn An [term inertial system] is a system where the law of inertia holds.]]
+    ]
+    [cmd theorem; ?name[;] text;
+      Renders a mathematical theorem paragraph with an optional [param name].
+      [ex [theorem Pythagorean; In a right triangle with legs [$ a,b] and hypotenuse [$ c], [$ a^2 + b^2 = c^2].]]
+    ]
+    [cmd proof; ?name[;] text;
+      Renders a mathematical proof paragraph with an optional [param name].
+      [ex [proof Left as an exercise to the reader.]]
     ]
     [cmd example; ?name[;] text;
       Renders a mathematical example paragraph with an optional [param name].
@@ -288,23 +321,15 @@ const factorial = (n) => {
     [cmd lemma; ?name[;] text;
       Renders a mathematical lemma paragraph with an optional [param name].
     ]
-    [cmd proof; ?name[;] text;
-      Renders a mathematical proof paragraph with an optional [param name].
-      [ex [proof Left as an exercise to the reader.]]
+    [cmd solution; ?name[;] text;
+      Renders a paragraph with the solution to a mathematical problem with an optional [param name].
+      [cmd spoiler-solution; ?name[;] text;
+        Renders a paragraph with the solution to a mathematical problem with an optional [param name]. In environments that support interactivity, the [param text] is hidden inside a spoiler (see the [cmd-ref spoiler] command).
+      ]
     ]
     [cmd props; *properties;
       Creates a list of mathematical [param properties]. Currently the same as [cmd-ref list].
       [ex [props [$ \forall x,y,z \in G: (xy)z = x(yz)]; [$ \exists e \in G, \forall x \in G: ex = x = xe]; [$ \forall x \in G, \exists x^{-1} \in G: xx^{-1} = e = x^{-1}x]]]
-    ]
-    [cmd solution; ?name[;] text;
-      Renders a paragraph with the solution to a mathematical problem with an optional [param name].
-    ]
-    [cmd spoiler-solution; ?name[;] text;
-      Renders a paragraph with the solution to a mathematical problem with an optional [param name]. In environments that support interactivity, the [param text] is hidden inside a spoiler (see the [cmd-ref spoiler] command).
-    ]
-    [cmd theorem; ?name[;] text;
-      Renders a mathematical theorem paragraph with an optional [param name].
-      [ex [theorem Pythagorean; In a right triangle with legs [$ a,b] and hypotenuse [$ c], [$ a^2 + b^2 = c^2].]]
     ]
   ]
 
@@ -325,13 +350,19 @@ const factorial = (n) => {
     ]
     [cmd include; file[;] *(name[;] value);
       Renders the content of [param file] as a separate document and pastes it. You can give arguments to the subdocument, which can be retrieved with the [cmd-ref template-arg] command.
-    ]
-    [cmd template-arg; name;
-      In a document included with [cmd-ref include], returns the given argument passed to [cmd-ref include].
+      [cmd template-arg; name;
+        In a document included with [cmd-ref include], returns the given argument passed to [cmd-ref include].
+      ]
     ]
   ]
 
   [section Settings;
+    [cmd set; key[;] value;
+      Changes the value of a setting. All settings are global. Currently the only setting is [ms katex-stylesheet-path], which is explained in the Math section.
+      [cmd reset; key;
+        Resets the value of a setting to the default.
+      ]
+    ]
     [cmd set-doc-lang; language;
       Sets the global [param language] of the document. Returns nothing.
     ]
@@ -347,29 +378,29 @@ const factorial = (n) => {
     [cmd def; name[;] ?params[;] body;
       Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command and its variants ([cmd-ref arg-expand], [cmd-ref arg-raw], [cmd-ref arg-raw-escape]). The command will only be visible in the scope where it was defined[;] if you want it to be visible everywhere, use [cmd-ref def-global].
       [ex [def greet; name; Hello, [arg name]!][greet reader]]
-    ]
-    [cmd def-global; name[;] ?params[;] body;
-      Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command and its variants ([cmd-ref arg-expand], [cmd-ref arg-raw], [cmd-ref arg-raw-escape]). The command will be visible everywhere[;] if you want it to be visible only in the scope where it was defined, use [cmd-ref def].
-      [ex [hide [def-global greet; name; Hello, [arg name]!]][greet reader]]
+      [cmd def-global; name[;] ?params[;] body;
+        Defines a command with the given [param name] that expands to [param body]. If [param params], which should be space-separated words, are given, the command can take arguments, which can be accessed using the [cmd-ref arg] command and its variants ([cmd-ref arg-expand], [cmd-ref arg-raw], [cmd-ref arg-raw-escape]). The command will be visible everywhere[;] if you want it to be visible only in the scope where it was defined, use [cmd-ref def].
+        [ex [hide [def-global greet; name; Hello, [arg name]!]][greet reader]]
+      ]
     ]
     [cmd arg; parameter;
       Inside a command definition ([cmd-ref def]), renders the argument given to the [param parameter].
       [ex [def greet; name; Hello, [arg name]!][greet reader]]
-    ]
-    [cmd arg-expand; parameter;
-      Inside a command definition ([cmd-ref def]), expands the argument given to the [param parameter], but doesn't render it.
-    ]
-    [cmd arg-raw; parameter;
-      Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it.
-    ]
-    [cmd arg-raw-escape; parameter;
-      Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered.
-    ]
-    [# arg\; parameter;
-      Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it. Strips common indentation.
-    ]
-    [# arg\-escape; parameter;
-      Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered. Strips common indentation.
+      [cmd arg-expand; parameter;
+        Inside a command definition ([cmd-ref def]), expands the argument given to the [param parameter], but doesn't render it.
+      ]
+      [cmd arg-raw; parameter;
+        Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it.
+      ]
+      [cmd arg-raw-escape; parameter;
+        Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered.
+      ]
+      [# arg\; parameter;
+        Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it. Strips common indentation.
+      ]
+      [# arg\-escape; parameter;
+        Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered. Strips common indentation.
+      ]
     ]
   ]
 
@@ -456,10 +487,13 @@ const factorial = (n) => {
     ]
     [cmd js-module; code;
       If the target is HTML, adds the given JavaScript code to the page as a JavaScript module. If you don't need to use any xidoc commands inside the code, it's recommended to use [cmd-ref js-module-raw].
+      [cmd js-module-raw; code;
+        Works as a combination of [cmd-ref js-module] and [cmd-ref raw].
+        [if-html [ex [<span> #change-me; I will be changed] [js-module-raw document.getElementById("change-me").innerText = "I was changed"]]]
+      ]
     ]
-    [cmd js-module-raw; code;
-      Works as a combination of [cmd-ref js-module] and [cmd-ref raw].
-      [if-html [ex [<span> #change-me; I will be changed] [js-module-raw document.getElementById("change-me").innerText = "I was changed"]]]
+    [cmd link-stylesheet; url;
+      Links the CSS stylesheet at the given [param url] to be loaded at viewing time.
     ]
     [cmd style; stylesheet;
       Styles an HTML document using xidoc's custom syntax for CSS.

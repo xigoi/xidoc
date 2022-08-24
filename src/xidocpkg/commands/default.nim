@@ -48,7 +48,7 @@ commands defaultCommands:
       let word = phrase.translate(doc.lookup(lang))
       case doc.target
       of tHtml:
-        doc.addToStyle.incl ".xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}"
+        doc.addToStyle.incl ".xd-theorem-like{margin:1rem 0}.xd-theorem-like>p{margin:0.5rem 0}"
         htg.`div`(class = &"xd-theorem-like xd-$1" % cmdName,
           htg.strong(if thName.isSome: "$1 ($2)." % [word, thName.get] else: "$1." % [word]), " ", htmlTmpl % content
         )
@@ -104,9 +104,6 @@ commands defaultCommands:
     doc.stack[^1].commands = mathCommands(doc)
     doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true, addDelimiters = false)
 
-  command "\\", literal, String:
-    arg.strip(chars = {'\n'}).dedent
-
   command "LaTeX", void, Markup:
     case doc.target
     of tHtml:
@@ -133,12 +130,6 @@ commands defaultCommands:
   command "arg-raw-escape", String, Markup:
     escapeText(doc.lookup(args, arg), doc.target)
 
-  # command "arg\\", String, String:
-  #   doc.lookup(args, arg).dedent
-
-  # command "arg\\-escape", String, String:
-  #   escapeText(doc.lookup(args, arg).dedent, doc.target)
-
   command "bf", Markup, Markup:
     case doc.target
     of tHtml:
@@ -148,14 +139,20 @@ commands defaultCommands:
     of tGemtext:
       arg
 
-  command "block-quote", Markup, Markup:
+  command "block-quote", (quote: !Markup, author: ?Markup), Markup:
     case doc.target
     of tHtml:
-      htg.blockquote(arg)
+      htg.blockquote:
+        if author.isSome:
+          htg.p(quote) & htg.p(htg.cite(author.get))
+        else:
+          quote
     of tLatex:
-      "\\begin{quote}$1\\end{quote}" % arg
+      # TODO author support
+      "\\begin{quote}$1\\end{quote}" % quote
     of tGemtext:
-      "\n> $1\n" % arg
+      # TODO author support
+      "\n> $1\n" % quote
 
   command "checkboxes", raw, Markup:
     case doc.target
@@ -241,6 +238,18 @@ commands defaultCommands:
 
   command "expand", String, String:
     doc.expandStr(arg)
+
+  command "figure", (content: !Markup, caption: ?Markup), Markup:
+    case doc.target
+    of tHtml:
+      if caption.isSome:
+        htg.figure(content, htg.figcaption(caption.get))
+      else:
+        htg.figure(content)
+    of tLatex:
+      "\\begin{figure}[h]\\centering$1\\end{figure}" % (content & caption.map(c => "\\caption{$1}" % c).get(""))
+    of tGemtext:
+      "\n" & content & caption.map(c => "\n" & c).get("")
 
   command "for-each", (name: !String, list: !List, tmpl: Raw), List:
     var results: seq[XidocValue]
@@ -414,6 +423,25 @@ commands defaultCommands:
     of tGemtext:
       if name.isSome: "\n=> $1 $2" % [url, name.get] else: "\n=> $1" % [url]
 
+  command "link-image", (alt: !String, url: !String, link: ?String), Markup:
+    case doc.target
+    of tHtml:
+      if link.isSome:
+        htg.a(href = link.get, htg.img(src = url, alt = alt))
+      else:
+        htg.img(src = url, alt = alt)
+    of tLatex:
+      xidocError "Linking images is not supported in the LaTeX backend"
+    of tGemtext:
+      if link.isSome:
+        xidocError "Linking images with an additional link is not supported in the Gemtext backend"
+      "\n=> $1 \u{1e5bc} $2" % [url, alt]
+
+  command "link-stylesheet", (url: !String), Markup:
+    if doc.target == tHtml:
+      doc.addToHead.incl(htg.link(rel = "stylesheet", href = url))
+    ""
+
   command "list", (items: *Markup), Markup:
     case doc.target
     of tHtml:
@@ -501,6 +529,9 @@ commands defaultCommands:
   command "raw", raw, String:
     arg
 
+  command "raw<", literal, String:
+    arg.strip(chars = {'\n'}).dedent
+
   command "render", String, Markup:
     doc.renderStr(arg)
 
@@ -512,7 +543,7 @@ commands defaultCommands:
     str
 
   command "reset", (key: !String), Markup:
-    doc.settings[key] = none(string)
+    doc.settings.del(key)
     ""
 
   command "row", (entries: *Markup), Markup:
@@ -564,7 +595,7 @@ commands defaultCommands:
         "\n\n$1" % [content]
 
   command "set", (key: !String, val: !String), Markup:
-    doc.settings[key] = some(val)
+    doc.settings[key] = val
     ""
 
   command "set-doc-lang", String, Markup:
@@ -627,7 +658,7 @@ commands defaultCommands:
     let word = pSolution.translate(doc.lookup(lang))
     case doc.target
     of tHtml:
-      htg.details(class = "xd-spoiler",
+      htg.details(class = "xd-spoiler xd-theorem-like xd-solution",
         htg.summary(htg.strong(if name.isSome: "$1 ($2)" % [word, name.get] else: "$1" % [word])), content
       )
     of tLatex:
