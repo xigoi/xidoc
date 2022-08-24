@@ -214,6 +214,13 @@ const factorial = (n) => {
 }
 ]]]
     ]
+    [cmd figure; content[;] ?caption;
+      Creates a figure with the given [param content] and an optional [param caption].
+    ]
+    [cmd link-image; alt[;] url[;] ?link;
+      Inserts an image loaded at viewing time from the given [param url]. A substitute [param alt] text must be given in case the image can't be displayed. If a [param link] is provided, the image will be a link to the given URL.
+      [ex [link-image xidoc logo; logo.svg; https://xidoc.nim.town/]]
+    ]
     [cmd list; *items;
       Creates an unordered list of [param items].
       [ex Supported targets: [list HTML; [LaTeX]; Gemtext]]
@@ -484,6 +491,9 @@ const factorial = (n) => {
         Works as a combination of [cmd-ref js-module] and [cmd-ref raw].
         [if-html [ex [<span> #change-me; I will be changed] [js-module-raw document.getElementById("change-me").innerText = "I was changed"]]]
       ]
+    ]
+    [cmd link-stylesheet; url;
+      Links the CSS stylesheet at the given [param url] to be loaded at viewing time.
     ]
     [cmd style; stylesheet;
       Styles an HTML document using xidoc's custom syntax for CSS.

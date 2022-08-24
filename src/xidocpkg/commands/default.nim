@@ -48,7 +48,7 @@ commands defaultCommands:
       let word = phrase.translate(doc.lookup(lang))
       case doc.target
       of tHtml:
-        doc.addToStyle.incl ".xd-theorem-like{margin:1em 0}.xd-theorem-like>p{margin:0.5em 0}"
+        doc.addToStyle.incl ".xd-theorem-like{margin:1rem 0}.xd-theorem-like>p{margin:0.5rem 0}"
         htg.`div`(class = &"xd-theorem-like xd-$1" % cmdName,
           htg.strong(if thName.isSome: "$1 ($2)." % [word, thName.get] else: "$1." % [word]), " ", htmlTmpl % content
         )
@@ -238,6 +238,18 @@ commands defaultCommands:
 
   command "expand", String, String:
     doc.expandStr(arg)
+
+  command "figure", (content: Markup, caption: ?Markup), Markup:
+    case doc.target
+    of tHtml:
+      if caption.isSome:
+        htg.figure(content, htg.figcaption(caption.get))
+      else:
+        htg.figure(content)
+    of tLatex:
+      "\\begin{figure}[h]\\centering$1\\end{figure}" % (content & caption.map(c => "\\caption{$1}" % c).get(""))
+    of tGemtext:
+      "\n" & content & caption.map(c => "\n" & c).get("")
 
   command "for-each", (name: String, list: List, tmpl: raw), List:
     var results: seq[XidocValue]
@@ -646,7 +658,7 @@ commands defaultCommands:
     let word = pSolution.translate(doc.lookup(lang))
     case doc.target
     of tHtml:
-      htg.details(class = "xd-spoiler",
+      htg.details(class = "xd-spoiler xd-theorem-like xd-solution",
         htg.summary(htg.strong(if name.isSome: "$1 ($2)" % [word, name.get] else: "$1" % [word])), content
       )
     of tLatex:
