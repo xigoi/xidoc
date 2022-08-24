@@ -8,7 +8,7 @@ import std/tables
 
 commands checkboxCommands:
 
-  command "-", Markup, Markup:
+  proc dashCmd(arg: !Markup): Markup {.command: "-".} =
     case doc.target
     of tHtml:
       htg.li(class = "xd-checkbox-unchecked", arg)
@@ -17,7 +17,7 @@ commands checkboxCommands:
     of tGemtext:
       xidocError "Checkboxes are currently not supported for the Gemtext target"
 
-  command "v", Markup, Markup:
+  proc vCmd(arg: !Markup): Markup {.command: "v".} =
     case doc.target
     of tHtml:
       htg.li(class = "xd-checkbox-checked", arg)
@@ -26,7 +26,7 @@ commands checkboxCommands:
     of tGemtext:
       xidocError "Checkboxes are currently not supported for the Gemtext target"
 
-  command "x", Markup, Markup:
+  proc xCmd(arg: !Markup): Markup {.command: "x".} =
     case doc.target
     of tHtml:
       htg.li(class = "xd-checkbox-crossed", arg)

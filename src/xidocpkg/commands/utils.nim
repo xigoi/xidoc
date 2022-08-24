@@ -177,6 +177,32 @@ macro command*(name: string, sig: untyped, retTyp: XidocType, body: untyped): un
     commands[`name`] = proc(arg {.inject.}: string): XidocValue =
       return XidocValue(typ: `retTyp`, `retGet`: `logic`)
 
+macro command*(name: string, baseProc: untyped): untyped =
+  baseProc.expectKind(nnkProcDef)
+  let baseName = baseProc[0]
+  let sig = baseProc[3]
+  let retTyp = sig[0]
+  let retGet = getter(sig[0])
+  var params = @[xidocTypeToNimType(baseProc[3][0])]
+  var args = newSeq[NimNode]()
+  let types = nnkBracket.newTree
+  let vals = genSym(nskLet, "vals")
+  for index, pair in sig[1..^1]:
+    pair.expectKind nnkIdentDefs
+    let nimType = paramTypeToNimType(pair[1])
+    params.add newIdentDefs(name = pair[0], kind = nimType)
+    types.add pair[1]
+    args.add quote do:
+      `vals`[`index`].to(`nimType`)
+  var cmdProc = baseProc.copy
+  cmdProc[3] = nnkFormalParams.newTree(params)
+  let call = newCall(baseName, args)
+  quote:
+    `cmdProc`
+    commands[`name`] = proc(arg {.inject.}: string): XidocValue =
+      let `vals` = expandArguments(doc, `name`, arg, @`types`)
+      return XidocValue(typ: `retTyp`, `retGet`: `call`)
+
 template commands*(name, defs: untyped) =
   proc name*(doc {.inject.}: Document): Table[string, Command] =
     var commands {.inject.}: Table[string, Command]

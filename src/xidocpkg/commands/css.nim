@@ -11,20 +11,20 @@ import macros
 
 commands cssCommands:
 
-  command ":", (prop: !String, val: !String), String:
+  proc declCmd(prop: !String, val: !String): String {.command: ":".} =
     "$1:$2;" % [prop, val]
 
-  command ":!", (prop: !String, val: !String), String:
+  proc declImportantCmd(prop: !String, val: !String): String {.command: ":!".} =
     "$1:$2 !important;" % [prop, val]
 
-  command "h*", void, String:
+  proc hStarCmd(): String {.command: "h*".} =
     "h1,h2,h3,h4,h5,h6"
 
-  command "rule", (selector: !String, decls: !String), String:
+  proc ruleCmd(selector: !String, decls: !String): String {.command: "rule".} =
     # TODO: rule nesting
     "$1{$2}" % [selector, decls]
 
-  command "var", (name: !String, val: ?String), String:
+  proc varCmd(name: !String, val: ?String): String {.command: "var".} =
     if val.isSome:
       if doc.stack[^2].cmdName == "style":
         ":root{--$1:$2}" % [name, val.get]

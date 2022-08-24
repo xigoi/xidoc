@@ -15,37 +15,37 @@ import std/tables
 
 commands mathCommands:
 
-  command "_", String, String:
+  proc underCmd(arg: !String): String {.command: "_".} =
     &"[{arg}]"
 
-  command "/", (a: ?String, b: !String), String:
+  proc fracCmd(a: ?String, b: !String): String {.command: "/".} =
     if a.isSome:
       "\\frac{$1}{$2}" % [a.get, b]
     else:
       "\\frac{1}{$1}" % [b]
 
   # Enclosing stuff
-  command ".", String, String:
+  proc dotCmd(arg: !String): String {.command: ".".} =
     "{\\left($1\\right)}" % arg
-  command "()", String, String:
+  proc bracketsCmd(arg: !String): String {.command: "()".} =
     "{\\left[$1\\right]}" % arg
-  command "{}", String, String:
+  proc bracesCmd(arg: !String): String {.command: "{}".} =
     "{\\left\\{$1\\right\\}}" % arg
-  command "<>", String, String:
+  proc anglesCmd(arg: !String): String {.command: "<>".} =
     "{\\left\\langle $1\\right\\rangle}" % arg
-  command "|", String, String:
+  proc pipeCmd(arg: !String): String {.command: "|".} =
     "{\\left\\lvert $1\\right\\rvert}" % arg
-  command "||", String, String:
+  proc pipePipeCmd(arg: !String): String {.command: "||".} =
     "{\\left\\lVert $1\\right\\rVert}" % arg
-  command "v.", String, String:
+  proc vDotCmd(arg: !String): String {.command: "v.".} =
     "{\\overgroup{\\undergroup{$1}}}" % arg
-  command "floor", String, String:
+  proc floorCmd(arg: !String): String {.command: "floor".} =
     "{\\left\\lfloor $1\\right\\rfloor}" % arg
-  command "ceil", String, String:
+  proc ceilCmd(arg: !String): String {.command: "ceil".} =
     "{\\left\\lceil $1\\right\\rceil}" % arg
 
   # Analysis/Calculus
-  command "int", (lb: ?String, ub: ?String, expr: !String, varname: !String), String:
+  proc intCmd(lb: ?String, ub: ?String, expr: !String, varname: !String): String {.command: "int".} =
     if lb.isSome:
       if ub.isSome:
         "\\int_{$1}^{$2}$3\\,\\mathrm d$4" % [lb.get, ub.get, expr, varname]
@@ -53,53 +53,53 @@ commands mathCommands:
         "\\int_{$1}$2\\,\\mathrm d$3" % [lb.get, expr, varname]
     else:
       "\\int $1\\,\\mathrm d$2" % [expr, varname]
-  command "lim", (varname: ?String, point: ?String), String:
+  proc limCmd(varname: ?String, point: ?String): String {.command: "lim".} =
     "\\lim_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
-  command "liminf", (varname: ?String, point: ?String), String:
+  proc liminfCmd(varname: ?String, point: ?String): String {.command: "liminf".} =
     "\\liminf_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
-  command "limsup", (varname: ?String, point: ?String), String:
+  proc limsupCmd(varname: ?String, point: ?String): String {.command: "limsup".} =
     "\\limsup_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
 
   # Inspired by the physics package
-  command "dd", (x: !String), String:
+  proc ddCmd(x: !String): String {.command: "dd".} =
     "{\\mathrm d$1}" % [x]
-  command "dd^", (n: !String, x: !String), String:
+  proc ddExpCmd(n: !String, x: !String): String {.command: "dd^".} =
     "{\\mathrm d^{$1}$2}" % [n, x]
-  command "dv", (f: ?String, x: !String), String:
+  proc dvCmd(f: ?String, x: !String): String {.command: "dv".} =
     if f.isSome:
       "\\frac{\\mathrm d$1}{\\mathrm d$2}" % [f.get, x]
     else:
       "\\frac{\\mathrm d}{\\mathrm d$1}" % [x]
-  command "dv^", (n: !String, f: ?String, x: !String), String:
+  proc dvExpCmd(n: !String, f: ?String, x: !String): String {.command: "dv^".} =
     if f.isSome:
       "\\frac{\\mathrm d^{$1}$2}{\\mathrm d$3^{$1}}" % [n, f.get, x]
     else:
       "\\frac{\\mathrm d^{$1}}{\\mathrm d$2^{$1}}" % [n, x]
-  command "pdv", (f: ?String, x: !String), String:
+  proc pdvCmd(f: ?String, x: !String): String {.command: "pdv".} =
     if f.isSome:
       "\\frac{\\partial $1}{\\partial $2}" % [f.get, x]
     else:
       "\\frac{\\partial}{\\partial $1}" % [x]
-  command "pdv^", (n: !String, f: ?String, x: !String), String:
+  proc pdvExpCmd(n: !String, f: ?String, x: !String): String {.command: "pdv^".} =
     if f.isSome:
       "\\frac{\\partial^{$1}$2}{\\partial $3^{$1}}" % [n, f.get, x]
     else:
       "\\frac{\\partial^{$1}}{\\partial $2^{$1}}" % [n, x]
 
   # Matrices
-  command "mat", String, String:
+  proc matCmd(arg: !String): String {.command: "mat".} =
     "\\begin{matrix}$1\\end{matrix}" % [arg]
-  command ".mat", String, String:
+  proc dotMatCmd(arg: !String): String {.command: ".mat".} =
     "\\begin{pmatrix}$1\\end{pmatrix}" % [arg]
-  command "(mat)", String, String:
+  proc bracketsMatCmd(arg: !String): String {.command: "(mat)".} =
     "\\begin{bmatrix}$1\\end{bmatrix}" % [arg]
-  command "|mat|", String, String:
+  proc pipesMatCmd(arg: !String): String {.command: "|mat|".} =
     "\\begin{vmatrix}$1\\end{vmatrix}" % [arg]
-  command "||mat||", String, String:
+  proc pipePipesMatCmd(arg: !String): String {.command: "||mat||".} =
     "\\begin{Vmatrix}$1\\end{Vmatrix}" % [arg]
 
   # Units
-  command "unit", (number: ?String, unit: !Markup), String:
+  proc unitCmd(number: ?String, unit: !Markup): String {.command: "unit".} =
     let unitRendered = unit.replacef(peg"^{\letter+}", "\\mathrm{$1}").replacef(peg"{!\letter[^\\]}{\letter+}", "$1\\mathrm{$2}")
     if number.isSome:
       number.get & "\\," & unitRendered
@@ -149,8 +149,8 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters 
 
 commands proofCommands:
 
-  command ".<", Markup, Markup:
+  proc dotLeftCmd(arg: !Markup): Markup {.command: ".<".} =
     htg.div(class = "xd-subproof", doc.renderMath("(\\Leftarrow)", displayMode = false) & " " & arg)
 
-  command ".>", Markup, Markup:
+  proc dotRightCmd(arg: !Markup): Markup {.command: ".>".} =
     htg.div(class = "xd-subproof", doc.renderMath("(\\Rightarrow)", displayMode = false) & " " & arg)

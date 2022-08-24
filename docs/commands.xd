@@ -134,7 +134,7 @@
     ]
     [cmd pass; code;
       Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. The [param code] is still expanded so you can parametrize it, see the [cmd-ref pass-raw] command if you don't want this.
-      [if-html [ex [pass <em>Haha!</em> I'm in! <code>'; DROP TABLE xidoc;</code> Oh no, this is a static site…]]]
+      [if-html [ex [pass <em>Haha!</em> I'm in! <code>'[;] DROP TABLE xidoc[;]</code> Oh no, this is a static site…]]]
       [cmd pass-raw; code;
         Directly produces the given [param code] without escaping it. Useful if you want to go outside the capabilities of xidoc. Works as a combination of [cmd-ref pass] and [cmd-ref raw].
       ]

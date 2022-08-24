@@ -63,28 +63,28 @@ commands defaultCommands:
   command "#", literal, String:
     ""
 
-  command ";", void, String:
+  proc semiCmd(): String {.command: ";".} =
     ";"
 
-  command "()", Markup, Markup:
+  proc bracketsCmd(arg: !Markup): Markup {.command: "()".} =
     "[" & arg & "]"
 
-  command "(", void, String:
+  proc leftBracketCmd(): String {.command: "(".} =
     "["
 
-  command ")", void, String:
+  proc rightBracketCmd(): String {.command: ")".} =
     "]"
 
-  command "--", void, String:
+  proc enDashCmd(): String {.command: "--".} =
     "–"
 
-  command "---", void, String:
+  proc emDashCmd(): String {.command: "---".} =
     "—"
 
-  command "...", void, String:
+  proc ellipsisCmd(): String {.command: "...".} =
     "…"
 
-  command "\"", Markup, Markup:
+  proc quoteCmd(arg: !Markup): Markup {.command: "\"".} =
     case doc.target
     of tLatex:
       doc.addToHead.incl "\\usepackage{csquotes}"
@@ -104,7 +104,7 @@ commands defaultCommands:
     doc.stack[^1].commands = mathCommands(doc)
     doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true, addDelimiters = false)
 
-  command "LaTeX", void, Markup:
+  proc LaTeXCmd(): Markup {.command: "LaTeX".} =
     case doc.target
     of tHtml:
       doc.addToStyle.incl """.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}"""
@@ -114,32 +114,32 @@ commands defaultCommands:
     of tGemtext:
       "LaTeX"
 
-  command "add-to-head", Markup, Markup:
+  proc addToHeadCmd(arg: !Markup): Markup {.command: "add-to-head".} =
     doc.addToHead.incl arg
     ""
 
-  command "arg", String, Markup:
+  proc argCmd(arg: !String): Markup {.command: "arg".} =
     doc.renderStr(doc.lookup(args, arg))
 
-  command "arg-expand", String, String:
+  proc argExpandCmd(arg: !String): String {.command: "arg-expand".} =
     doc.expandStr(doc.lookup(args, arg))
 
-  command "arg-raw", String, String:
+  proc argRawCmd(arg: !String): String {.command: "arg-raw".} =
     doc.lookup(args, arg)
 
-  command "arg-raw-escape", String, Markup:
+  proc argRawEscapeCmd(arg: !String): Markup {.command: "arg-raw-escape".} =
     escapeText(doc.lookup(args, arg), doc.target)
 
-  command "bf", Markup, Markup:
+  proc bfCmd(text: !Markup): Markup {.command: "bf".} =
     case doc.target
     of tHtml:
-      htg.b(arg)
+      htg.b(text)
     of tLatex:
-      "\\textbf{$1}" % arg
+      "\\textbf{$1}" % text
     of tGemtext:
-      arg
+      text
 
-  command "block-quote", (quote: !Markup, author: ?Markup), Markup:
+  proc blockQuoteCmd(quote: !Markup, author: ?Markup): Markup {.command: "block-quote".} =
     case doc.target
     of tHtml:
       htg.blockquote:
@@ -163,7 +163,7 @@ commands defaultCommands:
     else:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
 
-  command "code", (lang: ?String, code: !String), Markup:
+  proc codeCmd(lang: ?String, code: !String): Markup {.command: "code".} =
     case doc.target
     of tHtml:
       doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
@@ -177,7 +177,7 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 
-  command "code-block", (lang: ?String, code: !String), Markup:
+  proc codeBlockCmd(lang: ?String, code: !String): Markup {.command: "code-block".} =
     case doc.target
     of tHtml:
       doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
@@ -192,7 +192,7 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 
-  command "color", (color: !String, text: !Markup), Markup:
+  proc colorCmd(color: !String, text: !Markup): Markup {.command: "color".} =
     case doc.target
     of tHtml:
       htg.span(style = &"color:{color}", text)
@@ -214,15 +214,15 @@ commands defaultCommands:
       result = XidocValue(typ: Markup, str: doc.renderStr(body))
     ""
 
-  command "def", (name: !String, paramList: ?String, body: Raw), Markup:
+  proc defCmd(name: !String, paramList: ?String, body: Raw): Markup {.command: "def".} =
     def(global = false)
 
-  command "def-global", (name: !String, paramList: ?String, body: Raw), Markup:
+  proc defGlobalCmd(name: !String, paramList: ?String, body: Raw): Markup {.command: "def-global".} =
     def(global = true)
 
   theoremLikeCommand("dfn", pDefinition, "$1", "$1")
 
-  command "draw", (width: ?String, height: ?String, desc: Raw), Markup:
+  proc drawCmd(width: ?String, height: ?String, desc: Raw): Markup {.command: "draw".} =
     doc.stack[^1].commands = drawCommands(doc)
     case doc.target
     of tHtml:
@@ -236,10 +236,10 @@ commands defaultCommands:
 
   theoremLikeCommand("exercise", pExercise, "$1", "$1")
 
-  command "expand", String, String:
+  proc expandCmd(arg: !String): String {.command: "expand".} =
     doc.expandStr(arg)
 
-  command "figure", (content: !Markup, caption: ?Markup), Markup:
+  proc figureCmd(content: !Markup, caption: ?Markup): Markup {.command: "figure".} =
     case doc.target
     of tHtml:
       if caption.isSome:
@@ -251,7 +251,7 @@ commands defaultCommands:
     of tGemtext:
       "\n" & content & caption.map(c => "\n" & c).get("")
 
-  command "for-each", (name: !String, list: !List, tmpl: Raw), List:
+  proc forEachCmd(name: !String, list: !List, tmpl: Raw): List {.command: "for-each".} =
     var results: seq[XidocValue]
     for item in list:
       let itemCopy = item
@@ -259,10 +259,10 @@ commands defaultCommands:
       results.add doc.expand(tmpl, item.typ)
     results
 
-  command "get-doc-path-absolute", void, String:
+  proc getDocPathAbsoluteCmd(): String {.command: "get-doc-path-absolute".} =
     doc.stack[0].path.map(path => absolutePath(path)).get("")
 
-  command "get-doc-path-relative-to-containing", String, String:
+  proc getDocPathRelativeToContainingCmd(arg: !String): String {.command: "get-doc-path-relative-to-containing".} =
     when defined(js):
       ""
     else:
@@ -276,10 +276,10 @@ commands defaultCommands:
         path.relativePath(ancestor)
       )).get("")
 
-  command "hide", String, Markup:
+  proc hideCmd(arg: !String): Markup {.command: "hide".} =
     ""
 
-  command "header-row", (entries: *Markup), Markup:
+  proc headerRowCmd(entries: *Markup): Markup {.command: "header-row".} =
     if not doc.stack.anyIt(it.cmdName == "table"):
       xidocError "The header-row command has to be inside a table command"
     case doc.target
@@ -290,7 +290,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
-  command "html-add-attrs", (args: !String, tag: !Markup), Markup:
+  proc htmlAddAttrsCmd(args: !String, tag: !Markup): Markup {.command: "html-add-attrs".} =
     case doc.target
     of tHtml:
       var matches: array[2, string]
@@ -329,7 +329,7 @@ commands defaultCommands:
     else:
       ""
 
-  command "include", (filename: !String, args: *Markup), Markup:
+  proc includeCmd(filename: !String, args: *Markup): Markup {.command: "include".} =
     if args.len mod 2 != 0:
       xidocError "Additional arguments to include must come in pairs"
     let path = doc.lookup(path).splitPath.head / filename
@@ -351,7 +351,7 @@ commands defaultCommands:
     except IOError:
       xidocError &"Cannot open file {filename}\n(resolved as {path})"
 
-  command "inject", (filename: !String), Markup:
+  proc injectCmd(filename: !String): Markup {.command: "inject".} =
     let path = doc.lookup(path).splitPath.head / filename
     doc.stack[^1].path = some(path)
     try:
@@ -359,7 +359,7 @@ commands defaultCommands:
     except IOError:
       xidocError &"Cannot open file {filename}\n(resolved as {path})"
 
-  command "it", Markup, Markup:
+  proc itCmd(arg: !Markup): Markup {.command: "it".} =
     case doc.target
     of tHtml:
       htg.i(arg)
@@ -368,10 +368,10 @@ commands defaultCommands:
     of tGemtext:
       arg
 
-  command "janet-call", (function: !String, args: *String), String:
+  proc janetCallCmd(function: !String, args: *String): String {.command: "janet-call".} =
     janetCall(function, args, doc.lookup(path))
 
-  command "janet-eval", (code: !String, args: *String), String:
+  proc janetEvalCmd(code: !String, args: *String): String {.command: "janet-eval".} =
     if args.len mod 2 != 0:
       xidocError "Arguments to janet-eval must come in pairs of name; value"
     var values = newSeqOfCap[(string, string)](args.len div 2)
@@ -379,13 +379,13 @@ commands defaultCommands:
       values.add (args[2 * i], args[2 * i + 1])
     janetEval(code, values, doc.lookup(path))
 
-  command "join", (sep: !Markup, list: !List), Markup:
+  proc joinCmd(sep: !Markup, list: !List): Markup {.command: "join".} =
     list.mapIt(it.str).join(sep)
 
-  command "js-call", (function: !String, args: *String), String:
+  proc jsCallCmd(function: !String, args: *String): String {.command: "js-call".} =
     jsCall(function, args)
 
-  command "js-eval", (code: !String, args: *String), String:
+  proc jsEvalCmd(code: !String, args: *String): String {.command: "js-eval".} =
     if args.len mod 2 != 0:
       xidocError "Arguments to js-eval must come in pairs of name; value"
     var values = newSeqOfCap[(string, string)](args.len div 2)
@@ -393,7 +393,7 @@ commands defaultCommands:
       values.add (args[2 * i], args[2 * i + 1])
     jsEval(code, values)
 
-  command "js-module", String, Markup:
+  proc jsModuleCmd(arg: !String): Markup {.command: "js-module".} =
     if doc.target == tHtml:
       doc.addToHead.incl htg.script(`type` = "module", arg)
     ""
@@ -403,7 +403,7 @@ commands defaultCommands:
       doc.addToHead.incl htg.script(`type` = "module", arg)
     ""
 
-  command "lang", (langStr: !String, body: Raw), Markup:
+  proc langCmd(langStr: !String, body: Raw): Markup {.command: "lang".} =
     let lang =
       case langStr.toLowerAscii
       of "en", "english": lEnglish
@@ -414,7 +414,7 @@ commands defaultCommands:
 
   theoremLikeCommand("lemma", pLemma, "$1", "$1")
 
-  command "link", (name: ?Markup, url: !String), Markup:
+  proc linkCmd(name: ?Markup, url: !String): Markup {.command: "link".} =
     case doc.target
     of tHtml:
       htg.a(href = url, name.get(url))
@@ -423,7 +423,7 @@ commands defaultCommands:
     of tGemtext:
       if name.isSome: "\n=> $1 $2" % [url, name.get] else: "\n=> $1" % [url]
 
-  command "link-image", (alt: !String, url: !String, link: ?String), Markup:
+  proc linkImageCmd(alt: !String, url: !String, link: ?String): Markup {.command: "link-image".} =
     case doc.target
     of tHtml:
       if link.isSome:
@@ -437,12 +437,12 @@ commands defaultCommands:
         xidocError "Linking images with an additional link is not supported in the Gemtext backend"
       "\n=> $1 \u{1e5bc} $2" % [url, alt]
 
-  command "link-stylesheet", (url: !String), Markup:
+  proc linkStylesheetCmd(url: !String): Markup {.command: "link-stylesheet".} =
     if doc.target == tHtml:
       doc.addToHead.incl(htg.link(rel = "stylesheet", href = url))
     ""
 
-  command "list", (items: *Markup), Markup:
+  proc listCmd(items: *Markup): Markup {.command: "list".} =
     case doc.target
     of tHtml:
       htg.ul(items.mapIt(htg.li(it)).join)
@@ -451,7 +451,7 @@ commands defaultCommands:
     of tGemtext:
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
-  command "list-dirs", String, List:
+  proc listDirsCmd(arg: !String): List {.command: "list-dirs".} =
     when defined(js):
       xidocError "The list-dirs command is not available when using JavaScript"
       @[]
@@ -459,7 +459,7 @@ commands defaultCommands:
       let currentDir = doc.lookup(path).splitFile.dir
       walkDirs(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
 
-  command "list-files", String, List:
+  proc listFilesCmd(arg: !String): List {.command: "list-files".} =
     when defined(js):
       xidocError "The list-files command is not available when using JavaScript"
       @[]
@@ -467,7 +467,7 @@ commands defaultCommands:
       let currentDir = doc.lookup(path).splitFile.dir
       walkFiles(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
 
-  command "matext", String, Markup:
+  proc matextCmd(arg: !String): Markup {.command: "matext".} =
     let math = try:
       arg.matext
     except ValueError:
@@ -480,7 +480,7 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % math
 
-  command "ms", Markup, Markup:
+  proc msCmd(arg: !Markup): Markup {.command: "ms".} =
     case doc.target
     of tHtml:
       htg.code(arg)
@@ -489,7 +489,7 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % arg
 
-  command "ordered-list", (items: *Markup), Markup:
+  proc orderedListCmd(items: *Markup): Markup {.command: "ordered-list".} =
     case doc.target
     of tHtml:
       htg.ol(items.mapIt(htg.li(it)).join)
@@ -499,7 +499,7 @@ commands defaultCommands:
       # TODO: add numbers
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
-  command "p", Markup, Markup:
+  proc pCmd(arg: !Markup): Markup {.command: "p".} =
     case doc.target
     of tHtml:
       htg.p(arg)
@@ -508,7 +508,7 @@ commands defaultCommands:
     of tGemtext:
       "\n\n$1" % arg
 
-  command "pass", String, Markup:
+  proc passCmd(arg: !String): Markup {.command: "pass".} =
     arg
 
   command "pass-raw", raw, Markup:
@@ -517,7 +517,7 @@ commands defaultCommands:
   theoremLikeCommand("proof", pProof, "$1", "$1"):
     doc.stack[^1].commands = proofCommands(doc)
 
-  command "props", (items: *Markup), Markup:
+  proc propsCmd(items: *Markup): Markup {.command: "props".} =
     case doc.target
     of tHtml:
       htg.ul(items.mapIt(htg.li(it)).join)
@@ -532,21 +532,21 @@ commands defaultCommands:
   command "raw<", literal, String:
     arg.strip(chars = {'\n'}).dedent
 
-  command "render", String, Markup:
+  proc renderCmd(arg: !String): Markup {.command: "render".} =
     doc.renderStr(arg)
 
-  command "replace-suffix", (sub: !String, by: !String, str: !String), String:
+  proc replaceSuffixCmd(sub: !String, by: !String, str: !String): String {.command: "replace-suffix".} =
     var str = str
     if str.endsWith(sub):
       str.removeSuffix(sub)
       str &= by
     str
 
-  command "reset", (key: !String), Markup:
+  proc resetCmd(key: !String): Markup {.command: "reset".} =
     doc.settings.del(key)
     ""
 
-  command "row", (entries: *Markup), Markup:
+  proc rowCmd(entries: *Markup): Markup {.command: "row".} =
     if not doc.stack.anyIt(it.cmdName == "table"):
       xidocError "The row command has to be inside a table command"
     case doc.target
@@ -557,7 +557,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
-  command "section", (name: ?Markup, content: !Markup), Markup:
+  proc sectionCmd(name: ?Markup, content: !Markup): Markup {.command: "section".} =
     let depth = doc.stack.countIt(it.cmdName == "section")
     case doc.target
     of tHtml:
@@ -594,11 +594,11 @@ commands defaultCommands:
       else:
         "\n\n$1" % [content]
 
-  command "set", (key: !String, val: !String), Markup:
+  proc setCmd(key: !String, val: !String): Markup {.command: "set".} =
     doc.settings[key] = val
     ""
 
-  command "set-doc-lang", String, Markup:
+  proc setDocLangCmd(arg: !String): Markup {.command: "set-doc-lang".} =
     doc.stack[0].lang = some(
       case arg.toLowerAscii
       of "en", "english": lEnglish
@@ -607,11 +607,11 @@ commands defaultCommands:
     )
     ""
 
-  command "set-math-renderer", String, Markup:
+  proc setMathRendererCmd(arg: !String): Markup {.command: "set-math-renderer".} =
     xidocWarning "set-math-renderer is deprecated. Math rendering will always be done at compile time."
     ""
 
-  command "set-syntax-highlighting-theme", String, Markup:
+  proc setSyntaxHighlightingThemeCmd(arg: !String): Markup {.command: "set-syntax-highlighting-theme".} =
     case doc.target
     of tHtml:
       if arg notin syntaxHighlightingThemeTable:
@@ -621,7 +621,7 @@ commands defaultCommands:
       discard
     ""
 
-  command "set-title", String, Markup:
+  proc setTitleCmd(arg: !String): Markup {.command: "set-title".} =
     case doc.target
     of tHtml:
       doc.addToHead.incl htg.title(arg)
@@ -631,7 +631,7 @@ commands defaultCommands:
       discard
     ""
 
-  command "show-title", String, Markup:
+  proc showTitleCmd(arg: !String): Markup {.command: "show-title".} =
     case doc.target
     of tHtml:
       htg.h1(arg)
@@ -642,10 +642,10 @@ commands defaultCommands:
 
   theoremLikeCommand("solution", pSolution, "$1", "$1")
 
-  command "space", void, String:
+  proc spaceCmd(): String {.command: "space".} =
     " "
 
-  command "spoiler", (title: !Markup, content: !Markup), Markup:
+  proc spoilerCmd(title: !Markup, content: !Markup): Markup {.command: "spoiler".} =
     case doc.target
     of tHtml:
       htg.details(class = "xd-spoiler", htg.summary(title), content)
@@ -654,7 +654,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "The spoiler command is not supported in the Gemtext backend"
 
-  command "spoiler-solution", (name: ?Markup, content: !Markup), Markup:
+  proc spoilerSolutionCmd(name: ?Markup, content: !Markup): Markup {.command: "spoiler-solution".} =
     let word = pSolution.translate(doc.lookup(lang))
     case doc.target
     of tHtml:
@@ -677,7 +677,7 @@ commands defaultCommands:
       discard
     ""
 
-  command "table", (spec: ?String, content: !Markup), Markup:
+  proc tableCmd(spec: ?String, content: !Markup): Markup {.command: "table".} =
     case doc.target
     of tHtml:
       htg.table(content)
@@ -689,13 +689,13 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
-  command "template-arg", Markup, Markup:
+  proc templateArgCmd(arg: !Markup): Markup {.command: "template-arg".} =
     try:
       doc.templateArgs[arg]
     except KeyError:
       xidocError: &"Template argument not found: {arg}"
 
-  command "term", Markup, Markup:
+  proc termCmd(arg: !Markup): Markup {.command: "term".} =
     case doc.target
     of tHtml:
       htg.dfn(arg)
@@ -706,7 +706,7 @@ commands defaultCommands:
 
   theoremLikeCommand("theorem", pTheorem, "$1", "$1")
 
-  command "title", (title: !Markup, author: ?Markup), Markup:
+  proc titleCmd(title: !Markup, author: ?Markup): Markup {.command: "title".} =
     case doc.target
     of tHtml:
       doc.addToHead.incl htg.title(title)
@@ -719,14 +719,14 @@ commands defaultCommands:
     of tGemtext:
       "# $1\n\n" % title
 
-  command "unit", (number: ?Markup, unit: !Markup), Markup:
+  proc unitCmd(number: ?Markup, unit: !Markup): Markup {.command: "unit".} =
     if number.isSome:
       # U+2009 Thin Space
       number.get & "\u2009" & unit
     else:
       unit
 
-  command "xidoc", void, Markup:
+  proc xidocCmd(): Markup {.command: "xidoc".} =
     case doc.target
     of tHtml:
       doc.addToStyle.incl ".xd-logo{color:#d0c;font-weight:bold}"
@@ -757,7 +757,7 @@ commands defaultCommands:
       else:
         "<$1 />" % [(@[tag] & attrs).join(" ")]
 
-    command "<>", (tag: !String, args: *String, body: !Markup), Markup:
+    proc tagCmd(tag: !String, args: *String, body: !Markup): Markup {.command: "<>".} =
       generateHtmlTag(tag, args, body)
 
     for tag in htmlTags:
@@ -773,7 +773,7 @@ commands defaultCommands:
 
   of tLatex:
 
-    command "\\", (command: !String, args: *Markup), Markup:
+    proc backslashCmd(command: !String, args: *Markup): Markup {.command: "\\".} =
       "\\" & args.mapIt("{$1}" % it).join
 
   else:
