@@ -40,8 +40,8 @@ const
 
 commands defaultCommands:
 
-  template theoremLikeCommand(cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string, before: untyped = ()) =
-    command cmdName, (thName: ?Markup, content: Raw), Markup:
+  template theoremLikeCommand(procName: untyped, cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string, before: untyped = ()) =
+    proc procName(thName: ?Markup, content: Raw): Markup {.command: cmdName.} =
       when typeof(before) is void:
         before
       let content = doc.renderStr(content)
@@ -60,7 +60,7 @@ commands defaultCommands:
         "\n\n$1. $2" % [if thName.isSome: "$1 ($2)" % [word, thName.get] else: "$1" % [word], content]
 
 
-  command "#", literal, String:
+  proc commentCmd(arg: Literal): String {.command: "#".} =
     ""
 
   proc semiCmd(): String {.command: ";".} =
@@ -92,15 +92,15 @@ commands defaultCommands:
     else:
       pQuotation.translate(doc.lookup(lang)) % arg
 
-  command "$", raw, Markup:
+  proc inlineMathCmd(arg: Raw): Markup {.command: "$".} =
     doc.stack[^1].commands = mathCommands(doc)
     doc.renderMath(doc.expandStr(arg), displayMode = false)
 
-  command "$$", raw, Markup:
+  proc blockMathCmd(arg: Raw): Markup {.command: "$$".} =
     doc.stack[^1].commands = mathCommands(doc)
     doc.renderMath(doc.expandStr(arg), displayMode = true)
 
-  command "$$&", raw, Markup:
+  proc alignedMathCmd(arg: Raw): Markup {.command: "$$&".} =
     doc.stack[^1].commands = mathCommands(doc)
     doc.renderMath("\\begin{align*}$1\\end{align*}" % doc.expandStr(arg), displayMode = true, addDelimiters = false)
 
@@ -154,7 +154,7 @@ commands defaultCommands:
       # TODO author support
       "\n> $1\n" % quote
 
-  command "checkboxes", raw, Markup:
+  proc checkboxesCmd(arg: Raw): Markup {.command: "checkboxes".} =
     case doc.target
     of tHtml:
       doc.stack[^1].commands = checkboxCommands(doc)
@@ -220,7 +220,7 @@ commands defaultCommands:
   proc defGlobalCmd(name: !String, paramList: ?String, body: Raw): Markup {.command: "def-global".} =
     def(global = true)
 
-  theoremLikeCommand("dfn", pDefinition, "$1", "$1")
+  theoremLikeCommand(dfnCmd, "dfn", pDefinition, "$1", "$1")
 
   proc drawCmd(width: ?String, height: ?String, desc: Raw): Markup {.command: "draw".} =
     doc.stack[^1].commands = drawCommands(doc)
@@ -232,9 +232,9 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  theoremLikeCommand("example", pExample, "$1", "$1")
+  theoremLikeCommand(exampleCmd, "example", pExample, "$1", "$1")
 
-  theoremLikeCommand("exercise", pExercise, "$1", "$1")
+  theoremLikeCommand(exerciseCmd, "exercise", pExercise, "$1", "$1")
 
   proc expandCmd(arg: !String): String {.command: "expand".} =
     doc.expandStr(arg)
@@ -311,19 +311,19 @@ commands defaultCommands:
     else:
       tag
 
-  command "if-html", raw, Markup:
+  proc ifHtmlCmd(arg: Raw): Markup {.command: "if-html".} =
     if doc.target == tHtml:
       doc.renderStr(arg)
     else:
       ""
 
-  command "if-latex", raw, Markup:
+  proc ifLatexCmd(arg: Raw): Markup {.command: "if-latex".} =
     if doc.target == tLatex:
       doc.renderStr(arg)
     else:
       ""
 
-  command "if-gemtext", raw, Markup:
+  proc ifGemtextCmd(arg: Raw): Markup {.command: "if-gemtext".} =
     if doc.target == tGemtext:
       doc.renderStr(arg)
     else:
@@ -398,7 +398,7 @@ commands defaultCommands:
       doc.addToHead.incl htg.script(`type` = "module", arg)
     ""
 
-  command "js-module-raw", raw, Markup:
+  proc jsModuleRawCmd(arg: Raw): Markup {.command: "js-module-raw".} =
     if doc.target == tHtml:
       doc.addToHead.incl htg.script(`type` = "module", arg)
     ""
@@ -412,7 +412,7 @@ commands defaultCommands:
     doc.stack[^1].lang = some lang
     doc.renderStr(body)
 
-  theoremLikeCommand("lemma", pLemma, "$1", "$1")
+  theoremLikeCommand(lemmaCmd, "lemma", pLemma, "$1", "$1")
 
   proc linkCmd(name: ?Markup, url: !String): Markup {.command: "link".} =
     case doc.target
@@ -511,10 +511,10 @@ commands defaultCommands:
   proc passCmd(arg: !String): Markup {.command: "pass".} =
     arg
 
-  command "pass-raw", raw, Markup:
+  proc passRawCmd(arg: Raw): Markup {.command: "pass-raw".} =
     arg
 
-  theoremLikeCommand("proof", pProof, "$1", "$1"):
+  theoremLikeCommand(proofCmd, "proof", pProof, "$1", "$1"):
     doc.stack[^1].commands = proofCommands(doc)
 
   proc propsCmd(items: *Markup): Markup {.command: "props".} =
@@ -526,10 +526,10 @@ commands defaultCommands:
     of tGemtext:
       "\n$1\n" % items.mapIt("* $1" % it).join("\n")
 
-  command "raw", raw, String:
+  proc rawCmd(arg: Raw): String {.command: "raw".} =
     arg
 
-  command "raw<", literal, String:
+  proc rawDedentCmd(arg: Literal): String {.command: "raw<".} =
     arg.strip(chars = {'\n'}).dedent
 
   proc renderCmd(arg: !String): Markup {.command: "render".} =
@@ -640,7 +640,7 @@ commands defaultCommands:
     of tGemtext:
       "\n# $1\n\n" % arg
 
-  theoremLikeCommand("solution", pSolution, "$1", "$1")
+  theoremLikeCommand(solutionCmd, "solution", pSolution, "$1", "$1")
 
   proc spaceCmd(): String {.command: "space".} =
     " "
@@ -668,7 +668,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "The spoiler-solution command is not supported in the Gemtext backend"
 
-  command "style", raw, Markup:
+  proc styleCmd(arg: Raw): Markup {.command: "style".} =
     case doc.target
     of tHtml:
       doc.stack[^1].commands = cssCommands(doc)
@@ -704,7 +704,7 @@ commands defaultCommands:
     of tGemtext:
       arg
 
-  theoremLikeCommand("theorem", pTheorem, "$1", "$1")
+  theoremLikeCommand(theoremCmd, "theorem", pTheorem, "$1", "$1")
 
   proc titleCmd(title: !Markup, author: ?Markup): Markup {.command: "title".} =
     case doc.target
@@ -764,10 +764,10 @@ commands defaultCommands:
       # This proc makes sure that tag is captured by value
       (proc(tag: string) =
         if tag in htmlSelfClosingTags:
-          command "<$1>" % tag, (args: *String), Markup:
+          proc theTagCmd(args: *String): Markup {.command: &"<{tag}>".} =
             generateHtmlTag(tag, args, paired = false)
         else:
-          command "<$1>" % tag, (args: *String, body: !Markup), Markup:
+          proc theTagCmd(args: *String, body: !Markup): Markup {.command: &"<{tag}>".} =
             generateHtmlTag(tag, args, body)
       )(tag)
 

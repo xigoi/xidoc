@@ -29,6 +29,7 @@ type
     ptkOptional
     ptkMultiple
     ptkRaw
+    ptkLiteral
   ParamType* = object
     kind*: ParamTypeKind
     base*: XidocType
@@ -97,3 +98,4 @@ proc `*`*(typ: XidocType): ParamType =
   result.base = typ
 
 const Raw* = ParamType(kind: ptkRaw)
+const Literal* = ParamType(kind: ptkLiteral)

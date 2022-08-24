@@ -110,15 +110,15 @@ commands mathCommands:
   {.warning[UnreachableCode]: off.}
 
   # Prevent accidental nested math
-  command "$", literal, Markup:
+  proc inlineMathCmd(arg: Literal): Markup {.command: "$".} =
     xidocError "Math can't be nested inside math"
     ""
 
-  command "$$", literal, Markup:
+  proc blockMathCmd(arg: Literal): Markup {.command: "$$".} =
     xidocError "Math can't be nested inside math"
     ""
 
-  command "$$&", literal, Markup:
+  proc alignedMathCmd(arg: Literal): Markup {.command: "$$&".} =
     xidocError "Math can't be nested inside math"
     ""
 
