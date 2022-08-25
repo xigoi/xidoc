@@ -33,16 +33,6 @@ type
   ParamType* = object
     kind*: ParamTypeKind
     base*: XidocType
-  SyntaxHighlightingTheme* = enum
-    shtDefault = "default"
-    shtDark = "dark"
-    shtFunky = "funky"
-    shtFunkyX = "funky-x"
-    shtOkaidia = "okaidia"
-    shtTwilight = "twilight"
-    shtCoy = "coy"
-    shtSolarizedLight = "solarized-light"
-    shtTomorrowNight = "tomorrow-night"
   Command* = proc(arg: string): XidocValue
   Frame* = object
     args*: Table[string, string]
@@ -61,7 +51,6 @@ type
     verbose*: bool
     case target*: Target
     of tHtml:
-      syntaxHighlightingTheme*: SyntaxHighlightingTheme
       addToStyle*: OrderedSet[string]
     else: discard
 

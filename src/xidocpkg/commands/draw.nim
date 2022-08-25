@@ -1,6 +1,4 @@
 import ../error
-import ../expand
-import ../parser
 import ../types
 import ./utils
 import std/options

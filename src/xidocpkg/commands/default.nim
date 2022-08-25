@@ -25,18 +25,17 @@ import std/tables
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset g h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li line link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture polyline pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
   htmlSelfClosingTags = "area base br circle col embed hr img input line link meta param polyline source path rect track wbr".splitWhitespace
-  prismCss = [
-    shtDefault: staticRead("../../prism/default.css"),
-    shtDark: staticRead("../../prism/dark.css"),
-    shtFunky: staticRead("../../prism/funky.css"),
-    shtFunkyX: staticRead("../../prism/funky-x.css"),
-    shtOkaidia: staticRead("../../prism/okaidia.css"),
-    shtTwilight: staticRead("../../prism/twilight.css"),
-    shtCoy: staticRead("../../prism/coy.css"),
-    shtSolarizedLight: staticRead("../../prism/solarized-light.css"),
-    shtTomorrowNight: staticRead("../../prism/tomorrow-night.css"),
-  ]
-  syntaxHighlightingThemeTable = SyntaxHighlightingTheme.mapIt(($it, it)).toTable
+  prismCss = {
+    "default": staticRead("../../prism/default.css"),
+    "dark": staticRead("../../prism/dark.css"),
+    "funky": staticRead("../../prism/funky.css"),
+    "funky-x": staticRead("../../prism/funky-x.css"),
+    "okaidia": staticRead("../../prism/okaidia.css"),
+    "twilight": staticRead("../../prism/twilight.css"),
+    "coy": staticRead("../../prism/coy.css"),
+    "solarized-light": staticRead("../../prism/solarized-light.css"),
+    "tomorrow-night": staticRead("../../prism/tomorrow-night.css"),
+  }.toTable
 
 commands defaultCommands:
 
@@ -162,10 +161,16 @@ commands defaultCommands:
     else:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
 
+  proc applySyntaxHighlightingTheme() =
+    let theme = doc.settings.getOrDefault("syntax-highlighting-theme", "default")
+    if theme notin prismCss:
+      xidocError "Invalid syntax highlighting theme: " & theme
+    doc.addToStyle.incl(prismCss[theme])
+
   proc codeCmd(lang: ?String, code: !String): Markup {.command: "code".} =
     case doc.target
     of tHtml:
-      doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
+      applySyntaxHighlightingTheme()
       if lang.isSome:
         htg.code(class = &"language-{lang.get}", code.highlightCode(lang.get))
       else:
@@ -179,7 +184,7 @@ commands defaultCommands:
   proc codeBlockCmd(lang: ?String, code: !String): Markup {.command: "code-block".} =
     case doc.target
     of tHtml:
-      doc.addToStyle.incl(prismCss[doc.syntaxHighlightingTheme])
+      applySyntaxHighlightingTheme()
       if lang.isSome:
         htg.pre(class = &"language-{lang.get}", htg.code(class = &"language-{lang.get}", code.highlightCode(lang.get)))
       else:
@@ -606,18 +611,12 @@ commands defaultCommands:
     ""
 
   proc setMathRendererCmd(arg: !String): Markup {.command: "set-math-renderer".} =
-    xidocWarning "set-math-renderer is deprecated. Math rendering will always be done at compile time."
+    xidocWarning "[set-math-renderer] is deprecated. Math rendering will always be done at compile time."
     ""
 
-  proc setSyntaxHighlightingThemeCmd(arg: !String): Markup {.command: "set-syntax-highlighting-theme".} =
-    case doc.target
-    of tHtml:
-      if arg notin syntaxHighlightingThemeTable:
-        xidocError &"Invalid syntax highlighting theme: {arg}"
-      doc.syntaxHighlightingTheme = syntaxHighlightingThemeTable[arg]
-    else:
-      discard
-    ""
+  proc setSyntaxHighlightingThemeCmd(theme: !String): Markup {.command: "set-syntax-highlighting-theme".} =
+    xidocWarning "[set-syntax-highlighting-theme] is deprecated. Use [set syntax-highlighting-theme] instead."
+    setCmd("syntax-highlighting-theme", theme)
 
   proc setTitleCmd(arg: !String): Markup {.command: "set-title".} =
     case doc.target

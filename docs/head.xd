@@ -1,5 +1,5 @@
 [set-doc-lang english]
-[set-syntax-highlighting-theme funky-x]
+[set syntax-highlighting-theme; funky-x]
 [set katex-stylesheet-path; katex-assets/katex.min.css]
 [style
   [var serif; Constantia,"Lucida Bright",Lucidabright,"Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif]

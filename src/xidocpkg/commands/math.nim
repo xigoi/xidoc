@@ -1,9 +1,7 @@
 from std/htmlgen as htg import nil
 from std/pegs import peg, replacef
 import ../error
-import ../expand
 import ../jsinterpret
-import ../parser
 import ../types
 import ./utils
 import matext

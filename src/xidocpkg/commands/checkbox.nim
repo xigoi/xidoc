@@ -1,9 +1,7 @@
 from std/htmlgen as htg import nil
 import ../error
-import ../expand
 import ../types
 import ./utils
-import std/strutils
 import std/tables
 
 commands checkboxCommands:
