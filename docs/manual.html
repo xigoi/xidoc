@@ -45,14 +45,14 @@ color:inherit;}.xd-logo{color:#d0c;font-weight:bold}code[class*=language-],pre[c
 nimble <span class="token function">install</span></code></pre></section></section>
 <section><h2 class="xd-section-heading">Usage</h2><section><h3 class="xd-section-heading">Compile some documents</h3><pre class="language-shell"><code class="language-shell">xidoc foo.xd bar.xd</code></pre>
 <p>The default target is HTML. To choose a different target:</p>
-<pre class="language-shell"><code class="language-shell">xidoc --target:latex foo.xd
-xidoc -t:latex foo.xd
+<pre class="language-shell"><code class="language-shell">xidoc <span class="token parameter variable">--target:latex</span> foo.xd
+xidoc <span class="token parameter variable">-t:latex</span> foo.xd
 <span class="token comment"># Permitted values: -t:html, -t:latex, -t:gemtext</span></code></pre></section>
 <section><h3 class="xd-section-heading">Snippet mode</h3><p>By default, xidoc automatically includes wrappers like <code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span></code> or <code class="language-latex"><span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span></code>. To disable this behavior, use “snippet mode”:</p>
-<pre class="language-shell"><code class="language-shell">xidoc --snippet snip.xd
-xidoc -s snip.xd</code></pre></section>
-<section><h3 class="xd-section-heading">Get help</h3><pre class="language-shell"><code class="language-shell">xidoc --help
-xidoc -h</code></pre></section></section>
+<pre class="language-shell"><code class="language-shell">xidoc <span class="token parameter variable">--snippet</span> snip.xd
+xidoc <span class="token parameter variable">-s</span> snip.xd</code></pre></section>
+<section><h3 class="xd-section-heading">Get help</h3><pre class="language-shell"><code class="language-shell">xidoc <span class="token parameter variable">--help</span>
+xidoc <span class="token parameter variable">-h</span></code></pre></section></section>
 <section><h2 class="xd-section-heading">Syntax</h2><p>The only special characters in xidoc are square brackets, semicolons and whitespace. Everything except these characters is treated as literal text.</p>
 <p><dfn>Commands</dfn> are the basic building block of xidoc. Every command invocation is enclosed in square brackets. The first sequence of non-whitespace characters inside the brackets is treated as the command name; the remaining text is given to the command. Most commands ignore the leading whitespace. Many commands can take multiple arguments, in which case they split the text on semicolons; whitespace around the semicolons is ignored. A trailing semicolon followed by a newline is ignored, to allow for easy multiline lists. If the text contains more square brackets, they may or may not be treated as a command invocation (depending on the surrounding command), but they should always be balanced.</p>
 <p>Multiple whitespace in a row is changed into a single space in the output, which allows you to indent your code as you want without affecting the generated code.</p></section>
