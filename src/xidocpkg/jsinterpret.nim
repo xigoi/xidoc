@@ -1,9 +1,9 @@
 import ./error
+import std/sequtils
 import std/strformat
 import std/strutils
 
 const katexJs = staticRead("../katex/katex.min.js")
-const arrayPrototypeFillJs = staticRead("../katex/array-prototype-fill.min.js")
 const prismJs = staticRead("../prism/prism.js")
 const xidocPrismJs = staticRead("../prism/xidoc-prism.js")
 
@@ -48,89 +48,153 @@ else:
 
   import std/exitprocs
 
-  {.passl: "-lm"}
-  {.compile: "../duktape/duktape.c"}
-  {.push header: "duktape/duktape.h".}
+  {.passc: "-DCONFIG_VERSION=\"\""}
+  {.passl: "-lm -lpthread"}
+  {.compile: "../quickjs/quickjs.c"}
+  {.compile: "../quickjs/cutils.c"}
+  {.compile: "../quickjs/libregexp.c"}
+  {.compile: "../quickjs/libunicode.c"}
+  {.push header: "quickjs/quickjs.h".}
 
   type
-    DukContext {.importc: "duk_context".} = object
+    JsRuntimeObj {.importc: "JSRuntime".} = object
+    JsRuntime = ptr JsRuntimeObj
+    JsContextObj {.importc: "JSContext".} = object
+    JsContext = ptr JsContextObj
+    JsValue {.importc: "JSValue".} = object
 
-  proc createHeapDefault(): ptr DukContext {.importc: "duk_create_heap_default".}
-  proc destroyHeap(ctx: ptr DukContext) {.importc: "duk_destroy_heap".}
-  proc evalString(ctx: ptr DukContext, str: cstring) {.importc: "duk_eval_string".}
-  proc evalStringNoResult(ctx: ptr DukContext, str: cstring) {.importc: "duk_eval_string_noresult".}
-  proc getPropString(ctx: ptr DukContext, obj_idx: cint, key: cstring): cint {.importc: "duk_get_prop_string".}
-  proc getString(ctx: ptr DukContext, idx: cint): cstring {.importc: "duk_get_string".}
-  proc pop(ctx: ptr DukContext) {.importc: "duk_pop".}
-  proc protectedCall(ctx: ptr DukContext, nargs: cint): cint {.importc: "duk_pcall".}
-  proc protectedEvalString(ctx: ptr DukContext, str: cstring): cint {.importc: "duk_peval_string".}
-  proc pushBoolean(ctx: ptr DukContext, val: cint) {.importc: "duk_push_boolean".}
-  proc pushObject(ctx: ptr DukContext) {.importc: "duk_push_object".}
-  proc pushString(ctx: ptr DukContext, str: cstring) {.importc: "duk_push_string".}
-  proc putGlobalString(ctx: ptr DukContext, key: cstring) {.importc: "duk_put_global_string".}
-  proc putPropString(ctx: ptr DukContext, obj_idx: cint, key: cstring) {.importc: "duk_put_prop_string".}
-  proc remove(ctx: ptr DukContext, idx: cint) {.importc: "duk_remove".}
-  proc safeToString(ctx: ptr DukContext, idx: cint): cstring {.importc: "duk_safe_to_string".}
+  var
+    undefined {.importc: "JS_UNDEFINED".}: JsValue
+    forceStrictMode {.importc: "JS_EVAL_FLAG_STRICT".}: cint
+
+  proc call(ctx: JsContext, fn: JsValue, this: JsValue, argc: cint, argv: pointer): JsValue {.importc: "JS_Call".}
+  proc eval(ctx: JsContext, input: cstring, inputLen: cint, filename: cstring, flags: cint): JsValue {.importc: "JS_Eval".}
+  proc exception(ctx: JsContext): JsValue {.importc: "JS_GetException".}
+  # proc free(ctx: JsContext) {.importc: "JS_FreeContext".}
+  proc free(ctx: JsContext, cstr: cstring) {.importc: "JS_FreeCString".}
+  proc free(ctx: JsContext, val: JsValue) {.importc: "JS_FreeValue".}
+  # proc free(runtime: JsRuntime) {.importc: "JS_FreeRuntime".}
+  proc getProperty(ctx: JsContext, obj: JsValue, key: cstring): JsValue {.importc: "JS_GetPropertyStr".}
+  proc globalObject(ctx: JsContext): JsValue {.importc: "JS_GetGlobalObject".}
+  proc isException(val: JsValue): bool {.importc: "JS_IsException".}
+  proc isFunction(ctx: JsContext, val: JsValue): bool {.importc: "JS_IsFunction".}
+  proc isString(val: JsValue): bool {.importc: "JS_IsString".}
+  proc isUndefined(val: JsValue): bool {.importc: "JS_IsUndefined".}
+  proc newJsContext(runtime: JsRuntime): JsContext {.importc: "JS_NewContext".}
+  proc newJsObject(ctx: JsContext): JsValue {.importc: "JS_NewObject".}
+  proc newJsRuntime(): JsRuntime {.importc: "JS_NewRuntime".}
+  proc setProperty(ctx: JsContext, obj: JsValue, key: cstring, val: JsValue) {.importc: "JS_SetPropertyStr".}
+  proc toCString(ctx: JsContext, val: JsValue): cstring {.importc: "JS_ToCString".}
+  proc toJs(ctx: JsContext, b: bool): JsValue {.importc: "JS_NewBool".}
+  proc toJs(ctx: JsContext, str: cstring): JsValue {.importc: "JS_NewString".}
+  proc toStringJs(ctx: JsContext, val: JsValue): JsValue {.importc: "JS_ToString".}
 
   {.pop.}
 
-  var ctx: ptr DukContext
+  proc toString(ctx: JsContext, val: JsValue): string =
+    let cstr = ctx.toCString(val)
+    defer: ctx.free(cstr)
+    return $cstr
+
+  proc safeToString(ctx: JsContext, val: JsValue): string =
+    let jsString = ctx.toStringJs(val)
+    defer: ctx.free(jsString)
+    let cstr = ctx.toCString(jsString)
+    defer: ctx.free(cstr)
+    return $cstr
+
+  proc eval(ctx: JsContext, input: string): JsValue =
+    ctx.eval(input, input.len.cint, "", forceStrictMode)
+
+  proc free(ctx: JsContext, vals: openArray[JsValue]) =
+    for val in vals:
+      ctx.free(val)
+
+  proc exceptionMsg(ctx: JsContext): string =
+    let exc = ctx.exception
+    defer: ctx.free(exc)
+    return ctx.toString(exc)
+
+  var runtime: JsRuntime
+  var ctx: JsContext
 
   proc initCtx() =
     once:
-      ctx = createHeapDefault()
-      addExitProc do():
-        ctx.destroyHeap
+      runtime = newJsRuntime()
+      ctx = newJsContext(runtime)
+      # addExitProc do():
+      #   free(ctx)
+      #   free(runtime)
 
   proc renderMathKatex*(math: string, displayMode: bool): string =
+    var renderToString {.global.}: JsValue
     once:
       initCtx()
-      ctx.evalStringNoResult(arrayPrototypeFillJs)
-      ctx.evalStringNoResult(katexJs)
-    ctx.evalString("katex.renderToString")
-    ctx.pushString(math)
-    ctx.pushObject
-    ctx.pushBoolean(displayMode.cint)
-    ctx.putPropString(-2, "displayMode")
-    if ctx.protectedCall(2) != 0:
-      xidocError "Error while rendering math: $1\n$2" % [math, $ctx.safeToString(-1)]
-    result = $ctx.getString(-1)
-    ctx.pop
+      ctx.free(ctx.eval(katexJs))
+      renderToString = ctx.eval("katex.renderToString", "katex.renderToString".len, "", 0)
+      addExitProc do():
+        ctx.free(renderToString)
+    var args = [ctx.toJs(math), ctx.newJsObject]
+    defer: ctx.free(args)
+    ctx.setProperty(args[1], "displayMode", ctx.toJS(displayMode))
+    let res = ctx.call(renderToString, undefined, args.len.cint, args.addr)
+    defer: ctx.free(res)
+    if not isString(res):
+      xidocError &"Error while rendering math: {math}\n{ctx.exceptionMsg}"
+    return ctx.toString(res)
 
   proc highlightCode*(code: string, lang: string): string =
+    var highlight {.global.}: JsValue
+    var languages {.global.}: JsValue
     once:
       initCtx()
-      ctx.evalStringNoResult(prismJs)
-      ctx.evalStringNoResult(xidocPrismJs)
-    ctx.evalString("Prism.highlight")
-    ctx.pushString(code)
-    ctx.evalString("Prism.languages")
-    if ctx.getPropString(-1, lang) == 0:
+      ctx.free(ctx.eval(prismJs))
+      ctx.free(ctx.eval(xidocPrismJs))
+      highlight = ctx.eval("Prism.highlight")
+      languages = ctx.eval("Prism.languages")
+      addExitProc do():
+        ctx.free(highlight)
+        ctx.free(languages)
+    let language = ctx.getProperty(languages, lang)
+    defer: ctx.free(language)
+    if isUndefined(language):
       xidocError &"Unknown language for syntax highlighting: {lang}"
-    ctx.remove(-2)
-    ctx.pushString(lang)
-    if ctx.protectedCall(3) != 0:
-      xidocError "Error while highlighting code\n$1" % [$ctx.safeToString(-1)]
-    result = $ctx.getString(-1)
-    ctx.pop
+    var args = [ctx.toJs(code), language, ctx.toJs(lang)]
+    defer:
+      ctx.free(args[0])
+      ctx.free(args[2])
+    let res = ctx.call(highlight, undefined, args.len.cint, args.addr)
+    defer: ctx.free(res)
+    if not isString(res):
+      xidocError &"Error while highlighting code\n{ctx.exceptionMsg}"
+    result = ctx.toString(res)
 
   proc jsCall*(function: string, args: varargs[string]): string =
     initCtx()
-    if ctx.protectedEvalString(function) != 0:
-      xidocError "Invalid JavaScript function: $1\n$2" % [function, $ctx.safeToString(-1)]
-    for arg in args:
-      ctx.pushString(arg.cstring)
-    if ctx.protectedCall(args.len.cint) != 0:
-      xidocError "Error while calling JavaScript function: $1\n$2" % [function, $ctx.safeToString(-1)]
-    result = $ctx.safeToString(-1)
-    ctx.pop
+    let functionJs = ctx.eval(function)
+    defer: ctx.free(functionJs)
+    if not ctx.isFunction(functionJs):
+      xidocError &"Invalid JavaScript function: {function}\n{ctx.exceptionMsg}"
+    var args = args.mapIt(ctx.toJS(it.cstring))
+    defer: ctx.free(args)
+    let res = ctx.call(functionJs, undefined, args.len.cint, args[0].addr)
+    defer: ctx.free(res)
+    if isException(res):
+      xidocError &"Error while calling JavaScript function: {function}\n{ctx.exceptionMsg}"
+    return ctx.safeToString(res)
 
   proc jsEval*(code: string, values: varargs[(string, string)]): string =
     initCtx()
+    let global = ctx.globalObject()
+    defer: ctx.free(global)
+    var toFree: seq[JsValue]
     for (name, val) in values:
-      ctx.pushString(val.cstring)
-      ctx.putGlobalString(name.cstring)
-    if ctx.protectedEvalString(code) != 0:
-      xidocError "Error while evaluating JavaScript code\n$1" % [$ctx.safeToString(-1)]
-    result = $ctx.safeToString(-1)
-    ctx.pop
+      let valJs = ctx.toJs(val.cstring)
+      toFree.add(valJs)
+      ctx.setProperty(global, name.cstring, valJs)
+    defer: ctx.free(toFree)
+    let res = ctx.eval(code)
+    defer: ctx.free(res)
+    if isException(res):
+      xidocError &"Error while evaluating JavaScript code\n{ctx.exceptionMsg}"
+    return ctx.safeToString(res)
