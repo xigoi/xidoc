@@ -1,6 +1,5 @@
 import ./error
 import std/os
-import std/sequtils
 import std/strformat
 import std/strutils
 import std/sugar
@@ -271,7 +270,7 @@ else:
     JsContext = ptr JsContextObj
     JsValue {.importc: "JSValue".} = object
 
-  var
+  let
     undefined {.importc: "JS_UNDEFINED".}: JsValue
     forceStrictMode {.importc: "JS_EVAL_FLAG_STRICT".}: cint
 
@@ -339,7 +338,7 @@ else:
     once:
       initCtx()
       ctx.free(ctx.eval(katexJs))
-      renderToString = ctx.eval("katex.renderToString", "katex.renderToString".len, "", 0)
+      renderToString = ctx.eval("katex.renderToString")
       addExitProc do():
         ctx.free(renderToString)
     var args = [ctx.toJs(math), ctx.newJsObject]

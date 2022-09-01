@@ -8,9 +8,6 @@ type
     tHtml = "html"
     tLatex = "latex"
     tGemtext = "gemtext"
-  MathRenderer* = enum
-    mrKatex
-    mrKatexJsdelivr
   XidocType* = enum
     String
     Markup
