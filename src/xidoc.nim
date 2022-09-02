@@ -25,13 +25,14 @@ when isMainModule and not defined(js):
   import cligen
   import std/terminal
 
-  proc xidoc(target = tHtml, snippet = false, verbose = false, paths: seq[string]) =
+  proc xidoc(target = tHtml, snippet = false, safe = false, verbose = false, paths: seq[string]) =
 
     proc renderFile(path: string, input, output: File) =
       let doc = Document(
         body: input.readAll,
         target: target,
         snippet: snippet,
+        safeMode: safe,
         verbose: verbose,
         stack: @[Frame(
           cmdName: "[top]",
@@ -81,11 +82,19 @@ when isMainModule and not defined(js):
         except IOError:
           stderr.writeLine "Cannot open file $1" % path
 
-  dispatch xidoc, help = {
-    "target": "what language to transpile to; one of \"html\", \"latex\", \"gemtext\"",
-    "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
-    "verbose": "show more detailed errors",
-  }
+  dispatch xidoc,
+    help = {
+      "target": "what language to transpile to; one of \"html\", \"latex\", \"gemtext\"",
+      "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
+      "safe": "only allow commands that are known to not be vulnerable to injection attacks",
+      "verbose": "show more detailed errors",
+    },
+    short = {
+      "target": 't',
+      "snippet": 's',
+      "safe": 'S',
+      "verbose": 'v',
+    }
 
 else: # when library
 

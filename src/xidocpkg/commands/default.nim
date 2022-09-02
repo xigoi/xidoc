@@ -128,7 +128,7 @@ commands defaultCommands:
   proc argRawEscapeCmd(arg: !String): Markup {.command: "arg-raw-escape".} =
     escapeText(doc.lookup(args, arg), doc.target)
 
-  proc bfCmd(arg: !Markup): Markup {.command: "bf".} =
+  proc bfCmd(arg: !Markup): Markup {.command: "bf", safe.} =
     case doc.target
     of tHtml:
       htg.b(arg)
@@ -362,7 +362,7 @@ commands defaultCommands:
     except IOError:
       xidocError &"Cannot open file {filename}\n(resolved as {path})"
 
-  proc itCmd(arg: !Markup): Markup {.command: "it".} =
+  proc itCmd(arg: !Markup): Markup {.command: "it", safe.} =
     case doc.target
     of tHtml:
       htg.i(arg)

@@ -139,10 +139,13 @@ func paramTypeToNimType(typ: NimNode): NimNode =
   else:
     baseNim
 
+template safe* {.pragma.}
+
 macro command*(name: string, baseProc: untyped): untyped =
   baseProc.expectKind(nnkProcDef)
   let baseName = baseProc[0]
   let sig = baseProc[3]
+  let isSafe = baseProc[4].kind == nnkPragma and baseProc[4][0].eqIdent("safe")
   let retTyp = sig[0]
   let retGet = getter(sig[0])
   var params = @[xidocTypeToNimType(baseProc[3][0])]
@@ -159,9 +162,17 @@ macro command*(name: string, baseProc: untyped): untyped =
   var cmdProc = baseProc.copy
   cmdProc[3] = nnkFormalParams.newTree(params)
   let call = newCall(baseName, args)
+  let safetyCheck =
+    if isSafe:
+      newEmptyNode()
+    else:
+      quote:
+        if doc.safeMode:
+          xidocError "The [$1] command is not allowed in safe mode" % `name`
   quote:
     `cmdProc`
     commands[`name`] = proc(arg {.inject.}: string): XidocValue =
+      `safetyCheck`
       let `vals` = expandArguments(doc, `name`, arg, @`types`)
       return XidocValue(typ: `retTyp`, `retGet`: `call`)
 

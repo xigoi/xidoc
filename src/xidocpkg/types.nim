@@ -41,6 +41,7 @@ type
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: string
+    safeMode*: bool
     settings*: Table[string, string]
     snippet*: bool
     stack*: seq[Frame]
