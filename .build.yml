@@ -2,7 +2,13 @@ image: alpine/edge
 oauth: pages.sr.ht/PAGES:RW
 packages:
   - hut
+  - nim
+  - nimble
+  - pcre
 tasks:
+  - test: |
+      cd xidoc
+      nimble test -y
   - upload: |
       if test "$(git -C xidoc rev-parse HEAD)" = "$(git -C xidoc rev-parse master)"; then
         tar -cvzC xidoc/docs . -f site.tar.gz
