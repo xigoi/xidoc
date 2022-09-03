@@ -1,6 +1,5 @@
 import ./error
 import std/os
-import std/strformat
 import std/strutils
 import std/sugar
 import std/tables
@@ -236,10 +235,11 @@ when defined(js):
 
   proc katexRenderToString(math: cstring, opts: JsObject): cstring {.importjs: "katex.renderToString(@)".}
 
-  proc renderMathKatex*(math: string, displayMode: bool): string =
+  proc renderMathKatex*(math: string, displayMode: bool, trust = false): string =
     var opts = newJsObject()
     opts["throwOnError"] = false
     opts["displayMode"] = displayMode
+    opts["trust"] = trust
     $katexRenderToString(math.cstring, opts)
 
   proc highlightCode*(code: string, lang: string): string =
@@ -254,7 +254,7 @@ when defined(js):
 else:
 
   import std/exitprocs
-  import std/os
+  import std/strformat
 
   const srcDir = currentSourcePath.parentDir.parentDir
 

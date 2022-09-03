@@ -23,7 +23,7 @@
   const code = document.querySelector("#code")
   const output = document.querySelector("#output")
   const render = () => {
-    let result = renderXidoc(code.value, 0, true);
+    let result = renderXidoc(code.value, {snippet: true});
     if (result.success) {
       code.classList.remove("error");
       output.classList.remove("error");

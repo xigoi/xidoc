@@ -128,7 +128,7 @@ elif defined(js): # JavaScript library
       else: config
     try:
       let rendered = renderXidoc(
-        body,
+        $body,
         snippet = config.snippet.to(bool),
         safeMode = config.safeMode.to(bool),
         verbose = config.verbose.to(bool),
@@ -137,4 +137,4 @@ elif defined(js): # JavaScript library
     except XidocError:
       return XidocResult(success: false, err: getCurrentException().msg)
 
-  {.emit: "export {newDocument, render, renderXidoc};".}
+  {.emit: "export {renderXidoc};".}
