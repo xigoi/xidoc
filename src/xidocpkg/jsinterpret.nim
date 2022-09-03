@@ -333,7 +333,7 @@ else:
       #   free(ctx)
       #   free(runtime)
 
-  proc renderMathKatex*(math: string, displayMode: bool): string =
+  proc renderMathKatex*(math: string, displayMode: bool, trust = false): string =
     var renderToString {.global.}: JsValue
     once:
       initCtx()
@@ -344,6 +344,7 @@ else:
     var args = [ctx.toJs(math), ctx.newJsObject]
     defer: ctx.free(args)
     ctx.setProperty(args[1], "displayMode", ctx.toJS(displayMode))
+    ctx.setProperty(args[1], "trust", ctx.toJS(trust))
     let res = ctx.call(renderToString, undefined, args.len.cint, args.addr)
     defer: ctx.free(res)
     if not isString(res):

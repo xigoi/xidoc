@@ -129,7 +129,7 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters 
     if displayMode:
       doc.addToStyle.incl """xd-block-math{display:block}"""
     let format = if displayMode: "<xd-block-math>$1</xd-block-math>" else: "<xd-inline-math>$1</xd-inline-math>"
-    format % renderMathKatex(latex, displayMode)
+    format % renderMathKatex(latex, displayMode = displayMode, trust = not doc.safeMode)
   of tLatex:
     doc.addToHead.incl "\\usepackage{amsmath}"
     doc.addToHead.incl "\\usepackage{amssymb}"
