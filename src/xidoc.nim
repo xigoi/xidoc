@@ -1,6 +1,5 @@
 from std/htmlgen as htg import nil
 import std/options
-import std/os
 import std/sequtils
 import std/sets
 import std/strutils
@@ -21,46 +20,61 @@ const templates = [
   tGemtext: "$1$2",
 ]
 
+proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safeMode = false, verbose = false, colorfulError = false): string =
+  let doc = Document(
+    body: body,
+    target: target,
+    snippet: snippet,
+    safeMode: safeMode,
+    verbose: verbose,
+    stack: @[Frame(
+      cmdName: "[top]",
+      path: some(path),
+    )]
+  )
+  doc.stack[0].commands = defaultCommands(doc)
+  let rendered =
+    try: doc.renderStr(doc.body)
+    except XidocError:
+      xidocError getCurrentException().XidocError.format(doc, termColors = colorfulError)
+  if snippet:
+    # TODO: some way to get doc.addToHead
+    return rendered
+  else:
+    if doc.target == tHtml and doc.addToStyle.len != 0:
+      doc.addToHead.incl htg.style(doc.addToStyle.toSeq.join)
+    let languageString =
+      case target
+      of tHtml:
+        translate(pHtmlLanguageCode, doc.lookup(lang))
+      of tLatex:
+        translate(pLatexLanguageName, doc.lookup(lang))
+      else:
+        ""
+    return templates[target] % [doc.addToHead.toSeq.join, rendered, languageString]
+
 when isMainModule and not defined(js):
   import cligen
+  import std/os
   import std/terminal
 
   proc xidoc(target = tHtml, snippet = false, safe = false, verbose = false, paths: seq[string]) =
 
     proc renderFile(path: string, input, output: File) =
-      let doc = Document(
-        body: input.readAll,
-        target: target,
-        snippet: snippet,
-        safeMode: safe,
-        verbose: verbose,
-        stack: @[Frame(
-          cmdName: "[top]",
-          path: some(path),
-        )]
-      )
-      doc.stack[0].commands = defaultCommands(doc)
       try:
-        let rendered = doc.renderStr(doc.body)
-        if snippet:
-          # TODO: some way to get doc.addToHead
-          output.writeLine rendered
-        else:
-          if doc.target == tHtml and doc.addToStyle.len != 0:
-            doc.addToHead.incl htg.style(doc.addToStyle.toSeq.join)
-          let languageString =
-            case target
-            of tHtml:
-              translate(pHtmlLanguageCode, doc.lookup(lang))
-            of tLatex:
-              translate(pLatexLanguageName, doc.lookup(lang))
-            else:
-              ""
-          output.writeLine templates[target] % [doc.addToHead.toSeq.join, rendered, languageString]
+        output.writeLine renderXidoc(
+          input.readAll,
+          path = path,
+          target = target,
+          snippet = snippet,
+          safeMode = safe,
+          verbose = verbose,
+          colorfulError = stderr.isATty,
+        )
         if path != "":
           stderr.writeLine "Rendered file $1" % path
       except XidocError:
-        stderr.writeLine getCurrentException().XidocError.format(doc, termColors = stderr.isATty)
+        stderr.writeLine getCurrentException().msg
 
     if paths.len == 0:
       renderFile("", stdin, stdout)
@@ -96,28 +110,9 @@ when isMainModule and not defined(js):
       "verbose": 'v',
     }
 
-else: # when library
+elif defined(js): # JavaScript library
 
-  proc newDocument(body: cstring, target = tHtml, snippet = false, verbose = false): Document {.exportc.} =
-    result = Document(
-      body: $body,
-      target: target,
-      snippet: snippet,
-      verbose: verbose,
-      stack: @[Frame(
-        cmdName: "[top]",
-        path: some(""),
-      )]
-    )
-    result.stack[0].commands = defaultCommands(result)
-
-  proc render(doc: Document): cstring {.exportc.} =
-    let rendered = doc.renderStr(doc.body)
-    let resultStr = if doc.snippet:
-      rendered
-    else:
-      templates[doc.target] % [doc.addToHead.toSeq.join, rendered]
-    resultStr.cstring
+  import std/jsffi
 
   type
     XidocResult {.exportc.} = object
@@ -127,13 +122,19 @@ else: # when library
       of false:
         err*: cstring
 
-  proc renderXidoc(body: cstring, target = tHtml, snippet = false, verbose = false): XidocResult {.exportc.} =
-    let doc = newDocument(body, target, snippet, verbose)
+  proc renderXidocJs(body: cstring, config: JsObject): XidocResult {.exportc: "renderXidoc".} =
+    let config =
+      if config == jsUndefined: newJsObject()
+      else: config
     try:
-      let rendered = doc.render
-      XidocResult(success: true, markup: rendered)
+      let rendered = renderXidoc(
+        body,
+        snippet = config.snippet.to(bool),
+        safeMode = config.safeMode.to(bool),
+        verbose = config.verbose.to(bool),
+      )
+      return XidocResult(success: true, markup: rendered.cstring)
     except XidocError:
-      XidocResult(success: false, err: getCurrentException().XidocError.format(doc, termColors = false))
+      return XidocResult(success: false, err: getCurrentException().msg)
 
-  when defined(js):
-    {.emit: "export {newDocument, render, renderXidoc};".}
+  {.emit: "export {newDocument, render, renderXidoc};".}

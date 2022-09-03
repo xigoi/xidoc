@@ -254,6 +254,9 @@ when defined(js):
 else:
 
   import std/exitprocs
+  import std/os
+
+  const srcDir = currentSourcePath.parentDir.parentDir
 
   {.passc: "-DCONFIG_VERSION=\"\""}
   {.passl: "-lm -lpthread"}
@@ -261,7 +264,7 @@ else:
   {.compile: "../quickjs/cutils.c"}
   {.compile: "../quickjs/libregexp.c"}
   {.compile: "../quickjs/libunicode.c"}
-  {.push header: "quickjs/quickjs.h".}
+  {.push header: srcDir / "quickjs/quickjs.h".}
 
   type
     JsRuntimeObj {.importc: "JSRuntime".} = object

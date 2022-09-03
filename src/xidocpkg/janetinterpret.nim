@@ -13,10 +13,13 @@ when defined(janet):
 else:
 
   import std/exitprocs
+  import std/os
+
+  const srcDir = currentSourcePath.parentDir.parentDir
 
   {.passl: "-lm"}
   {.compile: "../janet/janet.c"}
-  {.push header: "janet/janet.h".}
+  {.push header: srcDir / "janet/janet.h".}
 
   {.push importc.}
   type
