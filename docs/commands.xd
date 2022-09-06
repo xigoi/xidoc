@@ -490,11 +490,11 @@ const factorial = (n) => {
 
   [section HTML-specific;
     [cmd html-add-attrs; attrs[;] cmd;
-      If the target is HTML, adds the given [param attributes] to the tag produced by [param cmd]. Supports the [ms .foo] and [ms #foo] syntax for specifying classes and IDs.
+      Adds the given [param attributes] to the tag produced by [param cmd]. Supports the [ms .foo] and [ms #foo] syntax for specifying classes and IDs.
       [if-html [ex [html-add-attrs style="color:pink"; [bf Real men don't fear colors.]]]]
     ]
     [cmd js-module; code;
-      If the target is HTML, adds the given JavaScript code to the page as a JavaScript module. If you don't need to use any xidoc commands inside the code, it's recommended to use [cmd-ref js-module-raw].
+      Adds the given JavaScript code to the page as a JavaScript module. If you don't need to use any xidoc commands inside the code, it's recommended to use [cmd-ref js-module-raw].
       [cmd js-module-raw; code;
         Works as a combination of [cmd-ref js-module] and [cmd-ref raw].
         [if-html [ex [<span> #change-me; I will be changed] [js-module-raw document.getElementById("change-me").innerText = "I was changed"]]]
@@ -506,6 +506,9 @@ const factorial = (n) => {
     [cmd style; stylesheet;
       Styles an HTML document using xidoc's custom syntax for CSS.
       [if-html [ex [style [rule .golden-frame; [: border; 3px solid gold]]][<div> .golden-frame; This text is a work of art!]]]
+    ]
+    [cmd-nilad empty-favicon;
+      Specifies the favicon of the webpage to be empty. This prevents unnecessary requests to [ms favicon.ico].
     ]
   ]
 

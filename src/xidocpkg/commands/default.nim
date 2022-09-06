@@ -235,6 +235,11 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
+  proc emptyFaviconCmd(): Markup {.command: "empty-favicon", safe.} =
+    if doc.target == tHtml:
+      doc.addToHead.incl htg.link(rel = "icon", href = "data:,")
+    ""
+
   theoremLikeCommand(exampleCmd, "example", pExample, "$1", "$1")
 
   theoremLikeCommand(exerciseCmd, "exercise", pExercise, "$1", "$1")
