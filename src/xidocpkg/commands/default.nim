@@ -223,6 +223,20 @@ commands defaultCommands:
   proc defGlobalCmd(name: !String, paramList: ?String, body: Raw): Markup {.command: "def-global".} =
     def(global = true)
 
+  proc descriptionListCmd(args: *Markup): Markup {.command: "description-list", safe.} =
+    if args.len mod 2 != 0:
+      xidocError "Arguments to description-list must come in pairs"
+    var defs: seq[array[2, string]]
+    for i in 0..<(args.len div 2):
+      defs.add [args[2*i], args[2*i + 1]]
+    case doc.target
+    of tHtml:
+      htg.dl(defs.mapIt(htg.dt(it[0]) & htg.dd(it[1])).join)
+    of tLatex:
+      env("description", defs.mapIt("\\item[$1] $2" % it).join)
+    of tGemtext:
+      "\n$1\n" % defs.mapIt("* $1: $2" % it).join("\n")
+
   theoremLikeCommand(dfnCmd, "dfn", pDefinition, "$1", "$1")
 
   proc drawCmd(width: ?String, height: ?String, desc: Raw): Markup {.command: "draw".} =

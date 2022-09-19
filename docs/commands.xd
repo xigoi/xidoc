@@ -224,10 +224,14 @@ const factorial = (n) => {
     [cmd list; *items;
       Creates an unordered list of [param items].
       [ex Supported targets: [list HTML; [LaTeX]; Gemtext]]
-    ]
-    [cmd ordered-list; *items;
-      Creates an ordered list of [param items].
-      [ex TOP 5 LIST OF SMALLEST POSITIVE INTEGERS: [ordered-list 1; 2; 3; 4; 5]]
+      [cmd ordered-list; *items;
+        Creates an ordered list of [param items].
+        [ex TOP 5 LIST OF SMALLEST POSITIVE INTEGERS: [ordered-list 1; 2; 3; 4; 5]]
+      ]
+      [cmd description-list; *(key description);
+        Creates a description list associating [param key]s with [param description]s.
+        [description-list Dog; Cute and loyal; Cat; Cute and entitled]
+      ]
     ]
     [cmd p; text;
       Creates a paragraph with the given [param text].
