@@ -2,7 +2,7 @@ import std/strutils
 import std/unittest
 import xidoc
 
-proc shouldRenderAs(input: string, output: string) =
+template shouldRenderAs(input: string, output: string) =
   check input.renderXidoc(snippet = true) == output
 
 suite "plain text":
@@ -94,7 +94,7 @@ suite "\"Inline formatting\" commands":
   test "[unit]":
     "The radius of the Earth is [unit 6378; km].".shouldRenderAs("The radius of the Earth is 6378 km.")
 
-suite "\"Inline formatting\" commands":
+suite "\"Block formatting\" commands":
 
   test "[block-quote]":
     "[p The first rule in the Zen of Nim is:] [block-quote Copying bad design is not good design.]"
@@ -139,6 +139,10 @@ suite "\"Inline formatting\" commands":
     "TOP 5 LIST OF SMALLEST POSITIVE INTEGERS: [ordered-list 1; 2; 3; 4; 5]"
     .shouldRenderAs("TOP 5 LIST OF SMALLEST POSITIVE INTEGERS: <ol><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>")
 
+  test "[description-list]":
+    "[description-list Dog; Cute and loyal; Cat; Cute and entitled]"
+    .shouldRenderAs("<dl><dt>Dog</dt><dd>Cute and loyal</dd><dt>Cat</dt><dd>Cute and entitled</dd></dl>")
+
   test "[p]":
     "[p PARAGRAPH]".shouldRenderAs("<p>PARAGRAPH</p>")
 
@@ -158,3 +162,69 @@ suite "\"Inline formatting\" commands":
   test "[title]":
     "[title TITLE]".shouldRenderAs("<h1>TITLE</h1>")
     check renderXidoc("[title TITLE]").contains("<title>TITLE</title>")
+
+suite "\"Unicode characters\" commands":
+
+  test "[\"]":
+    "[\" Hello!]".shouldRenderAs("“Hello!”")
+    "[lang czech; [\" Ahoj!]]".shouldRenderAs("„Ahoj!“")
+
+  test "[--]":
+    "[--]".shouldRenderAs("–")
+
+  test "[---]":
+    "[---]".shouldRenderAs("—")
+
+  test "[...]":
+    "[...]".shouldRenderAs("…")
+
+suite "\"Logos\" commands":
+
+  test "[LaTeX]":
+    "[LaTeX]".shouldRenderAs("<span class=\"xd-latex\">L<sup>a</sup>T<sub>e</sub>X</span>")
+
+  test "[xidoc]":
+    "[xidoc]".shouldRenderAs("<span class=\"xd-logo\">ξ</span>")
+
+suite "Custom commands":
+
+  test "no parameters":
+    "[def foo; bar][foo]".shouldRenderAs("bar")
+
+  test "parameters":
+    "[def greet; name; Hello, [arg name]!][greet reader]".shouldRenderAs("Hello, reader!")
+
+suite "\"Target detection\" commands":
+
+  test "[if-html]":
+    "[if-html You can see this only if you're in HTML]"
+    .shouldRenderAs("You can see this only if you're in HTML")
+
+  test "[if-latex]":
+    "[if-latex You can see this only if you're in LaTeX]".shouldRenderAs("")
+
+  test "[if-gemtext]":
+    "[if-gemtext You can see this only if you're in Gemtext]".shouldRenderAs("")
+
+suite "\"List manipulation\" commands":
+
+  test "[for-each], [join]":
+    "[join [space]; [for-each lang; HTML LaTeX Gemtext; xidoc compiles to [lang].]]"
+    .shouldRenderAs("xidoc compiles to HTML. xidoc compiles to LaTeX. xidoc compiles to Gemtext.")
+
+suite "\"List manipulation\" commands":
+
+  test "[janet-call]":
+    "[janet-call [raw (fn [radius] (describe (* 2 math/pi (scan-number radius))))]; 6]"
+    .shouldRenderAs("37.6991")
+
+  test "[janet-eval]":
+    "[janet-eval [raw (do (defn gcd [a b] (if (= b 0) a (gcd b (% a b)))) (describe (gcd (scan-number a) (scan-number b)))) ]; a;128 ; b;168]"
+    .shouldRenderAs("8")
+
+  test "[js-call]":
+    "[js-call [raw (radius) => Math.PI * radius * radius]; 6]".shouldRenderAs("113.09733552923255")
+
+  test "[js-eval]":
+    "[js-eval [raw { let discriminant = b*b - 4*a*c; let root1 = (-b + Math.sqrt(discriminant)) / (2 * a); let root2 = (-b - Math.sqrt(discriminant)) / (2 * a); root1 + \", \" + root2 }]; a;3 ; b;-18 ; c;24]"
+    .shouldRenderAs("4, 2")

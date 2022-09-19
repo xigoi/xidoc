@@ -230,7 +230,7 @@ const factorial = (n) => {
       ]
       [cmd description-list; *(key description);
         Creates a description list associating [param key]s with [param description]s.
-        [description-list Dog; Cute and loyal; Cat; Cute and entitled]
+        [ex [description-list Dog; Cute and loyal; Cat; Cute and entitled]]
       ]
     ]
     [cmd p; text;
