@@ -3,6 +3,7 @@ type
     lEnglish
     lCzech
   Phrase* = enum
+    pCorollary
     pDefinition
     pExample
     pExercise
@@ -15,6 +16,10 @@ type
     pTheorem
 
 const translations = [
+  pCorollary: [
+    lEnglish: "Corollary",
+    lCzech: "Důsledek",
+  ],
   pDefinition: [
     lEnglish: "Definition",
     lCzech: "Definice",

@@ -205,6 +205,8 @@ commands defaultCommands:
     of tGemtext:
       text
 
+  theoremLikeCommand(corollaryCmd, "corollary", pCorollary, "$1", "$1")
+
   template def(global: static bool): string {.dirty.} =
     let params = paramList.map(it => it.splitWhitespace).get(@[])
     doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: string): XidocValue =

@@ -315,6 +315,9 @@ const factorial = (n) => {
       Renders a mathematical proof paragraph with an optional [param name].
       [ex [proof Left as an exercise to the reader.]]
     ]
+    [cmd corollary; ?name[;] text;
+      Renders a mathematical corollary paragraph with an optional [param name].
+    ]
     [cmd example; ?name[;] text;
       Renders a mathematical example paragraph with an optional [param name].
     ]
