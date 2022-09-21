@@ -5,6 +5,18 @@ import xidoc
 template shouldRenderAs(input: string, output: string) =
   check input.renderXidoc(snippet = true) == output
 
+template shouldError(input: string) =
+  expect XidocError:
+    discard input.renderXidoc(snippet = true)
+
+suite "syntax":
+
+  test "too many opening brackets":
+    "Hi [it everyone [bf !]".shouldError
+
+  test "too many closing brackets":
+    "Hi [it everyone !]]".shouldError
+
 suite "plain text":
 
   test "normal text":
@@ -193,6 +205,12 @@ suite "Custom commands":
 
   test "parameters":
     "[def greet; name; Hello, [arg name]!][greet reader]".shouldRenderAs("Hello, reader!")
+    "[def greet; person; Hello, [arg name]!][greet reader]".shouldError
+
+  test "lexical scoping":
+    "[() [def a; x][() [def a; y][() [def a; z][a]][a]][a]]".shouldRenderAs("[[[z]y]x]")
+    "[() [def a; x]][a]".shouldError
+    "[() [def-global a; x]][a]".shouldRenderAs("[]x")
 
 suite "\"Target detection\" commands":
 

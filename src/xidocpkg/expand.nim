@@ -1,6 +1,8 @@
 import ./error
 import ./parser
 import ./types
+import aspartame
+import std/options
 import std/strformat
 import std/strutils
 
@@ -55,41 +57,42 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
       of xnkCommand:
         let name = node.name
         let command = doc.lookup(commands, name)
-        if command.isNil:
-          xidocError &"Command not found: {name}"
-        var frame = Frame(cmdName: name, cmdArg: node.arg)
-        doc.stack.add frame
-        let val = command(node.arg)
-        discard doc.stack.pop
-        case typ
-        of String:
-          case val.typ
-          of String, Markup:
-            result.str.addIfNeeded val.str
-          of List:
-            xidocError "Cannot convert a List to a String"
-          of Optional:
-            discard # TODO
-        of Markup:
-          case val.typ
+        ifSome command:
+          var frame = Frame(cmdName: name, cmdArg: node.arg)
+          doc.stack.add frame
+          let val = command(node.arg)
+          discard doc.stack.pop
+          case typ
           of String:
-            result.str.addIfNeeded val.str.escapeText(doc.target)
+            case val.typ
+            of String, Markup:
+              result.str.addIfNeeded val.str
+            of List:
+              xidocError "Cannot convert a List to a String"
+            of Optional:
+              discard # TODO
           of Markup:
-            result.str.addIfNeeded val.str
+            case val.typ
+            of String:
+              result.str.addIfNeeded val.str.escapeText(doc.target)
+            of Markup:
+              result.str.addIfNeeded val.str
+            of List:
+              xidocError "Cannot convert a List to a Markup"
+            of Optional:
+              discard # TODO
           of List:
-            xidocError "Cannot convert a List to a Markup"
+            case val.typ
+            of String, Markup:
+              result.list.add val
+            of List:
+              result.list &= val.list
+            of Optional:
+              discard # TODO
           of Optional:
             discard # TODO
-        of List:
-          case val.typ
-          of String, Markup:
-            result.list.add val
-          of List:
-            result.list &= val.list
-          of Optional:
-            discard # TODO
-        of Optional:
-          discard # TODO
+        do:
+          xidocError &"Command not found: {name}"
 
 proc expandStr*(doc: Document, str: string): string =
   doc.expand(str, String).str

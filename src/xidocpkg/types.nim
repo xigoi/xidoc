@@ -65,11 +65,13 @@ template lookup*(doc: Document, field: untyped): auto =
   )()
 
 template lookup*(doc: Document, field: untyped, key: typed): auto =
+  bind some, none
   (proc(): auto =
     for i in countdown(doc.stack.len - 1, 0):
       let frame = doc.stack[i]
       if frame.field.hasKey(key):
-        return frame.field[key]
+        return some(frame.field[key])
+    none(typeof(doc.stack[0].field[key]))
   )()
 
 proc `!`*(typ: XidocType): ParamType =

@@ -9,6 +9,8 @@ import xidocpkg/expand
 import xidocpkg/translations
 import xidocpkg/types
 
+export XidocError
+
 const extensions = [
   tHtml: "html",
   tLatex: "tex",

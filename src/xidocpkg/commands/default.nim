@@ -12,6 +12,7 @@ import ./css
 import ./draw
 import ./math
 import ./utils
+import aspartame
 import matext
 import std/options
 import std/os
@@ -49,14 +50,16 @@ commands defaultCommands:
       of tHtml:
         doc.addToStyle.incl ".xd-theorem-like{margin:1rem 0}.xd-theorem-like>p{margin:0.5rem 0}"
         htg.`div`(class = &"xd-theorem-like xd-$1" % cmdName,
-          htg.strong(if thName.isSome: "$1 ($2)." % [word, thName.get] else: "$1." % [word]), " ", htmlTmpl % content
+          htg.strong(ifSome(thName, "$1 ($2)." % [word, thName], "$1." % [word])),
+          " ",
+          htmlTmpl % content,
         )
       of tLatex:
         doc.addToHead.incl "usepackage"{"amsthm"}
         doc.addToHead.incl "theoremstyle"{"definition"} & "newtheorem*"{"XD" & cmdName}{word}
         env("XD" & cmdName, latexTmpl % content)
       of tGemtext:
-        "\n\n$1. $2" % [if thName.isSome: "$1 ($2)" % [word, thName.get] else: "$1" % [word], content]
+        "\n\n$1. $2" % [ifSome(thName, "$1 ($2)" % [word, thName], "$1" % [word]), content]
 
   proc commentCmd(arg: Literal): String {.command: "#", safe.} =
     ""
@@ -116,17 +119,21 @@ commands defaultCommands:
     doc.addToHead.incl arg
     ""
 
-  proc argCmd(arg: !String): Markup {.command: "arg", safe.} =
-    doc.renderStr(doc.lookup(args, arg))
+  proc argRawCmd(name: !String): String {.command: "arg-raw".} =
+    let arg = doc.lookup(args, name)
+    ifSome arg:
+      arg
+    do:
+      xidocError &"Parameter not found: {name}"
 
-  proc argExpandCmd(arg: !String): String {.command: "arg-expand".} =
-    doc.expandStr(doc.lookup(args, arg))
+  proc argCmd(name: !String): Markup {.command: "arg", safe.} =
+    doc.renderStr(argRawCmd(name))
 
-  proc argRawCmd(arg: !String): String {.command: "arg-raw".} =
-    doc.lookup(args, arg)
+  proc argExpandCmd(name: !String): String {.command: "arg-expand".} =
+    doc.expandStr(argRawCmd(name))
 
-  proc argRawEscapeCmd(arg: !String): Markup {.command: "arg-raw-escape".} =
-    escapeText(doc.lookup(args, arg), doc.target)
+  proc argRawEscapeCmd(name: !String): Markup {.command: "arg-raw-escape".} =
+    argRawCmd(name).escapeText(doc.target)
 
   proc bfCmd(arg: !Markup): Markup {.command: "bf", safe.} =
     case doc.target
@@ -141,9 +148,9 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       htg.blockquote:
-        if author.isSome:
-          htg.p(quote) & htg.p(htg.cite(author.get))
-        else:
+        ifSome author:
+          htg.p(quote) & htg.p(htg.cite(author))
+        do:
           quote
     of tLatex:
       # TODO author support
@@ -171,9 +178,9 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       applySyntaxHighlightingTheme()
-      if lang.isSome:
-        htg.code(class = &"language-{lang.get}", code.highlightCode(lang.get))
-      else:
+      ifSome lang:
+        htg.code(class = &"language-{lang}", code.highlightCode(lang))
+      do:
         htg.code(code.escapeText(doc.target))
     of tLatex:
       # TODO: use minted
@@ -185,13 +192,13 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       applySyntaxHighlightingTheme()
-      if lang.isSome:
-        htg.pre(class = &"language-{lang.get}", htg.code(class = &"language-{lang.get}", code.highlightCode(lang.get)))
-      else:
+      ifSome lang:
+        htg.pre(class = &"language-{lang}", htg.code(class = &"language-{lang}", code.highlightCode(lang)))
+      do:
         htg.pre(htg.code(code.escapeText(doc.target)))
     of tLatex:
       doc.addToHead.incl "\\usepackage{minted}"
-      env("minted", lang.map(lang => "{$1}" % lang).get("") & "\n" & code) & "\n"
+      env("minted", ifSome(lang, "{$1}" % lang, "") & "\n" & code) & "\n"
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 
@@ -208,7 +215,7 @@ commands defaultCommands:
   theoremLikeCommand(corollaryCmd, "corollary", pCorollary, "$1", "$1")
 
   template def(global: static bool): string {.dirty.} =
-    let params = paramList.map(it => it.splitWhitespace).get(@[])
+    let params = ifSome(paramList, paramList.splitWhitespace, @[])
     doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: string): XidocValue =
       let argsList = if arg == "": @[] else: parseXidocArguments(arg)
       if argsList.len != params.len:
@@ -266,14 +273,14 @@ commands defaultCommands:
   proc figureCmd(content: !Markup, caption: ?Markup): Markup {.command: "figure", safe.} =
     case doc.target
     of tHtml:
-      if caption.isSome:
-        htg.figure(content, htg.figcaption(caption.get))
-      else:
+      ifSome caption:
+        htg.figure(content, htg.figcaption(caption))
+      do:
         htg.figure(content)
     of tLatex:
-      env("figure", "[h]\\centering" & content & caption.map(c => "caption"{c}).get(""))
+      env("figure", "[h]\\centering" & content & ifSome(caption, "caption"{caption}, ""))
     of tGemtext:
-      "\n" & content & caption.map(c => "\n" & c).get("")
+      "\n" & content & ifSome(caption, "\n" & caption, "")
 
   proc forEachCmd(name: !String, list: !List, tmpl: Raw): List {.command: "for-each", safe.} =
     var results: seq[XidocValue]
@@ -284,13 +291,15 @@ commands defaultCommands:
     results
 
   proc getDocPathAbsoluteCmd(): String {.command: "get-doc-path-absolute".} =
-    doc.stack[0].path.map(path => absolutePath(path)).get("")
+    let path = doc.stack[0].path
+    ifSome(path, path.absolutePath, "")
 
   proc getDocPathRelativeToContainingCmd(arg: !String): String {.command: "get-doc-path-relative-to-containing".} =
     when defined(js):
       ""
     else:
-      doc.stack[0].path.map(path => (
+      let path = doc.stack[0].path
+      ifSome path:
         var ancestor = path.parentDir
         while ancestor != "":
           let candidate = ancestor / arg
@@ -298,7 +307,8 @@ commands defaultCommands:
             break
           ancestor = ancestor.parentDir
         path.relativePath(ancestor)
-      )).get("")
+      do:
+        ""
 
   proc hideCmd(arg: !String): Markup {.command: "hide", safe.} =
     ""
@@ -445,14 +455,14 @@ commands defaultCommands:
     of tLatex:
       name.get("") # TODO
     of tGemtext:
-      if name.isSome: "\n=> $1 $2" % [url, name.get] else: "\n=> $1" % [url]
+      ifSome(name, "\n=> $1 $2" % [url, name], "\n=> $1" % [url])
 
   proc linkImageCmd(alt: !String, url: !String, link: ?String): Markup {.command: "link-image".} =
     case doc.target
     of tHtml:
-      if link.isSome:
-        htg.a(href = link.get, htg.img(src = url, alt = alt))
-      else:
+      ifSome link:
+        htg.a(href = link, htg.img(src = url, alt = alt))
+      do:
         htg.img(src = url, alt = alt)
     of tLatex:
       xidocError "Linking images is not supported in the LaTeX backend"
@@ -585,7 +595,7 @@ commands defaultCommands:
     let depth = doc.stack.countIt(it.cmdName == "section")
     case doc.target
     of tHtml:
-      if name.isSome:
+      ifSome name:
         let headingTag =
           case depth
           of 1: "h2"
@@ -593,8 +603,8 @@ commands defaultCommands:
           of 3: "h4"
           of 4: "h5"
           else: "h6"
-        htg.section("<$1 class=\"xd-section-heading\">$2</$1>$3" % [headingTag, name.get, content])
-      else:
+        htg.section("<$1 class=\"xd-section-heading\">$2</$1>$3" % [headingTag, name, content])
+      do:
         htg.section(content)
     of tLatex:
       let cmd =
@@ -603,19 +613,19 @@ commands defaultCommands:
         of 2: "subsection"
         of 3: "subsubsection"
         else: xidocError "Sections can only be nested 3 levels deep in LaTeX"
-      if name.isSome:
-        "\\$1*{$2}$3" % [cmd, name.get, content]
-      else:
+      ifSome name:
+        "\\$1*{$2}$3" % [cmd, name, content]
+      do:
         "\\$1*{}$2" % [cmd, content]
     of tGemtext:
-      if name.isSome:
+      ifSome name:
         let prefix =
           case depth
           of 1: "## "
           of 2: "### "
           else: ""
-        "\n\n$1$2\n\n$3" % [prefix, name.get, content]
-      else:
+        "\n\n$1$2\n\n$3" % [prefix, name, content]
+      do:
         "\n\n$1" % [content]
 
   proc setCmd(key: !String, val: !String): Markup {.command: "set".} =
@@ -673,7 +683,8 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       htg.details(class = "xd-spoiler xd-theorem-like xd-solution",
-        htg.summary(htg.strong(if name.isSome: "$1 ($2)" % [word, name.get] else: "$1" % [word])), content
+        htg.summary(htg.strong(ifSome(name, "$1 ($2)" % [word, name], "$1" % [word]))),
+        content,
       )
     of tLatex:
       doc.addToHead.incl "usepackage"{"amsthm"}
@@ -696,10 +707,11 @@ commands defaultCommands:
     of tHtml:
       htg.table(content)
     of tLatex:
-      if spec.isNone:
+      ifSome spec:
+        doc.addToHead.incl "usepackage"{"booktabs"}
+        env("table", "{" & spec & "}\\toprule " & content & "\\bottomrule")
+      do:
         xidocError "Tables in LaTeX currently require a spec"
-      doc.addToHead.incl "usepackage"{"booktabs"}
-      env("table", "{" & spec.get & "}\\toprule " & content & "\\bottomrule")
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
@@ -724,21 +736,19 @@ commands defaultCommands:
     case doc.target
     of tHtml:
       doc.addToHead.incl htg.title(title)
-      htg.h1(title) & author.map(author => htg.address(author)).get("")
+      htg.h1(title) & ifSome(author, htg.address(author), "")
     of tLatex:
       doc.addToHead.incl "title"{title}
-      if author.isSome:
-        doc.addToHead.incl "author"{author.get}
+      ifSome author:
+        doc.addToHead.incl "author"{author}
+      do: discard
       "\\maketitle"
     of tGemtext:
       "# $1\n\n" % title
 
   proc unitCmd(number: ?Markup, unit: !Markup): Markup {.command: "unit", safe.} =
-    if number.isSome:
-      # U+2009 Thin Space
-      number.get & "\u2009" & unit
-    else:
-      unit
+    # U+2009 Thin Space
+    ifSome(number, number & "\u2009" & unit, unit)
 
   proc xidocCmd(): Markup {.command: "xidoc", safe.} =
     case doc.target
