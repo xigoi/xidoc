@@ -4,6 +4,7 @@ import ../error
 import ../jsinterpret
 import ../types
 import ./utils
+import aspartame
 import matext
 import std/options
 import std/sets
@@ -27,8 +28,8 @@ commands mathCommands:
     "{\\left($1\\right)}" % arg
   proc bracketsCmd(arg: !String): String {.command: "()".} =
     "{\\left[$1\\right]}" % arg
-  proc bracesCmd(arg: !String): String {.command: "{}".} =
-    "{\\left\\{$1\\right\\}}" % arg
+  proc bracesCmd(x: !String, y: ?String): String {.command: "{}".} =
+    "{\\left\\{$1\\right\\}}" % (x & ifSome(y, "\\,\\middle|\\," & y, ""))
   proc anglesCmd(arg: !String): String {.command: "<>".} =
     "{\\left\\langle $1\\right\\rangle}" % arg
   proc pipeCmd(arg: !String): String {.command: "|".} =

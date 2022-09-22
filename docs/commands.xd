@@ -568,6 +568,7 @@ const factorial = (n) => {
     [math-cmd .; \frac{p}{q}]
     [math-cmd (); \frac{p}{q}]
     [math-cmd {}; \frac{p}{q}]
+    [math-cmd {}; x \in \R[;] x^2 < 2]
     [math-cmd <>; \frac{p}{q}]
     [math-cmd |; \frac{p}{q}]
     [math-cmd ||; \frac{p}{q}]
