@@ -10,6 +10,7 @@ import ../types
 import ./checkbox
 import ./css
 import ./draw
+import ./javascript
 import ./math
 import ./utils
 import aspartame
@@ -427,14 +428,18 @@ commands defaultCommands:
       values.add (args[2 * i], args[2 * i + 1])
     jsEval(code, values)
 
-  proc jsModuleCmd(arg: !String): Markup {.command: "js-module".} =
-    if doc.target == tHtml:
-      doc.addToHead.incl htg.script(`type` = "module", arg)
+  proc jsModuleCmd(js: Raw): Markup {.command: "js-module".} =
+    case doc.target
+    of tHtml:
+      doc.stack[^1].commands = jsCommands(doc)
+      doc.addToHead.incl htg.script(`type` = "module", doc.expandStr(js))
+    else:
+      discard
     ""
 
-  proc jsModuleRawCmd(arg: Raw): Markup {.command: "js-module-raw".} =
+  proc jsModuleRawCmd(js: Raw): Markup {.command: "js-module-raw".} =
     if doc.target == tHtml:
-      doc.addToHead.incl htg.script(`type` = "module", arg)
+      doc.addToHead.incl htg.script(`type` = "module", js)
     ""
 
   proc langCmd(langStr: !String, body: Raw): Markup {.command: "lang", safe.} =
