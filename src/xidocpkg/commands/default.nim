@@ -442,6 +442,7 @@ commands defaultCommands:
       case langStr.toLowerAscii
       of "en", "english": lEnglish
       of "cs", "cz", "czech": lCzech
+      of "de", "german": lGerman
       else: xidocError "Unknown language: $1" % langStr
     doc.stack[^1].lang = some lang
     doc.renderStr(body)
@@ -637,6 +638,7 @@ commands defaultCommands:
       case arg.toLowerAscii
       of "en", "english": lEnglish
       of "cs", "cz", "czech": lCzech
+      of "de", "german": lGerman
       else: xidocError "Unknown language: $1" % arg
     )
     ""
