@@ -230,7 +230,7 @@ suite "\"List manipulation\" commands":
     "[join [space]; [for-each lang; HTML LaTeX Gemtext; xidoc compiles to [lang].]]"
     .shouldRenderAs("xidoc compiles to HTML. xidoc compiles to LaTeX. xidoc compiles to Gemtext.")
 
-suite "\"List manipulation\" commands":
+suite "\"Programming\" commands":
 
   test "[janet-call]":
     "[janet-call [raw (fn [radius] (describe (* 2 math/pi (scan-number radius))))]; 6]"
