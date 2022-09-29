@@ -139,6 +139,12 @@ suite "\"Block formatting\" commands":
     "[figure IMAGE]".shouldRenderAs("<figure>IMAGE</figure>")
     "[figure IMAGE; CAPTION]".shouldRenderAs("<figure>IMAGE<figcaption>CAPTION</figcaption></figure>")
 
+  test "[lines]":
+    "[lines Roses are red; Violets are blue; Java is bad; JavaScript too]"
+    .shouldRenderAs("Roses are red<br />Violets are blue<br />Java is bad<br />JavaScript too")
+    "[lines one line]".shouldRenderAs("one line")
+    "[lines]".shouldRenderAs("")
+
   test "[link-image]":
     "[link-image xidoc logo; logo.svg]".shouldRenderAs("<img src=\"logo.svg\" alt=\"xidoc logo\" />")
     "[link-image xidoc logo; logo.svg; https://xidoc.nim.town/]".shouldRenderAs("<a href=\"https://xidoc.nim.town/\"><img src=\"logo.svg\" alt=\"xidoc logo\" /></a>")

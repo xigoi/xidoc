@@ -454,6 +454,14 @@ commands defaultCommands:
 
   theoremLikeCommand(lemmaCmd, "lemma", pLemma, "$1", "$1")
 
+  proc linesCmd(lns: *Markup): Markup {.command: "lines", safe.} =
+    const seps = [
+      tHtml: htg.br(),
+      tLatex: "\\\\",
+      tGemtext: "\n"
+    ]
+    lns.join(seps[doc.target])
+
   proc linkCmd(name: ?Markup, url: !String): Markup {.command: "link", safe.} =
     case doc.target
     of tHtml:

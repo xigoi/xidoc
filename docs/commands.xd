@@ -217,6 +217,10 @@ const factorial = (n) => {
     [cmd figure; content[;] ?caption;
       Creates a figure with the given [param content] and an optional [param caption].
     ]
+    [cmd lines; *lines;
+      Inserts physical newlines between [param lines].
+      [ex [lines Roses are red; Violets are blue; Java is bad; JavaScript too]]
+    ]
     [cmd link-image; alt[;] url[;] ?link;
       Inserts an image loaded at viewing time from the given [param url]. A substitute [param alt] text must be given in case the image can't be displayed. If a [param link] is provided, the image will be a link to the given URL.
       [ex [link-image xidoc logo; logo.svg; https://xidoc.nim.town/]]
