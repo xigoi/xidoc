@@ -2,8 +2,11 @@ from std/htmlgen as htg import nil
 import std/options
 import std/sequtils
 import std/sets
+import std/strformat
 import std/strutils
+import std/tables
 import xidocpkg/commands/default
+import xidocpkg/commands/utils
 import xidocpkg/error
 import xidocpkg/expand
 import xidocpkg/translations
@@ -15,11 +18,6 @@ const extensions = [
   tHtml: "html",
   tLatex: "tex",
   tGemtext: "gmi",
-]
-const templates = [
-  tHtml: """<!DOCTYPE html><html lang="$3"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">$1</head><body>$2</body></html>""",
-  tLatex: """\documentclass{article}\usepackage[utf8]{inputenc}\usepackage[$3]{babel}\usepackage{geometry}$1\begin{document}$2\end{document}""",
-  tGemtext: "$1$2",
 ]
 
 proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safeMode = false, verbose = false, colorfulError = false): string =
@@ -45,15 +43,23 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
   else:
     if doc.target == tHtml and doc.addToStyle.len != 0:
       doc.addToHead.incl htg.style(doc.addToStyle.toSeq.join)
-    let languageString =
-      case target
-      of tHtml:
-        translate(pHtmlLanguageCode, doc.lookup(lang))
-      of tLatex:
-        translate(pLatexLanguageName, doc.lookup(lang))
-      else:
-        ""
-    return templates[target] % [doc.addToHead.toSeq.join, rendered, languageString]
+    let head = doc.addToHead.toSeq.join
+    case doc.target
+    of tHtml:
+      let lang = translate(pHtmlLanguageCode, doc.lookup(lang))
+      &"""<!DOCTYPE html><html lang="{lang}"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">{head}</head><body>{rendered}</body></html>"""
+    of tLatex:
+      let lang = translate(pLatexLanguageName, doc.lookup(lang))
+      "documentclass"{doc.settings.getOrDefault("document-class", "article")} &
+      "usepackage"["utf8"]{"inputenc"} &
+      "usepackage"[lang]{"babel"} &
+      "usepackage"{"geometry"} &
+      head &
+      "begin"{"document"} &
+      rendered &
+      "end"{"document"}
+    of tGemtext:
+      &"{head}{rendered}"
 
 when isMainModule and not defined(js):
   import cligen

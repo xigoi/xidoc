@@ -813,7 +813,7 @@ commands defaultCommands:
   of tLatex:
 
     proc backslashCmd(command: !String, args: *Markup): Markup {.command: "\\".} =
-      "\\" & args.mapIt("{$1}" % it).join
+      "\\" & command & args.mapIt("{$1}" % it).join
 
   else:
     discard

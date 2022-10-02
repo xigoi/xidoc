@@ -382,13 +382,16 @@ const factorial = (n) => {
     ]
     [<hr>]
     [p The following is a list of possible keys to [cmd-ref set].]
-    [def setting; name description;
-      [html-add-attrs .command; [section [ms [arg name]]; [arg description]]]
+    [def setting; name default-value description;
+      [html-add-attrs .command; [section [ms [arg name]]; [p [bf Default value:] [ms [arg default-value]]][arg description]]]
     ]
-    [setting katex-stylesheet-path;
+    [setting document-class; article;
+      Only applies to [LaTeX]. Sets the document class in the header.
+    ]
+    [setting katex-stylesheet-path; https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css;
       Sets the path for locating the KaTeX font files. See the Math section for more information.
     ]
-    [setting syntax-highlighting-theme;
+    [setting syntax-highlighting-theme; default;
       Sets the theme for syntax highlighting with the [cmd-ref code] and [cmd-ref code-block] commands. The available themes are [ms default], [ms dark], [ms funky], [ms okaidia], [ms twilight], [ms coy], [ms solarized-light], and [ms tomorrow-night]. You can try out these themes on [link the Prism website; https://prismjs.com/]. There is also [ms funky-x], a modification of [ms funky] with a black background instead of weird stripes.
     ]
   ]
@@ -520,6 +523,13 @@ const factorial = (n) => {
     ]
     [cmd-nilad empty-favicon;
       Specifies the favicon of the webpage to be empty. This prevents unnecessary requests to [ms favicon.ico].
+    ]
+  ]
+
+  [section [LaTeX]-specific;
+    [cmd \; command *arguments;
+      Uses the given [LaTeX] [param command] with the given [param arguments].
+      [if-latex [ex [\ textbf; This is a bold statement]]]
     ]
   ]
 
