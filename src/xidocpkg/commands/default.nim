@@ -325,7 +325,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
-  proc htmlAddAttrsCmd(args: !String, tag: !Markup): Markup {.command: "html-add-attrs".} =
+  proc htmlAddAttrsCmd(args: *String, tag: !Markup): Markup {.command: "html-add-attrs".} =
     case doc.target
     of tHtml:
       var matches: array[2, string]
@@ -333,7 +333,7 @@ commands defaultCommands:
         xidocError "Can't add HTML attribute to something that isn't an HTML tag"
       var attrs = newSeq[string]()
       var classes = newSeq[string]()
-      for arg in args.splitWhitespace:
+      for arg in args:
         if arg.startsWith "#":
           attrs.add "id=\"$1\"" % arg[1..^1]
         elif arg.startsWith ".":

@@ -50,14 +50,14 @@
   ]
 ]
 [def cmd; name signature explanation;
-  [html-add-attrs .command #[arg name];
+  [html-add-attrs .command; #[arg name];
     [section [code xidoc; [(][arg-expand name] [arg-expand signature][)]];
       [arg explanation]
     ]
   ]
 ]
 [def cmd-nilad; name explanation;
-  [html-add-attrs .command #[arg name];
+  [html-add-attrs .command; #[arg name];
     [section [code xidoc; [(][arg-expand name][)]];
       [arg explanation]
     ]
@@ -503,7 +503,7 @@ const factorial = (n) => {
   ]
 
   [section HTML-specific;
-    [cmd html-add-attrs; attrs[;] cmd;
+    [cmd html-add-attrs; *attrs[;] cmd;
       Adds the given [param attributes] to the tag produced by [param cmd]. Supports the [ms .foo] and [ms #foo] syntax for specifying classes and IDs.
       [if-html [ex [html-add-attrs style="color:pink"; [bf Real men don't fear colors.]]]]
     ]
