@@ -68,6 +68,8 @@ when isMainModule and not defined(js):
 
   proc xidoc(target = tHtml, snippet = false, safe = false, verbose = false, paths: seq[string]) =
 
+    var error = false
+
     proc renderFile(path: string, input, output: File) =
       try:
         output.writeLine renderXidoc(
@@ -83,6 +85,7 @@ when isMainModule and not defined(js):
           stderr.writeLine "Rendered file $1" % path
       except XidocError:
         stderr.writeLine getCurrentException().msg
+        error = true
 
     if paths.len == 0:
       renderFile("", stdin, stdout)
@@ -99,10 +102,15 @@ when isMainModule and not defined(js):
               output.close
           except IOError:
             stderr.writeLine "Cannot open file $1 for writing" % outputPath
+            error = true
           finally:
             input.close
         except IOError:
           stderr.writeLine "Cannot open file $1" % path
+          error = true
+
+    if error:
+      quit(QuitFailure)
 
   dispatch xidoc,
     help = {
