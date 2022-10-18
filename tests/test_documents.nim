@@ -236,6 +236,9 @@ suite "\"List manipulation\" commands":
     "[join [space]; [for-each lang; HTML LaTeX Gemtext; xidoc compiles to [lang].]]"
     .shouldRenderAs("xidoc compiles to HTML. xidoc compiles to LaTeX. xidoc compiles to Gemtext.")
 
+  test "[join], [split]":
+    "[join [space]; [split *; I*HATE*ASTERISKS]]".shouldRenderAs("I HATE ASTERISKS")
+
 suite "\"Programming\" commands":
 
   test "[janet-call]":

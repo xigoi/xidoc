@@ -450,6 +450,10 @@ const factorial = (n) => {
       Joins the [param list] using the given [param separator].
       [ex [join [space]; [for-each lang; HTML [LaTeX] Gemtext; xidoc compiles to [lang].]]]
     ]
+    [cmd split; separator[;] string;
+      Splits the [param string] on the given [param separator].
+      [ex [join [space]; [split *; I*HATE*ASTERISKS]]]
+    ]
   ]
 
   [section File manipulation;

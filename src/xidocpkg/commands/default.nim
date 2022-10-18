@@ -684,6 +684,9 @@ commands defaultCommands:
   proc spaceCmd(): String {.command: "space", safe.} =
     " "
 
+  proc splitCmd(sep: !Markup, str: !String): List {.command: "split", safe.} =
+    str.split(sep).mapIt(XidocValue(typ: String, str: it))
+
   proc spoilerCmd(title: !Markup, content: !Markup): Markup {.command: "spoiler", safe.} =
     case doc.target
     of tHtml:
