@@ -94,17 +94,14 @@ commands defaultCommands:
     else:
       pQuotation.translate(doc.lookup(lang)) % arg
 
-  proc inlineMathCmd(arg: Raw): Markup {.command: "$", safe.} =
-    doc.stack[^1].commands = mathCommands(doc)
-    doc.renderMath(doc.expandStr(arg), displayMode = false)
+  proc inlineMathCmd(math: !String): Markup {.command: "$", safe, useCommands: mathCommands.} =
+    doc.renderMath(math, displayMode = false)
 
-  proc blockMathCmd(arg: Raw): Markup {.command: "$$", safe.} =
-    doc.stack[^1].commands = mathCommands(doc)
-    doc.renderMath(doc.expandStr(arg), displayMode = true)
+  proc blockMathCmd(math: !String): Markup {.command: "$$", safe, useCommands: mathCommands.} =
+    doc.renderMath(math, displayMode = true)
 
-  proc alignedMathCmd(arg: Raw): Markup {.command: "$$&", safe.} =
-    doc.stack[^1].commands = mathCommands(doc)
-    doc.renderMath(env("align*", doc.expandStr(arg)), displayMode = true, addDelimiters = false)
+  proc alignedMathCmd(math: !String): Markup {.command: "$$&", safe, useCommands: mathCommands.} =
+    doc.renderMath(env("align*", math), displayMode = true, addDelimiters = false)
 
   proc LaTeXCmd(): Markup {.command: "LaTeX", safe.} =
     case doc.target
@@ -160,12 +157,11 @@ commands defaultCommands:
       # TODO author support
       "\n> $1\n" % quote
 
-  proc checkboxesCmd(arg: Raw): Markup {.command: "checkboxes", safe.} =
+  proc checkboxesCmd(arg: !String): Markup {.command: "checkboxes", safe, useCommands: checkboxCommands.} =
     case doc.target
     of tHtml:
-      doc.stack[^1].commands = checkboxCommands(doc)
       doc.addToStyle.incl """.xd-checkbox-unchecked{list-style-type:"☐ "}.xd-checkbox-checked{list-style-type:"☑ "}.xd-checkbox-crossed{list-style-type:"☒ "}"""
-      htg.ul(class = "xd-checkboxes", doc.expandStr(arg))
+      htg.ul(class = "xd-checkboxes", arg)
     else:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
 
@@ -249,11 +245,10 @@ commands defaultCommands:
 
   theoremLikeCommand(dfnCmd, "dfn", pDefinition, "$1", "$1")
 
-  proc drawCmd(width: ?String, height: ?String, desc: Raw): Markup {.command: "draw".} =
-    doc.stack[^1].commands = drawCommands(doc)
+  proc drawCmd(width: ?String, height: ?String, desc: !String): Markup {.command: "draw", useCommands: drawCommands.} =
     case doc.target
     of tHtml:
-      &"""<svg width="{width.get("360")}" height="{height.get("360")}" viewBox="0 0 360 360" version="1.1" xmlns="http://www.w3.org/2000/svg">{doc.expandStr(desc)}</svg>"""
+      &"""<svg width="{width.get("360")}" height="{height.get("360")}" viewBox="0 0 360 360" version="1.1" xmlns="http://www.w3.org/2000/svg">{desc}</svg>"""
     of tLatex:
       xidocError "Drawing is currently not implemented in the LaTeX backend"
     of tGemtext:
@@ -711,11 +706,10 @@ commands defaultCommands:
     of tGemtext:
       xidocError "The spoiler-solution command is not supported in the Gemtext backend"
 
-  proc styleCmd(arg: Raw): Markup {.command: "style".} =
+  proc styleCmd(arg: !String): Markup {.command: "style", useCommands: cssCommands.} =
     case doc.target
     of tHtml:
-      doc.stack[^1].commands = cssCommands(doc)
-      doc.addToStyle.incl doc.expandStr(arg)
+      doc.addToStyle.incl arg
     else:
       discard
     ""

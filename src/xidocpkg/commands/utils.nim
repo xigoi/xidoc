@@ -2,6 +2,7 @@ import ../error
 import ../expand
 import ../parser
 import ../types
+import aspartame
 import std/macros
 import std/options
 import std/os
@@ -140,12 +141,30 @@ func paramTypeToNimType(typ: NimNode): NimNode =
     baseNim
 
 template safe* {.pragma.}
+template useCommands*(cmds: untyped) {.pragma.}
+
+func hasPragma(node: NimNode, name: string): bool =
+  if node[4].kind != nnkPragma:
+    return false
+  for pragma in node[4]:
+    if pragma.eqIdent(name) or (pragma.kind == nnkExprColonExpr and pragma[0].eqIdent(name)):
+      return true
+  return false
+
+func getPragma(node: NimNode, name: string): Option[NimNode] =
+  if node[4].kind != nnkPragma:
+    return none(NImNode)
+  for pragma in node[4]:
+    if pragma.kind == nnkExprColonExpr and pragma[0].eqIdent(name):
+      return some(pragma[1])
+  return none(NImNode)
 
 macro command*(name: string, baseProc: untyped): untyped =
   baseProc.expectKind(nnkProcDef)
   let baseName = baseProc[0]
   let sig = baseProc[3]
-  let isSafe = baseProc[4].kind == nnkPragma and baseProc[4][0].eqIdent("safe")
+  let isSafe = baseProc.hasPragma("safe")
+  let usedCommands = baseProc.getPragma("useCommands")
   let retTyp = sig[0]
   let retGet = getter(sig[0])
   var params = @[xidocTypeToNimType(baseProc[3][0])]
@@ -169,10 +188,17 @@ macro command*(name: string, baseProc: untyped): untyped =
       quote:
         if doc.safeMode:
           xidocError "The [$1] command is not allowed in safe mode" % `name`
+  let commandInsertion = block:
+    ifSome usedCommands:
+      quote:
+        doc.stack[^1].commands = `usedCommands`(doc)
+    do:
+      newEmptyNode()
   quote:
     `cmdProc`
     commands[`name`] = proc(arg {.inject.}: string): XidocValue =
       `safetyCheck`
+      `commandInsertion`
       let `vals` = expandArguments(doc, `name`, arg, @`types`)
       return XidocValue(typ: `retTyp`, `retGet`: `call`)
 
