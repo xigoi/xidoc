@@ -52,12 +52,27 @@ commands mathCommands:
         "\\int_{$1}$2\\,\\mathrm d$3" % [lb.get, expr, varname]
     else:
       "\\int $1\\,\\mathrm d$2" % [expr, varname]
-  proc limCmd(varname: ?String, point: ?String): String {.command: "lim".} =
-    "\\lim_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
+  proc intdCmd(varname: !String, lb: ?String, ub: ?String, expr: !String): String {.command: "intd".} =
+    intCmd(lb, ub, expr, varname)
+  proc dintCmd(varname: !String, lb: ?String, ub: ?String, expr: !String): String {.command: "dint".} =
+    if lb.isSome:
+      if ub.isSome:
+        "\\int_{$1}^{$2}\\mathrm d$4\\,$3" % [lb.get, ub.get, expr, varname]
+      else:
+        "\\int_{$1}\\mathrm d$3\\,$2" % [lb.get, expr, varname]
+    else:
+      "\\int\\mathrm d$2\\,$1" % [expr, varname]
+  proc limCmd(varname: ?String, point: ?String, set: ?String): String {.command: "lim".} =
+    ifSome set:
+      "\\lim_{\\substack{$1\\to $2\\\\$1\\in $3}}" % [varname.get("n"), point.get("\\infty"), set]
+    do:
+      "\\lim_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
   proc liminfCmd(varname: ?String, point: ?String): String {.command: "liminf".} =
     "\\liminf_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
   proc limsupCmd(varname: ?String, point: ?String): String {.command: "limsup".} =
     "\\limsup_{$1\\to $2}" % [varname.get("n"), point.get("\\infty")]
+  proc sumCmd(varname: ?String, lowerBound: ?String, upperBound: ?String): String {.command: "sum".} =
+    "\\sum_{$1=$2}^{$3}" % [varname.get("n"), lowerBound.get("1"), upperBound.get("\\infty")]
 
   # Inspired by the physics package
   proc ddCmd(x: !String): String {.command: "dd".} =
