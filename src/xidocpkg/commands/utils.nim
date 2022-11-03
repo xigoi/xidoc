@@ -165,9 +165,10 @@ macro command*(name: string, baseProc: untyped): untyped =
   let sig = baseProc[3]
   let isSafe = baseProc.hasPragma("safe")
   let usedCommands = baseProc.getPragma("useCommands")
-  let retTyp = sig[0]
-  let retGet = getter(sig[0])
-  var params = @[xidocTypeToNimType(baseProc[3][0])]
+  let returns = sig[0].kind != nnkEmpty
+  let retTyp = if returns: sig[0] else: ident"String"
+  let retGet = getter(retTyp)
+  var params = @[xidocTypeToNimType(retTyp)]
   var args = newSeq[NimNode]()
   let types = nnkBracket.newTree
   let vals = genSym(nskLet, "vals")

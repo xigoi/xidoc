@@ -62,8 +62,8 @@ commands defaultCommands:
       of tGemtext:
         "\n\n$1. $2" % [ifSome(thName, "$1 ($2)" % [word, thName], "$1" % [word]), content]
 
-  proc commentCmd(arg: Literal): String {.command: "#", safe.} =
-    ""
+  proc commentCmd(arg: Literal) {.command: "#", safe.} =
+    discard
 
   proc semiCmd(): String {.command: ";", safe.} =
     ";"
@@ -113,9 +113,8 @@ commands defaultCommands:
     of tGemtext:
       "LaTeX"
 
-  proc addToHeadCmd(arg: !Markup): Markup {.command: "add-to-head".} =
+  proc addToHeadCmd(arg: !Markup) {.command: "add-to-head".} =
     doc.addToHead.incl arg
-    ""
 
   proc argRawCmd(name: !String): String {.command: "arg-raw".} =
     let arg = doc.lookup(args, name)
@@ -211,7 +210,7 @@ commands defaultCommands:
 
   theoremLikeCommand(corollaryCmd, "corollary", pCorollary, "$1", "$1")
 
-  template def(global: static bool): string {.dirty.} =
+  template def(global: static bool) {.dirty.} =
     let params = ifSome(paramList, paramList.splitWhitespace, @[])
     doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: string): XidocValue =
       let argsList = if arg == "": @[] else: parseXidocArguments(arg)
@@ -221,7 +220,6 @@ commands defaultCommands:
       let argsTable = zip(params, argsList).toTable
       doc.stack[^1].args = argsTable
       result = XidocValue(typ: Markup, str: doc.renderStr(body))
-    ""
 
   proc defCmd(name: !String, paramList: ?String, body: Raw): Markup {.command: "def", safe.} =
     def(global = false)
@@ -254,10 +252,9 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  proc emptyFaviconCmd(): Markup {.command: "empty-favicon", safe.} =
+  proc emptyFaviconCmd() {.command: "empty-favicon", safe.} =
     if doc.target == tHtml:
       doc.addToHead.incl htg.link(rel = "icon", href = "data:,")
-    ""
 
   theoremLikeCommand(exampleCmd, "example", pExample, "$1", "$1")
 
@@ -306,8 +303,8 @@ commands defaultCommands:
       do:
         ""
 
-  proc hideCmd(arg: !String): Markup {.command: "hide", safe.} =
-    ""
+  proc hideCmd(arg: !String) {.command: "hide", safe.} =
+    discard
 
   proc headerRowCmd(entries: *Markup): Markup {.command: "header-row", safe.} =
     if not doc.stack.anyIt(it.cmdName == "table"):
@@ -423,19 +420,17 @@ commands defaultCommands:
       values.add (args[2 * i], args[2 * i + 1])
     jsEval(code, values)
 
-  proc jsModuleCmd(js: Raw): Markup {.command: "js-module".} =
+  proc jsModuleCmd(js: Raw) {.command: "js-module".} =
     case doc.target
     of tHtml:
       doc.stack[^1].commands = jsCommands(doc)
       doc.addToHead.incl htg.script(`type` = "module", doc.expandStr(js))
     else:
       discard
-    ""
 
-  proc jsModuleRawCmd(js: Raw): Markup {.command: "js-module-raw".} =
+  proc jsModuleRawCmd(js: Raw) {.command: "js-module-raw".} =
     if doc.target == tHtml:
       doc.addToHead.incl htg.script(`type` = "module", js)
-    ""
 
   proc langCmd(langStr: !String, body: Raw): Markup {.command: "lang", safe.} =
     let lang =
@@ -480,10 +475,9 @@ commands defaultCommands:
         xidocError "Linking images with an additional link is not supported in the Gemtext backend"
       "\n=> $1 \u{1e5bc} $2" % [url, alt]
 
-  proc linkStylesheetCmd(url: !String): Markup {.command: "link-stylesheet".} =
+  proc linkStylesheetCmd(url: !String) {.command: "link-stylesheet".} =
     if doc.target == tHtml:
       doc.addToHead.incl(htg.link(rel = "stylesheet", href = url))
-    ""
 
   proc listCmd(items: *Markup): Markup {.command: "list", safe.} =
     case doc.target
@@ -585,9 +579,8 @@ commands defaultCommands:
       str &= by
     str
 
-  proc resetCmd(key: !String): Markup {.command: "reset".} =
+  proc resetCmd(key: !String) {.command: "reset".} =
     doc.settings.del(key)
-    ""
 
   proc rowCmd(entries: *Markup): Markup {.command: "row", safe.} =
     if not doc.stack.anyIt(it.cmdName == "table"):
@@ -637,11 +630,10 @@ commands defaultCommands:
       do:
         "\n\n$1" % [content]
 
-  proc setCmd(key: !String, val: !String): Markup {.command: "set".} =
+  proc setCmd(key: !String, val: !String) {.command: "set".} =
     doc.settings[key] = val
-    ""
 
-  proc setDocLangCmd(arg: !String): Markup {.command: "set-doc-lang", safe.} =
+  proc setDocLangCmd(arg: !String) {.command: "set-doc-lang", safe.} =
     doc.stack[0].lang = some(
       case arg.toLowerAscii
       of "en", "english": lEnglish
@@ -649,13 +641,12 @@ commands defaultCommands:
       of "de", "german": lGerman
       else: xidocError "Unknown language: $1" % arg
     )
-    ""
 
   proc setSyntaxHighlightingThemeCmd(theme: !String): Markup {.command: "set-syntax-highlighting-theme", safe.} =
     xidocWarning "[set-syntax-highlighting-theme] is deprecated. Use [set syntax-highlighting-theme] instead."
     setCmd("syntax-highlighting-theme", theme)
 
-  proc setTitleCmd(arg: !String): Markup {.command: "set-title", safe.} =
+  proc setTitleCmd(arg: !String) {.command: "set-title", safe.} =
     case doc.target
     of tHtml:
       doc.addToHead.incl htg.title(arg)
@@ -663,7 +654,6 @@ commands defaultCommands:
       doc.addToHead.incl "title"{arg}
     else:
       discard
-    ""
 
   proc showTitleCmd(arg: !String): Markup {.command: "show-title", safe.} =
     case doc.target
@@ -706,13 +696,12 @@ commands defaultCommands:
     of tGemtext:
       xidocError "The spoiler-solution command is not supported in the Gemtext backend"
 
-  proc styleCmd(arg: !String): Markup {.command: "style", useCommands: cssCommands.} =
+  proc styleCmd(arg: !String) {.command: "style", useCommands: cssCommands.} =
     case doc.target
     of tHtml:
       doc.addToStyle.incl arg
     else:
       discard
-    ""
 
   proc tableCmd(spec: ?String, content: !Markup): Markup {.command: "table", safe.} =
     case doc.target
