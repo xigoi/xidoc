@@ -1,5 +1,4 @@
 import ./error
-import npeg
 import std/strformat
 import std/strutils
 
@@ -8,7 +7,7 @@ type
     xnkString
     xnkWhitespace
     xnkCommand
-  XidocNode* = ref object
+  XidocNode* = object
     case kind*: XidocNodeKind
     of xnkString:
       str*: string
@@ -21,8 +20,19 @@ type
 
 const nonTextChars = Whitespace + {'[', ']'}
 
-grammar "xidoc":
-  unparsedText <- *((1 | {'\n'} - {'[', ']'}) | '[' * unparsedText * ']')
+proc skipBalancedText(body: string, i: var int) =
+  let start = i
+  var brackets = 0
+  while i <= body.high:
+    case body[i]
+    of '[':
+      brackets.inc
+    of ']':
+      if brackets == 0:
+        break
+      brackets.dec
+    else: discard
+    i.inc
 
 proc parseXidocStringHelper(body: string, i: var int): string =
   let start = i
@@ -50,24 +60,14 @@ proc parseXidocCommand(body: string, i: var int): XidocNode =
     # TODO: print the context
     xidocError &"Parse error: Unexpected '[' in command name at position {i}"
   let argStart = i
-  var brackets = 0
-  while true:
-    if i > body.high:
-      xidocError "Parse error: Unexpected end of file (did you forget to close a bracket?)"
-    case body[i]
-    of '[':
-      brackets.inc
-    of ']':
-      if brackets == 0:
-        break
-      brackets.dec
-    else: discard
-    i.inc
+  skipBalancedText(body, i)
+  if i > body.high:
+    xidocError "Parse error: Unexpected end of file (did you forget to close a bracket?)"
   result = XidocNode(kind: xnkCommand, name: name, arg: body[argStart..<i])
   i.inc
 
 proc parseXidoc*(body: string, verbose = false): XidocNodes =
-  var i = 0
+  var i = body.low
   while i <= body.high:
     result.add case body[i]
     of Whitespace:
@@ -80,16 +80,27 @@ proc parseXidoc*(body: string, verbose = false): XidocNodes =
     else:
       parseXidocString(body, i)
 
-const xidocArgumentParser = peg("args", output: seq[string]):
-  arg <- !('\n' * *Space * !1) * >*((1 - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):
-    output.add ($1).strip
-  args <- ?(arg * *(';' * arg))
+proc parseXidocArgument(body: string, i: var int): string =
+  let start = i
+  while i <= body.high:
+    case body[i]
+    of ';':
+      break
+    of '[':
+      i.inc
+      skipBalancedText(body, i)
+      assert body[i] == ']'
+    else: discard
+    i.inc
+  body[start..<i].strip
 
 proc parseXidocArguments*(body: string): seq[string] =
-  try:
-    if body == "":
-      return newSeq[string]()
-    if not xidocArgumentParser.match(body, result).ok:
-      raise XidocError(msg: "Parse error")
-  except NPegException:
-    raise XidocError(msg: "Parse error")
+  var i = body.low
+  while i <= body.high:
+    result.add parseXidocArgument(body, i)
+    i.inc
+  if body.endsWith(";"):
+    result.add ""
+  if body.strip(leading = false, chars = Whitespace - Newlines).endsWith("\n") and
+    result[^1].isEmptyOrWhitespace:
+    discard result.pop
