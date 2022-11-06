@@ -1,5 +1,6 @@
 import ./error
 import npeg
+import std/strformat
 import std/strutils
 
 type
@@ -18,28 +19,66 @@ type
       arg*: string
   XidocNodes* = seq[XidocNode]
 
-grammar "xidoc":
-  textChar <- 1 - Space - {'[', ']'}
-  unparsedText <- *((1 | {'\n'} - {'[', ']'}) | '[' * unparsedText * ']')
-  commandChar <- textChar
+const nonTextChars = Whitespace + {'[', ']'}
 
-const xidocParser = peg("text", output: XidocNodes):
-  textChars <- >+xidoc.textChar:
-    output.add XidocNode(kind: xnkString, str: $1)
-  whitespace <- >+Space:
-    output.add XidocNode(kind: xnkWhitespace, newline: "\n" in $1)
-  command <- '[' * >*xidoc.commandChar * >xidoc.unparsedText * ']':
-    output.add XidocNode(kind: xnkCommand, name: $1, arg: $2)
-  chunk <- command | textChars | whitespace
-  text <- *chunk * !1
+grammar "xidoc":
+  unparsedText <- *((1 | {'\n'} - {'[', ']'}) | '[' * unparsedText * ']')
+
+proc parseXidocStringHelper(body: string, i: var int): string =
+  let start = i
+  while i <= body.high and body[i] notin nonTextChars:
+    i.inc
+  body[start..<i]
+
+proc parseXidocString(body: string, i: var int): XidocNode =
+  XidocNode(kind: xnkString, str: parseXidocStringHelper(body, i))
+
+proc parseXidocWhitespace(body: string, i: var int): XidocNode =
+  var newline = false
+  while i <= body.high and body[i] in Whitespace:
+    newline = newline or body[i] == '\n'
+    i.inc
+  XidocNode(kind: xnkWhitespace, newline: newline)
+
+proc parseXidocCommand(body: string, i: var int): XidocNode =
+  assert body[i] == '[' #]
+  i.inc
+  let name = parseXidocStringHelper(body, i)
+  if i > body.high:
+    xidocError "Parse error: Unexpected end of file (did you forget to close a bracket?)"
+  if body[i] == '[': #]
+    # TODO: print the context
+    xidocError &"Parse error: Unexpected '[' in command name at position {i}"
+  let argStart = i
+  var brackets = 0
+  while true:
+    if i > body.high:
+      xidocError "Parse error: Unexpected end of file (did you forget to close a bracket?)"
+    case body[i]
+    of '[':
+      brackets.inc
+    of ']':
+      if brackets == 0:
+        break
+      brackets.dec
+    else: discard
+    i.inc
+  result = XidocNode(kind: xnkCommand, name: name, arg: body[argStart..<i])
+  i.inc
 
 proc parseXidoc*(body: string, verbose = false): XidocNodes =
-  let match = xidocParser.match(body, result)
-  if not match.ok:
-    if verbose:
-      raise XidocError(msg: "Parse error\nSuccessfully parsed: $1" % body[0..match.matchMax])
+  var i = 0
+  while i <= body.high:
+    result.add case body[i]
+    of Whitespace:
+      parseXidocWhitespace(body, i)
+    of '[':
+      parseXidocCommand(body, i)
+    of ']':
+      # TODO: print the context
+      xidocError &"Parse error: Unexpected ']' at position {i}"
     else:
-      raise XidocError(msg: "Parse error")
+      parseXidocString(body, i)
 
 const xidocArgumentParser = peg("args", output: seq[string]):
   arg <- !('\n' * *Space * !1) * >*((1 - {'[', ']', ';'}) | '[' * xidoc.unparsedText * ']'):

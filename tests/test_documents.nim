@@ -17,6 +17,9 @@ suite "syntax":
   test "too many closing brackets":
     "Hi [it everyone !]]".shouldError
 
+  test "brackets in command name":
+    "Hi [[] everyone]".shouldError
+
 suite "plain text":
 
   test "normal text":
