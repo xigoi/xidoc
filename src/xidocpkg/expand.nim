@@ -6,6 +6,9 @@ import std/options
 import std/strformat
 import std/strutils
 
+proc `+`(s: Slice[int], n: int): Slice[int] =
+  s.a + n .. s.b + n
+
 proc escapeText*(text: string, target: Target): string =
   case target
   of tHtml:
@@ -58,7 +61,10 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
         let name = node.name
         let command = doc.lookup(commands, name)
         ifSome command:
-          var frame = Frame(cmdName: name, cmdArg: node.arg)
+          let offset = doc.stack[^1].cmdArgPos.a
+          var frame = Frame(cmdName: name, cmdArg: node.arg,
+                            cmdPos: node.pos + offset,
+                            cmdArgPos: node.argPos + offset)
           doc.stack.add frame
           let val = command(node.arg)
           discard doc.stack.pop

@@ -29,6 +29,8 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
     verbose: verbose,
     stack: @[Frame(
       cmdName: "[top]",
+      cmdPos: body.low..body.high,
+      cmdArgPos: body.low..body.high,
       path: some(path),
     )]
   )

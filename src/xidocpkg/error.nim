@@ -15,6 +15,18 @@ proc xidocWarning*(msge: string) =
   when not defined(js):
     stderr.writeLine("Warning: " & msge)
 
+func posToCoords(body: string, pos: int): tuple[row, col: int] =
+  var newlines = 0
+  var lastNewline = -1
+  for i in 0..<pos:
+    if body[i] == '\n':
+      newlines.inc
+      lastNewline = i
+  return (newlines + 1, pos - lastNewline)
+
+func formatPos(pos: tuple[row, col: int]): string =
+  &"{pos.row}:{pos.col}"
+
 proc format*(err: XidocError, doc: Document, termColors: bool): FormattedXidocError =
   const
     red = "\e[91m"
@@ -35,7 +47,9 @@ proc format*(err: XidocError, doc: Document, termColors: bool): FormattedXidocEr
       let numOpeningBrackets = truncatedArg.count('[')
       let numClosingBrackets = truncatedArg.count(']')
       truncatedArg.add "]…".repeat(numOpeningBrackets - numClosingBrackets)
-    msg &= &"in [{frame.cmdName}{truncatedArg}]\n"
+    let posA = posToCoords(doc.body, frame.cmdPos.a).formatPos
+    let posB = posToCoords(doc.body, frame.cmdPos.b).formatPos
+    msg &= &"[{posA}–{posB}] in [{frame.cmdName}{truncatedArg}]\n"
   if termColors:
     msg &= reset
   msg &= err.msg

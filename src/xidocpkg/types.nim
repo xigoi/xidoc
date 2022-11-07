@@ -35,6 +35,8 @@ type
     args*: Table[string, string]
     cmdArg*: string
     cmdName*: string
+    cmdPos*: Slice[int]
+    cmdArgPos*: Slice[int]
     commands*: Table[string, Command]
     lang*: Option[Language]
     path*: Option[string]
