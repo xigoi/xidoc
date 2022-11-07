@@ -6,7 +6,7 @@ template shouldRenderAs(input: string, output: string) =
   check input.renderXidoc(snippet = true) == output
 
 template shouldError(input: string) =
-  expect XidocError:
+  expect FormattedXidocError:
     discard input.renderXidoc(snippet = true)
 
 suite "syntax":

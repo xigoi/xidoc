@@ -12,7 +12,7 @@ import xidocpkg/expand
 import xidocpkg/translations
 import xidocpkg/types
 
-export XidocError
+export FormattedXidocError
 
 const extensions = [
   tHtml: "html",
@@ -36,7 +36,7 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
   let rendered =
     try: doc.renderStr(doc.body)
     except XidocError:
-      xidocError getCurrentException().XidocError.format(doc, termColors = colorfulError)
+      raise getCurrentException().XidocError.format(doc, termColors = colorfulError)
   if snippet:
     # TODO: some way to get doc.addToHead
     return rendered
@@ -83,7 +83,7 @@ when isMainModule and not defined(js):
         )
         if path != "":
           stderr.writeLine "Rendered file $1" % path
-      except XidocError:
+      except FormattedXidocError:
         stderr.writeLine getCurrentException().msg
         error = true
 
