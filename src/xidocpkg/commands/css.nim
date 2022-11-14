@@ -1,10 +1,14 @@
 import ../types
 import ./utils
 import std/options
+import std/strformat
 import std/strutils
 import std/tables
 
 commands cssCommands:
+
+  proc underCmd(arg: !String): String {.command: "_".} =
+    &"[{arg}]"
 
   proc declCmd(prop: !String, val: !String): String {.command: ":".} =
     "$1:$2;" % [prop, val]
