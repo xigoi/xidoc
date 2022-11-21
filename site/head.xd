@@ -1,0 +1,27 @@
+[set-doc-lang english]
+[set syntax-highlighting-theme; funky-x]
+[set katex-stylesheet-path; /katex-assets/katex.min.css]
+[link-stylesheet xi.min.css]
+[link-stylesheet xd.min.css]
+[style
+  [var bg-accent; #908]
+  [var fg-accent; #ed4]
+  [rule nav>a>img;
+    [: width; 1em]
+    [: height; 1em]
+  ]
+]
+[if-html
+  [add-to-head [<link> rel="icon"; href="/logo.svg"]]
+  [<header>
+    [set-title xidoc]
+    [show-title [xidoc] xidoc]
+    [<nav>
+      [link Introduction; .]
+      [link Manual; /manual.html]
+      [link Commands; /commands.html]
+      [link Playground; /playground.html]
+      [link [link-image SourceHut; /sourcehut-white.svg] Source; https://sr.ht/~xigoi/xidoc/]
+    ]
+  ]
+]

@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="xi.min.css" /><link rel="stylesheet" href="xd.min.css" /><link rel="icon" href="/logo.svg" /><title>xidoc</title><link rel="stylesheet" href="/katex-assets/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous"><script type="module">import { renderXidoc } from "/xidoc.min.js";
+  const code = document.querySelector("#code")
+  const output = document.querySelector("#output")
+  const render = () => {
+    let result = renderXidoc(code.value, {snippet: true});
+    if (result.success) {
+      code.classList.remove("error");
+      output.classList.remove("error");
+      output.innerHTML = result.markup;
+    } else {
+      code.classList.add("error");
+      output.classList.add("error");
+      output.innerText = result.err;
+    }
+  }
+  code.addEventListener("input", render);
+  code.value = "[section Example;\n  You can [bf play] with xidoc here!\n  Just [it edit] the code and it will be automatically updated.\n  Note that some commands [color red; don't work properly] due to the limitations of the JavaScript version of xidoc.\n]";
+  render();</script><style>:root{--bg-accent:#908;}
+:root{--fg-accent:#ed4;}
+nav>a>img{width:1em;
+height:1em;}.xd-logo{color:#d0c;font-weight:bold}#code{box-sizing:border-box;
+width:100%;
+min-height:10rem;
+resize:vertical;
+font-family:var(--monospace);}
+#code.error{border:2px solid #f00;}
+#output.error{color:#f00;
+font-weight:bold;
+font-family:var(--monospace);
+margin-top:1rem;}</style></head><body>
+
+<header>
+<h1><span class="xd-logo">ξ</span> xidoc</h1>
+<nav><a href=".">Introduction</a>
+<a href="/manual.html">Manual</a>
+<a href="/commands.html">Commands</a>
+<a href="/playground.html">Playground</a>
+<a href="https://sr.ht/~xigoi/xidoc/"><img src="/sourcehut-white.svg" alt="SourceHut" /> Source</a></nav></header>
+<textarea id="code"></textarea>
+<div id="output"></div>
+</body></html>

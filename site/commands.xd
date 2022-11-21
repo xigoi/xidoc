@@ -44,9 +44,13 @@
   [rule td>div>table;
     [: table-layout; initial]
   ]
+  [rule td>xd-block-math;
+    [: padding; .5rem .5rem]
+  ]
   [rule th;
-    [: background-color; [var xidoc-color-darker]]
+    [: background-color; [var bg-accent]]
     [: font-family; [var sans-serif]]
+    [: text-align; center]
   ]
 ]
 [def cmd; name signature explanation;

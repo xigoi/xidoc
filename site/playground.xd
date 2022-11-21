@@ -1,9 +1,11 @@
 [inject head.xd]
 [style
   [rule #code;
+    [: box-sizing; border-box]
     [: width; 100%]
     [: min-height; 10rem]
     [: resize; vertical]
+    [: font-family; [var monospace]]
   ]
   [rule #code.error;
     [: border; 2px solid #f00]
