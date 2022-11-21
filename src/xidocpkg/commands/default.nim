@@ -303,9 +303,6 @@ commands defaultCommands:
       do:
         ""
 
-  proc hideCmd(arg: !String) {.command: "hide", safe.} =
-    discard
-
   proc headerRowCmd(entries: *Markup): Markup {.command: "header-row", safe.} =
     if not doc.stack.anyIt(it.cmdName == "table"):
       xidocError "The header-row command has to be inside a table command"
@@ -316,6 +313,11 @@ commands defaultCommands:
       "$1\\\\\\midrule " % entries.join("&")
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
+
+  proc hideCmd(arg: !String) {.command: "hide", safe.} =
+    discard
+
+  theoremLikeCommand(hintCmd, "hint", pHint, "$1", "$1")
 
   proc htmlAddAttrsCmd(args: *String, tag: !Markup): Markup {.command: "html-add-attrs".} =
     case doc.target
@@ -680,6 +682,21 @@ commands defaultCommands:
       xidocError "The spoiler command is not supported in the LaTeX backend"
     of tGemtext:
       xidocError "The spoiler command is not supported in the Gemtext backend"
+
+  proc spoilerHintCmd(name: ?Markup, content: !Markup): Markup {.command: "spoiler-hint", safe.} =
+    let word = pHint.translate(doc.lookup(lang))
+    case doc.target
+    of tHtml:
+      htg.details(class = "xd-spoiler xd-theorem-like xd-hint",
+        htg.summary(htg.strong(ifSome(name, "$1 ($2)" % [word, name], "$1" % [word]))),
+        content,
+      )
+    of tLatex:
+      doc.addToHead.incl "usepackage"{"amsthm"}
+      doc.addToHead.incl "newtheorem"{"XDspoilerhint"}{word}
+      env("XDspoilerhint", content)
+    of tGemtext:
+      xidocError "The spoiler-hint command is not supported in the Gemtext backend"
 
   proc spoilerSolutionCmd(name: ?Markup, content: !Markup): Markup {.command: "spoiler-solution", safe.} =
     let word = pSolution.translate(doc.lookup(lang))

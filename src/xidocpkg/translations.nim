@@ -8,6 +8,7 @@ type
     pDefinition
     pExample
     pExercise
+    pHint
     pHtmlLanguageCode
     pLatexLanguageName
     pLemma
@@ -36,6 +37,11 @@ const translations = [
     lEnglish: "Exercise",
     lCzech: "Cvičení",
     lGerman: "Übung",
+  ],
+  pHint: [
+    lEnglish: "Hint",
+    lCzech: "Nápověda",
+    lGerman: "Hinweis",
   ],
   pHtmlLanguageCode: [
     lEnglish: "en",
