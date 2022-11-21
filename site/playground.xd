@@ -15,6 +15,7 @@
     [: font-weight; bold]
     [: font-family; [var monospace]]
     [: margin-top; 1rem]
+    [: white-space; pre]
   ]
 ]
 [hide [$ x]]
@@ -25,15 +26,14 @@
   const code = document.querySelector("#code")
   const output = document.querySelector("#output")
   const render = () => {
-    let result = renderXidoc(code.value, {snippet: true});
-    if (result.success) {
+    try {
+      output.innerHTML = renderXidoc(code.value, {snippet: true});
       code.classList.remove("error");
       output.classList.remove("error");
-      output.innerHTML = result.markup;
-    } else {
+    } catch (err) {
+      output.innerText = err;
       code.classList.add("error");
       output.classList.add("error");
-      output.innerText = result.err;
     }
   }
   code.addEventListener("input", render);

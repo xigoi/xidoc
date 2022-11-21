@@ -493,7 +493,6 @@ commands defaultCommands:
   proc listDirsCmd(arg: !String): List {.command: "list-dirs".} =
     when defined(js):
       xidocError "The list-dirs command is not available when using JavaScript"
-      @[]
     else:
       let currentDir = doc.lookup(path).splitFile.dir
       walkDirs(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))
@@ -501,7 +500,6 @@ commands defaultCommands:
   proc listFilesCmd(arg: !String): List {.command: "list-files".} =
     when defined(js):
       xidocError "The list-files command is not available when using JavaScript"
-      @[]
     else:
       let currentDir = doc.lookup(path).splitFile.dir
       walkFiles(currentDir / arg).toSeq.mapIt(XidocValue(typ: String, str: it.relativePath(currentDir)))

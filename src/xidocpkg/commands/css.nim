@@ -26,7 +26,7 @@ commands cssCommands:
   proc varCmd(name: !String, val: ?String): String {.command: "var".} =
     if val.isSome:
       if doc.stack[^2].cmdName == "style":
-        ":root{--$1:$2}" % [name, val.get]
+        ":root{--$1:$2;}" % [name, val.get]
       else:
         "--$1:$2;" % [name, val.get]
     else:

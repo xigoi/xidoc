@@ -130,27 +130,20 @@ elif defined(js): # JavaScript library
 
   import std/jsffi
 
-  type
-    XidocResult {.exportc.} = object
-      case success*: bool
-      of true:
-        markup*: cstring
-      of false:
-        err*: cstring
-
-  proc renderXidocJs(body: cstring, config: JsObject): XidocResult {.exportc: "renderXidoc".} =
-    let config =
-      if config == jsUndefined: newJsObject()
-      else: config
+  proc renderXidocJs(body: cstring, config: JsObject): cstring {.exportc: "renderXidoc".} =
     try:
+      let config =
+        if config == jsUndefined: newJsObject()
+        else: config
       let rendered = renderXidoc(
         $body,
         snippet = config.snippet.to(bool),
         safeMode = config.safeMode.to(bool),
         verbose = config.verbose.to(bool),
+        colorfulError = false,
       )
-      return XidocResult(success: true, markup: rendered.cstring)
-    except XidocError:
-      return XidocResult(success: false, err: getCurrentException().msg)
+      return rendered.cstring
+    except FormattedXidocError:
+      {.emit: ["throw ", getCurrentExceptionMsg().cstring].}
 
   {.emit: "export {renderXidoc};".}
