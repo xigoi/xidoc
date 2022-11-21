@@ -15,10 +15,10 @@
     [: margin-top; 1rem]
   ]
 ]
-[hide [$]]
+[hide [$ x]]
 [<textarea> #code;]
 [<div> #output;]
-[add-to-head [<script> type=module; [pass-raw
+[js-module-raw
   import { renderXidoc } from "/xidoc.min.js";
   const code = document.querySelector("#code")
   const output = document.querySelector("#output")
@@ -37,4 +37,4 @@
   code.addEventListener("input", render);
   code.value = "[section Example;\n  You can [bf play] with xidoc here!\n  Just [it edit] the code and it will be automatically updated.\n  Note that some commands [color red; don't work properly] due to the limitations of the JavaScript version of xidoc.\n]";
   render();
-]]]
+]

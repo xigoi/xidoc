@@ -5,7 +5,7 @@
     [code-block shell; nimble install xidoc]
   ]
   [section Building from source;
-    [code-block shell; [raw
+    [code-block bash; [raw
 git clone https://git.sr.ht/~xigoi/xidoc
 cd xidoc
 nimble install
@@ -14,11 +14,11 @@ nimble install
 ]
 [section Usage;
   [section Compile some documents;
-    [code-block shell; [raw
+    [code-block bash; [raw
 xidoc foo.xd bar.xd
     ]]
     [p The default target is HTML. To choose a different target:]
-    [code-block shell; [raw
+    [code-block bash; [raw
 xidoc --target:latex foo.xd
 xidoc -t:latex foo.xd
 # Permitted values: -t:html, -t:latex, -t:gemtext
@@ -26,13 +26,13 @@ xidoc -t:latex foo.xd
   ]
   [section Snippet mode;
     [p By default, xidoc automatically includes wrappers like [code html; <html>] or [code latex; \begin{document}]. To disable this behavior, use [" snippet mode]:]
-    [code-block shell; [raw
+    [code-block bash; [raw
 xidoc --snippet snip.xd
 xidoc -s snip.xd
     ]]
   ]
   [section Get help;
-    [code-block shell; [raw
+    [code-block bash; [raw
 xidoc --help
 xidoc -h
     ]]
