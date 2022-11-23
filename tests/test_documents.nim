@@ -258,3 +258,14 @@ suite "\"Programming\" commands":
   test "[js-eval]":
     "[js-eval [raw { let discriminant = b*b - 4*a*c; let root1 = (-b + Math.sqrt(discriminant)) / (2 * a); let root2 = (-b - Math.sqrt(discriminant)) / (2 * a); root1 + \", \" + root2 }]; a;3 ; b;-18 ; c;24]"
     .shouldRenderAs("4, 2")
+
+suite "\"Drawing\" commands":
+
+  test "[pikchr]":
+    "[pikchr box]".shouldRenderAs("<svg xmlns='http://www.w3.org/2000/svg' class=\"xd-pikchr\" viewBox=\"0 0 112.32 76.32\">\n<path d=\"M2,74L110,74L110,2L2,2Z\"  style=\"fill:none;stroke-width:2.16;stroke:rgb(0,0,0);\" />\n</svg>\n")
+    "[pikchr 1rem; box]".shouldRenderAs("<svg style=\"width:1rem\" xmlns='http://www.w3.org/2000/svg' class=\"xd-pikchr\" viewBox=\"0 0 112.32 76.32\">\n<path d=\"M2,74L110,74L110,2L2,2Z\"  style=\"fill:none;stroke-width:2.16;stroke:rgb(0,0,0);\" />\n</svg>\n")
+    "[pikchr Pikachu]".shouldError
+
+  test "[pikchr-raw]":
+    "[pikchr-raw box]".shouldRenderAs("<svg xmlns='http://www.w3.org/2000/svg' class=\"xd-pikchr\" viewBox=\"0 0 112.32 76.32\">\n<path d=\"M2,74L110,74L110,2L2,2Z\"  style=\"fill:none;stroke-width:2.16;stroke:rgb(0,0,0);\" />\n</svg>\n")
+    "[pikchr-raw Pikachu]".shouldError

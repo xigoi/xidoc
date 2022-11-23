@@ -389,6 +389,9 @@ const factorial = (n) => {
     [def setting; name default-value description;
       [html-add-attrs .command; [section [ms [arg name]]; [p [bf Default value:] [ms [arg default-value]]][arg description]]]
     ]
+    [setting dark-mode; off;
+      Declares to certain commands (currently only [cmd-ref pikchr]) that the document has a dark background. Doesn't actually change the background color!
+    ]
     [setting document-class; article;
       Only applies to [LaTeX]. Sets the document class in the header.
     ]
@@ -541,7 +544,14 @@ const factorial = (n) => {
     ]
   ]
 
-  [section Other top-level commands;
+  [section Image drawing;
+    [cmd pikchr; ?width[;] ?height[;] text;
+      Draws a [link Pikchr; https://pikchr.org/home/doc/trunk/homepage.md] diagram specified by the given [param text]. The [param width] and/or [param height] of the resulting SVG can be specified. xidoc commands in [param text] will be expanded. Currently only works with the HTML backend.
+      [ex [pikchr 20rem; [raw arrow 140% "Image" "description"; box "Pikchr" fit; arrow 70% "SVG" ""; box "xidoc" fit; arrow "HTML" ""]]]
+    ]
+    [cmd pikchr-raw; text;
+      Draws a [link Pikchr; https://pikchr.org/home/doc/trunk/homepage.md] diagram specified by the given [param text]. xidoc commands in [param text] will not be expanded. Currently only works with the HTML backend.
+    ]
     [cmd draw; ?width[;] ?height[;] description;
       [experimental] Draws a vector image with the given dimensions based on the [param description]. The [param description] format won't be documented until it's stabilized.
       [if-html [ex

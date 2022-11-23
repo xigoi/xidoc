@@ -1,4 +1,5 @@
 [set-doc-lang english]
+[set dark-mode; on]
 [set syntax-highlighting-theme; funky-x]
 [set katex-stylesheet-path; /katex-assets/katex.min.css]
 [link-stylesheet xi.min.css]

@@ -5,6 +5,7 @@ import ../expand
 import ../janetinterpret
 import ../jsinterpret
 import ../parser
+import ../pikchr
 import ../translations
 import ../types
 import ./checkbox
@@ -550,6 +551,23 @@ commands defaultCommands:
 
   proc passRawCmd(arg: Raw): Markup {.command: "pass-raw".} =
     arg
+
+  proc pikchrCmd(width: ?Markup, height: ?Markup, text: !String): Markup {.command: "pikchr", safe.} =
+    if doc.target != tHtml:
+      xidocError "Pikchr currently only works with the HTML backend"
+    var svg = text.pikchr(darkMode = doc.settings.getOrDefault("dark-mode", "0").parseBool)
+    ifSome width:
+      ifSome height:
+        svg = htmlAddAttrsCmd(@[&"style=\"width:{width};height:{height}\""], svg)
+      do:
+        svg = htmlAddAttrsCmd(@[&"style=\"width:{width}\""], svg)
+    do: discard
+    svg
+
+  proc pikchrRawCmd(text: Raw): Markup {.command: "pikchr-raw", safe.} =
+    if doc.target != tHtml:
+      xidocError "Pikchr currently only works with the HTML backend"
+    text.pikchr(darkMode = doc.settings.getOrDefault("dark-mode", "0").parseBool)
 
   theoremLikeCommand(proofCmd, "proof", pProof, "$1", "$1"):
     doc.stack[^1].commands = proofCommands(doc)
