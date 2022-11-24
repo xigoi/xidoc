@@ -68,45 +68,34 @@ when isMainModule and not defined(js):
 
   proc xidoc(target = tHtml, snippet = false, safe = false, verbose = false, paths: seq[string]) =
 
-    var error = false
+    proc renderFile(path, input: string): string =
+      result = renderXidoc(
+        input,
+        path = path,
+        target = target,
+        snippet = snippet,
+        safeMode = safe,
+        verbose = verbose,
+        colorfulError = stderr.isATty,
+      )
+      if path != "":
+        stderr.writeLine "Rendered file $1" % path
 
-    proc renderFile(path: string, input, output: File) =
+    var error = false
+    if paths.len == 0:
       try:
-        output.writeLine renderXidoc(
-          input.readAll,
-          path = path,
-          target = target,
-          snippet = snippet,
-          safeMode = safe,
-          verbose = verbose,
-          colorfulError = stderr.isATty,
-        )
-        if path != "":
-          stderr.writeLine "Rendered file $1" % path
+        stdout.writeLine(renderFile("", stdin.readAll))
       except FormattedXidocError:
         stderr.writeLine getCurrentException().msg
         error = true
-
-    if paths.len == 0:
-      renderFile("", stdin, stdout)
     else:
       for path in paths:
         let outputPath = path.changeFileExt(extensions[target])
         try:
-          let input = open(path, fmRead)
-          try:
-            let output = open(outputPath, fmWrite)
-            try:
-              renderFile(path, input, output)
-            finally:
-              output.close
-          except IOError:
-            stderr.writeLine "Cannot open file $1 for writing" % outputPath
-            error = true
-          finally:
-            input.close
-        except IOError:
-          stderr.writeLine "Cannot open file $1" % path
+          let rendered = renderFile(path, readFile(path))
+          writeFile(outputPath, rendered)
+        except IOError, FormattedXidocError:
+          stderr.writeLine getCurrentException().msg
           error = true
 
     if error:
