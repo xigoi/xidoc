@@ -333,13 +333,19 @@ const factorial = (n) => {
       Renders a mathematical exercise paragraph with an optional [param name].
       [ex [exercise Determine if the Collatz sequence reaches [$ 1] for every initial value.]]
     ]
+    [cmd hint; ?name[;] text;
+      Renders a paragraph with a hint for a problem/exercise with an optional [param name].
+      [cmd spoiler-solution; ?name[;] text;
+        Renders a paragraph with a hint for a problem/exercise with an optional [param name]. In environments that support interactivity, the [param text] is hidden inside a spoiler (see the [cmd-ref spoiler] command).
+      ]
+    ]
     [cmd lemma; ?name[;] text;
       Renders a mathematical lemma paragraph with an optional [param name].
     ]
     [cmd solution; ?name[;] text;
-      Renders a paragraph with the solution to a mathematical problem with an optional [param name].
+      Renders a paragraph with the solution to a problem/exercise with an optional [param name].
       [cmd spoiler-solution; ?name[;] text;
-        Renders a paragraph with the solution to a mathematical problem with an optional [param name]. In environments that support interactivity, the [param text] is hidden inside a spoiler (see the [cmd-ref spoiler] command).
+        Renders a paragraph with the solution to a problem/exercise with an optional [param name]. In environments that support interactivity, the [param text] is hidden inside a spoiler (see the [cmd-ref spoiler] command).
       ]
     ]
     [cmd props; *properties;
