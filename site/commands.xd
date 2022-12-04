@@ -369,6 +369,9 @@ const factorial = (n) => {
     [cmd inject; file;
       Pastes the content of [param file] and renders it.
     ]
+    [cmd pass-inject; file;
+      Pastes the content of [param file] directly as markup. [param file] should be in the target language.
+    ]
     [cmd include; file[;] *(name[;] value);
       Renders the content of [param file] as a separate document and pastes it. You can give arguments to the subdocument, which can be retrieved with the [cmd-ref template-arg] command.
       [cmd template-arg; name;
@@ -429,12 +432,6 @@ const factorial = (n) => {
       ]
       [cmd arg-raw-escape; parameter;
         Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered.
-      ]
-      [# arg\; parameter;
-        Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it. Strips common indentation.
-      ]
-      [# arg\-escape; parameter;
-        Inside a command definition ([cmd-ref def]), returns the argument given to the [param parameter], but doesn't expand it[;] however, the raw string is rendered. Strips common indentation.
       ]
     ]
   ]

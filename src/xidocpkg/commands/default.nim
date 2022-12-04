@@ -549,6 +549,14 @@ commands defaultCommands:
   proc passCmd(arg: !String): Markup {.command: "pass".} =
     arg
 
+  proc passInjectCmd(filename: !String): Markup {.command: "pass-inject".} =
+    let path = doc.lookup(path).splitPath.head / filename
+    doc.stack[^1].path = some(path)
+    try:
+      readFile(path)
+    except IOError:
+      xidocError &"Cannot open file {filename}\n(resolved as {path})"
+
   proc passRawCmd(arg: Raw): Markup {.command: "pass-raw".} =
     arg
 
