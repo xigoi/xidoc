@@ -1,8 +1,6 @@
 import ../xidocpkg/error
-
 import std/strutils
-
-import std/sugar
+import system/ansi_c
 
 when defined(js):
 
@@ -14,6 +12,7 @@ else:
   {.compile: "../pikchr/pikchr.c"}
 
   let
+    plaintextErrorsFlag: cuint = 1
     darkModeFlag: cuint = 2
 
   proc pikchr(zText: cstring, zClass: cstring, mFlags: cuint,
@@ -21,13 +20,14 @@ else:
 
   proc pikchr*(text: string, darkMode = false): string =
     const class = "xd-pikchr".cstring
-    var flags = 0.cuint
+    var flags = plaintextErrorsFlag
     if darkMode:
       flags = flags or darkModeFlag
-    let cresult = pikchr(text.cstring, class, flags, nil, nil)
-    if cresult.isNil:
+    var width: cint
+    let cResult = pikchr(text.cstring, class, flags, width.addr, nil)
+    if cResult.isNil:
       xidocError "Unknown error while rendering Pikchr"
-    result = $cresult
-    if not result.startsWith("<svg"):
-      xidocError "Error while rendering Pikchr:\n" &
-        result.strip.dup(removePrefix("<div><pre>")).dup(removeSuffix("</pre></div>")).strip
+    result = $cResult
+    cFree cResult
+    if width < 0:
+      xidocError "Error while rendering Pikchr:\n" & result.strip
