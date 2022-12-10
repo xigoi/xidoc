@@ -527,6 +527,8 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % arg
 
+  theoremLikeCommand(noteCmd, "note", pNote, "$1", "$1")
+
   proc orderedListCmd(items: *Markup): Markup {.command: "ordered-list", safe.} =
     case doc.target
     of tHtml:

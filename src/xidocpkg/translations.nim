@@ -12,6 +12,7 @@ type
     pHtmlLanguageCode
     pLatexLanguageName
     pLemma
+    pNote
     pProof
     pQuotation
     pSolution
@@ -57,6 +58,11 @@ const translations = [
     lEnglish: "Lemma",
     lCzech: "Lemma",
     lGerman: "Lemma",
+  ],
+  pNote: [
+    lEnglish: "Note",
+    lCzech: "Poznámka",
+    lGerman: "Anmerkung",
   ],
   pProof: [
     lEnglish: "Proof",
