@@ -141,11 +141,18 @@ commands mathCommands:
 proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters = true): string =
   case doc.target
   of tHtml:
-    doc.addToHead.incl """<link rel="stylesheet" href="$1" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">""" % doc.settings.getOrDefault("katex-stylesheet-path", "https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css")
+    let mathmlOnly = doc.settings.getOrDefault("mathml-only", "no").parseBool
+    if not mathmlOnly:
+      doc.addToHead.incl:
+        """<link rel="stylesheet" href="$1" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">""" %
+          doc.settings.getOrDefault("katex-stylesheet-path", "https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css")
     if displayMode:
       doc.addToStyle.incl """xd-block-math{display:block}"""
     let format = if displayMode: "<xd-block-math>$1</xd-block-math>" else: "<xd-inline-math>$1</xd-inline-math>"
-    format % renderMathKatex(latex, displayMode = displayMode, trust = not doc.safeMode)
+    format % renderMathKatex(latex,
+                             displayMode = displayMode,
+                             trust = not doc.safeMode,
+                             mathmlOnly = mathmlOnly)
   of tLatex:
     doc.addToHead.incl "\\usepackage{amsmath}"
     doc.addToHead.incl "\\usepackage{amssymb}"

@@ -11,7 +11,7 @@ else:
 
   {.compile: "../pikchr/pikchr.c"}
 
-  let
+  const
     plaintextErrorsFlag: cuint = 1
     darkModeFlag: cuint = 2
 
