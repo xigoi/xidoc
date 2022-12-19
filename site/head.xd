@@ -2,6 +2,7 @@
 [set dark-mode; on]
 [set syntax-highlighting-theme; funky-x]
 [set katex-stylesheet-path; /katex-assets/katex.min.css]
+[set-favicon /logo.svg]
 [link-stylesheet xi.min.css]
 [link-stylesheet xd.min.css]
 [style
@@ -13,7 +14,6 @@
   ]
 ]
 [if-html
-  [add-to-head [<link> rel="icon"; href="/logo.svg"]]
   [<header>
     [set-title xidoc]
     [show-title [xidoc] xidoc]

@@ -538,6 +538,9 @@ const factorial = (n) => {
       Styles an HTML document using xidoc's custom syntax for CSS.
       [if-html [ex [style [rule .golden-frame; [: border; 3px solid gold]]][<div> .golden-frame; This text is a work of art!]]]
     ]
+    [cmd set-favicon; url;
+      Sets the favicon of the document to the specified [param url].
+    ]
     [cmd-nilad empty-favicon;
       Specifies the favicon of the webpage to be empty. This prevents unnecessary requests to [ms favicon.ico].
     ]

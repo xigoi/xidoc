@@ -670,6 +670,10 @@ commands defaultCommands:
       else: xidocError "Unknown language: $1" % arg
     )
 
+  proc setFaviconCmd(url: !String) {.command: "set-favicon".} =
+    if doc.target == tHtml:
+      doc.addToHead.incl htg.link(rel = "icon", href = url)
+
   proc setSyntaxHighlightingThemeCmd(theme: !String): Markup {.command: "set-syntax-highlighting-theme", safe.} =
     xidocWarning "[set-syntax-highlighting-theme] is deprecated. Use [set syntax-highlighting-theme] instead."
     setCmd("syntax-highlighting-theme", theme)
