@@ -59,7 +59,10 @@ commands defaultCommands:
       of tLatex:
         doc.addToHead.incl "usepackage"{"amsthm"}
         doc.addToHead.incl "theoremstyle"{"definition"} & "newtheorem*"{"XD" & cmdName}{word}
-        env("XD" & cmdName, latexTmpl % content)
+        ifSome thName:
+          env("XD" & cmdName, ("[$1]" % thName) & (latexTmpl % content))
+        do:
+          env("XD" & cmdName, latexTmpl % content)
       of tGemtext:
         "\n\n$1. $2" % [ifSome(thName, "$1 ($2)" % [word, thName], "$1" % [word]), content]
 
@@ -88,12 +91,7 @@ commands defaultCommands:
     "…"
 
   proc quoteCmd(arg: !Markup): Markup {.command: "\"", safe.} =
-    case doc.target
-    of tLatex:
-      doc.addToHead.incl "usepackage"{"csquotes"}
-      "enquote"{arg}
-    else:
-      pQuotation.translate(doc.lookup(lang)) % arg
+    pQuotation.translate(doc.lookup(lang)) % arg
 
   proc inlineMathCmd(math: !String): Markup {.command: "$", safe, useCommands: mathCommands.} =
     doc.renderMath(math, displayMode = false)

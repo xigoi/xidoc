@@ -120,23 +120,15 @@ commands mathCommands:
     else:
       unitRendered
 
-  # Why is this necessary???
-  {.warning[UnreachableCode]: off.}
-
   # Prevent accidental nested math
-  proc inlineMathCmd(arg: Literal): Markup {.command: "$".} =
+  proc inlineMathCmd(arg: Literal) {.command: "$".} =
     xidocError "Math can't be nested inside math"
-    ""
 
-  proc blockMathCmd(arg: Literal): Markup {.command: "$$".} =
+  proc blockMathCmd(arg: Literal) {.command: "$$".} =
     xidocError "Math can't be nested inside math"
-    ""
 
-  proc alignedMathCmd(arg: Literal): Markup {.command: "$$&".} =
+  proc alignedMathCmd(arg: Literal) {.command: "$$&".} =
     xidocError "Math can't be nested inside math"
-    ""
-
-  {.warning[UnreachableCode]: on.}
 
 proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters = true): string =
   case doc.target
@@ -156,6 +148,7 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters 
   of tLatex:
     doc.addToHead.incl "\\usepackage{amsmath}"
     doc.addToHead.incl "\\usepackage{amssymb}"
+    doc.addToHead.incl "\\usepackage{mathtools}"
     let format = if displayMode: "\\[$1\\]" else: "\\($1\\)"
     if addDelimiters:
       format % latex
@@ -171,7 +164,19 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters 
 commands proofCommands:
 
   proc dotLeftCmd(arg: !Markup): Markup {.command: ".<".} =
-    htg.div(class = "xd-subproof", doc.renderMath("(\\Leftarrow)", displayMode = false) & " " & arg)
+    case doc.target
+    of tHtml:
+      htg.div(class = "xd-subproof", doc.renderMath("(\\Leftarrow)", displayMode = false) & " " & arg)
+    of tLatex:
+      "\\par\\((\\Leftarrow)\\) " & arg
+    else:
+      ""
 
   proc dotRightCmd(arg: !Markup): Markup {.command: ".>".} =
-    htg.div(class = "xd-subproof", doc.renderMath("(\\Rightarrow)", displayMode = false) & " " & arg)
+    case doc.target
+    of tHtml:
+      htg.div(class = "xd-subproof", doc.renderMath("(\\Rightarrow)", displayMode = false) & " " & arg)
+    of tLatex:
+      "\\par\\((\\Rightarrow)\\) " & arg
+    else:
+      ""
