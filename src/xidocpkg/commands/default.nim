@@ -6,6 +6,7 @@ import ../janetinterpret
 import ../jsinterpret
 import ../parser
 import ../pikchr
+import ../string_view
 import ../translations
 import ../types
 import ./checkbox
@@ -211,7 +212,7 @@ commands defaultCommands:
 
   template def(global: static bool) {.dirty.} =
     let params = ifSome(paramList, paramList.splitWhitespace, @[])
-    doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: string): XidocValue =
+    doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: StringView): XidocValue =
       let argsList = if arg == "": @[] else: parseXidocArguments(arg)
       if argsList.len != params.len:
         xidocError "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len]
@@ -362,8 +363,10 @@ commands defaultCommands:
       xidocError "Additional arguments to include must come in pairs"
     let path = doc.lookup(path).splitPath.head / filename
     try:
+      let body = new string
+      body[] = readFile(path)
       let subdoc = Document(
-        body: readFile(path),
+        body: body,
         target: doc.target,
         snippet: true,
         stack: @[Frame(
@@ -375,7 +378,7 @@ commands defaultCommands:
       subdoc.stack[0].commands = defaultCommands(subdoc)
       for i in 0..<(args.len div 2):
         subdoc.templateArgs[args[2 * i]] = args[2 * i + 1]
-      subdoc.renderStr(subdoc.body)
+      subdoc.renderStr
     except IOError:
       xidocError &"Cannot open file {filename}\n(resolved as {path})"
 

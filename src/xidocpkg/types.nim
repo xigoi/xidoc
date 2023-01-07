@@ -1,3 +1,4 @@
+import ./string_view
 import ./translations
 import std/options
 import std/sets
@@ -30,9 +31,9 @@ type
   ParamType* = object
     kind*: ParamTypeKind
     base*: XidocType
-  Command* = proc(arg: string): XidocValue
+  Command* = proc(arg: StringView): XidocValue
   Frame* = object
-    args*: Table[string, string]
+    args*: Table[string, StringView]
     cmdArg*: string
     cmdName*: string
     commands*: Table[string, Command]
@@ -40,7 +41,7 @@ type
     path*: Option[string]
   Document* = ref object
     addToHead*: OrderedSet[string]
-    body*: string
+    body*: ref string
     safeMode*: bool
     settings*: Table[string, string]
     snippet*: bool

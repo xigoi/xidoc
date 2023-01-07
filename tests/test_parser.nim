@@ -1,17 +1,25 @@
+import std/sequtils
 import std/unittest
 import xidocpkg/error
 import xidocpkg/parser
+import xidocpkg/string_view
+
+converter toView(str: string): StringView =
+  str.toStringView
 
 func `==`(a, b: XidocNode): bool =
   if a.kind != b.kind:
     return false
   case a.kind
   of xnkString:
-    a.str == b.str
+    $a.str == $b.str
   of xnkWhitespace:
     a.newline == b.newline
   of xnkCommand:
-    a.name == b.name and a.arg == b.arg
+    $a.name == $b.name and $a.arg == $b.arg
+
+func `==`(a: seq[StringView], b: seq[string]): bool =
+  a.mapIt($it) == b
 
 suite "basic syntax":
 

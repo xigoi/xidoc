@@ -1,5 +1,6 @@
 import ./error
 import ./parser
+import ./string_view
 import ./types
 import aspartame
 import std/options
@@ -27,9 +28,9 @@ proc addIfNeeded(s1: var string, s2: string) =
     return
   s1.add s2
 
-proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
+proc expand*(doc: Document, view: StringView, typ: XidocType): XidocValue =
   result = XidocValue(typ: typ)
-  for node in str.parseXidoc(doc.verbose):
+  for node in view.parseXidoc(doc.verbose):
     case node.kind
       of xnkString:
         case typ
@@ -94,8 +95,17 @@ proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
         do:
           xidocError &"Command not found: {name}"
 
-proc expandStr*(doc: Document, str: string): string =
-  doc.expand(str, String).str
+proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
+  doc.expand(str.toStringView, typ)
 
-proc renderStr*(doc: Document, str = doc.body): string =
-  doc.expand(str, Markup).str
+proc expandStr*(doc: Document, view: StringView): string =
+  doc.expand(view, String).str
+
+proc expandStr*(doc: Document, str: string): string =
+  doc.expand(str.toStringView, String).str
+
+proc renderStr*(doc: Document, view = doc.body.toStringView): string =
+  doc.expand(view, Markup).str
+
+proc renderStr*(doc: Document, str: string): string =
+  doc.expand(str.toStringView, Markup).str

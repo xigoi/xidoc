@@ -21,8 +21,10 @@ const extensions = [
 ]
 
 proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safeMode = false, verbose = false, colorfulError = false): string =
+  let bodyRef = new string
+  bodyRef[] = body
   let doc = Document(
-    body: body,
+    body: bodyRef,
     target: target,
     snippet: snippet,
     safeMode: safeMode,
@@ -34,7 +36,7 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
   )
   doc.stack[0].commands = defaultCommands(doc)
   let rendered =
-    try: doc.renderStr(doc.body)
+    try: doc.renderStr
     except XidocError:
       raise getCurrentException().XidocError.format(doc, termColors = colorfulError)
   if snippet:

@@ -1,6 +1,7 @@
 import ../error
 import ../expand
 import ../parser
+import ../string_view
 import ../types
 import aspartame
 import std/macros
@@ -12,7 +13,7 @@ import std/strutils
 import std/sugar
 import std/tables
 
-proc expandArguments(doc: Document, name: string, arg: string, types: openArray[ParamType]): seq[XidocValue] =
+proc expandArguments(doc: Document, name: string, arg: StringView, types: openArray[ParamType]): seq[XidocValue] =
   if types.len == 1 and types[0] == Literal:
     return @[XidocValue(typ: String, str: arg)]
   if types.len == 1 and types[0] == Raw:
@@ -45,7 +46,7 @@ proc expandArguments(doc: Document, name: string, arg: string, types: openArray[
     let maxLen = types.len
     if args.len < minLen or args.len > maxLen:
       xidocError "Command $1 needs at least $2 and at most $3 arguments, $4 given" % [name, $minLen, $maxLen, $args.len]
-  proc expandIfNeeded(doc: Document, arg: string, typ: ParamType): XidocValue =
+  proc expandIfNeeded(doc: Document, arg: StringView, typ: ParamType): XidocValue =
     if typ.kind == ptkRaw:
       XidocValue(typ: String, str: arg)
     else:
@@ -197,7 +198,7 @@ macro command*(name: string, baseProc: untyped): untyped =
       newEmptyNode()
   quote:
     `cmdProc`
-    commands[`name`] = proc(arg {.inject.}: string): XidocValue =
+    commands[`name`] = proc(arg {.inject.}: StringView): XidocValue =
       `safetyCheck`
       `commandInsertion`
       let `vals` = expandArguments(doc, `name`, arg, @`types`)
