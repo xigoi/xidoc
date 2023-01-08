@@ -69,7 +69,7 @@ when isMainModule and not defined(js):
   import std/os
   import std/terminal
 
-  proc xidoc(target = tHtml, snippet = false, safe = false, verbose = false, paths: seq[string]) =
+  proc xidoc(target = tHtml, snippet = false, safe = false, dryRun = false, noColor = false, paths: seq[string]) =
 
     proc renderFile(path, input: string): string =
       result = renderXidoc(
@@ -78,8 +78,7 @@ when isMainModule and not defined(js):
         target = target,
         snippet = snippet,
         safeMode = safe,
-        verbose = verbose,
-        colorfulError = stderr.isATty,
+        colorfulError = (not noColor) and stderr.isATty and (not existsEnv("NO_COLOR")),
       )
       if path != "":
         stderr.writeLine "Rendered file $1" % path
@@ -87,7 +86,9 @@ when isMainModule and not defined(js):
     var error = false
     if paths.len == 0:
       try:
-        stdout.writeLine(renderFile("", stdin.readAll))
+        let rendered = renderFile("", stdin.readAll)
+        if not dryRun:
+          stdout.writeLine(rendered)
       except FormattedXidocError:
         stderr.writeLine getCurrentException().msg
         error = true
@@ -96,7 +97,8 @@ when isMainModule and not defined(js):
         let outputPath = path.changeFileExt(extensions[target])
         try:
           let rendered = renderFile(path, readFile(path))
-          writeFile(outputPath, rendered)
+          if not dryRun:
+            writeFile(outputPath, rendered)
         except IOError, FormattedXidocError:
           stderr.writeLine getCurrentException().msg
           error = true
@@ -109,13 +111,15 @@ when isMainModule and not defined(js):
       "target": "what language to transpile to; one of \"html\", \"latex\", \"gemtext\"",
       "snippet": "generate just a code snippet instead of a whole document; useful for embedding",
       "safe": "only allow commands that are known to not be vulnerable to injection attacks",
-      "verbose": "show more detailed errors",
+      "dry-run": "do not write anything, just check for errors",
+      "no-color": "disable colorful error messages (also disabled when STDERR is not a TTY or when the NO_COLOR environment variable is present)",
     },
     short = {
       "target": 't',
       "snippet": 's',
       "safe": 'S',
-      "verbose": 'v',
+      "dry-run": 'd',
+      "no-color": 'C',
     }
 
 elif defined(js): # JavaScript library
