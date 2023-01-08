@@ -59,8 +59,7 @@ proc expand*(doc: Document, view: StringView, typ: XidocType): XidocValue =
         let name = node.name
         let command = doc.lookup(commands, name)
         ifSome command:
-          var frame = Frame(cmdName: name, cmdArg: node.arg)
-          doc.stack.add frame
+          doc.stack.add Frame(cmd: node.whole, cmdName: name, cmdArg: node.arg)
           let val = command(node.arg)
           discard doc.stack.pop
           case typ
@@ -93,6 +92,7 @@ proc expand*(doc: Document, view: StringView, typ: XidocType): XidocValue =
           of Optional:
             discard # TODO
         do:
+          doc.stack.add Frame(cmd: node.whole, cmdName: name, cmdArg: node.arg)
           xidocError &"Command not found: {name}"
 
 proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =

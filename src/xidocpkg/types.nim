@@ -34,8 +34,9 @@ type
   Command* = proc(arg: StringView): XidocValue
   Frame* = object
     args*: Table[string, StringView]
-    cmdArg*: string
-    cmdName*: string
+    cmd*: StringView
+    cmdArg*: StringView
+    cmdName*: StringView
     commands*: Table[string, Command]
     lang*: Option[Language]
     path*: Option[string]

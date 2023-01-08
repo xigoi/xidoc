@@ -1,3 +1,4 @@
+import std/strformat
 import std/strutils
 
 type
@@ -18,6 +19,36 @@ func toStringView*(body: string): StringView =
 
 converter `$`*(view: StringView): string =
   view.body[][view.slice]
+
+func lineContext*(view: StringView): tuple[lnNumA, colNumA, lnNumB, colNumB: int] =
+  let lns = view.body[].splitLines
+  var lnIndex = 0
+  var lenSum = 0
+  let a = view.slice.a
+  while a >= lenSum + lns[lnIndex].len:
+    lenSum += lns[lnIndex].len + 1
+    lnIndex.inc
+  result.lnNumA = lnIndex + 1
+  result.colNumA = a - lenSum + 1
+  let b = view.slice.b
+  while b >= lenSum + lns[lnIndex].len:
+    lenSum += lns[lnIndex].len + 1
+    lnIndex.inc
+  result.lnNumB = lnIndex + 1
+  result.colNumB = b - lenSum + 1
+
+func lineContext*(body: ref string, i: int): tuple[lnNum, colNum: int, msg: string] =
+  let lns = body[].splitLines
+  var lnIndex = 0
+  var lenSum = 0
+  while i >= lenSum + lns[lnIndex].len:
+    lenSum += lns[lnIndex].len + 1
+    lnIndex.inc
+  let colIndex = i - lenSum
+  result.lnNum = lnIndex + 1
+  result.colNum = colIndex + 1
+  let caret = &"{' '.repeat(($result.lnNum).len)} │ {' '.repeat(colIndex)}^"
+  result.msg = &"{result.lnNum} │ {lns[lnIndex]}\n{caret}"
 
 func strip*(view: StringView): StringView =
   result = view

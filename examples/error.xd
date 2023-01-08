@@ -1,4 +1,5 @@
 [section Error;
+  [p This document contains an error.]
   [p
     The command [XIDOC-IS-BAD] doesn't exist.
   ]

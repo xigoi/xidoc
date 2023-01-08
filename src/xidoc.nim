@@ -9,6 +9,7 @@ import xidocpkg/commands/default
 import xidocpkg/commands/utils
 import xidocpkg/error
 import xidocpkg/expand
+import xidocpkg/string_view
 import xidocpkg/translations
 import xidocpkg/types
 
@@ -30,7 +31,7 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
     safeMode: safeMode,
     verbose: verbose,
     stack: @[Frame(
-      cmdName: "[top]",
+      cmdName: "[top]".toStringView,
       path: some(path),
     )]
   )

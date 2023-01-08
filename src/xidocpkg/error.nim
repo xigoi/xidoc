@@ -1,3 +1,4 @@
+import ./string_view
 import ./types
 import std/options
 import std/pegs
@@ -16,17 +17,19 @@ proc xidocWarning*(msge: string) =
     stderr.writeLine("Warning: " & msge)
 
 proc format*(err: XidocError, doc: Document, termColors: bool): FormattedXidocError =
-  const
-    red = "\e[91m"
-    yellow = "\e[93m"
-    reset = "\e[0m"
+  let
+    red    = if termColors: "\e[91m" else: ""
+    yellow = if termColors: "\e[93m" else: ""
+    cyan   = if termColors: "\e[96m" else: ""
+    gray   = if termColors: "\e[90m" else: ""
+    reset  = if termColors: "\e[0m"  else: ""
   var msg: string
-  if termColors:
-    msg &= red
-  msg &= &"Error while rendering file {doc.stack[0].path.get}\n"
-  if termColors:
-    msg &= yellow
+  msg &= &"{red}Error while rendering file {doc.stack[0].path.get}\n"
   for frame in doc.stack[1..^1]:
+    msg &= yellow
+    if frame.cmd.body == doc.body:
+      let ctx = lineContext(frame.cmd)
+      msg &= &"at ({ctx.lnNumA}, {ctx.colNumA})-({ctx.lnNumB}, {ctx.colNumB}), "
     const maxDisplayedArgLength = 48
     var truncatedArg = frame.cmdArg.replace(peg"\s+", " ")
     if truncatedArg.len > maxDisplayedArgLength:
@@ -35,8 +38,6 @@ proc format*(err: XidocError, doc: Document, termColors: bool): FormattedXidocEr
       let numOpeningBrackets = truncatedArg.count('[')
       let numClosingBrackets = truncatedArg.count(']')
       truncatedArg.add "]…".repeat(numOpeningBrackets - numClosingBrackets)
-    msg &= &"in [{frame.cmdName}{truncatedArg}]\n"
-  if termColors:
-    msg &= reset
-  msg &= err.msg
+    msg &= &"in {gray}[{cyan}{frame.cmdName}{reset}{truncatedArg}{gray}]\n"
+  msg &= reset & err.msg
   return FormattedXidocError(msg: msg)

@@ -15,24 +15,12 @@ type
     of xnkWhitespace:
       newline*: bool
     of xnkCommand:
+      whole*: StringView
       name*: StringView
       arg*: StringView
   XidocNodes* = seq[XidocNode]
 
 const nonTextChars = Whitespace + {'[', ']'}
-
-func lineContext(body: ref string, i: int): tuple[lnNum, colNum: int, msg: string] =
-  let lns = body[].splitLines
-  var lnIndex = 0
-  var lenSum = 0
-  while i >= lenSum + lns[lnIndex].len:
-    lenSum += lns[lnIndex].len + 1
-    lnIndex.inc
-  let colIndex = i - lenSum
-  result.lnNum = lnIndex + 1
-  result.colNum = colIndex + 1
-  let caret = &"{' '.repeat(($result.lnNum).len)} │ {' '.repeat(colIndex)}^"
-  result.msg = &"{result.lnNum} │ {lns[lnIndex]}\n{caret}"
 
 proc skipBalancedText(body: ref string, i: var int, stop: int) =
   ## Scans `body` from position `i`, incrementing the index
@@ -81,6 +69,7 @@ proc parseXidocCommand(body: ref string, i: var int, stop: int): XidocNode =
   ## `body[i]` must be '[' at the start.
   ## Returns a `XidocNode` with kind `xnkCommand`.
   assert body[i] == '['
+  let start = i
   i.inc
   let name = parseXidocStringHelper(body, i, stop)
   if i > stop:
@@ -92,7 +81,7 @@ proc parseXidocCommand(body: ref string, i: var int, stop: int): XidocNode =
   skipBalancedText(body, i, stop)
   if i > stop:
     xidocError "Parse error: Unexpected end of file (did you forget to close a bracket?)"
-  result = XidocNode(kind: xnkCommand, name: name, arg: body.view(argStart..<i))
+  result = XidocNode(kind: xnkCommand, whole: body.view(start..i), name: name, arg: body.view(argStart..<i))
   i.inc
 
 proc parseXidoc*(view: StringView, verbose = false): XidocNodes =

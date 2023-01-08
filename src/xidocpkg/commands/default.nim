@@ -370,7 +370,7 @@ commands defaultCommands:
         target: doc.target,
         snippet: true,
         stack: @[Frame(
-          cmdName: "[top]",
+          cmdName: "[top]".toStringView,
           lang: some doc.lookup(lang),
           path: some(path),
         )]
