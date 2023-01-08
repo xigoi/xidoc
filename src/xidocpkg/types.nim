@@ -32,6 +32,7 @@ type
     kind*: ParamTypeKind
     base*: XidocType
   Command* = proc(arg: StringView): XidocValue
+  Commands* = proc(doc: Document): Table[string, Command]
   Frame* = object
     args*: Table[string, StringView]
     cmd*: StringView

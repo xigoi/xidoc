@@ -156,7 +156,7 @@ func getPragma(node: NimNode, name: string): Option[NimNode] =
   if node[4].kind != nnkPragma:
     return none(NImNode)
   for pragma in node[4]:
-    if pragma.kind == nnkExprColonExpr and pragma[0].eqIdent(name):
+    if pragma.kind == nnkExprColonExpr and pragma[0].eqIdent(name) and pragma[1] != nil:
       return some(pragma[1])
   return none(NImNode)
 

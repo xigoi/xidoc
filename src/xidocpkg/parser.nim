@@ -76,7 +76,7 @@ proc parseXidocCommand(body: ref string, i: var int, stop: int): XidocNode =
     xidocError "Parse error: Unexpected end of file (did you forget to close a bracket?)"
   if body[][i] == '[':
     let (lnNum, colNum, msg) = lineContext(body, i)
-    xidocError &"Parse error: Unexpected '[' in command name at position {lnNum}:{colNum}\n{msg}"
+    xidocError &"at {lnNum}:{colNum}-{lnNum}:{colNum}\nParse error: Unexpected '[' in command name\n{msg}"
   let argStart = i
   skipBalancedText(body, i, stop)
   if i > stop:
@@ -97,7 +97,7 @@ proc parseXidoc*(view: StringView, verbose = false): XidocNodes =
       parseXidocCommand(body, i, stop)
     of ']':
       let (lnNum, colNum, msg) = lineContext(body, i)
-      xidocError &"Parse error: Unexpected ']' at position {lnNum}:{colNum}\n{msg}"
+      xidocError &"at {lnNum}:{colNum}-{lnNum}:{colNum}\nParse error: Unexpected ']'\n{msg}"
     else:
       parseXidocString(body, i, stop)
 

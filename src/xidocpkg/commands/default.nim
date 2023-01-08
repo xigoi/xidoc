@@ -43,11 +43,8 @@ const
 
 commands defaultCommands:
 
-  template theoremLikeCommand(procName: untyped, cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string, before: untyped = ()) =
-    proc procName(thName: ?Markup, content: Raw): Markup {.command: cmdName, safe.} =
-      when typeof(before) is void:
-        before
-      let content = doc.renderStr(content)
+  template theoremLikeCommand(procName: untyped, cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string, commands: Commands = nil) =
+    proc procName(thName: ?Markup, content: !Markup): Markup {.command: cmdName, safe, useCommands: commands.} =
       let word = phrase.translate(doc.lookup(lang))
       case doc.target
       of tHtml:
@@ -580,8 +577,7 @@ commands defaultCommands:
       xidocError "Pikchr currently only works with the HTML backend"
     text.pikchr(darkMode = doc.settings.getOrDefault("dark-mode", "0").parseBool)
 
-  theoremLikeCommand(proofCmd, "proof", pProof, "$1", "$1"):
-    doc.stack[^1].commands = proofCommands(doc)
+  theoremLikeCommand(proofCmd, "proof", pProof, "$1", "$1", commands = proofCommands)
 
   proc propsCmd(items: *Markup): Markup {.command: "props", safe.} =
     case doc.target
