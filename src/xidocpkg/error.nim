@@ -29,7 +29,7 @@ proc format*(err: XidocError, doc: Document, termColors: bool): FormattedXidocEr
     msg &= yellow
     if frame.cmd.body == doc.body:
       let ctx = lineContext(frame.cmd)
-      msg &= &"at ({ctx.lnNumA}, {ctx.colNumA})-({ctx.lnNumB}, {ctx.colNumB}), "
+      msg &= &"at {ctx.lnNumA}:{ctx.colNumA}-{ctx.lnNumB}:{ctx.colNumB} "
     const maxDisplayedArgLength = 48
     var truncatedArg = frame.cmdArg.replace(peg"\s+", " ")
     if truncatedArg.len > maxDisplayedArgLength:
