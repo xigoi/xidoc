@@ -78,7 +78,9 @@ when isMainModule and not defined(js):
         target = target,
         snippet = snippet,
         safeMode = safe,
-        colorfulError = (not noColor) and stderr.isATty and (not existsEnv("NO_COLOR")),
+        colorfulError = (not noColor) and
+                        stderr.isATty and
+                        getEnv("NO_COLOR") == "",
       )
       if path != "":
         stderr.writeLine "Rendered file $1" % path
