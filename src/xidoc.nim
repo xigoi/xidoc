@@ -69,7 +69,13 @@ when isMainModule and not defined(js):
   import std/os
   import std/terminal
 
-  proc xidoc(target = tHtml, snippet = false, safe = false, dryRun = false, noColor = false, paths: seq[string]) =
+  proc xidoc(target = tHtml,
+             snippet = false,
+             safe = false,
+             dryRun = false,
+             noColor = false,
+             forceStdin = false,
+             paths: seq[string]) =
 
     proc renderFile(path, input: string): string =
       result = renderXidoc(
@@ -86,9 +92,12 @@ when isMainModule and not defined(js):
         stderr.writeLine "Rendered file $1" % path
 
     var error = false
-    if paths.len == 0:
+    if forceStdin or paths.len == 0:
       try:
-        let rendered = renderFile("", stdin.readAll)
+        let path =
+          if paths.len == 0: ""
+          else: paths[0]
+        let rendered = renderFile(path, stdin.readAll)
         if not dryRun:
           stdout.writeLine(rendered)
       except FormattedXidocError:
@@ -115,6 +124,7 @@ when isMainModule and not defined(js):
       "safe": "only allow commands that are known to not be vulnerable to injection attacks",
       "dry-run": "do not write anything, just check for errors",
       "no-color": "disable colorful error messages (also disabled when STDERR is not a TTY or when the NO_COLOR environment variable is present)",
+      "force-stdin": "read from STDIN even if a filename is specified; in that case, it will be used as the path for the document"
     },
     short = {
       "target": 't',
@@ -122,6 +132,7 @@ when isMainModule and not defined(js):
       "safe": 'S',
       "dry-run": 'd',
       "no-color": 'C',
+      "force-stdin": '\0',
     }
 
 elif defined(js): # JavaScript library
