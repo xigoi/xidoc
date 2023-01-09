@@ -1,13 +1,14 @@
 import ../xidocpkg/error
-import std/strutils
-import system/ansi_c
 
 when defined(js):
 
-  proc pikchr*(text: string): string =
+  proc pikchr*(text: string, darkMode = false): string =
     xidocError "Pikchr is not available when using JavaScript"
 
 else:
+
+  import std/strutils
+  import system/ansi_c
 
   {.compile: "../pikchr/pikchr.c"}
 

@@ -235,11 +235,13 @@ when defined(js):
 
   proc katexRenderToString(math: cstring, opts: JsObject): cstring {.importjs: "katex.renderToString(@)".}
 
-  proc renderMathKatex*(math: string, displayMode: bool, trust = false): string =
+  proc renderMathKatex*(math: string, displayMode: bool, trust = false, mathmlOnly = false): string =
     var opts = newJsObject()
     opts["throwOnError"] = false
     opts["displayMode"] = displayMode
     opts["trust"] = trust
+    if mathmlOnly:
+      opts["output"] = "mathml"
     $katexRenderToString(math.cstring, opts)
 
   proc highlightCode*(code: string, lang: string): string =
