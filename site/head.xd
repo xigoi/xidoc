@@ -7,10 +7,16 @@
 [link-stylesheet xd.min.css]
 [style
   [var bg-accent; #908]
-  [var fg-accent; #ed4]
-  [rule nav>a>img;
+  [var fg-accent; #ffe953]
+  [rule body;
+    [: font-family; sans-serif]
+  ]
+  [rule img.icon;
     [: width; 1em]
     [: height; 1em]
+  ]
+  [rule .big;
+    [: font-size; 1.4em]
   ]
 ]
 [if-html
@@ -22,7 +28,7 @@
       [link Manual; /manual.html]
       [link Commands; /commands.html]
       [link Playground; /playground.html]
-      [link [link-image SourceHut; /sourcehut-white.svg] Source; https://sr.ht/~xigoi/xidoc/]
+      [link [html-add-attrs .icon; [link-image SourceHut; /sourcehut-white.svg]] Source; https://sr.ht/~xigoi/xidoc/]
     ]
   ]
 ]

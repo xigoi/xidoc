@@ -1,7 +1,9 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/logo.svg" /><link rel="stylesheet" href="xi.min.css" /><link rel="stylesheet" href="xd.min.css" /><title>xidoc</title><link rel="stylesheet" href="/katex-assets/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous"><script type="module">document.getElementById("change-me").innerText = "I was changed"</script><style>:root{--bg-accent:#908;}
-:root{--fg-accent:#ed4;}
-nav>a>img{width:1em;
-height:1em;}.xd-logo{color:#d0c;font-weight:bold}.command{background-color:#111;
+:root{--fg-accent:#ffe953;}
+body{font-family:sans-serif;}
+img.icon{width:1em;
+height:1em;}
+.big{font-size:1.4em;}.xd-logo{color:#d0c;font-weight:bold}.command{background-color:#111;
 border:1px solid #333;
 margin:0 0 .5rem 0;
 padding:.3rem;}
@@ -34,7 +36,7 @@ text-align:center;}code[class*=language-],pre[class*=language-]{font-family:Cons
 <a href="/manual.html">Manual</a>
 <a href="/commands.html">Commands</a>
 <a href="/playground.html">Playground</a>
-<a href="https://sr.ht/~xigoi/xidoc/"><img src="/sourcehut-white.svg" alt="SourceHut" /> Source</a></nav></header>
+<a href="https://sr.ht/~xigoi/xidoc/"><img class="icon" src="/sourcehut-white.svg" alt="SourceHut" /> Source</a></nav></header>
 <p>This is a reference of all xidoc commands. A question mark <code>?</code> before a parameter means that it's optional. An asterisk <code>*</code> before a parameter means that it can take any number of values.</p>
 <section><h2 class="xd-section-heading">Top-level commands</h2><p>These commands can be used anywhere within xidoc, unless overridden by other commands.</p>
 <section><h3 class="xd-section-heading">Basic constructs</h3><section id="#" class="command"><h4 class="xd-section-heading"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">#</span> <span class="token comment">anything</span><span class="token punctuation">]</span></code></h4>Comment. Always returns nothing, ignoring what's inside.

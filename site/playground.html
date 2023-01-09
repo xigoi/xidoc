@@ -15,9 +15,11 @@
   code.addEventListener("input", render);
   code.value = "[section Example;\n  You can [bf play] with xidoc here!\n  Just [it edit] the code and it will be automatically updated.\n  Note that some commands [color red; don't work properly] due to the limitations of the JavaScript version of xidoc.\n]";
   render();</script><style>:root{--bg-accent:#908;}
-:root{--fg-accent:#ed4;}
-nav>a>img{width:1em;
-height:1em;}.xd-logo{color:#d0c;font-weight:bold}#code{box-sizing:border-box;
+:root{--fg-accent:#ffe953;}
+body{font-family:sans-serif;}
+img.icon{width:1em;
+height:1em;}
+.big{font-size:1.4em;}.xd-logo{color:#d0c;font-weight:bold}#code{box-sizing:border-box;
 width:100%;
 min-height:10rem;
 resize:vertical;
@@ -34,7 +36,7 @@ white-space:pre;}</style></head><body>
 <a href="/manual.html">Manual</a>
 <a href="/commands.html">Commands</a>
 <a href="/playground.html">Playground</a>
-<a href="https://sr.ht/~xigoi/xidoc/"><img src="/sourcehut-white.svg" alt="SourceHut" /> Source</a></nav></header>
+<a href="https://sr.ht/~xigoi/xidoc/"><img class="icon" src="/sourcehut-white.svg" alt="SourceHut" /> Source</a></nav></header>
 <textarea id="code"></textarea>
 <div id="output"></div>
 </body></html>

@@ -1,7 +1,9 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/logo.svg" /><link rel="stylesheet" href="xi.min.css" /><link rel="stylesheet" href="xd.min.css" /><title>xidoc</title><link rel="stylesheet" href="/katex-assets/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous"><style>:root{--bg-accent:#908;}
-:root{--fg-accent:#ed4;}
-nav>a>img{width:1em;
-height:1em;}.xd-logo{color:#d0c;font-weight:bold}pre{overflow:auto;}.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}code[class*=language-],pre[class*=language-]{font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.4em .8em;margin:.5em 0;overflow:auto;background-color:#000}code[class*=language-]{background:#000;color:#fff;box-shadow:-.3em 0 0 .3em #000,.3em 0 0 .3em #000}:not(pre)>code[class*=language-]{padding:.2em;border-radius:.3em;box-shadow:none;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#aaa}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.number,.token.property,.token.symbol,.token.tag{color:#0cf}.token.attr-name,.token.builtin,.token.char,.token.selector,.token.string{color:#ff0}.language-css .token.string,.token.entity,.token.inserted,.token.operator,.token.url,.token.variable{color:#9acd32}.token.atrule,.token.attr-value,.token.keyword{color:#ff1493}.token.important,.token.regex{color:orange}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.deleted{color:red}pre.diff-highlight.diff-highlight>code .token.deleted:not(.prefix),pre>code.diff-highlight.diff-highlight .token.deleted:not(.prefix){background-color:rgba(255,0,0,.3);display:inline}pre.diff-highlight.diff-highlight>code .token.inserted:not(.prefix),pre>code.diff-highlight.diff-highlight .token.inserted:not(.prefix){background-color:rgba(0,255,128,.3);display:inline}
+:root{--fg-accent:#ffe953;}
+body{font-family:sans-serif;}
+img.icon{width:1em;
+height:1em;}
+.big{font-size:1.4em;}.xd-logo{color:#d0c;font-weight:bold}pre{overflow:auto;}.xd-latex{text-transform:uppercase;font-size:1em;}.xd-latex>sub{vertical-align:-0.5ex;margin-left:-0.1667em;margin-right:-0.125em;}.xd-latex>sup{font-size:0.85em;vertical-align:0.15em;margin-left:-0.36em;margin-right:-0.15em;}code[class*=language-],pre[class*=language-]{font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.4em .8em;margin:.5em 0;overflow:auto;background-color:#000}code[class*=language-]{background:#000;color:#fff;box-shadow:-.3em 0 0 .3em #000,.3em 0 0 .3em #000}:not(pre)>code[class*=language-]{padding:.2em;border-radius:.3em;box-shadow:none;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#aaa}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.number,.token.property,.token.symbol,.token.tag{color:#0cf}.token.attr-name,.token.builtin,.token.char,.token.selector,.token.string{color:#ff0}.language-css .token.string,.token.entity,.token.inserted,.token.operator,.token.url,.token.variable{color:#9acd32}.token.atrule,.token.attr-value,.token.keyword{color:#ff1493}.token.important,.token.regex{color:orange}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.deleted{color:red}pre.diff-highlight.diff-highlight>code .token.deleted:not(.prefix),pre>code.diff-highlight.diff-highlight .token.deleted:not(.prefix){background-color:rgba(255,0,0,.3);display:inline}pre.diff-highlight.diff-highlight>code .token.inserted:not(.prefix),pre>code.diff-highlight.diff-highlight .token.inserted:not(.prefix){background-color:rgba(0,255,128,.3);display:inline}
 </style></head><body>
 <header>
 <h1><span class="xd-logo">ξ</span> xidoc</h1>
@@ -9,29 +11,80 @@ height:1em;}.xd-logo{color:#d0c;font-weight:bold}pre{overflow:auto;}.xd-latex{te
 <a href="/manual.html">Manual</a>
 <a href="/commands.html">Commands</a>
 <a href="/playground.html">Playground</a>
-<a href="https://sr.ht/~xigoi/xidoc/"><img src="/sourcehut-white.svg" alt="SourceHut" /> Source</a></nav></header>
-<p><span style="color:#d0c"><b>xidoc</b></span> is a consistent and powerful markup language that compiles to HTML, <span class="xd-latex">L<sup>a</sup>T<sub>e</sub>X</span> and Gemtext.</p>
-<section><h2 class="xd-section-heading">A Quick Look</h2><p>For a more interactive experience, you can try the online <a href="playground.html">playground</a>.</p>
-<section><h3 class="xd-section-heading">xidoc code</h3><pre class="language-xidoc"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">section</span> HTML<span class="token punctuation">;</span>
-  <span class="token punctuation">[</span><span class="token tag">p</span>
-    HTML is such an <span class="token punctuation">[</span><span class="token tag">it</span> ugly<span class="token punctuation">]</span> language!
-    Each <span class="token punctuation">[</span><span class="token tag">code</span> html<span class="token punctuation">;</span> &lt;tag><span class="token punctuation">]</span> has to be repeated twice.
-  <span class="token punctuation">]</span>
-<span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token tag">section</span> <span class="token punctuation">[</span><span class="token tag">LaTeX</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token punctuation">[</span><span class="token tag">p</span>
-    <span class="token punctuation">[</span><span class="token tag">LaTeX</span><span class="token punctuation">]</span> is great for writing math formulas like <span class="token punctuation">[</span><span class="token tag">$</span> e^{\tau i} = 1<span class="token punctuation">]</span>,
-    but it's painful to write with all those <span class="token punctuation">[</span><span class="token tag">code</span> latex<span class="token punctuation">;</span> \begin<span class="token punctuation">]</span>, <span class="token punctuation">[</span><span class="token tag">code</span> latex<span class="token punctuation">;</span> \end<span class="token punctuation">]</span>
-    and different syntaxes for different things.
-  <span class="token punctuation">]</span>
+<a href="https://sr.ht/~xigoi/xidoc/"><img class="icon" src="/sourcehut-white.svg" alt="SourceHut" /> Source</a></nav></header>
+<p style="margin-block-start:1em" class="big"><span style="color:#d0c"><b>xidoc</b></span> is a <strong>consistent</strong> and <strong>powerful</strong> text language for creating documents.</p>
+<p>It compiles to HTML, <span class="xd-latex">L<sup>a</sup>T<sub>e</sub>X</span> and Gemtext, allowing you to create a webpage, professional-looking PDF and a Gemini page <em>from a single source file</em>.</p>
+<figure><svg style="width:25rem" xmlns='http://www.w3.org/2000/svg' class="xd-pikchr" viewBox="0 0 364.32 205.92">
+<path d="M2,131L45,131L45,88L30,74L2,74Z"  style="fill:none;stroke-width:2.16;stroke:rgb(255,127,245);" />
+<path d="M30,74L30,88L45,88"  style="fill:none;stroke-width:2.16;stroke:rgb(255,127,245);" />
+<text x="23" y="102" text-anchor="middle" fill="rgb(255,127,245)" dominant-baseline="central">.xd</text>
+<path d="M45,102L117,102"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,255);" />
+<text x="81" y="91" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central">xidoc</text>
+<text x="81" y="114" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central"></text>
+<circle cx="117" cy="102" r="2.16" style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(255,255,255);" />
+<polygon points="203,102 192,107 192,98" style="fill:rgb(255,255,255)"/>
+<path d="M117,102L198,102"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,255);" />
+<text x="160" y="91" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central">-t:latex</text>
+<text x="160" y="114" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central"></text>
+<path d="M203,131L246,131L246,88L232,74L203,74Z"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,127);" />
+<path d="M232,74L232,88L246,88"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,127);" />
+<text x="225" y="102" text-anchor="middle" fill="rgb(255,255,127)" dominant-baseline="central">.tex</text>
+<polygon points="318,102 307,107 307,98" style="fill:rgb(255,255,255)"/>
+<path d="M246,102L313,102"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,255);" />
+<text x="282" y="91" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central">pdflatex</text>
+<text x="282" y="114" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central">xelatex</text>
+<path d="M318,131L362,131L362,88L347,74L318,74Z"  style="fill:none;stroke-width:2.16;stroke:rgb(255,127,127);" />
+<path d="M347,74L347,88L362,88"  style="fill:none;stroke-width:2.16;stroke:rgb(255,127,127);" />
+<text x="340" y="102" text-anchor="middle" fill="rgb(255,127,127)" dominant-baseline="central">.pdf</text>
+<path d="M117,102L117,30"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,255);" />
+<polygon points="203,30 192,35 192,26" style="fill:rgb(255,255,255)"/>
+<path d="M117,30L198,30"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,255);" />
+<text x="160" y="19" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central">-t:html</text>
+<text x="160" y="42" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central"></text>
+<path d="M203,59L246,59L246,16L232,2L203,2Z"  style="fill:none;stroke-width:2.16;stroke:rgb(255,141,127);" />
+<path d="M232,2L232,16L246,16"  style="fill:none;stroke-width:2.16;stroke:rgb(255,141,127);" />
+<text x="225" y="30" text-anchor="middle" fill="rgb(255,141,127)" dominant-baseline="central">.html</text>
+<path d="M117,102L117,174"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,255);" />
+<polygon points="203,174 192,179 192,170" style="fill:rgb(255,255,255)"/>
+<path d="M117,174L198,174"  style="fill:none;stroke-width:2.16;stroke:rgb(255,255,255);" />
+<text x="160" y="163" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central">-t:gemtext</text>
+<text x="160" y="186" text-anchor="middle" fill="rgb(255,255,255)" dominant-baseline="central"></text>
+<path d="M203,203L246,203L246,160L232,146L203,146Z"  style="fill:none;stroke-width:2.16;stroke:rgb(127,255,127);" />
+<path d="M232,146L232,160L246,160"  style="fill:none;stroke-width:2.16;stroke:rgb(127,255,127);" />
+<text x="225" y="174" text-anchor="middle" fill="rgb(127,255,127)" dominant-baseline="central">.gmi</text>
+</svg>
+</figure>
+<section><h2 class="xd-section-heading">A Quick Look</h2><p>For a more interactive experience, try the online <a href="playground.html">playground</a>.</p>
+<section><h3 class="xd-section-heading">xidoc code</h3><pre class="language-xidoc"><code class="language-xidoc"><span class="token punctuation">[</span><span class="token tag">def</span> greet<span class="token punctuation">;</span> target<span class="token punctuation">;</span> Hello from xidoc compiled to <span class="token punctuation">[</span><span class="token tag">arg</span> target<span class="token punctuation">]</span>!<span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token tag">p</span>
+  <span class="token punctuation">[</span><span class="token tag">if-html</span> <span class="token punctuation">[</span><span class="token tag">greet</span> HTML<span class="token punctuation">]</span><span class="token punctuation">]</span>
+  <span class="token punctuation">[</span><span class="token tag">if-latex</span> <span class="token punctuation">[</span><span class="token tag">greet</span> <span class="token punctuation">[</span><span class="token tag">LaTeX</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+  <span class="token punctuation">[</span><span class="token tag">if-gemtext</span> <span class="token punctuation">[</span><span class="token tag">greet</span> Gemtext<span class="token punctuation">]</span><span class="token punctuation">]</span>
+  We have <span class="token punctuation">[</span><span class="token tag">code</span> python<span class="token punctuation">;</span> print("code")<span class="token punctuation">]</span>,
+  <span class="token punctuation">[</span><span class="token tag">$</span> m \mathbf A^\mathrm{T} \vec h<span class="token punctuation">]</span>,
+  <span class="token punctuation">[</span><span class="token tag">pikchr</span> 4rem<span class="token punctuation">;</span> ellipse "pictures" fit color lime<span class="token punctuation">]</span>,
+  <span class="token punctuation">[</span><span class="token tag">js-eval</span> "ytilibammargorp".split("").reverse().join("")<span class="token punctuation">]</span>
+  and more!
 <span class="token punctuation">]</span></code></pre></section>
-<section><h3 class="xd-section-heading">Output</h3><section><h4 class="xd-section-heading">HTML</h4><p>HTML is such an <i>ugly</i> language!
-Each <code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tag</span><span class="token punctuation">></span></span></code> has to be repeated twice.</p></section>
-<section><h4 class="xd-section-heading"><span class="xd-latex">L<sup>a</sup>T<sub>e</sub>X</span></h4><p><span class="xd-latex">L<sup>a</sup>T<sub>e</sub>X</span> is great for writing math formulas like <xd-inline-math><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>τ</mi><mi>i</mi></mrow></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">e^{\tau i} = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8247em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.1132em;">τ</span><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></xd-inline-math>,
-but it's painful to write with all those <code class="language-latex"><span class="token function selector">\begin</span></code>, <code class="language-latex"><span class="token function selector">\end</span></code>
-and different syntaxes for different things.</p></section></section></section>
-<section><h2 class="xd-section-heading">What can I do with xidoc?</h2><ul><li>Make a website</li><li>Make the front-end of a web app</li><li>Write your school notes</li><li>Write an article</li><li>Write a book</li><li>Flex your skills at learning obscure languages</li><li>Write a plain text file and wonder why it's giving errors if you include square brackets</li></ul></section>
-<section><h2 class="xd-section-heading">What can I not do with xidoc?</h2><ul><li>Make the back-end of a web app</li><li>Solve the Halting Problem</li></ul></section>
+<section><h3 class="xd-section-heading">Output</h3>
+<p>Hello from xidoc compiled to HTML!
+We have <code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">)</span></code>,
+<xd-inline-math><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><msup><mi mathvariant="bold">A</mi><mi mathvariant="normal">T</mi></msup><mover accent="true"><mi>h</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">m \mathbf A^\mathrm{T} \vec h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9774em;"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathbf">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">T</span></span></span></span></span></span></span></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9774em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">h</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2355em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.471em' height='0.714em' style='width:0.471em' viewBox='0 0 471 714' preserveAspectRatio='xMinYMin'><path d='M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></span></span></span></span></xd-inline-math>,
+<svg style="width:4rem" xmlns='http://www.w3.org/2000/svg' class="xd-pikchr" viewBox="0 0 84.7296 34.56">
+<ellipse cx="42" cy="17" rx="40.2048" ry="15.12"  style="fill:none;stroke-width:2.16;stroke:rgb(127,255,127);" />
+<text x="42" y="17" text-anchor="middle" fill="rgb(127,255,127)" dominant-baseline="central">pictures</text>
+</svg>
+,
+programmability
+and more!</p></section></section>
+<section><h2 class="xd-section-heading">Features</h2><ul><li>Extremely simple syntax with only three special characters</li><li>Typeset mathematics, highlight source code, draw simple diagrams and more</li><li>Easily define your own commands</li><li>Programmable with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> or <a href="https://janet-lang.org/">Janet</a></li><li>Friendly error messages</li><li><a href="https://git.sr.ht/~xigoi/tree-sitter-xidoc">Tree-sitter integration</a></li></ul></section>
+<section><h2 class="xd-section-heading">What can I do with xidoc?</h2><ul><li>Make a website (such as this one)</li><li>Make the front-end of a web app</li><li>Write your <a href="https://git.sr.ht/~xigoi/school-notes">school notes</a></li><li>Write an article</li><li>Write a book</li><li>Flex your skills at learning obscure languages</li></ul></section>
 <section><h2 class="xd-section-heading">Logo</h2><p>The logo of xidoc is the letter ξ (xi) rendered in the color <span style="color:#d0c">#d0c</span>.</p></section>
-<section><h2 class="xd-section-heading">Source Code</h2>xidoc is available on <a href="https://sr.ht/~xigoi/xidoc/">SourceHut</a> and <a href="https://github.com/xigoi/xidoc">GitHub</a> under the GNU General Public Licence 3. (SourceHut is strongly preferred because <a href="https://drewdevault.com/2022/03/29/free-software-free-infrastructure.html">it is important for free software to use free software infrastructure</a>.)</section>
+<section><h2 class="xd-section-heading">Source Code</h2>xidoc is available on <a href="https://sr.ht/~xigoi/xidoc/"><img class="icon" src="/sourcehut-white.svg" alt="SourceHut" /> SourceHut</a> and <a href="https://github.com/xigoi/xidoc"><img class="icon" src="/github-mark-white.svg" alt="SourceHut" /> GitHub</a> under the GNU General Public Licence 3. (SourceHut is strongly preferred because <a href="https://drewdevault.com/2022/03/29/free-software-free-infrastructure.html">it is important for free software to use free software infrastructure</a>.)</section>
 </body></html>

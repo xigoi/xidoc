@@ -249,6 +249,15 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
+  proc emphCmd(arg: !Markup): Markup {.command: "emph", safe.} =
+    case doc.target
+    of tHtml:
+      htg.em(arg)
+    of tLatex:
+      "textit"{arg}
+    of tGemtext:
+      arg
+
   proc emptyFaviconCmd() {.command: "empty-favicon", safe.} =
     if doc.target == tHtml:
       doc.addToHead.incl htg.link(rel = "icon", href = "data:,")
@@ -739,6 +748,15 @@ commands defaultCommands:
       env("XDspoilersolution", content)
     of tGemtext:
       xidocError "The spoiler-solution command is not supported in the Gemtext backend"
+
+  proc strongCmd(arg: !Markup): Markup {.command: "strong", safe.} =
+    case doc.target
+    of tHtml:
+      htg.strong(arg)
+    of tLatex:
+      "textbf"{arg}
+    of tGemtext:
+      arg
 
   proc styleCmd(arg: !String) {.command: "style", useCommands: cssCommands.} =
     case doc.target

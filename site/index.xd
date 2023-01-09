@@ -1,61 +1,73 @@
 [inject head.xd]
-[style [rule pre; [: overflow; auto]]]
-[p [color #d0c; [bf xidoc]] is a consistent and powerful markup language that compiles to HTML, [LaTeX] and Gemtext.]
+[style
+  [rule pre; [: overflow; auto]]
+]
+[<p> .big; style="margin-block-start:1em"; [color #d0c; [bf xidoc]] is a [strong consistent] and [strong powerful] text language for creating documents.]
+[p It compiles to HTML, [LaTeX] and Gemtext, allowing you to create a webpage, professional-looking PDF and a Gemini page [emph from a single source file].]
+[figure
+  [pikchr 25rem; [raw
+    filewid = 0.3
+    fileht = 0.4
+    filerad = 0.1
+    targetlen = 0.6
+    file ".xd" color 0xdd00cc
+    line "xidoc" ""
+    dot
+    arrow targetlen "-t:latex" ""
+    file ".tex" color yellow
+    arrow "pdflatex" "xelatex"
+    file ".pdf" color red
+    line up from first dot
+    arrow right targetlen "-t:html" ""
+    file ".html" color 0xe43c26
+    line down from first dot
+    arrow right targetlen "-t:gemtext" ""
+    file ".gmi" color lime
+  ]]
+]
 [section A Quick Look;
-  [p For a more interactive experience, you can try the online [link playground; playground.html].]
-  [section xidoc code;
-    [code-block xidoc; [raw
-[section HTML;
-  [p
-    HTML is such an [it ugly] language!
-    Each [code html; <tag>] has to be repeated twice.
+  [p For a more interactive experience, try the online [link playground; playground.html].]
+  [def code-example; code;
+    [section xidoc code; [code-block xidoc; [arg-raw code]]]
+    [section Output; [arg code]]
+  ]
+  [code-example
+[def greet; target; Hello from xidoc compiled to [arg target]!]
+[p
+  [if-html [greet HTML]]
+  [if-latex [greet [LaTeX]]]
+  [if-gemtext [greet Gemtext]]
+  We have [code python; print("code")],
+  [$ m \mathbf A^\mathrm{T} \vec h],
+  [pikchr 4rem; ellipse "pictures" fit color lime],
+  [js-eval "ytilibammargorp".split("").reverse().join("")]
+  and more!
+]
   ]
 ]
-[section [LaTeX];
-  [p
-    [LaTeX] is great for writing math formulas like [$ e^{\tau i} = 1],
-    but it's painful to write with all those [code latex; \begin], [code latex; \end]
-    and different syntaxes for different things.
-  ]
-]
-    ]]
-  ]
-  [section Output;
-    [section HTML;
-      [p
-        HTML is such an [it ugly] language!
-        Each [code html; <tag>] has to be repeated twice.
-      ]
-    ]
-    [section [LaTeX];
-      [p
-        [LaTeX] is great for writing math formulas like [$ e^{\tau i} = 1],
-        but it's painful to write with all those [code latex; \begin], [code latex; \end]
-        and different syntaxes for different things.
-      ]
-    ]
+[section Features;
+  [list
+    Extremely simple syntax with only three special characters;
+    Typeset mathematics, highlight source code, draw simple diagrams and more;
+    Easily define your own commands;
+    Programmable with [link JavaScript; https://developer.mozilla.org/en-US/docs/Web/JavaScript] or [link Janet; https://janet-lang.org/];
+    Friendly error messages;
+    [link Tree-sitter integration; https://git.sr.ht/~xigoi/tree-sitter-xidoc]
   ]
 ]
 [section What can I do with xidoc?;
   [list
-    Make a website;
+    Make a website (such as this one);
     Make the front-end of a web app;
-    Write your school notes;
+    Write your [link school notes; https://git.sr.ht/~xigoi/school-notes];
     Write an article;
     Write a book;
     Flex your skills at learning obscure languages;
-    Write a plain text file and wonder why it's giving errors if you include square brackets;
-  ]
-]
-[section What can I not do with xidoc?;
-  [list
-    Make the back-end of a web app;
-    Solve the Halting Problem;
   ]
 ]
 [section Logo;
   [p The logo of xidoc is the letter ξ (xi) rendered in the color [color #d0c; #d0c].]
 ]
 [section Source Code;
-  xidoc is available on [link SourceHut; https://sr.ht/~xigoi/xidoc/] and [link GitHub; https://github.com/xigoi/xidoc] under the GNU General Public Licence 3. (SourceHut is strongly preferred because [link it is important for free software to use free software infrastructure; https://drewdevault.com/2022/03/29/free-software-free-infrastructure.html].)
+  xidoc is available on [link [html-add-attrs .icon; [link-image SourceHut; /sourcehut-white.svg]] SourceHut; https://sr.ht/~xigoi/xidoc/] and [link [html-add-attrs .icon; [link-image SourceHut; /github-mark-white.svg]] GitHub; https://github.com/xigoi/xidoc] under the GNU General Public Licence 3. (SourceHut is strongly preferred because [link it is important for free software to use free software infrastructure; https://drewdevault.com/2022/03/29/free-software-free-infrastructure.html].)
 ]
