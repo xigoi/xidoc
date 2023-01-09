@@ -1,2 +1,5 @@
-src/quickjs/** linguist-vendored
+site/** linguist-documentation
 src/janet/** linguist-vendored
+src/pikchr/** linguist-vendored
+src/prism/** linguist-vendored
+src/quickjs/** linguist-vendored
