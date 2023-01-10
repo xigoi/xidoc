@@ -8,6 +8,7 @@ height:1em;}
 <header>
 <h1><span class="xd-logo">ξ</span> xidoc</h1>
 <nav><a href=".">Introduction</a>
+<a href="/why.html">Why</a>
 <a href="/manual.html">Manual</a>
 <a href="/commands.html">Commands</a>
 <a href="/playground.html">Playground</a>
@@ -28,6 +29,6 @@ xidoc <span class="token parameter variable">-s</span> snip.xd</code></pre></sec
 <section><h3 class="xd-section-heading">Get help</h3><pre class="language-bash"><code class="language-bash">xidoc <span class="token parameter variable">--help</span>
 xidoc <span class="token parameter variable">-h</span></code></pre></section></section>
 <section><h2 class="xd-section-heading">Syntax</h2><p>The only special characters in xidoc are square brackets, semicolons and whitespace. Everything except these characters is treated as literal text.</p>
-<p><dfn>Commands</dfn> are the basic building block of xidoc. Every command invocation is enclosed in square brackets. The first sequence of non-whitespace characters inside the brackets is treated as the command name; the remaining text is given to the command. Most commands ignore the leading whitespace. Many commands can take multiple arguments, in which case they split the text on semicolons; whitespace around the semicolons is ignored. A trailing semicolon followed by a newline is ignored, to allow for easy multiline lists. If the text contains more square brackets, they may or may not be treated as a command invocation (depending on the surrounding command), but they should always be balanced.</p>
+<p id="commands"><dfn>Commands</dfn> are the basic building block of xidoc. Every command invocation is enclosed in square brackets. The first sequence of non-whitespace characters inside the brackets is treated as the command name; the remaining text is given to the command. Most commands ignore the leading whitespace. Many commands can take multiple arguments, in which case they split the text on semicolons; whitespace around the semicolons is ignored. A trailing semicolon followed by a newline is ignored, to allow for easy multiline lists. If the text contains more square brackets, they may or may not be treated as a command invocation (depending on the surrounding command), but they should always be balanced.</p>
 <p>Multiple whitespace in a row is changed into a single space in the output, which allows you to indent your code as you want without affecting the generated code.</p></section>
 </body></html>

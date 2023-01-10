@@ -25,6 +25,7 @@
     [show-title [xidoc] xidoc]
     [<nav>
       [link Introduction; .]
+      [link Why; /why.html]
       [link Manual; /manual.html]
       [link Commands; /commands.html]
       [link Playground; /playground.html]

@@ -1,0 +1,26 @@
+[inject head.xd]
+[section Why xidoc?;
+  [p Here are the reasons why I created xidoc instead of just going with an existing markup language.]
+  [section HTML;
+    [list
+      HTML is tedious to read and write, requiring every tag to be [code html; <repeated><twice></twice></repeated>]. xidoc has a more lightweight S-expression-like syntax.;
+      HTML has no support for defining custom elements or other templating mechanisms. (It's technically possible to do that with JavaScript, but it will be rendered client-side, which comes at a significant performance penalty.) xidoc supports creating new commands with [link [code xidoc; [raw [def]]]; /commands.html#def].;
+    ]
+  ]
+  [section [LaTeX];
+    [list
+      [LaTeX] is inherently tied to the limitations of physical paper and can only produce PDF as an output format, which is highly inaccessible (hard to read on smaller screens, no support for dark theme, difficulty with screen readers, etc.). xidoc can compile to semantic HTML, which is accessible when done right.;
+      [LaTeX]'s macro system is cryptic and hard to understand fully. xidoc's command system [link can be explained in one paragraph; /manual.html#commands].;
+      [LaTeX] compilers produce verbose, yet quite useless error messages. xidoc's error messages are clear and friendly.;
+      [LaTeX] compilers don't respect common conventions of CLI programs like being able to be interrupted by [<kbd> ^C] (SIGINT).;
+      [LaTeX] often requires the compiler to be run multiple times to produce correct output.;
+    ]
+  ]
+  [section Markdown;
+    [list
+      Markdown has tens, if not hundreds, of different dialects and implementations. xidoc is a single language.;
+      Markdown has 24+ special characters ([ms #=*_.-+\![(][)]()`"<>|:^{}~]), whose meaning depends on context. xidoc has three special characters ([ms [(][)][;]]) and their meaning is always the same.;
+      Markdown's syntax is designed in a way that makes it difficult to add new features and practically impossible to define commands/templates in a document. xidoc supports creating new commands with [link [code xidoc; [raw [def]]]; /commands.html#def].;
+    ]
+  ]
+]

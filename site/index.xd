@@ -3,7 +3,7 @@
   [rule pre; [: overflow; auto]]
 ]
 [<p> .big; style="margin-block-start:1em"; [color #d0c; [bf xidoc]] is a [strong consistent] and [strong powerful] text language for creating documents.]
-[p It compiles to HTML, [LaTeX] and Gemtext, allowing you to create a webpage, professional-looking PDF and a Gemini page [emph from a single source file].]
+[p It compiles to HTML, [LaTeX] and Gemtext, allowing you to create a webpage, a professional-looking PDF and a Gemini page [emph from a single source file].]
 [figure
   [pikchr 25rem; [raw
     filewid = 0.3
