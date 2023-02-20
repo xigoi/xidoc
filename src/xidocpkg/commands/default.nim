@@ -15,8 +15,9 @@ import ./draw
 import ./javascript
 import ./math
 import ./utils
-import aspartame
-import matext
+import pkg/aspartame
+import pkg/heine
+import pkg/matext
 import std/options
 import std/os
 import std/sequtils
@@ -99,6 +100,15 @@ commands defaultCommands:
 
   proc alignedMathCmd(math: !String): Markup {.command: "$$&", safe, useCommands: mathCommands.} =
     doc.renderMath(env("align*", math), displayMode = true, addDelimiters = false)
+
+  proc inlineHeineCmd(math: !String): Markup {.command: "$h", safe.} =
+    inlineMathCmd(math.heine)
+
+  proc blockHeineCmd(math: !String): Markup {.command: "$$h", safe.} =
+    blockMathCmd(math.heine)
+
+  proc alignedHeineCmd(math: !String): Markup {.command: "$$&h", safe.} =
+    alignedMathCmd(math.heine)
 
   proc LaTeXCmd(): Markup {.command: "LaTeX", safe.} =
     case doc.target
@@ -212,7 +222,7 @@ commands defaultCommands:
     doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: StringView): XidocValue =
       let argsList = if arg == "": @[] else: parseXidocArguments(arg)
       if argsList.len != params.len:
-        xidocError "Command $1 needs exactly $2 arguments, $3 given" % [name, $params.len, $argsList.len]
+        xidocError &"""Command {name} needs exactly {params.len} argument{(if params.len == 1: "" else: "s")}, {argsList.len} given"""
       # Merging the following two lines into one causes the thing to break. WTF?
       let argsTable = zip(params, argsList).toTable
       doc.stack[^1].args = argsTable

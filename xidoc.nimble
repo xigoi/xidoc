@@ -16,6 +16,7 @@ requires "nim >= 1.4.8"
 requires "aspartame >= 2022.9.14"
 requires "cligen >= 1.5.12"
 requires "matext >= 2022.9.3"
+requires "https://git.sr.ht/~xigoi/heine"
 
 
 # Tasks
@@ -23,5 +24,5 @@ requires "matext >= 2022.9.3"
 task mjs, "Compile to JavaScript to be used in the playground":
   exec "nimble js -d:release --out:site/xidoc.js src/xidoc.nim"
   echo "Minifying with terser"
-  exec "terser site/xidoc.js -o site/xidoc.min.js --compress --mangle --module"
+  exec "terser site/xidoc.js -o site/xidoc.min.js --compress --mangle --module --toplevel"
   echo "Done"
