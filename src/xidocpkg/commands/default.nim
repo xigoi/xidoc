@@ -101,14 +101,29 @@ commands defaultCommands:
   proc alignedMathCmd(math: !String): Markup {.command: "$$&", safe, useCommands: mathCommands.} =
     doc.renderMath(env("align*", math), displayMode = true, addDelimiters = false)
 
+  proc heineify(math: string): string =
+    try:
+      math.heine
+    except ParseError:
+      xidocError &"Error while rendering Heine: {math}"
+
   proc inlineHeineCmd(math: !String): Markup {.command: "$h", safe.} =
-    inlineMathCmd(math.heine)
+    inlineMathCmd(math.heineify)
 
   proc blockHeineCmd(math: !String): Markup {.command: "$$h", safe.} =
-    blockMathCmd(math.heine)
+    blockMathCmd(math.heineify)
 
   proc alignedHeineCmd(math: !String): Markup {.command: "$$&h", safe.} =
-    alignedMathCmd(math.heine)
+    alignedMathCmd(math.heineify)
+
+  proc inlineHeineRawCmd(math: Raw): Markup {.command: "*", safe.} =
+    inlineMathCmd(math.heineify)
+
+  proc blockHeineRawCmd(math: Raw): Markup {.command: "**", safe.} =
+    blockMathCmd(math.heineify)
+
+  proc alignedHeineRawCmd(math: Raw): Markup {.command: "**&", safe.} =
+    alignedMathCmd(math.heineify)
 
   proc LaTeXCmd(): Markup {.command: "LaTeX", safe.} =
     case doc.target
