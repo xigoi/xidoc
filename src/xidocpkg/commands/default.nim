@@ -103,7 +103,7 @@ commands defaultCommands:
 
   proc heineify(math: string): string =
     try:
-      math.heine
+      math.heine(customCmdHandler = cmd => doc.expandStr(cmd))
     except ParseError:
       xidocError &"Error while rendering Heine: {math}"
 
