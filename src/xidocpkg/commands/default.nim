@@ -230,6 +230,22 @@ commands defaultCommands:
     of tGemtext:
       text
 
+  proc renderTableOfContents(table: TableOfContents): string =
+    if table.len == 0:
+      return ""
+    htg.ol(class = "xd-contents"):
+      join:
+        collect:
+          for entry in table:
+            htg.li(entry.text) & renderTableOfContents(entry.children)
+
+  proc contentsCmd(): Markup {.command: "contents", safe.} =
+    case doc.stage
+    of 0:
+      "\xc0[contents]\xc1"
+    else:
+      renderTableOfContents(doc.tableOfContents)
+
   theoremLikeCommand(corollaryCmd, "corollary", pCorollary, "$1", "$1")
 
   template def(global: static bool) {.dirty.} =
@@ -652,7 +668,7 @@ commands defaultCommands:
     of tGemtext:
       xidocError "Tables are currently not supported in the Gemtext backend"
 
-  proc sectionCmd(name: ?Markup, content: !Markup): Markup {.command: "section", safe.} =
+  proc sectionCmd(name: ?Markup, id: ?String, content: Raw): Markup {.command: "section", safe.} =
     let depth = doc.stack.countIt(it.cmdName == "section")
     case doc.target
     of tHtml:
@@ -664,9 +680,13 @@ commands defaultCommands:
           of 3: "h4"
           of 4: "h5"
           else: "h6"
-        htg.section("<$1 class=\"xd-section-heading\">$2</$1>$3" % [headingTag, name, content])
+        ifSome id:
+          doc.addTableOfContentsEntry(htg.a(href = "#" & id, name))
+          htg.section(id = id, "<$1 class=\"xd-section-heading\">$2</$1>$3" % [headingTag, name, doc.renderStr(content)])
+        do:
+          htg.section("<$1 class=\"xd-section-heading\">$2</$1>$3" % [headingTag, name, doc.renderStr(content)])
       do:
-        htg.section(content)
+        htg.section(doc.renderStr(content))
     of tLatex:
       let cmd =
         case depth
@@ -675,9 +695,9 @@ commands defaultCommands:
         of 3: "subsubsection"
         else: xidocError "Sections can only be nested 3 levels deep in LaTeX"
       ifSome name:
-        "\\$1*{$2}$3" % [cmd, name, content]
+        "\\$1*{$2}$3" % [cmd, name, doc.renderStr(content)]
       do:
-        "\\$1*{}$2" % [cmd, content]
+        "\\$1*{}$2" % [cmd, doc.renderStr(content)]
     of tGemtext:
       ifSome name:
         let prefix =
@@ -685,9 +705,9 @@ commands defaultCommands:
           of 1: "## "
           of 2: "### "
           else: ""
-        "\n\n$1$2\n\n$3" % [prefix, name, content]
+        "\n\n$1$2\n\n$3" % [prefix, name, doc.renderStr(content)]
       do:
-        "\n\n$1" % [content]
+        "\n\n$1" % [doc.renderStr(content)]
 
   proc setCmd(key: !String, val: !String) {.command: "set".} =
     doc.settings[key] = val

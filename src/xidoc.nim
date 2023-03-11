@@ -37,7 +37,7 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
   )
   doc.stack[0].commands = defaultCommands(doc)
   let rendered =
-    try: doc.renderStr
+    try: doc.renderBody
     except XidocError:
       raise getCurrentException().XidocError.format(doc, termColors = colorfulError)
   if snippet:

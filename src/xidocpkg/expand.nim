@@ -3,9 +3,11 @@ import ./parser
 import ./string_view
 import ./types
 import aspartame
+import std/nre
 import std/options
 import std/strformat
 import std/strutils
+import std/sugar
 
 proc escapeText*(text: string, target: Target): string =
   case target
@@ -109,3 +111,12 @@ proc renderStr*(doc: Document, view = doc.body.toStringView): string =
 
 proc renderStr*(doc: Document, str: string): string =
   doc.expand(str.toStringView, Markup).str
+
+proc renderBody*(doc: Document): string =
+  result = doc.renderStr
+  debugEcho("DEBUGPRINT[1]: expand.nim:116 (after result = doc.renderStr)")
+  while '\xc0' in result:
+    doc.stage.inc
+    result = result.replace(re"\xc0.*?\xc1", (match: string) => doc.renderStr(match[1..^2]))
+    if doc.stage >= 256:
+      xidocError "Number of post-processing iterations exceeded; this might be an internal error"

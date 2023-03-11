@@ -170,6 +170,7 @@ suite "\"Block formatting\" commands":
   test "[section]":
     "[section Are we going too deep?]".shouldRenderAs("<section>Are we going too deep?</section>")
     "[section Inception; Are we going too deep?]".shouldRenderAs("<section><h2 class=\"xd-section-heading\">Inception</h2>Are we going too deep?</section>")
+    "[section Inception; inception; Are we going too deep?]".shouldRenderAs("<section id=\"inception\"><h2 class=\"xd-section-heading\">Inception</h2>Are we going too deep?</section>")
     "[section [section Inception; Are we going too deep?]]".shouldRenderAs("<section><section><h3 class=\"xd-section-heading\">Inception</h3>Are we going too deep?</section></section>")
 
   test "[spoiler]":

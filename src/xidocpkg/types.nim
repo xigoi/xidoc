@@ -33,6 +33,10 @@ type
     base*: XidocType
   Command* = proc(arg: StringView): XidocValue
   Commands* = proc(doc: Document): Table[string, Command]
+  TableOfContentsEntry* = ref object
+    text*: string
+    children*: seq[TableOfContentsEntry]
+  TableOfContents* = seq[TableOfContentsEntry]
   Frame* = object
     args*: Table[string, StringView]
     cmd*: StringView
@@ -41,6 +45,7 @@ type
     commands*: Table[string, Command]
     lang*: Option[Language]
     path*: Option[string]
+    tableOfContentsEntry*: Option[TableOfContentsEntry]
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: ref string
@@ -48,6 +53,8 @@ type
     settings*: Table[string, string]
     snippet*: bool
     stack*: seq[Frame]
+    stage*: Natural
+    tableOfContents*: TableOfContents
     templateArgs*: Table[string, string]
     verbose*: bool
     case target*: Target

@@ -218,3 +218,12 @@ func `[]`*(cmd: string, arg: string): string =
 
 func env*(name: string, content: string): string =
   "\\begin{" & name & "}" & content & "\\end{" & name & "}"
+
+proc addTableOfContentsEntry*(doc: Document, text: string) =
+  let entry = TableOfContentsEntry(text: text)
+  let parent = doc.lookup(tableOfContentsEntry)
+  if parent.isNil:
+    doc.tableOfContents.add(entry)
+  else:
+    parent.children.add(entry)
+  doc.stack[^1].tableOfContentsEntry = some(entry)
