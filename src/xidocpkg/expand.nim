@@ -114,7 +114,6 @@ proc renderStr*(doc: Document, str: string): string =
 
 proc renderBody*(doc: Document): string =
   result = doc.renderStr
-  debugEcho("DEBUGPRINT[1]: expand.nim:116 (after result = doc.renderStr)")
   while '\xc0' in result:
     doc.stage.inc
     result = result.replace(re"\xc0.*?\xc1", (match: string) => doc.renderStr(match[1..^2]))
