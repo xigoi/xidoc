@@ -230,21 +230,25 @@ commands defaultCommands:
     of tGemtext:
       text
 
-  proc renderTableOfContents(table: TableOfContents): string =
+  proc renderTableOfContentsHtml(table: TableOfContents): string =
     if table.len == 0:
       return ""
     htg.ol(class = "xd-contents"):
       join:
         collect:
           for entry in table:
-            htg.li(entry.text) & renderTableOfContents(entry.children)
+            htg.li(entry.text) & renderTableOfContentsHtml(entry.children)
 
   proc contentsCmd(): Markup {.command: "contents", safe.} =
     case doc.stage
     of 0:
       "\xc0[contents]\xc1"
     else:
-      renderTableOfContents(doc.tableOfContents)
+      case doc.target
+      of tHtml:
+        renderTableOfContentsHtml(doc.tableOfContents)
+      else:
+        xidocError "The [contents] command is not available for this backend yet"
 
   theoremLikeCommand(corollaryCmd, "corollary", pCorollary, "$1", "$1")
 
