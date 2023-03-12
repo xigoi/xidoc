@@ -14,7 +14,18 @@ proc escapeText*(text: string, target: Target): string =
   of tHtml:
     text.multiReplace({"<": "&lt;", "&": "&amp;", "\"": "&quot;"})
   of tLatex:
-    text
+    text.multiReplace({
+      "#": "\\#",
+      "$": "\\$",
+      "%": "\\%",
+      "&": "\\&",
+      "\\": "\\textbackslash{}",
+      "^": "\\^{}",
+      "_": "\\_",
+      "{": "\\{",
+      "}": "\\}",
+      "~": "\\~{}",
+    })
   of tGemtext:
     text
 
