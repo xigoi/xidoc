@@ -20,6 +20,9 @@ func toStringView*(body: string): StringView =
 converter `$`*(view: StringView): string =
   view.body[][view.slice]
 
+func isEmpty*(view: StringView): bool =
+  view.slice.a > view.slice.b
+
 func lineContext*(view: StringView): tuple[lnNumA, colNumA, lnNumB, colNumB: int] =
   let lns = view.body[].splitLines
   var lnIndex = 0

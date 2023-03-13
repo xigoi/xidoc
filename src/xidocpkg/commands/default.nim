@@ -634,13 +634,8 @@ commands defaultCommands:
   theoremLikeCommand(proofCmd, "proof", pProof, "$1", "$1", commands = proofCommands)
 
   proc propsCmd(items: *Markup): Markup {.command: "props", safe.} =
-    case doc.target
-    of tHtml:
-      htg.ul(items.mapIt(htg.li(it)).join)
-    of tLatex:
-      env("itemize", items.mapIt("\\item $1" % it).join)
-    of tGemtext:
-      "\n$1\n" % items.mapIt("* $1" % it).join("\n")
+    xidocWarning("The [props] command is deprecated. Use [list] instead.")
+    listCmd(items)
 
   proc rawCmd(arg: Raw): String {.command: "raw", safe.} =
     arg

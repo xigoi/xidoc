@@ -13,6 +13,8 @@ import std/strutils
 import std/sugar
 import std/tables
 
+func `==`(a, b: BackwardsIndex): bool {.borrow.}
+
 proc expandArguments(doc: Document, name: string, arg: StringView, types: openArray[ParamType]): seq[XidocValue] =
   if types.len == 1 and types[0] == Literal:
     return @[XidocValue(typ: String, str: arg)]
@@ -51,23 +53,27 @@ proc expandArguments(doc: Document, name: string, arg: StringView, types: openAr
       XidocValue(typ: String, str: arg)
     else:
       doc.expand(arg, typ.base)
-  if starPos.isSome:
+  ifSome starPos:
     block beforeStar:
-      for index, typ in types[0..<starPos.get]:
+      for index, typ in types[0..<starPos]:
         let val = doc.expandIfNeeded(args[index], typ)
         result.add val
     block star:
-      let start = starPos.get
-      let ende = ^(types.len - start)
-      let base = types[start].base
-      let vals = args[start..ende].map(arg => doc.expand(arg, base))
+      var start = starPos
+      var `end` = ^(types.len - start)
+      if start == 0 and args.len > 0 and args[0].isEmpty:
+        start = 1
+      if `end` == ^1 and args.len > 0 and args[^1].isEmpty:
+        `end` = ^2
+      let base = types[starPos].base
+      let vals = args[start..`end`].map(arg => doc.expand(arg, base))
       result.add XidocValue(typ: List, list: vals)
     block afterStar:
-      for index, typ in types[starPos.get + 1 .. ^1]:
-        let index = ^(types.len - index - starPos.get - 1)
+      for index, typ in types[starPos + 1 .. ^1]:
+        let index = ^(types.len - index - starPos - 1)
         let val = doc.expandIfNeeded(args[index], typ)
         result.add val
-  else: # starPos.isNone
+  do: # starPos.isNone
     block beforeQuestion:
       for index, typ in types[0..<questionPos.a]:
         let val = doc.expandIfNeeded(args[index], typ)

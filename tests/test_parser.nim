@@ -76,9 +76,6 @@ suite "argument syntax":
   test "one argument with nesting":
     check parseXidocArguments("jkl [mno; pqr] stu") == @["jkl [mno; pqr] stu"]
 
-  test "one argument with trailing semicolon":
-    check parseXidocArguments("vwx;\n  ") == @["vwx"]
-
   test "multiple arguments":
     check parseXidocArguments("a; b") == @["a", "b"]
     check parseXidocArguments("c;d  ;  e") == @["c", "d", "e"]
@@ -87,10 +84,9 @@ suite "argument syntax":
   test "multiple arguments with nesting":
     check parseXidocArguments("k; [l m; n]; o") == @["k", "[l m; n]", "o"]
 
-  test "multiple arguments with trailing semicolon":
+  test "multiple arguments with empty":
     check parseXidocArguments("p;") == @["p", ""]
     check parseXidocArguments("q; \t") == @["q", ""]
-    check parseXidocArguments("r; s;\n;t; \n\t") == @["r", "s", "", "t"]
-
-  test "multiple arguments with empty":
+    check parseXidocArguments("r; s;\n;t; \n\t") == @["r", "s", "", "t", ""]
     check parseXidocArguments(";u;;v; ;\t;w") == @["", "u", "", "v", "", "", "w"]
+    check parseXidocArguments("\n\v  \r\t;;  ;x;\r;  ") == @["", "", "", "x", "", ""]

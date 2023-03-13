@@ -124,6 +124,3 @@ proc parseXidocArguments*(view: StringView): seq[StringView] =
     i.inc
   if view.endsWith(";"):
     result.add body.view(0..<0)
-  if view.strip(leading = false, chars = Whitespace - Newlines).endsWith("\n") and
-    result[^1].isEmptyOrWhitespace:
-    discard result.pop
