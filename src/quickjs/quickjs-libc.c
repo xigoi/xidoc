@@ -34,6 +34,10 @@
 #include <sys/time.h>
 #include <time.h>
 #include <signal.h>
+// xigoi's patch START
+typedef void (*sighandler_t)(int);
+char *environ[1] = {NULL};
+// xigoi's patch END
 #include <limits.h>
 #include <sys/stat.h>
 #include <dirent.h>

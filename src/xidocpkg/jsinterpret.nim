@@ -4,7 +4,6 @@ import std/strutils
 import std/sugar
 import std/tables
 
-const katexJs = staticRead("../katex/katex.min.js")
 const prismCoreJs = staticRead("../prism/prism-core.min.js")
 const prismLanguages = block:
   var langs: Table[string, string]
@@ -231,6 +230,8 @@ when defined(js):
 
   import std/jsffi
 
+  const katexJs = staticRead("../katex/katex.min.js")
+
   {.emit: katexJs.}
 
   proc katexRenderToString(math: cstring, opts: JsObject): cstring {.importjs: "katex.renderToString(@)".}
@@ -260,12 +261,24 @@ else:
 
   const srcDir = currentSourcePath.parentDir.parentDir
 
-  {.passc: "-DCONFIG_VERSION=\"\""}
+  {.passc: "-DCONFIG_VERSION=\"\" -DCONFIG_BIGNUM"}
   {.passl: "-lm -lpthread"}
   {.compile: "../quickjs/quickjs.c"}
+  {.compile: "../quickjs/quickjs-libc.c"}
   {.compile: "../quickjs/cutils.c"}
+  {.compile: "../quickjs/libbf.c"}
   {.compile: "../quickjs/libregexp.c"}
   {.compile: "../quickjs/libunicode.c"}
+  {.compile: "../katex/katex.c"}
+
+  # type
+  #   cuint8 {.importc: "uint8_t", header: "<stdint.h>".} = object
+  #   cuint32 {.importc: "uint32_t", header: "<stdint.h>".} = object
+
+  let
+    katexBin {.importc: "qjsc_katex_min_ptr".}: ptr uint8
+    katexBinLen {.importc: "qjsc_katex_min_size".}: int32
+
   {.push header: srcDir / "quickjs/quickjs.h".}
 
   type
@@ -281,6 +294,7 @@ else:
 
   proc call(ctx: JsContext, fn: JsValue, this: JsValue, argc: cint, argv: pointer): JsValue {.importc: "JS_Call".}
   proc eval(ctx: JsContext, input: cstring, inputLen: cint, filename: cstring, flags: cint): JsValue {.importc: "JS_Eval".}
+  proc evalBin(ctx: JsContext, input: ptr uint8, inputLen: cint, flags: cint) {.importc: "js_std_eval_binary", header: srcDir / "quickjs/quickjs-libc.h".}
   proc exception(ctx: JsContext): JsValue {.importc: "JS_GetException".}
   # proc free(ctx: JsContext) {.importc: "JS_FreeContext".}
   proc free(ctx: JsContext, cstr: cstring) {.importc: "JS_FreeCString".}
@@ -318,6 +332,9 @@ else:
   proc eval(ctx: JsContext, input: string): JsValue =
     ctx.eval(input, input.len.cint, "", forceStrictMode)
 
+  proc evalBin(ctx: JsContext, input: ptr uint8, inputLen: cint) =
+    ctx.evalBin(input, inputLen, 0)
+
   proc free(ctx: JsContext, vals: openArray[JsValue]) =
     for val in vals:
       ctx.free(val)
@@ -342,7 +359,7 @@ else:
     var renderToString {.global.}: JsValue
     once:
       initCtx()
-      ctx.free(ctx.eval(katexJs))
+      ctx.evalBin(katexBin, katexBinLen)
       renderToString = ctx.eval("katex.renderToString")
       addExitProc do():
         ctx.free(renderToString)
