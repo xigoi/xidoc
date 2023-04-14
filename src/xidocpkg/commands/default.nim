@@ -105,7 +105,7 @@ commands defaultCommands:
     try:
       math.heine(customCmdHandler = cmd => doc.expandStr(cmd))
     except ParseError:
-      xidocError &"Error while rendering Heine: {math}"
+      xidocError &"Error while rendering Heine: {getCurrentExceptionMsg()}"
 
   proc inlineHeineCmd(math: !String): Markup {.command: "$h", safe.} =
     inlineMathCmd(math.heineify)
