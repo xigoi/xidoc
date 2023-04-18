@@ -270,6 +270,7 @@ else:
   {.compile: "../quickjs/libregexp.c"}
   {.compile: "../quickjs/libunicode.c"}
   {.compile: "../katex/katex.c"}
+  {.compile: "../temml/temml.c"}
 
   # type
   #   cuint8 {.importc: "uint8_t", header: "<stdint.h>".} = object
@@ -278,6 +279,8 @@ else:
   let
     katexBin {.importc: "qjsc_katex_min_ptr".}: ptr uint8
     katexBinLen {.importc: "qjsc_katex_min_size".}: int32
+    temmlBin {.importc: "qjsc_temml_min_ptr".}: ptr uint8
+    temmlBinLen {.importc: "qjsc_temml_min_size".}: int32
 
   {.push header: srcDir / "quickjs/quickjs.h".}
 
@@ -355,14 +358,25 @@ else:
       #   free(ctx)
       #   free(runtime)
 
-  proc renderMathKatex*(math: string, displayMode: bool, trust = false, mathmlOnly = false): string =
-    var renderToString {.global.}: JsValue
+  proc renderMathKatex*(math: string, displayMode: bool, trust = false, mathmlOnly = false, temml = false): string =
+    var katexRenderToString, temmlRenderToString {.global.}: JsValue
     once:
       initCtx()
-      ctx.evalBin(katexBin, katexBinLen)
-      renderToString = ctx.eval("katex.renderToString")
-      addExitProc do():
-        ctx.free(renderToString)
+    if temml:
+      once:
+        ctx.evalBin(temmlBin, temmlBinLen)
+        temmlRenderToString = ctx.eval("temml.renderToString")
+        addExitProc do():
+          ctx.free(temmlRenderToString)
+    else:
+      once:
+        ctx.evalBin(katexBin, katexBinLen)
+        katexRenderToString = ctx.eval("katex.renderToString")
+        addExitProc do():
+          ctx.free(katexRenderToString)
+    let renderToString =
+      if temml: temmlRenderToString
+      else: katexRenderToString
     var args = [ctx.toJs(math), ctx.newJsObject]
     defer: ctx.free(args)
     ctx.setProperty(args[1], "displayMode", ctx.toJS(displayMode))

@@ -134,6 +134,7 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters 
   case doc.target
   of tHtml:
     let mathmlOnly = doc.settings.getOrDefault("mathml-only", "no").parseBool
+    let temml = doc.settings.getOrDefault("temml", "no").parseBool
     if not mathmlOnly:
       doc.addToHead.incl:
         """<link rel="stylesheet" href="$1" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">""" %
@@ -144,7 +145,8 @@ proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters 
     format % renderMathKatex(latex,
                              displayMode = displayMode,
                              trust = not doc.safeMode,
-                             mathmlOnly = mathmlOnly)
+                             mathmlOnly = mathmlOnly,
+                             temml = temml)
   of tLatex:
     doc.addToHead.incl "\\usepackage{amsmath}"
     doc.addToHead.incl "\\usepackage{amssymb}"
