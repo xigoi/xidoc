@@ -301,7 +301,7 @@ const factorial = (n) => {
   ]
 
   [section Math; math;
-    [p In HTML, [LaTeX] math is rendered using [link KaTeX; https://katex.org/]. This requires a stylesheet and fonts, which are downloaded from the [link jsDelivr; https://www.jsdelivr.com/] CDN by default. If you'd like to use a different CDN or self-host the files, use [code xidoc; [raw [set katex-stylesheet-path; path/to/katex.min.css]]] to point xidoc to the stylesheet.]
+    [p In HTML, [LaTeX] math is rendered using [link KaTeX; https://katex.org/]. This requires a stylesheet and fonts, which are downloaded from the [link jsDelivr; https://www.jsdelivr.com/] CDN by default. If you'd like to use a different CDN or self-host the files, use [code xidoc; [raw [set katex-stylesheet-path; path/to/katex.min.css]]] to point xidoc to the stylesheet. It's also possible to use [link Temml; https://temml.org/] instead with the command [code xidoc; [raw [set math-renderer; temml]]].]
     [cmd $; latex;
       Renders [LaTeX] inline math.
       [ex Einstein's famous equation is [$ E = m c^2].]
@@ -354,10 +354,6 @@ const factorial = (n) => {
       [cmd spoiler-solution; ?name[;] text;
         Renders a paragraph with the solution to a problem/exercise with an optional [param name]. In environments that support interactivity, the [param text] is hidden inside a spoiler (see the [cmd-ref spoiler] command).
       ]
-    ]
-    [cmd props; *properties;
-      Creates a list of mathematical [param properties]. Currently the same as [cmd-ref list].
-      [ex [props [$ \forall x,y,z \in G: (xy)z = x(yz)]; [$ \exists e \in G, \forall x \in G: ex = x = xe]; [$ \forall x \in G, \exists x^{-1} \in G: xx^{-1} = e = x^{-1}x]]]
     ]
   ]
 
@@ -412,13 +408,16 @@ const factorial = (n) => {
       Only applies to [LaTeX]. Sets the document class in the header.
     ]
     [setting katex-stylesheet-path; https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css;
-      Sets the path for locating the KaTeX font files. See the Math section for more information.
+      Sets the path for locating the KaTeX stylesheet and font files. See the Math section for more information.
     ]
-    [setting mathml-only; no;
-      Makes KaTeX produce only MathML rather than HTML and MathML.
+    [setting math-renderer; katex-html;
+      Sets the tool used for rendering LaTeX math in HTML. Possible values: [code katex-html], [code katex-mathml], [code temml].
     ]
     [setting syntax-highlighting-theme; default;
       Sets the theme for syntax highlighting with the [cmd-ref code] and [cmd-ref code-block] commands. The available themes are [ms default], [ms dark], [ms funky], [ms okaidia], [ms twilight], [ms coy], [ms solarized-light], and [ms tomorrow-night]. You can try out these themes on [link the Prism website; https://prismjs.com/]. There is also [ms funky-x], a modification of [ms funky] with a black background instead of weird stripes.
+    ]
+    [setting temml-stylesheet-path; https://cdn.jsdelivr.net/npm/temml@0.10.10/dist/Temml-Local.css;
+      Sets the path for locating the Temml stylesheet and font files.
     ]
   ]
 

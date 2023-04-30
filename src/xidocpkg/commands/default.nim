@@ -30,17 +30,17 @@ import std/tables
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset g h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li line link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture polyline pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
   htmlSelfClosingTags = "area base br circle col embed hr img input line link meta param polyline source path rect track wbr".splitWhitespace
-  prismCss = {
-    "default": staticRead("../../prism/default.css"),
-    "dark": staticRead("../../prism/dark.css"),
-    "funky": staticRead("../../prism/funky.css"),
-    "funky-x": staticRead("../../prism/funky-x.css"),
-    "okaidia": staticRead("../../prism/okaidia.css"),
-    "twilight": staticRead("../../prism/twilight.css"),
-    "coy": staticRead("../../prism/coy.css"),
-    "solarized-light": staticRead("../../prism/solarized-light.css"),
-    "tomorrow-night": staticRead("../../prism/tomorrow-night.css"),
-  }.toTable
+  prismCss = [
+    shtDefault: staticRead("../../prism/default.css"),
+    shtDark: staticRead("../../prism/dark.css"),
+    shtFunky: staticRead("../../prism/funky.css"),
+    shtFunkyX: staticRead("../../prism/funky-x.css"),
+    shtOkaidia: staticRead("../../prism/okaidia.css"),
+    shtTwilight: staticRead("../../prism/twilight.css"),
+    shtCoy: staticRead("../../prism/coy.css"),
+    shtSolarizedLight: staticRead("../../prism/solarized-light.css"),
+    shtTomorrowNight: staticRead("../../prism/tomorrow-night.css"),
+  ]
 
 commands defaultCommands:
 
@@ -187,9 +187,7 @@ commands defaultCommands:
       xidocError "Checkboxes are currently not supported for the LaTeX target"
 
   proc applySyntaxHighlightingTheme() =
-    let theme = doc.settings.getOrDefault("syntax-highlighting-theme", "default")
-    if theme notin prismCss:
-      xidocError "Invalid syntax highlighting theme: " & theme
+    let theme = doc.settings.syntaxHighlightingTheme
     doc.addToStyle.incl(prismCss[theme])
 
   proc codeCmd(lang: ?String, code: !String): Markup {.command: "code", safe.} =
@@ -617,7 +615,7 @@ commands defaultCommands:
   proc pikchrCmd(width: ?Markup, height: ?Markup, text: !String): Markup {.command: "pikchr", safe.} =
     if doc.target != tHtml:
       xidocError "Pikchr currently only works with the HTML backend"
-    var svg = text.pikchr(darkMode = doc.settings.getOrDefault("dark-mode", "0").parseBool)
+    var svg = text.pikchr(darkMode = doc.settings.darkMode)
     ifSome width:
       ifSome height:
         svg = htmlAddAttrsCmd(@[&"style=\"width:{width};height:{height}\""], svg)
@@ -629,7 +627,7 @@ commands defaultCommands:
   proc pikchrRawCmd(text: Raw): Markup {.command: "pikchr-raw", safe.} =
     if doc.target != tHtml:
       xidocError "Pikchr currently only works with the HTML backend"
-    text.pikchr(darkMode = doc.settings.getOrDefault("dark-mode", "0").parseBool)
+    text.pikchr(darkMode = doc.settings.darkMode)
 
   theoremLikeCommand(proofCmd, "proof", pProof, "$1", "$1", commands = proofCommands)
 
@@ -654,7 +652,27 @@ commands defaultCommands:
     str
 
   proc resetCmd(key: !String) {.command: "reset".} =
-    doc.settings.del(key)
+    case key
+    of "dark-mode":
+      doc.settings.darkMode = false
+    of "document-class":
+      doc.settings.katexStylesheetPath = ""
+    of "katex-stylesheet-path":
+      doc.settings.katexStylesheetPath = ""
+    of "math-renderer":
+      doc.settings.mathRenderer = mrKatexHtml
+    of "mathml-only":
+      xidocWarning "The \"mathml-only\" setting is deprecated. Please use the \"math-renderer\" setting instead."
+      doc.settings.mathRenderer = mrKatexHtml
+    of "syntax-highlighting-theme":
+      doc.settings.syntaxHighlightingTheme = shtDefault
+    of "temml":
+      xidocWarning "The \"temml\" setting is deprecated. Please use the \"math-renderer\" setting instead."
+      doc.settings.mathRenderer = mrKatexHtml
+    of "temml-stylesheet-path":
+      doc.settings.temmlStylesheetPath = ""
+    else:
+      xidocError &"Invalid setting: {key}"
 
   proc rowCmd(entries: *Markup): Markup {.command: "row", safe.} =
     if not doc.stack.anyIt(it.cmdName == "table"):
@@ -709,7 +727,50 @@ commands defaultCommands:
         "\n\n$1" % [doc.renderStr(content)]
 
   proc setCmd(key: !String, val: !String) {.command: "set".} =
-    doc.settings[key] = val
+    try:
+      case key
+      of "dark-mode":
+        doc.settings.darkMode = val.parseBool
+      of "document-class":
+        doc.settings.katexStylesheetPath = val
+      of "katex-stylesheet-path":
+        doc.settings.katexStylesheetPath = val
+      of "math-renderer":
+        doc.settings.mathRenderer =
+          case val.toLower
+          of "katex", "katex-html": mrKatexHtml
+          of "katex-mathml": mrKatexMathml
+          of "temml": mrTemml
+          else: raise newException(ValueError, "")
+      of "mathml-only":
+        xidocWarning "The \"mathml-only\" setting is deprecated. Please use the \"math-renderer\" setting instead."
+        doc.settings.mathRenderer =
+          if val.parseBool: mrKatexMathml
+          else: mrKatexHtml
+      of "syntax-highlighting-theme":
+        doc.settings.syntaxHighlightingTheme =
+          case val.toLower
+          of "default": shtDefault
+          of "dark": shtDark
+          of "funky": shtFunky
+          of "funky-x": shtFunkyX
+          of "okaidia": shtOkaidia
+          of "twilight": shtTwilight
+          of "coy": shtCoy
+          of "solarized-light": shtSolarizedLight
+          of "tomorrow-night": shtTomorrowNight
+          else: raise newException(ValueError, "")
+      of "temml":
+        xidocWarning "The \"temml\" setting is deprecated. Please use the \"math-renderer\" setting instead."
+        doc.settings.mathRenderer =
+          if val.parseBool: mrTemml
+          else: mrKatexHtml
+      of "temml-stylesheet-path":
+        doc.settings.temmlStylesheetPath = val
+      else:
+        xidocError &"Invalid setting: {key}"
+    except ValueError:
+      xidocError &"Invalid value for setting \"{key}\": {val}"
 
   proc setDocLangCmd(arg: !String) {.command: "set-doc-lang", safe.} =
     doc.stack[0].lang = some(

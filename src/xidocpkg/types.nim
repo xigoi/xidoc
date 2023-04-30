@@ -37,6 +37,27 @@ type
     text*: string
     children*: seq[TableOfContentsEntry]
   TableOfContents* = seq[TableOfContentsEntry]
+  MathRenderer* = enum
+    mrKatexHtml
+    mrKatexMathml
+    mrTemml
+  SyntaxHighlightingTheme* = enum
+    shtDefault
+    shtDark
+    shtFunky
+    shtFunkyX
+    shtOkaidia
+    shtTwilight
+    shtCoy
+    shtSolarizedLight
+    shtTomorrowNight
+  Settings* = object
+    darkMode*: bool
+    documentClass*: string
+    katexStylesheetPath*: string
+    mathRenderer*: MathRenderer
+    syntaxHighlightingTheme*: SyntaxHighlightingTheme
+    temmlStylesheetPath*: string
   Frame* = object
     args*: Table[string, StringView]
     cmd*: StringView
@@ -50,7 +71,7 @@ type
     addToHead*: OrderedSet[string]
     body*: ref string
     safeMode*: bool
-    settings*: Table[string, string]
+    settings*: Settings
     snippet*: bool
     stack*: seq[Frame]
     stage*: Natural

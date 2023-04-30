@@ -1,4 +1,5 @@
 import ./error
+import ./types
 import std/os
 import std/strutils
 import std/sugar
@@ -356,25 +357,21 @@ else:
       runtime = newJsRuntime()
       ctx = newJsContext(runtime)
 
-  proc renderMathKatex*(math: string, displayMode: bool, trust = false, mathmlOnly = false, temml = false): string =
-    var katexRenderToString, temmlRenderToString {.global.}: JsValue
+  proc renderMathKatex*(math: string, displayMode: bool, trust = false, renderer = mrKatexHtml): string =
     once:
       initCtx()
-    if temml:
-      once:
-        ctx.evalBin(temmlBin, temmlBinLen)
-        temmlRenderToString = ctx.eval("temml.renderToString")
-        addExitProc do():
-          ctx.free(temmlRenderToString)
-    else:
+    case renderer
+    of mrKatexHtml, mrKatexMathml:
       once:
         ctx.evalBin(katexBin, katexBinLen)
-        katexRenderToString = ctx.eval("katex.renderToString")
-        addExitProc do():
-          ctx.free(katexRenderToString)
+    of mrTemml:
+      once:
+        ctx.evalBin(temmlBin, temmlBinLen)
     let renderToString =
-      if temml: temmlRenderToString
-      else: katexRenderToString
+      case renderer
+      of mrKatexHtml, mrKatexMathml: ctx.eval("katex.renderToString")
+      of mrTemml: ctx.eval("temml.renderToString")
+    defer: ctx.free(renderToString)
     var args = [ctx.toJs(math), ctx.newJsObject]
     defer: ctx.free(args)
     let displayModeJs = ctx.toJS(displayMode)
@@ -384,8 +381,10 @@ else:
     defer: ctx.free(trustJs)
     ctx.setProperty(args[1], "trust", trustJs)
     ctx.setProperty(args[1], "throwOnError", jsTrue)
-    if mathmlOnly:
-      ctx.setProperty(args[1], "output", ctx.toJS("mathml"))
+    if renderer == mrKatexMathml:
+      let mathmlJs = ctx.toJS("mathml")
+      defer: ctx.free(mathmlJs)
+      ctx.setProperty(args[1], "output", mathmlJs)
     let res = ctx.call(renderToString, undefined, args.len.cint, args.addr)
     defer: ctx.free(res)
     if not isString(res):

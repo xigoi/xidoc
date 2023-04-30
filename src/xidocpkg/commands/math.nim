@@ -133,20 +133,28 @@ commands mathCommands:
 proc renderMath*(doc: Document, latex: string, displayMode: bool, addDelimiters = true): string =
   case doc.target
   of tHtml:
-    let mathmlOnly = doc.settings.getOrDefault("mathml-only", "no").parseBool
-    let temml = doc.settings.getOrDefault("temml", "no").parseBool
-    if not mathmlOnly:
-      doc.addToHead.incl:
-        """<link rel="stylesheet" href="$1" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">""" %
-          doc.settings.getOrDefault("katex-stylesheet-path", "https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css")
+    case doc.settings.mathRenderer
+    of mrKatexHtml:
+      let path =
+        if doc.settings.katexStylesheetPath == "":
+          "https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css"
+        else: doc.settings.katexStylesheetPath
+      doc.addToHead.incl htg.link(rel = "stylesheet", href = path, crossorigin = "anonymous")
+    of mrKatexMathml:
+      discard
+    of mrTemml:
+      let path =
+        if doc.settings.temmlStylesheetPath == "":
+          "https://cdn.jsdelivr.net/npm/temml@0.10.10/dist/Temml-Local.css"
+        else: doc.settings.temmlStylesheetPath
+      doc.addToHead.incl htg.link(rel = "stylesheet", href = path, crossorigin = "anonymous")
     if displayMode:
       doc.addToStyle.incl """xd-block-math{display:block}"""
     let format = if displayMode: "<xd-block-math>$1</xd-block-math>" else: "<xd-inline-math>$1</xd-inline-math>"
     format % renderMathKatex(latex,
                              displayMode = displayMode,
                              trust = not doc.safeMode,
-                             mathmlOnly = mathmlOnly,
-                             temml = temml)
+                             renderer = doc.settings.mathRenderer)
   of tLatex:
     doc.addToHead.incl "\\usepackage{amsmath}"
     doc.addToHead.incl "\\usepackage{amssymb}"

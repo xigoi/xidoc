@@ -4,7 +4,6 @@ import std/sequtils
 import std/sets
 import std/strformat
 import std/strutils
-import std/tables
 import xidocpkg/commands/default
 import xidocpkg/commands/utils
 import xidocpkg/error
@@ -53,7 +52,10 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
       &"""<!DOCTYPE html><html lang="{lang}"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">{head}</head><body>{rendered}</body></html>"""
     of tLatex:
       let lang = translate(pLatexLanguageName, doc.lookup(lang))
-      "documentclass"{doc.settings.getOrDefault("document-class", "article")} &
+      let documentClass =
+        if doc.settings.documentClass == "": "article"
+        else: doc.settings.documentClass
+      "documentclass"{documentClass} &
       "usepackage"["utf8"]{"inputenc"} &
       "usepackage"[lang]{"babel"} &
       "usepackage"{"geometry"} &
