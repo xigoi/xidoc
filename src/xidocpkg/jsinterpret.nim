@@ -270,7 +270,7 @@ else:
   {.compile: "../quickjs/libregexp.c"}
   {.compile: "../quickjs/libunicode.c"}
   {.compile: "../katex/katex.c"}
-  {.compile: "../temml/temml.c"}
+  {.compile: "../temml/temml-all.c"}
 
   # type
   #   cuint8 {.importc: "uint8_t", header: "<stdint.h>".} = object
@@ -279,8 +279,8 @@ else:
   let
     katexBin {.importc: "qjsc_katex_min_ptr".}: ptr uint8
     katexBinLen {.importc: "qjsc_katex_min_size".}: int32
-    temmlBin {.importc: "qjsc_temml_min_ptr".}: ptr uint8
-    temmlBinLen {.importc: "qjsc_temml_min_size".}: int32
+    temmlBin {.importc: "qjsc_temml_all_min_ptr".}: ptr uint8
+    temmlBinLen {.importc: "qjsc_temml_all_min_size".}: int32
 
   {.push header: srcDir / "quickjs/quickjs.h".}
 
@@ -293,11 +293,12 @@ else:
 
   let
     undefined {.importc: "JS_UNDEFINED".}: JsValue
+    jsTrue {.importc: "JS_TRUE".}: JsValue
     forceStrictMode {.importc: "JS_EVAL_FLAG_STRICT".}: cint
 
   proc call(ctx: JsContext, fn: JsValue, this: JsValue, argc: cint, argv: pointer): JsValue {.importc: "JS_Call".}
   proc eval(ctx: JsContext, input: cstring, inputLen: cint, filename: cstring, flags: cint): JsValue {.importc: "JS_Eval".}
-  proc evalBin(ctx: JsContext, input: ptr uint8, inputLen: cint, flags: cint) {.importc: "js_std_eval_binary", header: srcDir / "quickjs/quickjs-libc.h".}
+  proc evalBin(ctx: JsContext, buf: ptr uint8, bufLen: cint, loadOnly: cint) {.importc: "js_std_eval_binary", header: srcDir / "quickjs/quickjs-libc.h".}
   proc exception(ctx: JsContext): JsValue {.importc: "JS_GetException".}
   # proc free(ctx: JsContext) {.importc: "JS_FreeContext".}
   proc free(ctx: JsContext, cstr: cstring) {.importc: "JS_FreeCString".}
@@ -354,9 +355,6 @@ else:
     once:
       runtime = newJsRuntime()
       ctx = newJsContext(runtime)
-      # addExitProc do():
-      #   free(ctx)
-      #   free(runtime)
 
   proc renderMathKatex*(math: string, displayMode: bool, trust = false, mathmlOnly = false, temml = false): string =
     var katexRenderToString, temmlRenderToString {.global.}: JsValue
@@ -379,8 +377,13 @@ else:
       else: katexRenderToString
     var args = [ctx.toJs(math), ctx.newJsObject]
     defer: ctx.free(args)
-    ctx.setProperty(args[1], "displayMode", ctx.toJS(displayMode))
-    ctx.setProperty(args[1], "trust", ctx.toJS(trust))
+    let displayModeJs = ctx.toJS(displayMode)
+    defer: ctx.free(displayModeJs)
+    ctx.setProperty(args[1], "displayMode", displayModeJs)
+    let trustJs = ctx.toJS(trust)
+    defer: ctx.free(trustJs)
+    ctx.setProperty(args[1], "trust", trustJs)
+    ctx.setProperty(args[1], "throwOnError", jsTrue)
     if mathmlOnly:
       ctx.setProperty(args[1], "output", ctx.toJS("mathml"))
     let res = ctx.call(renderToString, undefined, args.len.cint, args.addr)
