@@ -877,7 +877,7 @@ commands defaultCommands:
     of tLatex:
       ifSome spec:
         doc.addToHead.incl "usepackage"{"booktabs"}
-        env("table", "{" & spec & "}\\toprule " & content & "\\bottomrule")
+        env("tabular", "{" & spec & "}\\toprule " & content & "\\bottomrule")
       do:
         xidocError "Tables in LaTeX currently require a spec"
     of tGemtext:
