@@ -15,8 +15,8 @@ requires "nim >= 1.4.8"
 
 requires "aspartame >= 2022.9.14"
 requires "cligen >= 1.5.12"
-requires "matext >= 2022.9.3"
 requires "heine >= 2023.414.1"
+requires "matext >= 2022.9.3"
 
 
 # Tasks

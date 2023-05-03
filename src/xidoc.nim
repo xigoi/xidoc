@@ -1,9 +1,11 @@
 from std/htmlgen as htg import nil
+import std/htmlparser
 import std/options
 import std/sequtils
 import std/sets
 import std/strformat
 import std/strutils
+import std/xmltree
 import xidocpkg/commands/default
 import xidocpkg/commands/utils
 import xidocpkg/error
@@ -14,18 +16,33 @@ import xidocpkg/types
 
 export FormattedXidocError
 
+type
+  TargetEx = enum
+    teHtml = "html"
+    teLatex = "latex"
+    teGemtext = "gemtext"
+    teSvg = "svg"
+
 const extensions = [
-  tHtml: "html",
-  tLatex: "tex",
-  tGemtext: "gmi",
+  teHtml: "html",
+  teLatex: "tex",
+  teGemtext: "gmi",
+  teSvg: "svg",
 ]
 
-proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safeMode = false, verbose = false, colorfulError = false): string =
+const targetMapping = [
+  teHtml: tHtml,
+  teLatex: tLatex,
+  teGemtext: tGemtext,
+  teSvg: tHtml,
+]
+
+proc renderXidoc*(body: string, path = "", target = teHtml, snippet = false, safeMode = false, verbose = false, colorfulError = false): string =
   let bodyRef = new string
   bodyRef[] = body
   let doc = Document(
     body: bodyRef,
-    target: target,
+    target: targetMapping[target],
     snippet: snippet,
     safeMode: safeMode,
     verbose: verbose,
@@ -43,14 +60,14 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
     # TODO: some way to get doc.addToHead
     return rendered
   else:
-    if doc.target == tHtml and doc.addToStyle.len != 0:
+    if target == teHtml and doc.addToStyle.len != 0:
       doc.addToHead.incl htg.style(doc.addToStyle.toSeq.join)
     let head = doc.addToHead.toSeq.join
-    case doc.target
-    of tHtml:
+    case target
+    of teHtml:
       let lang = translate(pHtmlLanguageCode, doc.lookup(lang))
       &"""<!DOCTYPE html><html lang="{lang}"><head><meta charset="utf-8"><meta name="generator" content="xidoc"><meta name="viewport" content="width=device-width,initial-scale=1">{head}</head><body>{rendered}</body></html>"""
-    of tLatex:
+    of teLatex:
       let lang = translate(pLatexLanguageName, doc.lookup(lang))
       let documentClass =
         if doc.settings.documentClass == "": "article"
@@ -63,15 +80,20 @@ proc renderXidoc*(body: string, path = "", target = tHtml, snippet = false, safe
       "begin"{"document"} &
       rendered &
       "end"{"document"}
-    of tGemtext:
+    of teGemtext:
       &"{head}{rendered}"
+    of teSvg:
+      let svgs = htg.`div`(rendered).parseHtml.findAll("svg")
+      if svgs.len != 1:
+        raise XidocError(msg: &"When compiling to SVG, exactly one <svg> element must be produced, found {svgs.len}").format(doc, termColors = colorfulError)
+      $svgs[0]
 
 when isMainModule and not defined(js):
   import cligen
   import std/os
   import std/terminal
 
-  proc xidoc(target = tHtml,
+  proc xidoc(target = teHtml,
              snippet = false,
              safe = false,
              dryRun = false,
