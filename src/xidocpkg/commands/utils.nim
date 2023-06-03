@@ -60,11 +60,12 @@ proc expandArguments(doc: Document, name: string, arg: StringView, types: openAr
         result.add val
     block star:
       var start = starPos
-      var `end` = ^(types.len - start)
-      if start == 0 and args.len > 0 and args[0].isEmpty:
-        start = 1
-      if `end` == ^1 and args.len > 0 and args[^1].isEmpty:
-        `end` = ^2
+      var `end` = args.len - types.len + start
+      if start <= `end`:
+        if start == 0 and args.len > 0 and args[0].isEmpty:
+          start = 1
+        if `end` == args.len - 1 and args.len > 0 and args[^1].isEmpty:
+          `end` = args.len - 2
       let base = types[starPos].base
       let vals = args[start..`end`].map(arg => doc.expand(arg, base))
       result.add XidocValue(typ: List, list: vals)
