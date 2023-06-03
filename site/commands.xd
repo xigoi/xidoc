@@ -168,7 +168,7 @@
       Renders the [param code] in monospace font. If the [param language] is specified and the target is HTML, the code is syntax-highlighted during compilation using [link Prism; https://prismjs.com/]. See the [link list of supported languages; https://prismjs.com/#supported-languages] to know how to specify the [param language]. xidoc is also supported under the name [ms xidoc]. For generic monospace text, use the [cmd-ref ms] command.
       [ex [code python; [raw print(f"The answer to the universe and stuff is {6 * 7}.")]]]
     ]
-    [cmd color; color text;
+    [cmd color; color[;] text;
       Colors the [param text] in the given CSS-style [param color].
       [ex You can use [color red; names] or [color #00f; codes]!]
     ]
