@@ -219,6 +219,14 @@ const factorial = (n) => {
 }
 ]]]
     ]
+    [cmd collapse; title[;] content;
+      Creates a block of [param content] that is hidden by default and can be opened. In backends that don't support interactivity, the [param title] is ignored and the [param content] is always displayed.
+      [ex [collapse Terms and Conditions; Oh no, I didn't expect anyone to actually open this.]]
+    ]
+    [cmd collapsible; title[;] content;
+      Creates a block of [param content] that is shown by default, but can be collapsed. In backends that don't support interactivity, the [param title] is ignored and the [param content] is always displayed.
+      [ex [collapsible Someone wrote a mean message to you! Click to hide it.; You're ugly.]]
+    ]
     [cmd figure; content[;] ?caption;
       Creates a figure with the given [param content] and an optional [param caption].
     ]

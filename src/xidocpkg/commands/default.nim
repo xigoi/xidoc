@@ -218,6 +218,24 @@ commands defaultCommands:
     of tGemtext:
       "\n```\n{$1}\n```\n" % code
 
+  proc collapseCmd(title: !Markup, content: !Markup): Markup {.command: "collapse", safe.} =
+    case doc.target
+    of tHtml:
+      htg.details(htg.summary(title), content)
+    of tLatex:
+      content # TODO: should somehow include title?
+    of tGemtext:
+      content # TODO: should somehow include title?
+
+  proc collapsibleCmd(title: !Markup, content: !Markup): Markup {.command: "collapsible", safe.} =
+    case doc.target
+    of tHtml:
+      htg.details(open = "", htg.summary(title), content)
+    of tLatex:
+      content # TODO: should somehow include title?
+    of tGemtext:
+      content # TODO: should somehow include title?
+
   proc colorCmd(color: !String, text: !Markup): Markup {.command: "color".} =
     case doc.target
     of tHtml:
