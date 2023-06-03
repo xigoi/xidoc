@@ -5,10 +5,12 @@ import std/strutils
 import std/sugar
 import std/tables
 
-const prismCoreJs = staticRead("../prism/prism-core.min.js")
+const srcDir = currentSourcePath.parentDir.parentDir
+
+const prismCoreJs = staticRead(srcDir / "prism/prism-core.min.js")
 const prismLanguages = block:
   var langs: Table[string, string]
-  for file in walkDir("src/prism/languages"):
+  for file in walkDir(srcDir / "prism/languages"):
     langs[file
           .path
           .splitFile
@@ -231,7 +233,7 @@ when defined(js):
 
   import std/jsffi
 
-  const katexJs = staticRead("../katex/katex.min.js")
+  const katexJs = staticRead(srcDir / "katex/katex.min.js")
 
   {.emit: katexJs.}
 
@@ -259,8 +261,6 @@ else:
 
   import std/exitprocs
   import std/strformat
-
-  const srcDir = currentSourcePath.parentDir.parentDir
 
   {.passc: "-DCONFIG_VERSION=\"\" -DCONFIG_BIGNUM"}
   {.passl: "-lm -lpthread"}
