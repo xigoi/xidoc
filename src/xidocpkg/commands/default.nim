@@ -26,6 +26,7 @@ import std/strformat
 import std/strutils
 import std/sugar
 import std/tables
+import std/times
 
 const
   htmlTags = "!-- !DOCTYPE a abbr acronym address applet area article aside audio b base basefont bdi bdo big blockquote body br button canvas caption center circle cite code col colgroup data datalist dd del details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame frameset g h1 h2 h3 h4 h5 h6 head header hr html i iframe img input ins kbd label legend li line link main map mark meta meter nav noframes noscript object ol optgroup option output p param path picture polyline pre progress q rect rp rt ruby s samp script section select small source span strike strong style sub summary sup svg table tbody td template textarea tfoot th thead time title tr track tt u ul var video wbr".splitWhitespace
@@ -596,6 +597,9 @@ commands defaultCommands:
       "\n```\n{$1}\n```\n" % arg
 
   theoremLikeCommand(noteCmd, "note", pNote, "$1", "$1")
+
+  proc nowCmd(formatSpec: ?String): String {.command: "now".} =
+    now().format(formatSpec.get("yyyy-MM-dd"))
 
   proc orderedListCmd(items: *Markup): Markup {.command: "ordered-list", safe.} =
     case doc.target

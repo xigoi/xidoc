@@ -483,7 +483,7 @@ const factorial = (n) => {
     ]
   ]
 
-  [section File manipulation; file-manipulation;
+  [section System information; system-information;
     [cmd-nilad get-doc-path-absolute;
       Gets the absolute path of the current document.
     ]
@@ -498,6 +498,10 @@ const factorial = (n) => {
     [cmd list-files; pattern;
       Lists all files that match the glob [param pattern], relative to the current file.
       [ex The xidoc sources of this documentation are: [join ,[space]; [list-files *.xd]].]
+    ]
+    [cmd now; ?format;
+      Gets the current date/time formatted with the given [param format] specified using [link the syntax of Nim's [code std/times] module; https://nim-lang.org/docs/times.html#parsing-and-formatting-dates]. The default [param format] is [code yyyy-MM-dd].
+      [ex This document was last compiled on [now yyyy-MM-dd HH:mm:ss].]
     ]
   ]
 
