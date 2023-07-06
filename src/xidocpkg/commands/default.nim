@@ -191,6 +191,9 @@ commands defaultCommands:
     let theme = doc.settings.syntaxHighlightingTheme
     doc.addToStyle.incl(prismCss[theme])
 
+  proc civetCmd(src: !String): String {.command: "civet".} =
+    compileCivet(src)
+
   proc codeCmd(lang: ?String, code: !String): Markup {.command: "code", safe.} =
     case doc.target
     of tHtml:
