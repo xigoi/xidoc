@@ -282,8 +282,7 @@ else:
       ctx = runtime.newContext
 
   proc renderMathKatex*(math: string, displayMode: bool, trust = false, renderer = mrKatexHtml): string =
-    once:
-      initCtx()
+    initCtx()
     case renderer
     of mrKatexHtml, mrKatexMathml:
       once:
