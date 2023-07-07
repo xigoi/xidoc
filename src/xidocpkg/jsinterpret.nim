@@ -83,7 +83,7 @@ else:
       discard ctx.eval(civetJs)
       compile = ctx.globalObject["Civet"]["compile"]
     let res = compile(src.toJs(ctx))
-    if not isString(res):
+    if not res.isString:
       xidocError &"Error while compiling Civet\n{ctx.exceptionMsg}"
     return res.to(string)
 
@@ -100,14 +100,11 @@ else:
       case renderer
       of mrKatexHtml, mrKatexMathml: ctx.eval("katex.renderToString")
       of mrTemml: ctx.eval("temml.renderToString")
-    let opts = ctx.newObject
-    opts["displayMode"] = displayMode
-    opts["trust"] = trust
-    opts["throwOnError"] = true
+    let opts = (displayMode: displayMode, trust: trust, throwOnError: true).toJs(ctx)
     if renderer == mrKatexMathml:
       opts["output"] = "mathml"
     let res = renderToString(math.toJs(ctx), opts)
-    if not isString(res):
+    if not res.isString:
       xidocError &"Error while rendering math: {math}\n{ctx.exceptionMsg}"
     return res.to(string)
 
@@ -136,7 +133,7 @@ else:
     if language.isUndefined:
       xidocError &"Error loading language for syntax highlighting: {lang}"
     let res = highlight(code.toJs(ctx), language, lang.toJs(ctx))
-    if not isString(res):
+    if not res.isString:
       xidocError &"Error while highlighting code\n{ctx.exceptionMsg}"
     return res.to(string)
 
@@ -146,7 +143,7 @@ else:
     if not functionJs.isFunction:
       xidocError &"Invalid JavaScript function: {function}\n{ctx.exceptionMsg}"
     let res = functionJs(args.mapIt(it.toJs(ctx)))
-    if isException(res):
+    if res.isException:
       xidocError &"Error while calling JavaScript function: {function}\n{ctx.exceptionMsg}"
     return res.to(string)
 
@@ -156,6 +153,6 @@ else:
     for (name, val) in values:
       global[name] = val
     let res = ctx.eval(code)
-    if isException(res):
+    if res.isException:
       xidocError &"Error while evaluating JavaScript code\n{ctx.exceptionMsg}"
     return res.to(string)
