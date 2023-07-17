@@ -229,6 +229,10 @@ suite "Custom commands":
     "[() [def a; x]][a]".shouldError
     "[() [def-global a; x]][a]".shouldRenderAs("[]x")
 
+  test "correct context":
+    "[def foo; x; foo [arg x]][def bar; x; [foo [arg x]] bar][bar quux]"
+    .shouldRenderAs("foo quux bar")
+
 suite "\"Target detection\" commands":
 
   test "[if-html]":

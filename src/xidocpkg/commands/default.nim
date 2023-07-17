@@ -140,17 +140,31 @@ commands defaultCommands:
     doc.addToHead.incl arg
 
   proc argRawCmd(name: !String): String {.command: "arg-raw".} =
-    let arg = doc.lookup(args, name)
+    let arg = doc.lookupArg(name)
     ifSome arg:
-      arg
+      arg.val
     do:
       xidocError &"Parameter not found: {name}"
 
   proc argCmd(name: !String): Markup {.command: "arg", safe.} =
-    doc.renderStr(argRawCmd(name))
+    let arg = doc.lookupArg(name)
+    ifSome arg:
+      let stack = doc.stack
+      doc.stack = arg.stack
+      result = doc.renderStr(arg.val)
+      doc.stack = stack
+    do:
+      xidocError &"Parameter not found: {name}"
 
   proc argExpandCmd(name: !String): String {.command: "arg-expand".} =
-    doc.expandStr(argRawCmd(name))
+    let arg = doc.lookupArg(name)
+    ifSome arg:
+      let stack = doc.stack
+      doc.stack = arg.stack
+      result = doc.expandStr(arg.val)
+      doc.stack = stack
+    do:
+      xidocError &"Parameter not found: {name}"
 
   proc argRawEscapeCmd(name: !String): Markup {.command: "arg-raw-escape".} =
     argRawCmd(name).escapeText(doc.target)
@@ -275,15 +289,15 @@ commands defaultCommands:
   template def(global: static bool) {.dirty.} =
     let params = ifSome(paramList, paramList.splitWhitespace, @[])
     doc.stack[when global: 0 else: ^2].commands[name] = proc(arg: StringView): XidocValue =
-      let argsList = if arg == "": @[] else: parseXidocArguments(arg)
+      let argsList = if arg.isEmpty: @[] else: parseXidocArguments(arg)
       if argsList.len != params.len:
         xidocError &"""Command {name} needs exactly {params.len} argument{(if params.len == 1: "" else: "s")}, {argsList.len} given"""
       # Merging the following two lines into one causes the thing to break. WTF?
       let argsTable = zip(params, argsList).toTable
-      doc.stack[^1].args = argsTable
+      doc.stack[^1].args = Arguments(vals: argsTable, stack: doc.stack)
       result = XidocValue(typ: Markup, str: doc.renderStr(body))
 
-  proc defCmd(name: !String, paramList: ?String, body: Raw): Markup {.command: "def", safe.} =
+  proc defCmd(name: !String, paramList: ?String, body: Raw): Markup {.command: "def".} =
     def(global = false)
 
   proc defGlobalCmd(name: !String, paramList: ?String, body: Raw): Markup {.command: "def-global".} =
@@ -681,7 +695,9 @@ commands defaultCommands:
     of "dark-mode":
       doc.settings.darkMode = false
     of "document-class":
-      doc.settings.katexStylesheetPath = ""
+      doc.settings.documentClass = ""
+    of "document-class-options":
+      doc.settings.documentClassOptions = ""
     of "katex-stylesheet-path":
       doc.settings.katexStylesheetPath = ""
     of "math-renderer":
@@ -757,7 +773,9 @@ commands defaultCommands:
       of "dark-mode":
         doc.settings.darkMode = val.parseBool
       of "document-class":
-        doc.settings.katexStylesheetPath = val
+        doc.settings.documentClass = val
+      of "document-class-options":
+        doc.settings.documentClassOptions = val
       of "katex-stylesheet-path":
         doc.settings.katexStylesheetPath = val
       of "math-renderer":

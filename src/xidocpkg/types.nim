@@ -54,12 +54,16 @@ type
   Settings* = object
     darkMode*: bool
     documentClass*: string
+    documentClassOptions*: string
     katexStylesheetPath*: string
     mathRenderer*: MathRenderer
     syntaxHighlightingTheme*: SyntaxHighlightingTheme
     temmlStylesheetPath*: string
-  Frame* = object
-    args*: Table[string, StringView]
+  Arguments* = object
+    vals*: Table[string, StringView]
+    stack*: seq[Frame]
+  Frame* = ref object
+    args*: Arguments
     cmd*: StringView
     cmdArg*: StringView
     cmdName*: StringView
@@ -104,6 +108,12 @@ template lookup*(doc: Document, field: untyped, key: typed): auto =
         return some(frame.field[key])
     none(typeof(doc.stack[0].field[key]))
   )()
+
+proc lookupArg*(doc: Document, name: string): Option[tuple[val: StringView, stack: seq[Frame]]] =
+  for i in countdown(doc.stack.len - 1, 0):
+    let frame = doc.stack[i]
+    if frame.args.vals.hasKey(name):
+      return some((val: frame.args.vals[name], stack: frame.args.stack))
 
 proc `!`*(typ: XidocType): ParamType =
   result.kind = ptkOne

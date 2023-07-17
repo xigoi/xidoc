@@ -72,7 +72,12 @@ proc renderXidoc*(body: string, path = "", target = teHtml, snippet = false, saf
       let documentClass =
         if doc.settings.documentClass == "": "article"
         else: doc.settings.documentClass
-      "documentclass"{documentClass} &
+      let documentClassLine =
+        if doc.settings.documentClassOptions == "":
+          "documentclass"{documentClass}
+        else:
+          "documentclass"[doc.settings.documentClassOptions]{documentClass}
+      documentClassLine &
       "usepackage"["utf8"]{"inputenc"} &
       "usepackage"[lang]{"babel"} &
       "usepackage"{"geometry"} &
