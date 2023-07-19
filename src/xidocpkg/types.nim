@@ -58,6 +58,7 @@ type
     mathRenderer*: MathRenderer
     syntaxHighlightingTheme*: SyntaxHighlightingTheme
     temmlStylesheetPath*: string
+    theoremLikeNumberPrefix*: string
   Frame* = object
     args*: Table[string, StringView]
     cmd*: StringView
@@ -70,12 +71,14 @@ type
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: ref string
+    labelNums*: Table[string, tuple[prefix: string, num: string]]
     safeMode*: bool
     settings*: Settings
     snippet*: bool
     stack*: seq[Frame]
     stage*: Natural
     tableOfContents*: TableOfContents
+    theoremLikeCounter*: int = 1
     templateArgs*: Table[string, string]
     verbose*: bool
     case target*: Target

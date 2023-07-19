@@ -46,24 +46,46 @@ const
 commands defaultCommands:
 
   template theoremLikeCommand(procName: untyped, cmdName: static string, phrase: static Phrase, htmlTmpl, latexTmpl: static string, commands: Commands = nil) =
-    proc procName(thName: ?Markup, content: !Markup): Markup {.command: cmdName, safe, useCommands: commands.} =
+    proc procName(thName: ?Markup, label: ?String, content: !Markup): Markup {.command: cmdName, safe, useCommands: commands.} =
+      let thName = thName.filter(n => n != "")
       let word = phrase.translate(doc.lookup(lang))
       case doc.target
       of tHtml:
         doc.addToStyle.incl ".xd-theorem-like{margin:1rem 0}.xd-theorem-like>p{margin:0.5rem 0}"
-        htg.`div`(class = &"xd-theorem-like xd-$1" % cmdName,
-          htg.strong(ifSome(thName, "$1 ($2)." % [word, thName], "$1." % [word])),
-          " ",
-          htmlTmpl % content,
-        )
+        var fullName = word
+        ifSome label:
+          let num = doc.settings.theoremLikeNumberPrefix & $doc.theoremLikeCounter
+          doc.theoremLikeCounter.inc
+          fullName.add(" " & num)
+          doc.labelNums[label] = (prefix: word & " ", num: num)
+        ifSome thName:
+          fullName.add(" (" & thName & ")")
+        fullName.add(".")
+        ifSome label:
+          htg.`div`(class = &"xd-theorem-like xd-$1" % cmdName, id = label, htg.strong(fullName), " ", (htmlTmpl % content))
+        do:
+          htg.`div`(class = &"xd-theorem-like xd-$1" % cmdName, htg.strong(fullName), " ", (htmlTmpl % content))
       of tLatex:
         doc.addToHead.incl "usepackage"{"amsthm"}
-        doc.addToHead.incl "theoremstyle"{"definition"} & "newtheorem*"{"XD" & cmdName}{word}
-        ifSome thName:
-          env("XD" & cmdName, ("[$1]" % thName) & (latexTmpl % content))
+        doc.addToHead.incl:
+          "theoremstyle"{"definition"} & "newtheorem"{"XD" & cmdName}{word} &
+          "theoremstyle"{"definition"} & "newtheorem*"{"XD" & cmdName & "*"}{word} &
+          "newEnvironment"{"XD" & cmdName & "Manual"}["1"]{
+            "renewCommand"{"\\the" & cmdName}{"#1"} & "\\inner" & cmdName
+          }{"\\end" & cmdName}
+        var envName = "XD" & cmdName
+        var envContent = ""
+        ifSome label:
+          envName.add("Manual")
+          envContent.add("{" & label & "}")
         do:
-          env("XD" & cmdName, latexTmpl % content)
+          envName.add("*")
+        ifSome thName:
+          envContent.add("[$1]" % thName)
+        envContent.add(latexTmpl % content)
+        env("XD" & cmdName, envContent)
       of tGemtext:
+        # TODO: labels
         "\n\n$1. $2" % [ifSome(thName, "$1 ($2)" % [word, thName], "$1" % [word]), content]
 
   proc commentCmd(arg: Literal) {.command: "#", safe.} =
@@ -666,6 +688,22 @@ commands defaultCommands:
   proc rawDedentCmd(arg: Literal): String {.command: "raw<", safe.} =
     arg.strip(chars = {'\n'}).dedent
 
+  proc refCmd(prefix: ?String, label: !String): Markup {.command: "ref", safe.} =
+    let text =
+      if label in doc.labelNums:
+        let prefix = block:
+          ifSome prefix:
+            if prefix == "": ""
+            else: prefix & " "
+          do:
+            doc.labelNums[label].prefix
+        prefix & doc.labelNums[label].num
+      else:
+        xidocError "Label not found: $1" % label
+    case doc.target
+    of tHtml: htg.a(href = "#" & label, text)
+    of tLatex, tGemtext: text
+
   proc renderCmd(arg: !String): Markup {.command: "render", safe.} =
     doc.renderStr(arg)
 
@@ -698,6 +736,11 @@ commands defaultCommands:
       doc.settings.temmlStylesheetPath = ""
     else:
       xidocError &"Invalid setting: {key}"
+
+  proc resetTheoremLikeCounterCmd(prefix: ?String) {.command: "reset-theorem-like-counter", safe.} =
+    doc.theoremLikeCounter = 1
+    ifSome prefix:
+      doc.settings.theoremLikeNumberPrefix = prefix
 
   proc rowCmd(entries: *Markup): Markup {.command: "row", safe.} =
     if not doc.stack.anyIt(it.cmdName == "table"):
