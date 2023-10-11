@@ -1,6 +1,6 @@
 [inject head.xd]
 [style
-  [rule div.error;
+  [rule .error-box;
     [: display; block]
     [: padding; .5rem]
     [: background; #f00]
@@ -24,7 +24,7 @@
   ]
 ]
 [hide [$ x]]
-[<noscript> [<div> .error; This page requires JavaScript to work properly.]]
+[<noscript> [<div> .error-box; This page requires JavaScript to work properly.]]
 [<textarea> #code; Loading, please wait[...]]
 [<div> #output;]
 [js-module-raw
