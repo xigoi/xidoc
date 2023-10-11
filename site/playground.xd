@@ -1,5 +1,10 @@
 [inject head.xd]
 [style
+  [rule div.error;
+    [: display; block]
+    [: padding; .5rem]
+    [: background; #f00]
+  ]
   [rule #code;
     [: box-sizing; border-box]
     [: width; 100%]
@@ -19,7 +24,8 @@
   ]
 ]
 [hide [$ x]]
-[<textarea> #code;]
+[<noscript> [<div> .error; This page requires JavaScript to work properly.]]
+[<textarea> #code; Loading, please wait[...]]
 [<div> #output;]
 [js-module-raw
   import { renderXidoc } from "/xidoc.min.js";

@@ -71,6 +71,7 @@ type
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: ref string
+    flags*: seq[string]
     labelNums*: Table[string, tuple[prefix: string, num: string]]
     safeMode*: bool
     settings*: Settings

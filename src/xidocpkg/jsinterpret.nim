@@ -32,14 +32,19 @@ when defined(js):
 
   {.emit: katexJs.}
 
+  proc compileCivet*(src: string): string =
+    xidocError "Civet compilation is currently not available when using JavaScript (how ironic)"
+
   proc katexRenderToString(math: cstring, opts: JsObject): cstring {.importjs: "katex.renderToString(@)".}
 
-  proc renderMathKatex*(math: string, displayMode: bool, trust = false, mathmlOnly = false): string =
+  proc renderMathKatex*(math: string, displayMode: bool, trust = false, renderer = mrKatexHtml): string =
+    if renderer == mrTemml:
+      xidocError "Temml is currently not supported when using JavaScript"
     var opts = newJsObject()
     opts["throwOnError"] = false
     opts["displayMode"] = displayMode
     opts["trust"] = trust
-    if mathmlOnly:
+    if renderer == mrKatexMathml:
       opts["output"] = "mathml"
     $katexRenderToString(math.cstring, opts)
 

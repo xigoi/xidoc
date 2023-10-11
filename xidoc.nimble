@@ -15,7 +15,7 @@ requires "nim >= 1.6.12"
 
 requires "aspartame >= 2022.9.14"
 requires "cligen >= 1.5.12"
-requires "heine >= 2023.414.1"
+requires "heine >= 2023.1010.1"
 requires "matext >= 2022.9.3"
 requires "https://git.sr.ht/~xigoi/rapidjs >= 2023.707.0"
 

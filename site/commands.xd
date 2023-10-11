@@ -322,6 +322,17 @@ const factorial = (n) => {
         [ex [$$& ((f \circ g) \circ h)(x) &= f(g(h(x))) \\ &= (f \circ (g \circ h))(x)]]
       ]
     ]
+    [cmd *; heine;
+      Renders [LaTeX] inline math with [link Heine; https://xigoi.srht.site/heine/] syntax. xidoc commands are available by preceding them with a backslash: [code \[() command]][;] they should produce [LaTeX] code, not Heine code.
+      [ex The formula for the electric field from a single charge is [* E.v = /{q}{4 pi ep_0 r^3} r.v].]
+    ]
+    [cmd **; heine;
+      Renders [LaTeX] block math with [link Heine; https://xigoi.srht.site/heine/] syntax. xidoc commands are available by preceding them with a backslash: [code \[() command]][;] they should produce [LaTeX] code, not Heine code.
+      [ex [** (all ep in RR.+) (ex n_0 in NN) (all n in NN, n >= n_0) (|(1 + /1{n})^n - e| < ep)]]
+      [cmd **&; heine;
+        Renders [LaTeX] aligned block math (with the [ms align] environment) with [link Heine; https://xigoi.srht.site/heine/] syntax. xidoc commands are available by preceding them with a backslash: [code \[() command]][;] they should produce [LaTeX] code, not Heine code.
+      ]
+    ]
     [cmd matext; latex;
       Renders the given [LaTeX] [param math] using [link maTeXt; https://xigoi.srht.site/matext/] and presents it as preformatted text.
       [ex [matext \vec x \cdot \vec y = \sum_{i=0}^n x_i \cdot y_i]]
@@ -453,7 +464,7 @@ const factorial = (n) => {
     ]
   ]
 
-  [section Target detection; target-detection;
+  [section Conditional compilation; conditional-compilation;
     [cmd if-html; text;
       Evaluates [param text] only if the target is HTML, otherwise returns nothing.
       [ex [if-html You can see this only if you're in HTML!]]
@@ -465,6 +476,12 @@ const factorial = (n) => {
     [cmd if-gemtext; text;
       Evaluates [param text] only if the target is Gemtext, otherwise returns nothing.
       [ex [if-gemtext You can see this only if you're in Gemtext!]]
+    ]
+    [cmd if-flag; flag text;
+      Evaluates [param text] only if the given [param flag] has been passed to the xidoc compiler using the [code --flag] switch.
+    ]
+    [cmd if-not-flag; flag text;
+      Evaluates [param text] only if the given [param flag] has [emph not] been passed to the xidoc compiler using the [code --flag] switch.
     ]
   ]
 
@@ -579,7 +596,7 @@ const factorial = (n) => {
     [cmd pikchr-raw; text;
       Draws a [link Pikchr; https://pikchr.org/home/doc/trunk/homepage.md] diagram specified by the given [param text]. xidoc commands in [param text] will not be expanded. Currently only works with the HTML backend.
     ]
-    [cmd draw; ?width[;] ?height[;] description;
+    [# cmd draw; ?width[;] ?height[;] description;
       [experimental] Draws a vector image with the given dimensions based on the [param description]. The [param description] format won't be documented until it's stabilized.
       [if-html [ex
 [draw 80; 80;

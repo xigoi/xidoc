@@ -15,9 +15,9 @@ height:1em;}
 <a href="https://sr.ht/~xigoi/xidoc/"><img class="icon" src="/sourcehut-white.svg" alt="SourceHut" /> Source</a></nav></header>
 <section><h2 class="xd-section-heading">Installation</h2><p>You need <a href="https://nim-lang.org/">Nim</a> and <a href="https://github.com/nim-lang/nimble">Nimble</a>. Make sure that <code>~/.nimble/bin</code> is in your <code>PATH</code>.</p>
 <section><h3 class="xd-section-heading">From the Nimble package repository</h3><pre class="language-shell"><code class="language-shell">nimble <span class="token function">install</span> xidoc</code></pre></section>
-<section><h3 class="xd-section-heading">Building from source</h3><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> clone https://git.sr.ht/~xigoi/xidoc
+<section id="<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> clone https://git.sr.ht/~xigoi/xidoc
 <span class="token builtin class-name">cd</span> xidoc
-nimble <span class="token function">install</span></code></pre></section></section>
+nimble <span class="token function">install</span></code></pre>"><h3 class="xd-section-heading">Building from source</h3></section></section>
 <section><h2 class="xd-section-heading">Usage</h2><section><h3 class="xd-section-heading">Compile some documents</h3><pre class="language-bash"><code class="language-bash">xidoc foo.xd bar.xd</code></pre>
 <p>The default target is HTML. To choose a different target:</p>
 <pre class="language-bash"><code class="language-bash">xidoc <span class="token parameter variable">--target:latex</span> foo.xd
@@ -29,6 +29,6 @@ xidoc <span class="token parameter variable">-s</span> snip.xd</code></pre></sec
 <section><h3 class="xd-section-heading">Get help</h3><pre class="language-bash"><code class="language-bash">xidoc <span class="token parameter variable">--help</span>
 xidoc <span class="token parameter variable">-h</span></code></pre></section></section>
 <section><h2 class="xd-section-heading">Syntax</h2><p>The only special characters in xidoc are square brackets, semicolons and whitespace. Everything except these characters is treated as literal text.</p>
-<p id="commands"><dfn>Commands</dfn> are the basic building block of xidoc. Every command invocation is enclosed in square brackets. The first sequence of non-whitespace characters inside the brackets is treated as the command name; the remaining text is given to the command. Most commands ignore the leading whitespace. Many commands can take multiple arguments, in which case they split the text on semicolons; whitespace around the semicolons is ignored. A trailing semicolon followed by a newline is ignored, to allow for easy multiline lists. If the text contains more square brackets, they may or may not be treated as a command invocation (depending on the surrounding command), but they should always be balanced.</p>
+<p id="commands"><dfn>Commands</dfn> are the basic building block of xidoc. Every command invocation is enclosed in square brackets. The first sequence of non-whitespace characters inside the brackets is treated as the command name; the remaining text is given to the command. Most commands ignore the leading whitespace. Many commands can take multiple arguments, in which case they split the text on semicolons; whitespace around the semicolons is ignored. If the first or last argument is empty, it is ignored; if you do need an empty argument in this position, just use two semicolons. If the text contains more square brackets, they may or may not be treated as a command invocation (depending on the surrounding command), but they should always be balanced.</p>
 <p>Multiple whitespace in a row is changed into a single space in the output, which allows you to indent your code as you want without affecting the generated code.</p></section>
 </body></html>

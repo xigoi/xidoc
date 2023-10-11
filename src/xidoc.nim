@@ -37,7 +37,7 @@ const targetMapping = [
   teSvg: tHtml,
 ]
 
-proc renderXidoc*(body: string, path = "", target = teHtml, snippet = false, safeMode = false, verbose = false, colorfulError = false): string =
+proc renderXidoc*(body: string, path = "", target = teHtml, snippet = false, safeMode = false, verbose = false, colorfulError = false, flags = newSeq[string]()): string =
   let bodyRef = new string
   bodyRef[] = body
   let doc = Document(
@@ -46,10 +46,11 @@ proc renderXidoc*(body: string, path = "", target = teHtml, snippet = false, saf
     snippet: snippet,
     safeMode: safeMode,
     verbose: verbose,
+    flags: flags,
     stack: @[Frame(
       cmdName: "[top]".toStringView,
       path: some(path),
-    )]
+    )],
   )
   doc.stack[0].commands = defaultCommands(doc)
   let rendered =
@@ -57,7 +58,9 @@ proc renderXidoc*(body: string, path = "", target = teHtml, snippet = false, saf
     except XidocError:
       raise getCurrentException().XidocError.format(doc, termColors = colorfulError)
   if snippet:
-    # TODO: some way to get doc.addToHead
+    for ln in doc.addToHead:
+      when not defined(js):
+        stdout.writeLine(ln)
     return rendered
   else:
     if target == teHtml and doc.addToStyle.len != 0:
@@ -99,6 +102,7 @@ when isMainModule and not defined(js):
              dryRun = false,
              noColor = false,
              forceStdin = false,
+             flag = newSeq[string](),
              paths: seq[string]) =
 
     proc renderFile(path, input: string): string =
@@ -111,6 +115,7 @@ when isMainModule and not defined(js):
         colorfulError = (not noColor) and
                         stderr.isATty and
                         getEnv("NO_COLOR") == "",
+        flags = flag,
       )
       if path != "":
         stderr.writeLine "Rendered file $1" % path
@@ -148,7 +153,8 @@ when isMainModule and not defined(js):
       "safe": "only allow commands that are known to not be vulnerable to injection attacks",
       "dry-run": "do not write anything, just check for errors",
       "no-color": "disable colorful error messages (also disabled when STDERR is not a TTY or when the NO_COLOR environment variable is present)",
-      "force-stdin": "read from STDIN even if a filename is specified; in that case, it will be used as the path for the document"
+      "force-stdin": "read from STDIN even if a filename is specified; in that case, it will be used as the path for the document",
+      "flag": "pass a flag to the document",
     },
     short = {
       "target": 't',
@@ -156,7 +162,8 @@ when isMainModule and not defined(js):
       "safe": 'S',
       "dry-run": 'd',
       "no-color": 'C',
-      "force-stdin": '\0',
+      "force-stdin": '0',
+      "flag": 'f',
     }
 
 elif defined(js): # JavaScript library

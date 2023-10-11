@@ -49,15 +49,17 @@ commands defaultCommands:
     proc procName(thName: ?Markup, label: ?String, content: !Markup): Markup {.command: cmdName, safe, useCommands: commands.} =
       let thName = thName.filter(n => n != "")
       let word = phrase.translate(doc.lookup(lang))
+      var num: string
+      ifSome label:
+        num = doc.settings.theoremLikeNumberPrefix & $doc.theoremLikeCounter
+        doc.theoremLikeCounter.inc
+        doc.labelNums[label] = (prefix: word & " ", num: num)
       case doc.target
       of tHtml:
         doc.addToStyle.incl ".xd-theorem-like{margin:1rem 0}.xd-theorem-like>p{margin:0.5rem 0}"
         var fullName = word
-        ifSome label:
-          let num = doc.settings.theoremLikeNumberPrefix & $doc.theoremLikeCounter
-          doc.theoremLikeCounter.inc
+        if label.isSome:
           fullName.add(" " & num)
-          doc.labelNums[label] = (prefix: word & " ", num: num)
         ifSome thName:
           fullName.add(" (" & thName & ")")
         fullName.add(".")
@@ -70,20 +72,21 @@ commands defaultCommands:
         doc.addToHead.incl:
           "theoremstyle"{"definition"} & "newtheorem"{"XD" & cmdName}{word} &
           "theoremstyle"{"definition"} & "newtheorem*"{"XD" & cmdName & "*"}{word} &
-          "newEnvironment"{"XD" & cmdName & "Manual"}["1"]{
-            "renewCommand"{"\\the" & cmdName}{"#1"} & "\\inner" & cmdName
-          }{"\\end" & cmdName}
+          "newenvironment"{"XD" & cmdName & "Manual"}["1"]{
+            "renewcommand"{"\\theXD" & cmdName}{"#1"} & "\\XD" & cmdName
+          }{"\\endXD" & cmdName}
         var envName = "XD" & cmdName
         var envContent = ""
         ifSome label:
           envName.add("Manual")
-          envContent.add("{" & label & "}")
+          envContent.add("{" & num & "}")
+          envContent.add("label"{label})
         do:
           envName.add("*")
         ifSome thName:
           envContent.add("[$1]" % thName)
         envContent.add(latexTmpl % content)
-        env("XD" & cmdName, envContent)
+        env(envName, envContent)
       of tGemtext:
         # TODO: labels
         "\n\n$1. $2" % [ifSome(thName, "$1 ($2)" % [word, thName], "$1" % [word]), content]
@@ -433,9 +436,21 @@ commands defaultCommands:
     else:
       tag
 
+  proc ifFlagCmd(flag: !String, body: Raw): Markup {.command: "if-flag", safe.} =
+    if flag in doc.flags:
+      doc.renderStr(body)
+    else:
+      ""
+
   proc ifHtmlCmd(arg: Raw): Markup {.command: "if-html", safe.} =
     if doc.target == tHtml:
       doc.renderStr(arg)
+    else:
+      ""
+
+  proc ifNotFlagCmd(flag: !String, body: Raw): Markup {.command: "if-not-flag", safe.} =
+    if flag notin doc.flags:
+      doc.renderStr(body)
     else:
       ""
 
@@ -773,16 +788,18 @@ commands defaultCommands:
       do:
         htg.section(doc.renderStr(content))
     of tLatex:
-      let cmd =
+      var cmd =
         case depth
         of 1: "section"
         of 2: "subsection"
         of 3: "subsubsection"
         else: xidocError "Sections can only be nested 3 levels deep in LaTeX"
+      if id.isNone:
+        cmd.add("*")
       ifSome name:
-        "\\$1*{$2}$3" % [cmd, name, doc.renderStr(content)]
+        "\\$1{$2}$3" % [cmd, name, doc.renderStr(content)]
       do:
-        "\\$1*{}$2" % [cmd, doc.renderStr(content)]
+        "\\$1{}$2" % [cmd, doc.renderStr(content)]
     of tGemtext:
       ifSome name:
         let prefix =

@@ -3,8 +3,8 @@ import ./parser
 import ./string_view
 import ./types
 import aspartame
-import std/nre
 import std/options
+import std/pegs
 import std/strformat
 import std/strutils
 import std/sugar
@@ -127,6 +127,6 @@ proc renderBody*(doc: Document): string =
   result = doc.renderStr
   while '\xc0' in result:
     doc.stage.inc
-    result = result.replace(re"\xc0.*?\xc1", (match: string) => doc.renderStr(match[1..^2]))
+    result = result.replace(peg("'\xc0' @@ '\xc1'"), (match: int, cnt: int, caps: openArray[string]) => doc.renderStr(caps[0]))
     if doc.stage >= 256:
       xidocError "Number of post-processing iterations exceeded; this might be an internal error"
