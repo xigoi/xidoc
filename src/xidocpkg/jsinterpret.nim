@@ -64,13 +64,13 @@ else:
   import std/strformat
 
   {.compile: "../katex/katex.c"}
-  {.compile: "../temml/temml-all.c"}
+  {.compile: "../temml/temml.c"}
 
   let
     katexBin {.importc: "qjsc_katex_min_ptr".}: ptr uint8
     katexBinLen {.importc: "qjsc_katex_min_size".}: int32
-    temmlBin {.importc: "qjsc_temml_all_min_ptr".}: ptr uint8
-    temmlBinLen {.importc: "qjsc_temml_all_min_size".}: int32
+    temmlBin {.importc: "qjsc_temml_ptr".}: ptr uint8
+    temmlBinLen {.importc: "qjsc_temml_size".}: int32
 
   var
     runtime: JsRuntime
