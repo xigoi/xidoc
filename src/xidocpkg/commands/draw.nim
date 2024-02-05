@@ -7,7 +7,6 @@ import std/strutils
 import std/tables
 
 commands drawCommands:
-
   type XY = tuple[x, y: float]
 
   proc parseFloat(x: string): float =
@@ -24,7 +23,7 @@ commands drawCommands:
     except ValueError, IndexDefect:
       xidocError &"Invalid coordinates: {xy}"
 
-  template drawParseArgs {.dirty.} =
+  template drawParseArgs() {.dirty.} =
     when declared(a):
       let a = a.parseXY
     when declared(b):
@@ -38,21 +37,21 @@ commands drawCommands:
     func nonEmpty(s: string): bool =
       s != ""
     when declared(width):
-      let width = width.filter(nonEmpty).get(
-        when declared(fill):
-          if fill.map(nonEmpty) == some(true):
-            "0"
+      let width =
+        width.filter(nonEmpty).get(
+          when declared(fill):
+            if fill.map(nonEmpty) == some(true): "0" else: "3"
           else:
             "3"
-        else:
-          "3"
-      )
+        )
     when declared(color):
       let color = color.filter(nonEmpty).get("currentColor")
     when declared(fill):
       let fill = fill.filter(nonEmpty).get("transparent")
 
-  proc CarCmd(a: !String, r: !String, width: ?String, color: ?String, fill: ?String): Markup {.command: "Car".} =
+  proc CarCmd(
+      a: !String, r: !String, width: ?String, color: ?String, fill: ?String
+  ): Markup {.command: "Car".} =
     drawParseArgs
     case doc.target
     of tHtml:
@@ -62,7 +61,9 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  proc CcrCmd(c: !String, r: !String, width: ?String, color: ?String, fill: ?String): Markup {.command: "Ccr".} =
+  proc CcrCmd(
+      c: !String, r: !String, width: ?String, color: ?String, fill: ?String
+  ): Markup {.command: "Ccr".} =
     drawParseArgs
     case doc.target
     of tHtml:
@@ -72,7 +73,9 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  proc LabCmd(a: !String, b: !String, width: ?String, color: ?String): Markup {.command: "Lab".} =
+  proc LabCmd(
+      a: !String, b: !String, width: ?String, color: ?String
+  ): Markup {.command: "Lab".} =
     drawParseArgs
     case doc.target
     of tHtml:
@@ -82,7 +85,9 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  proc LauCmd(a: !String, u: !String, width: ?String, color: ?String): Markup {.command: "Lau".} =
+  proc LauCmd(
+      a: !String, u: !String, width: ?String, color: ?String
+  ): Markup {.command: "Lau".} =
     drawParseArgs
     case doc.target
     of tHtml:
@@ -92,7 +97,9 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  proc LcuCmd(c: !String, u: !String, width: ?String, color: ?String): Markup {.command: "Lcu".} =
+  proc LcuCmd(
+      c: !String, u: !String, width: ?String, color: ?String
+  ): Markup {.command: "Lcu".} =
     drawParseArgs
     case doc.target
     of tHtml:
@@ -102,7 +109,9 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  proc RabCmd(a: !String, b: !String, width: ?String, color: ?String, fill: ?String): Markup {.command: "Rab".} =
+  proc RabCmd(
+      a: !String, b: !String, width: ?String, color: ?String, fill: ?String
+  ): Markup {.command: "Rab".} =
     drawParseArgs
     case doc.target
     of tHtml:
@@ -112,7 +121,9 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  proc RauCmd(a: !String, u: !String, width: ?String, color: ?String, fill: ?String): Markup {.command: "Rau".} =
+  proc RauCmd(
+      a: !String, u: !String, width: ?String, color: ?String, fill: ?String
+  ): Markup {.command: "Rau".} =
     drawParseArgs
     case doc.target
     of tHtml:
@@ -122,7 +133,9 @@ commands drawCommands:
     of tGemtext:
       xidocError "Drawing is currently not implemented in the Gemtext backend"
 
-  proc RcuCmd(c: !String, u: !String, width: ?String, color: ?String, fill: ?String): Markup {.command: "Rcu".} =
+  proc RcuCmd(
+      c: !String, u: !String, width: ?String, color: ?String, fill: ?String
+  ): Markup {.command: "Rcu".} =
     drawParseArgs
     case doc.target
     of tHtml:

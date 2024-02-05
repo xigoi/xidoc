@@ -6,7 +6,6 @@ import std/strutils
 import std/tables
 
 commands cssCommands:
-
   proc underCmd(arg: !String): String {.command: "_".} =
     &"[{arg}]"
 

@@ -18,14 +18,14 @@ proc xidocWarning*(msge: string) =
 
 proc format*(err: XidocError, doc: Document, termColors: bool): FormattedXidocError =
   let
-    red    = if termColors: "\e[91m" else: ""
+    red = if termColors: "\e[91m" else: ""
     yellow = if termColors: "\e[93m" else: ""
-    cyan   = if termColors: "\e[96m" else: ""
-    gray   = if termColors: "\e[90m" else: ""
-    reset  = if termColors: "\e[0m"  else: ""
+    cyan = if termColors: "\e[96m" else: ""
+    gray = if termColors: "\e[90m" else: ""
+    reset = if termColors: "\e[0m" else: ""
   var msg: string
   msg &= &"{red}Error while rendering file {doc.stack[0].path.get}\n"
-  for frame in doc.stack[1..^1]:
+  for frame in doc.stack[1 ..^ 1]:
     msg &= yellow
     if frame.cmd.body == doc.body:
       let ctx = lineContext(frame.cmd)
@@ -33,7 +33,7 @@ proc format*(err: XidocError, doc: Document, termColors: bool): FormattedXidocEr
     const maxDisplayedArgLength = 48
     var truncatedArg = frame.cmdArg.replace(peg"\s+", " ")
     if truncatedArg.len > maxDisplayedArgLength:
-      truncatedArg = truncatedArg[0..<maxDisplayedArgLength]
+      truncatedArg = truncatedArg[0 ..< maxDisplayedArgLength]
       truncatedArg.add "…"
       let numOpeningBrackets = truncatedArg.count('[')
       let numClosingBrackets = truncatedArg.count(']')

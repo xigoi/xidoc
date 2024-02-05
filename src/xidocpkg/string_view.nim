@@ -1,21 +1,20 @@
 import std/strformat
 import std/strutils
 
-type
-  StringView* = object
-    body*: ref string
-    slice*: Slice[int]
+type StringView* = object
+  body*: ref string
+  slice*: Slice[int]
 
 func view*(body: ref string, slice: Slice[int]): StringView =
   StringView(body: body, slice: slice)
 
 func toStringView*(body: ref string): StringView =
-  body.view(body[].low..body[].high)
+  body.view(body[].low .. body[].high)
 
 func toStringView*(body: string): StringView =
   new result.body
   result.body[] = body
-  result.slice = body.low..body.high
+  result.slice = body.low .. body.high
 
 converter `$`*(view: StringView): string =
   view.body[][view.slice]

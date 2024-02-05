@@ -3,7 +3,6 @@ import std/sequtils
 import std/strutils
 
 when defined(janet):
-
   proc janetCall*(code: string, args: varargs[string]): string =
     xidocError "Janet evaluation is not available when using JavaScript"
 
@@ -11,14 +10,13 @@ when defined(janet):
     xidocError "Janet evaluation is not available when using JavaScript"
 
 else:
-
   import std/exitprocs
   import std/os
 
   const srcDir = currentSourcePath.parentDir.parentDir
 
-  {.passl: "-lm"}
-  {.compile: "../janet/janet.c"}
+  {.passl: "-lm".}
+  {.compile: "../janet/janet.c".}
   {.push header: srcDir / "janet/janet.h".}
 
   {.push importc.}
@@ -29,6 +27,7 @@ else:
     JanetSignal = cint
     JanetTable = object
     JanetType = cint
+
   {.pop.}
 
   let
@@ -39,11 +38,32 @@ else:
 
   proc isType(x: Janet, typ: JanetType): bool {.importc: "janet_checktype".}
   proc deinitJanet() {.importc: "janet_deinit".}
-  proc defineSym(env: ptr JanetTable, name: cstring, val: Janet, documentation: cstring, sourceFile: cstring, sourceLine: cint) {.importc: "janet_def_sm".}
-  proc doBytes(env: ptr JanetTable, bytes: cstring, len: cint, sourcePath: cstring, outp: ptr Janet): cint {.importc: "janet_dobytes".}
+  proc defineSym(
+    env: ptr JanetTable,
+    name: cstring,
+    val: Janet,
+    documentation: cstring,
+    sourceFile: cstring,
+    sourceLine: cint,
+  ) {.importc: "janet_def_sm".}
+
+  proc doBytes(
+    env: ptr JanetTable, bytes: cstring, len: cint, sourcePath: cstring, outp: ptr Janet
+  ): cint {.importc: "janet_dobytes".}
+
   proc initJanet(): cint {.importc: "janet_init".}
-  proc janetCoreEnv(replacements: ptr JanetTable): ptr JanetTable {.importc: "janet_core_env".}
-  proc protectedCall(fun: ptr JanetFunction, argc: cint, argv: ptr Janet, outp: ptr Janet, fiber: ptr ptr JanetFiber): JanetSignal {.importc: "janet_pcall".}
+  proc janetCoreEnv(
+    replacements: ptr JanetTable
+  ): ptr JanetTable {.importc: "janet_core_env".}
+
+  proc protectedCall(
+    fun: ptr JanetFunction,
+    argc: cint,
+    argv: ptr Janet,
+    outp: ptr Janet,
+    fiber: ptr ptr JanetFiber,
+  ): JanetSignal {.importc: "janet_pcall".}
+
   proc toJanet(x: cstring): Janet {.importc: "janet_cstringv".}
   proc unwrapFunction(x: Janet): ptr JanetFunction {.importc: "janet_unwrap_function".}
   proc unwrapString(x: Janet): cstring {.importc: "janet_unwrap_string".}
@@ -66,8 +86,10 @@ else:
     let f = functionValue.unwrapFunction
     let wrappedArgs = args.mapIt(it.cstring.toJanet)
     var value: Janet
-    if f.protectedCall(args.len.cint, wrappedArgs[0].unsafeAddr, value.addr, nil) == jsError:
-      xidocError "Error while calling Janet function: $1\n$2" % [function, $value.unwrapString]
+    if f.protectedCall(args.len.cint, wrappedArgs[0].unsafeAddr, value.addr, nil) ==
+        jsError:
+      xidocError "Error while calling Janet function: $1\n$2" %
+        [function, $value.unwrapString]
     if not value.isType(jtString):
       xidocError "Returned value from Janet function is not a string: $1" % [function]
     $value.unwrapString

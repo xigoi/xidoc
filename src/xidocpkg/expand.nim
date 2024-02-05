@@ -14,18 +14,20 @@ proc escapeText*(text: string, target: Target): string =
   of tHtml:
     text.multiReplace({"<": "&lt;", "&": "&amp;", "\"": "&quot;"})
   of tLatex:
-    text.multiReplace({
-      "#": "\\#",
-      "$": "\\$",
-      "%": "\\%",
-      "&": "\\&",
-      "\\": "\\textbackslash{}",
-      "^": "\\^{}",
-      "_": "\\_",
-      "{": "\\{",
-      "}": "\\}",
-      "~": "\\~{}",
-    })
+    text.multiReplace(
+      {
+        "#": "\\#",
+        "$": "\\$",
+        "%": "\\%",
+        "&": "\\&",
+        "\\": "\\textbackslash{}",
+        "^": "\\^{}",
+        "_": "\\_",
+        "{": "\\{",
+        "}": "\\}",
+        "~": "\\~{}"
+      }
+    )
   of tGemtext:
     text
 
@@ -45,68 +47,65 @@ proc expand*(doc: Document, view: StringView, typ: XidocType): XidocValue =
   result = XidocValue(typ: typ)
   for node in view.parseXidoc(doc.verbose):
     case node.kind
-      of xnkString:
+    of xnkString:
+      case typ
+      of String:
+        result.str.addIfNeeded node.str
+      of Markup:
+        result.str.addIfNeeded node.str.escapeText(doc.target)
+      of List:
+        result.list.add XidocValue(typ: String, str: node.str)
+      of Optional:
+        discard # TODO
+    of xnkWhitespace:
+      case typ
+      of String, Markup:
+        let whitespace =
+          if node.newline and not doc.target.isWhitespaceSensitive: "\n" else: " "
+        result.str.addIfNeeded whitespace
+      of List:
+        discard
+      of Optional:
+        discard # TODO
+    of xnkCommand:
+      let name = node.name
+      let command = doc.lookup(commands, name)
+      ifSome command:
+        doc.stack.add Frame(cmd: node.whole, cmdName: name, cmdArg: node.arg)
+        let val = command(node.arg)
+        discard doc.stack.pop
         case typ
         of String:
-          result.str.addIfNeeded node.str
-        of Markup:
-          result.str.addIfNeeded node.str.escapeText(doc.target)
-        of List:
-          result.list.add XidocValue(typ: String, str: node.str)
-        of Optional:
-          discard # TODO
-      of xnkWhitespace:
-        case typ
-        of String, Markup:
-          let whitespace =
-            if node.newline and not doc.target.isWhitespaceSensitive:
-              "\n"
-            else:
-              " "
-          result.str.addIfNeeded whitespace
-        of List:
-          discard
-        of Optional:
-          discard # TODO
-      of xnkCommand:
-        let name = node.name
-        let command = doc.lookup(commands, name)
-        ifSome command:
-          doc.stack.add Frame(cmd: node.whole, cmdName: name, cmdArg: node.arg)
-          let val = command(node.arg)
-          discard doc.stack.pop
-          case typ
-          of String:
-            case val.typ
-            of String, Markup:
-              result.str.addIfNeeded val.str
-            of List:
-              xidocError "Cannot convert a List to a String"
-            of Optional:
-              discard # TODO
-          of Markup:
-            case val.typ
-            of String:
-              result.str.addIfNeeded val.str.escapeText(doc.target)
-            of Markup:
-              result.str.addIfNeeded val.str
-            of List:
-              xidocError "Cannot convert a List to a Markup"
-            of Optional:
-              discard # TODO
+          case val.typ
+          of String, Markup:
+            result.str.addIfNeeded val.str
           of List:
-            case val.typ
-            of String, Markup:
-              result.list.add val
-            of List:
-              result.list &= val.list
-            of Optional:
-              discard # TODO
+            xidocError "Cannot convert a List to a String"
           of Optional:
             discard # TODO
-        do:
-          doc.stack.add Frame(cmd: node.whole, cmdName: name, cmdArg: node.arg)
-          xidocError &"Command not found: {name}"
+        of Markup:
+          case val.typ
+          of String:
+            result.str.addIfNeeded val.str.escapeText(doc.target)
+          of Markup:
+            result.str.addIfNeeded val.str
+          of List:
+            xidocError "Cannot convert a List to a Markup"
+          of Optional:
+            discard # TODO
+        of List:
+          case val.typ
+          of String, Markup:
+            result.list.add val
+          of List:
+            result.list &= val.list
+          of Optional:
+            discard # TODO
+        of Optional:
+          discard # TODO
+      do:
+        doc.stack.add Frame(cmd: node.whole, cmdName: name, cmdArg: node.arg)
+        xidocError &"Command not found: {name}"
 
 proc expand*(doc: Document, str: string, typ: XidocType): XidocValue =
   doc.expand(str.toStringView, typ)
@@ -127,6 +126,9 @@ proc renderBody*(doc: Document): string =
   result = doc.renderStr
   while '\xc0' in result:
     doc.stage.inc
-    result = result.replace(peg("'\xc0' @@ '\xc1'"), (match: int, cnt: int, caps: openArray[string]) => doc.renderStr(caps[0]))
+    result = result.replace(
+      peg("'\xc0' @@ '\xc1'"),
+      (match: int, cnt: int, caps: openArray[string]) => doc.renderStr(caps[0]),
+    )
     if doc.stage >= 256:
       xidocError "Number of post-processing iterations exceeded; this might be an internal error"

@@ -22,10 +22,10 @@ func `==`(a: seq[StringView], b: seq[string]): bool =
   a.mapIt($it) == b
 
 suite "basic syntax":
-
   test "string":
     check parseXidoc("abc") == @[XidocNode(kind: xnkString, str: "abc")]
-    check parseXidoc("áβç/\\;}┐") == @[XidocNode(kind: xnkString, str: "áβç/\\;}┐")]
+    check parseXidoc("áβç/\\;}┐") ==
+      @[XidocNode(kind: xnkString, str: "áβç/\\;}┐")]
 
   test "whitespace without newline":
     check parseXidoc(" ") == @[XidocNode(kind: xnkWhitespace, newline: false)]
@@ -34,36 +34,44 @@ suite "basic syntax":
 
   test "whitespace with newline":
     check parseXidoc("\n") == @[XidocNode(kind: xnkWhitespace, newline: true)]
-    check parseXidoc("  \n\t \t\n\t") == @[XidocNode(kind: xnkWhitespace, newline: true)]
+    check parseXidoc("  \n\t \t\n\t") == @[
+      XidocNode(kind: xnkWhitespace, newline: true)
+    ]
 
   test "command":
     check parseXidoc("[foo]") == @[XidocNode(kind: xnkCommand, name: "foo", arg: "")]
-    check parseXidoc("[bar baz]") == @[XidocNode(kind: xnkCommand, name: "bar", arg: " baz")]
+    check parseXidoc("[bar baz]") ==
+      @[XidocNode(kind: xnkCommand, name: "bar", arg: " baz")]
 
   test "combined":
-    check parseXidoc("q [uu]x") == @[
-      XidocNode(kind: xnkString, str: "q"),
-      XidocNode(kind: xnkWhitespace, newline: false),
-      XidocNode(kind: xnkCommand, name: "uu", arg: ""),
-      XidocNode(kind: xnkString, str: "x"),
-    ]
+    check parseXidoc("q [uu]x") ==
+      @[
+        XidocNode(kind: xnkString, str: "q"),
+        XidocNode(kind: xnkWhitespace, newline: false),
+        XidocNode(kind: xnkCommand, name: "uu", arg: ""),
+        XidocNode(kind: xnkString, str: "x")
+      ]
 
 suite "basic syntax errors":
-
   test "too many left brackets":
-    expect XidocError: discard parseXidoc("[a")
-    expect XidocError: discard parseXidoc("[this [is [very] nested]")
+    expect XidocError:
+      discard parseXidoc("[a")
+    expect XidocError:
+      discard parseXidoc("[this [is [very] nested]")
 
   test "too many right brackets":
-    expect XidocError: discard parseXidoc("a]")
-    expect XidocError: discard parseXidoc("this [is [very] nested]]")
+    expect XidocError:
+      discard parseXidoc("a]")
+    expect XidocError:
+      discard parseXidoc("this [is [very] nested]]")
 
   test "invalid command name":
-    expect XidocError: discard parseXidoc("[[a]]")
-    expect XidocError: discard parseXidoc("[i-love[] you]")
+    expect XidocError:
+      discard parseXidoc("[[a]]")
+    expect XidocError:
+      discard parseXidoc("[i-love[] you]")
 
 suite "argument syntax":
-
   test "zero arguments":
     check parseXidocArguments("") == newSeq[string]()
 

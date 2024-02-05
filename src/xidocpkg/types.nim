@@ -9,11 +9,13 @@ type
     tHtml = "html"
     tLatex = "latex"
     tGemtext = "gemtext"
+
   XidocType* = enum
     String
     Markup
     List
     Optional
+
   XidocValue* = object
     case typ*: XidocType
     of String, Markup:
@@ -22,25 +24,30 @@ type
       list*: seq[XidocValue]
     of Optional:
       opt*: Option[ref XidocValue]
+
   ParamTypeKind* = enum
     ptkOne
     ptkOptional
     ptkMultiple
     ptkRaw
     ptkLiteral
+
   ParamType* = object
     kind*: ParamTypeKind
     base*: XidocType
+
   Command* = proc(arg: StringView): XidocValue
   Commands* = proc(doc: Document): Table[string, Command]
   TableOfContentsEntry* = ref object
     text*: string
     children*: seq[TableOfContentsEntry]
+
   TableOfContents* = seq[TableOfContentsEntry]
   MathRenderer* = enum
     mrKatexHtml
     mrKatexMathml
     mrTemml
+
   SyntaxHighlightingTheme* = enum
     shtDefault
     shtDark
@@ -51,6 +58,7 @@ type
     shtCoy
     shtSolarizedLight
     shtTomorrowNight
+
   Settings* = object
     darkMode*: bool
     documentClass*: string
@@ -59,6 +67,7 @@ type
     syntaxHighlightingTheme*: SyntaxHighlightingTheme
     temmlStylesheetPath*: string
     theoremLikeNumberPrefix*: string
+
   Frame* = object
     args*: Table[string, StringView]
     cmd*: StringView
@@ -68,6 +77,7 @@ type
     lang*: Option[Language]
     path*: Option[string]
     tableOfContentsEntry*: Option[TableOfContentsEntry]
+
   Document* = ref object
     addToHead*: OrderedSet[string]
     body*: ref string
@@ -85,28 +95,33 @@ type
     case target*: Target
     of tHtml:
       addToStyle*: OrderedSet[string]
-    else: discard
+    else:
+      discard
 
 proc isWhitespaceSensitive*(target: Target): bool =
   target == tGemtext
 
 template lookup*(doc: Document, field: untyped): auto =
   bind isSome
-  (proc(): auto =
-    for i in countdown(doc.stack.len - 1, 0):
-      let frame = doc.stack[i]
-      if isSome(frame.field):
-        return frame.field.get
+
+  (
+    proc(): auto =
+      for i in countdown(doc.stack.len - 1, 0):
+        let frame = doc.stack[i]
+        if isSome(frame.field):
+          return frame.field.get
   )()
 
 template lookup*(doc: Document, field: untyped, key: typed): auto =
   bind some, none
-  (proc(): auto =
-    for i in countdown(doc.stack.len - 1, 0):
-      let frame = doc.stack[i]
-      if frame.field.hasKey(key):
-        return some(frame.field[key])
-    none(typeof(doc.stack[0].field[key]))
+
+  (
+    proc(): auto =
+      for i in countdown(doc.stack.len - 1, 0):
+        let frame = doc.stack[i]
+        if frame.field.hasKey(key):
+          return some(frame.field[key])
+      none(typeof(doc.stack[0].field[key]))
   )()
 
 proc `!`*(typ: XidocType): ParamType =

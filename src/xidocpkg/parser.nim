@@ -8,6 +8,7 @@ type
     xnkString
     xnkWhitespace
     xnkCommand
+
   XidocNode* = object
     case kind*: XidocNodeKind
     of xnkString:
@@ -18,6 +19,7 @@ type
       whole*: StringView
       name*: StringView
       arg*: StringView
+
   XidocNodes* = seq[XidocNode]
 
 const nonTextChars = Whitespace + {'[', ']'}
@@ -36,7 +38,8 @@ proc skipBalancedText(body: ref string, i: var int, stop: int) =
       if brackets == 0:
         break
       brackets.dec
-    else: discard
+    else:
+      discard
     i.inc
 
 proc parseXidocStringHelper(body: ref string, i: var int, stop: int): StringView =
@@ -45,7 +48,7 @@ proc parseXidocStringHelper(body: ref string, i: var int, stop: int): StringView
   let start = i
   while i <= stop and body[][i] notin nonTextChars:
     i.inc
-  body.view(start..<i)
+  body.view(start ..< i)
 
 proc parseXidocString(body: ref string, i: var int, stop: int): XidocNode =
   ## Finds a string of non-whitespace non-brackets characters in `body`,
@@ -81,7 +84,12 @@ proc parseXidocCommand(body: ref string, i: var int, stop: int): XidocNode =
   skipBalancedText(body, i, stop)
   if i > stop:
     xidocError "Parse error: Unexpected end of file (did you forget to close a bracket?)"
-  result = XidocNode(kind: xnkCommand, whole: body.view(start..i), name: name, arg: body.view(argStart..<i))
+  result = XidocNode(
+    kind: xnkCommand,
+    whole: body.view(start .. i),
+    name: name,
+    arg: body.view(argStart ..< i),
+  )
   i.inc
 
 proc parseXidoc*(view: StringView, verbose = false): XidocNodes =
@@ -111,9 +119,10 @@ proc parseXidocArgument(body: ref string, i: var int, stop: int): StringView =
       i.inc
       skipBalancedText(body, i, stop)
       assert body[][i] == ']'
-    else: discard
+    else:
+      discard
     i.inc
-  body.view(start..<i).strip
+  body.view(start ..< i).strip
 
 proc parseXidocArguments*(view: StringView): seq[StringView] =
   let body = view.body
@@ -123,4 +132,4 @@ proc parseXidocArguments*(view: StringView): seq[StringView] =
     result.add parseXidocArgument(body, i, stop)
     i.inc
   if view.endsWith(";"):
-    result.add body.view(0..<0)
+    result.add body.view(0 ..< 0)

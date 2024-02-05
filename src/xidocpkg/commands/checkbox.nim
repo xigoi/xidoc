@@ -5,7 +5,6 @@ import ./utils
 import std/tables
 
 commands checkboxCommands:
-
   proc dashCmd(arg: !Markup): Markup {.command: "-".} =
     case doc.target
     of tHtml:

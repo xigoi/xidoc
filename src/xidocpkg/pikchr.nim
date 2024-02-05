@@ -1,23 +1,26 @@
 import ../xidocpkg/error
 
 when defined(js):
-
   proc pikchr*(text: string, darkMode = false): string =
     xidocError "Pikchr is not available when using JavaScript"
 
 else:
-
   import std/strutils
   import system/ansi_c
 
-  {.compile: "../pikchr/pikchr.c"}
+  {.compile: "../pikchr/pikchr.c".}
 
   const
     plaintextErrorsFlag: cuint = 1
     darkModeFlag: cuint = 2
 
-  proc pikchr(zText: cstring, zClass: cstring, mFlags: cuint,
-              pnWidth: ptr cint, pnHeight: ptr cint): cstring {.importc.}
+  proc pikchr(
+    zText: cstring,
+    zClass: cstring,
+    mFlags: cuint,
+    pnWidth: ptr cint,
+    pnHeight: ptr cint,
+  ): cstring {.importc.}
 
   proc pikchr*(text: string, darkMode = false): string =
     const class = "xd-pikchr".cstring
