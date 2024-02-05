@@ -11,7 +11,6 @@ import ../translations
 import ../types
 import ./checkbox
 import ./css
-import ./draw
 import ./javascript
 import ./math
 import ./utils
@@ -337,6 +336,7 @@ commands defaultCommands:
 
   template def(global: static bool) {.dirty.} =
     let params = ifSome(paramList, paramList.splitWhitespace, @[])
+
     doc.stack[
       when global:
         0
@@ -380,17 +380,6 @@ commands defaultCommands:
       "\n$1\n" % defs.mapIt("* $1: $2" % it).join("\n")
 
   theoremLikeCommand(dfnCmd, "dfn", pDefinition, "$1", "$1")
-
-  proc drawCmd(
-      width: ?String, height: ?String, desc: !String
-  ): Markup {.command: "draw", useCommands: drawCommands.} =
-    case doc.target
-    of tHtml:
-      &"""<svg width="{width.get("360")}" height="{height.get("360")}" viewBox="0 0 360 360" version="1.1" xmlns="http://www.w3.org/2000/svg">{desc}</svg>"""
-    of tLatex:
-      xidocError "Drawing is currently not implemented in the LaTeX backend"
-    of tGemtext:
-      xidocError "Drawing is currently not implemented in the Gemtext backend"
 
   proc emphCmd(arg: !Markup): Markup {.command: "emph", safe.} =
     case doc.target
