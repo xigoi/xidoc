@@ -1,13 +1,12 @@
 # Package
 
-version       = "2024.127.0"
-author        = "Adam Blažek"
-description   = "A consistent markup language"
-license       = "GPL-3.0-only"
-srcDir        = "src"
-installExt    = @["nim"]
-bin           = @["xidoc"]
-
+version = "2025.204.0"
+author = "Adam Blažek"
+description = "A consistent markup language"
+license = "GPL-3.0-only"
+srcDir = "src"
+installExt = @["nim"]
+bin = @["xidoc"]
 
 # Dependencies
 
@@ -15,10 +14,9 @@ requires "nim >= 2.0.0"
 
 requires "aspartame >= 2022.9.14"
 requires "cligen >= 1.5.12"
-requires "heine >= 2023.1027.0"
+requires "heine >= 2025.204.0"
 requires "matext >= 2022.9.3"
 requires "https://git.sr.ht/~xigoi/rapidjs >= 2023.707.0"
-
 
 # Tasks
 
